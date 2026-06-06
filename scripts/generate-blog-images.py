@@ -252,6 +252,66 @@ ARTICLES = [
         "category": "Comparisons",
         "tagline": "The honest math on what 1 crore of collection actually costs.",
     },
+    {
+        "slug": "what-is-takkada",
+        "title": "What Is Takkada? The Tally-Native Receivables App",
+        "category": "Tally Mobile",
+        "tagline": "Invoicing, collection, and reconciliation, on top of your Tally.",
+    },
+    {
+        "slug": "takkada-vs-credflow",
+        "title": "Takkada vs CredFlow: Tally Receivables Apps Compared",
+        "category": "Comparisons",
+        "tagline": "UPI MDR, phone invoicing, and Tally sync, compared in 2026.",
+    },
+    {
+        "slug": "best-credflow-alternatives-india-2026",
+        "title": "Best CredFlow Alternatives in India (2026)",
+        "category": "Comparisons",
+        "tagline": "The credflow alternatives worth shortlisting, and where each fits.",
+    },
+    {
+        "slug": "credflow-vs-biz-analyst-vs-takkada",
+        "title": "CredFlow vs Biz Analyst vs Takkada",
+        "category": "Comparisons",
+        "tagline": "Three tools, three jobs. The full three-way matrix.",
+    },
+    {
+        "slug": "best-tally-app-for-receivables-2026",
+        "title": "Best Tally App for Receivables in India",
+        "category": "Tally Mobile",
+        "tagline": "Beyond the outstanding report: the app that closes the loop.",
+    },
+    {
+        "slug": "accounts-receivable-automation-tally",
+        "title": "Accounts Receivable Automation for Tally",
+        "category": "How-To",
+        "tagline": "Automate invoicing, reminders, UPI collection, reconciliation.",
+    },
+    {
+        "slug": "bidirectional-tally-sync-explained",
+        "title": "How Bidirectional Tally Sync Works",
+        "category": "Tally Mobile",
+        "tagline": "A mirror you look at versus a workspace you act in.",
+    },
+    {
+        "slug": "takkada-pricing-plans-2026",
+        "title": "Takkada Pricing and Plans (2026)",
+        "category": "Market Reality",
+        "tagline": "Four flat annual plans, and 0% MDR on UPI on every one.",
+    },
+    {
+        "slug": "automate-payment-reminders-tally",
+        "title": "Automate Payment Reminders in Tally",
+        "category": "How-To",
+        "tagline": "Smart reminders that change by due date and overdue status.",
+    },
+    {
+        "slug": "whatsapp-payment-collection-playbook-india",
+        "title": "WhatsApp Payment Collection Playbook",
+        "category": "Collections",
+        "tagline": "Dispatch, remind, and collect on UPI at 0% MDR, one thread.",
+    },
 ]
 
 if __name__ == "__main__":
