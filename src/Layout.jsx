@@ -6,7 +6,7 @@ import CTAButton from './components/CTAButton';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
 import { navLinks, footerColumns, contactInfo } from './data/siteContent';
-import { organizationSchema } from './data/schema';
+import { organizationSchema, webSiteSchema } from './data/schema';
 
 function hashTargetFrom(href) {
   if (!href || !href.startsWith('#')) return null;
@@ -204,6 +204,7 @@ function LayoutInner() {
     <div className="site-root">
       <Head>
         <script type="application/ld+json">{JSON.stringify(organizationSchema())}</script>
+        <script type="application/ld+json">{JSON.stringify(webSiteSchema())}</script>
       </Head>
       <SiteHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} scrolled={scrolled || forceLightNav} />
       <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
