@@ -1,11 +1,29 @@
-import { contactInfo, faqItems, pricing } from './siteContent';
+import {
+  contactInfo,
+  faqItems,
+  pricing,
+  testimonials,
+  appLinks,
+  appRatingCount,
+} from './siteContent';
 
 export const SITE_URL = 'https://takkada.com';
 export const DEFAULT_OG_IMAGE = '/assets/screenshots/takkada-logo.png';
 
-const SOCIAL_URLS = [
+// Every brand string the company is known by. Declaring these as
+// alternateName on both the Organization and the SoftwareApplication tells
+// crawlers that "Takkada", "Pay Saathi", and "PaySaathi" are one entity.
+const ALTERNATE_NAMES = ['Takkada by Pay Saathi', 'Pay Saathi', 'PaySaathi'];
+
+// External profiles that resolve to the same entity. The store listings and
+// the canonical domain are included so crawlers merge the company, the app
+// listing, and every brand string into a single knowledge-graph node.
+const SAME_AS = [
   'https://www.linkedin.com/company/takkada/',
   'https://www.facebook.com/profile.php?id=61577621565711',
+  appLinks.appStore,
+  appLinks.playStore,
+  SITE_URL,
 ];
 
 export function absoluteUrl(path = '/') {
@@ -25,13 +43,14 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
     name: 'Takkada',
+    alternateName: ALTERNATE_NAMES,
     legalName: contactInfo.company,
     url: SITE_URL,
     logo: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     email: contactInfo.email,
     telephone: contactInfo.phone,
     foundingDate: '2025-12',
-    sameAs: SOCIAL_URLS,
+    sameAs: SAME_AS,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Bobagh, Ulubari',
@@ -51,12 +70,35 @@ export function organizationSchema() {
   };
 }
 
-export function softwareApplicationSchema() {
-  const priceNumber = (price) => price.replace(/[^\d]/g, '');
+export function webSiteSchema() {
   return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: 'Takkada',
+    alternateName: ALTERNATE_NAMES,
+    url: SITE_URL,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    inLanguage: ['en', 'hi'],
+  };
+}
+
+function reviewSchema(testimonial) {
+  return {
+    '@type': 'Review',
+    author: { '@type': 'Person', name: testimonial.name },
+    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+    reviewBody: testimonial.quote,
+  };
+}
+
+export function softwareApplicationSchema(reviews = testimonials) {
+  const priceNumber = (price) => price.replace(/[^\d]/g, '');
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'Takkada',
+    alternateName: ALTERNATE_NAMES,
     description:
       'Mobile-first collections, e-invoicing, and reconciliation layer for businesses running on Tally.',
     url: SITE_URL,
@@ -78,6 +120,26 @@ export function softwareApplicationSchema() {
       eligibleCustomerType: 'https://schema.org/BusinessEntity',
     })),
   };
+
+  // aggregateRating is only valid with a real ratingCount. Until a verified
+  // count is supplied (appRatingCount), omit it entirely rather than ship a
+  // fabricated number — schema.org requires the count and Google rejects
+  // aggregateRating without one.
+  if (typeof appRatingCount === 'number' && appRatingCount > 0) {
+    schema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      bestRating: '5',
+      ratingCount: appRatingCount,
+    };
+  }
+
+  const reviewNodes = (reviews || []).map(reviewSchema);
+  if (reviewNodes.length > 0) {
+    schema.review = reviewNodes;
+  }
+
+  return schema;
 }
 
 export function faqPageSchema(items = faqItems) {
@@ -105,5 +167,25 @@ export function breadcrumbSchema(trail) {
       name: entry.name,
       item: absoluteUrl(entry.path),
     })),
+  };
+}
+
+export function articleSchema(post) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.meta_description,
+    image: absoluteUrl(post.heroImage),
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+    },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    url: absoluteUrl(`/blog/${post.slug}`),
+    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
   };
 }

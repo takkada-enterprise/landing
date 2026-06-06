@@ -4,20 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
 import CTAButton from './CTAButton';
 import FAQItem from './FAQItem';
-import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
-
-function buildBreadcrumbSchema(breadcrumb) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumb.map((entry, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: entry.name,
-      item: entry.url,
-    })),
-  };
-}
+import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
 
 function ICPTemplate({
   overline,
@@ -46,7 +33,7 @@ function ICPTemplate({
         schemas={[
           softwareApplicationSchema(),
           faqPageSchema(faqItems),
-          buildBreadcrumbSchema(breadcrumb),
+          breadcrumbSchema(breadcrumb.map((entry) => ({ name: entry.name, path: entry.url }))),
         ]}
       />
 

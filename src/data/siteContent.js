@@ -265,6 +265,13 @@ export const footerColumns = [
   },
 ];
 
+// Real, verified count of store reviews for aggregateRating. Leave null until
+// the actual App Store + Play Store review counts are confirmed. While this is
+// null the schema generator omits aggregateRating entirely, so no fabricated
+// rating count is ever emitted. To enable it, set this to the real combined
+// count (ratingValue is a true 5 across both stores).
+export const appRatingCount = null;
+
 export const appLinks = {
   download: 'https://onelink.to/zs6yp4',
   playStore: 'https://play.google.com/store/apps/details?id=com.paysaathi.takkadaapp',

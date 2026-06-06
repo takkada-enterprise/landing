@@ -1,39 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
-import { breadcrumbSchema, absoluteUrl } from '../data/schema';
+import { articleSchema, breadcrumbSchema } from '../data/schema';
 
 const DEMO_URL = 'https://calendar.notion.so/meet/ronakmalu/takkada';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr);
   return d.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function articleSchema(post) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.meta_description,
-    image: absoluteUrl(post.heroImage),
-    datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: post.author,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Takkada',
-      logo: {
-        '@type': 'ImageObject',
-        url: absoluteUrl('/assets/screenshots/takkada-logo.png'),
-      },
-    },
-    url: absoluteUrl(`/blog/${post.slug}`),
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
-  };
 }
 
 export function getStaticPaths() {
