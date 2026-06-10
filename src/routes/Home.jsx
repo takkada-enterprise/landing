@@ -144,7 +144,7 @@ function Home() {
     <>
       <Seo
         title="Takkada | Mobile Tally App for Indian Distributors"
-        description="Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,500 to ₹7,500/year."
+        description="Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹7,200/year."
         path="/"
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
@@ -475,7 +475,7 @@ function Home() {
         <div className="container">
           <div className="section-header">
             <span className="section-label">Pricing</span>
-            <h2 className="section-title tabular-nums">₹2,500 to ₹7,500 per year. GST extra.</h2>
+            <h2 className="section-title tabular-nums">₹2,700 to ₹7,200 per year. GST extra.</h2>
             <p className="section-subtitle">7-day free trial on every plan. No card required.</p>
           </div>
           <div className="home-pricing-strip">

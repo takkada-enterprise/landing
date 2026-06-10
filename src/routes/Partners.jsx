@@ -46,9 +46,8 @@ const audienceList = [
 const partnerFaqs = [
   {
     question: 'How does the commission structure work?',
-    // TODO: confirm with founder.
     answer:
-      'Partners earn 50% commission on every plan sold and on every renewal, paid out by the 5th of every month via UPI. The first extra device per customer is 100% margin to the partner. Final commercials are confirmed in your partner agreement.',
+      'Partners earn recurring commission on every plan sold and on every renewal, paid out by the 5th of every month via UPI. The exact commercials are confirmed in your partner agreement.',
   },
   {
     question: 'Will Takkada interfere with my Tally licence renewals?',
@@ -76,7 +75,7 @@ const partnerFaqs = [
 const seo = {
   title: 'Partner with Takkada | For Tally Partners',
   description:
-    'Earn 56% more recurring commission on every Tally customer. Sell Takkada alongside your Tally licence. Reminders, UPI, auto reconciliation.',
+    'Earn recurring commission on every Tally customer you bring to Takkada. Sell it alongside your Tally licence. Reminders, UPI, auto reconciliation.',
   canonical: '/partners/',
 };
 
@@ -139,10 +138,10 @@ function Partners() {
             <span className="section-label hero-overline">FOR TALLY PARTNERS</span>
             <h1 className="hero-title icp-hero-title">One customer. Two products.</h1>
             <p className="hero-subtitle icp-hero-subtitle">
-              Alongside your Tally, sell Takkada. Earn{' '}
-              <span className="tabular-nums">56%</span> more commission on every Tally customer
-              over <span className="tabular-nums">3</span> years, on a product they keep using
-              because their reconciliation has gone away.
+              Alongside your Tally, sell Takkada and earn recurring commission on
+              every customer, on the first sale and on every renewal. They stay on
+              the product because their reconciliation has gone away, so the
+              renewals keep coming.
             </p>
             <div className="hero-ctas">
               <CTAButton variant="primary" type="button" onClick={openPartnerModal}>

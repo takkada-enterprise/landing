@@ -9,7 +9,7 @@ import {
   breadcrumbSchema,
   articleSchema,
 } from './schema';
-import { appLinks, testimonials } from './siteContent';
+import { appLinks, pricing, testimonials } from './siteContent';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -42,6 +42,23 @@ describe('webSiteSchema', () => {
     expect(schema.publisher).toEqual({ '@id': ORG_ID });
     expect(schema.url).toBe(SITE_URL);
     expect(schema.inLanguage).toEqual(['en', 'hi']);
+  });
+});
+
+describe('pricing data (Master Distributor rate card, June 2026)', () => {
+  it('maps each plan to its current rate-card MRP', () => {
+    const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.price]));
+    expect(byPlan['View Only']).toBe('₹2,700');
+    expect(byPlan['Voucher Model']).toBe('₹4,500');
+    expect(byPlan['Collections Model']).toBe('₹6,480');
+    expect(byPlan['Full Access']).toBe('₹7,200');
+  });
+
+  it('carries no superseded prices', () => {
+    const prices = pricing.plans.map((p) => p.price);
+    expect(prices).not.toContain('₹2,500');
+    expect(prices).not.toContain('₹6,000');
+    expect(prices).not.toContain('₹7,500');
   });
 });
 
@@ -80,6 +97,16 @@ describe('softwareApplicationSchema', () => {
 
   it('references the organization as publisher by @id, not an inline copy', () => {
     expect(softwareApplicationSchema().publisher).toEqual({ '@id': ORG_ID });
+  });
+
+  it('derives separator-free INR Offer prices from the rate-card MRPs', () => {
+    const offers = Object.fromEntries(
+      softwareApplicationSchema().offers.map((o) => [o.name, o])
+    );
+    expect(offers['View Only']).toMatchObject({ price: '2700', priceCurrency: 'INR' });
+    expect(offers['Voucher Model']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
+    expect(offers['Collections Model']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
+    expect(offers['Full Access']).toMatchObject({ price: '7200', priceCurrency: 'INR' });
   });
 });
 
