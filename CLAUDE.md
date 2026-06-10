@@ -19,10 +19,10 @@ Four sub-ICPs:
 ## 3. Pricing (GST extra on all prices, annual per-customer MRP)
 
 Plans:
-- View Only: ₹2,500
+- View Only: ₹2,700
 - Voucher Model: ₹4,500
-- Collections Model: ₹6,000
-- Full Access / Auto Dispatch: ₹7,500. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Role-based access is included as a secondary benefit, not the hero.
+- Collections Model: ₹6,480
+- Full Access / Auto Dispatch: ₹7,200. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Role-based access is included as a secondary benefit, not the hero.
 
 Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
 
@@ -36,7 +36,7 @@ Extra business rule: View Only and Voucher customers pay nothing for extra busin
 
 ## 4. GTM motion
 
-Reseller-led through the Tally partner network (~18,000 certified partners nationally). Partners earn 50% commission on every plan sold and every renewal. First extra device per customer is 100% margin to the partner. Commissions paid 5th of every month via UPI. "First 3 customers done-with-you": Takkada handles the first three sales end-to-end for each new partner.
+Reseller-led through the Tally partner network (~18,000 certified partners nationally). Partners earn recurring commission on every plan sold and every renewal, with the exact percentage confirmed in the partner agreement. Do not publish a fixed commission percentage on the public site; the agreement governs the commercials. Commissions paid 5th of every month via UPI. "First 3 customers done-with-you": Takkada handles the first three sales end-to-end for each new partner.
 
 ## 5. Voice and copy rules (strict)
 

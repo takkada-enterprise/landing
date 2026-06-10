@@ -147,7 +147,7 @@ export const pricing = {
   plans: [
     {
       plan: 'View Only',
-      price: '\u20B92,500',
+      price: '\u20B92,700',
       period: '/year + GST',
       description: 'See your receivables. Send reminders. Nothing else.',
       features: [
@@ -171,7 +171,7 @@ export const pricing = {
     },
     {
       plan: 'Collections Model',
-      price: '\u20B96,000',
+      price: '\u20B96,480',
       period: '/year + GST',
       description: 'Collect payments digitally. Auto-reconcile into Tally.',
       features: [
@@ -184,7 +184,7 @@ export const pricing = {
     },
     {
       plan: 'Full Access',
-      price: '\u20B97,500',
+      price: '\u20B97,200',
       period: '/year + GST',
       description: 'Every invoice on WhatsApp the moment it is created in Tally.',
       badge: 'Most Popular',
