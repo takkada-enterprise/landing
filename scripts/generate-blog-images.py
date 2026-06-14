@@ -312,6 +312,66 @@ ARTICLES = [
         "category": "Collections",
         "tagline": "Dispatch, remind, and collect on UPI at 0% MDR, one thread.",
     },
+    {
+        "slug": "how-to-access-tally-on-mobile-step-by-step",
+        "title": "How to Access Tally on Mobile",
+        "category": "How-To",
+        "tagline": "The four real bridges from your phone to the office Tally machine.",
+    },
+    {
+        "slug": "tally-remote-access-vs-mobile-app",
+        "title": "Tally Remote Access vs a Mobile App",
+        "category": "Comparisons",
+        "tagline": "Latency, voucher creation, offline, and cost on a 2G-zone route.",
+    },
+    {
+        "slug": "view-tally-reports-on-mobile",
+        "title": "View Tally Reports on Mobile",
+        "category": "Tally Mobile",
+        "tagline": "The five reports a distributor reads from the phone every day.",
+    },
+    {
+        "slug": "tally-mobile-app-for-android",
+        "title": "Tally Mobile App for Android",
+        "category": "Tally Mobile",
+        "tagline": "What installs, what syncs, and what an Android phone can do.",
+    },
+    {
+        "slug": "free-tally-mobile-app-vs-paid",
+        "title": "Free Tally Mobile App vs Paid",
+        "category": "Tally Mobile",
+        "tagline": "Where read-only viewing ends and paid write-back begins.",
+    },
+    {
+        "slug": "is-there-an-official-tally-mobile-app",
+        "title": "Is There an Official Tally Mobile App?",
+        "category": "Tally Mobile",
+        "tagline": "The honest answer, and what every mobile path really is.",
+    },
+    {
+        "slug": "how-to-record-payment-in-tally-on-mobile",
+        "title": "Record a Payment in Tally on Mobile",
+        "category": "How-To",
+        "tagline": "Log cash and UPI receipts from the field, matched back to Tally.",
+    },
+    {
+        "slug": "tally-payment-reconciliation-on-mobile",
+        "title": "Tally Payment Reconciliation on Mobile",
+        "category": "How-To",
+        "tagline": "How auto-matching ends the 9 PM reconciliation session.",
+    },
+    {
+        "slug": "accept-online-payment-on-tally-invoice",
+        "title": "Accept Online Payment on Tally Invoices",
+        "category": "Collections",
+        "tagline": "Turn an invoice into a UPI link and collect at 0% MDR.",
+    },
+    {
+        "slug": "collect-payment-against-tally-invoice-whatsapp",
+        "title": "Collect Payment Against a Tally Invoice",
+        "category": "Collections",
+        "tagline": "Dispatch, remind, and collect on WhatsApp at 0% MDR, one thread.",
+    },
 ]
 
 if __name__ == "__main__":
