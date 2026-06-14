@@ -372,6 +372,66 @@ ARTICLES = [
         "category": "Collections",
         "tagline": "Dispatch, remind, and collect on WhatsApp at 0% MDR, one thread.",
     },
+    {
+        "slug": "what-is-mdr-and-why-it-matters-for-distributors",
+        "title": "What Is MDR, and Why It Matters",
+        "category": "Market Reality",
+        "tagline": "The cut taken on every payment, and how 0% MDR changes it.",
+    },
+    {
+        "slug": "upi-mdr-charges-india-2026",
+        "title": "UPI MDR Charges in India 2026",
+        "category": "Market Reality",
+        "tagline": "What P2M UPI really costs, and the per-transaction fee trap.",
+    },
+    {
+        "slug": "is-upi-free-for-merchants-in-india",
+        "title": "Is UPI Free for Merchants in India?",
+        "category": "Market Reality",
+        "tagline": "The payment is free. The hidden fees and reconciliation are not.",
+    },
+    {
+        "slug": "payment-gateway-charges-comparison-for-distributors",
+        "title": "Payment Gateway Charges Compared",
+        "category": "Comparisons",
+        "tagline": "MDR, per-transaction, monthly fees, versus a true 0% MDR rail.",
+    },
+    {
+        "slug": "how-much-distributors-lose-to-mdr-every-year",
+        "title": "How Much Distributors Lose to MDR",
+        "category": "Market Reality",
+        "tagline": "The yearly number nobody adds up, by collection volume.",
+    },
+    {
+        "slug": "zero-mdr-upi-for-pharma-distributors",
+        "title": "Zero MDR UPI for Pharma Distributors",
+        "category": "Collections",
+        "tagline": "Thin margins, long DSO, and the MDR that eats both.",
+    },
+    {
+        "slug": "zero-mdr-upi-for-fmcg-distributors",
+        "title": "Zero MDR UPI for FMCG Distributors",
+        "category": "Collections",
+        "tagline": "High volume, low ticket: why the per-receipt fee is brutal.",
+    },
+    {
+        "slug": "only-tally-native-zero-mdr-upi-app-india",
+        "title": "The Only Tally-Native 0% MDR UPI App",
+        "category": "Market Reality",
+        "tagline": "Genuine 0% MDR, no per-transaction fee, posted into Tally.",
+    },
+    {
+        "slug": "nil-mdr-upi-collection-on-tally-invoices",
+        "title": "Nil MDR UPI Collection on Tally Invoices",
+        "category": "Collections",
+        "tagline": "Link rides the invoice, money lands whole, receipt posts back.",
+    },
+    {
+        "slug": "upi-vs-card-vs-cash-collection-cost-distributor",
+        "title": "UPI vs Card vs Cash Collection Cost",
+        "category": "Comparisons",
+        "tagline": "The real expense of each rail, fees, time, and risk counted.",
+    },
 ]
 
 if __name__ == "__main__":
