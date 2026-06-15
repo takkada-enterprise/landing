@@ -5,6 +5,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { parseFaqs } from './src/lib/parseFaqs.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -17,8 +18,15 @@ function markdownPlugin() {
       const filename = id.split('/').pop().replace(/\.md$/, '');
       const slug = data.slug || filename;
       const html = marked(content);
+      const faqs = parseFaqs(content);
+      // Surface a malformed FAQ section (heading present but nothing parsed)
+      // as a non-fatal build warning so it shows up in the log without
+      // breaking the build.
+      if (faqs.length === 0 && /^##\s+.*frequently asked questions/im.test(content)) {
+        this.warn(`parseFaqs: FAQ section found but no Q/A pairs parsed in ${slug}.md`);
+      }
       return {
-        code: `export default ${JSON.stringify({ ...data, slug, html })}`,
+        code: `export default ${JSON.stringify({ ...data, slug, html, faqs })}`,
         map: null,
       };
     },
