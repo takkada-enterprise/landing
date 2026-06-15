@@ -432,6 +432,60 @@ ARTICLES = [
         "category": "Comparisons",
         "tagline": "The real expense of each rail, fees, time, and risk counted.",
     },
+    {
+        "slug": "marg-erp-alternative-for-distributors",
+        "title": "Marg ERP Alternative: Mobile Collections for Tally Distributors",
+        "category": "Comparisons",
+        "tagline": "Keep the Tally books you trust. Add the field collection layer.",
+    },
+    {
+        "slug": "busy-software-alternative-for-distributors",
+        "title": "BUSY Software Alternative for Tally Distributors Who Collect",
+        "category": "Comparisons",
+        "tagline": "Don't migrate your core to fix a field-collection problem.",
+    },
+    {
+        "slug": "zoho-books-vs-tally-for-distributors",
+        "title": "Zoho Books vs Tally for Distributors",
+        "category": "Comparisons",
+        "tagline": "Cloud reach without handing your books to a new system.",
+    },
+    {
+        "slug": "mybillbook-alternative-for-distributors",
+        "title": "myBillBook Alternative for Tally-Native Distributors",
+        "category": "Comparisons",
+        "tagline": "One ledger in Tally, not a second set of numbers to reconcile.",
+    },
+    {
+        "slug": "okcredit-alternative-for-distributors",
+        "title": "OkCredit Alternative for Distributor Udhaar Collection",
+        "category": "Comparisons",
+        "tagline": "Past the digital khata to invoice-linked collection on Tally.",
+    },
+    {
+        "slug": "bharatpe-for-distributors-mdr",
+        "title": "BharatPe for Distributors: Is the QR Really 0% MDR?",
+        "category": "Comparisons",
+        "tagline": "The QR is 0% MDR. It still can't tell you which invoice paid.",
+    },
+    {
+        "slug": "paytm-for-business-vs-takkada",
+        "title": "Paytm for Business vs Takkada: UPI Collection on Tally",
+        "category": "Comparisons",
+        "tagline": "Acceptance is the easy half. Reconciliation into Tally is the work.",
+    },
+    {
+        "slug": "razorpay-vs-tally-native-collection",
+        "title": "Razorpay Payment Links vs Tally-Native Collection",
+        "category": "Comparisons",
+        "tagline": "A gateway settles to the bank. A Tally layer closes the bill.",
+    },
+    {
+        "slug": "best-tally-add-on-apps-for-distributors-2026",
+        "title": "Best Tally Mobile Add-On Apps for Distributors (2026)",
+        "category": "Comparisons",
+        "tagline": "Sorted by the job they do, from viewing to collecting.",
+    },
 ]
 
 if __name__ == "__main__":
