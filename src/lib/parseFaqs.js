@@ -37,7 +37,7 @@ export function parseFaqs(markdown) {
 
   const flush = () => {
     if (current) {
-      const answer = current.answerParts.join(' ').replace(/\s+/g, ' ').trim();
+      const answer = stripInlineMarkdown(current.answerParts.join(' ')).replace(/\s+/g, ' ').trim();
       faqs.push({ question: current.question, answer });
       current = null;
     }
@@ -48,7 +48,7 @@ export function parseFaqs(markdown) {
     const questionMatch = line.match(/^\*\*\s*Q:\s*(.*?)\s*\*\*$/i);
     if (questionMatch) {
       flush();
-      current = { question: questionMatch[1].trim(), answerParts: [] };
+      current = { question: stripInlineMarkdown(questionMatch[1]).trim(), answerParts: [] };
       continue;
     }
     if (!current) continue; // text before the first question (none expected)
@@ -61,6 +61,17 @@ export function parseFaqs(markdown) {
 
   // Drop any malformed pairs that produced an empty answer.
   return faqs.filter((faq) => faq.question && faq.answer);
+}
+
+// Schema `text` must be plain. Reduce the inline markdown the corpus actually
+// uses — links `[text](url)` → `text`, and emphasis/code markers — so raw
+// syntax never leaks into the FAQPage JSON-LD.
+function stripInlineMarkdown(text) {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // [label](url) -> label
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // **bold** -> bold
+    .replace(/(^|[^*])\*([^*]+)\*/g, '$1$2') // *italic* -> italic
+    .replace(/`([^`]+)`/g, '$1'); // `code` -> code
 }
 
 function isFaqHeading(line) {

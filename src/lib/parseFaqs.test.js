@@ -105,6 +105,40 @@ A: Yes.
     expect(faqs[0].question).toBe('Is it ₹7,200/year, and does that include e-invoicing?');
   });
 
+  it('reduces inline markdown in answers to plain text for the schema', () => {
+    const md = `## Frequently Asked Questions
+
+**Q: Where do I learn more?**
+
+A: See the [DSO guide](/blog/days-sales-outstanding/) and **book** a \`free\` demo.
+`;
+    const faqs = parseFaqs(md);
+    expect(faqs[0].answer).toBe('See the DSO guide and book a free demo.');
+    expect(faqs[0].answer).not.toMatch(/[[\]()*`]/);
+  });
+
+  it('reduces inline markdown in question text too', () => {
+    const md = `## Frequently Asked Questions
+
+**Q: Is the [demo](/demo) really free?**
+
+A: Yes.
+`;
+    expect(parseFaqs(md)[0].question).toBe('Is the demo really free?');
+  });
+
+  it('leaves no markdown link/emphasis syntax in any real corpus answer', () => {
+    const { readdirSync } = require('node:fs');
+    const dir = resolve(__dirname, '../../content/blog');
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.md'))) {
+      const faqs = parseFaqs(readFileSync(resolve(dir, f), 'utf-8'));
+      for (const { question, answer } of faqs) {
+        expect(answer).not.toMatch(/\[[^\]]+\]\([^)]*\)/);
+        expect(question).not.toMatch(/\[[^\]]+\]\([^)]*\)/);
+      }
+    }
+  });
+
   it('fails safe to [] for non-string / undefined input without throwing', () => {
     expect(parseFaqs(undefined)).toEqual([]);
     expect(parseFaqs(null)).toEqual([]);
