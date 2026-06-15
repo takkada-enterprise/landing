@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
-import { articleSchema, breadcrumbSchema } from '../data/schema';
+import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
 
 const DEMO_URL = 'https://calendar.notion.so/meet/ronakmalu/takkada';
 
@@ -64,7 +64,8 @@ function BlogPost() {
       { name: 'Blog', path: '/blog' },
       { name: post.title, path: `/blog/${post.slug}` },
     ]),
-  ];
+    post.faqs?.length > 0 ? faqPageSchema(post.faqs) : null,
+  ].filter(Boolean);
 
   return (
     <>
