@@ -22,6 +22,7 @@ import TestimonialCard from '../components/TestimonialCard';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
 import ComparisonSection from '../components/ComparisonSection';
+import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
   appLinks,
@@ -42,6 +43,9 @@ const tallyIconMap = {
   check: Check,
   shield: Shield,
 };
+
+// Features added in the 2026-06-18 app refresh — surfaced with a "New" tag.
+const NEW_FEATURE_IDS = new Set(['pdf-import', 'reports']);
 
 const gridIconMap = {
   fileText: FileText,
@@ -139,12 +143,13 @@ const homeFaqItems = [
 
 function Home() {
   const [faqIndex, setFaqIndex] = useState(-1);
+  useScrollReveal();
 
   return (
     <>
       <Seo
         title="Takkada | Mobile Tally App for Indian Distributors"
-        description="Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹7,200/year."
+        description="Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹9,999/year."
         path="/"
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
@@ -186,6 +191,13 @@ function Home() {
             <div className="hero-phone-frame hero-phone-secondary">
               <img src="/assets/screenshots/party-list.png" alt="Takkada party list with customer receivables" />
             </div>
+            <div className="hero-float-chip" aria-hidden="true">
+              <span className="hero-float-chip-icon"><FileText size={18} /></span>
+              <span className="hero-float-chip-text">
+                <b>Import from PDF</b>
+                <span>Supplier bill to Tally entry</span>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -193,7 +205,7 @@ function Home() {
       {/* ── Problem: the evenings and 9 PM ritual ── */}
       <section className="problem-section" id="problem">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">The 9 PM ritual you know too well</span>
             <h2 className="section-title">Cash sits in receivables. Evenings go to reconciliation.</h2>
             <p className="section-subtitle">Every distributor running Tally has lived some version of this. Takkada moves each of these off your plate.</p>
@@ -258,7 +270,7 @@ function Home() {
       {/* ── What Takkada does: 4 capabilities (2×2) ── */}
       <section className="tally-section" id="what-takkada-does">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">What Takkada Does</span>
             <h2 className="section-title">
               Everything that happens after the sale, handled from your phone
@@ -281,25 +293,28 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Core features: four full rows with phone mockups ── */}
+      {/* ── Core features: full rows with phone mockups (PDF leads) ── */}
       <div id="features" />
       {coreFeatures.map((feature, index) => (
         <section
           key={feature.title}
-          className={`feature-section ${index % 2 === 1 ? 'feature-section--reversed' : ''}`}
+          className={`feature-section ${index % 2 === 1 ? 'feature-section--reversed' : ''}${feature.id === 'pdf-import' ? ' feature-section--headline' : ''}`}
           id={feature.id}
         >
           <div className="container">
             <div className="feature-layout">
-              <div className="feature-copy">
+              <div className="feature-copy reveal">
                 <span className="section-label">{feature.label}</span>
-                <h2 className="section-title">{feature.title}</h2>
+                <h2 className="section-title">
+                  {feature.title}
+                  {NEW_FEATURE_IDS.has(feature.id) && <span className="feature-new-tag">New</span>}
+                </h2>
                 <p className="feature-description">{feature.description}</p>
                 <CTAButton variant="outline" href={appLinks.bookDemo}>
                   See it in action <ArrowRight size={16} />
                 </CTAButton>
               </div>
-              <div className="feature-visuals">
+              <div className="feature-visuals reveal">
                 <div className="feature-phone">
                   <img src={feature.screenshot} alt={feature.title} />
                 </div>
@@ -317,7 +332,7 @@ function Home() {
       {/* ── Feature grid: eight-tile glance ── */}
       <section className="grid-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">The Feature Sheet</span>
             <h2 className="section-title">Every capability you will actually use</h2>
           </div>
@@ -349,12 +364,12 @@ function Home() {
         >
           <div className="container">
             <div className="feature-layout">
-              <div className="feature-copy">
+              <div className="feature-copy reveal">
                 <span className="section-label">Advanced</span>
                 <h2 className="section-title">{feature.title}</h2>
                 <p className="feature-description">{feature.description}</p>
               </div>
-              <div className="feature-visuals">
+              <div className="feature-visuals reveal">
                 <div className={`feature-phone ${feature.secondaryScreenshot ? '' : 'feature-phone-single'}`}>
                   <img src={feature.screenshot} alt={feature.title} />
                 </div>
@@ -375,7 +390,7 @@ function Home() {
       {/* ── Tally connector flow + four trust cards ── */}
       <section className="tally-section" id="tally">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">The Tally Connector</span>
             <h2 className="section-title">Your Tally. Now on your phone.</h2>
             <p className="section-subtitle">
@@ -433,7 +448,7 @@ function Home() {
       {/* ── How it works: 3 step cards ── */}
       <section className="how-section" id="how-it-works">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">Getting Started</span>
             <h2 className="section-title">Up and running in days, not months</h2>
           </div>
@@ -452,7 +467,7 @@ function Home() {
       {/* ── Who it is for ── */}
       <section className="grid-section" id="who-it-is-for">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">Who It Is For</span>
             <h2 className="section-title">Pick the setup that matches how you work</h2>
           </div>
@@ -473,9 +488,9 @@ function Home() {
       {/* ── Pricing ── */}
       <section className="pricing-section" id="pricing">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">Pricing</span>
-            <h2 className="section-title tabular-nums">₹2,700 to ₹7,200 per year. GST extra.</h2>
+            <h2 className="section-title tabular-nums">₹2,700 to ₹9,999 per year. GST extra.</h2>
             <p className="section-subtitle">7-day free trial on every plan. No card required.</p>
           </div>
           <div className="home-pricing-strip">
@@ -532,7 +547,7 @@ function Home() {
       {/* ── Testimonial ── */}
       <section className="testimonials-section" id="testimonial">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">From a Takkada Customer</span>
             <h2 className="section-title">What our customers say</h2>
           </div>
@@ -547,7 +562,7 @@ function Home() {
       {/* ── FAQ ── */}
       <section className="faq-section" id="faq">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="section-label">Questions</span>
             <h2 className="section-title">What distributors ask before signing up</h2>
           </div>

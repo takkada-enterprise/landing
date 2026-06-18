@@ -22,11 +22,12 @@ Plans:
 - View Only: ₹2,700
 - Voucher Model: ₹4,500
 - Collections Model: ₹6,480
-- Full Access / Auto Dispatch: ₹7,200. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Role-based access is included as a secondary benefit, not the hero.
+- Full Access / Auto Dispatch: ₹9,999. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
 
 Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
 
 Add-ons (per year):
+- Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
 - Auto Invoice Dispatch. Included in Full Access / Auto Dispatch; available as add-on on Collections plan only, ₹1,500
 - WhatsApp 8,000-message pack: ₹2,000
 - Extra user: ₹3,000
@@ -59,34 +60,44 @@ Don't:
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
-## 6. Design tokens (colors only; typography rule is separate, in section 7)
+## 6. Design tokens (the live source of truth is `src/styles.css` `:root`; this section mirrors it)
 
-Primary sage: #344E41
-Primary dark: #1B3026
-Secondary: #4A7C59
-Accent: #6B9E7A
-Container tint: #DAE5D6
-On-container: #0D1F12
-Label on dark: #B8D4BE
-Background: #FAFAF7
-Surface: #FFFFFF
-Surface variant: #F3F3EE
-Outline: #E5E5DF
-Text primary: #1A1C1A
-Text secondary: #5F6B64
-Text muted: #9CA39D
-Success: #059669
-Danger: #DC2626
-Warning: #D97706
+The 2026-06-18 teardown defined one authoritative token layer in `src/styles.css` `:root`. These values match it exactly. If they ever diverge again, `:root` wins and this section must be re-synced. Typography is separate (section 7).
 
-Hero gradient: top-to-bottom #2D5A3F → #344E41.
+Brand sage:
+- Primary sage: #344E41 (`--color-primary`)
+- Primary dark: #1B3026 (`--color-primary-dark`)
+- Secondary / primary-light: #4A7C59 (`--color-primary-light`)
+- Accent: #6B9E7A (`--color-accent`, `--color-sage`)
+- Label on dark / sage-light: #B8D4BE (`--color-sage-light`)
+- Sage wash: #E7F0E8 (`--color-sage-bg`)
+- Container tint: #DAE5D6 (`--color-container`)
+- On-container: #0D1F12 (`--color-on-container`)
+- Ink (darkest band, footer): #14241C (`--color-ink`, `--color-dark`)
+
+Pastel accent tints (echo the app's Reports cards; used for feature icon containers):
+- Mint #E4F0E6, Peach #F8EBDF, Rose #F7E6E8, Sky #E6EDF2, Sand #F2EEE3
+
+Surfaces & text:
+- Background: #FAFAF7 · Surface: #FFFFFF · Surface variant: #F3F3EE
+- Text primary: #1A1C1A · secondary: #5F6B64 · muted: #9CA39D
+- Outline: #E5E5DF · Hairline: #EEEEEA
+- Success #059669 · Danger #DC2626 · Warning #D97706
+
+Hero: layered sage-paper composition (dark sage device band over warm paper), not a flat gradient.
+
+Radii: sm 8 · md 12 · lg 16 · xl 20 · 2xl 28 · full 9999.
+
+Elevation (soft, warm sage-tinted, never 1px outlines): `--shadow-xs/sm/md/lg/xl` plus `--shadow-phone` for the device frames. Shadows carry a green-ink tint (`rgba(20,36,28,…)`), not neutral black.
+
+Motion tokens: `--ease-out` (cubic-bezier(0.16,1,0.3,1)), `--ease-soft`, durations `--dur-fast` 0.18s / `--dur` 0.28s / `--dur-slow` 0.5s / `--dur-reveal` 0.7s. All motion honors `prefers-reduced-motion`.
 
 Component patterns:
-- Cards: 16px border radius, soft drop shadow (not 1px outlines)
+- Cards: 16px (`--radius-lg`) radius, soft layered shadow (not 1px outlines)
 - Row dividers inside cards: 0.5px hairline #EEEEEA
-- Icon containers: 10px rounded squares, container-tint fill, on-container icon color
-- Overline labels: 11px, weight 700, 0.6px letter-spacing, uppercase
-- Buttons: 10px radius, weight 600, 10×18 padding; primary sage filled, tonal container-tint filled, outlined surface with 1px outline
+- Icon containers: rounded squares, pastel-tint fill, sage icon color
+- Overline labels: 11–13px, weight 700, 0.06–0.08em letter-spacing, uppercase, sage
+- Buttons: pill radius (`--radius-full`), weight 600; primary sage filled, secondary tonal, outline sage, dark (white-on-ink)
 
 ## 7. Typography rule
 

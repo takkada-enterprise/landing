@@ -34,36 +34,47 @@ export const painPoints = [
 
 export const coreFeatures = [
   {
+    id: 'pdf-import',
+    label: 'Import from PDF',
+    title: 'Turn a supplier PDF into a purchase entry',
+    description: 'A supplier sends the bill on WhatsApp or email. Open it in Takkada and the app reads the line items, quantities, GST, and amounts for you. You check the details, pick the supplier, and the purchase voucher posts into Tally. No typing the bill out line by line.',
+    screenshot: '/assets/screenshots/home-screen.png',
+    secondaryScreenshot: '/assets/screenshots/invoice-detail.png',
+  },
+  {
     id: 'outstanding-tracking',
     label: 'Outstanding Tracking',
     title: 'See Every Rupee Owed To You',
-    description: 'Get a complete view of all receivables across every customer. See who owes what, what\'s overdue, and what\'s coming due \u2014 all synced from Tally in real-time.',
-    screenshot: '/assets/screenshots/home-screen.png',
-    secondaryScreenshot: '/assets/screenshots/party-list.png',
+    description: 'Get a complete view of all receivables across every customer. See who owes what, what\'s overdue, and what\'s coming due, all synced from Tally in real time.',
+    screenshot: '/assets/screenshots/party-list.png',
   },
   {
     id: 'smart-reminders',
     label: 'Smart Reminders',
     title: 'Automated Payment Reminders',
-    description: 'Set up multi-stage payment reminders that go out automatically via WhatsApp. Configure pre-due nudges and post-due follow-ups. Control the timing, frequency, and escalation \u2014 zero manual chasing.',
+    description: 'Set up multi-stage payment reminders that go out automatically via WhatsApp. Configure pre-due nudges and post-due follow-ups. Control the timing, frequency, and escalation, with zero manual chasing.',
     screenshot: '/assets/screenshots/payment-reminders.png',
-    secondaryScreenshot: '/assets/screenshots/reminder-history.png',
   },
   {
     id: 'digital-collection',
     label: 'Digital Collection',
     title: 'Collect Payments Digitally',
     description: 'Send payment links directly from invoices. Customers view pending invoices, select what to pay, and complete payment via UPI, cards, or net banking. Auto-reconciliation updates your Tally instantly.',
-    screenshot: '/assets/screenshots/settlement.png',
-    secondaryScreenshot: '/assets/screenshots/invoice-detail.png',
+    screenshot: '/assets/screenshots/invoice-detail.png',
   },
   {
     id: 'auto-reconciliation',
     label: 'Auto Reconciliation',
     title: 'Payments Reconcile Themselves',
     description: 'When a customer pays through Takkada, the payment is automatically matched to the correct invoice and updated in your Tally. No manual voucher creation. No screenshot matching.',
-    screenshot: '/assets/screenshots/bankbook.png',
-    secondaryScreenshot: '/assets/screenshots/sales-invoices.png',
+    screenshot: '/assets/screenshots/settlement.png',
+  },
+  {
+    id: 'reports',
+    label: 'Reports',
+    title: 'Your whole financial year, the moment you open the app',
+    description: 'Sales, purchases, receipts, and payments for this financial year, totalled at a glance. Tap Outstanding by Age to see who owes you and how overdue, ready to call or send a reminder. Tap Customer Analytics to find the customers who have gone quiet.',
+    screenshot: '/assets/screenshots/reports-screen.png',
   },
 ];
 
@@ -179,18 +190,19 @@ export const pricing = {
         'UPI payment links on every invoice. Zero MDR.',
         'Payments auto-reconcile into Tally instantly',
         'E-Invoice and E-Way Bill from your phone',
-        'Auto Invoice Dispatch available as add-on',
+        'Auto Invoice Dispatch and Import from PDF available as add-ons',
       ],
     },
     {
       plan: 'Full Access',
-      price: '\u20B97,200',
+      price: '\u20B99,999',
       period: '/year + GST',
-      description: 'Every invoice on WhatsApp the moment it is created in Tally.',
+      description: 'Every Tally invoice on WhatsApp the moment it is created. Import from PDF included.',
       badge: 'Most Popular',
       features: [
         'Everything in Collections Model, plus:',
-        'Auto Invoice Dispatch \u2014 every Tally invoice fires on WhatsApp automatically',
+        'Import from PDF. Turn supplier bills into purchase entries',
+        'Auto Invoice Dispatch. Every Tally invoice fires on WhatsApp automatically',
         'Role-based access for field salesman teams',
         'Per-user ledger and stock group controls',
       ],
@@ -198,6 +210,7 @@ export const pricing = {
     },
   ],
   addons: [
+    { label: 'Import from PDF', price: '\u20B94,000 / year', note: 'Add-on for Collections plan' },
     { label: 'Auto Invoice Dispatch', price: '\u20B91,500 / year', note: 'Add-on for Collections plan only' },
     { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
     { label: 'Extra user', price: '\u20B93,000 / user / year' },
@@ -236,6 +249,7 @@ export const footerColumns = [
   {
     title: 'Product',
     links: [
+      { label: 'Import from PDF', href: '#pdf-import' },
       { label: 'Tally Connector', href: '#tally' },
       { label: 'Payment Collection', href: '#digital-collection' },
       { label: 'Smart Reminders', href: '#smart-reminders' },

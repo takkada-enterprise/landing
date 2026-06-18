@@ -5,6 +5,14 @@ export function useScrollReveal() {
     const elements = Array.from(document.querySelectorAll('.reveal'));
     if (!elements.length) return;
 
+    // Where IntersectionObserver is unavailable (SSR, jsdom, very old
+    // browsers) reveal everything immediately — never leave content hidden
+    // behind the opacity:0 reveal state.
+    if (typeof IntersectionObserver === 'undefined') {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
