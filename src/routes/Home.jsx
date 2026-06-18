@@ -16,6 +16,8 @@ import {
   Link as LinkIcon,
   Share2,
   Download,
+  Truck,
+  Users,
 } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import TestimonialCard from '../components/TestimonialCard';
@@ -83,6 +85,19 @@ const capabilities = [
     body:
       'When payment lands, Takkada matches it against the invoice and posts the accounting entry in Tally. Your end-of-day reconciliation ritual disappears.',
   },
+];
+
+// Floating feature pills that halo the hero phone, in the style of the existing
+// "Import from PDF" chip. Decorative (aria-hidden); positions live in styles.css
+// as .hero-pill--N. Order matters: it maps to the position rules.
+const heroPills = [
+  { icon: FileText, label: 'Import from PDF' },
+  { icon: IndianRupee, label: 'UPI Collection' },
+  { icon: LinkIcon, label: 'Payment Link' },
+  { icon: FileCheck, label: 'E-Invoicing' },
+  { icon: Truck, label: 'E-Way Bill' },
+  { icon: MessageCircle, label: 'WhatsApp Reminder' },
+  { icon: Users, label: 'Field Staff' },
 ];
 
 const audiences = [
@@ -188,15 +203,16 @@ function Home() {
             <div className="hero-phone-frame">
               <img src="/assets/screenshots/home-screen.png" alt="Takkada home screen showing receivables dashboard" />
             </div>
-            <div className="hero-phone-frame hero-phone-secondary">
-              <img src="/assets/screenshots/party-list.png" alt="Takkada party list with customer receivables" />
-            </div>
-            <div className="hero-float-chip" aria-hidden="true">
-              <span className="hero-float-chip-icon"><FileText size={18} /></span>
-              <span className="hero-float-chip-text">
-                <b>Import from PDF</b>
-                <span>Supplier bill to Tally entry</span>
-              </span>
+            <div className="hero-pills" aria-hidden="true">
+              {heroPills.map((p, i) => {
+                const Icon = p.icon;
+                return (
+                  <span key={p.label} className={`hero-pill hero-pill--${i + 1}`}>
+                    <span className="hero-pill-icon"><Icon size={15} /></span>
+                    <span className="hero-pill-label">{p.label}</span>
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>

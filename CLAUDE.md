@@ -75,8 +75,9 @@ Brand sage:
 - On-container: #0D1F12 (`--color-on-container`)
 - Ink (darkest band, footer): #14241C (`--color-ink`, `--color-dark`)
 
-Pastel accent tints (echo the app's Reports cards; used for feature icon containers):
-- Mint #E4F0E6, Peach #F8EBDF, Rose #F7E6E8, Sky #E6EDF2, Sand #F2EEE3
+Soft sage tints (sage-only; used for feature icon containers and pastel plates):
+- Mint #E8F0E8, Peach #DEEBDD, Rose #E4EFE4, Sky #DCE9E0, Sand #EDF2EA
+- These are all sage-family greens. The token names (`--tint-peach` etc.) are kept for backward compatibility, but the values are NOT warm pastels anymore. The 2026-06-18-second-pass aligned them to the app's single icon-container fill (#E8F0E8 softTint) because the warm peach/rose/sand pastels were a landing-only invention the app never used and made the site read as a different brand. Do not reintroduce warm tints.
 
 Surfaces & text:
 - Background: #FAFAF7 · Surface: #FFFFFF · Surface variant: #F3F3EE
@@ -95,20 +96,20 @@ Motion tokens: `--ease-out` (cubic-bezier(0.16,1,0.3,1)), `--ease-soft`, duratio
 Component patterns:
 - Cards: 16px (`--radius-lg`) radius, soft layered shadow (not 1px outlines)
 - Row dividers inside cards: 0.5px hairline #EEEEEA
-- Icon containers: rounded squares, pastel-tint fill, sage icon color
+- Icon containers: rounded squares, soft sage-tint fill (#E8F0E8), sage icon color
 - Overline labels: 11–13px, weight 700, 0.06–0.08em letter-spacing, uppercase, sage
 - Buttons: pill radius (`--radius-full`), weight 600; primary sage filled, secondary tonal, outline sage, dark (white-on-ink)
 
 ## 7. Typography rule
 
-The shipped site uses two families and no others:
+The shipped site uses **one family and no others: Plus Jakarta Sans** — the exact font the Takkada Flutter app uses (the app loads it via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`). This replaced the previous Inter + DM Serif Display pairing on 2026-06-18 (second pass) because the operator wanted the landing to read as the same brand as the app, and the serif headings + Inter body did not. The earlier "two families, do not add Plus Jakarta Sans" rule is dead — it was based on the false premise that the sage teardown already matched the app.
 
-- **Inter Variable**, self-hosted from `public/assets/fonts/Inter-VariableFont_opsz_wght.ttf` via an `@font-face` declaration in `src/styles.css`. Used for body copy and all UI. Exposed as `--font-sans` with `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif` as fallbacks. Set `font-optical-sizing: auto` so the `opsz` axis tracks the rendered size.
-- **DM Serif Display**, loaded from Google Fonts via the `<link>` in `index.html`. Used for every major heading. Exposed as `--font-serif` with `Georgia, serif` as fallback. Applied through `var(--font-serif)` on h1/h2/h3-level rules across `styles.css`.
+- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body, UI, and headings. Exposed as both `--font-sans` and `--font-serif` (the `--font-serif` token name is retained only for backward compatibility with the many `var(--font-serif)` heading rules; it now resolves to Plus Jakarta Sans, not a serif).
+- **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), not from a serif face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
 
-Do not introduce any other font family. No Plus Jakarta Sans, no Hedvig Letters, no Bdo Grotesk, no variable Inter from a CDN. Do not swap Inter back to the discrete Google Fonts weights. Do not add a DM Serif Display local file until one is supplied. Any net-new page or component this project ships uses DM Serif Display for headings and Inter Variable for body and UI, and nothing else.
+Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. The self-hosted Inter `.ttf` under `public/assets/fonts/` is now unreferenced; leave it or delete it, but do not wire it back in.
 
-Before writing any component, confirm the font stack by reading `index.html` and the top of `src/styles.css` (the `@font-face` block and `--font-sans` / `--font-serif` tokens), then match it exactly.
+Before writing any component, confirm the font stack by reading `index.html` (the Plus Jakarta Sans `<link>`) and the top of `src/styles.css` (the `--font-sans` / `--font-serif` tokens and the Display-headings block), then match it exactly.
 
 Numbers use tabular lining figures. Add a utility class `.tabular-nums { font-feature-settings: "tnum" 1, "lnum" 1; }` if one doesn't exist, and apply it to every ₹ amount, percentage, and date on the site.
 
