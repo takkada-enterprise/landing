@@ -51,7 +51,7 @@ describe('pricing data (Master Distributor rate card, June 2026)', () => {
     expect(byPlan['View Only']).toBe('₹2,700');
     expect(byPlan['Voucher Model']).toBe('₹4,500');
     expect(byPlan['Collections Model']).toBe('₹6,480');
-    expect(byPlan['Full Access']).toBe('₹7,200');
+    expect(byPlan['Full Access']).toBe('₹9,999');
   });
 
   it('carries no superseded prices', () => {
@@ -59,6 +59,13 @@ describe('pricing data (Master Distributor rate card, June 2026)', () => {
     expect(prices).not.toContain('₹2,500');
     expect(prices).not.toContain('₹6,000');
     expect(prices).not.toContain('₹7,500');
+    expect(prices).not.toContain('₹7,200');
+  });
+
+  it('offers Import from PDF as a ₹4,000 / year add-on', () => {
+    const pdfAddon = pricing.addons.find((a) => a.label === 'Import from PDF');
+    expect(pdfAddon).toBeDefined();
+    expect(pdfAddon.price).toBe('₹4,000 / year');
   });
 });
 
@@ -106,7 +113,7 @@ describe('softwareApplicationSchema', () => {
     expect(offers['View Only']).toMatchObject({ price: '2700', priceCurrency: 'INR' });
     expect(offers['Voucher Model']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
     expect(offers['Collections Model']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
-    expect(offers['Full Access']).toMatchObject({ price: '7200', priceCurrency: 'INR' });
+    expect(offers['Full Access']).toMatchObject({ price: '9999', priceCurrency: 'INR' });
   });
 });
 

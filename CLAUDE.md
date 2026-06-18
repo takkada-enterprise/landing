@@ -22,11 +22,12 @@ Plans:
 - View Only: ₹2,700
 - Voucher Model: ₹4,500
 - Collections Model: ₹6,480
-- Full Access / Auto Dispatch: ₹7,200. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Role-based access is included as a secondary benefit, not the hero.
+- Full Access / Auto Dispatch: ₹9,999. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
 
 Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
 
 Add-ons (per year):
+- Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
 - Auto Invoice Dispatch. Included in Full Access / Auto Dispatch; available as add-on on Collections plan only, ₹1,500
 - WhatsApp 8,000-message pack: ₹2,000
 - Extra user: ₹3,000
@@ -59,45 +60,56 @@ Don't:
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
-## 6. Design tokens (colors only; typography rule is separate, in section 7)
+## 6. Design tokens (the live source of truth is `src/styles.css` `:root`; this section mirrors it)
 
-Primary sage: #344E41
-Primary dark: #1B3026
-Secondary: #4A7C59
-Accent: #6B9E7A
-Container tint: #DAE5D6
-On-container: #0D1F12
-Label on dark: #B8D4BE
-Background: #FAFAF7
-Surface: #FFFFFF
-Surface variant: #F3F3EE
-Outline: #E5E5DF
-Text primary: #1A1C1A
-Text secondary: #5F6B64
-Text muted: #9CA39D
-Success: #059669
-Danger: #DC2626
-Warning: #D97706
+The 2026-06-18 teardown defined one authoritative token layer in `src/styles.css` `:root`. These values match it exactly. If they ever diverge again, `:root` wins and this section must be re-synced. Typography is separate (section 7).
 
-Hero gradient: top-to-bottom #2D5A3F → #344E41.
+Brand sage:
+- Primary sage: #344E41 (`--color-primary`)
+- Primary dark: #1B3026 (`--color-primary-dark`)
+- Secondary / primary-light: #4A7C59 (`--color-primary-light`)
+- Accent: #6B9E7A (`--color-accent`, `--color-sage`)
+- Label on dark / sage-light: #B8D4BE (`--color-sage-light`)
+- Sage wash: #E7F0E8 (`--color-sage-bg`)
+- Container tint: #DAE5D6 (`--color-container`)
+- On-container: #0D1F12 (`--color-on-container`)
+- Ink (darkest band, footer): #14241C (`--color-ink`, `--color-dark`)
+
+Soft sage tints (sage-only; used for feature icon containers and pastel plates):
+- Mint #E8F0E8, Peach #DEEBDD, Rose #E4EFE4, Sky #DCE9E0, Sand #EDF2EA
+- These are all sage-family greens. The token names (`--tint-peach` etc.) are kept for backward compatibility, but the values are NOT warm pastels anymore. The 2026-06-18-second-pass aligned them to the app's single icon-container fill (#E8F0E8 softTint) because the warm peach/rose/sand pastels were a landing-only invention the app never used and made the site read as a different brand. Do not reintroduce warm tints.
+
+Surfaces & text:
+- Background: #FAFAF7 · Surface: #FFFFFF · Surface variant: #F3F3EE
+- Text primary: #1A1C1A · secondary: #5F6B64 · muted: #9CA39D
+- Outline: #E5E5DF · Hairline: #EEEEEA
+- Success #059669 · Danger #DC2626 · Warning #D97706
+
+Hero: layered sage-paper composition (dark sage device band over warm paper), not a flat gradient.
+
+Radii: sm 8 · md 12 · lg 16 · xl 20 · 2xl 28 · full 9999.
+
+Elevation (soft, warm sage-tinted, never 1px outlines): `--shadow-xs/sm/md/lg/xl` plus `--shadow-phone` for the device frames. Shadows carry a green-ink tint (`rgba(20,36,28,…)`), not neutral black.
+
+Motion tokens: `--ease-out` (cubic-bezier(0.16,1,0.3,1)), `--ease-soft`, durations `--dur-fast` 0.18s / `--dur` 0.28s / `--dur-slow` 0.5s / `--dur-reveal` 0.7s. All motion honors `prefers-reduced-motion`.
 
 Component patterns:
-- Cards: 16px border radius, soft drop shadow (not 1px outlines)
+- Cards: 16px (`--radius-lg`) radius, soft layered shadow (not 1px outlines)
 - Row dividers inside cards: 0.5px hairline #EEEEEA
-- Icon containers: 10px rounded squares, container-tint fill, on-container icon color
-- Overline labels: 11px, weight 700, 0.6px letter-spacing, uppercase
-- Buttons: 10px radius, weight 600, 10×18 padding; primary sage filled, tonal container-tint filled, outlined surface with 1px outline
+- Icon containers: rounded squares, soft sage-tint fill (#E8F0E8), sage icon color
+- Overline labels: 11–13px, weight 700, 0.06–0.08em letter-spacing, uppercase, sage
+- Buttons: pill radius (`--radius-full`), weight 600; primary sage filled, secondary tonal, outline sage, dark (white-on-ink)
 
 ## 7. Typography rule
 
-The shipped site uses two families and no others:
+The shipped site uses **one family and no others: Plus Jakarta Sans** — the exact font the Takkada Flutter app uses (the app loads it via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`). This replaced the previous Inter + DM Serif Display pairing on 2026-06-18 (second pass) because the operator wanted the landing to read as the same brand as the app, and the serif headings + Inter body did not. The earlier "two families, do not add Plus Jakarta Sans" rule is dead — it was based on the false premise that the sage teardown already matched the app.
 
-- **Inter Variable**, self-hosted from `public/assets/fonts/Inter-VariableFont_opsz_wght.ttf` via an `@font-face` declaration in `src/styles.css`. Used for body copy and all UI. Exposed as `--font-sans` with `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif` as fallbacks. Set `font-optical-sizing: auto` so the `opsz` axis tracks the rendered size.
-- **DM Serif Display**, loaded from Google Fonts via the `<link>` in `index.html`. Used for every major heading. Exposed as `--font-serif` with `Georgia, serif` as fallback. Applied through `var(--font-serif)` on h1/h2/h3-level rules across `styles.css`.
+- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body, UI, and headings. Exposed as both `--font-sans` and `--font-serif` (the `--font-serif` token name is retained only for backward compatibility with the many `var(--font-serif)` heading rules; it now resolves to Plus Jakarta Sans, not a serif).
+- **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), not from a serif face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
 
-Do not introduce any other font family. No Plus Jakarta Sans, no Hedvig Letters, no Bdo Grotesk, no variable Inter from a CDN. Do not swap Inter back to the discrete Google Fonts weights. Do not add a DM Serif Display local file until one is supplied. Any net-new page or component this project ships uses DM Serif Display for headings and Inter Variable for body and UI, and nothing else.
+Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. The self-hosted Inter `.ttf` under `public/assets/fonts/` is now unreferenced; leave it or delete it, but do not wire it back in.
 
-Before writing any component, confirm the font stack by reading `index.html` and the top of `src/styles.css` (the `@font-face` block and `--font-sans` / `--font-serif` tokens), then match it exactly.
+Before writing any component, confirm the font stack by reading `index.html` (the Plus Jakarta Sans `<link>`) and the top of `src/styles.css` (the `--font-sans` / `--font-serif` tokens and the Display-headings block), then match it exactly.
 
 Numbers use tabular lining figures. Add a utility class `.tabular-nums { font-feature-settings: "tnum" 1, "lnum" 1; }` if one doesn't exist, and apply it to every ₹ amount, percentage, and date on the site.
 
