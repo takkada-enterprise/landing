@@ -3,18 +3,10 @@ import { demoBookingConfig, hasDemoBookingBackend } from '../config/demoBooking'
 export const DEMO_PHONE_STORAGE_KEY = 'takkada_demo_phone';
 export const DEMO_TIMESTAMP_STORAGE_KEY = 'takkada_demo_timestamp';
 
-const DISCORD_WEBHOOK_URL = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
-
-function notifyDiscord({ phone, pageUrl, timestamp }, fetchImpl) {
-  if (!fetchImpl) return;
-  fetchImpl(DISCORD_WEBHOOK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      content: `**New demo booking**\nPhone: \`+91${phone}\`\nPage: ${pageUrl}\nTime: ${timestamp}`,
-    }),
-  }).catch(() => {});
-}
+// Discord notification is sent server-side by the paysaathi-booking edge
+// function (reads the DISCORD_WEBHOOK_URL Supabase secret). It used to live
+// here, inlined at build time from VITE_DISCORD_WEBHOOK_URL; a redeploy without
+// that build var silently baked in `undefined` and dropped every notification.
 
 const INDIAN_MOBILE_NUMBER_PATTERN = /^[6-9][0-9]{9}$/;
 
@@ -80,8 +72,6 @@ export async function submitDemoBooking({
     const responseBody = typeof response.text === 'function' ? await response.text() : '';
     throw new Error(responseBody || `Booking request failed with status ${response.status}`);
   }
-
-  notifyDiscord({ phone, pageUrl, timestamp }, fetchImpl);
 
   return { skipped: false, timestamp };
 }
