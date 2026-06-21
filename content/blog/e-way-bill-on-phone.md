@@ -5,7 +5,7 @@ meta_title: "E-Way Bill on Phone: Generate in Under a Minute"
 meta_description: "Generate e-way bill on phone for ₹50,000+ shipments. Flow, common rejections, and how Tally-linked mobile apps clear goods without the desktop."
 primary_keyword: "e-way bill on phone"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "Under the current GST rules, an e-way bill is required any time goods worth more than ₹50,000 move between two locations on a conveyance. The threshold is ₹50,000 per consignment for most goods, lowered in specific states and for specific sensitive items. All interstate movement above ₹50,000 is covered; intra-state rules vary slightly by state but most follow the same threshold."
 ---

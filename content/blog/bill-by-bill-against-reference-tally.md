@@ -5,7 +5,7 @@ meta_title: "Bill by Bill Tally: Against Reference Explained"
 meta_description: "Bill by bill tally explained: what \"Against Reference\" means, the four reference types, and how matching a receipt to one invoice keeps a party ledger clean."
 primary_keyword: "bill by bill tally"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati FMCG distributor receives ₹50,000 from a retailer who owes ₹2,15,000 across six invoices. Marked \"On Account,\" that money floats unmatched and the ledger lies. Tagged \"Against Reference\" to invoice #1182, the right bill closes and outstanding reads true."
 ---

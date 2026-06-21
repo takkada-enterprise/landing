@@ -5,7 +5,7 @@ meta_title: "DSO for Distributors: Calculate and Reduce Days Sales Outstanding"
 meta_description: "DSO formula, healthy benchmarks for Indian distributors, and five levers that pull DSO down without losing customers. With a worked example."
 primary_keyword: "dso for distributors"
 date: "2026-05-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "DSO, or Days Sales Outstanding, is the average number of days a distributor takes to collect cash after raising an invoice. It is the single cleanest number that tells you whether your collections operation is keeping up with your sales team."
 ---

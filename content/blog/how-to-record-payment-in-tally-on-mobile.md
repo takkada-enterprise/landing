@@ -5,7 +5,7 @@ meta_title: "Record Payment in Tally on Mobile: Field Guide"
 meta_description: "How to record payment in Tally on mobile: log cash and UPI receipts from the field, match the UTR, and post the receipt voucher back into Tally."
 primary_keyword: "record payment in tally on mobile"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A salesman in Guwahati collects ₹87,000 across four parties before lunch, scribbles the amounts on the invoice copy, and the accountant types them into Tally at 9 PM. Two get matched to the wrong invoice. Recording the payment in Tally on mobile, the moment it lands, ends that. Here is the exact flow."
 ---

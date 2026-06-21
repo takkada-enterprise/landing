@@ -5,7 +5,7 @@ meta_title: "Receivables App for Agri-Input Distributors (2026)"
 meta_description: "Agri-input distributor receivables run 90-150+ days on the crop cycle. Why a fertilizer distributor receivables app must track harvest-tied DSO and 0% MDR UPI."
 primary_keyword: "agri-input distributor receivables"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A fertilizer and seed distributor in Nashik ships ₹40 lakh of stock to 80 krishi kendras before Kharif sowing, then waits for the harvest to get paid. His DSO sits at 130 days, money tied up across two crop cycles. For agri-input, receivables are not a calendar problem, they move with the monsoon and the mandi. An agri-input distributor receivables app has to track that, not pretend it is a 60-day trade."
 ---

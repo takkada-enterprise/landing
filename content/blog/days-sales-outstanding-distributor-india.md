@@ -5,7 +5,7 @@ meta_title: "Days Sales Outstanding: Guide for Indian Distributors"
 meta_description: "What DSO means for Indian distributors, what your number should be, and the specific steps that compress it without damaging retailer relationships."
 primary_keyword: "days sales outstanding distributor india"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Nagpur with ₹8 crore annual turnover and a 72-day DSO is floating ₹1.58 crore in unpaid invoices at any given moment. Cut that to 45 days and ₹60 lakh comes back into the business — no new customers, no extra sales."
 ---

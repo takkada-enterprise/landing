@@ -5,7 +5,7 @@ meta_title: "UTR Number Meaning and How to Match It in Tally"
 meta_description: "What a utr number is, where to find it in your UPI app or bank statement, and how matching it to the right Tally receipt closes a bill cleanly."
 primary_keyword: "utr number"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor gets a WhatsApp screenshot at 9 PM: a retailer paid ₹47,800 but didn't say against which invoice. The UTR number on that payment is the one thread that links the bank credit back to the exact Tally receipt and closes the bill without a phone call."
 ---

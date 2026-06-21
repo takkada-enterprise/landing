@@ -5,7 +5,7 @@ meta_title: "What Is a VPA UPI ID? Distributor Collection Guide"
 meta_description: "A VPA UPI ID is your name@bank payment handle. What it is, how a distributor gets one, and how it powers payment links and reconciliation on Tally."
 primary_keyword: "vpa upi id"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor collecting from 140 retailers shares one VPA UPI ID like business@axisbank on every invoice. One retailer pays ₹62,400 against three bills, the money lands in the current account, and the receipt matches back into Tally the same evening."
 ---

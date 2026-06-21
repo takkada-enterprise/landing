@@ -5,7 +5,7 @@ meta_title: "Payment Gateway Charges Compared for Distributors"
 meta_description: "Payment gateway charges compared for Indian distributors: setup, MDR, per-transaction and hidden fees, versus a 0% MDR UPI rail with no per-receipt fee."
 primary_keyword: "payment gateway charges"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "A Guwahati distributor signed up for a payment gateway that quoted '1% and nothing else.' A year later, between MDR, a monthly platform fee, and a per-transaction charge, the real cost was closer to ₹2.6 lakh on ₹2 crore collected. Payment gateway charges are rarely the one number on the brochure."
 ---

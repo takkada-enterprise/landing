@@ -5,7 +5,7 @@ meta_title: "Bad Debt Write Off in Tally: When and How Distributors Should Do It
 meta_description: "When to write off a bad debt, the Tally journal entries, GST implications under Section 34, and the income tax treatment under Section 36(1)(vii)."
 primary_keyword: "bad debt write off tally"
 date: "2026-05-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A bad debt write off is the accounting decision to remove an unrecoverable receivable from the books and recognise it as a loss. Most Indian distributors carry bad debts on their books for years longer than they should, partly out of hope and partly because the GST and income tax treatment is misunderstood. Both choices cost money."
 ---

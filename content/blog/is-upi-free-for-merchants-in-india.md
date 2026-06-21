@@ -5,7 +5,7 @@ meta_title: "Is UPI Free for Merchants in India? 2026 Guide"
 meta_description: "Is UPI free for merchants in India? Mostly yes on P2M UPI, but apps add hidden per-transaction fees. Here is the real cost and the reconciliation catch."
 primary_keyword: "is upi free for merchants"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "Three retailers each paid a Barpeta distributor ₹14,320 on the same afternoon and all three sent a WhatsApp screenshot. UPI moved the money for free. Working out which screenshot cleared which invoice cost the accountant an hour. Is UPI free for merchants? The payment is. The mess around it is not."
 ---

@@ -5,7 +5,7 @@ meta_title: "UPI Collection App for Distributors in India (2026)"
 meta_description: "How to choose a UPI collection app for distributors in India: 0% MDR economics, Tally sync, WhatsApp reminders, and what a real distributor-grade app must do."
 primary_keyword: "upi collection app for distributors india"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A UPI collection app for distributors in India is not the same as a payment-gateway product. The distributor's job is to collect ₹15,000 from 180 retailers, every week, against Tally invoices. Here is what a UPI collection app built for that workflow has to do."
 ---

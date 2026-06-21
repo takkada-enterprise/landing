@@ -5,7 +5,7 @@ meta_title: "Tally Mobile Par Kaise Chalaye: Step-by-Step Setup"
 meta_description: "Tally mobile par kaise chalaye, step by step. Companion app se Tally data phone pe sync karein, ledger aur outstanding dekhein, UPI 0% MDR pe vasooli karein."
 primary_keyword: "tally mobile par kaise chalaye"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "Subah 9 baje aap office se nikal jaate hain aur Tally screen raat tak nahi dikhti. Tab tak ek party ka ₹1,40,000 ka outstanding aapko pata hi nahi chalta aur salesman fresh credit de aata hai. Yahan seedha bataya hai ki phone pe Tally data kaise laayein, step by step."
 ---

@@ -5,7 +5,7 @@ meta_title: "Collection Efficiency Ratio: Formula and Targets in India"
 meta_description: "What collection efficiency means for Indian distributors, how to calculate it from Tally, healthy ratios by category, and three levers that move it."
 primary_keyword: "collection efficiency ratio india"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A distributor who invoices ₹1 crore in a month and collects ₹85 lakh that month has a collection efficiency of 85%. The number sounds technical. What it actually measures is whether the credit being extended is coming back as cash on the schedule the business needs."
 ---

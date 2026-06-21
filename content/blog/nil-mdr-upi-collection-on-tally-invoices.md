@@ -5,7 +5,7 @@ meta_title: "Nil MDR UPI Collection, Straight Off Tally"
 meta_description: "Nil MDR UPI collection on Tally invoices: attach a UPI link to each Tally invoice, collect at 0% MDR with no per-transaction fee, and auto-match into Tally."
 primary_keyword: "nil mdr upi collection"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises every invoice in Tally already. The gap is that collecting against it means a separate gateway taking a cut. Nil MDR UPI collection on Tally invoices closes that gap: the link rides on the invoice, the money lands whole, and the receipt posts itself back."
 ---

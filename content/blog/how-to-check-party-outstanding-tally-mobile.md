@@ -5,7 +5,7 @@ meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
 meta_description: "How to check party outstanding in Tally on mobile: the exact desktop steps, the faster phone way, and how to see partywise outstanding from the field in seconds."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor is standing at a retailer's counter who wants ₹40,000 of fresh stock on credit. He needs to know the party already owes ₹1,75,000 before he loads the van. Here is how to check that party's outstanding balance in Tally, both the desktop way and the faster way from the phone."
 ---

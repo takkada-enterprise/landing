@@ -5,7 +5,7 @@ meta_title: "Accept Payment on Tally Invoices Without MDR"
 meta_description: "How to accept payment on Tally invoices: turn an invoice into a UPI payment link and collect at 0% MDR, with the full cost math versus a payment gateway."
 primary_keyword: "payment on tally"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises ₹1,00,000 of invoices a day and pays roughly ₹1,000 in gateway MDR to collect it online. That is ₹3,00,000 a year to receive his own money. Accepting payment on Tally invoices over a 0% MDR UPI rail puts that back in his pocket. Here is how it works."
 ---

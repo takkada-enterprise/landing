@@ -5,7 +5,7 @@ meta_title: "Zero MDR UPI for Pharma Distributors (2026)"
 meta_description: "Zero MDR UPI for pharma distributors in India: why thin chemist margins make MDR hurt, the long DSO problem, and 0% MDR collection with auto-reconciliation."
 primary_keyword: "zero mdr upi for pharma distributors"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Guwahati runs on 4-5% margins and waits 60-75 days to get paid by chemists. A 1% MDR on his ₹8 crore turnover is ₹8,00,000 a year, a fifth of a margin point he cannot spare. Zero MDR UPI for pharma distributors is not a nice-to-have; it is margin he keeps."
 ---

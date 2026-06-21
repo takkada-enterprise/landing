@@ -5,7 +5,7 @@ meta_title: "Bank Reconciliation in Tally on Mobile: Step-by-Step"
 meta_description: "Bank reconciliation in Tally, step by step: the classic Banking > BRS flow, setting bank dates, and the faster mobile way to clear UPI receipts daily."
 primary_keyword: "bank reconciliation in tally"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor sits down at 9 PM to match a ₹4,80,000 bank statement against 60 receipts in Tally, half of them UPI with only a UTR to go on. Here is the classic Tally bank reconciliation flow, step by step, plus the faster way to clear UPI receipts through the day so the night session shrinks."
 ---

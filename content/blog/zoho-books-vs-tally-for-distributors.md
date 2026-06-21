@@ -5,7 +5,7 @@ meta_title: "Zoho Books vs Tally for Indian Distributors"
 meta_description: "Zoho Books vs Tally for Indian distributors: cloud accounting versus the books your CA already trusts, and why the real gap is mobile field collection."
 primary_keyword: "zoho books vs tally"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Zoho Books is a clean cloud accounting product, and its mobile access is genuinely better than a desktop ledger sitting in the office. For a distributor on Tally, the pull toward Zoho is usually about reaching the books from a phone. That specific gap can be closed without moving your accounting to the cloud at all."
 ---

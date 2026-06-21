@@ -5,7 +5,7 @@ meta_title: "How Indian Distributors Manage Collections in 2026"
 meta_description: "A clear-eyed look at how Indian distributors manage collections in 2026. Cadence, UPI, Tally reconciliation, and what separates the top quartile."
 primary_keyword: "how indian distributors manage collections"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "India has roughly 450,000 to 500,000 active distributors and several million wholesalers, by industry estimates. Across this base, the rough operational rhythm of how Indian distributors manage collections breaks into three tiers."
 ---

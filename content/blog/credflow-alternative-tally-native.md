@@ -5,7 +5,7 @@ meta_title: "CredFlow Alternative: Tally-Native Collections App"
 meta_description: "Where CredFlow fits, where it falls short for Indian distributors on Tally, and what a 0% MDR Tally-native collections stack looks like in 2026."
 primary_keyword: "credflow alternative tally"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "CredFlow is a serious B2B receivables product with strong analytics. For a ₹5–30 crore distributor running on Tally, the gaps that matter are pricing on UPI collections, salesman-side invoicing on the phone, and how cleanly receipts land back inside Tally."
 ---

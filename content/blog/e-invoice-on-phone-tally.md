@@ -5,7 +5,7 @@ meta_title: "E-Invoice on Phone Tally: Field IRN in Under a Minute"
 meta_description: "How to generate an e-invoice on phone with Tally sync. IRN workflow, pitfalls, and what it changes for distributors above ₹5 crore turnover."
 primary_keyword: "e-invoice on phone tally"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "The Indian government has lowered the e-invoicing threshold in waves: ₹500 crore in 2020, then ₹100 crore, ₹50 crore, ₹20 crore, ₹10 crore, and ₹5 crore as of 1 August 2023. Any B2B invoice from a business above this turnover needs an IRN (Invoice Reference Number) generated through the Invoice Registration Portal before the goods move or the service is delivered."
 ---

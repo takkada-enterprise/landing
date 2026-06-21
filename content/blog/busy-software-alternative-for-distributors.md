@@ -5,7 +5,7 @@ meta_title: "BUSY Software Alternative for Distributor Collections"
 meta_description: "A fair BUSY software alternative comparison for Indian distributors on Tally who need mobile UPI collection, WhatsApp reminders, and Tally auto-reconciliation."
 primary_keyword: "busy software alternative"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "BUSY is a solid desktop accounting and inventory package, and plenty of distributors compare it head to head with Tally. The more common real question is different. The distributor already runs Tally and wants the mobile collection layer that no desktop accounting package, BUSY or Tally, was built to be."
 ---

@@ -5,7 +5,7 @@ meta_title: "View Tally Reports on Mobile: An Owner's Guide"
 meta_description: "View Tally reports on mobile: outstanding, ledger, day book, top parties, and stock on your phone, and where read-only ends and write-back begins."
 primary_keyword: "tally reports on mobile"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A Dibrugarh distributor's wife runs the books while he runs the routes. He calls her six times a day to ask one question: what does this party owe. Putting Tally reports on mobile ends those calls. Here is exactly which reports a distributor reads from the phone, and where viewing stops being enough."
 ---

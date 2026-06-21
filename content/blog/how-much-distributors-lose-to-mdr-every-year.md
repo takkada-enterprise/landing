@@ -5,7 +5,7 @@ meta_title: "How Much Distributors Lose to MDR Each Year"
 meta_description: "How much distributors lose to MDR every year, by collection volume, plus the hidden per-transaction fees and reconciliation hours that compound the cost."
 primary_keyword: "how much distributors lose to mdr"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor doing ₹6 crore a year on a 1% gateway loses ₹6,00,000 to MDR annually, the cost of two salesmen, to receive money he already earned. Working out how much distributors lose to MDR every year is the fastest way to see where a 0% rail pays for itself."
 ---

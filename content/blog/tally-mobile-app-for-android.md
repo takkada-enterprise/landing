@@ -5,7 +5,7 @@ meta_title: "Tally Mobile App for Android: 2026 Reality Check"
 meta_description: "A Tally mobile app for Android connects your phone to the office Tally machine. What installs, what syncs, and what an Android phone can and cannot do."
 primary_keyword: "tally mobile app for android"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati distributor's three salesmen all carry ₹8,000 Android phones, not laptops. He wants Tally on those phones and keeps hitting the same wall: there is no Tally app to install. Here is what a Tally mobile app for Android really is, what syncs to the phone, and what it can and cannot do against the office machine."
 ---

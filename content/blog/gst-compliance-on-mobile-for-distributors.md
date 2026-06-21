@@ -5,7 +5,7 @@ meta_title: "GST Compliance on Mobile: What Distributors Can Actually Do"
 meta_description: "GST compliance on mobile for Indian distributors in 2026. E-invoice, e-way bill, HSN validation, GSTR-2B reconciliation and what still needs the desktop."
 primary_keyword: "gst compliance on mobile for distributors"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A mid-sized distributor — say ₹15 crore turnover, 80 to 120 retail parties, 30 to 50 B2B invoices a day — carries roughly this monthly compliance load:"
 ---

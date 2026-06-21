@@ -5,7 +5,7 @@ meta_title: "Multi-Business Tally Mobile App for Indian Distributors"
 meta_description: "A multi-business Tally mobile app shows consolidated outstanding, collections, and stock across 2–5 companies on one phone. Here is what to look for."
 primary_keyword: "multi business tally mobile app"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "An Indian distributor often runs three businesses out of one office: a parent FMCG firm, a sister pharma firm in the spouse's name, and a hardware vertical under the son. Three Tally companies, three sets of books, one owner who needs to see all of it on one screen."
 ---

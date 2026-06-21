@@ -5,7 +5,7 @@ meta_title: "Collect Payment Against Tally Invoice via WhatsApp"
 meta_description: "Collect payment against Tally invoice on WhatsApp: dispatch the invoice, attach a UPI link, and auto-match the receipt back into Tally at 0% MDR."
 primary_keyword: "collect payment against tally invoice"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A Barpeta distributor sends invoices on WhatsApp, then chases the same parties for payment a week later on the same WhatsApp. The invoice and the money live in two separate conversations. Collecting payment against a Tally invoice in one WhatsApp thread closes that gap. Here is the loop, party by party."
 ---

@@ -5,7 +5,7 @@ meta_title: "Automate Payment Reminders in Tally (2026)"
 meta_description: "How to automate payment reminders for Tally invoices with smart reminders that change copy by due date and overdue status, sent on WhatsApp with a UPI link."
 primary_keyword: "automate payment reminders tally"
 date: "2026-06-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A distributor in Rajkot used to keep a diary of who to call for payment. Some days he called, some days he forgot, and the retailers learned which suppliers chased and which did not. Automating payment reminders takes the diary out of his head and turns it into a system that never forgets and never sounds the same twice."
 ---

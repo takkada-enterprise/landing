@@ -5,7 +5,7 @@ meta_title: "Partywise Outstanding Statement in Tally for Distributors"
 meta_description: "How to generate a partywise outstanding statement in Tally retailers can read, send it via WhatsApp, and turn it into a 0% MDR UPI collection tool."
 primary_keyword: "partywise outstanding statement tally"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A partywise outstanding statement in Tally is the document a retailer disputes against, an auditor relies on, and a collection call references. Sent badly, it gets ignored. Sent with a UPI link, it gets paid."
 ---

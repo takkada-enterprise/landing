@@ -5,7 +5,7 @@ meta_title: "Udhar Vasuli Kaise Kare: A Distributor's Playbook 2026"
 meta_description: "Udhar vasuli kaise kare — a direct playbook for Indian distributors. Credit rules, cadence, payment links and what to do with chronic late payers."
 primary_keyword: "udhar vasuli kaise kare distributor"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "First, retailers now juggle more distributors. The average kirana or wholesale buyer buys from 7 to 12 distributors across categories, each extending 30 to 60 days of credit. Your invoice is one of dozens competing for the retailer's attention at month-end."
 ---

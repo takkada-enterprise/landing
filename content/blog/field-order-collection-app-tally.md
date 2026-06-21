@@ -5,7 +5,7 @@ meta_title: "Field Order Collection App for Tally Distributors"
 meta_description: "A field order collection app for Tally lets salesmen take retailer orders on their phones with live stock, prices, and credit limits. Here is what it must do."
 primary_keyword: "field order collection app tally"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "founder"
 category: "Field Sales"
 excerpt: "A salesman who calls back to the office to check if 200 cartons of detergent are in stock has already lost the order. A field order collection app for Tally puts live stock, prices, and credit limits in his hand, so the order is closed at the retailer's counter."
 ---

@@ -5,7 +5,7 @@ meta_title: "UPI vs Card vs Cash Collection Cost Compared"
 meta_description: "UPI vs card vs cash collection cost for distributors: the real expense of each, from MDR and cash leakage to reconciliation time, and why 0% MDR UPI wins."
 primary_keyword: "upi vs card vs cash collection cost"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "A Guwahati distributor collects in all three: cash that leaks and needs counting, the rare card that costs 1.5%, and UPI that should be free but is not on his current app. Laying the UPI vs card vs cash collection cost side by side shows where the money and the hours actually go."
 ---

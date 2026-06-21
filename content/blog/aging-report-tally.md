@@ -5,7 +5,7 @@ meta_title: "Aging Report in Tally: How Distributors Read and Act On It"
 meta_description: "How to generate the aging report in Tally Prime, read each receivables bucket, and run a weekly action plan that actually pulls cash in."
 primary_keyword: "aging report tally"
 date: "2026-05-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "An aging report in Tally is a list of every open invoice grouped by how long it has been outstanding. The buckets are usually 0 to 30, 31 to 60, 61 to 90, and over 90 days. It is the single most important report a distributor's accountant can pull on a Monday morning."
 ---

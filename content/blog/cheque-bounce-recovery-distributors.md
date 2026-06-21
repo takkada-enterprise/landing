@@ -5,7 +5,7 @@ meta_title: "Cheque Bounce Recovery for Distributors: Section 138 Playbook"
 meta_description: "What to do when a retailer's cheque bounces: the 30-day notice, Section 138 timeline, costs, and how digital collection prevents most cases."
 primary_keyword: "cheque bounce recovery distributors"
 date: "2026-05-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A cheque bounces when a retailer's cheque is returned unpaid by the bank, usually with the reason \"insufficient funds\" or \"funds insufficient\". For an Indian distributor, this is one of the most stressful events in the operating year. The legal remedy under Section 138 of the Negotiable Instruments Act exists, but most distributors either do not invoke it correctly or settle out of fatigue. Both are expensive."
 ---

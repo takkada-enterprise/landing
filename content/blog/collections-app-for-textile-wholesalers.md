@@ -5,7 +5,7 @@ meta_title: "Textile Wholesaler Collection App on Tally (2026)"
 meta_description: "Textile wholesaler collection app for Tally: 60-120 day credit, part-payments across many bills, 0% MDR UPI collection that reconciles bill-by-bill."
 primary_keyword: "textile wholesaler collection app"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A fabric wholesaler in Surat ships ₹2,40,000 of suiting to a retailer who pays ₹40,000 here, ₹65,000 there, across four months and six different bills. Matching those part-payments to the right invoices is the real job. A textile wholesaler collection app that reconciles bill-by-bill on a 0% MDR UPI rail is what closes the right ledger every time."
 ---

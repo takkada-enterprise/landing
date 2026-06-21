@@ -5,7 +5,7 @@ meta_title: "WhatsApp Invoice Format for Tally Distributors"
 meta_description: "The right WhatsApp invoice format for Tally users: PDF, one-line summary, and a 0% MDR UPI link that retailers tap-to-pay in 8 seconds."
 primary_keyword: "whatsapp invoice format tally"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A WhatsApp invoice that is just a PDF attachment converts 2× slower than a WhatsApp invoice that is a PDF, a one-line summary, and a tap-to-pay UPI link. The format matters as much as the timing."
 ---

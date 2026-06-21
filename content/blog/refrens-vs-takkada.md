@@ -5,7 +5,7 @@ meta_title: "Refrens vs Takkada for Tally-Using Distributors"
 meta_description: "Refrens vs Takkada compared for Indian distributors. Billing focus vs Tally-integration focus, and which fits a mid-sized distribution operation."
 primary_keyword: "refrens vs takkada"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Refrens is a cloud-native invoicing, quotation, and payment platform for service businesses and light B2B sellers. It offers GST-compliant invoices, online payment collection, client management, proposal-to-invoice workflows, and basic accounting. Popular with agencies, consultants, freelancers, SaaS sellers, and small service firms. It is mobile-and-web, does not require a desktop install, and does not integrate with Tally."
 ---
