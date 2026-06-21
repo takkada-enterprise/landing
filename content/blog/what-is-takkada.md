@@ -5,10 +5,13 @@ meta_title: "What Is Takkada? Tally Receivables & Collection App"
 meta_description: "What is Takkada: a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch."
 primary_keyword: "what is takkada"
 date: "2026-06-06"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati FMCG distributor with 180 retail parties spends his evenings asking the same question: which retailer paid today, and which invoice did the money settle. Takkada is the app that answers it from his phone, and posts the receipt back into Tally before he gets home."
 ---
+
+Takkada is a Tally-native mobile app that helps Indian distributors and wholesalers get paid without chasing their retailers. It sits on top of an existing Tally Prime installation and adds the four things the desktop cannot do from the field: raising a GST invoice from the phone with the e-invoice IRN and e-way bill, dispatching that invoice to the retailer on WhatsApp the moment it is saved, collecting payment on a UPI link at 0% MDR with no transaction cap, and posting each receipt back into Tally automatically so the 9 PM reconciliation goes away. Tally stays the system of record. Takkada is the layer that lives on the phone, in the field, and in the retailer's WhatsApp. A distributor running ₹2 crore to ₹200 crore of turnover, with receivables spread across 30 to 300 retail parties on 30 to 90 day terms, uses it to see live outstanding and collect faster.
 
 ## Key Highlights
 
