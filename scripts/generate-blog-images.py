@@ -205,6 +205,12 @@ ARTICLES = [
         "tagline": "A Tally-native view on collections, MDR, and salesman-side invoicing.",
     },
     {
+        "slug": "billbook-alternative-for-distributors",
+        "title": "Bill Book App Alternative for Tally Distributors",
+        "category": "Comparisons",
+        "tagline": "Why a Tally distributor outgrows a standalone bill book app.",
+    },
+    {
         "slug": "zero-mdr-upi-collection-for-distributors-india",
         "title": "Zero MDR UPI Collection for Indian Distributors",
         "category": "Collections",
