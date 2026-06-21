@@ -47,6 +47,12 @@ export const routeMetadata = [
     priority: 0.8,
   },
   {
+    path: '/tally-on-mobile',
+    sourceFile: 'src/routes/TallyOnMobile.jsx',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
     path: '/whatsapp-invoice-tally',
     sourceFile: 'src/routes/WhatsAppInvoice.jsx',
     changefreq: 'monthly',

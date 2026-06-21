@@ -156,16 +156,27 @@ const homeFaqItems = [
   },
 ];
 
-function Home() {
+// SEO defaults for the home route. Exposed as props so a sibling route can
+// reuse this exact page body under a different canonical URL (e.g. the
+// exact-match /tally-on-mobile landing) without forking the markup. One body,
+// many entry points, no drift.
+const HOME_SEO = {
+  title: 'Takkada | Mobile Tally App for Indian Distributors',
+  description:
+    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹9,999/year.',
+  path: '/',
+};
+
+function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
   useScrollReveal();
 
   return (
     <>
       <Seo
-        title="Takkada | Mobile Tally App for Indian Distributors"
-        description="Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹9,999/year."
-        path="/"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 

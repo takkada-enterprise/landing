@@ -6,6 +6,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
 import RefundPolicy from './RefundPolicy';
 import MobileTally from './MobileTally';
+import TallyOnMobile from './TallyOnMobile';
 import WhatsAppInvoice from './WhatsAppInvoice';
 import AutoReconciliation from './AutoReconciliation';
 import ForDistributors from './ForDistributors';
@@ -22,6 +23,7 @@ const ELEMENT_FOR_PATH = {
   '/terms-and-conditions': <TermsAndConditions />,
   '/refund-policy': <RefundPolicy />,
   '/mobile-tally': <MobileTally />,
+  '/tally-on-mobile': <TallyOnMobile />,
   '/whatsapp-invoice-tally': <WhatsAppInvoice />,
   '/auto-reconciliation-tally': <AutoReconciliation />,
   '/for-distributors': <ForDistributors />,
