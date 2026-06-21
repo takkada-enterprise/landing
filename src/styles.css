@@ -3244,6 +3244,17 @@ html.js .animated-heading .letter {
   color: #B8D4BE;
 }
 
+.blog-author-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.blog-author-link:hover {
+  text-decoration-thickness: 2px;
+}
+
 .blog-post-byline .blog-date {
   color: #B8D4BE;
 }

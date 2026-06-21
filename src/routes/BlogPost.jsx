@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
 import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
+import { getAuthor } from '../data/authors';
 
 const DEMO_URL = 'https://calendar.notion.so/meet/ronakmalu/takkada';
 
@@ -57,6 +58,10 @@ function BlogPost() {
     );
   }
 
+  const author = getAuthor(post.author);
+  const authorName = author?.name ?? post.author;
+  const authorHref = author?.linkedin || author?.url || null;
+
   const schemas = [
     articleSchema(post),
     breadcrumbSchema([
@@ -94,7 +99,20 @@ function BlogPost() {
               </span>
               <h1 className="blog-post-title">{post.title}</h1>
               <div className="blog-post-byline">
-                <span className="blog-author">{post.author}</span>
+                <span className="blog-author">
+                  {authorHref ? (
+                    <a
+                      className="blog-author-link"
+                      href={authorHref}
+                      target="_blank"
+                      rel="noopener noreferrer author"
+                    >
+                      {authorName}
+                    </a>
+                  ) : (
+                    authorName
+                  )}
+                </span>
                 <span className="blog-byline-sep" aria-hidden="true">·</span>
                 <time className="blog-date tabular-nums" dateTime={post.date}>
                   {formatDate(post.date)}
