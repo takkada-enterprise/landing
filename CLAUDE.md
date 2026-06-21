@@ -120,7 +120,7 @@ Numbers use tabular lining figures. Add a utility class `.tabular-nums { font-fe
 - SSG via `vite-react-ssg` (added in Session 1)
 - Head management via `vite-react-ssg`'s built-in `Head` component (which wraps `react-helmet-async` internally). Do not add `@unhead/react` or any other head library; `vite-react-ssg` already provides one and a second system would be dead weight.
 - Existing styling approach is preserved; do not introduce Tailwind or styled-components unless the repo already uses them
-- **Deployment: GitHub Pages.** `.github/workflows/deploy.yml` publishes `dist/` to GitHub Pages on every push to `main`. The apex domain `takkada.com` is served from GitHub Pages via the `CNAME` file at the repo root (mirrored into `public/CNAME`). There is no `www` CNAME; all canonicals and schema URLs use the apex `https://takkada.com`. This branch (`seo-aeo-rebuild`) does not change the deployment target. The legacy `vercel.json` has been removed and is not part of the deploy path.
+- **Deployment: Cloudflare on merge to `main`.** Cloudflare builds and publishes `dist/` automatically when a PR merges to `main`; new URLs are live within a few minutes. `main` is PR-protected, so direct pushes are rejected (GH013) and a PR is mandatory. The repo's `.github/workflows/deploy.yml` ("Deploy to GitHub Pages") is intentionally disabled and is **not** the deploy path. The apex domain `takkada.com` is served via the `CNAME` file at the repo root (mirrored into `public/CNAME`). There is no `www` CNAME; all canonicals and schema URLs use the apex `https://takkada.com`. The legacy `vercel.json` has been removed and is not part of the deploy path.
 
 Current entry points and commands:
 - Dev: `npm run dev` (Vite dev server on port 5173, host enabled)
