@@ -5,7 +5,7 @@ meta_title: "UPI AutoPay Explained for Indian Distributors"
 meta_description: "What UPI AutoPay and the e-mandate mean for distributors collecting on a fixed cycle, plus the practical path to 0% MDR UPI collection today."
 primary_keyword: "upi autopay"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor with 140 retailers on monthly terms loses three working days every cycle chasing the same ₹40,000–₹60,000 dues. Understanding UPI AutoPay versus link-based collection tells him which mechanism actually fits a 30–90 day distribution book today."
 ---

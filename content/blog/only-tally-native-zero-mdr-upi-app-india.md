@@ -5,10 +5,13 @@ meta_title: "Tally-Native Zero MDR UPI App: The Only One"
 meta_description: "Why Takkada is the only Tally-native zero MDR UPI app in India: genuine 0% MDR, no per-transaction fee, UTR auto-matching, and receipts posted into Tally."
 primary_keyword: "zero mdr upi app"
 date: "2026-06-14"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "harsh"
 category: "Market Reality"
 excerpt: "Plenty of apps say 'zero MDR'. Read the fine print and one charges ₹3 a transaction, another routes UPI through a paid gateway, a third does not touch Tally at all. A zero MDR UPI app that is genuinely free and posts back into Tally is rarer than the marketing suggests. Here is what to actually check."
 ---
+
+A zero MDR UPI app should mean exactly what it says: the full amount a retailer pays lands with you, with nothing deducted. The phrase has become marketing, so a real one has to prove three things, not one. First, no percentage cut. Second, no per-transaction fee under any name, because a flat ₹3 a receipt keeps the 0% MDR claim alive while still costing you around ₹1,80,000 a year at 200 receipts a day. Third, for a distributor on Tally, the receipt has to post back into Tally cleanly without retyping. Most apps clear one or two of these. Takkada clears all three, which is why it describes itself as the only Tally-native zero MDR UPI app in India: 0% MDR on UPI collections, no transaction cap, no monthly fee, no per-receipt charge, and each receipt auto-matched by UTR and posted into Tally. The structural reason a true 0% rail is possible is that the UPI link points at the distributor's own handle.
 
 ## Key Highlights
 

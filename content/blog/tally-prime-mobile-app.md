@@ -5,10 +5,13 @@ meta_title: "Tally Prime Mobile App: What Exists in 2026"
 meta_description: "A honest look at the Tally Prime mobile app question. Official options, companion apps, and what Indian distributors actually use to run Tally from phone."
 primary_keyword: "tally prime mobile app"
 date: "2026-04-25"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "Short answer: no. Tally Solutions, the company behind Tally Prime, does not publish a native Android or iOS client. Tally Prime is a Windows desktop product, and the data folder sits on a single machine with a multi-user or single-user licence. That architecture goes back to the late 1990s and Tally has not signalled a native mobile build."
 ---
+
+There is no official Tally Prime mobile app. Tally Solutions does not publish a native Android or iOS client, because Tally Prime is a Windows desktop product whose data folder sits on a single machine. So Tally Prime mobile app, as Indian distributors search it, refers to companion apps that sync with a Tally Prime installation over the Tally XML gateway and give the phone a native experience. The one official capability, Tally Remote, is a browser layer over Tally.NET aimed at Chartered Accountants and auditors, and on a phone it is the full desktop interface rendered small, slow, and unusable as a daily field tool. The companion-app market sorts into three shapes by what they let you do from the phone: view-only, view plus voucher entry, and full-stack apps that add collections and GST compliance. Your Windows Tally machine stays where it is. The phone app talks to it through a small sync service, so the books stay in one place.
 
 ## Key Highlights
 

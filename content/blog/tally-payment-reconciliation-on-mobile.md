@@ -5,7 +5,7 @@ meta_title: "Tally Payment Reconciliation on Mobile: How It Works"
 meta_description: "Tally payment reconciliation on mobile: how auto-reconciliation matches UPI receipts to invoices and posts a receipt voucher, ending the 9 PM session."
 primary_keyword: "tally payment reconciliation"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati accountant stays back every night to match the day's UPI credits against invoices in Tally. Forty receipts, ninety minutes, two errors. Moving Tally payment reconciliation onto mobile with auto-matching turns that ninety minutes into zero. Here is how the matching actually works."
 ---

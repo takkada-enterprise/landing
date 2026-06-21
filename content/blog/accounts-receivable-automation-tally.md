@@ -5,7 +5,7 @@ meta_title: "Accounts Receivable Automation for Tally (2026)"
 meta_description: "A guide to accounts receivable automation for Tally: automate invoicing, WhatsApp reminders, UPI collection, and reconciliation for Indian distributors."
 primary_keyword: "accounts receivable automation tally"
 date: "2026-06-06"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Nagpur FMCG distributor employs two people whose whole job is receivables: one types invoices from delivery notes, the other matches bank receipts to bills every evening. Accounts receivable automation does not fire those two people. It moves them off data entry and onto the retailers who actually need chasing."
 ---

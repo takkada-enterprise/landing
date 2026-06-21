@@ -1,10 +1,31 @@
+# robots.txt — source of truth for takkada.com crawler policy.
+#
+# Heads up: Cloudflare's "Block AI bots / managed robots.txt" edge feature can
+# inject an extra, conflicting block ahead of this file at the edge. Editing
+# this file cannot remove that injected block. The durable fix for AI-search
+# crawler access is the Cloudflare dashboard setting (Security → Bots), not
+# this file. See docs/plans/2026-06-21-002-feat-geo-ai-search-followups-plan.md
+# (Operator Action #1). This file stays authoritative and explicit, and
+# scripts/checkCrawlerAccess.mjs verifies the live result.
+#
+# Each user-agent appears exactly once with one intentional directive.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+# AI-search / citation crawlers. We want takkada.com cited in AI answers, so
+# these are allowed. The matching Cloudflare dashboard setting must agree.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: GPTBot
@@ -14,9 +35,6 @@ User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
-Allow: /
-
-User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: Google-Extended

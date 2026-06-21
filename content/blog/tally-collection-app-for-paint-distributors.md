@@ -5,7 +5,7 @@ meta_title: "Tally Collection App for Paint Distributors (2026)"
 meta_description: "Paint distributor collection on Tally: brand schemes squeeze your cash while contractor receivables stretch 90 days. A mobile UPI rail with 0% MDR keeps margin."
 primary_keyword: "paint distributor collection"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A paint distributor in Nagpur stocks Asian Paints and Berger across 140 hardware shops and a handful of project contractors. His ledger sits at ₹62 lakh outstanding, the company wants its scheme settlement on time, and three painters paid the same ₹18,500 yesterday. A Tally collection app that runs on a 0% MDR UPI rail fixes both the cash crunch and the nightly reconciliation."
 ---

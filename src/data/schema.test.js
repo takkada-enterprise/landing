@@ -192,4 +192,72 @@ describe('articleSchema', () => {
     expect(schema.url).toBe('https://takkada.com/blog/test-post/');
     expect(schema.mainEntityOfPage).toBe('https://takkada.com/blog/test-post/');
   });
+
+  describe('author resolution', () => {
+    // A resolver standing in for a fully-populated registry entry (LinkedIn
+    // supplied), so the Person/sameAs path is asserted regardless of whether
+    // the operator has pasted the real founder LinkedIn yet.
+    const founderResolver = () => ({
+      name: 'Ronak Maloo',
+      jobTitle: 'Founder',
+      linkedin: 'https://www.linkedin.com/in/ronakmalu/',
+      knowsAbout: ['Tally', 'Accounts receivable'],
+    });
+
+    it('emits a Person author with name, jobTitle, knowsAbout and a LinkedIn sameAs when resolved', () => {
+      const schema = articleSchema({ ...post, author: 'founder' }, founderResolver);
+      expect(schema.author).toMatchObject({
+        '@type': 'Person',
+        name: 'Ronak Maloo',
+        jobTitle: 'Founder',
+      });
+      expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/ronakmalu/');
+      expect(schema.author.knowsAbout).toContain('Tally');
+    });
+
+    it('anchors the Person to the organization via worksFor @id', () => {
+      const schema = articleSchema({ ...post, author: 'founder' }, founderResolver);
+      expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
+    });
+
+    it('omits sameAs when the resolved author has no LinkedIn yet', () => {
+      const noLinkedin = () => ({ name: 'Ronak Maloo', jobTitle: 'Founder' });
+      const schema = articleSchema({ ...post, author: 'founder' }, noLinkedin);
+      expect(schema.author['@type']).toBe('Person');
+      expect(schema.author).not.toHaveProperty('sameAs');
+    });
+
+    it('falls back to an Organization author for an unknown/legacy author key', () => {
+      const schema = articleSchema({ ...post, author: 'Takkada Team' });
+      expect(schema.author).toEqual({ '@type': 'Organization', name: 'Takkada Team' });
+    });
+
+    it('resolves the real "founder" key against the shipped registry as a Person with a LinkedIn sameAs', () => {
+      const schema = articleSchema({ ...post, author: 'founder' });
+      expect(schema.author['@type']).toBe('Person');
+      expect(schema.author.name).toBe('Ronak Maloo');
+      expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
+      expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/ronak-maloo/');
+    });
+
+    it('resolves the real "harsh" key as a name-only Person (LinkedIn sameAs, no jobTitle)', () => {
+      const schema = articleSchema({ ...post, author: 'harsh' });
+      expect(schema.author['@type']).toBe('Person');
+      expect(schema.author.name).toBe('Harsh Bhudolia');
+      expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
+      expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/harsh-bhudolia/');
+      expect(schema.author).not.toHaveProperty('jobTitle');
+    });
+  });
+
+  describe('dateModified', () => {
+    it('uses datePublished when no updated field is present', () => {
+      expect(articleSchema(post).dateModified).toBe('2026-06-06');
+    });
+
+    it('uses the updated field when present', () => {
+      expect(articleSchema({ ...post, updated: '2026-06-21' }).dateModified).toBe('2026-06-21');
+      expect(articleSchema({ ...post, updated: '2026-06-21' }).datePublished).toBe('2026-06-06');
+    });
+  });
 });

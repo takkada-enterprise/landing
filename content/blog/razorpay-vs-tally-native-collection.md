@@ -5,7 +5,7 @@ meta_title: "Razorpay Payment Links vs Tally-Native Collection"
 meta_description: "Razorpay payment links vs a Tally-native collection layer for distributors: platform fees and no Tally posting, versus 0% MDR UPI and auto-reconciliation."
 primary_keyword: "razorpay payment links tally"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Razorpay is an excellent payment gateway, built for online businesses and developers who want a payment link or a checkout in their app. A Tally distributor is neither. They want the payment tied to a bill in Tally, collected without a platform fee, and posted back to the books on its own."
 ---

@@ -5,10 +5,13 @@ meta_title: "Auto Reconciliation Tally: How It Actually Works"
 meta_description: "Auto reconciliation Tally explained end to end. UTR-to-invoice matching, split payments, advances, TDS, and how receipt vouchers post back automatically."
 primary_keyword: "auto reconciliation tally"
 date: "2026-04-25"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "How-To"
 excerpt: "Auto reconciliation Tally refers to the process of automatically matching incoming bank receipts to outstanding sales invoices in Tally, and then posting receipt vouchers in Tally without human data entry."
 ---
+
+Auto reconciliation Tally is the process of automatically matching incoming bank receipts to the right outstanding sales invoices and posting the receipt vouchers into Tally with no human data entry. The traditional flow is slow: the retailer pays, the bank credits the account, and the accountant then downloads the statement, opens Tally, finds the matching invoice, posts a receipt voucher, and marks the invoice closed. For a distributor with 200 receipts a month, that is 75 to 90 minutes a day of focused typing, usually in the 9 PM session everyone dreads. Auto reconciliation collapses it into a service that listens to the bank, identifies the invoice, and posts the voucher within minutes of the money landing. The cleanest match uses a reference embedded in the UPI payment link, so the incoming UTR carries the invoice number and matches it directly. The harder cases, split payments, advances, and TDS, are handled by amount and party matching with a confidence score the accountant reviews.
 
 ## Key Highlights
 

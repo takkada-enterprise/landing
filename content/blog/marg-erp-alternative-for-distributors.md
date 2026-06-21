@@ -5,7 +5,7 @@ meta_title: "Marg ERP Alternative for Distributor Receivables"
 meta_description: "A fair Marg ERP alternative comparison for Indian distributors who run on Tally and need mobile UPI collection, WhatsApp reminders, and auto-reconciliation."
 primary_keyword: "marg erp alternative"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Marg ERP is a capable desktop billing and inventory system, strong in pharma and FMCG distribution. The question most distributors actually ask is narrower. They already run Tally and want the field collection and reconciliation layer Marg's desktop core was never built to be."
 ---

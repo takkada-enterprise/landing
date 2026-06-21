@@ -5,10 +5,13 @@ meta_title: "Tally on Mobile: What Works and What Breaks in 2026"
 meta_description: "A practical look at running Tally on mobile for Indian distributors. What reads from Tally on a phone, what writes back, and what still needs the desk."
 primary_keyword: "tally on mobile"
 date: "2026-04-25"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "Tally Prime, and before it Tally.ERP 9, is built for Windows. The data folder lives on a single machine and multi-user licences assume a desktop keyboard-and-mouse workflow on a LAN. There is no official Tally mobile client, and that is a design decision going back to the late 1990s."
 ---
+
+Tally on mobile is never the official Tally product running on your phone, because Tally Prime is a Windows desktop application and the company data file lives on a single office machine. Tally Solutions has shipped no native mobile client, and that goes back to a design decision from the late 1990s. So Tally on mobile always means one of four bridges from your phone to that office machine: a remote-desktop app like AnyDesk that mirrors the screen, the official Tally.NET remote feature built for CAs and auditors, a read-only companion app that shows ledgers and outstanding, or a read-and-write companion app that also creates vouchers and collects payments. Read-only viewing has existed since around 2015. The newer and still uneven capabilities are voucher creation, payment links, and auto-reconciliation. The real break point for a distributor is not viewing Tally on a phone. It is invoicing and collecting from the field without the 9 PM reconciliation session.
 
 ## Key Highlights
 

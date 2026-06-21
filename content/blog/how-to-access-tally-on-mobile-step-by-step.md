@@ -5,10 +5,13 @@ meta_title: "How to Access Tally on Mobile: Step-by-Step Setup"
 meta_description: "How to access Tally on mobile: the four real bridges from your phone to the office Tally machine, what each one costs, and which fits a distributor's day."
 primary_keyword: "how to access tally on mobile"
 date: "2026-06-14"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor leaves the office at 9 AM and does not see his Tally screen again until night. By the time he checks a party's ₹1,40,000 outstanding, the salesman has already given fresh credit. Here is how to put that Tally data on the phone, step by step, across the four ways that actually work."
 ---
+
+How to access Tally on mobile is the wrong question if you expect to download Tally from the Play Store and log in, because Tally Prime is a Windows desktop product and the company file sits on one office machine. Accessing Tally on mobile always means building a bridge from your phone to that machine, and there are four. A remote-desktop app like AnyDesk mirrors the office screen. The official Tally.NET remote feature gives browser access meant for auditors. A read-only companion app shows ledgers, stock, and outstanding. A read-and-write companion app lets you create a voucher, send a payment link, and clear the 9 PM reconciliation from the field. A read bridge shows you numbers. A write bridge lets you act on them. For a distributor whose day runs across 18 to 30 retail parties on a route, that difference decides whether the phone is a window or a workspace. This guide walks each bridge in order, from the simplest screen-mirror to the full mobile layer.
 
 ## Key Highlights
 

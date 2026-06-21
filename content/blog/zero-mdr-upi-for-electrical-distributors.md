@@ -5,7 +5,7 @@ meta_title: "Electrical Distributor Collection App, 0% MDR UPI"
 meta_description: "Electrical distributor collection runs 60-90 day credit on big contractor bills. Why 0% MDR UPI and faster receipts free locked-up working capital."
 primary_keyword: "electrical distributor collection"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "An electrical distributor in Ludhiana ships ₹2,40,000 of switchgear and cable to a contractor against a running site bill, then waits 78 days for payment. One delayed invoice that size ties up real working capital. For electrical distributor collection, faster receipts on a 0% MDR rail free cash a thin-margin trade cannot afford to leave parked."
 ---

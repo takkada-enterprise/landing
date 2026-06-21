@@ -6,6 +6,7 @@ import {
   appLinks,
   appRatingCount,
 } from './siteContent';
+import { getAuthor } from './authors';
 
 export const SITE_URL = 'https://takkada.com';
 export const DEFAULT_OG_IMAGE = '/assets/screenshots/takkada-logo.png';
@@ -170,7 +171,31 @@ export function breadcrumbSchema(trail) {
   };
 }
 
-export function articleSchema(post) {
+// Build the Article `author` node. A known author key resolves to a real
+// Person with credentials and (when supplied) a LinkedIn `sameAs`; an unknown
+// key falls back to the Organization-typed author so legacy posts never lose
+// their byline. `resolveAuthor` is injectable for testing, mirroring the
+// `reviews` parameter on softwareApplicationSchema.
+function authorNode(authorKey, resolveAuthor) {
+  const author = resolveAuthor(authorKey);
+  if (!author) {
+    return { '@type': 'Organization', name: authorKey };
+  }
+  const node = {
+    '@type': 'Person',
+    name: author.name,
+    worksFor: { '@id': `${SITE_URL}/#organization` },
+  };
+  if (author.jobTitle) node.jobTitle = author.jobTitle;
+  if (author.url) node.url = absoluteUrl(author.url);
+  if (author.linkedin) node.sameAs = [author.linkedin];
+  if (Array.isArray(author.knowsAbout) && author.knowsAbout.length > 0) {
+    node.knowsAbout = author.knowsAbout;
+  }
+  return node;
+}
+
+export function articleSchema(post, resolveAuthor = getAuthor) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -178,11 +203,11 @@ export function articleSchema(post) {
     description: post.meta_description,
     image: absoluteUrl(post.heroImage),
     datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: post.author,
-    },
+    // dateModified must reflect real edits, not mirror datePublished. An
+    // optional `updated` frontmatter field bumps it; recency is a strong
+    // AI-citation signal (plan U2 / GEO §4).
+    dateModified: post.updated ?? post.date,
+    author: authorNode(post.author, resolveAuthor),
     publisher: { '@id': `${SITE_URL}/#organization` },
     isPartOf: { '@id': `${SITE_URL}/#website` },
     url: absoluteUrl(`/blog/${post.slug}`),

@@ -5,7 +5,7 @@ meta_title: "What Is MDR? A Plain Guide for Distributors"
 meta_description: "What is MDR? The merchant discount rate is the cut taken on each payment you receive. Here is what it costs an Indian distributor and how 0% MDR changes it."
 primary_keyword: "what is mdr"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati distributor collecting ₹2 crore a year on a payment gateway at 1% MDR pays ₹2,00,000 a year just to receive his own money. He never sees the line item because it is netted off before the money lands. Understanding what MDR is, is the first step to stopping that leak."
 ---

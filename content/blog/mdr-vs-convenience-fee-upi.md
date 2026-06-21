@@ -5,7 +5,7 @@ meta_title: "MDR vs Convenience Fee: UPI Costs for Distributors"
 meta_description: "MDR vs convenience fee explained for distributors: who pays each one on UPI, what it actually costs, and where the 0% MDR claim sits."
 primary_keyword: "mdr vs convenience fee"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor collecting ₹40 lakh a month on a card-style payment rail at 1.8% MDR was bleeding ₹72,000 every month to processing charges he never saw on a statement. Move that collection to a 0% MDR UPI link and the ₹72,000 stays in his account."
 ---

@@ -5,7 +5,7 @@ meta_title: "Best Tally Mobile Add-On Apps for Distributors 2026"
 meta_description: "The best Tally mobile add-on apps for Indian distributors in 2026, compared by what they actually do: visibility, voucher entry, collection, and reconciliation."
 primary_keyword: "best tally add-on apps"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Tally runs the books, but it lives on a desktop, and distribution happens in the field. A handful of mobile add-ons try to bridge that gap. They are not all the same product. Sorting them by the job they actually do, from viewing to collecting, makes the choice obvious for where your business is."
 ---

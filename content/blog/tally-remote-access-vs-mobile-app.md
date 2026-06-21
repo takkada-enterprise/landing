@@ -5,7 +5,7 @@ meta_title: "Tally Remote Access vs Mobile App: 2026 Comparison"
 meta_description: "Tally remote access vs a native mobile app for distributors: latency, voucher creation, offline use, and cost compared on a real 2G-zone Barpeta route."
 primary_keyword: "tally remote access"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "A distributor on a Barpeta route opens AnyDesk to check a party's ledger and waits 40 seconds for the screen to draw on a 2G connection. By then the retailer has moved on. The same check on a native companion app loads from cache in under a second. This is the real gap between Tally remote access and a mobile app."
 ---

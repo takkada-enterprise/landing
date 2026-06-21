@@ -5,7 +5,7 @@ meta_title: "Payment Collection Cost Comparison for Indian Distributors"
 meta_description: "Payment collection cost comparison for Indian distributors across UPI, links, gateways, and Tally-native apps. The honest math on what ₹1 crore costs."
 primary_keyword: "payment collection cost comparison india"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Two distributors with the same ₹15 crore turnover can have wildly different payment collection costs. One pays ₹15 lakh a year in MDR; the other pays ₹0. The difference is the architecture, not the volume."
 ---

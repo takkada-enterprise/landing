@@ -5,7 +5,7 @@ meta_title: "Free Tally Mobile App vs Paid: A Buyer's Guide"
 meta_description: "Is there a free Tally mobile app? What free tiers cover (read-only viewing) versus what paid unlocks: voucher creation, collections, and auto-reconciliation."
 primary_keyword: "free tally mobile app"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A Barpeta distributor installed a free Tally mobile app, loved seeing outstanding on his phone, then hit the wall the first time he tried to log a ₹42,000 receipt and could not. The free tier showed him the problem and could not let him fix it. Here is the honest line between free and paid."
 ---

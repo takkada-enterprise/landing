@@ -5,7 +5,7 @@ meta_title: "Send a Payment Reminder From Tally on WhatsApp: Guide"
 meta_description: "How to send a payment reminder from Tally on WhatsApp, step by step: the manual copy-paste way, the faster automated way, and which fits a distributor."
 primary_keyword: "send payment reminder from tally on whatsapp"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor has ₹1,40,000 sitting overdue across nine retail parties on a Tuesday morning. The bills are in Tally; the parties are on WhatsApp. Here is how to bridge those two, step by step, the manual way and the faster automated way."
 ---

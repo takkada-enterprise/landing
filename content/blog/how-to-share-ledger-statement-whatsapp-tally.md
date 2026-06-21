@@ -5,7 +5,7 @@ meta_title: "Share Ledger Statement on WhatsApp From Tally: Guide"
 meta_description: "Share a ledger statement on WhatsApp from Tally: the manual export-to-PDF route, the faster mobile way, and how to add a UPI link so the party pays on the spot."
 primary_keyword: "share ledger statement on whatsapp"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A Dibrugarh distributor gets a WhatsApp at 8 PM: 'Bhai, statement bhej do, ₹2,40,000 dikha raha hai.' He is away from the office PC, so the answer waits till morning and the payment slips another day. Here is how to share a party ledger statement on WhatsApp from Tally, both the manual way and the faster mobile way."
 ---

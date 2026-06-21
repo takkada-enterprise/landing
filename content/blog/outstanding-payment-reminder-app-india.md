@@ -5,7 +5,7 @@ meta_title: "Outstanding Payment Reminder App India: What Works in 2026"
 meta_description: "How an outstanding payment reminder app for Indian distributors actually works. Cadence, reconciliation, Tally sync, and what separates a tool from a toy."
 primary_keyword: "outstanding payment reminder app india"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "An outstanding payment reminder app is a software layer that tracks every open invoice across every party, sends structured reminders at the right intervals, pauses those reminders automatically when the invoice is paid, and keeps the reconciliation back to Tally or another ledger system in real time."
 ---

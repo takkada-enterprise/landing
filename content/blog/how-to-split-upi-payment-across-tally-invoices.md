@@ -5,7 +5,7 @@ meta_title: "Split a UPI Payment Across Invoices in Tally: Steps"
 meta_description: "How to split one UPI payment across invoices in Tally using a receipt voucher and Against Reference bill-by-bill allocation, plus the faster auto-matched way."
 primary_keyword: "split upi payment across invoices"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A retailer sends one ₹1,00,000 UPI payment to clear three open invoices at once. In Tally that lump sum has to be split across each bill by Against Reference, or your party ledger shows the right total but the wrong open bills. Here is the exact way to do it, plus the faster auto-matched route."
 ---

@@ -5,7 +5,7 @@ meta_title: "Payment Link Tally Integration: Collect and Auto-Reconcile"
 meta_description: "Step-by-step on payment link tally integration for Indian distributors. UPI links, UTR matching, split payments, and Tally receipt posting automated."
 primary_keyword: "payment link tally integration"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "How-To"
 excerpt: "A UPI payment link is a URL that, when tapped on a phone, opens directly in PhonePe, Google Pay, Paytm or any UPI app, with the amount and merchant details pre-filled. The customer reviews, taps pay, authorises with their PIN, and the money arrives in your bank account in seconds."
 ---

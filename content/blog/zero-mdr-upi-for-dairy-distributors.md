@@ -5,7 +5,7 @@ meta_title: "Zero MDR UPI for Dairy Distributor Collection 2026"
 meta_description: "Dairy distributor collection runs on daily delivery, 7-30 day credit and 3-6% margins. See why high-volume tiny receipts make even 0.5% MDR bleed real money."
 primary_keyword: "dairy distributor collection"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A dairy distributor in Anand delivers milk and curd to 180 retailers every morning, most paying ₹1,200 to ₹4,000. At 3-5% margin and that volume, even a 0.5% MDR is around ₹2,70,000 a year skimmed off the thinnest margins in distribution. For dairy distributor collection, 0% MDR is not a perk, it is margin you keep."
 ---

@@ -5,7 +5,7 @@ meta_title: "Salesman App for Tally India: What Field Teams Need in 2026"
 meta_description: "What Indian distribution salesmen actually need from a Tally mobile app — and why view-only access is only half the answer."
 primary_keyword: "salesman app tally india"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "founder"
 category: "Field Sales"
 excerpt: "The owner of a Nagpur pharma distributor bought Biz Analyst for his three salesmen in 2023. They used it for four months, then went back to calling the office accountant before every delivery. The problem was not the app — it was that the app could only answer half of the salesman's questions."
 ---

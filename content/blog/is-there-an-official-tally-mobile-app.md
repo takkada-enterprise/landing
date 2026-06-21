@@ -5,10 +5,13 @@ meta_title: "Official Tally Mobile App: Does One Exist in 2026?"
 meta_description: "Is there an official Tally mobile app? The honest answer is no native one from Tally Solutions. Here is what every mobile path really is and how to choose."
 primary_keyword: "official tally mobile app"
 date: "2026-06-14"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "A distributor in Dibrugarh spent a week searching the Play Store for the 'real' Tally app, sure he was missing it. He was not. There is no official Tally mobile app, and once you accept that, the right choice gets a lot clearer. Here is what every path actually is."
 ---
+
+No, there is no official Tally mobile app. Tally Solutions, the company behind Tally Prime, does not publish an Android or iOS app that runs Tally on your phone. Anything on the Play Store or App Store with Tally in the name is a third-party companion app, not the official product on mobile. This trips up a lot of distributors, who assume software this central to Indian business must have an app and that they simply have not found it. They have not found it because it does not exist, and accepting that early points you at the question that matters: which companion layer fits your business. Tally Prime, and Tally.ERP 9 before it, is a Windows desktop product by design, going back to the late 1990s, with the company file on a single machine and a multi-user model built for office LANs. That architecture predates the smartphone era and was never re-platformed for mobile, so every mobile path is a bridge to the desktop, not Tally itself on the phone.
 
 ## Key Highlights
 

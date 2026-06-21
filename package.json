@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-react-ssg build && node scripts/generate-sitemap.mjs",
+    "lint:content": "node scripts/checkLeadAnswer.mjs",
+    "build": "npm run lint:content && vite-react-ssg build && node scripts/generate-sitemap.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"

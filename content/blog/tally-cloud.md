@@ -5,7 +5,7 @@ meta_title: "Tally Cloud in 2026: What It Means for Distributors"
 meta_description: "Tally cloud explained for Indian distributors. What hosting Tally in the cloud solves, what it does not, and how it relates to mobile access and collections."
 primary_keyword: "tally cloud"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "Tally Prime is Windows desktop software. Tally Solutions, the company, does not publish a cloud-native version. So when an Indian distributor sees \"tally cloud\" on a website or in a reseller pitch, what is being sold is almost always one of two things."
 ---

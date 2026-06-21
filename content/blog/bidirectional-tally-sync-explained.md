@@ -5,7 +5,7 @@ meta_title: "Bidirectional Tally Sync: How It Works (2026)"
 meta_description: "Bidirectional Tally sync explained for distributors: how two-way read-write sync keeps your phone and Tally in step, versus read-only mirrors that drift."
 primary_keyword: "bidirectional tally sync"
 date: "2026-06-06"
-author: "Takkada Team"
+author: "founder"
 category: "Tally Mobile"
 excerpt: "Most Tally mobile apps read from Tally and stop there. You see yesterday's data on the phone, but anything you do on the phone never makes it back. Bidirectional Tally sync is the difference between a mirror you can only look at and a workspace you can actually act in."
 ---

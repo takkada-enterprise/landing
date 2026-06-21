@@ -5,7 +5,7 @@ meta_title: "Payment Gateway for MSME India: What Distributors Need"
 meta_description: "A practical guide to payment gateway for MSME in India. UPI MDR, settlement times, B2B-specific features, and what to evaluate before signing."
 primary_keyword: "payment gateway for msme india"
 date: "2026-04-25"
-author: "Takkada Team"
+author: "harsh"
 category: "Market Reality"
 excerpt: "A payment gateway processes the transaction between the customer's bank and yours. For an Indian MSME, the gateway is the layer that lets you accept UPI, cards, net-banking, and (increasingly) BNPL on a single integration. Razorpay, Cashfree, PayU, and Paytm for Business are the dominant gateways serving the MSME and SMB segment."
 ---

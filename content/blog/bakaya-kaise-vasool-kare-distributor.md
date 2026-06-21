@@ -5,7 +5,7 @@ meta_title: "Bakaya Kaise Vasool Kare: Distributor Vasuli Guide"
 meta_description: "Bakaya kaise vasool kare: practical guide distributor ke liye. Retailer se bakaya clear karwane ka cadence, UPI link, ledger aur dispatch hold ka tareeka."
 primary_keyword: "bakaya kaise vasool kare"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "Ek Indore ka FMCG distributor, 90 parties, hamesha ₹38 lakh bakaya phasa rehta tha aur month-end pe ledger photo bhejne mein do din nikal jaate the. Cadence fix kiya, har invoice pe UPI link laga diya, to 4 mahine mein DSO 68 din se 49 din pe aa gaya. ₹11 lakh wapas bank mein aa gaya."
 ---

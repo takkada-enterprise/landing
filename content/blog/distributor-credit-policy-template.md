@@ -5,7 +5,7 @@ meta_title: "Distributor Credit Policy Template: Terms, Limits, Penalty"
 meta_description: "A ready-to-use distributor credit policy template with credit terms, credit limits, a late-fee penalty clause, and a stop-supply rule you can copy and fill in today."
 primary_keyword: "distributor credit policy template"
 date: "2026-06-21"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "A Guwahati FMCG distributor with 64 retail parties had no written credit policy, and one party drifted to ₹4.7 lakh outstanding over 96 days before anyone noticed. A one-page credit policy with a fixed limit and a stop-supply trigger would have capped that exposure at ₹1.5 lakh. Here is the template to copy."
 ---

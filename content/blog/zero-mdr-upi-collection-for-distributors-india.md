@@ -5,10 +5,13 @@ meta_title: "0% MDR UPI Collection for Distributors in India"
 meta_description: "What 0% MDR on UPI collections means for an Indian distributor, how it works, and what it saves on ₹3 crore to ₹50 crore of annual receipts."
 primary_keyword: "0 mdr upi collection distributor india"
 date: "2026-05-18"
-author: "Takkada Team"
+updated: "2026-06-21"
+author: "harsh"
 category: "Collections"
 excerpt: "A distributor in Pune collecting ₹8 crore a year on UPI through a 1% MDR gateway is paying ₹8 lakh annually for the privilege of moving his own money. Zero MDR is not a discount, it is a different payment architecture."
 ---
+
+Zero MDR UPI collection means you receive the full amount a retailer pays you on UPI, with nothing deducted. MDR, the Merchant Discount Rate, is the percentage a gateway, card network, or wallet keeps to process a payment. On cards and wallets that cut is structurally required, because the rail genuinely costs money to run. UPI is different. When the payment link points straight at the distributor's own UPI handle, the money moves on the UPI rail with no gateway taking a percentage in the middle, so a true 0% is possible. The reason 0% matters is not the single transaction, where 1% feels invisible. It is the annual total. A distributor collecting ₹10 crore on UPI through a 1% MDR product pays ₹10 lakh a year, which is two salaries or six months of godown rent. Takkada earns from a flat annual subscription instead of a cut of each receipt, so the 0% holds with no transaction cap and no monthly fee.
 
 ## Key Highlights
 

@@ -4,7 +4,7 @@ slug: "distributor-cash-flow-receivables"
 meta_description: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. Here's what the pattern looks like."
 primary_keyword: "distributor cash flow India"
 date: "2026-04-23"
-author: "Takkada Team"
+author: "harsh"
 category: "Collections"
 excerpt: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. The gap between knowing and collecting is where cash flow dies."
 ---

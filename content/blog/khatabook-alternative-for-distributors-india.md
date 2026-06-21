@@ -5,7 +5,7 @@ meta_title: "Khatabook Alternative for Tally-Based Indian Distributors"
 meta_description: "Khatabook fits small shopkeepers tracking udhar. For Tally-based FMCG, pharma and hardware distributors with 50–300 retailers, here is what closes the gap."
 primary_keyword: "khatabook alternative for distributors"
 date: "2026-05-18"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Khatabook helped over 10 lakh kirana shopkeepers track who owes them money. But a distributor with 180 retail parties, GST invoices, and a Tally backbone needs more than a digital bahi-khata. Here is the gap, and what a distributor-grade collection app looks like."
 ---

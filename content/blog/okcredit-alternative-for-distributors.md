@@ -5,7 +5,7 @@ meta_title: "OkCredit Alternative for Distributor Collections"
 meta_description: "An OkCredit alternative for Tally distributors: move past the digital khata to invoice-linked UPI collection and receipts that reconcile back into Tally."
 primary_keyword: "okcredit alternative"
 date: "2026-06-14"
-author: "Takkada Team"
+author: "harsh"
 category: "Comparisons"
 excerpt: "OkCredit replaced the paper udhaar book with a phone, and for a small shopkeeper that was a real step forward. A distributor running 100 retail parties on Tally needs more than a digital khata. The balance has to tie to a GST invoice, and the payment has to land back in the books."
 ---
