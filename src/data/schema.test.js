@@ -198,7 +198,7 @@ describe('articleSchema', () => {
     // supplied), so the Person/sameAs path is asserted regardless of whether
     // the operator has pasted the real founder LinkedIn yet.
     const founderResolver = () => ({
-      name: 'Ronak Malu',
+      name: 'Ronak Maloo',
       jobTitle: 'Founder',
       linkedin: 'https://www.linkedin.com/in/ronakmalu/',
       knowsAbout: ['Tally', 'Accounts receivable'],
@@ -208,7 +208,7 @@ describe('articleSchema', () => {
       const schema = articleSchema({ ...post, author: 'founder' }, founderResolver);
       expect(schema.author).toMatchObject({
         '@type': 'Person',
-        name: 'Ronak Malu',
+        name: 'Ronak Maloo',
         jobTitle: 'Founder',
       });
       expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/ronakmalu/');
@@ -221,7 +221,7 @@ describe('articleSchema', () => {
     });
 
     it('omits sameAs when the resolved author has no LinkedIn yet', () => {
-      const noLinkedin = () => ({ name: 'Ronak Malu', jobTitle: 'Founder' });
+      const noLinkedin = () => ({ name: 'Ronak Maloo', jobTitle: 'Founder' });
       const schema = articleSchema({ ...post, author: 'founder' }, noLinkedin);
       expect(schema.author['@type']).toBe('Person');
       expect(schema.author).not.toHaveProperty('sameAs');
@@ -235,7 +235,7 @@ describe('articleSchema', () => {
     it('resolves the real "founder" key against the shipped registry as a Person', () => {
       const schema = articleSchema({ ...post, author: 'founder' });
       expect(schema.author['@type']).toBe('Person');
-      expect(schema.author.name).toBe('Ronak Malu');
+      expect(schema.author.name).toBe('Ronak Maloo');
       expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
     });
   });

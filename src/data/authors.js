@@ -23,10 +23,10 @@ export const authors = {
   // schema omits `sameAs` — no placeholder URL ships. The moment a real URL is
   // set, the byline links and `sameAs` lights up automatically.
   founder: {
-    name: 'Ronak Malu',
+    name: 'Ronak Maloo',
     jobTitle: 'Founder',
     bio:
-      'Ronak Malu founded Pay Saathi Innovation LLP in Guwahati and built Takkada for Indian distributors and wholesalers who run their books on Tally. He works directly with distributors and Tally partners on receivables collection, UPI payments, and reconciliation.',
+      'Ronak Maloo founded Pay Saathi Innovation LLP in Guwahati and built Takkada for Indian distributors and wholesalers who run their books on Tally. He works directly with distributors and Tally partners on receivables collection, UPI payments, and reconciliation.',
     // Future /authors/founder page; null until that page exists.
     url: null,
     linkedin: null,
