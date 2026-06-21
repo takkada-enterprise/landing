@@ -6,7 +6,7 @@ meta_description: "A clear vyapar alternative for Indian distributors. Why Tally
 primary_keyword: "vyapar alternative for distributors"
 date: "2026-04-25"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Vyapar is a billing, invoicing, and inventory app popular with small retailers, solo business owners, kirana shop-keepers, and micro-businesses. It is available on Windows desktop, Android and iOS, with strong offline capability and a clean, simple UI. It handles GST-compliant invoices, basic inventory, party ledgers, and some payment-link integration."
 ---

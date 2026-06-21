@@ -184,9 +184,9 @@ function authorNode(authorKey, resolveAuthor) {
   const node = {
     '@type': 'Person',
     name: author.name,
-    jobTitle: author.jobTitle,
     worksFor: { '@id': `${SITE_URL}/#organization` },
   };
+  if (author.jobTitle) node.jobTitle = author.jobTitle;
   if (author.url) node.url = absoluteUrl(author.url);
   if (author.linkedin) node.sameAs = [author.linkedin];
   if (Array.isArray(author.knowsAbout) && author.knowsAbout.length > 0) {

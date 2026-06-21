@@ -18,10 +18,9 @@ export const authors = {
   // meet/ronakmalu) and CLAUDE.md §13. jobTitle and bio are factual and carry
   // no fabricated credentials (landing voice rules, CLAUDE.md §5).
   //
-  // TODO(operator): paste Ronak's personal LinkedIn profile URL into `linkedin`
-  // below. While it is null, the byline renders as plain text and the Person
-  // schema omits `sameAs` — no placeholder URL ships. The moment a real URL is
-  // set, the byline links and `sameAs` lights up automatically.
+  // A linked-in URL lights up the byline link and the Person `sameAs`. When it
+  // is null the byline renders as plain text and `sameAs` is omitted (no
+  // placeholder URL ever ships).
   founder: {
     name: 'Ronak Maloo',
     jobTitle: 'Founder',
@@ -29,13 +28,27 @@ export const authors = {
       'Ronak Maloo founded Pay Saathi Innovation LLP in Guwahati and built Takkada for Indian distributors and wholesalers who run their books on Tally. He works directly with distributors and Tally partners on receivables collection, UPI payments, and reconciliation.',
     // Future /authors/founder page; null until that page exists.
     url: null,
-    linkedin: null,
+    linkedin: 'https://www.linkedin.com/in/ronak-maloo/',
     knowsAbout: [
       'Tally',
       'Accounts receivable',
       'UPI payment collection',
       'GST e-invoicing',
       'Distribution and wholesale operations in India',
+    ],
+  },
+
+  // Second author. Operator chose name + LinkedIn only, no jobTitle/bio, so the
+  // Person node carries name, sameAs, worksFor, and the topics he writes about.
+  harsh: {
+    name: 'Harsh Bhudolia',
+    url: null,
+    linkedin: 'https://www.linkedin.com/in/harsh-bhudolia/',
+    knowsAbout: [
+      'UPI payment collection',
+      'Accounts receivable',
+      'Distribution and wholesale operations in India',
+      'Tally',
     ],
   },
 };

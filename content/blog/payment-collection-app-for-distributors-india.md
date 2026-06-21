@@ -6,7 +6,7 @@ meta_description: "What a real payment collection app for distributors in India 
 primary_keyword: "payment collection app for distributors india"
 date: "2026-04-25"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Market Reality"
 excerpt: "Margins of 3 to 5%. Credit terms of 30 to 90 days. Customer concentration risk on 20 to 40 parties that each owe somewhere between ₹50,000 and ₹8 lakh. This is the shape of most Indian distributor balance sheets."
 ---

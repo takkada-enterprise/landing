@@ -232,11 +232,21 @@ describe('articleSchema', () => {
       expect(schema.author).toEqual({ '@type': 'Organization', name: 'Takkada Team' });
     });
 
-    it('resolves the real "founder" key against the shipped registry as a Person', () => {
+    it('resolves the real "founder" key against the shipped registry as a Person with a LinkedIn sameAs', () => {
       const schema = articleSchema({ ...post, author: 'founder' });
       expect(schema.author['@type']).toBe('Person');
       expect(schema.author.name).toBe('Ronak Maloo');
       expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
+      expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/ronak-maloo/');
+    });
+
+    it('resolves the real "harsh" key as a name-only Person (LinkedIn sameAs, no jobTitle)', () => {
+      const schema = articleSchema({ ...post, author: 'harsh' });
+      expect(schema.author['@type']).toBe('Person');
+      expect(schema.author.name).toBe('Harsh Bhudolia');
+      expect(schema.author.worksFor).toEqual({ '@id': ORG_ID });
+      expect(schema.author.sameAs).toContain('https://www.linkedin.com/in/harsh-bhudolia/');
+      expect(schema.author).not.toHaveProperty('jobTitle');
     });
   });
 

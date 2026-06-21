@@ -6,7 +6,7 @@ meta_description: "What 0% MDR on UPI collections means for an Indian distributo
 primary_keyword: "0 mdr upi collection distributor india"
 date: "2026-05-18"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Collections"
 excerpt: "A distributor in Pune collecting ₹8 crore a year on UPI through a 1% MDR gateway is paying ₹8 lakh annually for the privilege of moving his own money. Zero MDR is not a discount, it is a different payment architecture."
 ---

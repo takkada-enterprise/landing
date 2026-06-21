@@ -6,7 +6,7 @@ meta_description: "The best Tally app for receivables in India in 2026, ranked f
 primary_keyword: "best tally app for receivables"
 date: "2026-06-06"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Tally Mobile"
 excerpt: "Most Tally mobile apps stop at showing you the outstanding report on a phone. For a distributor with ₹1.5 crore floating across 200 retail parties, reading the number is the easy part. The best Tally app for receivables is the one that closes the loop from invoice to collection to reconciliation."
 ---

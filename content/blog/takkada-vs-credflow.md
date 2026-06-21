@@ -6,7 +6,7 @@ meta_description: "Takkada vs CredFlow for Indian distributors on Tally: UPI MDR
 primary_keyword: "takkada vs credflow"
 date: "2026-06-06"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Comparisons"
 excerpt: "A ₹14 crore electricals distributor in Indore is choosing between two receivables tools for the next two years. The decision comes down to four things: what UPI collection costs, whether his salesmen can invoice from the phone, how deep the Tally sync runs, and what happens at 9 PM when receipts have to be matched."
 ---

@@ -6,7 +6,7 @@ meta_description: "A WhatsApp payment collection playbook for Indian distributor
 primary_keyword: "whatsapp payment collection"
 date: "2026-06-06"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Collections"
 excerpt: "Every Indian retailer already lives in WhatsApp. The invoice, the reminder, and the payment do not need three different channels. This is the playbook for running the whole collection cycle inside the one app the retailer already checks fifty times a day."
 ---

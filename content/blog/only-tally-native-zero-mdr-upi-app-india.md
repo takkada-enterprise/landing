@@ -6,7 +6,7 @@ meta_description: "Why Takkada is the only Tally-native zero MDR UPI app in Indi
 primary_keyword: "zero mdr upi app"
 date: "2026-06-14"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Market Reality"
 excerpt: "Plenty of apps say 'zero MDR'. Read the fine print and one charges ₹3 a transaction, another routes UPI through a paid gateway, a third does not touch Tally at all. A zero MDR UPI app that is genuinely free and posts back into Tally is rarer than the marketing suggests. Here is what to actually check."
 ---

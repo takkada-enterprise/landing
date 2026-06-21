@@ -6,7 +6,7 @@ meta_description: "A fair comparison of biz analyst alternative options for Indi
 primary_keyword: "biz analyst alternative"
 date: "2026-04-25"
 updated: "2026-06-21"
-author: "founder"
+author: "harsh"
 category: "Comparisons"
 excerpt: "Biz Analyst is no longer just the old Tally viewer stereotype. Its current Business plan bundles dashboard access, reminders, invoice sharing, limited sales-team controls, and data entry, but distributors still outgrow it when collections, reconciliation, and mobile GST workflows become the bottleneck."
 ---
