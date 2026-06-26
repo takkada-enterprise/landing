@@ -163,7 +163,7 @@ const homeFaqItems = [
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
   description:
-    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹7,999/year.',
+    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹8,499/year.',
   path: '/',
 };
 
@@ -517,7 +517,7 @@ function Home({ seo = HOME_SEO }) {
         <div className="container">
           <div className="section-header reveal">
             <span className="section-label">Pricing</span>
-            <h2 className="section-title tabular-nums">₹2,700 to ₹7,999 per year. GST extra.</h2>
+            <h2 className="section-title tabular-nums">₹2,700 to ₹8,499 per year. GST extra.</h2>
             <p className="section-subtitle">7-day free trial on every plan. No card required.</p>
           </div>
           <div className="home-pricing-strip">

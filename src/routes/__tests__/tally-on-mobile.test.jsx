@@ -52,7 +52,7 @@ describe('TallyOnMobile route', () => {
     // Hero headline that only the home body carries.
     expect(container.textContent).toContain('Get paid without chasing');
     // Pricing band shared with the home page.
-    expect(container.textContent).toContain('₹2,700 to ₹7,999 per year. GST extra.');
+    expect(container.textContent).toContain('₹2,700 to ₹8,499 per year. GST extra.');
   });
 
   it('emits the same SoftwareApplication + FAQPage schema as the home page', () => {
