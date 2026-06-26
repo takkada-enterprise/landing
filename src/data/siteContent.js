@@ -195,7 +195,7 @@ export const pricing = {
     },
     {
       plan: 'Full Access',
-      price: '\u20B99,999',
+      price: '\u20B97,999',
       period: '/year + GST',
       description: 'Every Tally invoice on WhatsApp the moment it is created. Import from PDF included.',
       badge: 'Most Popular',
