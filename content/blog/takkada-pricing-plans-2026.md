@@ -5,13 +5,13 @@ meta_title: "Takkada Pricing and Plans (2026)"
 meta_description: "Takkada pricing and plans for 2026: four tiers from View Only to Full Access with Auto Dispatch, plus add-ons, all with 0% MDR on UPI collection."
 primary_keyword: "takkada pricing"
 date: "2026-06-06"
-updated: "2026-06-21"
+updated: "2026-06-26"
 author: "founder"
 category: "Market Reality"
 excerpt: "A distributor comparing collection tools usually finds the real cost hidden in the MDR, not the sticker price. Takkada pricing is built the other way around: a flat annual subscription you can read off a table, and 0% MDR on UPI so the collection rail itself adds nothing per transaction."
 ---
 
-Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a tier by how much of the collection loop they want to run from the phone. View Only is ₹2,700 for visibility and reminders. Voucher Model is ₹4,500 and adds voucher creation on mobile. Collections Model is ₹6,480 and adds UPI payment collection. Full Access with Auto Dispatch is ₹9,999, where every Tally invoice fires on WhatsApp the moment it is created, and Import from PDF is bundled in. The collection rail is 0% MDR on UPI on every tier, so the subscription is never topped up by a per-transaction fee the way a gateway-based tool is. Extra devices are ₹1,500 a year on View Only and ₹3,000 on the others. Add-ons such as Import from PDF, Auto Invoice Dispatch, WhatsApp message packs, and extra businesses are priced separately, so you pay for the loop you actually run.
+Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a tier by how much of the collection loop they want to run from the phone. View Only is ₹2,700 for visibility and reminders. Voucher Model is ₹4,500 and adds voucher creation on mobile. Collections Model is ₹6,480 and adds UPI payment collection. Full Access with Auto Dispatch is ₹7,999, where every Tally invoice fires on WhatsApp the moment it is created, and Import from PDF is bundled in. The collection rail is 0% MDR on UPI on every tier, so the subscription is never topped up by a per-transaction fee the way a gateway-based tool is. Extra devices are ₹1,500 a year on View Only and ₹3,000 on the others. Add-ons such as Import from PDF, Auto Invoice Dispatch, WhatsApp message packs, and extra businesses are priced separately, so you pay for the loop you actually run.
 
 ## Key Highlights
 

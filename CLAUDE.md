@@ -22,7 +22,7 @@ Plans:
 - View Only: ₹2,700
 - Voucher Model: ₹4,500
 - Collections Model: ₹6,480
-- Full Access / Auto Dispatch: ₹9,999. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
+- Full Access / Auto Dispatch: ₹7,999. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
 
 Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
 
