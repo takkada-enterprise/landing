@@ -1,0 +1,189 @@
+/* ═══════════════════════════════════════════════════
+   TAKKADA — Premium overlay (2026-06-29)
+   ───────────────────────────────────────────────────
+   Layered on top of styles.css. Elevates the existing Sage Paper system
+   to read as an expensive, modern product site without touching markup.
+   Rules of the road:
+   - Sage palette stays. Only depth, light, and rhythm are added.
+   - One tasteful type addition: Fraunces display serif for headings.
+   - Motion is transform/opacity only (GPU-cheap), opt-in, reduced-motion safe.
+   - Every effect must survive a low-powered Android. No filters in scroll loops.
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
+  /* Headings switch to the display serif; body/UI stays Plus Jakarta Sans. */
+  --font-serif: var(--font-display);
+
+  /* Brand gradients (premium, sage-only) */
+  --grad-primary: linear-gradient(135deg, #4A7C59 0%, #344E41 55%, #1B3026 100%);
+  --grad-ink: linear-gradient(165deg, #1B3026 0%, #14241C 100%);
+  --grad-text: linear-gradient(110deg, #344E41 0%, #4A7C59 50%, #6B9E7A 100%);
+
+  /* Richer, warmer elevation than base */
+  --shadow-soft: 0 1px 1px rgba(20,36,28,0.04), 0 8px 24px -12px rgba(20,36,28,0.16);
+  --shadow-rise: 0 2px 2px rgba(20,36,28,0.04), 0 24px 48px -20px rgba(20,36,28,0.26);
+  --ring-sage: 0 0 0 1px rgba(52,78,65,0.10);
+}
+
+/* ── Display headings: optical sizing + balance ── */
+.hero-title,
+.section-title,
+.intro-headline,
+.final-cta-content h2,
+.company-article h1,
+.blog-post-title,
+.blog-index-title {
+  font-optical-sizing: auto;
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.hero-title { font-weight: 600; line-height: 1.04; }
+
+/* Accent text gets a brand gradient fill */
+.hero-title-accent,
+.text-accent {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-primary); /* fallback */
+}
+
+/* ── Page canvas: a barely-there sage aurora that grounds every route ── */
+body {
+  background:
+    radial-gradient(120% 70% at 100% -10%, rgba(107,158,122,0.10) 0%, rgba(107,158,122,0) 55%),
+    radial-gradient(90% 60% at -10% 5%, rgba(218,229,214,0.40) 0%, rgba(218,229,214,0) 50%),
+    var(--color-bg);
+}
+
+/* ── Navigation: glass that earns its keep ── */
+.site-nav.scrolled {
+  background: rgba(250,250,247,0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 1px 0 rgba(20,36,28,0.06), 0 12px 30px -22px rgba(20,36,28,0.3);
+}
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  transition: right var(--dur) var(--ease-out);
+}
+.nav-links a:hover::after { right: 0; }
+
+/* ── Buttons: pill with quiet shine + confident lift ── */
+.cta-btn { position: relative; overflow: hidden; isolation: isolate; }
+.cta-btn--primary {
+  background: var(--grad-primary);
+  box-shadow: 0 1px 1px rgba(20,36,28,0.2), 0 10px 24px -10px rgba(27,48,38,0.5);
+}
+.cta-btn--primary::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
+}
+.cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(20,36,28,0.2), 0 18px 36px -12px rgba(27,48,38,0.55); }
+.cta-btn:active { transform: translateY(0); }
+
+/* Sweep highlight (cheap: single transform, only on hover) */
+.cta-btn--primary::after,
+.cta-btn--dark::after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(0); opacity: 0;
+}
+.cta-btn--primary:hover::after,
+.cta-btn--dark:hover::after { animation: btnSweep 0.7s var(--ease-out); }
+@keyframes btnSweep { from { transform: translateX(0); opacity: .8; } to { transform: translateX(420%); opacity: 0; } }
+
+/* ── Hero: editorial scale + a phone that floats on a glow plate ── */
+.hero { padding-top: 140px; }
+.hero::before {
+  background:
+    radial-gradient(50% 42% at 80% 14%, rgba(107,158,122,0.26) 0%, rgba(107,158,122,0) 60%),
+    radial-gradient(48% 40% at 10% 0%, rgba(218,229,214,0.6) 0%, rgba(218,229,214,0) 55%);
+}
+.hero-overline {
+  border: 1px solid rgba(52,78,65,0.14);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+}
+.hero-subtitle { font-size: 19px; }
+.hero-stat-value { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107,158,122,0.30) 0%, rgba(107,158,122,0) 70%);
+  z-index: 1;
+}
+.hero-phone-frame img { filter: drop-shadow(0 40px 70px rgba(20,36,28,0.34)); border-radius: 36px; }
+.hero-pill { border: 1px solid rgba(20,36,28,0.05); box-shadow: var(--shadow-rise); }
+.hero-pill-icon { background: var(--grad-primary); }
+/* Gentle staggered drift so the halo breathes, but the phone stays the lead */
+.hero-pill { animation: pillDrift 9s var(--ease-soft) infinite; }
+.hero-pill--3 { animation-delay: .8s; } .hero-pill--4 { animation-delay: 1.6s; }
+.hero-pill--5 { animation-delay: 2.4s; } .hero-pill--6 { animation-delay: 3.2s; } .hero-pill--7 { animation-delay: 4s; }
+@keyframes pillDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* ── Section labels: refined chip ── */
+.section-label { border: 1px solid rgba(52,78,65,0.12); }
+
+/* ── Shared card lift (pain / tally / grid / how) ── */
+.pain-card, .tally-card, .grid-card, .how-card, .feature-grid-wrap .grid-card {
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.pain-card:hover, .tally-card:hover, .grid-card:hover, .how-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-rise);
+}
+.tally-card-icon, .grid-card-icon { transition: transform var(--dur) var(--ease-out); }
+.tally-card:hover .tally-card-icon, .grid-card:hover .grid-card-icon { transform: scale(1.08) rotate(-3deg); }
+
+/* ── Metrics: gradient numbers on ink ── */
+.metric-value { background: linear-gradient(110deg, #fff, #cfe4d4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ── Feature phones: lift on scroll-in ── */
+.feature-phone img { border-radius: 30px; box-shadow: 0 30px 60px -24px rgba(20,36,28,0.4); }
+
+/* ── Tally connector: a live pulse between the two nodes ── */
+.tally-arrow svg { animation: spinSlow 6s linear infinite; }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+/* ── Pricing: highlighted plan reads premium ── */
+.home-pricing-strip-card--highlighted { box-shadow: var(--shadow-rise), 0 0 0 2px var(--color-primary); }
+.home-pricing-strip-card { transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
+.home-pricing-strip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-rise); }
+
+/* ── Final CTA: deep ink with sage mesh ── */
+.final-cta { background: var(--grad-ink); }
+.final-cta::before {
+  background:
+    radial-gradient(50% 100% at 50% 110%, rgba(107,158,122,0.32) 0%, rgba(107,158,122,0) 62%),
+    radial-gradient(40% 60% at 12% 0%, rgba(74,124,89,0.18) 0%, rgba(74,124,89,0) 60%);
+}
+
+/* ── Reveal: add a hint of scale for depth ── */
+html.js .reveal { transform: translateY(28px) scale(0.985); }
+html.js .reveal.is-visible { transform: translateY(0) scale(1); }
+
+/* ── Low-power + reduced-motion: strip the breathing room ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-pill, .tally-arrow svg, .cta-btn--primary:hover::after, .cta-btn--dark:hover::after { animation: none !important; }
+}
+@media (max-width: 767px) {
+  .hero-visual::before { width: 240px; height: 240px; }
+  .hero-pill { animation: none; }
+}
