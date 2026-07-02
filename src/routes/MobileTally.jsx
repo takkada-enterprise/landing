@@ -31,7 +31,7 @@ const data = {
     {
       icon: Shield,
       title: 'Read-only — your Tally stays untouched',
-      body: 'The View Only plan does not write anything to Tally. Your data, your formats, your numbering — exactly as they are.',
+      body: 'Read-only tracking does not write anything to Tally. Your data, your formats, your numbering — exactly as they are.',
     },
   ],
   scenario:
@@ -48,7 +48,7 @@ const data = {
     },
     {
       q: 'Is this just a dashboard or can I do more?',
-      a: 'On the View Only plan it is visibility and reminders. If you need voucher creation or payment collection, the Voucher and Collections plans add those. You keep the same account and data.',
+      a: 'Out of the box it is visibility and reminders. If you need voucher creation or payment collection, the Voucher and Collections plans add those. You keep the same account and data.',
     },
     {
       q: 'Can my accountant use it too?',
