@@ -48,7 +48,7 @@ describe('webSiteSchema', () => {
 describe('pricing data (Master Distributor rate card, June 2026)', () => {
   it('maps each plan to its current rate-card MRP', () => {
     const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.price]));
-    expect(byPlan['View Only']).toBe('₹2,700');
+    expect(byPlan['View Only']).toBeUndefined();
     expect(byPlan['Voucher Model']).toBe('₹4,500');
     expect(byPlan['Collections Model']).toBe('₹6,480');
     expect(byPlan['Full Access']).toBe('₹8,499');
@@ -110,7 +110,7 @@ describe('softwareApplicationSchema', () => {
     const offers = Object.fromEntries(
       softwareApplicationSchema().offers.map((o) => [o.name, o])
     );
-    expect(offers['View Only']).toMatchObject({ price: '2700', priceCurrency: 'INR' });
+    expect(offers['View Only']).toBeUndefined();
     expect(offers['Voucher Model']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
     expect(offers['Collections Model']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
     expect(offers['Full Access']).toMatchObject({ price: '8499', priceCurrency: 'INR' });

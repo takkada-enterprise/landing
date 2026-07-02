@@ -157,27 +157,17 @@ export const testimonials = [
 export const pricing = {
   plans: [
     {
-      plan: 'View Only',
-      price: '\u20B92,700',
-      period: '/year + GST',
-      description: 'See your receivables. Send reminders. Nothing else.',
-      features: [
-        'Real-time receivables dashboard from Tally',
-        'Overdue party list and outstanding summary',
-        'Send payment reminders via WhatsApp',
-        '1 user included',
-      ],
-    },
-    {
       plan: 'Voucher Model',
       price: '\u20B94,500',
       period: '/year + GST',
       description: 'Create vouchers and share invoices from your phone.',
       features: [
-        'Everything in View Only, plus:',
+        'Real-time receivables dashboard from Tally',
+        'Send payment reminders via WhatsApp',
         'Create sales, purchase, receipt vouchers from mobile',
         'Share invoice PDFs to customers via WhatsApp',
         'Works when the Tally laptop is off',
+        '1 user included',
       ],
     },
     {

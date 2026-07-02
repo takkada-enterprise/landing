@@ -27,20 +27,16 @@ function RefundPolicy() {
         <h2>Subscription Plans</h2>
         <div className="policy-plans">
           <div className="policy-plan-card">
-            <strong>View Only</strong>
-            <span className="tabular-nums">{'₹'}2,500 + GST / year</span>
-          </div>
-          <div className="policy-plan-card">
             <strong>Voucher Model</strong>
             <span className="tabular-nums">{'₹'}4,500 + GST / year</span>
           </div>
           <div className="policy-plan-card">
             <strong>Collections Model</strong>
-            <span className="tabular-nums">{'₹'}6,000 + GST / year</span>
+            <span className="tabular-nums">{'₹'}6,480 + GST / year</span>
           </div>
           <div className="policy-plan-card">
             <strong>Full Access / Auto Dispatch</strong>
-            <span className="tabular-nums">{'₹'}7,500 + GST / year</span>
+            <span className="tabular-nums">{'₹'}8,499 + GST / year</span>
           </div>
         </div>
 

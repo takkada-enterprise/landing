@@ -693,11 +693,28 @@ html.js .animated-heading .letter {
 }
 
 @media (max-width: 767px) {
+  .hero-visual { flex-direction: column; gap: 20px; min-height: 0; }
   .hero-phone-frame { width: 220px; }
-  /* No room for the halo beside a centred device on phones — keep only the
-     headline PDF pill, pinned at the bottom. */
-  .hero-pill { display: none; }
-  .hero-pill--1 { display: inline-flex; left: 0; top: auto; bottom: 24px; }
+  /* No room for an absolute halo beside a centred device on phones — reflow the
+     pills out of absolute positioning into a centred wrapped cluster below the
+     phone, so every capability still reads rather than showing just one. */
+  .hero-pills {
+    position: static;
+    inset: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .hero-pill {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2550,7 +2567,7 @@ html.js .animated-heading .letter {
 
 .home-pricing-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 16px;
 }
