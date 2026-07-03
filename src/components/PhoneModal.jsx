@@ -89,6 +89,13 @@ function PhoneModal({
   const handleSubmit = async () => {
     if (!validate()) return;
 
+    // Open the calendar synchronously, inside the click gesture, before any
+    // await. Browsers only honor window.open('_blank') while transient user
+    // activation is live; awaiting the booking fetch first ends that gesture,
+    // so the popup blocker silently swallows the tab and the calendar never
+    // opens. Booking capture is secondary and continues in the background.
+    window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
+
     setLoading(true);
     setError('');
     setStatus('');
@@ -107,7 +114,6 @@ function PhoneModal({
 
     setLoading(false);
     setStatus('success');
-    window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
 
     clearTimer(closeTimerRef);
     closeTimerRef.current = window.setTimeout(onClose, AUTO_CLOSE_DELAY_MS);
