@@ -3357,6 +3357,13 @@ html.js .animated-heading .letter {
   line-height: 1.6;
 }
 
+.blog-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* Blog post page header */
 .blog-post-article {
   --blog-hero-overlap: 40px;
