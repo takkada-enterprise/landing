@@ -11,6 +11,7 @@ import WhatsAppInvoice from './WhatsAppInvoice';
 import AutoReconciliation from './AutoReconciliation';
 import ForDistributors from './ForDistributors';
 import TallyMobileComparison from './TallyMobileComparison';
+import TryDemo from './TryDemo';
 import Partners from './Partners';
 import BlogIndex from './BlogIndex';
 import BlogPost from './BlogPost';
@@ -29,6 +30,7 @@ const ELEMENT_FOR_PATH = {
   '/auto-reconciliation-tally': <AutoReconciliation />,
   '/for-distributors': <ForDistributors />,
   '/tally-mobile-app-comparison': <TallyMobileComparison />,
+  '/demo': <TryDemo />,
   '/partners': <Partners />,
   '/become-a-partner': <Partners />,
 };

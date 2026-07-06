@@ -343,7 +343,15 @@ export const appLinks = {
   // here when a dedicated business number exists. Empty string disables the
   // WhatsApp CTAs site-wide (they fall back to the calendar link).
   whatsappNumber: '919435977777',
+  // The app's anonymous instant demo entry (takkada PR #270, /demo route).
+  demoApp: 'https://app.takkada.com/demo',
 };
+
+// Flip to true ONLY after the app's anonymous demo entry is live in prod
+// (takkada /demo route merged + Supabase anonymous sign-ins enabled and the
+// full site→app walk verified on a phone). While false, /demo/ and the hero
+// keep WhatsApp as the primary action and never render a dead app link.
+export const demoEntryLive = false;
 
 export const comparisonSection = {
   overline: 'WHY TAKKADA',
