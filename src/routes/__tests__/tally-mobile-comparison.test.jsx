@@ -47,6 +47,14 @@ describe('TallyMobileComparison route', () => {
     expect(description?.getAttribute('content').length).toBeLessThanOrEqual(160);
   });
 
+  it('emits its page-specific OG card, not the site default', () => {
+    renderRoute();
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    expect(ogImage?.getAttribute('content')).toBe(
+      'https://takkada.com/assets/og/takkada-og-comparison.png'
+    );
+  });
+
   it('renders the shared matrix with all three columns and the enriched rows', () => {
     const { container } = renderRoute();
     const table = container.querySelector('.comparison-table');

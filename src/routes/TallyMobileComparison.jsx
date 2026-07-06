@@ -73,6 +73,7 @@ function TallyMobileComparison() {
         title={SEO.title}
         description={SEO.description}
         path={SEO.path}
+        ogImage="/assets/og/takkada-og-comparison.png"
         schemas={[
           softwareApplicationSchema(),
           breadcrumbSchema([
