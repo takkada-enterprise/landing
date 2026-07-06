@@ -146,13 +146,82 @@ export const howItWorks = [
   },
 ];
 
+// Voice rule: real quotes only. Entries flagged `placeholder: true` are
+// slots waiting for founder-supplied quotes — they never render and never
+// emit schema.org Review nodes (publishedTestimonials filters them out).
+// To launch a quote: paste the real text/name/role and delete the flag.
 export const testimonials = [
   {
     quote: 'Before Takkada, I couldn\'t take a single leave. I had to be at the counter to check payments, make vouchers, update Tally. Now it\'s completely stress-free. Everything happens automatically.',
     name: 'Priya Agarwal',
     role: 'FMCG Distributor, Pune',
   },
+  {
+    placeholder: true,
+    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
+    name: 'Placeholder Two',
+    role: 'Distributor',
+  },
+  {
+    placeholder: true,
+    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
+    name: 'Placeholder Three',
+    role: 'Distributor',
+  },
+  {
+    placeholder: true,
+    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
+    name: 'Placeholder Four',
+    role: 'Distributor',
+  },
 ];
+
+// The only testimonials that ever reach a visitor or a crawler.
+export const publishedTestimonials = testimonials.filter((t) => !t.placeholder);
+
+// Answers the fear that dominates the "Tally mobile app" informational SERP:
+// will connecting an app break my Tally, and is my data safe. Every claim is
+// a specific behavior, not a security superlative.
+export const trustSection = {
+  overline: 'Data Safety',
+  heading: 'Your Tally stays exactly as it is',
+  subtitle:
+    'Connecting anything to your books is a trust decision. Here is precisely what Takkada does and does not touch.',
+  points: [
+    {
+      icon: 'database',
+      title: 'Your books never leave your Tally',
+      body:
+        'Takkada syncs with the Tally installed on your own computer. Your data files stay where they are today. Stop using Takkada and your Tally keeps working exactly as before.',
+    },
+    {
+      icon: 'shield',
+      title: 'Nothing writes to Tally without you',
+      body:
+        'Receivables tracking and reminders are read-only. A voucher posts into Tally only when you or your team create it in the app, and every entry shows who made it.',
+    },
+    {
+      icon: 'badge',
+      title: 'Official apps under a registered company',
+      body:
+        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP, registered in Guwahati. No APK from a forwarded link, no sideloading.',
+      links: [
+        { label: 'Play Store listing', hrefKey: 'playStore' },
+        { label: 'App Store listing', hrefKey: 'appStore' },
+      ],
+    },
+    {
+      icon: 'monitor',
+      title: 'The connector runs where you can see it',
+      body:
+        'A small Windows program sits next to Tally on your PC and does the syncing. You can open it, watch what it syncs, pause it, or remove it any time.',
+    },
+  ],
+  articleLink: {
+    label: 'Read the full safety explainer',
+    href: '/blog/is-it-safe-to-connect-app-to-tally/',
+  },
+};
 
 export const pricing = {
   plans: [

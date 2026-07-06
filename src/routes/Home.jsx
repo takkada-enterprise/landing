@@ -18,6 +18,11 @@ import {
   Download,
   Truck,
   Users,
+  Database,
+  ShieldCheck,
+  BadgeCheck,
+  MonitorCheck,
+  ArrowUpRight,
 } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import WhatsAppCTA from '../components/WhatsAppCTA';
@@ -36,7 +41,8 @@ import {
   painPoints,
   featureGrid,
   howItWorks,
-  testimonials,
+  publishedTestimonials,
+  trustSection,
   coreFeatures,
   advancedFeatures,
 } from '../data/siteContent';
@@ -60,6 +66,13 @@ const gridIconMap = {
   bell: Bell,
   link: LinkIcon,
   share: Share2,
+};
+
+const trustIconMap = {
+  database: Database,
+  shield: ShieldCheck,
+  badge: BadgeCheck,
+  monitor: MonitorCheck,
 };
 
 const capabilities = [
@@ -588,18 +601,62 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Testimonial ── */}
+      {/* ── Testimonials ── */}
       <section className="testimonials-section" id="testimonial">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-label">From a Takkada Customer</span>
+            <span className="section-label">From Takkada Customers</span>
             <h2 className="section-title">What our customers say</h2>
           </div>
           <div className="testimonial-row">
-            {testimonials.map((t, i) => (
+            {publishedTestimonials.map((t, i) => (
               <TestimonialCard key={t.name} {...t} delay={i * 80} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Data safety / legitimacy ── */}
+      <section className="tally-section trust-section" id="data-safety">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="section-label">{trustSection.overline}</span>
+            <h2 className="section-title">{trustSection.heading}</h2>
+            <p className="section-subtitle">{trustSection.subtitle}</p>
+          </div>
+          <div className="tally-grid">
+            {trustSection.points.map((point) => {
+              const Icon = trustIconMap[point.icon] || Shield;
+              return (
+                <div key={point.title} className="tally-card">
+                  <div className="tally-card-icon">
+                    <Icon size={22} />
+                  </div>
+                  <h3>{point.title}</h3>
+                  <p>{point.body}</p>
+                  {point.links && (
+                    <p className="trust-store-links">
+                      {point.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={appLinks[link.hrefKey]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label} <ArrowUpRight size={13} />
+                        </a>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="trust-article-link">
+            <Link to={trustSection.articleLink.href}>
+              {trustSection.articleLink.label} <ArrowRight size={15} />
+            </Link>
+          </p>
         </div>
       </section>
 

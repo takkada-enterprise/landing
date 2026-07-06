@@ -2,7 +2,7 @@ import {
   contactInfo,
   faqItems,
   pricing,
-  testimonials,
+  publishedTestimonials,
   appLinks,
   appRatingCount,
 } from './siteContent';
@@ -93,7 +93,7 @@ function reviewSchema(testimonial) {
   };
 }
 
-export function softwareApplicationSchema(reviews = testimonials) {
+export function softwareApplicationSchema(reviews = publishedTestimonials) {
   const priceNumber = (price) => price.replace(/[^\d]/g, '');
   const schema = {
     '@context': 'https://schema.org',

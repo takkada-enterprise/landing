@@ -1365,6 +1365,7 @@ html.js .animated-heading .letter {
   background: var(--color-white);
   border-radius: var(--radius-2xl);
   padding: 48px 44px 40px;
+  flex: 1 1 320px;
   max-width: 640px;
   width: 100%;
   position: relative;
@@ -1420,6 +1421,49 @@ html.js .animated-heading .letter {
 .testimonial-role {
   font-size: 13px;
   color: var(--color-text-muted);
+}
+
+/* ── Data safety / trust ── */
+.trust-store-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.trust-store-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-store-links a:hover,
+.trust-store-links a:focus-visible {
+  text-decoration: underline;
+}
+
+.trust-article-link {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.trust-article-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-article-link a:hover,
+.trust-article-link a:focus-visible {
+  text-decoration: underline;
 }
 
 /* ── Pricing ── */
