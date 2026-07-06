@@ -53,7 +53,9 @@ const blogIndex = {
 };
 
 const allEntries = [
-  ...routeMetadata,
+  // Entries flagged sitemap:false (e.g. the /become-a-partner alias) stay
+  // routable but are kept out of the sitemap.
+  ...routeMetadata.filter((r) => r.sitemap !== false),
   blogIndex,
   ...getBlogPostEntries(),
 ];

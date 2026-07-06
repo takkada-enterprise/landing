@@ -2,7 +2,7 @@
 title: "How to Check Party Outstanding in Tally on Mobile"
 slug: "how-to-check-party-outstanding-tally-mobile"
 meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
-meta_description: "How to check party outstanding in Tally on mobile: the exact desktop steps, the faster phone way, and how to see partywise outstanding from the field in seconds."
+meta_description: "How to check party outstanding in Tally on mobile: the desktop steps, the faster phone way, and how to see partywise outstanding from the field."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
 author: "founder"

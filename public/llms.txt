@@ -1,0 +1,27 @@
+# Takkada
+
+> Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.
+
+Pricing (annual, GST extra): Voucher Model ₹4,500, Collections Model ₹6,480, Full Access ₹8,499.
+
+## Key pages
+
+- [Home](https://takkada.com/): what Takkada does for a distributor on Tally, pricing, and FAQs
+- [Tally on mobile](https://takkada.com/tally-on-mobile/): the exact-match landing for viewing Tally from a phone
+- [Tally mobile app comparison](https://takkada.com/tally-mobile-app-comparison/): Takkada vs Biz Analyst vs Livekeeping, feature by feature
+- [For distributors](https://takkada.com/for-distributors/): the collections-heavy distributor workflow
+- [WhatsApp invoice from Tally](https://takkada.com/whatsapp-invoice-tally/): field-sales invoicing and auto-dispatch
+- [Auto-reconciliation](https://takkada.com/auto-reconciliation-tally/): payments matching themselves into Tally
+- [Partners](https://takkada.com/partners/): the Tally partner reseller program
+
+## Guides
+
+- [Blog index](https://takkada.com/blog/): practical guides on receivables, Tally workflows, and collections
+- [Is it safe to connect an app to Tally](https://takkada.com/blog/is-it-safe-to-connect-app-to-tally/): the data-safety explainer
+- [Zero-MDR UPI collection for distributors](https://takkada.com/blog/zero-mdr-upi-collection-for-distributors-india/): how UPI pass-through pricing works
+- [WhatsApp payment reminder cadence](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/): a reminder cadence that collects
+
+## Contact
+
+- WhatsApp/phone: +91 94359 77777 · email: ronak@paysaathi.com
+- Demo booking: https://calendar.notion.so/meet/ronakmalu/takkada

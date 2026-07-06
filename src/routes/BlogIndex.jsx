@@ -45,7 +45,7 @@ function BlogIndex() {
   return (
     <>
       <Seo
-        title="Blog — Takkada"
+        title="Distributor Collections & Tally Guides | Takkada Blog"
         description="Practical guides for Indian distributors on payment collection, Tally workflows, and reducing outstanding receivables."
         path="/blog"
         ogType="website"

@@ -87,5 +87,9 @@ export const routeMetadata = [
     sourceFile: 'src/routes/Partners.jsx',
     changefreq: 'monthly',
     priority: 0.6,
+    // Alias of /partners (already canonicals there). Keeping it in the
+    // sitemap made crawlers see a duplicate; the route stays live for
+    // inbound links but is excluded from sitemap.xml (2026-07 audit item 4).
+    sitemap: false,
   },
 ];
