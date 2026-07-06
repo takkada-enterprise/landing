@@ -338,6 +338,13 @@ export const footerColumns = [
   },
 ];
 
+// Demo video for the home page (U4). null until the founder supplies the
+// asset — while null the video section renders nothing (never an empty
+// frame). To ship: set one of
+//   { type: 'mp4', src: '/assets/video/takkada-demo.mp4', poster: '/assets/video/takkada-demo-poster.png', title: 'Takkada in 3 minutes' }
+//   { type: 'youtube', id: '<video id>', poster: '<optional poster path>', title: 'Takkada in 3 minutes' }
+export const demoVideo = null;
+
 // Real, verified count of store reviews for aggregateRating. Leave null until
 // the actual App Store + Play Store review counts are confirmed. While this is
 // null the schema generator omits aggregateRating entirely, so no fabricated

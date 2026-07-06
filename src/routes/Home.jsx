@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import WhatsAppCTA from '../components/WhatsAppCTA';
+import VideoEmbed from '../components/VideoEmbed';
 import TestimonialCard from '../components/TestimonialCard';
 import { track } from '../lib/track';
 import FAQItem from '../components/FAQItem';
@@ -45,6 +46,7 @@ import {
   trustSection,
   coreFeatures,
   advancedFeatures,
+  demoVideo,
 } from '../data/siteContent';
 
 const tallyIconMap = {
@@ -338,6 +340,19 @@ function Home({ seo = HOME_SEO }) {
           </div>
         </div>
       </section>
+
+      {/* ── Demo video (renders only when the founder-supplied asset is configured) ── */}
+      {demoVideo && (
+        <section className="video-section" id="demo-video">
+          <div className="container">
+            <div className="section-header reveal">
+              <span className="section-label">See It Working</span>
+              <h2 className="section-title">Watch a real invoice go out and get paid</h2>
+            </div>
+            <VideoEmbed />
+          </div>
+        </section>
+      )}
 
       {/* ── Core features: full rows with phone mockups (PDF leads) ── */}
       <div id="features" />
