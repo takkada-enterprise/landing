@@ -2,7 +2,7 @@ import {
   contactInfo,
   faqItems,
   pricing,
-  publishedTestimonials,
+  testimonials,
   appLinks,
   appRatingCount,
 } from './siteContent';
@@ -96,7 +96,7 @@ function reviewSchema(testimonial) {
   };
 }
 
-export function softwareApplicationSchema(reviews = publishedTestimonials) {
+export function softwareApplicationSchema(reviews = testimonials) {
   const priceNumber = (price) => price.replace(/[^\d]/g, '');
   const schema = {
     '@context': 'https://schema.org',
@@ -111,9 +111,9 @@ export function softwareApplicationSchema(reviews = publishedTestimonials) {
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
-      absoluteUrl('/assets/screenshots/home-screen.png'),
-      absoluteUrl('/assets/screenshots/payment-reminders.png'),
-      absoluteUrl('/assets/screenshots/settlement.png'),
+      absoluteUrl('/assets/screenshots/home-screen.webp'),
+      absoluteUrl('/assets/screenshots/payment-reminders.webp'),
+      absoluteUrl('/assets/screenshots/settlement.webp'),
     ],
     offers: pricing.plans.map((plan) => ({
       '@type': 'Offer',

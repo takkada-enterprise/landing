@@ -68,12 +68,23 @@ describe('WhatsAppCTA', () => {
     expect(() => fireEvent.click(screen.getByRole('link'))).not.toThrow();
   });
 
-  it('falls back to the calendar link when no WhatsApp number is configured', () => {
+  it('renders nothing when no WhatsApp number is configured (kill switch)', () => {
+    // Every surface keeps a calendar CTA beside the WhatsApp one, so the
+    // disabled state must not add a duplicate booking button.
     appLinks.whatsappNumber = '';
-    render(<WhatsAppCTA context="home-hero" />);
+    const { container } = render(<WhatsAppCTA context="home-hero" />);
 
-    const link = screen.getByRole('link', { name: /book a 15-min demo/i });
-    expect(link).toHaveAttribute('href', appLinks.bookDemo);
-    expect(screen.queryByRole('link', { name: /chat on whatsapp/i })).not.toBeInTheDocument();
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it('runs a caller-supplied onClick after tracking (mobile menu close)', () => {
+    window.clarity = vi.fn();
+    const onClick = vi.fn();
+    render(<WhatsAppCTA context="header" onClick={onClick} />);
+
+    fireEvent.click(screen.getByRole('link'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(window.clarity).toHaveBeenCalledWith('event', 'whatsapp_cta_click');
   });
 });

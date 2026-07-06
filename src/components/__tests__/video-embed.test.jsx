@@ -27,6 +27,13 @@ describe('VideoEmbed', () => {
     expect(container).toBeEmptyDOMElement();
   });
 
+  it('renders nothing for an unknown type (never a dead player after click)', () => {
+    const { container } = render(
+      <VideoEmbed video={{ type: 'vimeo', src: '/x.mp4', poster: '/x.png' }} />
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+
   it('shows the poster and an aria-labelled play control with no media element before click', () => {
     const { container } = render(<VideoEmbed video={MP4} />);
 

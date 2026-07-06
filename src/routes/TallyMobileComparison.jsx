@@ -3,9 +3,9 @@ import { ArrowRight } from 'lucide-react';
 import Seo from '../components/Seo';
 import ComparisonSection from '../components/ComparisonSection';
 import WhatsAppCTA from '../components/WhatsAppCTA';
+import CalendarCTA from '../components/CalendarCTA';
+import Breadcrumb from '../components/Breadcrumb';
 import { softwareApplicationSchema, breadcrumbSchema } from '../data/schema';
-import { appLinks } from '../data/siteContent';
-import { track } from '../lib/track';
 
 // Standalone landing for comparison-shopper intent ("best Tally mobile app",
 // listicle referrals). Renders the same comparisonSection matrix as home —
@@ -87,15 +87,12 @@ function TallyMobileComparison() {
       <section className="hero icp-hero" id="hero">
         <div className="container">
           <div className="hero-content icp-hero-content">
-            <nav aria-label="Breadcrumb" className="icp-breadcrumb">
-              <span>
-                <a href="https://takkada.com/">Home</a>
-              </span>
-              <span>
-                <span className="icp-breadcrumb-sep" aria-hidden="true">/</span>
-                <span aria-current="page">Tally Mobile App Comparison</span>
-              </span>
-            </nav>
+            <Breadcrumb
+              trail={[
+                { name: 'Home', url: 'https://takkada.com/' },
+                { name: 'Tally Mobile App Comparison', url: 'https://takkada.com/tally-mobile-app-comparison/' },
+              ]}
+            />
             <span className="section-label hero-overline">Comparison</span>
             <h1 className="hero-title icp-hero-title">
               Choosing a Tally mobile app: the feature-by-feature picture.
@@ -107,15 +104,7 @@ function TallyMobileComparison() {
             </p>
             <div className="hero-ctas">
               <WhatsAppCTA context="comparison" />
-              <a
-                href={appLinks.bookDemo}
-                className="cta-btn cta-btn--secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: 'comparison' })}
-              >
-                Book a 15-min demo
-              </a>
+              <CalendarCTA context="comparison" />
             </div>
           </div>
         </div>
@@ -173,20 +162,14 @@ function TallyMobileComparison() {
               on your own books.
             </h2>
             <p>
-              A 15-minute walkthrough with your Tally version and your receivables,
+              A <span className="tabular-nums">15-minute</span> walkthrough with your Tally version and your receivables,
               so the comparison stops being theoretical.
             </p>
             <div className="final-cta-actions">
               <WhatsAppCTA context="comparison" variant="dark" />
-              <a
-                href={appLinks.bookDemo}
-                className="final-cta-secondary-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: 'comparison' })}
-              >
-                or book a 15-min demo <ArrowRight size={16} />
-              </a>
+              <CalendarCTA context="comparison" variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>

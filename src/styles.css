@@ -580,8 +580,12 @@ html.js .animated-heading .letter {
   border-top: 1px solid var(--color-border);
 }
 
+.icp-hero-content .hero-ctas {
+  margin-bottom: 16px;
+}
+
 .hero-tertiary-line {
-  margin: -28px 0 40px;
+  margin: 0 0 40px;
   font-size: 14px;
 }
 

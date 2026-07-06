@@ -5,9 +5,8 @@ import { appLinks } from '../data/siteContent';
 // the triage signal. Written in the visitor's voice: plain sentences a
 // distributor would actually send.
 export const WHATSAPP_MESSAGES = {
+  // 'header' and any other context without its own entry resolve to default.
   default:
-    'Hi, I am on takkada.com and want to know more about Takkada for my business.',
-  header:
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
   'home-hero':
     'Hi, I run a distribution business on Tally. I saw takkada.com and want to see how it works.',
@@ -37,6 +36,18 @@ export const WHATSAPP_MESSAGES = {
 export function whatsappHref(context = 'default', messageOverride) {
   const number = String(appLinks.whatsappNumber || '').replace(/\D/g, '');
   if (!number) return null;
+
+  // Unknown contexts fall back to the default message at runtime (right for
+  // a marketing site), but a typo'd context key would silently strip the
+  // founder's triage signal — surface it during development.
+  if (
+    !messageOverride &&
+    !WHATSAPP_MESSAGES[context] &&
+    typeof import.meta !== 'undefined' &&
+    import.meta.env?.DEV
+  ) {
+    console.warn(`[whatsapp] unknown CTA context "${context}" — using the default message`);
+  }
 
   const message =
     messageOverride || WHATSAPP_MESSAGES[context] || WHATSAPP_MESSAGES.default;

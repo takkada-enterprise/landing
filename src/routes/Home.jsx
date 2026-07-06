@@ -24,11 +24,10 @@ import {
   MonitorCheck,
   ArrowUpRight,
 } from 'lucide-react';
-import CTAButton from '../components/CTAButton';
 import WhatsAppCTA from '../components/WhatsAppCTA';
-import VideoEmbed from '../components/VideoEmbed';
+import CalendarCTA from '../components/CalendarCTA';
+import VideoEmbed, { isPlayableVideo } from '../components/VideoEmbed';
 import TestimonialCard from '../components/TestimonialCard';
-import { track } from '../lib/track';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
 import ComparisonSection from '../components/ComparisonSection';
@@ -42,7 +41,7 @@ import {
   painPoints,
   featureGrid,
   howItWorks,
-  publishedTestimonials,
+  testimonials,
   trustSection,
   coreFeatures,
   advancedFeatures,
@@ -212,15 +211,7 @@ function Home({ seo = HOME_SEO }) {
             </p>
             <div className="hero-ctas">
               <WhatsAppCTA context="home-hero" />
-              <CTAButton
-                variant="secondary"
-                href={appLinks.bookDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: 'home-hero' })}
-              >
-                Book a 15-min demo
-              </CTAButton>
+              <CalendarCTA context="home-hero" />
             </div>
             <div className="hero-stats">
               {heroStats.map((s) => (
@@ -347,8 +338,8 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Demo video (renders only when the founder-supplied asset is configured) ── */}
-      {demoVideo && (
+      {/* ── Demo video (renders only when the founder-supplied asset is playable) ── */}
+      {isPlayableVideo(demoVideo) && (
         <section className="video-section" id="demo-video">
           <div className="container">
             <div className="section-header reveal">
@@ -609,15 +600,9 @@ function Home({ seo = HOME_SEO }) {
 
           <div className="home-pricing-strip-cta">
             <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
-            <a
-              href={appLinks.bookDemo}
-              className="home-pricing-strip-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track('calendar_open', { cta_context: 'pricing' })}
-            >
-              or get full pricing in a 15-min demo <ArrowRight size={16} />
-            </a>
+            <CalendarCTA context="pricing" variant="link" className="home-pricing-strip-link">
+              or get full pricing in a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+            </CalendarCTA>
           </div>
         </div>
       </section>
@@ -630,7 +615,7 @@ function Home({ seo = HOME_SEO }) {
             <h2 className="section-title">What our customers say</h2>
           </div>
           <div className="testimonial-row">
-            {publishedTestimonials.map((t, i) => (
+            {testimonials.map((t, i) => (
               <TestimonialCard key={t.name} {...t} delay={i * 80} />
             ))}
           </div>
@@ -716,15 +701,9 @@ function Home({ seo = HOME_SEO }) {
             </p>
             <div className="final-cta-actions">
               <WhatsAppCTA context="final-cta" variant="dark" />
-              <a
-                href={appLinks.bookDemo}
-                className="final-cta-secondary-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: 'final-cta' })}
-              >
-                or book a 15-min demo <ArrowRight size={16} />
-              </a>
+              <CalendarCTA context="final-cta" variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>

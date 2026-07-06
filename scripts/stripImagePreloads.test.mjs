@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { HERO_IMAGE, stripBlanketImagePreloads } from './stripImagePreloads.mjs';
+import {
+  HERO_IMAGE,
+  findImagePreloads,
+  isDeliberatePreload,
+  stripBlanketImagePreloads,
+} from './stripImagePreloads.mjs';
 
 const hero = `<link rel="preload" as="image" href="${HERO_IMAGE}">`;
 const blanket = '<link rel="preload" as="image" href="/assets/screenshots/settlement.webp">';
@@ -36,5 +41,28 @@ describe('stripBlanketImagePreloads', () => {
   it('is a no-op on pages with no image preloads', () => {
     const html = '<head><title>x</title></head><body></body>';
     expect(stripBlanketImagePreloads(html)).toBe(html);
+  });
+
+  it('matches regardless of attribute order and quote style (SSG update-proofing)', () => {
+    const reordered = '<link as="image" href="/assets/screenshots/settlement.webp" rel="preload">';
+    const singleQuoted = "<link rel='preload' as='image' href='/assets/screenshots/party-list.webp'>";
+    const html = `<head>${reordered}${singleQuoted}${hero}</head>`;
+    const out = stripBlanketImagePreloads(html);
+    expect(out).not.toContain(reordered);
+    expect(out).not.toContain(singleQuoted);
+    expect(out).toContain(hero);
+  });
+});
+
+describe('shared detection helpers (used by the post-build guard)', () => {
+  it('findImagePreloads returns only image preloads', () => {
+    const tags = findImagePreloads(`<head>${hero}${script}${font}${blogHero}</head>`);
+    expect(tags).toHaveLength(2);
+  });
+
+  it('isDeliberatePreload accepts hero + fetchpriority-high and rejects blanket tags', () => {
+    expect(isDeliberatePreload(hero)).toBe(true);
+    expect(isDeliberatePreload(blogHero)).toBe(true);
+    expect(isDeliberatePreload(blanket)).toBe(false);
   });
 });

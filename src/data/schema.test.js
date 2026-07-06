@@ -9,7 +9,7 @@ import {
   breadcrumbSchema,
   articleSchema,
 } from './schema';
-import { appLinks, pricing, publishedTestimonials, testimonials } from './siteContent';
+import { appLinks, pricing, testimonials } from './siteContent';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -97,24 +97,24 @@ describe('softwareApplicationSchema', () => {
     expect(schema.offers.length).toBeGreaterThan(0);
   });
 
-  it('uses the published (non-placeholder) testimonials by default', () => {
+  it('uses the on-site testimonials by default', () => {
     const schema = softwareApplicationSchema();
-    expect(schema.review).toHaveLength(publishedTestimonials.length);
+    expect(schema.review).toHaveLength(testimonials.length);
   });
 
   it('never emits a placeholder testimonial as a Review node', () => {
-    // Placeholder entries are launch-gated slots for founder-supplied quotes.
-    // A fabricated Review reaching crawlers would be worse than none.
-    const schema = softwareApplicationSchema();
-    for (const review of schema.review ?? []) {
-      expect(review.reviewBody).not.toContain('PLACEHOLDER');
-      expect(review.author.name).not.toContain('Placeholder');
+    // Voice rule: real quotes only. The testimonials array must hold nothing
+    // but founder-supplied quotes — a fabricated Review reaching crawlers
+    // would be worse than none.
+    expect(testimonials.length).toBeGreaterThan(0);
+    for (const t of testimonials) {
+      expect(t.placeholder).toBeUndefined();
+      expect(t.quote).not.toContain('PLACEHOLDER');
+      expect(t.name).not.toContain('Placeholder');
     }
-    expect(publishedTestimonials.every((t) => !t.placeholder)).toBe(true);
-    // The wall is data-complete only when the founder's quotes replace the
-    // placeholder slots; until then exactly the real quotes ship.
-    expect(publishedTestimonials.length).toBeGreaterThan(0);
-    expect(publishedTestimonials.length).toBeLessThanOrEqual(testimonials.length);
+    for (const review of softwareApplicationSchema().review ?? []) {
+      expect(review.reviewBody).not.toContain('PLACEHOLDER');
+    }
   });
 
   it('references the organization as publisher by @id, not an inline copy', () => {

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
-import CTAButton from './CTAButton';
 import WhatsAppCTA from './WhatsAppCTA';
+import CalendarCTA from './CalendarCTA';
+import Breadcrumb from './Breadcrumb';
 import FAQItem from './FAQItem';
-import { track } from '../lib/track';
 import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
 
 function ICPTemplate({
@@ -44,32 +44,13 @@ function ICPTemplate({
       <section className="hero icp-hero" id="hero">
         <div className="container">
           <div className="hero-content icp-hero-content">
-            <nav aria-label="Breadcrumb" className="icp-breadcrumb">
-              {breadcrumb.map((item, i) => (
-                <span key={item.url}>
-                  {i > 0 && <span className="icp-breadcrumb-sep" aria-hidden="true">/</span>}
-                  {i === breadcrumb.length - 1 ? (
-                    <span aria-current="page">{item.name}</span>
-                  ) : (
-                    <a href={item.url}>{item.name}</a>
-                  )}
-                </span>
-              ))}
-            </nav>
+            <Breadcrumb trail={breadcrumb} />
             <span className="section-label hero-overline">{overline}</span>
             <h1 className="hero-title icp-hero-title">{headline}</h1>
             <p className="hero-subtitle icp-hero-subtitle">{subheadline}</p>
             <div className="hero-ctas">
               <WhatsAppCTA context={waContext} />
-              <CTAButton
-                variant="secondary"
-                href={ctaPrimary.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: waContext })}
-              >
-                {ctaPrimary.text}
-              </CTAButton>
+              <CalendarCTA context={waContext}>{ctaPrimary.text}</CalendarCTA>
             </div>
             <p className="hero-tertiary-line">
               {ctaSecondary.href.startsWith('http') ? (
@@ -170,15 +151,9 @@ function ICPTemplate({
             </p>
             <div className="final-cta-actions">
               <WhatsAppCTA context={waContext} variant="dark" />
-              <a
-                href={ctaPrimary.href}
-                className="final-cta-secondary-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('calendar_open', { cta_context: waContext })}
-              >
-                or book a 15-min demo <ArrowRight size={16} />
-              </a>
+              <CalendarCTA context={waContext} variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>

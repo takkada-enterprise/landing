@@ -1,27 +1,51 @@
-// Post-build guard: fails the build if blanket image preloads ever return
-// (e.g. a vite-react-ssg update changes the injection internals and the
-// onPageRendered hook stops matching). Home must carry at most one image
-// preload, and it must be the hero.
-import { readFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+// Post-build guard for the preload-stripping mechanism (stripImagePreloads
+// .mjs, wired into vite.config.js onPageRendered). Two invariants, checked
+// on EVERY page in dist/ so a regression on blog posts can't hide behind a
+// clean home page:
+//   1. No page carries a blanket image preload (one that is neither
+//      fetchpriority="high" nor the hero) — if a vite-react-ssg update
+//      changes the injection so the stripper stops matching, this fails.
+//   2. Home still carries its hero preload — failing on ZERO preloads
+//      catches the opposite drift, where the hero constant/src diverge and
+//      the stripper eats the LCP preload.
+import { readFileSync, readdirSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { HERO_IMAGE } from './stripImagePreloads.mjs';
+import { HERO_IMAGE, findImagePreloads, isDeliberatePreload } from './stripImagePreloads.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const homeHtml = readFileSync(resolve(__dirname, '../dist/index.html'), 'utf-8');
+const distDir = resolve(__dirname, '../dist');
 
-const preloads = homeHtml.match(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g) ?? [];
-
-if (preloads.length > 1) {
-  console.error(`checkImagePreloads: dist/index.html has ${preloads.length} image preloads (max 1):`);
-  for (const tag of preloads) console.error(`  ${tag}`);
-  process.exit(1);
+function htmlFiles(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) return htmlFiles(full);
+    return entry.name.endsWith('.html') ? [full] : [];
+  });
 }
 
-if (preloads.length === 1 && !preloads[0].includes(HERO_IMAGE)) {
-  console.error(`checkImagePreloads: the single image preload is not the hero (${HERO_IMAGE}):`);
-  console.error(`  ${preloads[0]}`);
-  process.exit(1);
+let failures = 0;
+let pagesChecked = 0;
+
+for (const file of htmlFiles(distDir)) {
+  pagesChecked += 1;
+  const preloads = findImagePreloads(readFileSync(file, 'utf-8'));
+  const blanket = preloads.filter((tag) => !isDeliberatePreload(tag));
+  if (blanket.length > 0) {
+    failures += 1;
+    console.error(`checkImagePreloads: blanket image preload(s) in ${file}:`);
+    for (const tag of blanket) console.error(`  ${tag}`);
+  }
 }
 
-console.log(`checkImagePreloads: OK (${preloads.length} image preload${preloads.length === 1 ? '' : 's'} on home)`);
+const homeHtml = readFileSync(resolve(distDir, 'index.html'), 'utf-8');
+const homeHero = findImagePreloads(homeHtml).filter((tag) => tag.includes(HERO_IMAGE));
+if (homeHero.length === 0) {
+  failures += 1;
+  console.error(
+    `checkImagePreloads: dist/index.html lost its hero preload (${HERO_IMAGE}) — LCP regression`
+  );
+}
+
+if (failures > 0) process.exit(1);
+console.log(`checkImagePreloads: OK (${pagesChecked} pages, hero preload present on home)`);

@@ -146,38 +146,18 @@ export const howItWorks = [
   },
 ];
 
-// Voice rule: real quotes only. Entries flagged `placeholder: true` are
-// slots waiting for founder-supplied quotes — they never render and never
-// emit schema.org Review nodes (publishedTestimonials filters them out).
-// To launch a quote: paste the real text/name/role and delete the flag.
+// Voice rule: real quotes only — every entry here renders on the wall AND
+// emits a schema.org Review node, so nothing goes in this array until the
+// founder supplies the real quote. The wall layout and Review coupling
+// already handle 3-5 entries; to add one, append:
+//   { quote: '<their exact words>', name: '<real name>', role: '<business, city>' },
 export const testimonials = [
   {
     quote: 'Before Takkada, I couldn\'t take a single leave. I had to be at the counter to check payments, make vouchers, update Tally. Now it\'s completely stress-free. Everything happens automatically.',
     name: 'Priya Agarwal',
     role: 'FMCG Distributor, Pune',
   },
-  {
-    placeholder: true,
-    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
-    name: 'Placeholder Two',
-    role: 'Distributor',
-  },
-  {
-    placeholder: true,
-    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
-    name: 'Placeholder Three',
-    role: 'Distributor',
-  },
-  {
-    placeholder: true,
-    quote: '[PLACEHOLDER — real named quote from the founder goes here before this entry ships]',
-    name: 'Placeholder Four',
-    role: 'Distributor',
-  },
 ];
-
-// The only testimonials that ever reach a visitor or a crawler.
-export const publishedTestimonials = testimonials.filter((t) => !t.placeholder);
 
 // Answers the fear that dominates the "Tally mobile app" informational SERP:
 // will connecting an app break my Tally, and is my data safe. Every claim is

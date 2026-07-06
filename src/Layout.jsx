@@ -107,7 +107,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
         <NavHashLink href="#tally" className="mobile-connector-link" onClick={() => setMenuOpen(false)}>
           <Download size={18} /> Tally Connector
         </NavHashLink>
-        <WhatsAppCTA context="header" fullWidth />
+        <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
         <CTAButton
           variant="secondary"
           type="button"

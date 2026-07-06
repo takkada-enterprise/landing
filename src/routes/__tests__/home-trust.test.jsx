@@ -10,7 +10,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { appLinks, publishedTestimonials, trustSection } from '../../data/siteContent';
+import { appLinks, testimonials, trustSection } from '../../data/siteContent';
 
 afterEach(cleanup);
 
@@ -34,26 +34,26 @@ function renderHome() {
 }
 
 describe('testimonial wall', () => {
-  it('renders one card per published testimonial', () => {
+  it('renders one card per testimonial', () => {
     const { container } = renderHome();
     const cards = container.querySelectorAll('#testimonial .testimonial-card');
-    expect(cards).toHaveLength(publishedTestimonials.length);
+    expect(cards).toHaveLength(testimonials.length);
   });
 
-  it('shows each published quote, name, and role verbatim', () => {
+  it('shows each quote, name, and role verbatim', () => {
     const { container } = renderHome();
     const section = container.querySelector('#testimonial');
-    for (const t of publishedTestimonials) {
+    for (const t of testimonials) {
       expect(section.textContent).toContain(t.quote);
       expect(section.textContent).toContain(t.name);
       expect(section.textContent).toContain(t.role);
     }
   });
 
-  it('never renders a placeholder testimonial', () => {
+  it('never renders placeholder copy (real quotes only)', () => {
     const { container } = renderHome();
     expect(container.textContent).not.toContain('PLACEHOLDER');
-    expect(container.textContent).not.toContain('Placeholder Two');
+    expect(container.textContent).not.toContain('Placeholder');
   });
 });
 

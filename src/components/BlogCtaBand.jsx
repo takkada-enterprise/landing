@@ -1,6 +1,5 @@
 import WhatsAppCTA from './WhatsAppCTA';
-import { appLinks } from '../data/siteContent';
-import { track } from '../lib/track';
+import CalendarCTA from './CalendarCTA';
 
 // The one conversion band under every blog surface (~118 posts + index).
 // Being a single component is the point: changing it moves every article
@@ -10,7 +9,12 @@ import { track } from '../lib/track';
 // secondary action and demote the calendar link to a text line.
 function BlogCtaBand({
   heading = 'See this in action for your business',
-  body = '15 minutes. We show you your own Tally data on your phone, live.',
+  body = (
+    <>
+      <span className="tabular-nums">15</span> minutes. We show you your own Tally data on your
+      phone, live.
+    </>
+  ),
 }) {
   return (
     <section className="blog-cta-band">
@@ -20,15 +24,7 @@ function BlogCtaBand({
           <p className="blog-cta-body">{body}</p>
           <div className="blog-cta-actions">
             <WhatsAppCTA context="blog" />
-            <a
-              href={appLinks.bookDemo}
-              className="cta-btn cta-btn--secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track('calendar_open', { cta_context: 'blog' })}
-            >
-              Book a 15-min demo
-            </a>
+            <CalendarCTA context="blog" />
           </div>
         </div>
       </div>

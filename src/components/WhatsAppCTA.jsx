@@ -1,5 +1,4 @@
 import CTAButton from './CTAButton';
-import { appLinks } from '../data/siteContent';
 import { whatsappHref } from '../lib/whatsapp';
 import { track } from '../lib/track';
 
@@ -26,8 +25,11 @@ export function WhatsAppIcon({ size = 18 }) {
 // after an await gets eaten by popup blockers (see PhoneModal.jsx), and an
 // anchor needs no user-activation gymnastics. Tracking fires synchronously
 // inside the click and is never awaited, so navigation always proceeds.
-// When no WhatsApp number is configured, falls back to the calendar link
-// so the button is never dead.
+// A caller-supplied onClick (e.g. the mobile menu closing itself) runs
+// after the tracking call.
+// When no WhatsApp number is configured (the site-wide kill switch in
+// siteContent.js), this renders nothing — every surface already carries a
+// calendar CTA beside it, so a fallback button here would duplicate it.
 function WhatsAppCTA({
   context = 'default',
   message,
@@ -35,25 +37,16 @@ function WhatsAppCTA({
   fullWidth = false,
   className = '',
   children,
-  fallbackLabel = 'Book a 15-min demo',
+  onClick,
 }) {
   const href = whatsappHref(context, message);
 
-  if (!href) {
-    return (
-      <CTAButton
-        variant={variant}
-        fullWidth={fullWidth}
-        className={className}
-        href={appLinks.bookDemo}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => track('calendar_open', { cta_context: context })}
-      >
-        {fallbackLabel}
-      </CTAButton>
-    );
-  }
+  if (!href) return null;
+
+  const handleClick = (e) => {
+    track('whatsapp_cta_click', { cta_context: context });
+    if (onClick) onClick(e);
+  };
 
   return (
     <CTAButton
@@ -63,7 +56,7 @@ function WhatsAppCTA({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => track('whatsapp_cta_click', { cta_context: context })}
+      onClick={handleClick}
     >
       <WhatsAppIcon /> {children || 'Chat on WhatsApp'}
     </CTAButton>
