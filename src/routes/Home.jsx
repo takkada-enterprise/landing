@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
+import DemoTryCTA from '../components/DemoTryCTA';
 import VideoEmbed, { isPlayableVideo } from '../components/VideoEmbed';
 import TestimonialCard from '../components/TestimonialCard';
 import FAQItem from '../components/FAQItem';
@@ -46,6 +47,7 @@ import {
   coreFeatures,
   advancedFeatures,
   demoVideo,
+  demoEntryLive,
 } from '../data/siteContent';
 
 const tallyIconMap = {
@@ -210,8 +212,20 @@ function Home({ seo = HOME_SEO }) {
               Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile in Tally. Built for Indian distributors and wholesalers.
             </p>
             <div className="hero-ctas">
-              <WhatsAppCTA context="home-hero" />
-              <CalendarCTA context="home-hero" />
+              {/* Demo-first hero (U9): once the app's anonymous entry is
+                  live, "Try it yourself" leads and WhatsApp demotes to
+                  secondary. Until then, WhatsApp-first (U1). */}
+              {demoEntryLive ? (
+                <>
+                  <DemoTryCTA context="home-hero" />
+                  <WhatsAppCTA context="home-hero" variant="secondary" />
+                </>
+              ) : (
+                <>
+                  <WhatsAppCTA context="home-hero" />
+                  <CalendarCTA context="home-hero" />
+                </>
+              )}
             </div>
             <div className="hero-stats">
               {heroStats.map((s) => (

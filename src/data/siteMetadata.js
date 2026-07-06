@@ -77,6 +77,12 @@ export const routeMetadata = [
     priority: 0.8,
   },
   {
+    path: '/demo',
+    sourceFile: 'src/routes/TryDemo.jsx',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
     path: '/partners',
     sourceFile: 'src/routes/Partners.jsx',
     changefreq: 'monthly',

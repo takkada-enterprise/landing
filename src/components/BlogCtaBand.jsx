@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
+import { demoEntryLive } from '../data/siteContent';
 
 // The one conversion band under every blog surface (~118 posts + index).
 // Being a single component is the point: changing it moves every article
-// into the current funnel at once. WhatsApp leads (context 'blog'),
-// calendar stays as the visible secondary path.
-// U9 note: when the /demo/ share page ships, add "Try the demo" here as the
-// secondary action and demote the calendar link to a text line.
+// into the current funnel at once. WhatsApp leads (context 'blog'); the
+// secondary is "Try the demo" once the app entry is live (U9), calendar
+// booking until then.
 function BlogCtaBand({
   heading = 'See this in action for your business',
   body = (
@@ -24,7 +25,13 @@ function BlogCtaBand({
           <p className="blog-cta-body">{body}</p>
           <div className="blog-cta-actions">
             <WhatsAppCTA context="blog" />
-            <CalendarCTA context="blog" />
+            {demoEntryLive ? (
+              <Link to="/demo" className="cta-btn cta-btn--secondary">
+                Try the demo
+              </Link>
+            ) : (
+              <CalendarCTA context="blog" />
+            )}
           </div>
         </div>
       </div>
