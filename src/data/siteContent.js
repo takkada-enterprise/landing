@@ -381,7 +381,7 @@ export const comparisonSection = {
       Livekeeping: true,
     },
     {
-      feature: 'Mobile data entry / voucher workflows',
+      feature: 'Mobile data entry with two-way Tally write-back',
       Takkada: true,
       'Biz Analyst': true,
       Livekeeping: true,
@@ -394,6 +394,12 @@ export const comparisonSection = {
     },
     {
       feature: 'Invoice-linked payment collection',
+      Takkada: true,
+      'Biz Analyst': false,
+      Livekeeping: false,
+    },
+    {
+      feature: 'Zero-MDR UPI collection (UPI charges fully pass-through)',
       Takkada: true,
       'Biz Analyst': false,
       Livekeeping: false,

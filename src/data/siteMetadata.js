@@ -71,6 +71,12 @@ export const routeMetadata = [
     priority: 0.9,
   },
   {
+    path: '/tally-mobile-app-comparison',
+    sourceFile: 'src/routes/TallyMobileComparison.jsx',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
     path: '/partners',
     sourceFile: 'src/routes/Partners.jsx',
     changefreq: 'monthly',
