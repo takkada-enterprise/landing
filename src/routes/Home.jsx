@@ -233,7 +233,13 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <div className="hero-visual">
             <div className="hero-phone-frame">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada home screen showing receivables dashboard" />
+              <img
+                src="/assets/screenshots/home-screen.webp"
+                alt="Takkada home screen showing receivables dashboard"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
             </div>
             <div className="hero-pills" aria-hidden="true">
               {heroPills.map((p, i) => {
@@ -281,13 +287,13 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <div className="intro-screenshots">
             <div className="intro-phone">
-              <img src="/assets/screenshots/settlement.png" alt="Takkada payment settlement screen" />
+              <img src="/assets/screenshots/settlement.webp" alt="Takkada payment settlement screen" loading="lazy" decoding="async" />
             </div>
             <div className="intro-phone intro-phone-center">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada receivables dashboard" />
+              <img src="/assets/screenshots/home-screen.webp" alt="Takkada receivables dashboard" loading="lazy" decoding="async" />
             </div>
             <div className="intro-phone">
-              <img src="/assets/screenshots/payment-reminders.png" alt="Takkada WhatsApp payment reminders" />
+              <img src="/assets/screenshots/payment-reminders.webp" alt="Takkada WhatsApp payment reminders" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -381,11 +387,11 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <div className="feature-visuals reveal">
                 <div className="feature-phone">
-                  <img src={feature.screenshot} alt={feature.title} />
+                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
                 </div>
                 {feature.secondaryScreenshot && (
                   <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
+                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
                   </div>
                 )}
               </div>
@@ -436,11 +442,11 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <div className="feature-visuals reveal">
                 <div className={`feature-phone ${feature.secondaryScreenshot ? '' : 'feature-phone-single'}`}>
-                  <img src={feature.screenshot} alt={feature.title} />
+                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
                 </div>
                 {feature.secondaryScreenshot && (
                   <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
+                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
                   </div>
                 )}
               </div>
@@ -467,7 +473,7 @@ function Home({ seo = HOME_SEO }) {
             <div className="tally-flow">
               <div className="tally-node">
                 <div className="tally-node-icon">
-                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" />
+                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" loading="lazy" decoding="async" />
                 </div>
                 <span className="tally-node-label">Takkada</span>
               </div>
@@ -479,7 +485,7 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <div className="tally-node">
                 <div className="tally-node-icon tally-node-tally">
-                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" />
+                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" loading="lazy" decoding="async" />
                 </div>
                 <span className="tally-node-label">Tally Prime</span>
               </div>
