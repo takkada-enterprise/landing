@@ -1,16 +1,18 @@
 import { CheckCircle2, IndianRupee, MessageCircle, Smartphone } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'FOR INDIAN DISTRIBUTORS',
   headline: 'The mobile Tally app built for distributors.',
   subheadline:
     'If you serve 30 to 300 retailers on 30-90 day terms, raise 20+ invoices a day, and lose two evening hours to reconciliation — Takkada is built for exactly your business.',
+  waContext: 'icp-for-distributors',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'The complete distributor workflow, from your phone',
   capabilities: [
     {

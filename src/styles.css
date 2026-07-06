@@ -580,6 +580,23 @@ html.js .animated-heading .letter {
   border-top: 1px solid var(--color-border);
 }
 
+.hero-tertiary-line {
+  margin: -28px 0 40px;
+  font-size: 14px;
+}
+
+.hero-tertiary-line a {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-tertiary-line a:hover,
+.hero-tertiary-line a:focus-visible {
+  color: var(--color-primary);
+}
+
 .hero-stat {
   display: flex;
   flex-direction: column;
@@ -1685,9 +1702,26 @@ html.js .animated-heading .letter {
 
 .final-cta-actions {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.final-cta-secondary-link:hover,
+.final-cta-secondary-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
 }
 
 /* ── Footer ── */
@@ -2779,7 +2813,11 @@ html.js .animated-heading .letter {
 }
 
 .home-pricing-strip-cta {
-  margin-top: 10px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-align: center;
 }
 

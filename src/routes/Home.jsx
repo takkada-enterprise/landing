@@ -20,7 +20,9 @@ import {
   Users,
 } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import TestimonialCard from '../components/TestimonialCard';
+import { track } from '../lib/track';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
 import ComparisonSection from '../components/ComparisonSection';
@@ -194,12 +196,16 @@ function Home({ seo = HOME_SEO }) {
               Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile in Tally. Built for Indian distributors and wholesalers.
             </p>
             <div className="hero-ctas">
-              <CTAButton variant="primary" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
+              <WhatsAppCTA context="home-hero" />
+              <CTAButton
+                variant="secondary"
+                href={appLinks.bookDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('calendar_open', { cta_context: 'home-hero' })}
+              >
+                Book a 15-min demo
               </CTAButton>
-              <a href="#pricing" className="cta-btn cta-btn--secondary">
-                See pricing
-              </a>
             </div>
             <div className="hero-stats">
               {heroStats.map((s) => (
@@ -337,9 +343,13 @@ function Home({ seo = HOME_SEO }) {
                   {NEW_FEATURE_IDS.has(feature.id) && <span className="feature-new-tag">New</span>}
                 </h2>
                 <p className="feature-description">{feature.description}</p>
-                <CTAButton variant="outline" href={appLinks.bookDemo}>
+                <WhatsAppCTA
+                  context="features"
+                  variant="outline"
+                  message={`Hi, I want to see how "${feature.title}" works in Takkada.`}
+                >
                   See it in action <ArrowRight size={16} />
-                </CTAButton>
+                </WhatsAppCTA>
               </div>
               <div className="feature-visuals reveal">
                 <div className="feature-phone">
@@ -564,8 +574,15 @@ function Home({ seo = HOME_SEO }) {
           </div>
 
           <div className="home-pricing-strip-cta">
-            <a href={appLinks.bookDemo} className="home-pricing-strip-link" target="_blank" rel="noopener noreferrer">
-              Get full pricing in the demo <ArrowRight size={16} />
+            <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
+            <a
+              href={appLinks.bookDemo}
+              className="home-pricing-strip-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('calendar_open', { cta_context: 'pricing' })}
+            >
+              or get full pricing in a 15-min demo <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -620,9 +637,16 @@ function Home({ seo = HOME_SEO }) {
               Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your business.
             </p>
             <div className="final-cta-actions">
-              <CTAButton variant="dark" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
+              <WhatsAppCTA context="final-cta" variant="dark" />
+              <a
+                href={appLinks.bookDemo}
+                className="final-cta-secondary-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('calendar_open', { cta_context: 'final-cta' })}
+              >
+                or book a 15-min demo <ArrowRight size={16} />
+              </a>
             </div>
           </div>
         </div>

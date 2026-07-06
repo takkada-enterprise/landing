@@ -282,6 +282,11 @@ export const appLinks = {
   appStore: 'https://apps.apple.com/in/app/takkada/id6755435132',
   tallyConnector: 'https://paysaathi-desktop-autoupdate.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe',
   bookDemo: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+  // WhatsApp Business number behind every wa.me CTA (digits only, country
+  // code included). Currently the founder's number from CLAUDE.md §13; swap
+  // here when a dedicated business number exists. Empty string disables the
+  // WhatsApp CTAs site-wide (they fall back to the calendar link).
+  whatsappNumber: '919435977777',
 };
 
 export const comparisonSection = {

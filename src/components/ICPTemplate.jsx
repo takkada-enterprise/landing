@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
 import CTAButton from './CTAButton';
+import WhatsAppCTA from './WhatsAppCTA';
 import FAQItem from './FAQItem';
+import { track } from '../lib/track';
 import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
 
 function ICPTemplate({
   overline,
   headline,
   subheadline,
+  waContext,
   ctaPrimary,
   ctaSecondary,
   capabilitiesHeading,
@@ -57,19 +60,24 @@ function ICPTemplate({
             <h1 className="hero-title icp-hero-title">{headline}</h1>
             <p className="hero-subtitle icp-hero-subtitle">{subheadline}</p>
             <div className="hero-ctas">
-              <CTAButton variant="primary" href={ctaPrimary.href}>
-                {ctaPrimary.text} <ArrowRight size={18} />
+              <WhatsAppCTA context={waContext} />
+              <CTAButton
+                variant="secondary"
+                href={ctaPrimary.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('calendar_open', { cta_context: waContext })}
+              >
+                {ctaPrimary.text}
               </CTAButton>
-              {ctaSecondary.href.startsWith('http') ? (
-                <a href={ctaSecondary.href} className="cta-btn cta-btn--secondary">
-                  {ctaSecondary.text}
-                </a>
-              ) : (
-                <Link to={ctaSecondary.href} className="cta-btn cta-btn--secondary">
-                  {ctaSecondary.text}
-                </Link>
-              )}
             </div>
+            <p className="hero-tertiary-line">
+              {ctaSecondary.href.startsWith('http') ? (
+                <a href={ctaSecondary.href}>{ctaSecondary.text}</a>
+              ) : (
+                <Link to={ctaSecondary.href}>{ctaSecondary.text}</Link>
+              )}
+            </p>
           </div>
         </div>
       </section>
@@ -161,9 +169,16 @@ function ICPTemplate({
               Book a demo. We walk through your setup, your Tally version, and exactly what Takkada changes for your business.
             </p>
             <div className="final-cta-actions">
-              <CTAButton variant="dark" href={ctaPrimary.href}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
+              <WhatsAppCTA context={waContext} variant="dark" />
+              <a
+                href={ctaPrimary.href}
+                className="final-cta-secondary-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('calendar_open', { cta_context: waContext })}
+              >
+                or book a 15-min demo <ArrowRight size={16} />
+              </a>
             </div>
           </div>
         </div>

@@ -1,16 +1,18 @@
 import { FileText, MessageCircle, RefreshCw, Smartphone } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'FIELD SALES INVOICING',
   headline: 'Your salesman raises the invoice at the retailer\'s counter. It\'s in Tally before he drives away.',
   subheadline:
     "No calling the office. No paper order books. No accountant spending the first two hours of every morning on data entry. The invoice is raised at the counter, synced to Tally, and on the retailer's WhatsApp before the truck leaves.",
+  waContext: 'icp-whatsapp-invoice',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'From the field to Tally, without touching a laptop',
   capabilities: [
     {
