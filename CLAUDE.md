@@ -18,13 +18,12 @@ Four sub-ICPs:
 
 ## 3. Pricing (GST extra on all prices, annual per-customer MRP)
 
-Plans:
-- View Only: ₹2,700
+Plans (the View Only ₹2,700 plan was retired from the public site in June 2026 — do not reintroduce it; `src/data/schema.test.js` asserts it stays absent):
 - Voucher Model: ₹4,500
 - Collections Model: ₹6,480
 - Full Access / Auto Dispatch: ₹8,499. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
 
-Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
+Extra devices (per year): ₹3,000 on all plans.
 
 Add-ons (per year):
 - Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
@@ -33,7 +32,7 @@ Add-ons (per year):
 - Extra user: ₹3,000
 - Extra business (Collections or Full Access only): ₹1,000
 
-Extra business rule: View Only and Voucher customers pay nothing for extra businesses; Collections and Full Access pay ₹1,000 per extra business.
+Extra business rule: Voucher customers pay nothing for extra businesses; Collections and Full Access pay ₹1,000 per extra business.
 
 ## 4. GTM motion
 
@@ -56,7 +55,7 @@ Don't:
 - No cheap shots at competitors or the customer's current workflow
 - No AI/roadmap promises that aren't shipped
 - End sections with statements, not questions
-- No vanity numbers. We have 20 customers. Do not invent "trusted by thousands". If a claim isn't true, it goes on the editing floor.
+- No vanity numbers. The public scale figures are: **100+ businesses and ₹17Cr+ collected monthly — platform-wide figures, founder-confirmed 2026-07-06**. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+/₹17Cr stats down to it. Beyond these two confirmed figures, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor.
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
@@ -104,9 +103,10 @@ Component patterns:
 
 ## 7. Typography rule
 
-The shipped site uses **one family and no others: Plus Jakarta Sans** — the exact font the Takkada Flutter app uses (the app loads it via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`). This replaced the previous Inter + DM Serif Display pairing on 2026-06-18 (second pass) because the operator wanted the landing to read as the same brand as the app, and the serif headings + Inter body did not. The earlier "two families, do not add Plus Jakarta Sans" rule is dead — it was based on the false premise that the sage teardown already matched the app.
+The shipped site uses **two families**: Plus Jakarta Sans for body/UI (the exact font the Takkada Flutter app uses via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`) and **Fraunces as the display serif for headings**, added deliberately by the 2026-06-29 premium overlay (`src/premium.css`, "One tasteful type addition"). `premium.css` imports after `styles.css` in `src/main.jsx` and re-points `--font-serif` at `--font-display: 'Fraunces', …`, so every `var(--font-serif)` heading rule renders Fraunces. The earlier "one family only / the Fraunces link is vestigial" note (2026-06-18 second pass) predates that overlay and is dead — the Fraunces `<link>` in `index.html` is load-bearing; removing it silently reverts every heading to Plus Jakarta Sans (this nearly shipped once, 2026-07-06).
 
-- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body, UI, and headings. Exposed as both `--font-sans` and `--font-serif` (the `--font-serif` token name is retained only for backward compatibility with the many `var(--font-serif)` heading rules; it now resolves to Plus Jakarta Sans, not a serif).
+- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body and UI, exposed as `--font-sans`.
+- **Fraunces** (opsz, weights 500;600;700), same `<link>`. Used for headings via `--font-display`/`--font-serif` in `src/premium.css`.
 - **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), not from a serif face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
 
 Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. The self-hosted Inter `.ttf` under `public/assets/fonts/` is now unreferenced; leave it or delete it, but do not wire it back in.
@@ -163,7 +163,7 @@ Current entry points and commands:
 
 The Takkada site is not a marketing brochure. It's the first place a distributor, a Tally partner, or an investor forms an opinion about the quality of the product behind it. If the site feels slow, cluttered, or generic, they assume the product is too. The website is the product's first demo.
 
-The craft bar is borrowed, with modification, from Stripe's website redesign principles. Stripe's principles come from a company with global scale; ours have to work at a 20-customer startup that is honest about being 20 customers. Translate the principles, don't imitate the execution.
+The craft bar is borrowed, with modification, from Stripe's website redesign principles. Stripe's principles come from a company with global scale; ours have to work at an early-stage startup that is honest about its real numbers (see §5). Translate the principles, don't imitate the execution.
 
 Eleven craft commandments. Every component Claude Code writes must satisfy these, or the work is incomplete:
 
@@ -173,7 +173,7 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 
 3. **Every claim must be a specific behavior, not a superlative.** "Fast", "seamless", "enterprise-grade", "world-class" are banned. Replace with: "invoice reaches the customer in under 10 seconds of save", "₹1,00,000 across three invoices auto-splits", "works in 2G-zone villages where Tally can't load." Specificity is the signature of someone who has actually seen the problem.
 
-4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. We have 20 customers. Our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
+4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. Our confirmed public figures are 100+ businesses on the platform and ₹17Cr+ collected monthly (see §5); beyond those, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
 
 5. **Motion serves meaning or it doesn't exist.** No decorative animations. If a button, card, or transition moves, the motion must reflect what the product actually does. A reconciliation card matching and snapping into place, an invoice PDF sliding toward a WhatsApp bubble. Motion that doesn't teach is deleted. Default state: no motion. Opt-in per-component with a reason documented in the component file header.
 

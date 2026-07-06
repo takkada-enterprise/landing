@@ -38,43 +38,43 @@ export const coreFeatures = [
     label: 'Import from PDF',
     title: 'Turn a supplier PDF into a purchase entry',
     description: 'A supplier sends the bill on WhatsApp or email. Open it in Takkada and the app reads the line items, quantities, GST, and amounts for you. You check the details, pick the supplier, and the purchase voucher posts into Tally. No typing the bill out line by line.',
-    screenshot: '/assets/screenshots/home-screen.png',
-    secondaryScreenshot: '/assets/screenshots/invoice-detail.png',
+    screenshot: '/assets/screenshots/home-screen.webp',
+    secondaryScreenshot: '/assets/screenshots/invoice-detail.webp',
   },
   {
     id: 'outstanding-tracking',
     label: 'Outstanding Tracking',
     title: 'See Every Rupee Owed To You',
     description: 'Get a complete view of all receivables across every customer. See who owes what, what\'s overdue, and what\'s coming due, all synced from Tally in real time.',
-    screenshot: '/assets/screenshots/party-list.png',
+    screenshot: '/assets/screenshots/party-list.webp',
   },
   {
     id: 'smart-reminders',
     label: 'Smart Reminders',
     title: 'Automated Payment Reminders',
     description: 'Set up multi-stage payment reminders that go out automatically via WhatsApp. Configure pre-due nudges and post-due follow-ups. Control the timing, frequency, and escalation, with zero manual chasing.',
-    screenshot: '/assets/screenshots/payment-reminders.png',
+    screenshot: '/assets/screenshots/payment-reminders.webp',
   },
   {
     id: 'digital-collection',
     label: 'Digital Collection',
     title: 'Collect Payments Digitally',
     description: 'Send payment links directly from invoices. Customers view pending invoices, select what to pay, and complete payment via UPI, cards, or net banking. Auto-reconciliation updates your Tally instantly.',
-    screenshot: '/assets/screenshots/invoice-detail.png',
+    screenshot: '/assets/screenshots/invoice-detail.webp',
   },
   {
     id: 'auto-reconciliation',
     label: 'Auto Reconciliation',
     title: 'Payments Reconcile Themselves',
     description: 'When a customer pays through Takkada, the payment is automatically matched to the correct invoice and updated in your Tally. No manual voucher creation. No screenshot matching.',
-    screenshot: '/assets/screenshots/settlement.png',
+    screenshot: '/assets/screenshots/settlement.webp',
   },
   {
     id: 'reports',
     label: 'Reports',
     title: 'Your whole financial year, the moment you open the app',
     description: 'Sales, purchases, receipts, and payments for this financial year, totalled at a glance. Tap Outstanding by Age to see who owes you and how overdue, ready to call or send a reminder. Tap Customer Analytics to find the customers who have gone quiet.',
-    screenshot: '/assets/screenshots/reports-screen.png',
+    screenshot: '/assets/screenshots/reports-screen.webp',
   },
 ];
 
@@ -117,14 +117,14 @@ export const advancedFeatures = [
     id: 'e-invoicing',
     title: 'E-Way Bill & E-Invoicing',
     description: 'Generate GST-compliant E-Way Bills and E-Invoices directly from your mobile phone. Syncs two ways with Tally.',
-    screenshot: '/assets/screenshots/einvoice-eway.png',
+    screenshot: '/assets/screenshots/einvoice-eway.webp',
   },
   {
     id: 'rbac',
     title: 'Complete Access Control',
     description: 'Define what each team member can view, create, update, or delete across sales, purchases, and receipts. Restrict ledger visibility and limit stock groups by role.',
-    screenshot: '/assets/screenshots/rbac.png',
-    secondaryScreenshot: '/assets/screenshots/ledger-rbac.png',
+    screenshot: '/assets/screenshots/rbac.webp',
+    secondaryScreenshot: '/assets/screenshots/ledger-rbac.webp',
   },
 ];
 
@@ -146,6 +146,11 @@ export const howItWorks = [
   },
 ];
 
+// Voice rule: real quotes only — every entry here renders on the wall AND
+// emits a schema.org Review node, so nothing goes in this array until the
+// founder supplies the real quote. The wall layout and Review coupling
+// already handle 3-5 entries; to add one, append:
+//   { quote: '<their exact words>', name: '<real name>', role: '<business, city>' },
 export const testimonials = [
   {
     quote: 'Before Takkada, I couldn\'t take a single leave. I had to be at the counter to check payments, make vouchers, update Tally. Now it\'s completely stress-free. Everything happens automatically.',
@@ -153,6 +158,50 @@ export const testimonials = [
     role: 'FMCG Distributor, Pune',
   },
 ];
+
+// Answers the fear that dominates the "Tally mobile app" informational SERP:
+// will connecting an app break my Tally, and is my data safe. Every claim is
+// a specific behavior, not a security superlative.
+export const trustSection = {
+  overline: 'Data Safety',
+  heading: 'Your Tally stays exactly as it is',
+  subtitle:
+    'Connecting anything to your books is a trust decision. Here is precisely what Takkada does and does not touch.',
+  points: [
+    {
+      icon: 'database',
+      title: 'Your books never leave your Tally',
+      body:
+        'Takkada syncs with the Tally installed on your own computer. Your data files stay where they are today. Stop using Takkada and your Tally keeps working exactly as before.',
+    },
+    {
+      icon: 'shield',
+      title: 'Nothing writes to Tally without you',
+      body:
+        'Receivables tracking and reminders are read-only. A voucher posts into Tally only when you or your team create it in the app, and every entry shows who made it.',
+    },
+    {
+      icon: 'badge',
+      title: 'Official apps under a registered company',
+      body:
+        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP, registered in Guwahati. No APK from a forwarded link, no sideloading.',
+      links: [
+        { label: 'Play Store listing', hrefKey: 'playStore' },
+        { label: 'App Store listing', hrefKey: 'appStore' },
+      ],
+    },
+    {
+      icon: 'monitor',
+      title: 'The connector runs where you can see it',
+      body:
+        'A small Windows program sits next to Tally on your PC and does the syncing. You can open it, watch what it syncs, pause it, or remove it any time.',
+    },
+  ],
+  articleLink: {
+    label: 'Read the full safety explainer',
+    href: '/blog/is-it-safe-to-connect-app-to-tally/',
+  },
+};
 
 export const pricing = {
   plans: [
@@ -269,6 +318,13 @@ export const footerColumns = [
   },
 ];
 
+// Demo video for the home page (U4). null until the founder supplies the
+// asset — while null the video section renders nothing (never an empty
+// frame). To ship: set one of
+//   { type: 'mp4', src: '/assets/video/takkada-demo.mp4', poster: '/assets/video/takkada-demo-poster.png', title: 'Takkada in 3 minutes' }
+//   { type: 'youtube', id: '<video id>', poster: '<optional poster path>', title: 'Takkada in 3 minutes' }
+export const demoVideo = null;
+
 // Real, verified count of store reviews for aggregateRating. Leave null until
 // the actual App Store + Play Store review counts are confirmed. While this is
 // null the schema generator omits aggregateRating entirely, so no fabricated
@@ -282,6 +338,11 @@ export const appLinks = {
   appStore: 'https://apps.apple.com/in/app/takkada/id6755435132',
   tallyConnector: 'https://paysaathi-desktop-autoupdate.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe',
   bookDemo: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+  // WhatsApp Business number behind every wa.me CTA (digits only, country
+  // code included). Currently the founder's number from CLAUDE.md §13; swap
+  // here when a dedicated business number exists. Empty string disables the
+  // WhatsApp CTAs site-wide (they fall back to the calendar link).
+  whatsappNumber: '919435977777',
 };
 
 export const comparisonSection = {
@@ -307,7 +368,7 @@ export const comparisonSection = {
       Livekeeping: true,
     },
     {
-      feature: 'Mobile data entry / voucher workflows',
+      feature: 'Mobile data entry with two-way Tally write-back',
       Takkada: true,
       'Biz Analyst': true,
       Livekeeping: true,
@@ -320,6 +381,12 @@ export const comparisonSection = {
     },
     {
       feature: 'Invoice-linked payment collection',
+      Takkada: true,
+      'Biz Analyst': false,
+      Livekeeping: false,
+    },
+    {
+      feature: 'Zero-MDR UPI collection (UPI charges fully pass-through)',
       Takkada: true,
       'Biz Analyst': false,
       Livekeeping: false,

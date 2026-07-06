@@ -1,10 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import BlogCtaBand from '../components/BlogCtaBand';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
 import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
 import { getAuthor } from '../data/authors';
-
-const DEMO_URL = 'https://calendar.notion.so/meet/ronakmalu/takkada';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr);
@@ -143,19 +142,7 @@ function BlogPost() {
           <RelatedPosts currentSlug={slug} />
         </div>
 
-        <section className="blog-cta-band">
-          <div className="container">
-            <div className="blog-cta-card">
-              <h2 className="blog-cta-heading">See this in action for your business</h2>
-              <p className="blog-cta-body">
-                15 minutes. We show you your own Tally data on your phone, live.
-              </p>
-              <a href={DEMO_URL} className="cta-btn cta-btn--primary" target="_blank" rel="noopener noreferrer">
-                Book a 15-min demo
-              </a>
-            </div>
-          </div>
-        </section>
+        <BlogCtaBand />
       </main>
     </>
   );

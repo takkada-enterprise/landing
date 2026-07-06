@@ -296,6 +296,7 @@ html.js .animated-heading .letter {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -307,6 +308,7 @@ html.js .animated-heading .letter {
 }
 
 .nav-logo {
+  flex-shrink: 0;
   font-family: var(--font-serif);
   font-size: 26px;
   color: var(--color-primary);
@@ -316,7 +318,8 @@ html.js .animated-heading .letter {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 22px;
+  white-space: nowrap;
 }
 
 .nav-links a {
@@ -334,7 +337,8 @@ html.js .animated-heading .letter {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .mobile-menu-btn {
@@ -389,7 +393,7 @@ html.js .animated-heading .letter {
   font-size: 14px;
   font-weight: 600;
   color: var(--color-primary);
-  padding: 9px 16px;
+  padding: 9px 13px;
   border-radius: var(--radius-full);
   border: 1.5px solid rgba(52,78,65,0.28);
   transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
@@ -578,6 +582,27 @@ html.js .animated-heading .letter {
   gap: 40px;
   padding-top: 28px;
   border-top: 1px solid var(--color-border);
+}
+
+.icp-hero-content .hero-ctas {
+  margin-bottom: 16px;
+}
+
+.hero-tertiary-line {
+  margin: 0 0 40px;
+  font-size: 14px;
+}
+
+.hero-tertiary-line a {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-tertiary-line a:hover,
+.hero-tertiary-line a:focus-visible {
+  color: var(--color-primary);
 }
 
 .hero-stat {
@@ -1348,6 +1373,7 @@ html.js .animated-heading .letter {
   background: var(--color-white);
   border-radius: var(--radius-2xl);
   padding: 48px 44px 40px;
+  flex: 1 1 320px;
   max-width: 640px;
   width: 100%;
   position: relative;
@@ -1403,6 +1429,123 @@ html.js .animated-heading .letter {
 .testimonial-role {
   font-size: 13px;
   color: var(--color-text-muted);
+}
+
+/* ── Demo video ── */
+.video-section {
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.video-embed {
+  /* Fixed ratio reserves the box before any media loads (CLS guard). */
+  aspect-ratio: 16 / 9;
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-ink);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.video-embed video,
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.video-embed-poster {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-embed-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-embed-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.video-embed-poster:hover .video-embed-play,
+.video-embed-poster:focus-visible .video-embed-play {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-embed-poster:hover .video-embed-play,
+  .video-embed-poster:focus-visible .video-embed-play {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ── Data safety / trust ── */
+.trust-store-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.trust-store-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-store-links a:hover,
+.trust-store-links a:focus-visible {
+  text-decoration: underline;
+}
+
+.trust-article-link {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.trust-article-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-article-link a:hover,
+.trust-article-link a:focus-visible {
+  text-decoration: underline;
 }
 
 /* ── Pricing ── */
@@ -1685,9 +1828,36 @@ html.js .animated-heading .letter {
 
 .final-cta-actions {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.final-cta-secondary-link:hover,
+.final-cta-secondary-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* With three header actions (connector, calendar, WhatsApp) the nav wraps
+   on narrow desktop widths; the connector download is the most specialist
+   action, so it yields first. It stays reachable in the #tally section and
+   the mobile menu. */
+@media (max-width: 1210px) {
+  .nav-actions .nav-connector-link {
+    display: none;
+  }
 }
 
 /* ── Footer ── */
@@ -2779,7 +2949,11 @@ html.js .animated-heading .letter {
 }
 
 .home-pricing-strip-cta {
-  margin-top: 10px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-align: center;
 }
 
@@ -3199,6 +3373,13 @@ html.js .animated-heading .letter {
   font-size: 16px;
   color: #B8D4BE;
   line-height: 1.6;
+}
+
+.blog-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Blog post page header */

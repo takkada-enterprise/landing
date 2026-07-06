@@ -1,7 +1,7 @@
 ---
 title: "DSO for Distributors: How to Calculate and Reduce Days Sales Outstanding"
 slug: "dso-for-distributors"
-meta_title: "DSO for Distributors: Calculate and Reduce Days Sales Outstanding"
+meta_title: "DSO for Distributors: How to Calculate and Reduce It"
 meta_description: "DSO formula, healthy benchmarks for Indian distributors, and five levers that pull DSO down without losing customers. With a worked example."
 primary_keyword: "dso for distributors"
 date: "2026-05-06"

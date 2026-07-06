@@ -1,16 +1,18 @@
 import { BarChart2, Bell, FileText, Shield } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'TALLY ON MOBILE',
   headline: 'See your Tally receivables from your phone. Send reminders without opening your laptop.',
   subheadline:
     "Most days you do not need to edit anything in Tally. You just want to know who owes what, what is overdue, and whether yesterday's payment landed. Takkada gives you that — on your phone, without touching your Tally setup.",
+  waContext: 'icp-mobile-tally',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'Visibility and control from your phone',
   capabilities: [
     {

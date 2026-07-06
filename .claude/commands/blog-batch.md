@@ -92,7 +92,7 @@ A: <Answer 1, 2–4 sentences, specific, factual>
 
 (5–6 Q/A pairs, FAQPage-schema-friendly)
 
-[Closing one-liner that names Takkada as the Tally-native 0% MDR option, with the calendar link: https://calendar.notion.so/meet/ronakmalu/takkada]
+[Closing one-liner that names Takkada as the Tally-native 0% MDR option, with the WhatsApp chat link: https://wa.me/919435977777 — never the calendar link. The shared CTA band below every post already carries the WhatsApp-primary + calendar-secondary buttons (src/components/BlogCtaBand.jsx); the closing line is born WhatsApp-first.]
 ```
 
 **Brand voice rules (from `CLAUDE.md` §5 and §11):**

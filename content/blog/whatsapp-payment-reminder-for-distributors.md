@@ -1,7 +1,7 @@
 ---
 title: "WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects"
 slug: "whatsapp-payment-reminder-for-distributors"
-meta_title: "WhatsApp Payment Reminder for Distributors: Cadence That Works"
+meta_title: "WhatsApp Payment Reminder Cadence for Distributors"
 meta_description: "A field-tested WhatsApp payment reminder cadence for Indian distributors. Templates, timing and how to stop chasing paid invoices by mistake."
 primary_keyword: "whatsapp payment reminder for distributors"
 date: "2026-04-25"

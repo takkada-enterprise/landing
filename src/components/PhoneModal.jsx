@@ -7,6 +7,7 @@ import {
   submitDemoBooking,
   validateIndianMobileNumber,
 } from '../lib/demoBooking';
+import { track } from '../lib/track';
 
 const INPUT_FOCUS_DELAY_MS = 150;
 const AUTO_CLOSE_DELAY_MS = 800;
@@ -95,6 +96,7 @@ function PhoneModal({
     // so the popup blocker silently swallows the tab and the calendar never
     // opens. Booking capture is secondary and continues in the background.
     window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
+    track('calendar_open', { cta_context: 'phone-modal' });
 
     setLoading(true);
     setError('');

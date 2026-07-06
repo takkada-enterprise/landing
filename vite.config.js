@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { parseFaqs } from './src/lib/parseFaqs.js';
+import { stripBlanketImagePreloads } from './scripts/stripImagePreloads.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -58,6 +59,12 @@ export default defineConfig({
   ssgOptions: {
     dirStyle: 'nested',
     formatting: 'minify',
+    // The SSG preloads every <img> on a page by default; keep only the
+    // deliberate ones (see scripts/stripImagePreloads.mjs). Guarded post-build
+    // by scripts/checkImagePreloads.mjs.
+    onPageRendered(route, html) {
+      return stripBlanketImagePreloads(html);
+    },
     includedRoutes(paths) {
       const blogSlugs = getBlogSlugs();
       return [

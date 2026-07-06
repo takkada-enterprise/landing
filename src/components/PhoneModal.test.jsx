@@ -120,4 +120,24 @@ describe('PhoneModal', () => {
 
     resolveBooking?.({ skipped: false, timestamp: '2026-03-09T06:00:00.000Z' });
   });
+
+  it('emits the calendar_open Clarity event when the calendar opens', async () => {
+    window.clarity = vi.fn();
+
+    render(<PhoneModal isOpen onClose={vi.fn()} />);
+
+    fireEvent.change(screen.getByLabelText(/phone number/i), {
+      target: { value: '9876543210' },
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+    });
+
+    expect(window.open).toHaveBeenCalledTimes(1);
+    expect(window.clarity).toHaveBeenCalledWith('event', 'calendar_open');
+    expect(window.clarity).toHaveBeenCalledWith('set', 'cta_context', 'phone-modal');
+
+    delete window.clarity;
+  });
 });

@@ -3,9 +3,10 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
 import { Download, Menu, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';
+import WhatsAppCTA from './components/WhatsAppCTA';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
-import { navLinks, footerColumns, contactInfo } from './data/siteContent';
+import { navLinks, footerColumns, contactInfo, appLinks } from './data/siteContent';
 import { organizationSchema, webSiteSchema } from './data/schema';
 
 function hashTargetFrom(href) {
@@ -74,10 +75,13 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled }) {
           ))}
         </nav>
         <div className="nav-actions desktop-only">
-          <NavHashLink href="#tally" className="nav-connector-link">
+          {/* Direct download — existing users grab the connector without a
+              detour through the #tally section. */}
+          <a href={appLinks.tallyConnector} className="nav-connector-link" download>
             <Download size={16} /> Tally Connector
-          </NavHashLink>
-          <CTAButton variant="primary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          </a>
+          <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          <WhatsAppCTA context="header" />
         </div>
         <button
           type="button"
@@ -102,11 +106,17 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
             {l.label}
           </NavHashLink>
         ))}
-        <NavHashLink href="#tally" className="mobile-connector-link" onClick={() => setMenuOpen(false)}>
+        <a
+          href={appLinks.tallyConnector}
+          className="mobile-connector-link"
+          download
+          onClick={() => setMenuOpen(false)}
+        >
           <Download size={18} /> Tally Connector
-        </NavHashLink>
+        </a>
+        <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
         <CTAButton
-          variant="primary"
+          variant="secondary"
           type="button"
           fullWidth
           onClick={() => { setMenuOpen(false); setOpen(true); }}

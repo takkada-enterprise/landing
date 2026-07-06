@@ -9,7 +9,10 @@ import {
 import { getAuthor } from './authors';
 
 export const SITE_URL = 'https://takkada.com';
-export const DEFAULT_OG_IMAGE = '/assets/screenshots/takkada-logo.png';
+// Branded 1200×630 card (scripts/generate-og-cards.py), not the logo — the
+// logo unfurled as a tiny square on WhatsApp/social shares. Per-page
+// overrides pass their own card via the Seo ogImage prop.
+export const DEFAULT_OG_IMAGE = '/assets/og/takkada-og-default.png';
 
 // Every brand string the company is known by. Declaring these as
 // alternateName on both the Organization and the SoftwareApplication tells
@@ -108,9 +111,9 @@ export function softwareApplicationSchema(reviews = testimonials) {
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
-      absoluteUrl('/assets/screenshots/home-screen.png'),
-      absoluteUrl('/assets/screenshots/payment-reminders.png'),
-      absoluteUrl('/assets/screenshots/settlement.png'),
+      absoluteUrl('/assets/screenshots/home-screen.webp'),
+      absoluteUrl('/assets/screenshots/payment-reminders.webp'),
+      absoluteUrl('/assets/screenshots/settlement.webp'),
     ],
     offers: pricing.plans.map((plan) => ({
       '@type': 'Offer',

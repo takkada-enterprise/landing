@@ -18,8 +18,15 @@ import {
   Download,
   Truck,
   Users,
+  Database,
+  ShieldCheck,
+  BadgeCheck,
+  MonitorCheck,
+  ArrowUpRight,
 } from 'lucide-react';
-import CTAButton from '../components/CTAButton';
+import WhatsAppCTA from '../components/WhatsAppCTA';
+import CalendarCTA from '../components/CalendarCTA';
+import VideoEmbed, { isPlayableVideo } from '../components/VideoEmbed';
 import TestimonialCard from '../components/TestimonialCard';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
@@ -35,8 +42,10 @@ import {
   featureGrid,
   howItWorks,
   testimonials,
+  trustSection,
   coreFeatures,
   advancedFeatures,
+  demoVideo,
 } from '../data/siteContent';
 
 const tallyIconMap = {
@@ -58,6 +67,13 @@ const gridIconMap = {
   bell: Bell,
   link: LinkIcon,
   share: Share2,
+};
+
+const trustIconMap = {
+  database: Database,
+  shield: ShieldCheck,
+  badge: BadgeCheck,
+  monitor: MonitorCheck,
 };
 
 const capabilities = [
@@ -194,12 +210,8 @@ function Home({ seo = HOME_SEO }) {
               Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile in Tally. Built for Indian distributors and wholesalers.
             </p>
             <div className="hero-ctas">
-              <CTAButton variant="primary" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
-              <a href="#pricing" className="cta-btn cta-btn--secondary">
-                See pricing
-              </a>
+              <WhatsAppCTA context="home-hero" />
+              <CalendarCTA context="home-hero" />
             </div>
             <div className="hero-stats">
               {heroStats.map((s) => (
@@ -212,7 +224,13 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <div className="hero-visual">
             <div className="hero-phone-frame">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada home screen showing receivables dashboard" />
+              <img
+                src="/assets/screenshots/home-screen.webp"
+                alt="Takkada home screen showing receivables dashboard"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
             </div>
             <div className="hero-pills" aria-hidden="true">
               {heroPills.map((p, i) => {
@@ -260,13 +278,13 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <div className="intro-screenshots">
             <div className="intro-phone">
-              <img src="/assets/screenshots/settlement.png" alt="Takkada payment settlement screen" />
+              <img src="/assets/screenshots/settlement.webp" alt="Takkada payment settlement screen" loading="lazy" decoding="async" />
             </div>
             <div className="intro-phone intro-phone-center">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada receivables dashboard" />
+              <img src="/assets/screenshots/home-screen.webp" alt="Takkada receivables dashboard" loading="lazy" decoding="async" />
             </div>
             <div className="intro-phone">
-              <img src="/assets/screenshots/payment-reminders.png" alt="Takkada WhatsApp payment reminders" />
+              <img src="/assets/screenshots/payment-reminders.webp" alt="Takkada WhatsApp payment reminders" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -320,6 +338,19 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
+      {/* ── Demo video (renders only when the founder-supplied asset is playable) ── */}
+      {isPlayableVideo(demoVideo) && (
+        <section className="video-section" id="demo-video">
+          <div className="container">
+            <div className="section-header reveal">
+              <span className="section-label">See It Working</span>
+              <h2 className="section-title">Watch a real invoice go out and get paid</h2>
+            </div>
+            <VideoEmbed />
+          </div>
+        </section>
+      )}
+
       {/* ── Core features: full rows with phone mockups (PDF leads) ── */}
       <div id="features" />
       {coreFeatures.map((feature, index) => (
@@ -337,17 +368,21 @@ function Home({ seo = HOME_SEO }) {
                   {NEW_FEATURE_IDS.has(feature.id) && <span className="feature-new-tag">New</span>}
                 </h2>
                 <p className="feature-description">{feature.description}</p>
-                <CTAButton variant="outline" href={appLinks.bookDemo}>
+                <WhatsAppCTA
+                  context="features"
+                  variant="outline"
+                  message={`Hi, I want to see how "${feature.title}" works in Takkada.`}
+                >
                   See it in action <ArrowRight size={16} />
-                </CTAButton>
+                </WhatsAppCTA>
               </div>
               <div className="feature-visuals reveal">
                 <div className="feature-phone">
-                  <img src={feature.screenshot} alt={feature.title} />
+                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
                 </div>
                 {feature.secondaryScreenshot && (
                   <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
+                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
                   </div>
                 )}
               </div>
@@ -398,11 +433,11 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <div className="feature-visuals reveal">
                 <div className={`feature-phone ${feature.secondaryScreenshot ? '' : 'feature-phone-single'}`}>
-                  <img src={feature.screenshot} alt={feature.title} />
+                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
                 </div>
                 {feature.secondaryScreenshot && (
                   <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
+                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
                   </div>
                 )}
               </div>
@@ -429,7 +464,7 @@ function Home({ seo = HOME_SEO }) {
             <div className="tally-flow">
               <div className="tally-node">
                 <div className="tally-node-icon">
-                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" />
+                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" loading="lazy" decoding="async" />
                 </div>
                 <span className="tally-node-label">Takkada</span>
               </div>
@@ -441,7 +476,7 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <div className="tally-node">
                 <div className="tally-node-icon tally-node-tally">
-                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" />
+                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" loading="lazy" decoding="async" />
                 </div>
                 <span className="tally-node-label">Tally Prime</span>
               </div>
@@ -564,18 +599,19 @@ function Home({ seo = HOME_SEO }) {
           </div>
 
           <div className="home-pricing-strip-cta">
-            <a href={appLinks.bookDemo} className="home-pricing-strip-link" target="_blank" rel="noopener noreferrer">
-              Get full pricing in the demo <ArrowRight size={16} />
-            </a>
+            <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
+            <CalendarCTA context="pricing" variant="link" className="home-pricing-strip-link">
+              or get full pricing in a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+            </CalendarCTA>
           </div>
         </div>
       </section>
 
-      {/* ── Testimonial ── */}
+      {/* ── Testimonials ── */}
       <section className="testimonials-section" id="testimonial">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-label">From a Takkada Customer</span>
+            <span className="section-label">From Takkada Customers</span>
             <h2 className="section-title">What our customers say</h2>
           </div>
           <div className="testimonial-row">
@@ -583,6 +619,50 @@ function Home({ seo = HOME_SEO }) {
               <TestimonialCard key={t.name} {...t} delay={i * 80} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Data safety / legitimacy ── */}
+      <section className="tally-section trust-section" id="data-safety">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="section-label">{trustSection.overline}</span>
+            <h2 className="section-title">{trustSection.heading}</h2>
+            <p className="section-subtitle">{trustSection.subtitle}</p>
+          </div>
+          <div className="tally-grid">
+            {trustSection.points.map((point) => {
+              const Icon = trustIconMap[point.icon] || Shield;
+              return (
+                <div key={point.title} className="tally-card">
+                  <div className="tally-card-icon">
+                    <Icon size={22} />
+                  </div>
+                  <h3>{point.title}</h3>
+                  <p>{point.body}</p>
+                  {point.links && (
+                    <p className="trust-store-links">
+                      {point.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={appLinks[link.hrefKey]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label} <ArrowUpRight size={13} />
+                        </a>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="trust-article-link">
+            <Link to={trustSection.articleLink.href}>
+              {trustSection.articleLink.label} <ArrowRight size={15} />
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -620,9 +700,10 @@ function Home({ seo = HOME_SEO }) {
               Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your business.
             </p>
             <div className="final-cta-actions">
-              <CTAButton variant="dark" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
+              <WhatsAppCTA context="final-cta" variant="dark" />
+              <CalendarCTA context="final-cta" variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>

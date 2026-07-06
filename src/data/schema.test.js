@@ -102,6 +102,21 @@ describe('softwareApplicationSchema', () => {
     expect(schema.review).toHaveLength(testimonials.length);
   });
 
+  it('never emits a placeholder testimonial as a Review node', () => {
+    // Voice rule: real quotes only. The testimonials array must hold nothing
+    // but founder-supplied quotes — a fabricated Review reaching crawlers
+    // would be worse than none.
+    expect(testimonials.length).toBeGreaterThan(0);
+    for (const t of testimonials) {
+      expect(t.placeholder).toBeUndefined();
+      expect(t.quote).not.toContain('PLACEHOLDER');
+      expect(t.name).not.toContain('Placeholder');
+    }
+    for (const review of softwareApplicationSchema().review ?? []) {
+      expect(review.reviewBody).not.toContain('PLACEHOLDER');
+    }
+  });
+
   it('references the organization as publisher by @id, not an inline copy', () => {
     expect(softwareApplicationSchema().publisher).toEqual({ '@id': ORG_ID });
   });
