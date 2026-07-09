@@ -28,6 +28,8 @@ Extra devices (per year): ₹3,000 on all plans.
 Add-ons (per year):
 - Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
 - Auto Invoice Dispatch. Included in Full Access / Auto Dispatch; available as add-on on Collections plan only, ₹1,500
+- Reports + (advanced business reports): ₹4,000
+- Salesman module (role-based access for field sales teams): ₹5,000
 - WhatsApp 8,000-message pack: ₹2,000
 - Extra user: ₹3,000
 - Extra business (Collections or Full Access only): ₹1,000

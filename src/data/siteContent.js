@@ -251,6 +251,8 @@ export const pricing = {
   addons: [
     { label: 'Import from PDF', price: '\u20B94,000 / year', note: 'Add-on for Collections plan' },
     { label: 'Auto Invoice Dispatch', price: '\u20B91,500 / year', note: 'Add-on for Collections plan only' },
+    { label: 'Reports +', price: '\u20B94,000 / year', note: 'Advanced business reports add-on' },
+    { label: 'Salesman module', price: '\u20B95,000 / year', note: 'Role-based access for field sales teams' },
     { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
     { label: 'Extra user', price: '\u20B93,000 / user / year' },
     { label: 'Extra business', price: '\u20B91,000 / business / year', note: 'Collections & Full Access only' },
