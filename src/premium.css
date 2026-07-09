@@ -1,48 +1,127 @@
 /* ═══════════════════════════════════════════════════
-   TAKKADA — Premium overlay (2026-06-29)
+   TAKKADA — Premium overlay · Dodo-inspired refresh (2026-07-09)
    ───────────────────────────────────────────────────
-   Layered on top of styles.css. Elevates the existing Sage Paper system
-   to read as an expensive, modern product site without touching markup.
-   Rules of the road:
-   - Sage palette stays. Only depth, light, and rhythm are added.
-   - One tasteful type addition: Fraunces display serif for headings.
-   - Motion is transform/opacity only (GPU-cheap), opt-in, reduced-motion safe.
-   - Every effect must survive a low-powered Android. No filters in scroll loops.
+   Layered on top of styles.css. Retunes the Sage Paper system to the
+   clean, modern, rounded look of dodopayments.com WITHOUT changing markup.
+
+   What this pass borrows from Dodo (the things the operator liked):
+   - Type: ApfelGrotezk (rounded geometric display) + Inter body. Self-hosted.
+   - Colour: a bright lime accent (#C6FE1E) as the primary CTA, sitting on the
+     existing forest-green brand. Near-black-green ink for crisp headings.
+   - Surface: whiter canvas, dotted-grid hero wash, softly rounded bento cards,
+     tighter 10px button radius.
+   - Motion: the existing fade-up reveal, eased to feel smooth on scroll.
+
+   Rules of the road (unchanged): Takkada stays green. Motion is transform/
+   opacity only, opt-in, reduced-motion safe, and must survive a low-end Android.
    ═══════════════════════════════════════════════════ */
 
-:root {
-  --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
-  /* Headings switch to the display serif; body/UI stays Plus Jakarta Sans. */
-  --font-serif: var(--font-display);
-
-  /* Brand gradients (premium, sage-only) */
-  --grad-primary: linear-gradient(135deg, #4A7C59 0%, #344E41 55%, #1B3026 100%);
-  --grad-ink: linear-gradient(165deg, #1B3026 0%, #14241C 100%);
-  --grad-text: linear-gradient(110deg, #344E41 0%, #4A7C59 50%, #6B9E7A 100%);
-
-  /* Richer, warmer elevation than base */
-  --shadow-soft: 0 1px 1px rgba(20,36,28,0.04), 0 8px 24px -12px rgba(20,36,28,0.16);
-  --shadow-rise: 0 2px 2px rgba(20,36,28,0.04), 0 24px 48px -20px rgba(20,36,28,0.26);
-  --ring-sage: 0 0 0 1px rgba(52,78,65,0.10);
+/* ── Self-hosted fonts (both OFL, free to redistribute) ── */
+@font-face {
+  font-family: 'ApfelGrotezk';
+  src: url('/assets/fonts/ApfelGrotezk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ApfelGrotezk';
+  src: url('/assets/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'InterVar';
+  src: url('/assets/fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* ── Display headings: optical sizing + balance ── */
+:root {
+  /* Type — Dodo's pairing, Takkada-owned */
+  --font-display: 'ApfelGrotezk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'InterVar', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* "serif" token retained for backward compatibility — resolves to the display face */
+  --font-serif: var(--font-display);
+
+  /* Bright accent, borrowed from Dodo, tuned to sit on forest green */
+  --color-lime: #C6FE1E;          /* primary CTA fill */
+  --color-lime-strong: #B4EF00;   /* hover */
+  --color-lime-ink: #0C2000;      /* text on lime */
+
+  /* Crisper heading ink (Dodo runs near-black green) */
+  --color-ink-heading: #06170E;
+
+  /* Brand gradients (kept, sage-only) */
+  --grad-primary: linear-gradient(135deg, #4A7C59 0%, #344E41 55%, #1B3026 100%);
+  --grad-ink: linear-gradient(165deg, #12241B 0%, #06120C 100%);
+  --grad-text: linear-gradient(110deg, #344E41 0%, #4A7C59 50%, #6B9E7A 100%);
+
+  /* Cleaner, cooler elevation to match a whiter canvas */
+  --shadow-soft: 0 1px 1px rgba(6,23,14,0.04), 0 10px 30px -16px rgba(6,23,14,0.18);
+  --shadow-rise: 0 2px 3px rgba(6,23,14,0.05), 0 26px 52px -24px rgba(6,23,14,0.24);
+  --ring-sage: 0 0 0 1px rgba(52,78,65,0.10);
+
+  /* Dodo-tighter button radius (was pill) */
+  --radius-btn: 11px;
+
+  /* Whiter, calmer canvas (Dodo is mostly white with a faint wash) */
+  --color-bg: #FCFCFB;
+  --color-surface: #FFFFFF;
+}
+
+/* ── Whiter, calmer canvas ── */
+body {
+  background:
+    radial-gradient(120% 60% at 100% -8%, rgba(107,158,122,0.07) 0%, rgba(107,158,122,0) 52%),
+    radial-gradient(80% 50% at -8% 2%, rgba(198,254,30,0.06) 0%, rgba(198,254,30,0) 50%),
+    var(--color-bg);
+  color: #17201B;
+  letter-spacing: -0.006em;
+}
+
+/* ── Display headings: ApfelGrotezk wants tight tracking + medium weight ── */
 .hero-title,
 .section-title,
 .intro-headline,
 .final-cta-content h2,
 .company-article h1,
 .blog-post-title,
-.blog-index-title {
+.blog-index-title,
+.blog-featured-title,
+.mid-cta-card h2,
+.company-page-cta h3 {
+  font-family: var(--font-display);
   font-optical-sizing: auto;
   text-wrap: balance;
-  letter-spacing: -0.025em;
-  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 }
+/* Override the styles.css :root weight rules that pushed headings to 700/800 —
+   ApfelGrotezk reads as a confident title at 500; heavier looks clumsy. */
+:root .hero-title,
+:root .final-cta-content h2,
+:root .company-article h1,
+:root .blog-post-title,
+:root .blog-index-title,
+:root .home-pricing-strip-price,
+:root .section-title,
+:root .intro-headline,
+:root .mid-cta-card h2,
+:root .company-page-cta h3 {
+  font-weight: 500;
+}
+.hero-title { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; color: var(--color-ink-heading); }
+.section-title { line-height: 1.06; color: var(--color-ink-heading); }
+.intro-headline { color: var(--color-ink-heading); }
 
-.hero-title { font-weight: 600; line-height: 1.04; }
+/* Nav + footer wordmark also take the rounded face */
+:root .nav-logo,
+:root .footer-logo { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; }
 
-/* Accent text gets a brand gradient fill */
+/* Accent text keeps a brand gradient fill (tasteful, still green) */
 .hero-title-accent,
 .text-accent {
   background: var(--grad-text);
@@ -52,20 +131,12 @@
   color: var(--color-primary); /* fallback */
 }
 
-/* ── Page canvas: a barely-there sage aurora that grounds every route ── */
-body {
-  background:
-    radial-gradient(120% 70% at 100% -10%, rgba(107,158,122,0.10) 0%, rgba(107,158,122,0) 55%),
-    radial-gradient(90% 60% at -10% 5%, rgba(218,229,214,0.40) 0%, rgba(218,229,214,0) 50%),
-    var(--color-bg);
-}
-
 /* ── Navigation: glass that earns its keep ── */
 .site-nav.scrolled {
-  background: rgba(250,250,247,0.72);
+  background: rgba(252,252,251,0.74);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  box-shadow: 0 1px 0 rgba(20,36,28,0.06), 0 12px 30px -22px rgba(20,36,28,0.3);
+  box-shadow: 0 1px 0 rgba(6,23,14,0.05), 0 12px 30px -22px rgba(6,23,14,0.28);
 }
 .nav-links a { position: relative; }
 .nav-links a::after {
@@ -80,43 +151,95 @@ body {
 }
 .nav-links a:hover::after { right: 0; }
 
-/* ── Buttons: pill with quiet shine + confident lift ── */
-.cta-btn { position: relative; overflow: hidden; isolation: isolate; }
+/* ── Buttons: Dodo geometry (11px radius) + a confident lime primary ── */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Primary = lime fill, dark-green ink — the Dodo signature */
 .cta-btn--primary {
-  background: var(--grad-primary);
-  box-shadow: 0 1px 1px rgba(20,36,28,0.2), 0 10px 24px -10px rgba(27,48,38,0.5);
+  background: var(--color-lime);
+  color: var(--color-lime-ink);
+  box-shadow: 0 1px 1px rgba(6,23,14,0.12), 0 12px 26px -12px rgba(115,150,10,0.55);
 }
-.cta-btn--primary::before {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
+.cta-btn--primary:hover {
+  background: var(--color-lime-strong);
+  color: var(--color-lime-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 3px rgba(6,23,14,0.14), 0 20px 38px -14px rgba(115,150,10,0.6);
 }
-.cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(20,36,28,0.2), 0 18px 36px -12px rgba(27,48,38,0.55); }
+.cta-btn--primary svg { color: var(--color-lime-ink); }
 .cta-btn:active { transform: translateY(0); }
 
-/* Sweep highlight (cheap: single transform, only on hover) */
-.cta-btn--primary::after,
+/* Dark = forest ink (secondary hero / nav "Book a Demo") */
+.cta-btn--dark {
+  background: var(--grad-ink);
+  color: #fff;
+  box-shadow: 0 1px 1px rgba(6,23,14,0.2), 0 12px 26px -14px rgba(6,18,12,0.5);
+}
+.cta-btn--dark:hover { transform: translateY(-2px); box-shadow: 0 2px 3px rgba(6,23,14,0.2), 0 20px 38px -16px rgba(6,18,12,0.55); }
+
+/* Secondary = clean outline on white */
+.cta-btn--secondary {
+  background: #fff;
+  border: 1px solid rgba(6,23,14,0.12);
+  color: var(--color-ink-heading);
+}
+.cta-btn--secondary:hover { transform: translateY(-2px); border-color: rgba(6,23,14,0.2); box-shadow: var(--shadow-soft); }
+
+/* ── Nav "Tally Connector": match the lime primary's radius + height so the
+   two nav buttons read as one matched pair (was a pill with a heavy muted
+   border, floating out of place beside the 11px lime button). ── */
+.nav-connector-link {
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(6,23,14,0.12);
+  background: var(--color-surface);
+  color: var(--color-ink-heading);
+  padding: 13px 18px;
+  font-size: 14px;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.nav-connector-link svg { color: var(--color-primary); }
+.nav-connector-link:hover {
+  background: var(--color-surface);
+  border-color: rgba(6,23,14,0.2);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+/* Sweep highlight only on the dark button (lime is bright enough already) */
 .cta-btn--dark::after {
   content: "";
   position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
   background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
   transform: translateX(0); opacity: 0;
 }
-.cta-btn--primary:hover::after,
 .cta-btn--dark:hover::after { animation: btnSweep 0.7s var(--ease-out); }
 @keyframes btnSweep { from { transform: translateX(0); opacity: .8; } to { transform: translateX(420%); opacity: 0; } }
 
-/* ── Hero: editorial scale + a phone that floats on a glow plate ── */
+/* ── Hero: dotted-grid wash (Dodo) + a phone that floats on a glow plate ── */
 .hero { padding-top: 140px; }
 .hero::before {
   background:
-    radial-gradient(50% 42% at 80% 14%, rgba(107,158,122,0.26) 0%, rgba(107,158,122,0) 60%),
-    radial-gradient(48% 40% at 10% 0%, rgba(218,229,214,0.6) 0%, rgba(218,229,214,0) 55%);
+    radial-gradient(46% 40% at 82% 12%, rgba(107,158,122,0.18) 0%, rgba(107,158,122,0) 60%),
+    radial-gradient(44% 38% at 8% 0%, rgba(198,254,30,0.10) 0%, rgba(198,254,30,0) 58%),
+    radial-gradient(rgba(6,23,14,0.07) 1px, transparent 1.4px);
+  background-size: auto, auto, 22px 22px;
+  background-position: center, center, center top;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 8%, #000 42%, transparent 82%);
+  mask-image: radial-gradient(120% 90% at 50% 8%, #000 42%, transparent 82%);
 }
 .hero-overline {
-  border: 1px solid rgba(52,78,65,0.14);
-  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(52,78,65,0.16);
+  background: rgba(255,255,255,0.8);
   backdrop-filter: blur(6px);
+  border-radius: var(--radius-full);
 }
 .hero-subtitle { font-size: 19px; }
 .hero-stat-value { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -126,62 +249,122 @@ body {
   position: absolute;
   width: 360px; height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(107,158,122,0.30) 0%, rgba(107,158,122,0) 70%);
+  background: radial-gradient(circle, rgba(107,158,122,0.24) 0%, rgba(107,158,122,0) 70%);
   z-index: 1;
 }
-.hero-phone-frame img { filter: drop-shadow(0 40px 70px rgba(20,36,28,0.34)); border-radius: 36px; }
-.hero-pill { border: 1px solid rgba(20,36,28,0.05); box-shadow: var(--shadow-rise); }
+.hero-phone-frame img { filter: drop-shadow(0 40px 70px rgba(6,23,14,0.3)); border-radius: 36px; }
+.hero-pill { border: 1px solid rgba(6,23,14,0.05); box-shadow: var(--shadow-rise); border-radius: var(--radius-full); }
 .hero-pill-icon { background: var(--grad-primary); }
-/* Gentle staggered drift so the halo breathes, but the phone stays the lead */
 .hero-pill { animation: pillDrift 9s var(--ease-soft) infinite; }
 .hero-pill--3 { animation-delay: .8s; } .hero-pill--4 { animation-delay: 1.6s; }
 .hero-pill--5 { animation-delay: 2.4s; } .hero-pill--6 { animation-delay: 3.2s; } .hero-pill--7 { animation-delay: 4s; }
 @keyframes pillDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 /* ── Section labels: refined chip ── */
-.section-label { border: 1px solid rgba(52,78,65,0.12); }
-
-/* ── Shared card lift (pain / tally / grid / how) ── */
-.pain-card, .tally-card, .grid-card, .how-card, .feature-grid-wrap .grid-card {
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+.section-label {
+  border: 1px solid rgba(52,78,65,0.14);
+  border-radius: var(--radius-full);
 }
-.pain-card:hover, .tally-card:hover, .grid-card:hover, .how-card:hover {
+
+/* ── Bento cards: crisp white surfaces with a defined edge ──
+   Base cards sat white-on-white with only a faint shadow, so they floated
+   with no boundary. Give every bento card a soft hairline border + a gentle
+   resting shadow (Dodo's card treatment): defined at rest, lifting on hover. */
+.pain-card, .tally-card, .grid-card, .how-card, .feature-grid-wrap .grid-card,
+.home-pricing-strip-card {
+  background: var(--color-surface);
+  border: 1px solid rgba(6,23,14,0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.pain-card:hover, .tally-card:hover, .grid-card:hover, .how-card:hover,
+.home-pricing-strip-card:hover {
   transform: translateY(-4px);
+  border-color: rgba(6,23,14,0.13);
   box-shadow: var(--shadow-rise);
 }
 .tally-card-icon, .grid-card-icon { transition: transform var(--dur) var(--ease-out); }
 .tally-card:hover .tally-card-icon, .grid-card:hover .grid-card-icon { transform: scale(1.08) rotate(-3deg); }
 
 /* ── Metrics: gradient numbers on ink ── */
-.metric-value { background: linear-gradient(110deg, #fff, #cfe4d4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-value { background: linear-gradient(110deg, #fff, #d7ef9e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* ── Feature phones: lift on scroll-in ── */
-.feature-phone img { border-radius: 30px; box-shadow: 0 30px 60px -24px rgba(20,36,28,0.4); }
+.feature-phone img { border-radius: 30px; box-shadow: 0 30px 60px -24px rgba(6,23,14,0.36); }
 
 /* ── Tally connector: a live pulse between the two nodes ── */
 .tally-arrow svg { animation: spinSlow 6s linear infinite; }
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 
-/* ── Pricing: highlighted plan reads premium ── */
-.home-pricing-strip-card--highlighted { box-shadow: var(--shadow-rise), 0 0 0 2px var(--color-primary); }
-.home-pricing-strip-card { transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
 .home-pricing-strip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-rise); }
+/* ── Pricing: highlighted plan is the dark anchor card ──
+   The bento rule above paints every strip card white; that washed out the
+   highlighted plan's light-on-dark text (price went white-on-white). Restore
+   its forest-green ground so the existing light text reads, and ring it in lime. */
+.home-pricing-strip-card--highlighted {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-rise), 0 0 0 2px var(--color-lime);
+}
+.home-pricing-strip-card--highlighted:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-rise), 0 0 0 2px var(--color-lime);
+}
+.home-pricing-strip-card--highlighted .home-pricing-badge { color: var(--color-lime); }
 
-/* ── Final CTA: deep ink with sage mesh ── */
+/* ── Final CTA: deep ink with sage + lime mesh ── */
 .final-cta { background: var(--grad-ink); }
 .final-cta::before {
   background:
-    radial-gradient(50% 100% at 50% 110%, rgba(107,158,122,0.32) 0%, rgba(107,158,122,0) 62%),
-    radial-gradient(40% 60% at 12% 0%, rgba(74,124,89,0.18) 0%, rgba(74,124,89,0) 60%);
+    radial-gradient(50% 100% at 50% 110%, rgba(107,158,122,0.30) 0%, rgba(107,158,122,0) 62%),
+    radial-gradient(42% 62% at 12% 0%, rgba(198,254,30,0.12) 0%, rgba(198,254,30,0) 60%);
 }
 
-/* ── Reveal: add a hint of scale for depth ── */
-html.js .reveal { transform: translateY(28px) scale(0.985); }
-html.js .reveal.is-visible { transform: translateY(0) scale(1); }
+/* ── Graph-paper grid on the dark bands (Dodo's precise fintech texture) ──
+   A faint white grid, masked so it fades toward the edges. Sits above the
+   glow (::before) but below the content, which carries its own stacking. */
+.metrics-bar::after,
+.final-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 50%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(120% 100% at 50% 50%, #000 30%, transparent 78%);
+}
+.metrics-grid, .final-cta-content { position: relative; z-index: 1; }
+
+/* Primary CTA on the dark band stays lime + legible.
+   The final CTA ships a `--dark` button on a dark ink band (low contrast),
+   so lift it to lime here — matches Dodo's dark-section CTA and pops. */
+.final-cta .cta-btn--primary,
+.final-cta .cta-btn--dark {
+  background: var(--color-lime);
+  color: var(--color-lime-ink);
+  box-shadow: 0 1px 1px rgba(6,23,14,0.2), 0 14px 30px -12px rgba(90,120,8,0.6);
+}
+.final-cta .cta-btn--dark:hover { background: var(--color-lime-strong); color: var(--color-lime-ink); }
+.final-cta .cta-btn--dark svg { color: var(--color-lime-ink); }
+.final-cta .cta-btn--dark::after { display: none; }
+
+/* ── Reveal: smooth fade-up with a hint of scale for depth ── */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(26px) scale(0.988);
+  transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out);
+  will-change: opacity, transform;
+}
+html.js .reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
 
 /* ── Low-power + reduced-motion: strip the breathing room ── */
 @media (prefers-reduced-motion: reduce) {
-  .hero-pill, .tally-arrow svg, .cta-btn--primary:hover::after, .cta-btn--dark:hover::after { animation: none !important; }
+  .hero-pill, .tally-arrow svg, .cta-btn--dark:hover::after { animation: none !important; }
+  html.js .reveal { transition: none; }
 }
 @media (max-width: 767px) {
   .hero-visual::before { width: 240px; height: 240px; }
