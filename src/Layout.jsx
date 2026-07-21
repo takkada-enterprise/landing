@@ -174,6 +174,27 @@ function SiteFooter() {
   );
 }
 
+// Sticky WhatsApp bar for phones: appears once the visitor scrolls past the
+// hero so the one conversion action is always a thumb-reach away. Hidden on
+// desktop (CSS) and while the mobile menu is open.
+function StickyMobileCTA({ menuOpen }) {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    const onScroll = () => setShow(window.scrollY > 560);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <div className={`mobile-cta-bar${show && !menuOpen ? ' visible' : ''}`} aria-hidden={!show}>
+      <WhatsAppCTA context="sticky-bar" fullWidth />
+    </div>
+  );
+}
+
 function ModalMount() {
   const { open, setOpen, options } = usePhoneModal();
   return (
@@ -220,6 +241,7 @@ function LayoutInner() {
       <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Outlet />
       <SiteFooter />
+      <StickyMobileCTA menuOpen={menuOpen} />
       <ModalMount />
     </div>
   );

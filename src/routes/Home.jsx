@@ -25,6 +25,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
+import CountUp from '../components/CountUp';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import VideoEmbed, { isPlayableVideo } from '../components/VideoEmbed';
@@ -198,14 +199,14 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 
-      {/* ── Hero ── */}
-      <section className="hero" id="hero">
+      {/* ── Hero (poster layout: headline owns the viewport, phone on an ink
+             plate below — see docs/brainstorms/2026-07-21 requirements) ── */}
+      <section className="hero hero--poster" id="hero">
         <div className="container">
           <div className="hero-content">
             <span className="section-label hero-overline">For Indian distributors on Tally</span>
             <h1 className="hero-title">
-              Mobile-first Tally app for distributors.
-              <br />
+              <span className="hero-title-lead">Mobile-first Tally app for distributors.</span>
               <span className="hero-title-accent">Get paid without chasing.</span>
             </h1>
             <p className="hero-subtitle">
@@ -304,17 +305,21 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Metrics bar (honest scale) ── */}
+      {/* ── Metrics bar (honest scale; numbers count up on scroll-in) ── */}
       <section className="metrics-bar">
         <div className="container">
           <div className="metrics-grid">
             <div className="metric">
-              <span className="metric-value tabular-nums">₹17+ Crore</span>
+              <span className="metric-value tabular-nums">
+                <CountUp prefix="₹" value={17} suffix="+ Crore" />
+              </span>
               <span className="metric-label">Collected Monthly</span>
             </div>
             <div className="metric-divider" />
             <div className="metric">
-              <span className="metric-value tabular-nums">100+</span>
+              <span className="metric-value tabular-nums">
+                <CountUp value={100} suffix="+" />
+              </span>
               <span className="metric-label">Businesses Trust Takkada</span>
             </div>
             <div className="metric-divider" />

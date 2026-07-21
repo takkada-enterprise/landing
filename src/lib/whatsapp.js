@@ -28,6 +28,8 @@ export const WHATSAPP_MESSAGES = {
   comparison:
     'Hi, I am comparing Tally mobile apps. I want to see a demo of Takkada.',
   demo: 'Hi, I tried the demo company on takkada.com. I want to set this up for my own business.',
+  'sticky-bar':
+    'Hi, I am reading takkada.com on my phone and want to know more about Takkada.',
 };
 
 // Builds a wa.me click-to-chat URL for a CTA context. Returns null when no
