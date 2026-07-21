@@ -496,6 +496,44 @@ html.js .animated-heading .letter {
   justify-content: center;
 }
 
+/* ── Sticky mobile CTA bar ──
+   Phones only. Slides up after the visitor scrolls past the hero so the one
+   conversion action (WhatsApp) is always a thumb-reach away. Motion is a
+   single transform; reduced-motion users get an instant show/hide. */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 -6px 24px rgba(20, 36, 28, 0.14);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform var(--dur) var(--ease-out),
+              visibility 0s linear var(--dur);
+}
+
+.mobile-cta-bar.visible {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+@media (max-width: 767px) {
+  .mobile-cta-bar { display: block; }
+  /* Keep the footer's last lines readable above the bar. */
+  .footer { padding-bottom: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-cta-bar { transition: none; }
+}
+
 /* ── Hero ── */
 .hero {
   position: relative;

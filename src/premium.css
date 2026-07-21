@@ -179,11 +179,180 @@ body {
 html.js .reveal { transform: translateY(28px) scale(0.985); }
 html.js .reveal.is-visible { transform: translateY(0) scale(1); }
 
+/* ═══════════════════════════════════════════════════
+   POSTER VOLUME overlay (2026-07-21)
+   ───────────────────────────────────────────────────
+   Turns the sage/Fraunces system up to poster scale: headline owns the first
+   viewport, the phone floats on a deep-ink glow plate, proof numbers go
+   cinematic, ink bands anchor the rhythm. Same palette, same two families.
+   See docs/brainstorms/2026-07-21-landing-design-overhaul-requirements.md.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Poster hero: single centered column, giant accent line ── */
+.hero--poster { padding: 148px 0 76px; }
+
+.hero--poster .container {
+  grid-template-columns: 1fr;
+  gap: 60px;
+  justify-items: center;
+}
+
+.hero--poster .hero-content {
+  max-width: 980px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-lead {
+  display: block;
+  font-size: clamp(21px, 2.8vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+
+.hero--poster .hero-title { margin-bottom: 24px; }
+
+.hero--poster .hero-title-accent {
+  display: block;
+  font-size: clamp(52px, 9vw, 112px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.hero--poster .hero-subtitle {
+  margin: 0 auto 34px;
+  max-width: 580px;
+  font-size: 19px;
+}
+
+.hero--poster .hero-ctas {
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+.hero--poster .hero-ctas .cta-btn {
+  font-size: 17px;
+  padding: 16px 30px;
+}
+
+.hero--poster .hero-stats {
+  justify-content: center;
+  gap: 44px;
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* ── Ink plate: the phone glows out of a deep forest panel ── */
+.hero--poster .hero-visual {
+  width: 100%;
+  max-width: 780px;
+  min-height: 0;
+  padding: 56px 24px;
+  background: var(--grad-ink);
+  border-radius: 44px;
+  box-shadow: var(--shadow-xl);
+}
+
+.hero--poster .hero-visual::before {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(107,158,122,0.42) 0%, rgba(107,158,122,0) 70%);
+}
+
+.hero--poster .hero-phone-frame { width: 312px; }
+
+.hero--poster .hero-phone-frame img {
+  filter: drop-shadow(0 44px 80px rgba(0,0,0,0.55));
+}
+
+/* ── Hero entrance: one staggered rise, then still ──
+   Motion reason (CLAUDE.md §11.5): the page introduces itself in reading
+   order — claim, promise, action, product. One-time, transform/opacity only. */
+html.js .hero--poster .hero-overline,
+html.js .hero--poster .hero-title,
+html.js .hero--poster .hero-subtitle,
+html.js .hero--poster .hero-ctas,
+html.js .hero--poster .hero-stats,
+html.js .hero--poster .hero-visual {
+  animation: heroRise 0.65s var(--ease-out) both;
+}
+html.js .hero--poster .hero-title { animation-delay: 0.05s; }
+html.js .hero--poster .hero-subtitle { animation-delay: 0.11s; }
+html.js .hero--poster .hero-ctas { animation-delay: 0.17s; }
+html.js .hero--poster .hero-stats { animation-delay: 0.23s; }
+html.js .hero--poster .hero-visual { animation-delay: 0.18s; }
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Proof band: cinematic scale for the two confirmed figures ── */
+.metrics-bar { padding: 92px 0; }
+
+.metrics-grid { gap: 64px; }
+
+.metric-value {
+  font-size: clamp(38px, 4.4vw, 62px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.metric-label {
+  font-size: 14px;
+  margin-top: 10px;
+  letter-spacing: 0.08em;
+}
+
+.metric-divider { height: 68px; }
+
+/* ── Section headings and ink bands scale up with the hero ── */
+.section-title { font-size: clamp(30px, 4.6vw, 56px); }
+
+.intro-headline { font-size: clamp(30px, 4.4vw, 54px); }
+
+.final-cta { padding: 128px 0; }
+
+.final-cta-content h2 {
+  font-size: clamp(40px, 6.5vw, 78px);
+  line-height: 1.03;
+}
+
+.final-cta-content p { font-size: 19px; }
+
 /* ── Low-power + reduced-motion: strip the breathing room ── */
 @media (prefers-reduced-motion: reduce) {
   .hero-pill, .tally-arrow svg, .cta-btn--primary:hover::after, .cta-btn--dark:hover::after { animation: none !important; }
+  html.js .hero--poster .hero-overline,
+  html.js .hero--poster .hero-title,
+  html.js .hero--poster .hero-subtitle,
+  html.js .hero--poster .hero-ctas,
+  html.js .hero--poster .hero-stats,
+  html.js .hero--poster .hero-visual { animation: none !important; }
 }
 @media (max-width: 767px) {
   .hero-visual::before { width: 240px; height: 240px; }
   .hero-pill { animation: none; }
+  .hero--poster { padding: 118px 0 56px; }
+  .hero--poster .hero-title-accent { font-size: clamp(46px, 13vw, 60px); }
+  .hero--poster .hero-subtitle { font-size: 17px; }
+  .hero--poster .hero-ctas { width: 100%; flex-direction: column; align-items: stretch; }
+  .hero--poster .hero-ctas .cta-btn { justify-content: center; }
+  .hero--poster .hero-stats { gap: 24px; }
+  .hero--poster .hero-visual {
+    padding: 36px 14px;
+    border-radius: 28px;
+  }
+  .hero--poster .hero-visual::before {
+    background: radial-gradient(circle, rgba(107,158,122,0.4) 0%, rgba(107,158,122,0) 70%);
+  }
+  .hero--poster .hero-phone-frame { width: 232px; }
+  .metrics-bar { padding: 64px 0; }
+  .metrics-grid { gap: 36px; }
 }
