@@ -2,7 +2,7 @@
 date: 2026-07-21
 plan_id: 2026-07-21-001
 type: content
-status: active
+status: completed
 title: "content: 40 new SEO articles — payables, receivables, bills, reports, autopilot, trust"
 origin: docs/brainstorms/2026-07-21-seo-40-articles-payables-reports-autopilot-requirements.md
 ---
