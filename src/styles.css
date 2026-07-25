@@ -117,7 +117,7 @@
 :root .company-article h1,
 :root .blog-post-title,
 :root .blog-index-title,
-:root .home-pricing-strip-price {
+:root .rate-plan-price {
   font-weight: var(--weight-display-hero);
 }
 
@@ -200,7 +200,12 @@ ul { list-style: none; }
 /* ── Layout ── */
 .site-root {
   width: 100%;
-  overflow-x: hidden;
+  /* `clip`, not `hidden`. overflow-x:hidden computes overflow-y to `auto`,
+     which makes this element a scroll container and silently disables
+     position:sticky anywhere inside it (the pricing table's plan head hit
+     exactly this, 2026-07-25). `clip` gives identical horizontal clipping
+     with no scroll container. */
+  overflow-x: clip;
 }
 
 .container {
@@ -2773,218 +2778,467 @@ html.js .animated-heading .letter {
   opacity: 0.65;
 }
 
-.home-pricing-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 16px;
+/* Term switch: one segmented pill, sage, using the shared button vocabulary. */
+/* ── Pricing: rate card as an actual rate card ──────────────────────────
+   Four tiers where each is "everything before, plus X" is a ladder, and a
+   ladder is a table. Cards forced every column to repeat "Everything in X,
+   plus:" and ran 1,542px tall with the heading and the add-ons both off
+   screen. Here the ticks fill leftward, so inheritance is visible, and the
+   Copilot column is one unbroken sage bar from head to add-ons: the single
+   signal that it carries everything. Motion is limited to the two controls. */
+
+.rate-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  text-align: left;
 }
 
-@media (max-width: 860px) {
-  .home-pricing-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.rate-head-copy {
+  max-width: 620px;
+}
+
+:root .rate-title {
+  margin: 6px 0 6px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.12;
+  max-width: none;
+}
+
+.rate-subtitle {
+  margin: 0;
+  max-width: none;
+}
+
+/* Term switch: segmented pill, shared button vocabulary. */
+.rate-term {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-variant);
+  box-shadow: var(--shadow-xs);
+}
+
+.rate-term-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.rate-term-option:hover {
+  color: var(--color-text);
+}
+
+.rate-term-option:focus-visible,
+.rate-picker-option:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.rate-term-option--active {
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.rate-term-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Plan picker: only meaningful once the table drops to one column. */
+.rate-picker {
+  display: none;
+  gap: 6px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.rate-picker::-webkit-scrollbar {
+  display: none;
+}
+
+.rate-picker-option {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-variant);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.rate-picker-option--active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* The table. One grid so every column stays aligned across all groups:
+   rows use display:contents and hand their cells to this grid directly. */
+/* The table is a block, not one tall grid, and each strip carries the same
+   --rate-cols track list. That costs one shared variable and buys a plan
+   head that can actually stick: a sticky grid ITEM is confined to its own
+   grid row, which is useless over eighteen capability rows. Identical track
+   definitions across strips keep the columns aligned to the pixel. */
+.rate-table {
+  --rate-cols: minmax(240px, 1.7fr) repeat(4, minmax(0, 1fr));
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+  /* `clip` not `hidden`: overflow:hidden on an ancestor kills the sticky. */
+  overflow: clip;
+}
+
+.rate-table-head,
+.rate-row,
+.rate-addons {
+  display: grid;
+  grid-template-columns: var(--rate-cols);
+}
+
+.rate-table-head {
+  position: sticky;
+  top: 68px;
+  z-index: 3;
+}
+
+.rate-table-corner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 30px 20px 14px;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.rate-corner-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-corner-note {
+  max-width: 30ch;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Plan heads */
+/* The plan head sticks under the nav. Eighteen capability rows is a long
+   scroll to hold four column identities in your head, so the names and
+   prices stay on screen for the whole read. */
+.rate-plan,
+.rate-table-corner {
+  background: var(--color-white);
+}
+
+.rate-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* The top padding is a badge band every column reserves, whether or not it
+     carries a badge. In flow the badge only existed in one column and pushed
+     that column's name and price down, so the four heads stopped aligning. */
+  padding: 30px 18px 14px;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.rate-plan-badge {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  right: 18px;
+  padding: 0;
+  background: none;
+  color: var(--color-sage-light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rate-plan-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-plan-price {
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.rate-plan-period {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.rate-plan-note {
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+}
+
+.rate-plan-note s {
+  color: var(--color-text-muted);
+  text-decoration-thickness: 1px;
+}
+
+/* Group bands: what the distributor stops doing, not a feature family. */
+.rate-group-title {
+  padding: 12px 20px 7px;
+  background: var(--color-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-row-label {
+  display: flex;
+  align-items: center;
+  padding: 9px 20px;
+  border-top: 0.5px solid var(--color-hairline);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.rate-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 8px;
+  border-top: 0.5px solid var(--color-hairline);
+}
+
+.rate-tick {
+  color: var(--color-primary-light);
+}
+
+.rate-dash {
+  width: 10px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: var(--color-outline, #E5E5DF);
+}
+
+/* The hero column. One unbroken sage bar from the plan head down through
+   the add-ons row: the only decoration in the section, and it is load
+   bearing, because "everything" is exactly what it means. */
+.rate-table .rate-plan--hero,
+.rate-cell--hero {
+  background: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.rate-plan--hero .rate-plan-name {
+  color: var(--color-sage-light);
+}
+
+.rate-plan--hero .rate-plan-price {
+  color: #fff;
+}
+
+.rate-plan--hero .rate-plan-period,
+.rate-plan--hero .rate-plan-note {
+  color: var(--color-sage-light);
+}
+
+.rate-plan--hero .rate-plan-note s {
+  color: rgba(184, 212, 190, 0.7);
+}
+
+.rate-cell--hero .rate-tick {
+  color: #fff;
+}
+
+.rate-cell--hero .rate-dash {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Add-ons close the table instead of orphaning below it. */
+.rate-addons-title {
+  padding: 18px 20px;
+  border-top: 0.5px solid var(--color-border);
+  background: var(--color-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-addons-list {
+  grid-column: 2 / -1;
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: center;
+  padding: 16px 20px;
+  border-top: 0.5px solid var(--color-border);
+  background: var(--color-surface-variant);
+}
+
+.rate-addon {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  box-shadow: var(--shadow-xs);
+  font-size: 13px;
+}
+
+.rate-addon-label {
+  color: var(--color-text-secondary);
+}
+
+.rate-addon-price {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.rate-addons-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0 20px 18px;
+  background: var(--color-surface-variant);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Below 900px four columns cannot fit, so the picker chooses one and the
+   other three are removed from the grid entirely. */
+@media (max-width: 900px) {
+  .rate-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .rate-picker {
+    display: flex;
+  }
+
+  .rate-table {
+    --rate-cols: minmax(0, 1fr) 84px;
+  }
+
+  .rate-table[data-active-plan='0'] .rate-col:not(.rate-col--0),
+  .rate-table[data-active-plan='1'] .rate-col:not(.rate-col--1),
+  .rate-table[data-active-plan='2'] .rate-col:not(.rate-col--2),
+  .rate-table[data-active-plan='3'] .rate-col:not(.rate-col--3) {
+    display: none;
+  }
+
+  .rate-table-head {
+    position: static;
+  }
+
+  .rate-plan {
+    padding: 30px 14px 16px;
+  }
+
+  .rate-plan-badge {
+    left: 14px;
+    right: 14px;
+  }
+
+  .rate-plan-price {
+    font-size: 24px;
+  }
+
+  /* The chosen plan head owns the full width, not the tick column. */
+  .rate-table-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rate-table-corner {
+    display: none;
+  }
+
+  .rate-row-label,
+  .rate-addons-title,
+  .rate-addons-list,
+  .rate-addons-note {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .rate-addons-title,
+  .rate-addons-list {
+    grid-column: 1 / -1;
+  }
+
+  .rate-addons-list {
+    border-top: 0;
+    padding-top: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .home-pricing-strip {
-    grid-template-columns: minmax(0, 1fr);
+  .rate-row-label {
+    font-size: 13.5px;
+  }
+
+  .rate-term-option,
+  .rate-picker-option {
+    padding: 8px 13px;
+    font-size: 13px;
   }
 }
 
-.home-pricing-strip-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 26px 22px;
-  border-radius: var(--radius-xl);
-  background: var(--color-white);
-  box-shadow: var(--shadow-sm);
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
-}
-
-.home-pricing-strip-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.home-pricing-strip-card--highlighted {
-  box-shadow: var(--shadow-lg);
-}
-
-@media (min-width: 861px) {
-  .home-pricing-strip-card--highlighted {
-    transform: translateY(-10px);
-  }
-  .home-pricing-strip-card--highlighted:hover {
-    transform: translateY(-14px);
-  }
-}
-
-.home-pricing-strip-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-}
-
-.home-pricing-strip-price {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.1;
-  font-family: var(--font-serif);
-}
-
-.home-pricing-strip-period {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-
-.home-pricing-strip-card--highlighted {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-name {
-  color: #B8D4BE;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-price {
-  color: #fff;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-period {
-  color: #B8D4BE;
-}
-
-.home-pricing-strip-card--highlighted:hover {
-  border-color: var(--color-primary-light);
-}
-
-.home-pricing-feature-list {
-  list-style: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   padding: 0;
-  margin: 14px 0 0;
-  border-top: 0.5px solid var(--color-border);
-  padding-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.home-pricing-strip-card--highlighted .home-pricing-feature-list {
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
-
-.home-pricing-feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.45;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-item {
-  color: #B8D4BE;
-}
-
-.home-pricing-feature-check {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: #059669;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-check {
-  color: #B8D4BE;
-}
-
-.home-pricing-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: #B8D4BE;
-  margin-bottom: 6px;
-}
-
-.home-pricing-strip-desc {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  line-height: 1.4;
-  margin-top: 4px;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-desc {
-  color: rgba(184, 212, 190, 0.8);
-}
-
-.home-pricing-feature-item--inherit {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-bottom: 4px;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-item--inherit {
-  color: rgba(184, 212, 190, 0.7);
-}
-
-.home-pricing-feature-item--inherit .home-pricing-feature-check {
-  display: none;
-}
-
-/* Add-ons section */
-.home-pricing-addons {
-  margin-top: 36px;
-  padding: 26px 28px;
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-}
-
-.home-pricing-addons-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  margin-bottom: 14px;
-}
-
-.home-pricing-addons-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.home-pricing-addon-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.home-pricing-addon-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.home-pricing-addon-price {
-  font-size: 13px;
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
-.home-pricing-addon-note {
-  font-size: 11px;
-  color: var(--color-text-muted);
-}
 
 .home-pricing-strip-cta {
   margin-top: 18px;

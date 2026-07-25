@@ -38,6 +38,8 @@ import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
   appLinks,
   pricing,
+  planPricing,
+  formatInr,
   tallyFeatures,
   heroStats,
   painPoints,
@@ -171,7 +173,7 @@ const homeFaqItems = [
   {
     question: 'Is there a plan for a business with only one user?',
     answer:
-      'Yes. Every plan includes one user. Extra users are ₹3,000 per year each. Extra devices on the same user are ₹1,500 to ₹3,000 per year depending on plan.',
+      'Yes. Every plan includes one user. Extra users are ₹3,000 per year each, and an extra device on the same user is ₹3,000 per year.',
   },
 ];
 
@@ -182,12 +184,15 @@ const homeFaqItems = [
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
   description:
-    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹4,500 to ₹8,499/year.',
+    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,900 to ₹8,500/year.',
   path: '/',
 };
 
 function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
+  const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
+  // Which plan column the narrow-viewport table shows. Desktop ignores it.
+  const [activePlan, setActivePlan] = useState(pricing.plans.length - 1);
   useScrollReveal();
 
   return (
@@ -569,51 +574,131 @@ function Home({ seo = HOME_SEO }) {
       {/* ── Pricing ── */}
       <section className="pricing-section" id="pricing">
         <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Pricing</span>
-            <h2 className="section-title tabular-nums">₹4,500 to ₹8,499 per year. GST extra.</h2>
-            <p className="section-subtitle">7-day free trial on every plan. No card required.</p>
+          {/* Header and term switch share one row so the title is still on
+              screen when the first price is. The old stacked header pushed
+              the table 450px down and the section lost its own heading. */}
+          <div className="rate-head reveal">
+            <div className="rate-head-copy">
+              <span className="section-label">Pricing</span>
+              <h2 className="section-title rate-title tabular-nums">
+                ₹2,900 to ₹8,500 per year. GST extra.
+              </h2>
+              <p className="section-subtitle rate-subtitle">
+                7-day free trial on every plan. No card required.
+              </p>
+            </div>
+            {/* The 3-year saving is the one number a distributor does the maths
+                on before calling, so the switch is the section's only control. */}
+            <div className="rate-term" role="group" aria-label="Billing term">
+              {pricing.terms.map((term) => (
+                <button
+                  key={term.id}
+                  type="button"
+                  className={`rate-term-option${pricingTerm === term.id ? ' rate-term-option--active' : ''}`}
+                  aria-pressed={pricingTerm === term.id}
+                  onClick={() => setPricingTerm(term.id)}
+                >
+                  <span>{term.label}</span>
+                  {term.badge && <span className="rate-term-badge tabular-nums">{term.badge}</span>}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="home-pricing-strip">
-            {pricing.plans.map((plan) => (
-              <div
+
+          {/* Plan picker. Desktop shows all four columns at once; below 900px
+              a table cannot, so this selects the single column on show. */}
+          <div className="rate-picker" role="group" aria-label="Choose a plan to compare">
+            {pricing.plans.map((plan, i) => (
+              <button
                 key={plan.plan}
-                className={`home-pricing-strip-card${plan.highlighted ? ' home-pricing-strip-card--highlighted' : ''}`}
+                type="button"
+                className={`rate-picker-option${activePlan === i ? ' rate-picker-option--active' : ''}`}
+                aria-pressed={activePlan === i}
+                onClick={() => setActivePlan(i)}
               >
-                {plan.badge && (
-                  <span className="home-pricing-badge">{plan.badge}</span>
-                )}
-                <span className="home-pricing-strip-name">{plan.plan}</span>
-                <span className="home-pricing-strip-price tabular-nums">{plan.price}</span>
-                <span className="home-pricing-strip-period tabular-nums">{plan.period}</span>
-                {plan.description && (
-                  <p className="home-pricing-strip-desc">{plan.description}</p>
-                )}
-                <ul className="home-pricing-feature-list">
-                  {plan.features.map((f) => (
-                    <li key={f} className={`home-pricing-feature-item${f.startsWith('Everything') ? ' home-pricing-feature-item--inherit' : ''}`}>
-                      {!f.startsWith('Everything') && (
-                        <Check size={13} className="home-pricing-feature-check" />
-                      )}
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {plan.plan}
+              </button>
             ))}
           </div>
 
-          {/* Add-ons */}
-          <div className="home-pricing-addons">
-            <p className="home-pricing-addons-title">Add-ons</p>
-            <div className="home-pricing-addons-row">
-              {pricing.addons.map((addon) => (
-                <div key={addon.label} className="home-pricing-addon-item">
-                  <span className="home-pricing-addon-label">{addon.label}</span>
-                  <span className="home-pricing-addon-price tabular-nums">{addon.price}</span>
-                  {addon.note && <span className="home-pricing-addon-note">{addon.note}</span>}
-                </div>
-              ))}
+          <div className="rate-table" data-active-plan={activePlan}>
+            <div className="rate-table-head">
+              <div className="rate-table-corner">
+                <span className="rate-corner-title">What you get</span>
+                <span className="rate-corner-note">
+                  Every plan carries the one below it. Prices are per business, per year, GST extra.
+                </span>
+              </div>
+              {pricing.plans.map((plan, i) => {
+                const quote = planPricing(plan, pricingTerm);
+                return (
+                  <div
+                    key={plan.plan}
+                    className={`rate-col rate-col--${i} rate-plan${plan.highlighted ? ' rate-plan--hero' : ''}`}
+                  >
+                    {plan.badge && <span className="rate-plan-badge">{plan.badge}</span>}
+                    <span className="rate-plan-name">{plan.plan}</span>
+                    <span className="rate-plan-price tabular-nums">{quote.price}</span>
+                    <span className="rate-plan-period">per year</span>
+                    <span className="rate-plan-note tabular-nums">
+                      {quote.term.discount > 0 ? (
+                        <>
+                          <s>{quote.listPrice}</s> · {formatInr(quote.total)} upfront
+                        </>
+                      ) : (
+                        'Billed yearly'
+                      )}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {pricing.matrix.map((group) => (
+              <div className="rate-group" key={group.group}>
+                <div className="rate-group-title">{group.group}</div>
+                {group.rows.map((row) => (
+                  <div className="rate-row" key={row.label}>
+                    <div className="rate-row-label">{row.label}</div>
+                    {pricing.plans.map((plan, i) => (
+                      <div
+                        key={plan.plan}
+                        className={`rate-col rate-col--${i} rate-cell${plan.highlighted ? ' rate-cell--hero' : ''}`}
+                      >
+                        {i >= row.from ? (
+                          <>
+                            <Check size={16} className="rate-tick" aria-hidden="true" />
+                            <span className="sr-only">{`Included in ${plan.plan}`}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="rate-dash" aria-hidden="true" />
+                            <span className="sr-only">{`Not in ${plan.plan}`}</span>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ))}
+
+            {/* Add-ons close the table rather than sitting below it as an
+                orphan block, because they apply to every column above. */}
+            <div className="rate-addons">
+              <div className="rate-addons-title">Add to any plan</div>
+              <div className="rate-addons-list">
+                {pricing.addons.map((addon) => (
+                  <span key={addon.label} className="rate-addon">
+                    <span className="rate-addon-label">{addon.label}</span>
+                    <span className="rate-addon-price tabular-nums">{addon.price}</span>
+                  </span>
+                ))}
+              </div>
+              <p className="rate-addons-note">
+                Payment Collection puts a UPI link on every invoice at zero MDR and reconciles the
+                receipt back into Tally. Every plan includes 1 user.
+              </p>
             </div>
           </div>
 

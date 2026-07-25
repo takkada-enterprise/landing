@@ -18,23 +18,28 @@ Four sub-ICPs:
 
 ## 3. Pricing (GST extra on all prices, annual per-customer MRP)
 
-Plans (the View Only ₹2,700 plan was retired from the public site in June 2026 — do not reintroduce it; `src/data/schema.test.js` asserts it stays absent):
-- Voucher Model: ₹4,500
-- Collections Model: ₹6,480
-- Full Access / Auto Dispatch: ₹8,499. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
+Rate card rebuilt 2026-07-25 to anchor against Livekeeping's ₹3,000 / ₹5,000 / ₹7,000 ladder. The live source of truth is `pricing` in `src/data/siteContent.js`; this section mirrors it and `src/data/schema.test.js` pins it. Every price string on the site is derived from `annualPrice` through `formatInr` / `planPricing` — never hand-write a rupee figure into a component.
 
-Extra devices (per year): ₹3,000 on all plans.
+Plans:
+- **Clarity: ₹2,900.** Read the books on mobile. Receivables, automated WhatsApp reminders, ledger/invoice share, 20+ reports, unlimited companies, 1 user.
+- **Momentum: ₹4,500.** Adds voucher creation and editing from mobile and web, delivery challans, sales orders, custom invoice PDF template.
+- **Assurance: ₹6,480.** Adds E-Invoice (IRN + QR) and E-Way Bill generation from the phone, written back into Tally against the same voucher.
+- **Copilot: ₹8,500.** Everything. Import from PDF, bank statement import, Auto Invoice Dispatch, Reports +, role-based salesman access. This is the highlighted "Most Popular" card.
+
+  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12). **Pending Orders was removed from the public matrix: it is built but active on zero prod companies.** Re-check before adding any new row.
+
+Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts each stays absent: **View Only** (₹2,700), **Voucher Model**, **Collections Model**, **Full Access / Auto Dispatch** (₹8,499).
+
+**3-year term: 25% off, billed once.** Per-year effective rates ₹2,175 / ₹3,375 / ₹4,860 / ₹6,375. The site defaults to the 3-year column (`pricing.defaultTerm`).
 
 Add-ons (per year):
-- Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
-- Auto Invoice Dispatch. Included in Full Access / Auto Dispatch; available as add-on on Collections plan only, ₹1,500
-- Reports + (advanced business reports): ₹4,000
-- Salesman module (role-based access for field sales teams): ₹5,000
-- WhatsApp 8,000-message pack: ₹2,000
+- **Payment Collection: ₹1,500.** UPI links on every invoice, zero MDR, auto-reconciled into Tally. Available on **every** plan; it is no longer bundled into any tier.
 - Extra user: ₹3,000
-- Extra business (Collections or Full Access only): ₹1,000
+- Extra device: ₹3,000
+- Extra business: ₹1,000 (all plans)
+- WhatsApp 8,000-message pack: ₹2,000
 
-Extra business rule: Voucher customers pay nothing for extra businesses; Collections and Full Access pay ₹1,000 per extra business.
+Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 
 ## 4. GTM motion
 

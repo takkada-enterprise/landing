@@ -50,7 +50,7 @@ const data = {
     },
     {
       q: 'What voucher types can the salesman raise from the phone?',
-      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Collections and Full Access plans.',
+      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Assurance and Copilot plans.',
     },
     {
       q: 'Does this need the office Tally laptop to be open?',
@@ -62,7 +62,7 @@ const data = {
     },
     {
       q: 'What plan do I need for field sales invoicing?',
-      a: 'Mobile invoicing is available on the Voucher plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Collections and Full Access plans.',
+      a: 'Mobile invoicing is available on the Momentum plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Assurance and Copilot plans.',
     },
   ],
   breadcrumb: [

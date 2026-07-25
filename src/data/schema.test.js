@@ -9,7 +9,7 @@ import {
   breadcrumbSchema,
   articleSchema,
 } from './schema';
-import { appLinks, pricing, testimonials } from './siteContent';
+import { appLinks, formatInr, planPricing, pricing, testimonials } from './siteContent';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -45,27 +45,169 @@ describe('webSiteSchema', () => {
   });
 });
 
-describe('pricing data (Master Distributor rate card, June 2026)', () => {
+describe('pricing data (rate card, July 2026)', () => {
   it('maps each plan to its current rate-card MRP', () => {
-    const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.price]));
-    expect(byPlan['View Only']).toBeUndefined();
-    expect(byPlan['Voucher Model']).toBe('₹4,500');
-    expect(byPlan['Collections Model']).toBe('₹6,480');
-    expect(byPlan['Full Access']).toBe('₹8,499');
+    const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.annualPrice]));
+    expect(byPlan).toEqual({
+      Clarity: 2900,
+      Momentum: 4500,
+      Assurance: 6480,
+      Copilot: 8500,
+    });
+  });
+
+  it('keeps the retired plan names off the public site', () => {
+    const names = pricing.plans.map((p) => p.plan);
+    expect(names).not.toContain('View Only');
+    expect(names).not.toContain('Voucher Model');
+    expect(names).not.toContain('Collections Model');
+    expect(names).not.toContain('Full Access');
   });
 
   it('carries no superseded prices', () => {
-    const prices = pricing.plans.map((p) => p.price);
-    expect(prices).not.toContain('₹2,500');
-    expect(prices).not.toContain('₹6,000');
-    expect(prices).not.toContain('₹7,500');
-    expect(prices).not.toContain('₹7,200');
+    const prices = pricing.plans.map((p) => p.annualPrice);
+    for (const superseded of [2500, 2700, 6000, 7200, 7500, 8499]) {
+      expect(prices).not.toContain(superseded);
+    }
   });
 
-  it('offers Import from PDF as a ₹4,000 / year add-on', () => {
-    const pdfAddon = pricing.addons.find((a) => a.label === 'Import from PDF');
-    expect(pdfAddon).toBeDefined();
-    expect(pdfAddon.price).toBe('₹4,000 / year');
+  it('renders the display price from the annual MRP', () => {
+    for (const plan of pricing.plans) {
+      expect(plan.price).toBe(formatInr(plan.annualPrice));
+    }
+  });
+
+  it('sells Payment Collection as a ₹1,500 / year add-on on every plan', () => {
+    const collection = pricing.addons.find((a) => a.label === 'Payment Collection');
+    expect(collection).toBeDefined();
+    expect(collection.price).toBe('₹1,500 / year');
+    expect(collection.note).toMatch(/every plan/i);
+  });
+
+  it('bundles the former add-on modules into the top plan rather than selling them separately', () => {
+    const addonLabels = pricing.addons.map((a) => a.label);
+    expect(addonLabels).not.toContain('Import from PDF');
+    expect(addonLabels).not.toContain('Auto Invoice Dispatch');
+    expect(addonLabels).not.toContain('Reports +');
+    expect(addonLabels).not.toContain('Salesman module');
+
+    const topTier = pricing.plans.length - 1;
+    const allRows = pricing.matrix.flatMap((g) => g.rows);
+    for (const capability of [/Import from PDF/, /Auto Invoice Dispatch/, /Reports \+/, /salesman/i]) {
+      const row = allRows.find((r) => capability.test(r.label));
+      expect(row, `no matrix row for ${capability}`).toBeDefined();
+      expect(row.from).toBe(topTier);
+    }
+  });
+});
+
+describe('pricing matrix', () => {
+  const allRows = pricing.matrix.flatMap((g) => g.rows);
+
+  it('anchors every row to a real plan index', () => {
+    expect(allRows.length).toBeGreaterThan(0);
+    for (const row of allRows) {
+      expect(Number.isInteger(row.from)).toBe(true);
+      expect(row.from).toBeGreaterThanOrEqual(0);
+      expect(row.from).toBeLessThan(pricing.plans.length);
+    }
+  });
+
+  it('gives every plan at least one capability of its own, so no tier is a pure price bump', () => {
+    for (let i = 0; i < pricing.plans.length; i += 1) {
+      expect(
+        allRows.some((r) => r.from === i),
+        `${pricing.plans[i].plan} introduces nothing new`
+      ).toBe(true);
+    }
+  });
+
+  it('makes the ladder cumulative: the top plan carries every row', () => {
+    const top = pricing.plans.length - 1;
+    for (const row of allRows) {
+      expect(top).toBeGreaterThanOrEqual(row.from);
+    }
+    const entry = allRows.filter((r) => r.from === 0).length;
+    expect(entry).toBeGreaterThan(0);
+    expect(entry).toBeLessThan(allRows.length);
+  });
+
+  it('claims nothing that is not live for real customers in production', () => {
+    // Claims discipline: a row here is a public promise. Each was checked
+    // against prod company_feature_entitlements on 2026-07-25 and had a
+    // non-zero count of companies with it active. Pending Orders failed that
+    // check (built, granted to zero companies) and was pulled. Verify against
+    // prod before adding anything to this list.
+    const NOT_LIVE = [/pending order/i];
+    for (const unshipped of NOT_LIVE) {
+      expect(
+        allRows.find((r) => unshipped.test(r.label)),
+        `${unshipped} is not live in prod and must not be advertised`
+      ).toBeUndefined();
+    }
+  });
+
+  it('lists no capability twice', () => {
+    const labels = allRows.map((r) => r.label);
+    expect(new Set(labels).size).toBe(labels.length);
+  });
+
+  it('drops the per-card feature lists the table replaced', () => {
+    for (const plan of pricing.plans) {
+      expect(plan.features).toBeUndefined();
+    }
+  });
+});
+
+describe('planPricing', () => {
+  const plan = pricing.plans.find((p) => p.plan === 'Copilot');
+
+  it('quotes the list rate on the 1-year term with nothing saved', () => {
+    const quote = planPricing(plan, '1y');
+    expect(quote.perYear).toBe(8500);
+    expect(quote.total).toBe(8500);
+    expect(quote.saving).toBe(0);
+    expect(quote.savingLabel).toBeNull();
+    expect(quote.price).toBe('₹8,500');
+    // The headline price already is the total on a 1-year term, so no
+    // second "billed" line is offered for the card to render.
+    expect(quote.totalLabel).toBeNull();
+  });
+
+  it('takes exactly 25% off the 3-year term and quotes it per year', () => {
+    const quote = planPricing(plan, '3y');
+    expect(quote.perYear).toBe(6375);
+    expect(quote.total).toBe(19125);
+    expect(quote.saving).toBe(8500 * 3 - 19125);
+    expect(quote.price).toBe('₹6,375');
+    expect(quote.listPrice).toBe('₹8,500');
+    expect(quote.totalLabel).toBe('₹19,125 billed once for 3 years');
+    expect(quote.savingLabel).toBe('You keep ₹6,375');
+  });
+
+  it('discounts every plan by the same 25% on the 3-year term', () => {
+    for (const p of pricing.plans) {
+      const quote = planPricing(p, '3y');
+      expect(quote.total).toBeCloseTo(p.annualPrice * 3 * 0.75, 5);
+    }
+  });
+
+  it('falls back to the 1-year term when handed an unknown term id', () => {
+    expect(planPricing(plan, 'nonsense').perYear).toBe(8500);
+  });
+
+  it('defaults the site to the discounted 3-year term', () => {
+    expect(pricing.defaultTerm).toBe('3y');
+    expect(pricing.terms.map((t) => t.id)).toEqual(['1y', '3y']);
+    expect(pricing.terms.find((t) => t.id === '3y').discount).toBe(0.25);
+  });
+});
+
+describe('formatInr', () => {
+  it('groups rupees the Indian way', () => {
+    expect(formatInr(2900)).toBe('₹2,900');
+    expect(formatInr(19125)).toBe('₹19,125');
+    expect(formatInr(100000)).toBe('₹1,00,000');
   });
 });
 
@@ -126,9 +268,10 @@ describe('softwareApplicationSchema', () => {
       softwareApplicationSchema().offers.map((o) => [o.name, o])
     );
     expect(offers['View Only']).toBeUndefined();
-    expect(offers['Voucher Model']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
-    expect(offers['Collections Model']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
-    expect(offers['Full Access']).toMatchObject({ price: '8499', priceCurrency: 'INR' });
+    expect(offers['Clarity']).toMatchObject({ price: '2900', priceCurrency: 'INR' });
+    expect(offers['Momentum']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
+    expect(offers['Assurance']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
+    expect(offers['Copilot']).toMatchObject({ price: '8500', priceCurrency: 'INR' });
   });
 });
 

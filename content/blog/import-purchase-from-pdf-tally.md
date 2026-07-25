@@ -5,19 +5,19 @@ meta_title: "PDF to Tally Purchase Entry, Automatically"
 meta_description: "Turn a supplier PDF into a Tally purchase entry automatically. Import-from-PDF reads the bill and drafts the purchase voucher, so payables stops being typing."
 primary_keyword: "pdf to tally purchase entry"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's payables desk is a stack of supplier PDFs waiting to be typed into Tally, line by line, GST by GST. Import-from-PDF reads the bill and drafts the purchase entry, so the stack turns into a review queue instead of a typing queue."
 ---
 
-Import-from-PDF turns a supplier's PDF bill into a Tally purchase entry automatically: the software reads the invoice, pulls out the supplier, the line items, the quantities, the rates, and the GST, and drafts a purchase voucher for the accountant to confirm rather than key from scratch. For a distributor buying from dozens of principals, this is the drudgery of the payables desk, because every purchase bill that comes in as a PDF or a WhatsApp image otherwise has to be typed into Tally by hand, one line at a time. The automation reads the document and does the data entry, leaving a person only to check and post. The feature is bundled into Takkada's Full Access plan and available as an add-on on the Collections plan. Tally stays the book of record, so the drafted voucher lands in Tally exactly as a hand-keyed one would, and the accountant's review is a glance, not a re-type.
+Import-from-PDF turns a supplier's PDF bill into a Tally purchase entry automatically: the software reads the invoice, pulls out the supplier, the line items, the quantities, the rates, and the GST, and drafts a purchase voucher for the accountant to confirm rather than key from scratch. For a distributor buying from dozens of principals, this is the drudgery of the payables desk, because every purchase bill that comes in as a PDF or a WhatsApp image otherwise has to be typed into Tally by hand, one line at a time. The automation reads the document and does the data entry, leaving a person only to check and post. The feature is bundled into the Takkada Copilot plan. Tally stays the book of record, so the drafted voucher lands in Tally exactly as a hand-keyed one would, and the accountant's review is a glance, not a re-type.
 
 ## Key Highlights
 
 - Import-from-PDF reads a supplier's bill and drafts a Tally purchase voucher with supplier, items, quantities, rates, and GST filled in
 - It turns the payables desk from a typing queue into a review queue. A person confirms and posts instead of keying line by line
-- It is bundled in the Full Access plan and available as an add-on on the Collections plan, and the drafted voucher lands in Tally as the book of record
+- It is bundled in the Copilot plan, and the drafted voucher lands in Tally as the book of record
 
 ## In This Article
 
@@ -62,7 +62,7 @@ So Import-from-PDF saves time at entry, and it does more than that. It keeps the
 
 ## Where It Fits in the Plans
 
-Import-from-PDF is bundled into the Full Access plan, so a distributor on that plan has it as part of the package. A distributor on the Collections plan who wants it can take it as an add-on rather than moving up a whole tier. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows both.
+Import-from-PDF is bundled into the Copilot plan, alongside bank statement import, so a distributor on that plan has the whole data-entry bundle as part of the package. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows what each plan carries.
 
 The practical read: a business whose pain is receivables can start with collection and add PDF purchase import when the payables typing becomes the bottleneck, without re-buying anything.
 
@@ -82,7 +82,7 @@ A: The draft flags it for the accountant to map to the right stock item. Because
 
 **Q: Which plan includes Import-from-PDF?**
 
-A: It is bundled into the Full Access plan and available as an add-on on the Collections plan. A distributor whose main need is collection can start there and add PDF purchase import later when the payables typing becomes the bottleneck, without moving up a whole tier.
+A: It is bundled into the Copilot plan (₹8,500 a year, GST extra), together with bank statement import. A distributor whose main need today is invoicing can start on a lower plan and move to Copilot when the payables typing becomes the bottleneck.
 
 **Q: Does the drafted entry stay in Tally as normal?**
 
