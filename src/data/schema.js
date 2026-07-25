@@ -97,7 +97,6 @@ function reviewSchema(testimonial) {
 }
 
 export function softwareApplicationSchema(reviews = testimonials) {
-  const priceNumber = (price) => price.replace(/[^\d]/g, '');
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -118,7 +117,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
     offers: pricing.plans.map((plan) => ({
       '@type': 'Offer',
       name: plan.plan,
-      price: priceNumber(plan.price),
+      price: String(plan.annualPrice),
       priceCurrency: 'INR',
       category: 'Annual subscription',
       eligibleCustomerType: 'https://schema.org/BusinessEntity',

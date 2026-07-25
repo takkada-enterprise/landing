@@ -5,19 +5,19 @@ meta_title: "Auto Invoice Dispatch from Tally to WhatsApp"
 meta_description: "Automatic invoice dispatch on WhatsApp: every Tally invoice fires to the retailer the moment it is saved, with a UPI link, so the payment clock starts at once."
 primary_keyword: "automatic invoice dispatch whatsapp"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor saves an invoice in Tally at 2 PM and it reaches the retailer's WhatsApp the next morning, when someone finally gets around to forwarding it. Auto invoice dispatch closes that gap to seconds and lets the invoice send itself."
 ---
 
-Automatic invoice dispatch means every invoice you save in Tally fires to the retailer's WhatsApp on its own, within seconds, with no one forwarding a PDF. The trigger is the save action, not a person, so the moment the accountant or salesman records the sale, the retailer already has the bill on their phone with a UPI payment link attached. This is the hero feature of Takkada's Full Access plan, and it is available as an add-on on the Collections plan, so a distributor can turn it on without moving up a whole tier. What it changes is timing. A retailer on 30-day credit starts that clock when the invoice arrives, and an invoice that arrives at 2 PM instead of the next morning starts the clock eighteen hours earlier. Across a few hundred invoices a month, that compounding head start is real money pulled forward, and the accountant never spends another hour forwarding bills one at a time.
+Automatic invoice dispatch means every invoice you save in Tally fires to the retailer's WhatsApp on its own, within seconds, with no one forwarding a PDF. The trigger is the save action, not a person, so the moment the accountant or salesman records the sale, the retailer already has the bill on their phone with a UPI payment link attached. This is the hero feature of the Takkada Copilot plan, where it is included rather than sold as a separate module. What it changes is timing. A retailer on 30-day credit starts that clock when the invoice arrives, and an invoice that arrives at 2 PM instead of the next morning starts the clock eighteen hours earlier. Across a few hundred invoices a month, that compounding head start is real money pulled forward, and the accountant never spends another hour forwarding bills one at a time.
 
 ## Key Highlights
 
 - Auto invoice dispatch is triggered by the invoice save in Tally, so the bill reaches the retailer's WhatsApp in seconds with no forwarding step
 - Every dispatched invoice can carry a UPI payment link, so it arrives as both a record and a one-tap payment request
-- It is the headline feature of the Full Access plan and available as an add-on on the Collections plan, so it does not require the top tier to switch on
+- It is the headline feature of the Copilot plan, included in the plan price rather than charged as a separate module
 
 ## In This Article
 
@@ -52,7 +52,7 @@ For a distributor who invoices from the field, the invoice can be the [GST-compl
 
 ## Where It Fits in the Plans
 
-Auto Invoice Dispatch is the feature the Full Access plan is built around, so a distributor on that plan has it on by default. A distributor on the Collections plan who wants dispatch without moving up a tier can add it as an add-on. There is no version of this where a business is forced into the top plan just to send invoices automatically. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out both paths.
+Auto Invoice Dispatch is the feature the Copilot plan is built around, so a distributor on that plan has it on by default and pays nothing extra for it. It used to be sold as a separate module on top of a lower plan; it is now part of Copilot. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out what each plan carries.
 
 That flexibility matters because dispatch volume varies. A distributor doing fifty invoices a day feels it instantly; one doing eight might add it later. Either way, it is a switch, not a rebuild.
 
@@ -74,7 +74,7 @@ A: Both. The dispatch sends a message with the key details (party name, invoice 
 
 **Q: Which plan includes auto invoice dispatch?**
 
-A: It is the headline feature of the Full Access plan, so it is on by default there. On the Collections plan it is available as an add-on, so a distributor can turn it on without moving up to the top tier. The pricing guide shows both routes.
+A: It is the headline feature of the Copilot plan (₹8,500 a year, GST extra), so it is on by default there and carries no separate module charge. The pricing guide shows what each plan carries.
 
 **Q: Can I turn dispatch off for certain parties?**
 

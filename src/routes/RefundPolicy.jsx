@@ -1,7 +1,7 @@
 import CompanyPageLayout from '../components/CompanyPageLayout';
 import Seo from '../components/Seo';
 import { breadcrumbSchema } from '../data/schema';
-import { contactInfo } from '../data/siteContent';
+import { contactInfo, pricing } from '../data/siteContent';
 
 function RefundPolicy() {
   return (
@@ -26,19 +26,18 @@ function RefundPolicy() {
 
         <h2>Subscription Plans</h2>
         <div className="policy-plans">
-          <div className="policy-plan-card">
-            <strong>Voucher Model</strong>
-            <span className="tabular-nums">{'₹'}4,500 + GST / year</span>
-          </div>
-          <div className="policy-plan-card">
-            <strong>Collections Model</strong>
-            <span className="tabular-nums">{'₹'}6,480 + GST / year</span>
-          </div>
-          <div className="policy-plan-card">
-            <strong>Full Access / Auto Dispatch</strong>
-            <span className="tabular-nums">{'₹'}8,499 + GST / year</span>
-          </div>
+          {pricing.plans.map((plan) => (
+            <div className="policy-plan-card" key={plan.plan}>
+              <strong>{plan.plan}</strong>
+              <span className="tabular-nums">{plan.price} + GST / year</span>
+            </div>
+          ))}
         </div>
+        <p>
+          A <span className="tabular-nums">3-year</span> subscription is billed once at{' '}
+          <span className="tabular-nums">25%</span> off the yearly rate. Refunds on a 3-year
+          subscription are calculated against the amount actually paid.
+        </p>
 
         <h2>7-Day Money-Back Guarantee</h2>
         <h3>Full Refund Eligibility</h3>

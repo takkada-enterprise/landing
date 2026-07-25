@@ -5,6 +5,7 @@ meta_title: "Outstanding Payment Reminder App India: What Works in 2026"
 meta_description: "How an outstanding payment reminder app for Indian distributors actually works. Cadence, reconciliation, Tally sync, and what separates a tool from a toy."
 primary_keyword: "outstanding payment reminder app india"
 date: "2026-04-25"
+updated: "2026-07-25"
 author: "founder"
 category: "How-To"
 excerpt: "An outstanding payment reminder app is a software layer that tracks every open invoice across every party, sends structured reminders at the right intervals, pauses those reminders automatically when the invoice is paid, and keeps the reconciliation back to Tally or another ledger system in real time."
@@ -87,7 +88,7 @@ The rebuild took six weeks. Invoice capture through Tally XML integration, five-
 
 After eight weeks: DSO at 44 days. One accountant back on GST and margin work. The "chase" part of the week disappeared because the app was doing it, and the retailers were paying faster because the link was right there in the reminder.
 
-The app cost ₹7,500 per user per year. The working capital freed by the 14-day DSO compression was approximately ₹31 lakh — roughly 400 times the app cost, in the first year.
+The app cost ₹8,500 per user per year. The working capital freed by the 14-day DSO compression was approximately ₹31 lakh, roughly 350 times the app cost, in the first year.
 
 ## What Takkada is, in one sentence
 

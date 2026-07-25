@@ -5,13 +5,13 @@ meta_title: "What Does Takkada Automate in Tally?"
 meta_description: "What does Takkada automate in Tally, and what stays manual. An honest list: dispatch, reminders, collection, reconciliation, and the calls it leaves to you."
 primary_keyword: "what does takkada automate"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Autopilot"
 excerpt: "Every distributor who hears 'automate your Tally' has the same fair question underneath the pitch: what exactly runs on its own, and what am I still on the hook for. This is the honest version of that answer, limits included."
 ---
 
-Takkada automates the repetitive, rule-based work around your Tally books: dispatching each invoice to the retailer's WhatsApp when it is saved, sending scheduled payment reminders as bills come due, collecting on a 0% MDR UPI link, reconciling the receipt back into Tally against the right invoice, and turning a supplier's PDF bill into a Tally purchase entry. What it does not automate is judgment. Tally stays the system of record, so nothing moves off your data file. Credit decisions, genuine disputes, and receipts that could settle several bills in different ways are all held for a person to clear. Some pieces are also plan or add-on gated rather than on for everyone: Auto Invoice Dispatch and Import-from-PDF live in the Full Access plan, with add-on paths on Collections. The honest summary is that Takkada removes the typing, not the deciding, and it removes it only where a fixed rule always gives the right answer.
+Takkada automates the repetitive, rule-based work around your Tally books: dispatching each invoice to the retailer's WhatsApp when it is saved, sending scheduled payment reminders as bills come due, collecting on a 0% MDR UPI link, reconciling the receipt back into Tally against the right invoice, and turning a supplier's PDF bill into a Tally purchase entry. What it does not automate is judgment. Tally stays the system of record, so nothing moves off your data file. Credit decisions, genuine disputes, and receipts that could settle several bills in different ways are all held for a person to clear. Some pieces are also plan gated rather than on for everyone: Auto Invoice Dispatch and Import-from-PDF both live in the Copilot plan. The honest summary is that Takkada removes the typing, not the deciding, and it removes it only where a fixed rule always gives the right answer.
 
 ## Key Highlights
 
@@ -56,7 +56,7 @@ Takkada does not chase for you after the escalation point. A well-overdue accoun
 
 Automation is not one switch that is either on or off for everyone. Some pieces sit in specific plans.
 
-Auto Invoice Dispatch is the headline feature of the Full Access plan, and it is available as an add-on on the Collections plan. Import-from-PDF for supplier bills is bundled into Full Access and available as an add-on on Collections. Advanced business reporting comes through the Reports+ add-on. Reminders and UPI collection sit in the collection-focused plans. The [full pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which plan carries what, so nobody buys expecting an automation that their plan does not include.
+Auto Invoice Dispatch is the headline feature of the Copilot plan. Import-from-PDF for supplier bills, bank statement import, and advanced business reporting are bundled into the same plan. Reminders run from the entry plan up, and UPI collection is a ₹1,500 a year add-on that sits on top of any plan. The [full pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which plan carries what, so nobody buys expecting an automation that their plan does not include.
 
 ## What Takkada Never Touches in Your Tally
 
@@ -86,7 +86,7 @@ A: No. It writes new vouchers (receipts, and purchase entries you confirm) and t
 
 **Q: Is every automation included in every plan?**
 
-A: No. Auto Invoice Dispatch is the headline of the Full Access plan and an add-on on Collections, Import-from-PDF is bundled in Full Access and an add-on on Collections, and advanced reporting is the Reports+ add-on. Reminders and UPI collection sit in the collection-focused plans. The pricing guide shows the exact split.
+A: No. Auto Invoice Dispatch, Import-from-PDF, bank statement import, and advanced reporting all sit in the Copilot plan. Reminders run from the entry plan up, and UPI collection is a ₹1,500 a year add-on on top of any plan. The pricing guide shows the exact split.
 
 **Q: How much still needs human review after automation?**
 

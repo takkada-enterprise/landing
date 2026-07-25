@@ -5,6 +5,7 @@ meta_title: "Payment Collection Cost Comparison for Indian Distributors"
 meta_description: "Payment collection cost comparison for Indian distributors across UPI, links, gateways, and Tally-native apps. The honest math on what ₹1 crore costs."
 primary_keyword: "payment collection cost comparison india"
 date: "2026-05-18"
+updated: "2026-07-25"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Two distributors with the same ₹15 crore turnover can have wildly different payment collection costs. One pays ₹15 lakh a year in MDR; the other pays ₹0. The difference is the architecture, not the volume."
@@ -78,7 +79,7 @@ Designed for B2C udhar, repurposed by some distributors.
 Built specifically for distributors. Tally is the system of record. UPI flows directly from retailer-UPI to distributor-UPI.
 
 **UPI MDR:** 0%.
-**Subscription:** Flat annual platform fee. Plans range from View Only (₹2,500/year) to Full Access (₹7,500/year), GST extra.
+**Subscription:** Flat annual platform fee. Plans range from Clarity (₹2,900/year) to Copilot (₹8,500/year), GST extra, with Payment Collection a ₹1,500/year add-on on any plan. A 3-year term is billed once at 25% off.
 
 **Pros:** 0% MDR on UPI, two-way Tally sync, statement-grade reminders, mobile invoicing, auto-reconciliation.
 **Cons:** Specific to distributor workflow; not the right shape for non-distributor businesses.
@@ -93,7 +94,7 @@ Same distributor, ₹10 crore annual turnover, 60% UPI receipts (₹6 crore), 25
 | Generic gateway payment links | ~₹0 on UPI | ~₹40,000 (cards/wallets) | ₹0 | ~₹40,000 + manual reconciliation |
 | B2B receivables platform (mid-tier) | ₹30,000 (0.5% MDR) | ~₹40,000 | ₹60,000–₹1,20,000 | ₹1,30,000–₹1,90,000 |
 | Khatabook premium | ~₹0 on UPI | not supported well | ₹6,000–₹12,000 | ₹6,000–₹12,000 (but: not B2B-fit) |
-| Takkada (Full Access) | ₹0 | passthrough at actual rail cost | ₹7,500 + GST | ~₹8,850 |
+| Takkada (Copilot + Payment Collection) | ₹0 | passthrough at actual rail cost | ₹10,000 + GST | ~₹11,800 |
 
 The gap between the B2B receivables platform (₹1.3 lakh–₹1.9 lakh annually) and Takkada (~₹8,850 annually) is the structural difference between an MDR-based product and an annual-subscription product.
 
@@ -120,7 +121,7 @@ A 15-minute exercise the distributor can do this week:
 3. For the current collection tool, find the MDR per rail. Multiply.
 4. Add the annual subscription cost.
 5. Add an honest estimate of reconciliation labor (hours × hourly cost).
-6. Compare against 0% MDR on UPI plus a flat ₹7,500 + GST subscription (Takkada Full Access).
+6. Compare against 0% MDR on UPI plus a flat ₹10,000 + GST subscription (Takkada Copilot with the Payment Collection add-on).
 
 Most distributors who run this exercise discover their current collection stack costs them 5×–20× what an annual-subscription Tally-native alternative would.
 
@@ -136,7 +137,7 @@ A: Ask your current vendor for the effective MDR per rail (UPI, debit card, cred
 
 **Q: What is the cheapest payment collection tool in India for distributors?**
 
-A: For Tally-based distributors needing real B2B collection workflows (reminders, party statements, auto-reconciliation), Takkada at ₹7,500 + GST annually with 0% MDR on UPI is the lowest total-cost option in the comparison. For very small distributors (₹1 crore turnover or less) with no reminder needs, direct UPI without any software is technically cheaper but operationally unsustainable beyond 30 retail parties.
+A: For Tally-based distributors needing real B2B collection workflows (reminders, party statements, auto-reconciliation), Takkada at ₹6,480 + GST annually plus the ₹1,500 Payment Collection add-on, with 0% MDR on UPI, is the lowest total-cost option in the comparison. For very small distributors (₹1 crore turnover or less) with no reminder needs, direct UPI without any software is technically cheaper but operationally unsustainable beyond 30 retail parties.
 
 **Q: Do payment gateways really charge MDR on UPI in 2026?**
 

@@ -162,10 +162,11 @@ body {
 .tally-arrow svg { animation: spinSlow 6s linear infinite; }
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 
-/* ── Pricing: highlighted plan reads premium ── */
-.home-pricing-strip-card--highlighted { box-shadow: var(--shadow-rise), 0 0 0 2px var(--color-primary); }
-.home-pricing-strip-card { transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
-.home-pricing-strip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-rise); }
+/* ── Pricing: the rate card panel reads premium ──
+   The 2026-07-25 rebuild replaced the four plan cards with one comparison
+   table, so the per-card lift rules are gone. The panel carries the
+   elevation now; the hero column inside it does the differentiating. */
+.rate-table { box-shadow: var(--shadow-rise); }
 
 /* ── Final CTA: deep ink with sage mesh ── */
 .final-cta { background: var(--grad-ink); }

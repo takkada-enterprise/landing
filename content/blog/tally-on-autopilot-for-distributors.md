@@ -5,7 +5,7 @@ meta_title: "Tally on Autopilot for Distributors"
 meta_description: "Tally automation for distributors: what runs without you. Invoice dispatch, reminders, 0% MDR collection, and reconciliation that posts back to Tally."
 primary_keyword: "tally automation"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor opens Tally forty times a day, and most of those opens are typing, not thinking: post this receipt, forward that invoice, key in a supplier bill. Tally on autopilot is what happens when the typing runs itself and the owner is left with only the decisions."
@@ -84,7 +84,7 @@ A: The decisions. Whether to extend credit to a late retailer, whether a dispute
 
 **Q: Is every automation available on every plan?**
 
-A: No. Some pieces are plan or add-on gated. Auto Invoice Dispatch is the headline of the Full Access plan and available as an add-on on Collections, and Import-from-PDF is bundled in Full Access and available as an add-on on Collections. Reminders and UPI collection sit in the collection-focused plans. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows what each plan carries.
+A: No. Some pieces are plan gated. Auto Invoice Dispatch and Import-from-PDF are both part of the Copilot plan. Reminders run from the entry plan up. UPI collection is a ₹1,500 a year add-on that sits on top of any plan. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows what each plan carries.
 
 **Q: How much of the day does this actually save?**
 

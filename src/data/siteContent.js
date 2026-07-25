@@ -203,59 +203,138 @@ export const trustSection = {
   },
 };
 
+// Indian-format rupee amount, e.g. 19125 -> "\u20B919,125". Every price string on
+// the site is derived from a number through this, so the 3-year maths can
+// never drift from the 1-year rate card.
+export function formatInr(amount) {
+  return `\u20B9${Math.round(amount).toLocaleString('en-IN')}`;
+}
+
+// Billing terms. The 3-year term is the same rate card with 25% off, quoted
+// per year so the two columns compare like for like.
+export const PRICING_TERMS = [
+  { id: '1y', label: '1 year', years: 1, discount: 0 },
+  { id: '3y', label: '3 years', years: 3, discount: 0.25, badge: 'Save 25%' },
+];
+
+export const DEFAULT_PRICING_TERM = '3y';
+
+/**
+ * Resolve one plan against one billing term.
+ * Returns the per-year headline price plus, on multi-year terms, the amount
+ * billed up front, the struck-through list rate, and the rupees saved.
+ */
+export function planPricing(plan, termId = DEFAULT_PRICING_TERM) {
+  const term = PRICING_TERMS.find((t) => t.id === termId) ?? PRICING_TERMS[0];
+  const perYear = plan.annualPrice * (1 - term.discount);
+  const total = perYear * term.years;
+  const listTotal = plan.annualPrice * term.years;
+  return {
+    term,
+    perYear,
+    total,
+    saving: listTotal - total,
+    price: formatInr(perYear),
+    period: '/year + GST',
+    listPrice: formatInr(plan.annualPrice),
+    // On a 1-year term the headline price already is the total, so there is
+    // nothing to add. Only the multi-year terms earn a second line.
+    totalLabel:
+      term.years > 1 ? `${formatInr(total)} billed once for ${term.years} years` : null,
+    savingLabel: term.discount > 0 ? `You keep ${formatInr(listTotal - total)}` : null,
+  };
+}
+
 export const pricing = {
+  terms: PRICING_TERMS,
+  defaultTerm: DEFAULT_PRICING_TERM,
   plans: [
     {
-      plan: 'Voucher Model',
+      plan: 'Clarity',
+      annualPrice: 2900,
+      price: '\u20B92,900',
+      period: '/year + GST',
+      description: 'Every number Tally holds, in your pocket.',
+    },
+    {
+      plan: 'Momentum',
+      annualPrice: 4500,
       price: '\u20B94,500',
       period: '/year + GST',
-      description: 'Create vouchers and share invoices from your phone.',
-      features: [
-        'Real-time receivables dashboard from Tally',
-        'Send payment reminders via WhatsApp',
-        'Create sales, purchase, receipt vouchers from mobile',
-        'Share invoice PDFs to customers via WhatsApp',
-        'Works when the Tally laptop is off',
-        '1 user included',
-      ],
+      description: 'Bill from the godown or the passenger seat.',
     },
     {
-      plan: 'Collections Model',
+      plan: 'Assurance',
+      annualPrice: 6480,
       price: '\u20B96,480',
       period: '/year + GST',
-      description: 'Collect payments digitally. Auto-reconcile into Tally.',
-      features: [
-        'Everything in Voucher Model, plus:',
-        'UPI payment links on every invoice. Zero MDR.',
-        'Payments auto-reconcile into Tally instantly',
-        'E-Invoice and E-Way Bill from your phone',
-        'Auto Invoice Dispatch and Import from PDF available as add-ons',
-      ],
+      description: 'Paperwork done before the truck leaves the gate.',
     },
     {
-      plan: 'Full Access',
-      price: '\u20B98,499',
+      plan: 'Copilot',
+      annualPrice: 8500,
+      price: '\u20B98,500',
       period: '/year + GST',
-      description: 'Every Tally invoice on WhatsApp the moment it is created. Import from PDF included.',
+      description: 'The evening data-entry shift, handled.',
       badge: 'Most Popular',
-      features: [
-        'Everything in Collections Model, plus:',
-        'Import from PDF. Turn supplier bills into purchase entries',
-        'Auto Invoice Dispatch. Every Tally invoice fires on WhatsApp automatically',
-        'Role-based access for field salesman teams',
-        'Per-user ledger and stock group controls',
-      ],
       highlighted: true,
     },
   ],
+  // The capability matrix is the single source of truth for what each plan
+  // carries. `from` is the index of the first plan in `plans` that includes
+  // the row, which is what makes the ladder literal: a tick fills every
+  // column from `from` rightward, so inheritance is visible instead of being
+  // spelled out as "Everything in X, plus:" on every card.
+  // Group titles name what the distributor stops doing, not a feature family.
+  matrix: [
+    {
+      group: 'See the books',
+      rows: [
+        { label: 'Live receivables and payables from Tally', from: 0 },
+        { label: 'Automatic WhatsApp payment reminders', from: 0 },
+        { label: 'Share ledgers and invoice PDFs', from: 0 },
+        { label: '20+ business reports', from: 0 },
+        { label: 'Works when the Tally laptop is off', from: 0 },
+      ],
+    },
+    {
+      group: 'Raise entries from anywhere',
+      rows: [
+        { label: 'Vouchers from mobile and web', from: 1 },
+        { label: 'Edit vouchers from anywhere', from: 1 },
+        { label: 'Delivery challans and sales orders', from: 1 },
+        { label: 'Your own invoice PDF template', from: 1 },
+      ],
+    },
+    {
+      group: 'Clear the paperwork',
+      rows: [
+        { label: 'E-Invoice with IRN and QR from your phone', from: 2 },
+        { label: 'E-Way Bill in one tap, no portal login', from: 2 },
+        { label: 'Both write back into Tally', from: 2 },
+      ],
+    },
+    {
+      group: 'Hand over the typing',
+      rows: [
+        { label: 'Import from PDF for supplier bills', from: 3 },
+        { label: 'Bank statement import with auto-matching', from: 3 },
+        { label: 'Auto Invoice Dispatch on every Tally invoice', from: 3 },
+        { label: 'Reports + advanced reporting', from: 3 },
+        { label: 'Role-based access for salesman teams', from: 3 },
+      ],
+    },
+  ],
   addons: [
-    { label: 'Import from PDF', price: '\u20B94,000 / year', note: 'Add-on for Collections plan' },
-    { label: 'Auto Invoice Dispatch', price: '\u20B91,500 / year', note: 'Add-on for Collections plan only' },
-    { label: 'Reports +', price: '\u20B94,000 / year', note: 'Advanced business reports add-on' },
-    { label: 'Salesman module', price: '\u20B95,000 / year', note: 'Role-based access for field sales teams' },
-    { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
+    {
+      label: 'Payment Collection',
+      price: '\u20B91,500 / year',
+      note: 'UPI links on every invoice, zero MDR. Auto-reconciles into Tally. Available on every plan.',
+    },
     { label: 'Extra user', price: '\u20B93,000 / user / year' },
-    { label: 'Extra business', price: '\u20B91,000 / business / year', note: 'Collections & Full Access only' },
+    { label: 'Extra device', price: '\u20B93,000 / device / year' },
+    { label: 'Extra business', price: '\u20B91,000 / business / year' },
+    { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
   ],
 };
 

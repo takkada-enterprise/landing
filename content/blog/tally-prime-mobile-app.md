@@ -5,7 +5,7 @@ meta_title: "Tally Prime Mobile App: What Exists in 2026"
 meta_description: "A honest look at the Tally Prime mobile app question. Official options, companion apps, and what Indian distributors actually use to run Tally from phone."
 primary_keyword: "tally prime mobile app"
 date: "2026-04-25"
-updated: "2026-06-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Short answer: no. Tally Solutions, the company behind Tally Prime, does not publish a native Android or iOS client. Tally Prime is a Windows desktop product, and the data folder sits on a single machine with a multi-user or single-user licence. That architecture goes back to the late 1990s and Tally has not signalled a native mobile build."
@@ -47,7 +47,7 @@ Shape 1: View-only companion apps. Biz Analyst is the category leader here, with
 
 Shape 2: View + voucher apps. Livekeeping and a handful of smaller Tally-partner-built apps. In addition to viewing, you can create a sales voucher on the phone and post it back to Tally. Useful when a salesman confirms an order at a retailer's shop. Pricing: ₹3,500 to ₹5,000 per user per year.
 
-Shape 3: Full-stack distributor platforms. These add UPI payment links on every invoice, WhatsApp invoice and reminder dispatch, UTR auto-reconciliation back into Tally, and e-invoice and e-way bill generation from the phone. Takkada sits in this category. Pricing: ₹6,000 to ₹7,500 per user per year on the collections-and-up tiers.
+Shape 3: Full-stack distributor platforms. These add UPI payment links on every invoice, WhatsApp invoice and reminder dispatch, UTR auto-reconciliation back into Tally, and e-invoice and e-way bill generation from the phone. Takkada sits in this category. Pricing: ₹6,480 to ₹8,500 per user per year on the e-invoicing-and-up tiers.
 
 ## What a distributor should expect one to do
 

@@ -5,7 +5,7 @@ meta_title: "Tally Mobile App India: 5 Shapes That Exist in 2026"
 meta_description: "A candid look at the tally mobile app India market. What each shape covers, what each costs, and which fits a distributor, wholesaler or CA."
 primary_keyword: "tally mobile app india"
 date: "2026-04-25"
-updated: "2026-06-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Market Reality"
 excerpt: "Search traffic for the phrase \"tally mobile app India\" spiked around 2017 when Biz Analyst crossed a million downloads on the Play Store. Since then, a whole market of add-ons has grown up around Tally Prime, most built by Tally Certified Partners or third-party SaaS companies targeting the 28,000-plus certified Tally partner network."
@@ -15,7 +15,7 @@ The phrase tally mobile app India does not point at one product, because Tally S
 
 ## Key Highlights
 
-- The tally mobile app India market has five distinct shapes, priced from ₹0 to ₹7,500 per user per year
+- The tally mobile app India market has five distinct shapes, priced from ₹0 to ₹8,500 per user per year
 - The right fit depends on three things: who uses it (owner, accountant, salesman), what they write back to Tally, and how they handle money coming in
 - GST compliance on the move — e-invoice, e-way bill, IRN cancellation — separates 2020-era apps from what ships in 2026
 
@@ -49,7 +49,7 @@ Livekeeping and a handful of smaller Tally-partner-built apps sit here. Distribu
 
 4. Full-stack mobile apps (invoicing + collections + compliance)
 
-This is the category Takkada sits in, along with a couple of newer players. Pricing runs ₹6,000 to ₹7,500 per user per year on the collections-and-up tiers. The shape includes voucher creation, UPI payment link generation, WhatsApp invoice and reminder dispatch, auto-reconciliation of UPI into Tally, plus e-invoice and e-way bill from the phone.
+This is the category Takkada sits in, along with a couple of newer players. Pricing runs ₹6,480 to ₹8,500 per user per year on the e-invoicing-and-up tiers. The shape includes voucher creation, UPI payment link generation, WhatsApp invoice and reminder dispatch, auto-reconciliation of UPI into Tally, plus e-invoice and e-way bill from the phone.
 
 5. Custom TDL on a mobile-friendly WebView
 
@@ -95,7 +95,7 @@ Owner wanting visibility only: read-only companion, ₹2,000 to ₹4,000 per yea
 
 Small team needing voucher creation: read + voucher, ₹3,500 to ₹5,000 per year.
 
-Collections-heavy distributor above ₹5 crore turnover: full-stack, ₹6,000 to ₹7,500 per year. The ROI comes from compressed DSO and removed reconciliation time, not app features.
+Collections-heavy distributor above ₹5 crore turnover: full-stack, ₹6,480 to ₹8,500 per year. The ROI comes from compressed DSO and removed reconciliation time, not app features.
 
 ## What Takkada is, in one sentence
 
