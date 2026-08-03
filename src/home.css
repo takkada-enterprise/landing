@@ -477,6 +477,57 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   opacity: 1;
 }
 
+/* Clickability affordance: rows brighten on hover, and while the tour is
+   auto-advancing the active row carries a thin countdown bar that fills
+   over the 4.5s interval (duration mirrors RoadSection's 4500ms). The bar
+   disappears once the visitor clicks, because nothing will change on its
+   own after that. */
+.home-v3 .hv3-tour-step button:hover .hv3-tour-step-title {
+  color: var(--color-text);
+}
+
+.home-v3 .hv3-tour-step button:hover .hv3-tour-num {
+  border-color: var(--color-primary);
+}
+
+.home-v3 .hv3-tour-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 48px;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  display: none;
+}
+
+.home-v3 .hv3-tour-progress::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: var(--color-primary-light);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress {
+  display: block;
+}
+
+html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::after {
+  animation: hv3Countdown 4.5s linear both;
+}
+
+/* On hover the interval pauses and restarts in full, so the bar resets
+   with it instead of resuming out of sync. */
+.home-v3 .hv3-tour--paused .hv3-tour-step.is-active .hv3-tour-progress::after {
+  animation: none;
+}
+
+@keyframes hv3Countdown {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 .home-v3 .hv3-story-foot--road {
   justify-content: center;
   margin-top: 48px;
@@ -756,6 +807,10 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   .home-v3 .hv3-tour-step-title,
   .home-v3 .hv3-tour-step-reveal,
   .home-v3 .hv3-tour-step-body { transition: none; }
+  /* No auto-advance under reduced motion, so no countdown either. */
+  html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::after {
+    animation: none;
+  }
   .home-v3 .hv3-grid-card { transition: none; }
   .home-v3 .hv3-grid-card:hover { transform: none; }
 }

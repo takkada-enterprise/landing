@@ -168,7 +168,7 @@ function RoadSection({ story, ctaContext }) {
           <p className="hv3-story-intro">{story.intro}</p>
         </div>
         <div
-          className="hv3-tour reveal"
+          className={`hv3-tour reveal${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -206,6 +206,10 @@ function RoadSection({ story, ctaContext }) {
                 <div className="hv3-tour-step-reveal" id={`hv3-tour-body-${i}`}>
                   <p className="hv3-tour-step-body">{station.body}</p>
                 </div>
+                {/* Fills over the auto-advance interval so the row visibly
+                    counts down to the next station (duration mirrors the
+                    4500ms interval above). */}
+                <span className="hv3-tour-progress" aria-hidden="true" />
               </li>
             ))}
           </ol>
