@@ -528,6 +528,28 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   to { transform: scaleX(1); }
 }
 
+/* Phone widths: the scroll drives the tour (Home.jsx observer), so every
+   body stays visible for stable row heights, and the countdown — which
+   belongs to the desktop timer — never shows. */
+@media (max-width: 899px) {
+  .home-v3 .hv3-tour-step button {
+    padding: 16px 0 4px;
+  }
+
+  .home-v3 .hv3-tour-step-reveal {
+    grid-template-rows: 1fr;
+  }
+
+  .home-v3 .hv3-tour-step-body {
+    padding-bottom: 16px;
+    opacity: 1;
+  }
+
+  .home-v3 .hv3-tour-progress {
+    display: none !important;
+  }
+}
+
 .home-v3 .hv3-story-foot--road {
   justify-content: center;
   margin-top: 48px;

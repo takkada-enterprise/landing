@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -148,9 +148,13 @@ function RoadSection({ story, ctaContext }) {
   const [active, setActive] = useState(0);
   const [userDrove, setUserDrove] = useState(false);
   const [paused, setPaused] = useState(false);
+  const listRef = useRef(null);
 
+  // Desktop only: the timed tour. On phones the scroll drives the stations
+  // (below), so a timer would fight the reader's thumb.
   useEffect(() => {
     if (userDrove || paused) return undefined;
+    if (!window.matchMedia?.('(min-width: 900px)').matches) return undefined;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
     const timer = setInterval(
       () => setActive((current) => (current + 1) % story.stations.length),
@@ -158,6 +162,25 @@ function RoadSection({ story, ctaContext }) {
     );
     return () => clearInterval(timer);
   }, [userDrove, paused, story.stations.length]);
+
+  // Mobile: the station scrolled under the sticky phone becomes active, so
+  // the phone changes screens as the reader moves down the list.
+  useEffect(() => {
+    if (window.matchMedia?.('(min-width: 900px)').matches) return undefined;
+    const steps = [...(listRef.current?.querySelectorAll('.hv3-tour-step') ?? [])];
+    if (!steps.length || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(steps.indexOf(entry.target));
+        }
+      },
+      // A band just under the sticky phone: the row crossing it is active.
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
+    steps.forEach((step) => observer.observe(step));
+    return () => observer.disconnect();
+  }, [story.stations.length]);
 
   return (
     <section className="hv3-story hv3-story--road" id={story.id}>
@@ -194,7 +217,7 @@ function RoadSection({ story, ctaContext }) {
               />
             ))}
           </div>
-          <ol className="hv3-tour-list">
+          <ol className="hv3-tour-list" ref={listRef}>
             {story.stations.map((station, i) => (
               <li
                 key={station.title}
