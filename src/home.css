@@ -78,6 +78,12 @@
   font-size: clamp(46px, 6.4vw, 84px);
   line-height: 1;
   letter-spacing: -0.035em;
+  /* The accent is clip-text (premium.css): at line-height 1 the painted
+     box ends at the baseline row and the "g" descender renders unpainted
+     on phones. Pad the box under the descender, pull the margin back so
+     layout is unchanged. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 .home-v3 .hv3-hero-sub {
