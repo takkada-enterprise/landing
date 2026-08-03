@@ -524,7 +524,8 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <p className="rate-addons-note">
                 Payment Collection puts a UPI link on every invoice at zero MDR and reconciles the
-                receipt back into Tally. Every plan includes 1 user.
+                receipt back into Tally. With your own WhatsApp number, early access for now, every
+                reminder and invoice goes out from your number instead of ours. Every plan includes 1 user.
               </p>
             </div>
           </div>

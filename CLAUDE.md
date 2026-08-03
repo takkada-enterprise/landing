@@ -38,6 +38,7 @@ Add-ons (per year):
 - Extra device: ₹3,000
 - Extra business: ₹1,000 (all plans)
 - WhatsApp 8,000-message pack: ₹2,000
+- Your own WhatsApp Business number: ₹2,000 (early access — zero enabled customers as of 2026-08-03; "early access" wording is mandatory anywhere this is mentioned)
 
 Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 

@@ -107,7 +107,7 @@ export const storyOrderToCash = {
   ctaLine: 'See the whole road on a call with us.',
   // Own-number sending is built but has zero enabled customers (2026-08-03).
   // "Early access" is the operator-confirmed wording; never call it live.
-  footnote: 'Want reminders to go from your own WhatsApp Business number? Early access is open, ask us.',
+  footnote: 'Want reminders to go from your own WhatsApp Business number? Early access is open at ₹2,000 a year, ask us.',
 };
 
 // Story 2: the field sales day. Claims discipline: check-in/check-out and
@@ -453,6 +453,10 @@ export const pricing = {
     { label: 'Extra device', price: '\u20B93,000 / device / year' },
     { label: 'Extra business', price: '\u20B91,000 / business / year' },
     { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
+    // Early access wording is guard-enforced (zero enabled customers,
+    // 2026-08-03) and must sit in the label \u2014 addon pills render label +
+    // price only, and the rendered-page guard checks the same sentence.
+    { label: 'Your own WhatsApp number (early access)', price: '\u20B92,000 / year' },
   ],
 };
 
