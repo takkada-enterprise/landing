@@ -42,8 +42,8 @@ export const storyCollections = {
       title: 'The invoice reaches WhatsApp on its own',
       body:
         'The moment an invoice is created in Tally, the customer has the PDF and a payment link on WhatsApp. You do not type, copy, or attach anything.',
-      screenshot: '/assets/screenshots/invoice-detail.webp',
-      screenshotAlt: 'Takkada invoice detail with payment link',
+      screenshot: '/assets/screenshots/demo-invoice-detail.webp',
+      screenshotAlt: 'Paid invoice in Takkada with item lines, GST, and share actions',
     },
     {
       title: 'Reminders follow up so you do not have to',
@@ -65,8 +65,8 @@ export const storyCollections = {
       title: 'The payment matches itself in Tally',
       body:
         'Takkada matches the payment to the invoice and posts the accounting entry in Tally. The 9 PM reconciliation ritual disappears.',
-      screenshot: '/assets/screenshots/share-ledger.png',
-      screenshotAlt: 'Ledger updated in Tally after auto-reconciliation',
+      screenshot: '/assets/screenshots/demo-party-ledger.webp',
+      screenshotAlt: 'Party ledger in Takkada with receipts matched to the bank',
     },
   ],
   ctaLine: 'See the whole loop on a call with us.',

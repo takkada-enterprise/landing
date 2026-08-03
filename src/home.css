@@ -281,18 +281,32 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   margin: 0 auto 20px;
 }
 
+/* Bare app captures get a drawn bezel so they sit beside the baked-frame
+   mockups as the same device family. */
+.home-v3 .hv3-step-phone {
+  padding: 9px;
+  background: linear-gradient(160deg, #2a332d, #101612);
+  border-radius: 30px;
+  box-shadow: 0 24px 48px -20px rgba(20, 36, 28, 0.4);
+}
+
 .home-v3 .hv3-step-phone img {
   width: 100%;
   display: block;
   border-radius: 22px;
-  box-shadow: 0 24px 48px -20px rgba(20, 36, 28, 0.35);
 }
 
 /* Mockups that arrive with the device frame baked in (transparent corners):
-   no CSS rounding or rectangular shadow — the shadow follows the frame. */
-.home-v3 .hv3-step-phone--framed img {
+   no drawn bezel or rectangular shadow — the shadow follows the frame. */
+.home-v3 .hv3-step-phone--framed {
+  padding: 0;
+  background: none;
   border-radius: 0;
   box-shadow: none;
+}
+
+.home-v3 .hv3-step-phone--framed img {
+  border-radius: 0;
   filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
 }
 
