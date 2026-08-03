@@ -16,7 +16,7 @@
 // the stripper. scripts/checkImagePreloads.mjs shares these helpers so the
 // post-build guard can never drift from the stripper's idea of a preload.
 
-export const HERO_IMAGE = '/assets/screenshots/home-screen.webp';
+export const HERO_IMAGE = '/assets/screenshots/home-screen-framed.webp';
 
 const LINK_TAG_RE = /<link\b[^>]*>/g;
 

@@ -311,7 +311,7 @@ function Home({ seo = HOME_SEO }) {
             <div className="hv3-hero-visual">
               <div className="hv3-hero-phone">
                 <img
-                  src="/assets/screenshots/home-screen.webp"
+                  src="/assets/screenshots/home-screen-framed.webp"
                   alt="Takkada home screen showing receivables dashboard"
                   fetchPriority="high"
                   loading="eager"

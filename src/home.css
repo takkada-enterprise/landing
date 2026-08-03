@@ -151,10 +151,11 @@
   z-index: 1;
 }
 
+/* The hero capture is operator-framed (transparent corners), so no CSS
+   rounding — the contour shadow follows the baked frame. */
 .home-v3 .hv3-hero-phone img {
   width: 100%;
   display: block;
-  border-radius: 32px;
   filter: drop-shadow(0 40px 72px rgba(0, 0, 0, 0.5));
 }
 
