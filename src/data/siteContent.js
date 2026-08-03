@@ -451,7 +451,6 @@ export const pricing = {
     },
     { label: 'Extra user', price: '\u20B93,000 / user / year' },
     { label: 'Extra device', price: '\u20B93,000 / device / year' },
-    { label: 'Extra business', price: '\u20B91,000 / business / year' },
     { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
     // Early access wording is guard-enforced (zero enabled customers,
     // 2026-08-03) and must sit in the label \u2014 addon pills render label +
