@@ -179,8 +179,10 @@
 }
 
 .home-v3 .hv3-hero-chip svg { color: var(--color-primary-light); flex-shrink: 0; }
-.home-v3 .hv3-hero-chip--1 { top: 12%; left: 4%; }
-.home-v3 .hv3-hero-chip--2 { bottom: 14%; right: 3%; }
+/* Chips hang off the right-top and left-bottom so neither covers the
+   business name at the mockup's top-left (framed hero, 2026-08-04). */
+.home-v3 .hv3-hero-chip--1 { top: 12%; right: 3%; }
+.home-v3 .hv3-hero-chip--2 { bottom: 14%; left: 4%; }
 
 /* Hero entrance stagger (motion reason 1) */
 html.js .home-v3 .hv3-hero-copy > *,
@@ -796,8 +798,8 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   .home-v3 .hv3-hero-visual { padding: 34px 14px; border-radius: 28px; }
   .home-v3 .hv3-hero-phone { width: 216px; }
   .home-v3 .hv3-hero-chip { font-size: 12px; padding: 8px 11px; }
-  .home-v3 .hv3-hero-chip--1 { top: 6%; left: 2%; }
-  .home-v3 .hv3-hero-chip--2 { bottom: 8%; right: 2%; }
+  .home-v3 .hv3-hero-chip--1 { top: 6%; right: 2%; }
+  .home-v3 .hv3-hero-chip--2 { bottom: 8%; left: 2%; }
 
   .home-v3 .hv3-story,
   .home-v3 .hv3-ai,
