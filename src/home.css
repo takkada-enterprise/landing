@@ -527,6 +527,62 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   }
 }
 
+/* ═══════════ AI showcase band ═══════════ */
+.home-v3 .hv3-ai {
+  padding: 104px 0;
+  background: linear-gradient(180deg, rgba(218, 229, 214, 0.35) 0%, rgba(218, 229, 214, 0.12) 100%);
+}
+
+.home-v3 .hv3-ai-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.home-v3 .hv3-ai-card {
+  padding: 26px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-v3 .hv3-ai-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.home-v3 .hv3-ai-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  background: var(--color-sage-bg);
+  color: var(--color-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-v3 .hv3-ai-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.home-v3 .hv3-ai-card-body {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
 /* ═══════════ Feature grid ═══════════ */
 .home-v3 .hv3-grid-section { padding: 104px 0; }
 
@@ -675,6 +731,7 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   .home-v3 .hv3-hero-chip--2 { bottom: 8%; right: 2%; }
 
   .home-v3 .hv3-story,
+  .home-v3 .hv3-ai,
   .home-v3 .hv3-grid-section,
   .home-v3 .hv3-tally { padding: 72px 0; }
   .home-v3 .hv3-story-head { margin-bottom: 44px; }

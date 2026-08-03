@@ -155,17 +155,49 @@ export const storyTeamSales = {
   ctaLine: 'Run a field team? Ask us about the salesman module.',
 };
 
+// The AI showcase band (2026-08-04, operator direction): the three places
+// the AI does the typing. All three verified live on prod — photo/PDF
+// purchase + sales-order import promoted 2026-07-26 (sf #273, takkada
+// #306); bank statement import live on 90 companies (2026-07-25 count).
+// The section carries the #pdf-import anchor the footer points at.
+export const aiImport = {
+  id: 'pdf-import',
+  overline: 'AI Inside',
+  heading: 'Photograph it. The entry types itself.',
+  intro:
+    'Three places where someone used to type line by line. Now the AI reads the paper, fills the entry, and waits for your approval before anything posts.',
+  cards: [
+    {
+      icon: 'camera',
+      title: 'Purchase bills, from a photo or PDF',
+      body:
+        'Click a photo of the supplier bill or drop the PDF. The AI reads the items, GST, and totals into a purchase voucher, matched to your own item names.',
+    },
+    {
+      icon: 'clipboard',
+      title: 'Sales orders, straight off paper',
+      body:
+        'A retailer’s handwritten order becomes a sales order the same way. Photograph it, check the lines, and it is ready to bill.',
+    },
+    {
+      icon: 'building',
+      title: 'Bank statements, matched to parties',
+      body:
+        'Import the statement and the AI matches receipts and payments to the right parties. The books stay current without an evening of entry.',
+    },
+  ],
+};
+
 // The compact grid for everything that is not a headline story. Capability
 // claims only; adoption numbers stay off this list. Pending Orders and bulk
 // challans are entitlement-gated add-ons ("available", not "everyone has it").
+// PDF/photo import and bank import moved up into the aiImport band.
 export const featureGridV3 = [
-  { id: 'pdf-import', title: 'Import from PDF', description: 'A supplier bill becomes a purchase voucher. No line-by-line typing.', icon: 'fileText' },
   { id: 'e-invoicing', title: 'E-Invoice & E-Way Bill', description: 'IRN, QR, and e-way bills from the phone, written back into Tally.', icon: 'fileCheck' },
   { id: 'smart-reminders', title: 'Smart Reminders', description: 'Pre-due and post-due WhatsApp follow-ups on your schedule.', icon: 'bell' },
   { id: 'rbac', title: 'Role-Based Access', description: 'Decide what each salesman and accountant can see and do.', icon: 'shield' },
   { id: 'pending-orders', title: 'Pending Orders', description: 'Take orders now, bill later, and watch what is still open.', icon: 'clock' },
   { id: 'bulk-challan', title: 'Bulk Delivery Challans', description: 'Raise a day of challans in one go, available on request.', icon: 'truck' },
-  { id: 'bank-import', title: 'Bank Statement Import', description: 'Statement in, entries matched, books current.', icon: 'building' },
   { id: 'reports', title: '20+ Reports', description: 'Outstanding by age, customer analytics, the whole year at a glance.', icon: 'chart' },
   { id: 'share-pdfs', title: 'Share Ledgers & PDFs', description: 'Ledgers, invoices, and credit notes reach any party in a tap.', icon: 'share' },
   { id: 'vouchers', title: 'Vouchers From Anywhere', description: 'Sales, purchase, receipt, and payment entries from mobile or web.', icon: 'fileText' },

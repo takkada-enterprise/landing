@@ -6,7 +6,9 @@ import {
   BarChart3,
   Bell,
   Building,
+  Camera,
   Check,
+  ClipboardList,
   Clock,
   Download,
   FileCheck,
@@ -18,6 +20,7 @@ import {
   Share2,
   Shield,
   ShieldCheck,
+  Sparkles,
   BadgeCheck,
   Database,
   Truck,
@@ -39,6 +42,7 @@ import {
   heroContent,
   storyOrderToCash,
   storyTeamSales,
+  aiImport,
   featureGridV3,
   tallyTrust,
   homeFaqItems,
@@ -57,6 +61,12 @@ const gridIconMap = {
   building: Building,
   chart: BarChart3,
   share: Share2,
+};
+
+const aiIconMap = {
+  camera: Camera,
+  clipboard: ClipboardList,
+  building: Building,
 };
 
 const tallyIconMap = {
@@ -287,6 +297,36 @@ function Home({ seo = HOME_SEO }) {
 
       {/* ── Story 2: Team Sales / the field day ── */}
       <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />
+
+      {/* ── AI showcase: the three places the AI does the typing ── */}
+      <section className="hv3-ai" id={aiImport.id}>
+        <div className="container">
+          <div className="hv3-story-head reveal">
+            <span className="section-label">{aiImport.overline}</span>
+            <h2 className="hv3-story-title">{aiImport.heading}</h2>
+            <p className="hv3-story-intro">{aiImport.intro}</p>
+          </div>
+          <div className="hv3-ai-cards reveal">
+            {aiImport.cards.map((card) => {
+              const Icon = aiIconMap[card.icon] || Camera;
+              return (
+                <div key={card.title} className="hv3-ai-card">
+                  <div className="hv3-ai-card-top">
+                    <div className="hv3-grid-icon">
+                      <Icon size={20} />
+                    </div>
+                    <span className="hv3-ai-chip">
+                      <Sparkles size={12} /> AI reads it
+                    </span>
+                  </div>
+                  <h3 className="hv3-ai-card-title">{card.title}</h3>
+                  <p className="hv3-ai-card-body">{card.body}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* ── Everything else: the compact grid ── */}
       <section className="hv3-grid-section" id="features">
