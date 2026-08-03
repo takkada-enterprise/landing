@@ -88,7 +88,7 @@ const HOME_SEO = {
 // renders its phone only when a screenshot exists, so story 2 works while
 // its captures are pending. `withWaChip` puts the auto-dispatch chip on
 // step 1 of the collection story (motion reason in home.css header).
-function StorySection({ story, alt = false, ctaContext, withWaChip = false, stepIds = {} }) {
+function StorySection({ story, alt = false, ctaContext, withWaChip = false }) {
   return (
     <section className={`hv3-story${alt ? ' hv3-story--alt' : ''}`} id={story.id}>
       <div className="container">
@@ -97,14 +97,16 @@ function StorySection({ story, alt = false, ctaContext, withWaChip = false, step
           <h2 className="hv3-story-title">{story.heading}</h2>
           <p className="hv3-story-intro">{story.intro}</p>
         </div>
-        <div className="hv3-rail">
+        {/* Column count follows the data so a future 3- or 5-step story
+            keeps its connector geometry. */}
+        <div className="hv3-rail" style={{ '--hv3-steps': story.steps.length }}>
           {story.steps.map((step, i) => (
-            <div key={step.title} className="hv3-step reveal" id={stepIds[i]}>
+            <div key={step.title} className="hv3-step reveal">
               <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
               <div className="hv3-step-content">
                 {step.screenshot && (
                   <div className="hv3-step-phone">
-                    <img src={step.screenshot} alt={step.screenshotAlt} loading="lazy" decoding="async" />
+                    <img src={step.screenshot} alt={step.screenshotAlt || ''} loading="lazy" decoding="async" />
                     {withWaChip && i === 0 && (
                       <span className="hv3-step-wachip" aria-hidden="true">
                         <WhatsAppIcon size={14} /> Invoice sent
@@ -118,10 +120,14 @@ function StorySection({ story, alt = false, ctaContext, withWaChip = false, step
             </div>
           ))}
         </div>
+        {/* WhatsAppCTA renders nothing under the site-wide kill switch
+            (empty whatsappNumber), so the calendar link keeps the story
+            from ending in a dead end (§11.6). */}
         <div className="hv3-story-foot reveal">
           <WhatsAppCTA context={ctaContext} variant={alt ? 'primary' : 'outline'}>
             {story.ctaLine}
           </WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
         </div>
         {story.footnote && <p className="hv3-story-footnote reveal">{story.footnote}</p>}
       </div>
@@ -152,7 +158,7 @@ function Home({ seo = HOME_SEO }) {
             <div className="hv3-hero-copy">
               <span className="section-label hero-overline">{heroContent.overline}</span>
               <h1 className="hero-title">
-                <span className="hv3-hero-lead">{heroContent.titleLead}</span>
+                <span className="hv3-hero-lead">{heroContent.titleLead}</span>{' '}
                 <span className="hero-title-accent hv3-hero-accent">{heroContent.titleAccent}</span>
               </h1>
               <p className="hv3-hero-sub">{heroContent.subtitle}</p>
@@ -202,12 +208,7 @@ function Home({ seo = HOME_SEO }) {
       </section>
 
       {/* ── Story 1: Payment Collection (the money loop) ── */}
-      <StorySection
-        story={storyCollections}
-        ctaContext="story-collections"
-        withWaChip
-        stepIds={{ 1: 'smart-reminders' }}
-      />
+      <StorySection story={storyCollections} ctaContext="story-collections" withWaChip />
 
       {/* ── Story 2: Team Sales / the field day ── */}
       <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />

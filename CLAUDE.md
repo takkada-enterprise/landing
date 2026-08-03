@@ -26,7 +26,7 @@ Plans:
 - **Assurance: ₹6,480.** Adds E-Invoice (IRN + QR) and E-Way Bill generation from the phone, written back into Tally against the same voucher.
 - **Copilot: ₹8,500.** Everything. Import from PDF, bank statement import, Auto Invoice Dispatch, Reports +, role-based salesman access. This is the highlighted "Most Popular" card.
 
-  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12). **Pending Orders was removed from the public matrix: it is built but active on zero prod companies.** Re-check before adding any new row.
+  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12). **Pending Orders stays out of the pricing matrix.** It was pulled on 2026-07-25 (zero active companies); re-verified 2026-08-03 it is a paid add-on active on 3 prod companies, so a capability claim (no adoption claim) is allowed on the homepage feature grid — but it is not a rate-card row. Re-check before adding any new row.
 
 Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts each stays absent: **View Only** (₹2,700), **Voucher Model**, **Collections Model**, **Full Access / Auto Dispatch** (₹8,499).
 

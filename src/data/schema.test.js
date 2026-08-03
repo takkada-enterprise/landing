@@ -178,7 +178,15 @@ describe('pricing matrix', () => {
     expect(v3Copy).not.toMatch(/auto[- ]?(send|dispatch)\w*[^.]{0,60}credit note/i);
     expect(v3Copy).not.toMatch(/credit note[^.]{0,60}automatic/i);
 
-    const ownNumberMentions = v3Copy.match(/[^"]*own WhatsApp[^"]*/gi) ?? [];
+    // Wide trigger ("own ... whatsapp|number") so a reworded footnote cannot
+    // slip past the guard, and non-empty so the guard cannot go vacuously
+    // green: the copy deliberately carries exactly this early-access mention.
+    const ownNumberMentions =
+      v3Copy.match(/[^"]*\bown\b[^"]*(whatsapp|number)[^"]*/gi) ?? [];
+    expect(
+      ownNumberMentions.length,
+      'expected the own-number early-access mention to exist (guard must not be vacuous)'
+    ).toBeGreaterThan(0);
     for (const mention of ownNumberMentions) {
       expect(mention, 'own-number sending may only be described as early access').toMatch(
         /early access/i

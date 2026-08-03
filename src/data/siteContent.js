@@ -126,7 +126,7 @@ export const featureGridV3 = [
   { id: 'smart-reminders', title: 'Smart Reminders', description: 'Pre-due and post-due WhatsApp follow-ups on your schedule.', icon: 'bell' },
   { id: 'rbac', title: 'Role-Based Access', description: 'Decide what each salesman and accountant can see and do.', icon: 'shield' },
   { id: 'pending-orders', title: 'Pending Orders', description: 'Take orders now, bill later, and watch what is still open.', icon: 'clock' },
-  { id: 'bulk-challan', title: 'Bulk Delivery Challans', description: 'Raise a day of challans in one go, available as an add-on.', icon: 'truck' },
+  { id: 'bulk-challan', title: 'Bulk Delivery Challans', description: 'Raise a day of challans in one go, available on request.', icon: 'truck' },
   { id: 'bank-import', title: 'Bank Statement Import', description: 'Statement in, entries matched, books current.', icon: 'building' },
   { id: 'reports', title: '20+ Reports', description: 'Outstanding by age, customer analytics, the whole year at a glance.', icon: 'chart' },
   { id: 'share-pdfs', title: 'Share Ledgers & PDFs', description: 'Ledgers, invoices, and credit notes reach any party in a tap.', icon: 'share' },
@@ -170,7 +170,7 @@ export const homeFaqItems = [
   {
     question: 'Will my current invoice format and numbering stay the same?',
     answer:
-      'Yes. Takkada reads and writes to your Tally. The invoice format you have been using, the numbering series, the GST configuration \u2014 all of it stays exactly as it is today.',
+      'Yes. Takkada reads and writes to your Tally. The invoice format you have been using, the numbering series, and the GST configuration all stay exactly as they are today.',
   },
   {
     question: 'What happens when my laptop is off and my salesman needs to raise an invoice?',

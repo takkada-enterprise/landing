@@ -229,29 +229,31 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   margin: 0;
 }
 
-/* The rail: 4 steps on one connector line */
+/* The rail: numbered steps on one connector line. Column count comes from
+   the component (--hv3-steps) so the geometry survives a 3- or 5-step story. */
 .home-v3 .hv3-rail {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--hv3-steps, 4), minmax(0, 1fr));
   gap: 28px;
-}
-
-/* Connector line behind the step numbers */
-.home-v3 .hv3-rail::before {
-  content: "";
-  position: absolute;
-  top: 17px;
-  left: 40px;
-  right: 40px;
-  height: 2px;
-  background: var(--hv3-rail);
 }
 
 .home-v3 .hv3-step {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+/* Connector: each step draws the line to its successor, so the line always
+   starts and ends at a number instead of overshooting the rail. */
+.home-v3 .hv3-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 44px;
+  right: -28px;
+  height: 2px;
+  background: var(--hv3-rail);
 }
 
 .home-v3 .hv3-step-num {
@@ -273,9 +275,10 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
 .home-v3 .hv3-story--alt .hv3-step-num { background: var(--color-primary-dark); }
 
 .home-v3 .hv3-step-phone {
-  align-self: center;
+  /* Positioned so the WhatsApp chip anchors to the phone edge, not the step */
+  position: relative;
   width: min(200px, 100%);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .home-v3 .hv3-step-phone img {
@@ -479,7 +482,7 @@ html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
 /* ═══════════ Responsive ═══════════ */
 @media (max-width: 1023px) {
   .home-v3 .hv3-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
-  .home-v3 .hv3-rail::before { display: none; }
+  .home-v3 .hv3-step:not(:last-child)::before { display: none; }
 }
 
 @media (max-width: 767px) {
@@ -503,7 +506,7 @@ html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
   .home-v3 .hv3-step { flex-direction: row; gap: 16px; align-items: flex-start; }
   .home-v3 .hv3-step-num { flex-shrink: 0; margin-bottom: 0; }
   .home-v3 .hv3-step-content { flex: 1; }
-  .home-v3 .hv3-step-phone { width: min(180px, 60%); align-self: flex-start; margin: 14px 0 0; }
+  .home-v3 .hv3-step-phone { width: min(180px, 60%); margin: 14px 0 0; }
   .home-v3 .hv3-tally-points { grid-template-columns: 1fr; }
 }
 
@@ -515,4 +518,6 @@ html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
     animation: none !important;
   }
   html.js .home-v3 .hv3-step-wachip { opacity: 1; }
+  .home-v3 .hv3-grid-card { transition: none; }
+  .home-v3 .hv3-grid-card:hover { transform: none; }
 }
