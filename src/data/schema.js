@@ -110,7 +110,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
-      absoluteUrl('/assets/screenshots/home-screen.webp'),
+      absoluteUrl('/assets/screenshots/home-screen-framed.webp'),
       absoluteUrl('/assets/screenshots/payment-reminders.webp'),
       absoluteUrl('/assets/screenshots/settlement.webp'),
     ],

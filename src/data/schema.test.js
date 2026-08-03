@@ -9,7 +9,20 @@ import {
   breadcrumbSchema,
   articleSchema,
 } from './schema';
-import { appLinks, formatInr, planPricing, pricing, testimonials } from './siteContent';
+import {
+  appLinks,
+  formatInr,
+  planPricing,
+  pricing,
+  testimonials,
+  heroContent,
+  storyOrderToCash,
+  aiImport,
+  storyTeamSales,
+  featureGridV3,
+  tallyTrust,
+  homeFaqItems,
+} from './siteContent';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -144,6 +157,66 @@ describe('pricing matrix', () => {
         allRows.find((r) => unshipped.test(r.label)),
         `${unshipped} is not live in prod and must not be advertised`
       ).toBeUndefined();
+    }
+  });
+
+  it('claims nothing unclaimable in the Home v3 copy', () => {
+    // Claims discipline for the 2026-08-03 homepage rebuild. Verified against
+    // prod company_feature_entitlements on 2026-08-03; re-verify on publish day.
+    // - Auto-send credit notes DOES NOT EXIST (manual share only): copy may
+    //   say "share credit notes in a tap", never "auto" anything.
+    // - Reminders from the distributor's own WhatsApp number are built with
+    //   ZERO enabled customers: only "early access" wording is allowed.
+    const v3Copy = JSON.stringify({
+      heroContent,
+      storyOrderToCash,
+      storyTeamSales,
+      aiImport,
+      featureGridV3,
+      tallyTrust,
+      homeFaqItems,
+    });
+
+    expect(v3Copy).not.toMatch(/auto[- ]?(send|dispatch)\w*[^.]{0,60}credit note/i);
+    expect(v3Copy).not.toMatch(/credit note[^.]{0,60}automatic/i);
+
+    // Wide trigger ("own ... whatsapp|number") so a reworded footnote cannot
+    // slip past the guard, and non-empty so the guard cannot go vacuously
+    // green: the copy deliberately carries exactly this early-access mention.
+    const ownNumberMentions =
+      v3Copy.match(/[^"]*\bown\b[^"]*(whatsapp|number)[^"]*/gi) ?? [];
+    expect(
+      ownNumberMentions.length,
+      'expected the own-number early-access mention to exist (guard must not be vacuous)'
+    ).toBeGreaterThan(0);
+    for (const mention of ownNumberMentions) {
+      expect(mention, 'own-number sending may only be described as early access').toMatch(
+        /early access/i
+      );
+      expect(mention).not.toMatch(/\blive\b/i);
+    }
+  });
+
+  it('keeps banned superlatives out of the Home v3 copy', () => {
+    const v3Copy = JSON.stringify({
+      heroContent,
+      storyOrderToCash,
+      storyTeamSales,
+      aiImport,
+      featureGridV3,
+      tallyTrust,
+      homeFaqItems,
+    }).toLowerCase();
+    for (const token of [
+      'seamless',
+      'world-class',
+      'enterprise-grade',
+      'revolutionary',
+      'unleash',
+      'game-changer',
+      'bank-grade',
+    ]) {
+      expect(v3Copy).not.toContain(token);
     }
   });
 

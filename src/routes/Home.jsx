@@ -1,38 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  FileText,
-  MessageCircle,
-  IndianRupee,
-  CheckCircle2,
-  RefreshCw,
-  Zap,
-  Check,
-  Shield,
-  FileCheck,
-  Building,
-  Bell,
-  Link as LinkIcon,
-  Share2,
-  Download,
-  Truck,
-  Users,
-  Database,
-  ShieldCheck,
-  BadgeCheck,
-  MonitorCheck,
   ArrowUpRight,
+  BarChart3,
+  Bell,
+  Building,
+  Camera,
+  Check,
+  ClipboardList,
+  Clock,
+  Download,
+  FileCheck,
+  FileText,
+  IndianRupee,
+  MessageCircle,
+  MonitorCheck,
+  RefreshCw,
+  Share2,
+  Shield,
+  ShieldCheck,
+  Sparkles,
+  BadgeCheck,
+  Database,
+  Truck,
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CountUp from '../components/CountUp';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
-import VideoEmbed, { isPlayableVideo } from '../components/VideoEmbed';
 import TestimonialCard from '../components/TestimonialCard';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
-import ComparisonSection from '../components/ComparisonSection';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
@@ -40,38 +39,40 @@ import {
   pricing,
   planPricing,
   formatInr,
-  tallyFeatures,
-  heroStats,
-  painPoints,
-  featureGrid,
-  howItWorks,
+  heroContent,
+  storyOrderToCash,
+  storyTeamSales,
+  aiImport,
+  featureGridV3,
+  tallyTrust,
+  homeFaqItems,
   testimonials,
   trustSection,
-  coreFeatures,
-  advancedFeatures,
-  demoVideo,
   demoEntryLive,
 } from '../data/siteContent';
 
-const tallyIconMap = {
-  refresh: RefreshCw,
-  zap: Zap,
-  check: Check,
-  shield: Shield,
-};
-
-// Features added in the 2026-06-18 app refresh — surfaced with a "New" tag.
-const NEW_FEATURE_IDS = new Set(['pdf-import', 'reports']);
-
 const gridIconMap = {
   fileText: FileText,
-  refresh: RefreshCw,
   fileCheck: FileCheck,
-  check: Check,
-  building: Building,
   bell: Bell,
-  link: LinkIcon,
+  shield: Shield,
+  clock: Clock,
+  truck: Truck,
+  building: Building,
+  chart: BarChart3,
   share: Share2,
+};
+
+const aiIconMap = {
+  camera: Camera,
+  clipboard: ClipboardList,
+  building: Building,
+};
+
+const tallyIconMap = {
+  refresh: RefreshCw,
+  shield: Shield,
+  monitor: MonitorCheck,
 };
 
 const trustIconMap = {
@@ -80,102 +81,6 @@ const trustIconMap = {
   badge: BadgeCheck,
   monitor: MonitorCheck,
 };
-
-const capabilities = [
-  {
-    icon: FileText,
-    title: 'Mobile invoicing, including e-invoice and e-way bill',
-    body:
-      'Create vouchers, issue invoices, generate e-invoices and e-way bills from your phone. Useful when the laptop is off, when your salesman is in the field, or when you are travelling.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Every invoice reaches the customer on WhatsApp, automatically',
-    body:
-      'The moment an invoice is created in Tally, the customer receives the PDF plus a payment link on WhatsApp. You do not type, copy, or attach anything.',
-  },
-  {
-    icon: IndianRupee,
-    title: 'Collect on UPI with zero charges',
-    body:
-      'UPI is fully pass-through. Card and netbanking MDR is borne by you. Customers pay the link, the money lands in your bank.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Payments auto-match to invoices in Tally',
-    body:
-      'When payment lands, Takkada matches it against the invoice and posts the accounting entry in Tally. Your end-of-day reconciliation ritual disappears.',
-  },
-];
-
-// Floating feature pills that halo the hero phone, in the style of the existing
-// "Import from PDF" chip. Decorative (aria-hidden); positions live in styles.css
-// as .hero-pill--N. Order matters: it maps to the position rules.
-const heroPills = [
-  { icon: FileText, label: 'Import from PDF' },
-  { icon: IndianRupee, label: 'UPI Collection' },
-  { icon: LinkIcon, label: 'Payment Link' },
-  { icon: FileCheck, label: 'E-Invoicing' },
-  { icon: Truck, label: 'E-Way Bill' },
-  { icon: MessageCircle, label: 'WhatsApp Reminder' },
-  { icon: Users, label: 'Field Staff' },
-];
-
-const audiences = [
-  {
-    to: '/mobile-tally',
-    label: 'Owners who want visibility',
-    line: 'See overdue receivables from your phone. Send reminders. That is it.',
-  },
-  {
-    to: '/for-distributors',
-    label: 'Collections-heavy distributors',
-    line: 'Big receivable book. E-invoice, e-way bill, UPI links, auto-recon — all in one place.',
-  },
-  {
-    to: '/whatsapp-invoice-tally',
-    label: 'Field sales teams',
-    line: 'Salesmen raise invoices from the market. Invoice reaches the customer before they leave the shop.',
-  },
-  {
-    to: '/auto-reconciliation-tally',
-    label: 'Distributors tired of manual reconciliation',
-    line: 'Stop matching bank statements to Tally by hand every evening.',
-  },
-];
-
-const homeFaqItems = [
-  {
-    question: 'Do I need to replace Tally?',
-    answer:
-      'No. Takkada sits on top of your existing Tally installation. Your data stays in Tally. Nothing migrates, nothing moves.',
-  },
-  {
-    question: 'Will my current invoice format and numbering stay the same?',
-    answer:
-      'Yes. Takkada reads and writes to your Tally. The invoice format you have been using, the numbering series, the GST configuration — all of it stays exactly as it is today.',
-  },
-  {
-    question: 'What happens when my laptop is off and my salesman needs to raise an invoice?',
-    answer:
-      'The salesman raises the invoice from his phone. When your laptop next opens Tally, the voucher syncs in. The field team never waits.',
-  },
-  {
-    question: 'How much does UPI cost?',
-    answer:
-      'Zero. UPI is pass-through. For card and netbanking we charge the standard MDR that the payment gateway charges us. No markup from Takkada.',
-  },
-  {
-    question: 'Can I try it before I pay?',
-    answer:
-      'Yes. Every plan comes with a 7-day free trial, no card required. If you are being onboarded by one of our partners, they will walk you through the setup.',
-  },
-  {
-    question: 'Is there a plan for a business with only one user?',
-    answer:
-      'Yes. Every plan includes one user. Extra users are ₹3,000 per year each, and an extra device on the same user is ₹3,000 per year.',
-  },
-];
 
 // SEO defaults for the home route. Exposed as props so a sibling route can
 // reuse this exact page body under a different canonical URL (e.g. the
@@ -188,6 +93,170 @@ const HOME_SEO = {
   path: '/',
 };
 
+// One story section = header + numbered step rail + a WhatsApp CTA.
+// A step renders its phone only when a screenshot exists, so a story keeps
+// working while a capture is pending (story 2 step 3 is text-only today).
+function StorySection({ story, alt = false, ctaContext }) {
+  return (
+    <section className={`hv3-story${alt ? ' hv3-story--alt' : ''}`} id={story.id}>
+      <div className="container">
+        <div className="hv3-story-head reveal">
+          <span className="section-label">{story.overline}</span>
+          <h2 className="hv3-story-title">{story.heading}</h2>
+          <p className="hv3-story-intro">{story.intro}</p>
+        </div>
+        {/* Column count follows the data so a future 3- or 5-step story
+            keeps its connector geometry. */}
+        <div className="hv3-rail" style={{ '--hv3-steps': story.steps.length }}>
+          {story.steps.map((step, i) => (
+            <div key={step.title} className="hv3-step reveal">
+              <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
+              <div className="hv3-step-content">
+                {step.screenshot && (
+                  <div className="hv3-step-phone">
+                    <img src={step.screenshot} alt={step.screenshotAlt || ''} loading="lazy" decoding="async" />
+                  </div>
+                )}
+                <h3 className="hv3-step-title">{step.title}</h3>
+                <p className="hv3-step-body">{step.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* WhatsAppCTA renders nothing under the site-wide kill switch
+            (empty whatsappNumber), so the calendar link keeps the story
+            from ending in a dead end (§11.6). */}
+        <div className="hv3-story-foot reveal">
+          <WhatsAppCTA context={ctaContext} variant={alt ? 'primary' : 'outline'}>
+            {story.ctaLine}
+          </WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
+        </div>
+        {story.footnote && <p className="hv3-story-footnote reveal">{story.footnote}</p>}
+      </div>
+    </section>
+  );
+}
+
+// The signature centerpiece (2026-08-04): the order-to-cash tour. The whole
+// journey fits one screen: a numbered station list on the left, one phone on
+// the right that crossfades between screens. Auto-advances every few seconds
+// so the full journey shows itself; a click takes over and stops the tour
+// (motion reasons in home.css header). On phones the device sticks to the
+// top while the list scrolls under it.
+function RoadSection({ story, ctaContext }) {
+  const [active, setActive] = useState(0);
+  const [userDrove, setUserDrove] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const listRef = useRef(null);
+
+  // Desktop only: the timed tour. On phones the scroll drives the stations
+  // (below), so a timer would fight the reader's thumb.
+  useEffect(() => {
+    if (userDrove || paused) return undefined;
+    if (!window.matchMedia?.('(min-width: 900px)').matches) return undefined;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = setInterval(
+      () => setActive((current) => (current + 1) % story.stations.length),
+      4500
+    );
+    return () => clearInterval(timer);
+  }, [userDrove, paused, story.stations.length]);
+
+  // Mobile: the station scrolled under the sticky phone becomes active, so
+  // the phone changes screens as the reader moves down the list.
+  useEffect(() => {
+    if (window.matchMedia?.('(min-width: 900px)').matches) return undefined;
+    const steps = [...(listRef.current?.querySelectorAll('.hv3-tour-step') ?? [])];
+    if (!steps.length || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(steps.indexOf(entry.target));
+        }
+      },
+      // A band just under the sticky phone: the row crossing it is active.
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
+    steps.forEach((step) => observer.observe(step));
+    return () => observer.disconnect();
+  }, [story.stations.length]);
+
+  return (
+    <section className="hv3-story hv3-story--road" id={story.id}>
+      <div className="container">
+        <div className="hv3-story-head reveal">
+          <span className="section-label">{story.overline}</span>
+          <h2 className="hv3-story-title">{story.heading}</h2>
+          <p className="hv3-story-intro">{story.intro}</p>
+        </div>
+        {/* The reveal class lives on its own wrapper: the inner div's class
+            list changes with state, and a React re-render would strip the
+            is-visible flag the scroll observer adds to the same element. */}
+        <div className="reveal">
+        <div
+          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
+          /* Touch fires mouseenter on tap and never mouseleave, which would
+             pause the tour permanently — so only a real hovering pointer
+             pauses it. */
+          onMouseEnter={() => {
+            if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
+          }}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="hv3-tour-phone">
+            {story.stations.map((station, i) => (
+              <img
+                key={station.title}
+                src={station.screenshot}
+                alt={station.screenshotAlt}
+                className={i === active ? 'is-active' : undefined}
+                aria-hidden={i !== active}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            ))}
+          </div>
+          <ol className="hv3-tour-list" ref={listRef}>
+            {story.stations.map((station, i) => (
+              <li
+                key={station.title}
+                className={`hv3-tour-step${i === active ? ' is-active' : ''}`}
+              >
+                <button
+                  type="button"
+                  aria-expanded={i === active}
+                  aria-controls={`hv3-tour-body-${i}`}
+                  onClick={() => {
+                    setActive(i);
+                    setUserDrove(true);
+                  }}
+                >
+                  <span className="hv3-tour-num tabular-nums" aria-hidden="true">{i + 1}</span>
+                  <span className="hv3-tour-step-title">{station.title}</span>
+                </button>
+                <div className="hv3-tour-step-reveal" id={`hv3-tour-body-${i}`}>
+                  <p className="hv3-tour-step-body">{station.body}</p>
+                </div>
+                {/* Fills over the auto-advance interval so the row visibly
+                    counts down to the next station (duration mirrors the
+                    4500ms interval above). */}
+                <span className="hv3-tour-progress" aria-hidden="true" />
+              </li>
+            ))}
+          </ol>
+        </div>
+        </div>
+        <div className="hv3-story-foot hv3-story-foot--road reveal">
+          <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
+        </div>
+        {story.footnote && <p className="hv3-story-footnote hv3-story-footnote--road reveal">{story.footnote}</p>}
+      </div>
+    </section>
+  );
+}
+
 function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
@@ -196,7 +265,7 @@ function Home({ seo = HOME_SEO }) {
   useScrollReveal();
 
   return (
-    <>
+    <div className="home-v3">
       <Seo
         title={seo.title}
         description={seo.description}
@@ -204,157 +273,91 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 
-      {/* ── Hero (poster layout: headline owns the viewport, phone on an ink
-             plate below — see docs/brainstorms/2026-07-21 requirements) ── */}
-      <section className="hero hero--poster" id="hero">
+      {/* ── Hero: split editorial — promise left, product right ── */}
+      <section className="hv3-hero" id="product">
         <div className="container">
-          <div className="hero-content">
-            <span className="section-label hero-overline">For Indian distributors on Tally</span>
-            <h1 className="hero-title">
-              <span className="hero-title-lead">Mobile-first Tally app for distributors.</span>
-              <span className="hero-title-accent">Get paid without chasing.</span>
-            </h1>
-            <p className="hero-subtitle">
-              Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile in Tally. Built for Indian distributors and wholesalers.
-            </p>
-            <div className="hero-ctas">
-              {/* Demo-first hero (U9): once the app's anonymous entry is
-                  live, "Try it yourself" leads and WhatsApp demotes to
-                  secondary. Until then, WhatsApp-first (U1). */}
-              {demoEntryLive ? (
-                <>
-                  <DemoTryCTA context="home-hero" />
-                  <WhatsAppCTA context="home-hero" variant="secondary" />
-                </>
-              ) : (
-                <>
-                  <WhatsAppCTA context="home-hero" />
-                  <CalendarCTA context="home-hero" />
-                </>
-              )}
-            </div>
-            <div className="hero-stats">
-              {heroStats.map((s) => (
-                <div key={s.label} className="hero-stat">
-                  <span className="hero-stat-value tabular-nums">{s.value}</span>
-                  <span className="hero-stat-label">{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="hero-visual">
-            <div className="hero-phone-frame">
-              <img
-                src="/assets/screenshots/home-screen.webp"
-                alt="Takkada home screen showing receivables dashboard"
-                fetchPriority="high"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <div className="hero-pills" aria-hidden="true">
-              {heroPills.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <span key={p.label} className={`hero-pill hero-pill--${i + 1}`}>
-                    <span className="hero-pill-icon"><Icon size={15} /></span>
-                    <span className="hero-pill-label">{p.label}</span>
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Problem: the evenings and 9 PM ritual ── */}
-      <section className="problem-section" id="problem">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">The 9 PM ritual you know too well</span>
-            <h2 className="section-title">Cash sits in receivables. Evenings go to reconciliation.</h2>
-            <p className="section-subtitle">Every distributor running Tally has lived some version of this. Takkada moves each of these off your plate.</p>
-          </div>
-          <div className="pain-grid">
-            {painPoints.map((p) => (
-              <div key={p.stat} className="pain-card">
-                <span className="pain-stat tabular-nums">{p.stat}</span>
-                <p className="pain-desc">{p.description}</p>
+          <div className="hv3-hero-grid">
+            <div className="hv3-hero-copy">
+              <span className="section-label hero-overline">{heroContent.overline}</span>
+              <h1 className="hero-title">
+                <span className="hv3-hero-lead">{heroContent.titleLead}</span>{' '}
+                <span className="hero-title-accent hv3-hero-accent">{heroContent.titleAccent}</span>
+              </h1>
+              <p className="hv3-hero-sub">{heroContent.subtitle}</p>
+              <div className="hv3-hero-ctas">
+                {demoEntryLive ? (
+                  <>
+                    <DemoTryCTA context="home-hero" />
+                    <WhatsAppCTA context="home-hero" variant="secondary" />
+                  </>
+                ) : (
+                  <>
+                    <WhatsAppCTA context="home-hero" />
+                    <CalendarCTA context="home-hero" />
+                  </>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Intro: three phones + bento headline ── */}
-      <section className="intro-section" id="product">
-        <div className="container">
-          <div className="intro-content">
-            <span className="section-label">Built on Tally. Controlled from your phone.</span>
-            <h2 className="intro-headline">
-              The laptop in your shop stays where it is.<br />
-              The business moves to <span className="text-accent">your pocket</span>.
-            </h2>
-          </div>
-          <div className="intro-screenshots">
-            <div className="intro-phone">
-              <img src="/assets/screenshots/settlement.webp" alt="Takkada payment settlement screen" loading="lazy" decoding="async" />
-            </div>
-            <div className="intro-phone intro-phone-center">
-              <img src="/assets/screenshots/home-screen.webp" alt="Takkada receivables dashboard" loading="lazy" decoding="async" />
-            </div>
-            <div className="intro-phone">
-              <img src="/assets/screenshots/payment-reminders.webp" alt="Takkada WhatsApp payment reminders" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Metrics bar (honest scale; numbers count up on scroll-in) ── */}
-      <section className="metrics-bar">
-        <div className="container">
-          <div className="metrics-grid">
-            <div className="metric">
-              <span className="metric-value tabular-nums">
-                <CountUp prefix="₹" value={17} suffix="+ Crore" />
-              </span>
-              <span className="metric-label">Collected Monthly</span>
-            </div>
-            <div className="metric-divider" />
-            <div className="metric">
-              <span className="metric-value tabular-nums">
-                <CountUp value={100} suffix="+" />
-              </span>
-              <span className="metric-label">Businesses Trust Takkada</span>
-            </div>
-            <div className="metric-divider" />
-            <div className="metric">
-              <span className="metric-value">Thousands</span>
-              <span className="metric-label">Of Reminders Sent Monthly</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── What Takkada does: 4 capabilities (2×2) ── */}
-      <section className="tally-section" id="what-takkada-does">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">What Takkada Does</span>
-            <h2 className="section-title">
-              Everything that happens after the sale, handled from your phone
-            </h2>
-          </div>
-          <div className="tally-grid home-capabilities-grid">
-            {capabilities.map((c) => {
-              const Icon = c.icon;
-              return (
-                <div key={c.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={22} />
+              <div className="hv3-hero-stats">
+                {heroContent.stats.map((s) => (
+                  <div key={s.label} className="hv3-stat">
+                    <span className="hv3-stat-value tabular-nums">
+                      <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                    </span>
+                    <span className="hv3-stat-label">{s.label}</span>
                   </div>
-                  <h3>{c.title}</h3>
-                  <p>{c.body}</p>
+                ))}
+              </div>
+            </div>
+            <div className="hv3-hero-visual">
+              <div className="hv3-hero-phone">
+                <img
+                  src="/assets/screenshots/home-screen-framed.webp"
+                  alt="Takkada home screen showing receivables dashboard"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <span className="hv3-hero-chip hv3-hero-chip--1" aria-hidden="true">
+                <MessageCircle size={15} /> Invoice sent on WhatsApp
+              </span>
+              <span className="hv3-hero-chip hv3-hero-chip--2" aria-hidden="true">
+                <IndianRupee size={15} /> Payment matched in Tally
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
+      <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
+
+      {/* ── Story 2: Team Sales / the field day ── */}
+      <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />
+
+      {/* ── AI showcase: the three places the AI does the typing ── */}
+      <section className="hv3-ai" id={aiImport.id}>
+        <div className="container">
+          <div className="hv3-story-head reveal">
+            <span className="section-label">{aiImport.overline}</span>
+            <h2 className="hv3-story-title">{aiImport.heading}</h2>
+            <p className="hv3-story-intro">{aiImport.intro}</p>
+          </div>
+          <div className="hv3-ai-cards reveal">
+            {aiImport.cards.map((card) => {
+              const Icon = aiIconMap[card.icon] || Camera;
+              return (
+                <div key={card.title} className="hv3-ai-card">
+                  <div className="hv3-ai-card-top">
+                    <div className="hv3-grid-icon">
+                      <Icon size={20} />
+                    </div>
+                    <span className="hv3-ai-chip">
+                      <Sparkles size={12} /> AI reads it
+                    </span>
+                  </div>
+                  <h3 className="hv3-ai-card-title">{card.title}</h3>
+                  <p className="hv3-ai-card-body">{card.body}</p>
                 </div>
               );
             })}
@@ -362,77 +365,24 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Demo video (renders only when the founder-supplied asset is playable) ── */}
-      {isPlayableVideo(demoVideo) && (
-        <section className="video-section" id="demo-video">
-          <div className="container">
-            <div className="section-header reveal">
-              <span className="section-label">See It Working</span>
-              <h2 className="section-title">Watch a real invoice go out and get paid</h2>
-            </div>
-            <VideoEmbed />
-          </div>
-        </section>
-      )}
-
-      {/* ── Core features: full rows with phone mockups (PDF leads) ── */}
-      <div id="features" />
-      {coreFeatures.map((feature, index) => (
-        <section
-          key={feature.title}
-          className={`feature-section ${index % 2 === 1 ? 'feature-section--reversed' : ''}${feature.id === 'pdf-import' ? ' feature-section--headline' : ''}`}
-          id={feature.id}
-        >
-          <div className="container">
-            <div className="feature-layout">
-              <div className="feature-copy reveal">
-                <span className="section-label">{feature.label}</span>
-                <h2 className="section-title">
-                  {feature.title}
-                  {NEW_FEATURE_IDS.has(feature.id) && <span className="feature-new-tag">New</span>}
-                </h2>
-                <p className="feature-description">{feature.description}</p>
-                <WhatsAppCTA
-                  context="features"
-                  variant="outline"
-                  message={`Hi, I want to see how "${feature.title}" works in Takkada.`}
-                >
-                  See it in action <ArrowRight size={16} />
-                </WhatsAppCTA>
-              </div>
-              <div className="feature-visuals reveal">
-                <div className="feature-phone">
-                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
-                </div>
-                {feature.secondaryScreenshot && (
-                  <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* ── Feature grid: eight-tile glance ── */}
-      <section className="grid-section">
+      {/* ── Everything else: the compact grid ── */}
+      <section className="hv3-grid-section" id="features">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-label">The Feature Sheet</span>
+            <span className="section-label">And The Rest</span>
             <h2 className="section-title">Every capability you will actually use</h2>
           </div>
-          <div className="feature-grid-wrap">
-            {featureGrid.map((f) => {
+          <div className="hv3-grid">
+            {featureGridV3.map((f) => {
               const Icon = gridIconMap[f.icon] || Check;
               return (
-                <div key={f.title} className="grid-card">
-                  <div className="grid-card-icon">
-                    <Icon size={22} />
+                <div key={f.id} className="hv3-grid-card" id={f.id}>
+                  <div className="hv3-grid-icon">
+                    <Icon size={20} />
                   </div>
                   <div>
-                    <h3 className="grid-card-title">{f.title}</h3>
-                    <p className="grid-card-desc">{f.description}</p>
+                    <h3 className="hv3-grid-title">{f.title}</h3>
+                    <p className="hv3-grid-desc">{f.description}</p>
                   </div>
                 </div>
               );
@@ -441,137 +391,37 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Advanced features: E-Way Bill / E-Invoicing, RBAC ── */}
-      {advancedFeatures.map((feature, index) => (
-        <section
-          key={feature.title}
-          className={`feature-section ${index % 2 === 0 ? 'feature-section--reversed' : ''}`}
-          id={feature.id}
-        >
-          <div className="container">
-            <div className="feature-layout">
-              <div className="feature-copy reveal">
-                <span className="section-label">Advanced</span>
-                <h2 className="section-title">{feature.title}</h2>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-              <div className="feature-visuals reveal">
-                <div className={`feature-phone ${feature.secondaryScreenshot ? '' : 'feature-phone-single'}`}>
-                  <img src={feature.screenshot} alt={feature.title} loading="lazy" decoding="async" />
-                </div>
-                {feature.secondaryScreenshot && (
-                  <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} loading="lazy" decoding="async" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* ── Competitor comparison ── */}
-      <ComparisonSection />
-
-      {/* ── Tally connector flow + four trust cards ── */}
-      <section className="tally-section" id="tally">
+      {/* ── Compressed Tally trust band ── */}
+      <section className="hv3-tally" id="tally">
         <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">The Tally Connector</span>
-            <h2 className="section-title">Your Tally. Now on your phone.</h2>
-            <p className="section-subtitle">
-              A lightweight Windows connector sits next to your Tally. Every invoice, every payment, every entry syncs both ways in real time.
-            </p>
+          <div className="reveal">
+            <span className="section-label">{tallyTrust.overline}</span>
+            <h2 className="hv3-tally-title">{tallyTrust.heading}</h2>
+            <p className="hv3-tally-sub">{tallyTrust.subtitle}</p>
           </div>
-
-          <div className="tally-visual">
-            <div className="tally-flow">
-              <div className="tally-node">
-                <div className="tally-node-icon">
-                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" loading="lazy" decoding="async" />
-                </div>
-                <span className="tally-node-label">Takkada</span>
-              </div>
-              <div className="tally-arrows">
-                <div className="tally-arrow">
-                  <RefreshCw size={24} />
-                  <span>Real-time sync</span>
-                </div>
-              </div>
-              <div className="tally-node">
-                <div className="tally-node-icon tally-node-tally">
-                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" loading="lazy" decoding="async" />
-                </div>
-                <span className="tally-node-label">Tally Prime</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="tally-grid">
-            {tallyFeatures.map((f) => {
-              const Icon = tallyIconMap[f.icon] || Zap;
+          <div className="hv3-tally-points reveal">
+            {tallyTrust.points.map((point) => {
+              const Icon = tallyIconMap[point.icon] || RefreshCw;
               return (
-                <div key={f.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={24} />
-                  </div>
-                  <h3>{f.title}</h3>
-                  <p>{f.description}</p>
+                <div key={point.title} className="hv3-tally-point">
+                  <Icon size={22} />
+                  <h3>{point.title}</h3>
+                  <p>{point.description}</p>
                 </div>
               );
             })}
           </div>
-
-          <div className="tally-download">
-            <p className="tally-download-label">Windows PC required. Works with Tally Prime and Tally ERP 9.</p>
-            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline tally-download-btn" download>
+          <div className="hv3-tally-download reveal">
+            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline-light" download>
               <Download size={16} /> Download Tally Connector
             </a>
+            <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
           </div>
         </div>
       </section>
 
-      {/* ── How it works: 3 step cards ── */}
-      <section className="how-section" id="how-it-works">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Getting Started</span>
-            <h2 className="section-title">Up and running in days, not months</h2>
-          </div>
-          <div className="how-grid">
-            {howItWorks.map((step) => (
-              <div key={step.title} className="how-card">
-                <span className="how-step-num tabular-nums">{step.step}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Who it is for ── */}
-      <section className="grid-section" id="who-it-is-for">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Who It Is For</span>
-            <h2 className="section-title">Pick the setup that matches how you work</h2>
-          </div>
-          <div className="feature-grid-wrap home-audience-grid">
-            {audiences.map((a) => (
-              <Link key={a.to} to={a.to} className="grid-card home-audience-card">
-                <div>
-                  <h3 className="grid-card-title">{a.label}</h3>
-                  <p className="grid-card-desc">{a.line}</p>
-                </div>
-                <ArrowRight size={18} className="home-audience-arrow" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Pricing ── */}
+      {/* ── Pricing (ported intact from the pre-v3 page; .rate-* DOM is
+             pinned by pricing-table.test.jsx — restyle only via .home-v3) ── */}
       <section className="pricing-section" id="pricing">
         <div className="container">
           {/* Header and term switch share one row so the title is still on
@@ -697,7 +547,8 @@ function Home({ seo = HOME_SEO }) {
               </div>
               <p className="rate-addons-note">
                 Payment Collection puts a UPI link on every invoice at zero MDR and reconciles the
-                receipt back into Tally. Every plan includes 1 user.
+                receipt back into Tally. With your own WhatsApp number, early access for now, every
+                reminder and invoice goes out from your number instead of ours. Every plan includes 1 user.
               </p>
             </div>
           </div>
@@ -711,7 +562,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
+      {/* ── Testimonials (ported; structure pinned by home-trust.test.jsx) ── */}
       <section className="testimonials-section" id="testimonial">
         <div className="container">
           <div className="section-header reveal">
@@ -726,7 +577,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Data safety / legitimacy ── */}
+      {/* ── Data safety / legitimacy (ported; pinned by home-trust.test.jsx) ── */}
       <section className="tally-section trust-section" id="data-safety">
         <div className="container">
           <div className="section-header reveal">
@@ -770,7 +621,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ (ported; feeds faqPageSchema above) ── */}
       <section className="faq-section" id="faq">
         <div className="container">
           <div className="section-header reveal">
@@ -791,7 +642,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Footer CTA band ── */}
+      {/* ── Footer CTA band (ported) ── */}
       <section className="final-cta" id="final-cta">
         <div className="container">
           <div className="final-cta-content">
@@ -812,7 +663,7 @@ function Home({ seo = HOME_SEO }) {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
