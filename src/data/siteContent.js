@@ -29,21 +29,51 @@ export const heroContent = {
   ],
 };
 
-// Story 1: the collection loop. Each step is one moment in the distributor's
-// day; the rail teaches the product's core loop end to end.
-export const storyCollections = {
+// Story 1: the order-to-cash road (2026-08-04 roadmap redesign). One
+// continuous journey from the order landing to the payment matched in Tally.
+// Every station is a live feature; screenshots are operator-framed mockups.
+// The section keeps the #digital-collection anchor the nav/footer point at.
+export const storyOrderToCash = {
   id: 'digital-collection',
-  overline: 'Payment Collection',
-  heading: 'The invoice goes out. The money finds its way back.',
+  overline: 'Order to Cash',
+  heading: 'The order goes out. The money finds its way back to Tally.',
   intro:
-    'You know the evening routine. Calls, screenshots, "bhai, payment kar do", then matching whatever came in against Tally. Here is what that day looks like with Takkada.',
-  steps: [
+    'You know this road. The order sits on a pad, the challan is handwritten, the invoice waits for the evening, and the payment comes whenever it comes. Here is the same road with Takkada under it. Every station below is live in the product today.',
+  stations: [
     {
-      title: 'The invoice reaches WhatsApp on its own',
+      title: 'The order is booked',
       body:
-        'The moment an invoice is created in Tally, the customer has the PDF and a payment link on WhatsApp. You do not type, copy, or attach anything.',
-      screenshot: '/assets/screenshots/demo-invoice-detail.webp',
-      screenshotAlt: 'Paid invoice in Takkada with item lines, GST, and share actions',
+        'From the market or the counter, orders land in one pending list. Each order shows what is still owed and becomes an invoice in a tap.',
+      screenshot: '/assets/screenshots/pending-orders-mockup.webp',
+      screenshotAlt: 'Pending sales orders in Takkada, each with a Make Invoice action',
+    },
+    {
+      title: 'Goods leave on a challan',
+      body:
+        'Raise the delivery challan from the phone as the truck loads. Stock moves now, billing follows when you are ready.',
+      screenshot: '/assets/screenshots/delivery-challans-mockup.webp',
+      screenshotAlt: 'Delivery challan register in Takkada with open challans by customer',
+    },
+    {
+      title: 'The invoice posts',
+      body:
+        'Items, GST, and your Tally number series, straight from the phone. Paid or pending shows right on top.',
+      screenshot: '/assets/screenshots/invoice-summary-mockup.webp',
+      screenshotAlt: 'Invoice in Takkada with item lines, GST, and share actions',
+    },
+    {
+      title: 'IRN and E-Way Bill clear from the same screen',
+      body:
+        'The e-invoice with QR and the e-way bill generate from the phone and write back into Tally against the same voucher.',
+      screenshot: '/assets/screenshots/einvoice-eway.webp',
+      screenshotAlt: 'Invoice in Takkada with E-Invoice and E-Way Bill actions',
+    },
+    {
+      title: 'The customer already has it on WhatsApp',
+      body:
+        'The PDF and a Pay now link reach the customer the moment the invoice posts. You do not type, copy, or attach anything.',
+      screenshot: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
+      screenshotAlt: 'WhatsApp chat with a Takkada invoice PDF and a Pay now link',
     },
     {
       title: 'Reminders follow up so you do not have to',
@@ -51,7 +81,6 @@ export const storyCollections = {
         'Pre-due nudges and post-due follow-ups go out automatically on the schedule you set once. Receipts can go out the same way.',
       screenshot: '/assets/screenshots/smart-reminders-mockup.webp',
       screenshotAlt: 'Smart Reminders schedule settings in Takkada',
-      framed: true,
     },
     {
       title: 'UPI money lands with zero charges',
@@ -59,17 +88,16 @@ export const storyCollections = {
         'UPI is fully pass-through. Card and netbanking MDR is borne by you. Customers pay the link, the money lands in your bank.',
       screenshot: '/assets/screenshots/settlements-mockup.webp',
       screenshotAlt: 'Takkada settlements list showing payments landing in the bank',
-      framed: true,
     },
     {
       title: 'The payment matches itself in Tally',
       body:
         'Takkada matches the payment to the invoice and posts the accounting entry in Tally. The 9 PM reconciliation ritual disappears.',
-      screenshot: '/assets/screenshots/demo-party-ledger.webp',
-      screenshotAlt: 'Party ledger in Takkada with receipts matched to the bank',
+      screenshot: '/assets/screenshots/party-ledger-mockup.webp',
+      screenshotAlt: 'Party ledger in Takkada with sales, receipts, and the amount left to collect',
     },
   ],
-  ctaLine: 'See the whole loop on a call with us.',
+  ctaLine: 'See the whole road on a call with us.',
   // Own-number sending is built but has zero enabled customers (2026-08-03).
   // "Early access" is the operator-confirmed wording; never call it live.
   footnote: 'Want reminders to go from your own WhatsApp Business number? Early access is open, ask us.',
@@ -77,9 +105,9 @@ export const storyCollections = {
 
 // Story 2: the field sales day. Claims discipline: check-in/check-out and
 // geo-tagged photo stamps are live on prod (2026-08-03 verification); the
-// order/invoice basis toggle is live. Screenshots come from a demo company
-// only (U2); until captured, screenshot paths may be null and the section
-// renders its text card without a phone.
+// order/invoice basis toggle is live. Screenshots are operator-framed
+// mockups (2026-08-04 set); step 3's geo-photo screen has no mockup yet, so
+// its screenshot stays null and the step renders text-only by design.
 export const storyTeamSales = {
   id: 'team-sales',
   overline: 'Team Sales',
@@ -91,15 +119,15 @@ export const storyTeamSales = {
       title: 'He checks in at the shop',
       body:
         'One tap marks the visit with time and place. You see who is where without a single phone call.',
-      screenshot: null,
-      screenshotAlt: 'Field visit check-in screen in Takkada',
+      screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
+      screenshotAlt: 'Field visit feed in Takkada showing salesmen checked in at dealers',
     },
     {
       title: 'He books the order on the spot',
       body:
         'Sales orders or invoices from the phone, your choice per team. The entry syncs into Tally, so billing never waits for him to come back.',
-      screenshot: null,
-      screenshotAlt: 'Salesman creating an order from the field in Takkada',
+      screenshot: '/assets/screenshots/add-items-mockup.webp',
+      screenshotAlt: 'Salesman adding items to an order in Takkada with live stock on hand',
     },
     {
       title: 'The visit proves itself',
@@ -112,9 +140,8 @@ export const storyTeamSales = {
       title: 'You watch the day live',
       body:
         'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
-      screenshot: '/assets/screenshots/team-sales-day.webp',
-      screenshotAlt: 'Team Sales view in Takkada showing each salesman’s invoices for the month',
-      framed: true,
+      screenshot: '/assets/screenshots/field-visit-outcomes-mockup.webp',
+      screenshotAlt: 'Field visit outcomes in Takkada: visits, payments received, and overdue per salesman',
     },
   ],
   ctaLine: 'Run a field team? Ask us about the salesman module.',

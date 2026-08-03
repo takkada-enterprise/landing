@@ -8,18 +8,20 @@
    Design plan (frontend-design doctrine):
    - Same two families (Fraunces display / Plus Jakarta Sans), same sage
      paper system. "New" comes from composition and scale, not new paint.
-   - Signature element: the story RAIL — each headline story is a numbered
-     4-step sequence on one connector line, read like a day unfolding.
-     Numbering is earned: the steps are a real sequence in time.
+   - Signature element: the order-to-cash ROAD — eight stations down one
+     dashed center line (drawn like a highway marking, because the section
+     is literally a road), phone and copy alternating sides. Numbering is
+     earned: the stations are the real time-order of order → cash. Story 2
+     keeps the horizontal 4-step rail as its smaller sibling.
    - Motion inventory (§11.5 — every entry has a teaching reason, and all of
      it dies under prefers-reduced-motion):
      1. Hero entrance stagger: the page introduces itself in reading order.
         One-time, transform/opacity only.
-     2. Story-step reveal (.reveal, shared IntersectionObserver): steps
+     2. Story-step reveal (.reveal, shared IntersectionObserver): stations
         appear in the order the day happens.
-     3. WhatsApp chip slide-out on story 1, step 1: the invoice leaving for
-        WhatsApp is literally what auto-dispatch does. Fires once when the
-        step scrolls in.
+     3. Road milestone fill: a station's number dot fills sage when the
+        station scrolls in — the journey advancing station by station is
+        exactly what the product does to an order. Color transition only.
    ═══════════════════════════════════════════════════ */
 
 /* ── Scoped additive tokens ── */
@@ -274,39 +276,19 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
 
 .home-v3 .hv3-story--alt .hv3-step-num { background: var(--color-primary-dark); }
 
+/* Every step screenshot is an operator-framed mockup with the device frame
+   baked in (transparent corners), so the contour drop-shadow follows the
+   frame. The drawn-bezel fallback for bare captures died 2026-08-04 when
+   the last bare capture was replaced. */
 .home-v3 .hv3-step-phone {
-  /* Positioned so the WhatsApp chip anchors to the phone edge, not the step */
   position: relative;
-  width: min(200px, 100%);
+  width: min(210px, 100%);
   margin: 0 auto 20px;
-}
-
-/* Bare app captures get a drawn bezel so they sit beside the baked-frame
-   mockups as the same device family. */
-.home-v3 .hv3-step-phone {
-  padding: 9px;
-  background: linear-gradient(160deg, #2a332d, #101612);
-  border-radius: 30px;
-  box-shadow: 0 24px 48px -20px rgba(20, 36, 28, 0.4);
 }
 
 .home-v3 .hv3-step-phone img {
   width: 100%;
   display: block;
-  border-radius: 22px;
-}
-
-/* Mockups that arrive with the device frame baked in (transparent corners):
-   no drawn bezel or rectangular shadow — the shadow follows the frame. */
-.home-v3 .hv3-step-phone--framed {
-  padding: 0;
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.home-v3 .hv3-step-phone--framed img {
-  border-radius: 0;
   filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
 }
 
@@ -326,39 +308,6 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   margin: 0;
 }
 
-/* WhatsApp chip slide-out (motion reason 3): the invoice leaving for
-   WhatsApp, shown once when step 1 of the collection story scrolls in. */
-.home-v3 .hv3-step-wachip {
-  position: absolute;
-  top: 46%;
-  right: -8px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  background: #fff;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--color-text);
-  white-space: nowrap;
-}
-
-.home-v3 .hv3-step-wachip svg { color: #25d366; }
-
-html.js .home-v3 .reveal.is-visible .hv3-step-wachip {
-  animation: hv3ChipOut 0.55s var(--ease-out) 0.35s both;
-}
-html.js .home-v3 .hv3-step-wachip { opacity: 0; }
-html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
-
-@keyframes hv3ChipOut {
-  from { opacity: 0; transform: translateX(-14px) scale(0.92); }
-  to { opacity: 1; transform: translateX(0) scale(1); }
-}
-
 .home-v3 .hv3-story-foot {
   display: flex;
   flex-wrap: wrap;
@@ -371,6 +320,148 @@ html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
   font-size: 14px;
   color: var(--color-text-muted);
   margin: 12px 0 0;
+}
+
+/* ═══════════ The order-to-cash road (signature centerpiece) ═══════════ */
+/* Mobile-first: one column beside a left road line. From 900px the road
+   moves to the center and stations alternate sides. */
+.home-v3 .hv3-road {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* The road itself: dashed like a highway center line. */
+.home-v3 .hv3-road::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--hv3-rail) 0 16px,
+    transparent 16px 30px
+  );
+  /* The road appears from and disappears into the horizon instead of
+     stopping mid-air past the last milestone. */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 60px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 60px, #000 calc(100% - 140px), transparent 100%);
+}
+
+.home-v3 .hv3-station {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  padding: 20px 0;
+}
+
+/* Milestone dot. Opaque page background so it masks the dashed line. */
+.home-v3 .hv3-station-num {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  color: #fff;
+  font-size: var(--hv3-step-num-size);
+  font-weight: 700;
+  transition:
+    background var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+/* Milestone fill (motion reason 3): hollow until the station scrolls in. */
+html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
+  background: var(--color-bg);
+  border-color: var(--hv3-rail);
+  color: var(--color-primary);
+}
+
+.home-v3 .hv3-station-phone {
+  grid-column: 2;
+  grid-row: 1;
+  width: min(210px, 70%);
+  margin-bottom: 16px;
+}
+
+.home-v3 .hv3-station-phone img {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+}
+
+.home-v3 .hv3-station-copy {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: 400px;
+}
+
+.home-v3 .hv3-story-foot--road {
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.home-v3 .hv3-story-footnote--road {
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .home-v3 .hv3-road::before {
+    left: 50%;
+  }
+
+  .home-v3 .hv3-station {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 120px;
+    align-items: center;
+    padding: 26px 0;
+  }
+
+  .home-v3 .hv3-station-num {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .home-v3 .hv3-station-phone {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    width: min(250px, 100%);
+    margin-bottom: 0;
+  }
+
+  .home-v3 .hv3-station-copy {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    max-width: 340px;
+  }
+
+  /* Alternate sides: the road weaves left-right like the day does. */
+  .home-v3 .hv3-station:nth-child(even) .hv3-station-phone {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .home-v3 .hv3-station:nth-child(even) .hv3-station-copy {
+    grid-column: 1;
+    justify-self: end;
+    text-align: right;
+  }
 }
 
 /* ═══════════ Feature grid ═══════════ */
@@ -535,11 +626,16 @@ html.no-js .home-v3 .hv3-step-wachip { opacity: 1; }
 /* ═══════════ Reduced motion: everything above goes still ═══════════ */
 @media (prefers-reduced-motion: reduce) {
   html.js .home-v3 .hv3-hero-copy > *,
-  html.js .home-v3 .hv3-hero-visual,
-  html.js .home-v3 .reveal.is-visible .hv3-step-wachip {
+  html.js .home-v3 .hv3-hero-visual {
     animation: none !important;
   }
-  html.js .home-v3 .hv3-step-wachip { opacity: 1; }
+  /* Milestones sit filled from the start; no fill transition. */
+  html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+  .home-v3 .hv3-station-num { transition: none; }
   .home-v3 .hv3-grid-card { transition: none; }
   .home-v3 .hv3-grid-card:hover { transform: none; }
 }

@@ -16,7 +16,7 @@ import {
   pricing,
   testimonials,
   heroContent,
-  storyCollections,
+  storyOrderToCash,
   storyTeamSales,
   featureGridV3,
   tallyTrust,
@@ -168,7 +168,7 @@ describe('pricing matrix', () => {
     //   ZERO enabled customers: only "early access" wording is allowed.
     const v3Copy = JSON.stringify({
       heroContent,
-      storyCollections,
+      storyOrderToCash,
       storyTeamSales,
       featureGridV3,
       tallyTrust,
@@ -198,7 +198,7 @@ describe('pricing matrix', () => {
   it('keeps banned superlatives out of the Home v3 copy', () => {
     const v3Copy = JSON.stringify({
       heroContent,
-      storyCollections,
+      storyOrderToCash,
       storyTeamSales,
       featureGridV3,
       tallyTrust,

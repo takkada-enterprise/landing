@@ -15,7 +15,7 @@ import {
   navLinks,
   footerColumns,
   demoEntryLive,
-  storyCollections,
+  storyOrderToCash,
   storyTeamSales,
 } from '../../data/siteContent';
 import { whatsappHref, WHATSAPP_MESSAGES } from '../../lib/whatsapp';
@@ -36,9 +36,23 @@ describe('Home v3 structure (AE1)', () => {
     const headings = [...container.querySelectorAll('h1, h2')].map((h) => h.textContent);
     const all = headings.join(' | ');
     expect(all).toContain('Get paid without chasing.');
-    expect(all).toContain(storyCollections.heading);
+    expect(all).toContain(storyOrderToCash.heading);
     expect(all).toContain(storyTeamSales.heading);
     expect(all).toContain('Every capability you will actually use');
+  });
+
+  it('renders the order-to-cash road: every station numbered in order, each with its mockup', () => {
+    const { container } = renderHome();
+    const stations = [...container.querySelectorAll('#digital-collection .hv3-station')];
+    expect(stations).toHaveLength(storyOrderToCash.stations.length);
+    stations.forEach((station, i) => {
+      expect(station.querySelector('.hv3-station-num')?.textContent).toBe(String(i + 1));
+      const img = station.querySelector('.hv3-station-phone img');
+      expect(img?.getAttribute('src'), `station ${i + 1} must carry its screenshot`).toBe(
+        storyOrderToCash.stations[i].screenshot
+      );
+      expect(img?.getAttribute('alt')).toBeTruthy();
+    });
   });
 
   it('orders the sections hero → story 1 → story 2 → grid → tally → pricing', () => {
@@ -104,7 +118,7 @@ describe('demo-entry gate', () => {
 
 describe('story WhatsApp contexts', () => {
   it('has a dedicated non-empty prefill for each story context', () => {
-    for (const context of ['story-collections', 'story-team-sales']) {
+    for (const context of ['story-order-to-cash', 'story-team-sales']) {
       expect(WHATSAPP_MESSAGES[context], `missing prefill for ${context}`).toBeTruthy();
       const href = whatsappHref(context);
       expect(href).toContain('https://wa.me/');

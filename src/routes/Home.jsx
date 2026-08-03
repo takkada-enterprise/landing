@@ -22,7 +22,7 @@ import {
   Database,
   Truck,
 } from 'lucide-react';
-import WhatsAppCTA, { WhatsAppIcon } from '../components/WhatsAppCTA';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import CountUp from '../components/CountUp';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
@@ -37,7 +37,7 @@ import {
   planPricing,
   formatInr,
   heroContent,
-  storyCollections,
+  storyOrderToCash,
   storyTeamSales,
   featureGridV3,
   tallyTrust,
@@ -84,11 +84,9 @@ const HOME_SEO = {
 };
 
 // One story section = header + numbered step rail + a WhatsApp CTA.
-// Both headline stories share this shape (Home v3, 2026-08-03); a step
-// renders its phone only when a screenshot exists, so story 2 works while
-// its captures are pending. `withWaChip` puts the auto-dispatch chip on
-// step 1 of the collection story (motion reason in home.css header).
-function StorySection({ story, alt = false, ctaContext, withWaChip = false }) {
+// A step renders its phone only when a screenshot exists, so a story keeps
+// working while a capture is pending (story 2 step 3 is text-only today).
+function StorySection({ story, alt = false, ctaContext }) {
   return (
     <section className={`hv3-story${alt ? ' hv3-story--alt' : ''}`} id={story.id}>
       <div className="container">
@@ -105,13 +103,8 @@ function StorySection({ story, alt = false, ctaContext, withWaChip = false }) {
               <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
               <div className="hv3-step-content">
                 {step.screenshot && (
-                  <div className={`hv3-step-phone${step.framed ? ' hv3-step-phone--framed' : ''}`}>
+                  <div className="hv3-step-phone">
                     <img src={step.screenshot} alt={step.screenshotAlt || ''} loading="lazy" decoding="async" />
-                    {withWaChip && i === 0 && (
-                      <span className="hv3-step-wachip" aria-hidden="true">
-                        <WhatsAppIcon size={14} /> Invoice sent
-                      </span>
-                    )}
                   </div>
                 )}
                 <h3 className="hv3-step-title">{step.title}</h3>
@@ -130,6 +123,44 @@ function StorySection({ story, alt = false, ctaContext, withWaChip = false }) {
           <CalendarCTA context={ctaContext} variant="link" />
         </div>
         {story.footnote && <p className="hv3-story-footnote reveal">{story.footnote}</p>}
+      </div>
+    </section>
+  );
+}
+
+// The signature centerpiece (2026-08-04): the order-to-cash road. Eight
+// stations on one vertical road, phone and copy alternating sides of a
+// dashed center line. The order is real time-order, so the numbering is
+// earned; each station's milestone dot fills as it scrolls into view
+// (motion reason in home.css header).
+function RoadSection({ story, ctaContext }) {
+  return (
+    <section className="hv3-story hv3-story--road" id={story.id}>
+      <div className="container">
+        <div className="hv3-story-head reveal">
+          <span className="section-label">{story.overline}</span>
+          <h2 className="hv3-story-title">{story.heading}</h2>
+          <p className="hv3-story-intro">{story.intro}</p>
+        </div>
+        <div className="hv3-road">
+          {story.stations.map((station, i) => (
+            <div key={station.title} className="hv3-station reveal">
+              <span className="hv3-station-num tabular-nums" aria-hidden="true">{i + 1}</span>
+              <div className="hv3-station-phone">
+                <img src={station.screenshot} alt={station.screenshotAlt} loading="lazy" decoding="async" />
+              </div>
+              <div className="hv3-station-copy">
+                <h3 className="hv3-step-title">{station.title}</h3>
+                <p className="hv3-step-body">{station.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="hv3-story-foot hv3-story-foot--road reveal">
+          <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
+        </div>
+        {story.footnote && <p className="hv3-story-footnote hv3-story-footnote--road reveal">{story.footnote}</p>}
       </div>
     </section>
   );
@@ -207,8 +238,8 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Story 1: Payment Collection (the money loop) ── */}
-      <StorySection story={storyCollections} ctaContext="story-collections" withWaChip />
+      {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
+      <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
 
       {/* ── Story 2: Team Sales / the field day ── */}
       <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />

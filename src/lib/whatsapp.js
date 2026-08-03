@@ -30,8 +30,8 @@ export const WHATSAPP_MESSAGES = {
   demo: 'Hi, I tried the demo company on takkada.com. I want to set this up for my own business.',
   'sticky-bar':
     'Hi, I am reading takkada.com on my phone and want to know more about Takkada.',
-  'story-collections':
-    'Hi, I saw the payment collection story on takkada.com. I want to see how the invoice-to-UPI loop works for my business.',
+  'story-order-to-cash':
+    'Hi, I saw the order-to-cash road on takkada.com. I want to see how the invoice-to-UPI loop works for my business.',
   'story-team-sales':
     'Hi, I run a sales team in the field. I want to see how Takkada handles salesman check-ins and orders.',
 };
