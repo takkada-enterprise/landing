@@ -131,15 +131,6 @@ export const storyTeamSales = {
       screenshotAlt: 'Field visit feed in Takkada showing salesmen checked in at dealers',
     },
     {
-      // Text-only by design: the order-booking screen carries station 1 of
-      // the order-to-cash tour, and the same mockup must not appear twice.
-      title: 'He books the order on the spot',
-      body:
-        'Sales orders or invoices from the phone, your choice per team. The entry syncs into Tally, so billing never waits for him to come back.',
-      screenshot: null,
-      screenshotAlt: 'Salesman creating an order from the field in Takkada',
-    },
-    {
       title: 'The visit proves itself',
       body:
         'Every visit carries a geo-tagged, time-stamped photo. No "shop band tha" stories, no fake visits.',
