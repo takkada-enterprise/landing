@@ -173,7 +173,12 @@ function RoadSection({ story, ctaContext }) {
         <div className="reveal">
         <div
           className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
-          onMouseEnter={() => setPaused(true)}
+          /* Touch fires mouseenter on tap and never mouseleave, which would
+             pause the tour permanently — so only a real hovering pointer
+             pauses it. */
+          onMouseEnter={() => {
+            if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
+          }}
           onMouseLeave={() => setPaused(false)}
         >
           <div className="hv3-tour-phone">

@@ -85,7 +85,7 @@ export const storyOrderToCash = {
     {
       title: 'Reminders follow up so you do not have to',
       body:
-        'Pre-due nudges and post-due follow-ups go out automatically on the schedule you set once. Receipts can go out the same way.',
+        'Pre-due nudges and post-due follow-ups go out automatically on the schedule you set once. A switch sends the party’s ledger along, for the customer who wants the full account.',
       screenshot: '/assets/screenshots/smart-reminders-mockup.webp',
       screenshotAlt: 'Smart Reminders schedule settings in Takkada',
     },
