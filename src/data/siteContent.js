@@ -302,7 +302,7 @@ export const trustSection = {
       icon: 'badge',
       title: 'Official apps under a registered company',
       body:
-        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP, registered in Guwahati. No APK from a forwarded link, no sideloading.',
+        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP. No APK from a forwarded link, no sideloading.',
       links: [
         { label: 'Play Store listing', hrefKey: 'playStore' },
         { label: 'App Store listing', hrefKey: 'appStore' },
