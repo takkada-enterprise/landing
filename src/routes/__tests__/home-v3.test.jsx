@@ -41,18 +41,23 @@ describe('Home v3 structure (AE1)', () => {
     expect(all).toContain('Every capability you will actually use');
   });
 
-  it('renders the order-to-cash road: every station numbered in order, each with its mockup', () => {
+  it('renders the order-to-cash tour: every station numbered in order, each with its mockup', () => {
     const { container } = renderHome();
-    const stations = [...container.querySelectorAll('#digital-collection .hv3-station')];
-    expect(stations).toHaveLength(storyOrderToCash.stations.length);
-    stations.forEach((station, i) => {
-      expect(station.querySelector('.hv3-station-num')?.textContent).toBe(String(i + 1));
-      const img = station.querySelector('.hv3-station-phone img');
-      expect(img?.getAttribute('src'), `station ${i + 1} must carry its screenshot`).toBe(
-        storyOrderToCash.stations[i].screenshot
+    const steps = [...container.querySelectorAll('#digital-collection .hv3-tour-step')];
+    expect(steps).toHaveLength(storyOrderToCash.stations.length);
+    steps.forEach((step, i) => {
+      expect(step.querySelector('.hv3-tour-num')?.textContent).toBe(String(i + 1));
+      expect(step.querySelector('.hv3-tour-step-title')?.textContent).toBe(
+        storyOrderToCash.stations[i].title
       );
-      expect(img?.getAttribute('alt')).toBeTruthy();
     });
+    const imgs = [...container.querySelectorAll('#digital-collection .hv3-tour-phone img')];
+    expect(imgs.map((img) => img.getAttribute('src'))).toEqual(
+      storyOrderToCash.stations.map((s) => s.screenshot)
+    );
+    for (const img of imgs) expect(img.getAttribute('alt')).toBeTruthy();
+    // Station 1 leads the tour on load.
+    expect(steps[0].className).toContain('is-active');
   });
 
   it('orders the sections hero → story 1 → story 2 → grid → tally → pricing', () => {

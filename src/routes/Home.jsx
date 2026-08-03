@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -128,12 +128,27 @@ function StorySection({ story, alt = false, ctaContext }) {
   );
 }
 
-// The signature centerpiece (2026-08-04): the order-to-cash road. Eight
-// stations on one vertical road, phone and copy alternating sides of a
-// dashed center line. The order is real time-order, so the numbering is
-// earned; each station's milestone dot fills as it scrolls into view
-// (motion reason in home.css header).
+// The signature centerpiece (2026-08-04): the order-to-cash tour. The whole
+// journey fits one screen: a numbered station list on the left, one phone on
+// the right that crossfades between screens. Auto-advances every few seconds
+// so the full journey shows itself; a click takes over and stops the tour
+// (motion reasons in home.css header). On phones the device sticks to the
+// top while the list scrolls under it.
 function RoadSection({ story, ctaContext }) {
+  const [active, setActive] = useState(0);
+  const [userDrove, setUserDrove] = useState(false);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (userDrove || paused) return undefined;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = setInterval(
+      () => setActive((current) => (current + 1) % story.stations.length),
+      4500
+    );
+    return () => clearInterval(timer);
+  }, [userDrove, paused, story.stations.length]);
+
   return (
     <section className="hv3-story hv3-story--road" id={story.id}>
       <div className="container">
@@ -142,19 +157,48 @@ function RoadSection({ story, ctaContext }) {
           <h2 className="hv3-story-title">{story.heading}</h2>
           <p className="hv3-story-intro">{story.intro}</p>
         </div>
-        <div className="hv3-road">
-          {story.stations.map((station, i) => (
-            <div key={station.title} className="hv3-station reveal">
-              <span className="hv3-station-num tabular-nums" aria-hidden="true">{i + 1}</span>
-              <div className="hv3-station-phone">
-                <img src={station.screenshot} alt={station.screenshotAlt} loading="lazy" decoding="async" />
-              </div>
-              <div className="hv3-station-copy">
-                <h3 className="hv3-step-title">{station.title}</h3>
-                <p className="hv3-step-body">{station.body}</p>
-              </div>
-            </div>
-          ))}
+        <div
+          className="hv3-tour reveal"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="hv3-tour-phone">
+            {story.stations.map((station, i) => (
+              <img
+                key={station.title}
+                src={station.screenshot}
+                alt={station.screenshotAlt}
+                className={i === active ? 'is-active' : undefined}
+                aria-hidden={i !== active}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            ))}
+          </div>
+          <ol className="hv3-tour-list">
+            {story.stations.map((station, i) => (
+              <li
+                key={station.title}
+                className={`hv3-tour-step${i === active ? ' is-active' : ''}`}
+              >
+                <button
+                  type="button"
+                  aria-expanded={i === active}
+                  aria-controls={`hv3-tour-body-${i}`}
+                  onClick={() => {
+                    setActive(i);
+                    setUserDrove(true);
+                  }}
+                >
+                  <span className="hv3-tour-num tabular-nums" aria-hidden="true">{i + 1}</span>
+                  <span className="hv3-tour-step-title">{station.title}</span>
+                </button>
+                <div className="hv3-tour-step-reveal" id={`hv3-tour-body-${i}`}>
+                  <p className="hv3-tour-step-body">{station.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
         <div className="hv3-story-foot hv3-story-foot--road reveal">
           <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>

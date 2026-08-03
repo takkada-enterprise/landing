@@ -106,8 +106,9 @@ export const storyOrderToCash = {
 // Story 2: the field sales day. Claims discipline: check-in/check-out and
 // geo-tagged photo stamps are live on prod (2026-08-03 verification); the
 // order/invoice basis toggle is live. Screenshots are operator-framed
-// mockups (2026-08-04 set); step 3's geo-photo screen has no mockup yet, so
-// its screenshot stays null and the step renders text-only by design.
+// mockups (2026-08-04 set). Step 3's shop photo is an Unsplash-licensed
+// storefront (photo bAKYjjvAQIE, cropped to exclude faces, the real shop's
+// name, and brand logos) composited into the operator's geotagged template.
 export const storyTeamSales = {
   id: 'team-sales',
   overline: 'Team Sales',
@@ -133,8 +134,8 @@ export const storyTeamSales = {
       title: 'The visit proves itself',
       body:
         'Every visit carries a geo-tagged, time-stamped photo. No "shop band tha" stories, no fake visits.',
-      screenshot: null,
-      screenshotAlt: 'Geo-tagged, time-stamped field visit photo in Takkada',
+      screenshot: '/assets/screenshots/field-visit-photo-mockup.webp',
+      screenshotAlt: 'Geo-tagged, time-stamped field visit photo of a dealer shop in Takkada',
     },
     {
       title: 'You watch the day live',

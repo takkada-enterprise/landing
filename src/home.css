@@ -8,20 +8,22 @@
    Design plan (frontend-design doctrine):
    - Same two families (Fraunces display / Plus Jakarta Sans), same sage
      paper system. "New" comes from composition and scale, not new paint.
-   - Signature element: the order-to-cash ROAD — eight stations down one
-     dashed center line (drawn like a highway marking, because the section
-     is literally a road), phone and copy alternating sides. Numbering is
-     earned: the stations are the real time-order of order → cash. Story 2
-     keeps the horizontal 4-step rail as its smaller sibling.
+   - Signature element: the order-to-cash TOUR — the eight real stations of
+     order → cash as a numbered list threaded by a miniature dashed road,
+     beside one phone that shows the active station's screen. The whole
+     journey fits one screen (2026-08-04 operator direction: compact and
+     premium over a long scroll). Numbering is earned: the stations are the
+     real time-order. Story 2 keeps the horizontal 4-step rail.
    - Motion inventory (§11.5 — every entry has a teaching reason, and all of
      it dies under prefers-reduced-motion):
      1. Hero entrance stagger: the page introduces itself in reading order.
         One-time, transform/opacity only.
-     2. Story-step reveal (.reveal, shared IntersectionObserver): stations
+     2. Story-step reveal (.reveal, shared IntersectionObserver): sections
         appear in the order the day happens.
-     3. Road milestone fill: a station's number dot fills sage when the
-        station scrolls in — the journey advancing station by station is
-        exactly what the product does to an order. Color transition only.
+     3. Tour advance: the phone crossfades to the active station and its
+        body copy expands — the order moving station to station is exactly
+        what the product does to it. Auto-advance is JS-gated on
+        prefers-reduced-motion (Home.jsx) and stops on first click.
    ═══════════════════════════════════════════════════ */
 
 /* ── Scoped additive tokens ── */
@@ -322,60 +324,104 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   margin: 12px 0 0;
 }
 
-/* ═══════════ The order-to-cash road (signature centerpiece) ═══════════ */
-/* Mobile-first: one column beside a left road line. From 900px the road
-   moves to the center and stations alternate sides. */
-.home-v3 .hv3-road {
-  position: relative;
-  max-width: 960px;
+/* ═══════════ The order-to-cash tour (signature centerpiece) ═══════════ */
+/* The whole journey in one screen: numbered station list beside one phone
+   that crossfades between screens. Mobile-first: the phone sticks to the
+   top while the list scrolls under it; from 900px they sit side by side. */
+.home-v3 .hv3-tour {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* The road itself: dashed like a highway center line. */
-.home-v3 .hv3-road::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: 20px;
-  width: 3px;
-  transform: translateX(-50%);
-  border-radius: 2px;
-  background: repeating-linear-gradient(
-    180deg,
-    var(--hv3-rail) 0 16px,
-    transparent 16px 30px
-  );
-  /* The road appears from and disappears into the horizon instead of
-     stopping mid-air past the last milestone. */
-  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 60px, #000 calc(100% - 140px), transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0, #000 60px, #000 calc(100% - 140px), transparent 100%);
+.home-v3 .hv3-tour-phone {
+  /* Full-width opaque plate on mobile so list rows scrolling under the
+     sticky phone disappear behind it; the soft gradient is the bottom edge. */
+  position: sticky;
+  top: 56px;
+  z-index: 2;
+  width: 100%;
+  height: 348px;
+  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(250, 250, 247, 0) 100%);
 }
 
-.home-v3 .hv3-station {
-  position: relative;
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
-  padding: 20px 0;
-}
-
-/* Milestone dot. Opaque page background so it masks the dashed line. */
-.home-v3 .hv3-station-num {
+.home-v3 .hv3-tour-phone img {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 50%;
   transform: translateX(-50%);
+  height: 316px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+}
+
+.home-v3 .hv3-tour-phone img.is-active {
+  opacity: 1;
+}
+
+.home-v3 .hv3-tour-list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The road, in miniature: a dashed line threading the numbers. */
+.home-v3 .hv3-tour-list::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 16px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--hv3-rail) 0 8px,
+    transparent 8px 16px
+  );
+}
+
+.home-v3 .hv3-tour-step {
+  position: relative;
+  border-bottom: 0.5px solid var(--color-hairline, #eeeeea);
+}
+
+.home-v3 .hv3-tour-step:last-child {
+  border-bottom: none;
+}
+
+.home-v3 .hv3-tour-step button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 13px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.home-v3 .hv3-tour-num {
+  position: relative;
   z-index: 1;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  color: #fff;
-  font-size: var(--hv3-step-num-size);
+  background: var(--color-bg);
+  border: 2px solid var(--hv3-rail);
+  color: var(--color-primary);
+  font-size: 13px;
   font-weight: 700;
   transition:
     background var(--dur) var(--ease-out),
@@ -383,30 +429,52 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
     border-color var(--dur) var(--ease-out);
 }
 
-/* Milestone fill (motion reason 3): hollow until the station scrolls in. */
-html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
-  background: var(--color-bg);
-  border-color: var(--hv3-rail);
-  color: var(--color-primary);
+.home-v3 .hv3-tour-step.is-active .hv3-tour-num {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
 }
 
-.home-v3 .hv3-station-phone {
-  grid-column: 2;
-  grid-row: 1;
-  width: min(210px, 70%);
-  margin-bottom: 16px;
+.home-v3 .hv3-tour-step-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text-secondary);
+  transition: color var(--dur) var(--ease-out);
 }
 
-.home-v3 .hv3-station-phone img {
-  width: 100%;
-  display: block;
-  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+.home-v3 .hv3-tour-step.is-active .hv3-tour-step-title {
+  color: var(--color-text);
+  font-weight: 700;
 }
 
-.home-v3 .hv3-station-copy {
-  grid-column: 2;
-  grid-row: 2;
-  max-width: 400px;
+/* Body copy expands under the active title (grid-rows trick keeps the
+   collapse smooth without hard-coded heights). */
+.home-v3 .hv3-tour-step-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out);
+}
+
+.home-v3 .hv3-tour-step.is-active .hv3-tour-step-reveal {
+  grid-template-rows: 1fr;
+}
+
+.home-v3 .hv3-tour-step-body {
+  overflow: hidden;
+  min-height: 0;
+  margin: 0 0 0 48px;
+  padding-bottom: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.home-v3 .hv3-tour-step.is-active .hv3-tour-step-body {
+  padding-bottom: 14px;
+  opacity: 1;
 }
 
 .home-v3 .hv3-story-foot--road {
@@ -419,48 +487,43 @@ html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
 }
 
 @media (min-width: 900px) {
-  .home-v3 .hv3-road::before {
-    left: 50%;
-  }
-
-  .home-v3 .hv3-station {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 120px;
+  .home-v3 .hv3-tour {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 96px;
     align-items: center;
-    padding: 26px 0;
   }
 
-  .home-v3 .hv3-station-num {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .home-v3 .hv3-station-phone {
+  .home-v3 .hv3-tour-list {
     grid-column: 1;
     grid-row: 1;
-    justify-self: end;
-    width: min(250px, 100%);
-    margin-bottom: 0;
   }
 
-  .home-v3 .hv3-station-copy {
+  .home-v3 .hv3-tour-phone {
     grid-column: 2;
     grid-row: 1;
-    justify-self: start;
-    max-width: 340px;
+    position: relative;
+    top: 0;
+    width: min(290px, 100%);
+    height: auto;
+    aspect-ratio: 0.483;
+    margin: 0 auto;
+    background: none;
   }
 
-  /* Alternate sides: the road weaves left-right like the day does. */
-  .home-v3 .hv3-station:nth-child(even) .hv3-station-phone {
-    grid-column: 2;
-    justify-self: start;
+  .home-v3 .hv3-tour-phone img {
+    inset: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 100%;
   }
 
-  .home-v3 .hv3-station:nth-child(even) .hv3-station-copy {
-    grid-column: 1;
-    justify-self: end;
-    text-align: right;
+  .home-v3 .hv3-tour-step button {
+    padding: 15px 0;
+  }
+
+  .home-v3 .hv3-tour-step-title {
+    font-size: 17px;
   }
 }
 
@@ -629,13 +692,13 @@ html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
   html.js .home-v3 .hv3-hero-visual {
     animation: none !important;
   }
-  /* Milestones sit filled from the start; no fill transition. */
-  html.js .home-v3 .hv3-station:not(.is-visible) .hv3-station-num {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: #fff;
-  }
-  .home-v3 .hv3-station-num { transition: none; }
+  /* The tour switches instantly: no crossfade, no expand animation.
+     (Auto-advance is already JS-gated on the same media query.) */
+  .home-v3 .hv3-tour-phone img,
+  .home-v3 .hv3-tour-num,
+  .home-v3 .hv3-tour-step-title,
+  .home-v3 .hv3-tour-step-reveal,
+  .home-v3 .hv3-tour-step-body { transition: none; }
   .home-v3 .hv3-grid-card { transition: none; }
   .home-v3 .hv3-grid-card:hover { transform: none; }
 }
