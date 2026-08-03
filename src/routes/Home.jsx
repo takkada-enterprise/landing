@@ -167,8 +167,12 @@ function RoadSection({ story, ctaContext }) {
           <h2 className="hv3-story-title">{story.heading}</h2>
           <p className="hv3-story-intro">{story.intro}</p>
         </div>
+        {/* The reveal class lives on its own wrapper: the inner div's class
+            list changes with state, and a React re-render would strip the
+            is-visible flag the scroll observer adds to the same element. */}
+        <div className="reveal">
         <div
-          className={`hv3-tour reveal${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
+          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -213,6 +217,7 @@ function RoadSection({ story, ctaContext }) {
               </li>
             ))}
           </ol>
+        </div>
         </div>
         <div className="hv3-story-foot hv3-story-foot--road reveal">
           <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>
