@@ -105,7 +105,7 @@ function StorySection({ story, alt = false, ctaContext, withWaChip = false }) {
               <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
               <div className="hv3-step-content">
                 {step.screenshot && (
-                  <div className="hv3-step-phone">
+                  <div className={`hv3-step-phone${step.framed ? ' hv3-step-phone--framed' : ''}`}>
                     <img src={step.screenshot} alt={step.screenshotAlt || ''} loading="lazy" decoding="async" />
                     {withWaChip && i === 0 && (
                       <span className="hv3-step-wachip" aria-hidden="true">

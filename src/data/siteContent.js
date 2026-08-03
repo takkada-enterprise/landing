@@ -49,15 +49,17 @@ export const storyCollections = {
       title: 'Reminders follow up so you do not have to',
       body:
         'Pre-due nudges and post-due follow-ups go out automatically on the schedule you set once. Receipts can go out the same way.',
-      screenshot: '/assets/screenshots/payment-reminders.webp',
-      screenshotAlt: 'Automated WhatsApp payment reminders in Takkada',
+      screenshot: '/assets/screenshots/smart-reminders-mockup.webp',
+      screenshotAlt: 'Smart Reminders schedule settings in Takkada',
+      framed: true,
     },
     {
       title: 'UPI money lands with zero charges',
       body:
         'UPI is fully pass-through. Card and netbanking MDR is borne by you. Customers pay the link, the money lands in your bank.',
-      screenshot: '/assets/screenshots/settlement.webp',
-      screenshotAlt: 'Takkada settlement screen showing a payment landing',
+      screenshot: '/assets/screenshots/settlements-mockup.webp',
+      screenshotAlt: 'Takkada settlements list showing payments landing in the bank',
+      framed: true,
     },
     {
       title: 'The payment matches itself in Tally',
@@ -110,8 +112,9 @@ export const storyTeamSales = {
       title: 'You watch the day live',
       body:
         'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
-      screenshot: null,
-      screenshotAlt: 'Team sales day view for the owner in Takkada',
+      screenshot: '/assets/screenshots/team-sales-day.webp',
+      screenshotAlt: 'Team Sales view in Takkada showing each salesman’s invoices for the month',
+      framed: true,
     },
   ],
   ctaLine: 'Run a field team? Ask us about the salesman module.',

@@ -288,6 +288,14 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   box-shadow: 0 24px 48px -20px rgba(20, 36, 28, 0.35);
 }
 
+/* Mockups that arrive with the device frame baked in (transparent corners):
+   no CSS rounding or rectangular shadow — the shadow follows the frame. */
+.home-v3 .hv3-step-phone--framed img {
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+}
+
 .home-v3 .hv3-step-title {
   font-size: 18px;
   font-weight: 700;
