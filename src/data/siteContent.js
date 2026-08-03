@@ -43,9 +43,9 @@ export const storyOrderToCash = {
     {
       title: 'The order is booked',
       body:
-        'From the market or the counter, orders land in one pending list. Each order shows what is still owed and becomes an invoice in a tap.',
-      screenshot: '/assets/screenshots/pending-orders-mockup.webp',
-      screenshotAlt: 'Pending sales orders in Takkada, each with a Make Invoice action',
+        'Your salesman books it in the market, or you take it at the counter. Live stock sits next to every item, so nobody promises what the godown does not have.',
+      screenshot: '/assets/screenshots/add-items-mockup.webp',
+      screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
     },
     {
       title: 'Goods leave on a challan',
@@ -53,6 +53,13 @@ export const storyOrderToCash = {
         'Raise the delivery challan from the phone as the truck loads. Stock moves now, billing follows when you are ready.',
       screenshot: '/assets/screenshots/delivery-challans-mockup.webp',
       screenshotAlt: 'Delivery challan register in Takkada with open challans by customer',
+    },
+    {
+      title: 'What could not ship stays pending',
+      body:
+        'Low stock cuts an item short, and the shortfall stays live on the order. When stock arrives, it becomes the next invoice in a tap.',
+      screenshot: '/assets/screenshots/pending-orders-mockup.webp',
+      screenshotAlt: 'Pending order items in Takkada, each with a Make Invoice action',
     },
     {
       title: 'The invoice posts',
@@ -124,11 +131,13 @@ export const storyTeamSales = {
       screenshotAlt: 'Field visit feed in Takkada showing salesmen checked in at dealers',
     },
     {
+      // Text-only by design: the order-booking screen carries station 1 of
+      // the order-to-cash tour, and the same mockup must not appear twice.
       title: 'He books the order on the spot',
       body:
         'Sales orders or invoices from the phone, your choice per team. The entry syncs into Tally, so billing never waits for him to come back.',
-      screenshot: '/assets/screenshots/add-items-mockup.webp',
-      screenshotAlt: 'Salesman adding items to an order in Takkada with live stock on hand',
+      screenshot: null,
+      screenshotAlt: 'Salesman creating an order from the field in Takkada',
     },
     {
       title: 'The visit proves itself',
@@ -143,6 +152,13 @@ export const storyTeamSales = {
         'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
       screenshot: '/assets/screenshots/field-visit-outcomes-mockup.webp',
       screenshotAlt: 'Field visit outcomes in Takkada: visits, payments received, and overdue per salesman',
+    },
+    {
+      title: 'Targets and commission settle themselves',
+      body:
+        'Monthly targets, live progress, and commission worked out per salesman. The month-end argument is over before it starts.',
+      screenshot: '/assets/screenshots/sales-target-mockup.webp',
+      screenshotAlt: 'Team Sales leaderboard in Takkada with targets, progress, and commission per salesman',
     },
   ],
   ctaLine: 'Run a field team? Ask us about the salesman module.',
