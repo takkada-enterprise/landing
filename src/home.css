@@ -751,11 +751,6 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   gap: 20px;
 }
 
-.home-v3 .hv3-tally-download .cta-btn--outline {
-  border-color: rgba(184, 212, 190, 0.4);
-  color: #fff;
-}
-
 .home-v3 .hv3-tally-download-note {
   font-size: 13.5px;
   color: var(--color-sage-light);

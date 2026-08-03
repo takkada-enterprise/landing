@@ -384,7 +384,7 @@ function Home({ seo = HOME_SEO }) {
             })}
           </div>
           <div className="hv3-tally-download reveal">
-            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline" download>
+            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline-light" download>
               <Download size={16} /> Download Tally Connector
             </a>
             <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
