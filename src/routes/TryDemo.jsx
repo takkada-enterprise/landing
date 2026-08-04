@@ -14,9 +14,9 @@ import { demoEntryLive } from '../data/siteContent';
 // books, shared sandbox, nightly reset — so the demo is never mistaken for
 // their own data (R10 context).
 const SEO = {
-  title: 'Try Takkada on a Live Demo Company | No Signup',
+  title: 'Try Takkada on a Live Demo Company',
   description:
-    'Open a real distributor’s books in Takkada from your phone: parties, invoices, receivables, reports. No signup, no setup. Resets every night.',
+    'Open a real distributor’s books in Takkada from your phone: parties, invoices, receivables, reports. Enter your number, get a code, look around. Resets nightly.',
   path: '/demo/',
 };
 
@@ -39,20 +39,20 @@ const whatYouWillSee = [
   {
     icon: ShieldCheck,
     title: 'A sandbox you cannot break',
-    body: 'The demo is shared and resets to the same clean dataset every night. Create, edit, explore — nothing you do is permanent.',
+    body: 'The demo is shared and resets to the same clean dataset every night. Create, edit, explore, nothing you do is permanent. Owner-only screens like team management and salesman tracking sit outside it.',
   },
 ];
 
 const steps = [
   {
     step: '01',
-    title: 'Tap the button',
-    body: 'The demo opens in your browser. No signup, no OTP, no app install.',
+    title: 'Enter your number',
+    body: 'We text you a 6-digit code. Nothing to install, no password to pick.',
   },
   {
     step: '02',
     title: 'Look around',
-    body: 'It works exactly like a set-up Takkada account: home, parties, invoices, reports.',
+    body: 'It works exactly like a set-up Takkada account: home, parties, invoices, reports. Everyone lands in the same sample company, so treat it as a showroom rather than your own books.',
   },
   {
     step: '03',
@@ -95,7 +95,7 @@ function TryDemo() {
             <p className="hero-subtitle icp-hero-subtitle">
               The demo company is a full year of a distributor&rsquo;s business running
               in Takkada: parties, invoices, receivables, reports. Walk through it
-              from your phone{demoEntryLive ? ' — no signup, nothing to install' : ''}.
+              from your phone{demoEntryLive ? '. Enter your number, we text you a code, and it opens' : ''}.
             </p>
             <div className="hero-ctas">
               <DemoTryCTA context="demo-page" />

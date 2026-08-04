@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // Render Head children inline so title/canonical/JSON-LD can be asserted
@@ -12,15 +12,21 @@ vi.mock('vite-react-ssg', () => ({
 import TryDemo from '../TryDemo';
 import { routeMetadata } from '../../data/siteMetadata';
 import { appLinks, demoEntryLive } from '../../data/siteContent';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
 const CANONICAL = 'https://takkada.com/demo/';
 
+// DemoTryCTA calls usePhoneModal(), which throws by design outside a
+// provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
+// so this render goes red at either flag value without the wrapper.
 function renderRoute() {
   const { container } = render(
     <MemoryRouter>
-      <TryDemo />
+      <PhoneModalProvider>
+        <TryDemo />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
   const schemas = [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>
@@ -69,17 +75,28 @@ describe('TryDemo route (/demo/)', () => {
       expect(hrefs).not.toContain(appLinks.demoApp);
     });
 
-    it('with the demo entry live, the primary points into the app and fires demo_try_click', () => {
+    it('with the demo entry live, the primary opens the capture modal and fires demo_try_click', () => {
       if (!demoEntryLive) return; // armed by the same flip
       window.clarity = vi.fn();
-      const { container } = renderRoute();
-      const appLink = [...container.querySelectorAll('a')].find(
-        (a) => a.getAttribute('href') === appLinks.demoApp
-      );
-      expect(appLink).toBeDefined();
-      appLink.click();
+      renderRoute();
+
+      const cta = screen.getAllByRole('button', { name: /try it yourself/i })[0];
+      expect(cta).toBeDefined();
+      fireEvent.click(cta);
+
       expect(window.clarity).toHaveBeenCalledWith('event', 'demo_try_click');
       delete window.clarity;
+    });
+
+    // Unconditional on purpose. The flag pair above makes exactly one branch
+    // run, so neither can hold a property that must be true at BOTH values.
+    // An href into the app would let a middle-click or a copied link reach the
+    // demo with no lead captured, which is the whole point of the modal.
+    it('never renders an outbound app anchor, at either flag value', () => {
+      const { container } = renderRoute();
+      const hrefs = [...container.querySelectorAll('a')].map((a) => a.getAttribute('href') ?? '');
+      expect(hrefs.filter((h) => h.includes('app.takkada.com'))).toEqual([]);
+      expect(hrefs).not.toContain(appLinks.demoApp);
     });
   });
 });

@@ -6,6 +6,12 @@ const DEFAULT_OPTIONS = Object.freeze({
   title: 'Book a Demo',
   subtitle: "Enter your phone number and we'll set up a personalized walkthrough.",
   submitLabel: 'Continue to Book',
+  // Where submitting sends the visitor: 'calendar' (the booking page) or
+  // 'demo' (straight into the app with the number pre-filled). Declared here
+  // rather than only in PhoneModal's defaults because openWith() spreads over
+  // DEFAULT_OPTIONS, so a key missing from this object is a key that resets to
+  // undefined instead of to its default on the next open.
+  destination: 'calendar',
 });
 
 export function PhoneModalProvider({ children }) {

@@ -19,13 +19,19 @@ import {
   storyTeamSales,
 } from '../../data/siteContent';
 import { whatsappHref, WHATSAPP_MESSAGES } from '../../lib/whatsapp';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
+// DemoTryCTA calls usePhoneModal(), which throws by design outside a
+// provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
+// so this render goes red at either flag value without the wrapper.
 function renderHome() {
   return render(
     <MemoryRouter>
-      <Home />
+      <PhoneModalProvider>
+        <Home />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
 }
@@ -116,8 +122,19 @@ describe('anchor contract (no dead anchors, CLAUDE.md §11.6)', () => {
 describe('demo-entry gate', () => {
   it.skipIf(demoEntryLive)('renders no demo-entry CTA while demoEntryLive is false', () => {
     const { container } = renderHome();
-    expect(container.querySelector(`a[href="https://app.takkada.com/demo"]`)).toBeNull();
     expect(container.textContent).not.toMatch(/try it yourself/i);
+  });
+
+  // Unconditional. The capture modal, not an anchor, is the only way into the
+  // demo: a middle-click or a copied href would otherwise reach the app with
+  // no lead recorded, which is exactly what R2 exists to prevent. Asserting
+  // this only in the flag-false branch would make it vacuous after the flip.
+  it('never renders an anchor into the app, at either flag value', () => {
+    const { container } = renderHome();
+    const appAnchors = [...container.querySelectorAll('a')]
+      .map((a) => a.getAttribute('href') ?? '')
+      .filter((h) => h.includes('app.takkada.com'));
+    expect(appAnchors).toEqual([]);
   });
 });
 

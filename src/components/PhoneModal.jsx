@@ -3,6 +3,9 @@ import { X, Phone, ArrowRight, Loader2 } from 'lucide-react';
 import { appLinks } from '../data/siteContent';
 import { demoBookingConfig } from '../config/demoBooking';
 import {
+  BOOKING_SOURCE_CALENDAR,
+  BOOKING_SOURCE_DEMO,
+  buildDemoHandoffUrl,
   sanitizePhoneInput,
   submitDemoBooking,
   validateIndianMobileNumber,
@@ -11,6 +14,13 @@ import { track } from '../lib/track';
 
 const INPUT_FOCUS_DELAY_MS = 150;
 const AUTO_CLOSE_DELAY_MS = 800;
+
+export const DESTINATION_CALENDAR = 'calendar';
+export const DESTINATION_DEMO = 'demo';
+
+function defaultNavigate(url) {
+  window.location.assign(url);
+}
 
 function clearTimer(timerRef) {
   if (!timerRef.current) {
@@ -27,7 +37,16 @@ function PhoneModal({
   title = 'Book a Demo',
   subtitle = "Enter your phone number and we'll set up a personalized walkthrough.",
   submitLabel = 'Continue to Book',
+  // 'calendar' opens the Notion booking page in a new tab. 'demo' navigates
+  // this tab straight into the app's demo entry screen with the number
+  // pre-filled. Injected through openWith() so there is one modal, not two.
+  destination = DESTINATION_CALENDAR,
+  // Seam for the ordering test. jsdom has no popup blocker and refuses real
+  // navigation, so the only way to prove the navigation happens BEFORE the
+  // capture settles is to observe it.
+  navigate = defaultNavigate,
 }) {
+  const isDemo = destination === DESTINATION_DEMO;
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -90,6 +109,42 @@ function PhoneModal({
   const handleSubmit = async () => {
     if (!validate()) return;
 
+    const pageUrl = window.location.href;
+
+    if (isDemo) {
+      // Fire the capture and DO NOT await it, then navigate this tab. Same-tab
+      // navigation has no user-activation constraint, so there is no popup
+      // blocker to work around and no window.open to reintroduce. keepalive is
+      // what lets the request finish after this document is gone.
+      //
+      // The capture is best-effort; entry is not. A visitor must reach the demo
+      // even if the lead never lands, so nothing here awaits or throws.
+      // try/catch AND .catch(): submitDemoBooking is async today, so a failure
+      // arrives as a rejection, but a synchronous throw (a missing config, a
+      // fetch that is not a function) would otherwise escape handleSubmit and
+      // the navigation below would never run. The visitor would sit on an
+      // unchanged modal with no error, which is the worst outcome available.
+      try {
+        submitDemoBooking({
+          phone,
+          pageUrl,
+          config: demoBookingConfig,
+          source: BOOKING_SOURCE_DEMO,
+          keepalive: true,
+        })?.catch?.(() => {
+          // Deliberately silent to the visitor. mark_demo_lead_verified() picks
+          // them up if they finish OTP; if they do not, the lead is genuinely
+          // lost and there is nothing useful to say on a screen they have left.
+        });
+      } catch {
+        // Same reasoning.
+      }
+
+      track('demo_entry_start', { cta_context: 'phone-modal' });
+      navigate(buildDemoHandoffUrl(phone, appLinks.demoApp));
+      return;
+    }
+
     // Open the calendar synchronously, inside the click gesture, before any
     // await. Browsers only honor window.open('_blank') while transient user
     // activation is live; awaiting the booking fetch first ends that gesture,
@@ -105,8 +160,9 @@ function PhoneModal({
     try {
       await submitDemoBooking({
         phone,
-        pageUrl: window.location.href,
+        pageUrl,
         config: demoBookingConfig,
+        source: BOOKING_SOURCE_CALENDAR,
       });
     } catch {
       setError('Could not save your number. Please try again.');
@@ -166,8 +222,22 @@ function PhoneModal({
             />
           </div>
           {error && <p className="phone-error">{error}</p>}
-          {status === 'success' && (
+          {status === 'success' && !isDemo && (
             <p className="phone-success">Redirecting to calendar...</p>
+          )}
+          {/* Collection notice at the point of collection. The capture fires
+              before OTP and before any other screen, so this is the only place
+              a visitor is told what the number is for. */}
+          <p className="phone-consent-note">
+            {isDemo
+              ? 'We will use this number to send your code and to contact you about Takkada. '
+              : 'We will use this number to contact you about Takkada. '}
+            <a href="/privacy-policy">Privacy policy</a>.
+          </p>
+          {isDemo && (
+            <p className="phone-consent-note">
+              The demo takes a few seconds to open on mobile.
+            </p>
           )}
         </div>
 
