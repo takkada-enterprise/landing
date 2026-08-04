@@ -565,7 +565,7 @@ export const appLinks = {
 // renders a dead app link. Flipping early ships one: anonymous sign-ins are off
 // on prod permanently (D5), so a visitor would land on a screen that cannot
 // sign them in.
-export const demoEntryLive = false;
+export const demoEntryLive = true;
 
 export const comparisonSection = {
   overline: 'WHY TAKKADA',
