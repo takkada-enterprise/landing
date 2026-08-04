@@ -9,13 +9,19 @@ vi.mock('vite-react-ssg', () => ({
 
 import Home from '../Home';
 import { pricing, planPricing } from '../../data/siteContent';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
+// DemoTryCTA calls usePhoneModal(), which throws by design outside a
+// provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
+// so this render goes red at either flag value without the wrapper.
 function renderHome() {
   const { container } = render(
     <MemoryRouter>
-      <Home />
+      <PhoneModalProvider>
+        <Home />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
   return container;

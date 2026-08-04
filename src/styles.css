@@ -2646,6 +2646,18 @@ html.js .animated-heading .letter {
   font-weight: 600;
 }
 
+.phone-consent-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+.phone-consent-note a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
 .phone-modal-footer {
   padding: 24px 32px 32px;
   display: flex;

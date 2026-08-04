@@ -11,6 +11,7 @@ vi.mock('vite-react-ssg', () => ({
 
 import Home from '../Home';
 import { appLinks, testimonials, trustSection } from '../../data/siteContent';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -25,10 +26,15 @@ const BANNED_TOKENS = [
   'bank-grade',
 ];
 
+// DemoTryCTA calls usePhoneModal(), which throws by design outside a
+// provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
+// so this render goes red at either flag value without the wrapper.
 function renderHome() {
   return render(
     <MemoryRouter>
-      <Home />
+      <PhoneModalProvider>
+        <Home />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
 }

@@ -545,15 +545,27 @@ export const appLinks = {
   // here when a dedicated business number exists. Empty string disables the
   // WhatsApp CTAs site-wide (they fall back to the calendar link).
   whatsappNumber: '919435977777',
-  // The app's anonymous instant demo entry (takkada PR #270, /demo route).
-  demoApp: 'https://app.takkada.com/demo',
+  // The app's demo entry screen. THE HASH IS LOAD-BEARING: the app runs
+  // hash routing, so 'https://app.takkada.com/demo' (the value this carried
+  // until 2026-08-04) has never resolved to anything. The phone is appended as
+  // '?phone=91XXXXXXXXXX' INSIDE the fragment, which means it never reaches
+  // Cloudflare or any server. Link app.takkada.com directly; a redirect from
+  // the marketing domain cannot forward a fragment.
+  demoApp: 'https://app.takkada.com/#/demo',
 };
 
-// Flip to true ONLY after the app's anonymous demo entry is live in prod
-// (takkada /demo route merged + Supabase anonymous sign-ins enabled and the
-// full site→app walk verified on a phone). While false, /demo/ and the hero
-// keep WhatsApp as the primary action and never render a dead app link.
-export const demoEntryLive = false;
+// Flip to true ONLY after BOTH app repos are promoted to main and the prod
+// round trip has been walked with this flag still false: takkada main serving
+// the phone-aware /demo screen, supabase-functions main serving
+// demo-entry-verified and the hardened paysaathi-booking. src/config/demoBooking
+// hard-codes the PROD project, so every build including previews already writes
+// to prod; only the app side needs promoting.
+//
+// While false, the demo CTAs keep their existing fallbacks and the site never
+// renders a dead app link. Flipping early ships one: anonymous sign-ins are off
+// on prod permanently (D5), so a visitor would land on a screen that cannot
+// sign them in.
+export const demoEntryLive = true;
 
 export const comparisonSection = {
   overline: 'WHY TAKKADA',

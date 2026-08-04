@@ -11,6 +11,7 @@ vi.mock('vite-react-ssg', () => ({
 
 import TallyOnMobile from '../TallyOnMobile';
 import { routeMetadata } from '../../data/siteMetadata';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -19,7 +20,9 @@ const CANONICAL = 'https://takkada.com/tally-on-mobile/';
 function renderRoute() {
   const { container } = render(
     <MemoryRouter>
-      <TallyOnMobile />
+      <PhoneModalProvider>
+        <TallyOnMobile />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
   const schemas = [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>

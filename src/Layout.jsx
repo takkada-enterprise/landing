@@ -197,13 +197,15 @@ function StickyMobileCTA({ menuOpen }) {
 
 function ModalMount() {
   const { open, setOpen, options } = usePhoneModal();
+  // Spread, do not enumerate. This listed three named props until 2026-08-04,
+  // which meant openWith({ destination }) was accepted by the context, stored,
+  // and then silently dropped here. The demo CTA would have opened the calendar
+  // with no error anywhere.
   return (
     <PhoneModal
+      {...options}
       isOpen={open}
       onClose={() => setOpen(false)}
-      title={options.title}
-      subtitle={options.subtitle}
-      submitLabel={options.submitLabel}
     />
   );
 }
