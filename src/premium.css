@@ -68,18 +68,23 @@ body {
   box-shadow: 0 1px 0 rgba(20,36,28,0.06), 0 12px 30px -22px rgba(20,36,28,0.3);
 }
 .nav-links a { position: relative; }
+/* Full-width underline revealed by transform, not by animating `right` —
+   scaleX composites on the GPU; the old right-edge animation relaid out
+   the nav on every frame. */
 .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0; right: 100%;
+  left: 0; right: 0;
   bottom: 4px;
   height: 2px;
   border-radius: 2px;
   background: var(--color-primary);
-  transition: right var(--dur) var(--ease-out);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
-  .nav-links a:hover::after { right: 0; }
+  .nav-links a:hover::after { transform: scaleX(1); }
 }
 
 /* ── Buttons: pill with quiet shine + confident lift ── */
@@ -187,7 +192,7 @@ body {
 }
 
 /* ── Reveal: add a hint of scale for depth ── */
-html.js .reveal { transform: translateY(28px) scale(0.985); }
+html.js .reveal { transform: translateY(20px) scale(0.985); }
 html.js .reveal.is-visible { transform: translateY(0) scale(1); }
 
 /* ═══════════════════════════════════════════════════
