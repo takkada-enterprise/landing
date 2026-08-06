@@ -128,6 +128,8 @@ export const storyTeamSales = {
       body:
         'One tap marks the visit with time and place. You see who is where without a single phone call.',
       screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
+      screenshotWidth: 600,
+      screenshotHeight: 1242,
       screenshotAlt: 'Field visit feed in Takkada showing salesmen checked in at dealers',
     },
     {
@@ -135,6 +137,8 @@ export const storyTeamSales = {
       body:
         'Every visit carries a geo-tagged, time-stamped photo. No "shop band tha" stories, no fake visits.',
       screenshot: '/assets/screenshots/field-visit-photo-mockup.webp',
+      screenshotWidth: 600,
+      screenshotHeight: 1243,
       screenshotAlt: 'Geo-tagged, time-stamped field visit photo of a dealer shop in Takkada',
     },
     {
@@ -142,6 +146,8 @@ export const storyTeamSales = {
       body:
         'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
       screenshot: '/assets/screenshots/field-visit-outcomes-mockup.webp',
+      screenshotWidth: 600,
+      screenshotHeight: 1243,
       screenshotAlt: 'Field visit outcomes in Takkada: visits, payments received, and overdue per salesman',
     },
     {
@@ -149,6 +155,8 @@ export const storyTeamSales = {
       body:
         'Monthly targets, live progress, and commission worked out per salesman. The month-end argument is over before it starts.',
       screenshot: '/assets/screenshots/sales-target-mockup.webp',
+      screenshotWidth: 600,
+      screenshotHeight: 1243,
       screenshotAlt: 'Team Sales leaderboard in Takkada with targets, progress, and commission per salesman',
     },
   ],

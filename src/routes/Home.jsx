@@ -115,7 +115,14 @@ function StorySection({ story, alt = false, ctaContext }) {
               <div className="hv3-step-content">
                 {step.screenshot && (
                   <div className="hv3-step-phone">
-                    <img src={step.screenshot} alt={step.screenshotAlt || ''} loading="lazy" decoding="async" />
+                    <img
+                      src={step.screenshot}
+                      alt={step.screenshotAlt || ''}
+                      width={step.screenshotWidth}
+                      height={step.screenshotHeight}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 )}
                 <h3 className="hv3-step-title">{step.title}</h3>
@@ -314,6 +321,8 @@ function Home({ seo = HOME_SEO }) {
                 <img
                   src="/assets/screenshots/home-screen-framed.webp"
                   alt="Takkada home screen showing receivables dashboard"
+                  width={800}
+                  height={1624}
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"
