@@ -697,8 +697,13 @@ function Home({ seo = HOME_SEO }) {
               <br />
               Start collecting.
             </h2>
-            <p>
-              Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your business.
+            {/* The onboarding-speed line ships behind the operator eyeball
+                (open question 2 in the 2026-08-06 plan): KYC ~24h and
+                same-day Tally connect mirror the long-standing FAQ claim,
+                but the operator confirms before merge. */}
+            <p className="tabular-nums">
+              Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your
+              business. KYC clears in about 24 hours, and Tally connects the same day.
             </p>
             <div className="final-cta-actions">
               <WhatsAppCTA context="final-cta" variant="dark" />
