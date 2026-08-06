@@ -78,7 +78,9 @@ body {
   background: var(--color-primary);
   transition: right var(--dur) var(--ease-out);
 }
-.nav-links a:hover::after { right: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover::after { right: 0; }
+}
 
 /* ── Buttons: pill with quiet shine + confident lift ── */
 .cta-btn { position: relative; overflow: hidden; isolation: isolate; }
@@ -91,8 +93,12 @@ body {
   position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
 }
-.cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(20,36,28,0.2), 0 18px 36px -12px rgba(27,48,38,0.55); }
-.cta-btn:active { transform: translateY(0); }
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(20,36,28,0.2), 0 18px 36px -12px rgba(27,48,38,0.55); }
+}
+/* Press: cancel any hover lift and squeeze — the button visibly hears the
+   tap. Last .cta-btn:active in the cascade, so this is the one that wins. */
+.cta-btn:active { transform: translateY(0) scale(0.97); }
 
 /* Sweep highlight (cheap: single transform, only on hover) */
 .cta-btn--primary::after,
@@ -102,8 +108,10 @@ body {
   background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
   transform: translateX(0); opacity: 0;
 }
-.cta-btn--primary:hover::after,
-.cta-btn--dark:hover::after { animation: btnSweep 0.7s var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn--primary:hover::after,
+  .cta-btn--dark:hover::after { animation: btnSweep 0.7s var(--ease-out); }
+}
 @keyframes btnSweep { from { transform: translateX(0); opacity: .8; } to { transform: translateX(420%); opacity: 0; } }
 
 /* ── Hero: editorial scale + a phone that floats on a glow plate ── */
@@ -145,12 +153,14 @@ body {
 .pain-card, .tally-card, .grid-card, .how-card, .feature-grid-wrap .grid-card {
   transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
 }
-.pain-card:hover, .tally-card:hover, .grid-card:hover, .how-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-rise);
-}
 .tally-card-icon, .grid-card-icon { transition: transform var(--dur) var(--ease-out); }
-.tally-card:hover .tally-card-icon, .grid-card:hover .grid-card-icon { transform: scale(1.08) rotate(-3deg); }
+@media (hover: hover) and (pointer: fine) {
+  .pain-card:hover, .tally-card:hover, .grid-card:hover, .how-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-rise);
+  }
+  .tally-card:hover .tally-card-icon, .grid-card:hover .grid-card-icon { transform: scale(1.08) rotate(-3deg); }
+}
 
 /* ── Metrics: gradient numbers on ink ── */
 .metric-value { background: linear-gradient(110deg, #fff, #cfe4d4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }

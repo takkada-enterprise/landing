@@ -491,12 +491,24 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
    over the 4.5s interval (duration mirrors RoadSection's 4500ms). The bar
    disappears once the visitor clicks, because nothing will change on its
    own after that. */
-.home-v3 .hv3-tour-step button:hover .hv3-tour-step-title {
-  color: var(--color-text);
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-tour-step button:hover .hv3-tour-step-title {
+    color: var(--color-text);
+  }
+
+  .home-v3 .hv3-tour-step button:hover .hv3-tour-num {
+    border-color: var(--color-primary);
+  }
 }
 
-.home-v3 .hv3-tour-step button:hover .hv3-tour-num {
-  border-color: var(--color-primary);
+/* Press feedback on the station rows: the tap reads before the phone
+   changes screens. Feedback, not motion — stays on under reduced motion. */
+.home-v3 .hv3-tour-step button {
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.home-v3 .hv3-tour-step button:active {
+  transform: scale(0.99);
 }
 
 .home-v3 .hv3-tour-progress {
@@ -685,9 +697,11 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
 }
 
-.home-v3 .hv3-grid-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-grid-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .home-v3 .hv3-grid-icon {
