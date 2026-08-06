@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react';
 
-// Animates a stat from 0 to its final value the first time it scrolls into
+// Animates a stat up to its final value the first time it scrolls into
 // view. Motion reason (CLAUDE.md §11.5): the proof-band numbers are
 // collections accumulating, so a one-time count-up mirrors what the number
 // is. SSG output, crawlers, no-JS visitors, and reduced-motion users always
 // get the final value rendered as real text.
-function CountUp({ value, prefix = '', suffix = '', duration = 1400, className = '' }) {
+// The count starts at COUNT_FLOOR of the final value, not 0: screenshots
+// and social embeds capture mid-animation, and "36+" framed as the real
+// stat is a lie the page never gets to correct.
+const COUNT_FLOOR = 0.7;
+
+function CountUp({ value, prefix = '', suffix = '', duration = 900, className = '' }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -21,10 +26,11 @@ function CountUp({ value, prefix = '', suffix = '', duration = 1400, className =
           if (!entry.isIntersecting) return;
           observer.disconnect();
           const start = performance.now();
+          const from = value * COUNT_FLOOR;
           const tick = (now) => {
             const t = Math.min((now - start) / duration, 1);
             const eased = 1 - (1 - t) ** 3;
-            el.textContent = `${prefix}${Math.round(value * eased)}${suffix}`;
+            el.textContent = `${prefix}${Math.round(from + (value - from) * eased)}${suffix}`;
             if (t < 1) raf = requestAnimationFrame(tick);
           };
           raf = requestAnimationFrame(tick);
