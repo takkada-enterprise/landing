@@ -29,7 +29,6 @@ import WhatsAppCTA from '../components/WhatsAppCTA';
 import CountUp from '../components/CountUp';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
-import TestimonialCard from '../components/TestimonialCard';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
@@ -49,6 +48,8 @@ import {
   testimonials,
   trustSection,
   demoEntryLive,
+  proofStrip,
+  differentiators,
 } from '../data/siteContent';
 
 const gridIconMap = {
@@ -332,6 +333,36 @@ function Home({ seo = HOME_SEO }) {
       {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
       <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
 
+      {/* ── Proof strip: the customer's voice + the two confirmed figures,
+             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The
+             stats render static here — the hero already counted them up,
+             and a second count would be decoration without a reason. ── */}
+      <section className="hv3-proof" id={proofStrip.id}>
+        <div className="container">
+          <div className="hv3-proof-card reveal">
+            <figure className="hv3-proof-quote">
+              <blockquote className="hv3-proof-text">{testimonials[0].quote}</blockquote>
+              <figcaption className="hv3-proof-attrib">
+                <span className="hv3-proof-name">{testimonials[0].name}</span>
+                <span className="hv3-proof-role">{testimonials[0].role}</span>
+              </figcaption>
+            </figure>
+            <div className="hv3-proof-stats">
+              {heroContent.stats.map((s) => (
+                <div key={s.label} className="hv3-stat">
+                  <span className="hv3-stat-value tabular-nums">
+                    {s.prefix}
+                    {s.value}
+                    {s.suffix}
+                  </span>
+                  <span className="hv3-stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Story 2: Team Sales / the field day ── */}
       <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />
 
@@ -417,6 +448,34 @@ function Home({ seo = HOME_SEO }) {
             </a>
             <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
           </div>
+        </div>
+      </section>
+
+      {/* ── Differentiator band: what only Takkada does, competitors
+             unnamed (2026-08-06 conversion pass, R4). Claims contract lives
+             in siteContent.js + differentiators.test.js. ── */}
+      <section className="hv3-diff" id={differentiators.id}>
+        <div className="container">
+          <div className="hv3-story-head reveal">
+            <span className="section-label">{differentiators.overline}</span>
+            <h2 className="hv3-story-title">{differentiators.heading}</h2>
+            <p className="hv3-story-intro">{differentiators.intro}</p>
+          </div>
+          <div className="hv3-diff-rows">
+            {differentiators.rows.map((row) => (
+              <div key={row.stop} className="hv3-diff-row reveal">
+                <div className="hv3-diff-cell hv3-diff-cell--others">
+                  <span className="hv3-diff-tag">{row.stop}</span>
+                  <p className="tabular-nums">{row.others}</p>
+                </div>
+                <div className="hv3-diff-cell hv3-diff-cell--takkada">
+                  <span className="hv3-diff-tag hv3-diff-tag--takkada">Takkada keeps going</span>
+                  <p className="tabular-nums">{row.takkada}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="hv3-story-footnote reveal">{differentiators.footnote}</p>
         </div>
       </section>
 
@@ -562,22 +621,9 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Testimonials (ported; structure pinned by home-trust.test.jsx) ── */}
-      <section className="testimonials-section" id="testimonial">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">From Takkada Customers</span>
-            <h2 className="section-title">What our customers say</h2>
-          </div>
-          <div className="testimonial-row">
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={t.name} {...t} delay={i * 80} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Data safety / legitimacy (ported; pinned by home-trust.test.jsx) ── */}
+      {/* ── Data safety / legitimacy (ported; pinned by home-trust.test.jsx).
+             The testimonial wall that sat here moved up into the proof strip
+             (2026-08-06): proof now lands before the pricing decision. ── */}
       <section className="tally-section trust-section" id="data-safety">
         <div className="container">
           <div className="section-header reveal">

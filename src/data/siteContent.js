@@ -277,6 +277,57 @@ export const testimonials = [
   },
 ];
 
+// Proof strip (2026-08-06 conversion pass, R3): the pull-quote and the two
+// confirmed figures move AHEAD of pricing so the visitor reaches the rate
+// card already convinced. Renders testimonials[0] and heroContent.stats;
+// no copy of its own beyond the overline.
+export const proofStrip = {
+  id: 'testimonial',
+  overline: 'From a Takkada customer',
+};
+
+// The differentiator band (2026-08-06 conversion pass, R4): what only
+// Takkada does, competitors deliberately unnamed. Every row was verified
+// against the 2026-08-06 competitor grid and live prod:
+//   - auto WhatsApp dispatch: live, Takkada-only in the grid
+//   - zero-MDR UPI + auto-reconciliation: live, Takkada-only in the grid
+//     (the MDR sentence is locked wording; differentiators.test.js pins it)
+//   - cancel IRN / e-way bill from the phone: Takkada-unique as of
+//     2026-08-06, re-verify fortnightly. CLOSE is not built. Never claim it.
+// Excluded by the same check: godown/cost-centre RBAC (plan-ready, NOT
+// built) and cost-centre allocation (prod mappings table has zero rows,
+// verified 2026-08-06). differentiators.test.js enforces the exclusions.
+export const differentiators = {
+  id: 'why-takkada',
+  overline: 'Where The Others Stop',
+  heading: 'Plenty of apps show you Tally on a phone. The chasing stays yours.',
+  intro:
+    'The common pattern stops when the invoice PDF lands on your screen. Everything after that, the sending, the collecting, the matching, is still your evening. Here is where Takkada keeps going.',
+  rows: [
+    {
+      stop: 'The pattern stops at the invoice PDF',
+      others: 'The invoice is on your phone, and sending it is still your job. Party by party, attachment by attachment.',
+      takkada: 'The PDF reaches the customer on WhatsApp the moment the invoice posts in Tally, with a Pay now link attached. You send nothing.',
+    },
+    {
+      stop: 'The pattern stops at showing what is due',
+      others: 'The app tells you who owes what. Collection still happens over phone calls and QR-code screenshots.',
+      takkada: 'Every invoice carries a UPI payment link. 0% MDR on UPI collections, no transaction cap, no monthly fee.',
+    },
+    {
+      stop: 'The pattern stops before the books',
+      others: 'When money does land, someone still sits with the bank statement at 9 PM matching payments to invoices in Tally.',
+      takkada: 'The payment matches itself to the invoice and posts the receipt entry back into Tally on its own.',
+    },
+    {
+      stop: 'The pattern stops at generating the paperwork',
+      others: 'Where e-invoicing exists at all, it ends at generation. A wrong bill still means logging into the government portal from the office PC.',
+      takkada: 'Generate and cancel the IRN and the e-way bill from the phone, each written back against the same voucher in Tally.',
+    },
+  ],
+  footnote: 'Every behavior above is live in the product today. None of it is roadmap.',
+};
+
 // Answers the fear that dominates the "Tally mobile app" informational SERP:
 // will connecting an app break my Tally, and is my data safe. Every claim is
 // a specific behavior, not a security superlative.

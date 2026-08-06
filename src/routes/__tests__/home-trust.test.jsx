@@ -39,21 +39,23 @@ function renderHome() {
   );
 }
 
-describe('testimonial wall', () => {
-  it('renders one card per testimonial', () => {
-    const { container } = renderHome();
-    const cards = container.querySelectorAll('#testimonial .testimonial-card');
-    expect(cards).toHaveLength(testimonials.length);
-  });
-
-  it('shows each quote, name, and role verbatim', () => {
+describe('proof strip (the testimonial moved ahead of pricing, 2026-08-06)', () => {
+  it('shows the lead quote, name, and role verbatim', () => {
     const { container } = renderHome();
     const section = container.querySelector('#testimonial');
-    for (const t of testimonials) {
-      expect(section.textContent).toContain(t.quote);
-      expect(section.textContent).toContain(t.name);
-      expect(section.textContent).toContain(t.role);
-    }
+    expect(section).not.toBeNull();
+    expect(section.textContent).toContain(testimonials[0].quote);
+    expect(section.textContent).toContain(testimonials[0].name);
+    expect(section.textContent).toContain(testimonials[0].role);
+  });
+
+  it('renders proof and the differentiator band before the pricing table (R3/R4)', () => {
+    const { container } = renderHome();
+    const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
+    expect(ids.indexOf('testimonial')).toBeGreaterThan(-1);
+    expect(ids.indexOf('why-takkada')).toBeGreaterThan(-1);
+    expect(ids.indexOf('testimonial')).toBeLessThan(ids.indexOf('pricing'));
+    expect(ids.indexOf('why-takkada')).toBeLessThan(ids.indexOf('pricing'));
   });
 
   it('never renders placeholder copy (real quotes only)', () => {

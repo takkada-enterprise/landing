@@ -621,6 +621,140 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   }
 }
 
+/* ═══════════ Proof strip (2026-08-06 conversion pass) ═══════════ */
+/* One white plate: the customer's voice beside the two confirmed figures.
+   Sits between the tour and Story 2, so proof lands before pricing. */
+.home-v3 .hv3-proof { padding: 24px 0 104px; }
+
+.home-v3 .hv3-proof-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.5fr);
+  align-items: center;
+  gap: 48px;
+  padding: 48px 56px;
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.home-v3 .hv3-proof-quote { margin: 0; }
+
+.home-v3 .hv3-proof-text {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  text-wrap: balance;
+  font-size: clamp(19px, 2.2vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0 0 20px;
+}
+
+.home-v3 .hv3-proof-text::before { content: "\201C"; }
+.home-v3 .hv3-proof-text::after { content: "\201D"; }
+
+.home-v3 .hv3-proof-attrib {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-v3 .hv3-proof-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.home-v3 .hv3-proof-role {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+}
+
+/* The two figures stack beside the quote, separated by a hairline. */
+.home-v3 .hv3-proof-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 48px;
+  border-left: 1px solid var(--color-outline, #e5e5df);
+}
+
+@media (max-width: 767px) {
+  .home-v3 .hv3-proof { padding: 0 0 72px; }
+  .home-v3 .hv3-proof-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px 24px;
+  }
+  .home-v3 .hv3-proof-stats {
+    flex-direction: row;
+    gap: 36px;
+    padding-left: 0;
+    padding-top: 24px;
+    border-left: none;
+    border-top: 1px solid var(--color-outline, #e5e5df);
+  }
+}
+
+/* ═══════════ Differentiator band (2026-08-06 conversion pass) ═══════════ */
+/* Each row is one plate split in two: where the common pattern stops
+   (muted), where Takkada carries it (white, sage tag). Competitors are
+   never named — differentiators.test.js enforces it. */
+.home-v3 .hv3-diff { padding: 104px 0; }
+
+.home-v3 .hv3-diff-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-v3 .hv3-diff-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.home-v3 .hv3-diff-cell {
+  padding: 26px 30px;
+}
+
+.home-v3 .hv3-diff-cell--others {
+  background: var(--color-surface-variant, #f3f3ee);
+}
+
+.home-v3 .hv3-diff-cell p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.home-v3 .hv3-diff-cell--others p { color: var(--color-text-secondary); }
+.home-v3 .hv3-diff-cell--takkada p { color: var(--color-text); }
+
+.home-v3 .hv3-diff-tag {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.home-v3 .hv3-diff-tag--takkada { color: var(--color-primary); }
+
+.home-v3 .hv3-diff .hv3-story-footnote { margin-top: 28px; }
+
+@media (max-width: 767px) {
+  .home-v3 .hv3-diff { padding: 72px 0; }
+  .home-v3 .hv3-diff-row { grid-template-columns: 1fr; }
+  .home-v3 .hv3-diff-cell { padding: 20px 22px; }
+}
+
 /* ═══════════ AI showcase band ═══════════ */
 .home-v3 .hv3-ai {
   padding: 104px 0;
