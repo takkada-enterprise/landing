@@ -58,10 +58,12 @@ describe('self-hosted webfonts', () => {
 // acts on: link/script tags, and CSS url()/@import targets.
 const GOOGLE_FONT_HOST = /fonts\.(googleapis|gstatic)\.com/;
 
-const linkAndScriptTags = (html) => html.match(/<(?:link|script)\b[^>]*>/g) || [];
+// Case-insensitive throughout: HTML tag names and attributes are not
+// case-sensitive, so <LINK HREF=...> is just as load-bearing as <link href=...>.
+const linkAndScriptTags = (html) => html.match(/<(?:link|script)\b[^>]*>/gi) || [];
 const cssResourceRefs = (css) => [
-  ...(css.match(/url\([^)]*\)/g) || []),
-  ...(css.match(/@import[^;]*;/g) || []),
+  ...(css.match(/url\([^)]*\)/gi) || []),
+  ...(css.match(/@import[^;]*;/gi) || []),
 ];
 
 describe('no Google Fonts dependency remains', () => {
@@ -87,7 +89,7 @@ describe('no Google Fonts dependency remains', () => {
 
   it('keeps no preconnect to the Google font hosts', () => {
     for (const tag of linkAndScriptTags(indexHtml)) {
-      if (/rel="preconnect"/.test(tag)) expect(tag).not.toMatch(GOOGLE_FONT_HOST);
+      if (/rel=["']?preconnect/i.test(tag)) expect(tag).not.toMatch(GOOGLE_FONT_HOST);
     }
   });
 });
