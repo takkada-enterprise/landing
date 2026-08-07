@@ -2,24 +2,239 @@
 
 > Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.
 
-Pricing (annual, GST extra): Voucher Model ₹4,500, Collections Model ₹6,480, Full Access ₹8,499.
+Pricing (annual list price per business, GST extra): Clarity ₹2,900 · Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹8,500. A 3-year term is 25% off, billed once.
+
+Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year · Extra device ₹3,000 / device / year · WhatsApp 8,000-message pack ₹2,000 / year · Your own WhatsApp number (early access) ₹2,000 / year.
 
 ## Key pages
 
-- [Home](https://takkada.com/): what Takkada does for a distributor on Tally, pricing, and FAQs
-- [Tally on mobile](https://takkada.com/tally-on-mobile/): the exact-match landing for viewing Tally from a phone
-- [Tally mobile app comparison](https://takkada.com/tally-mobile-app-comparison/): Takkada vs Biz Analyst vs Livekeeping, feature by feature
-- [For distributors](https://takkada.com/for-distributors/): the collections-heavy distributor workflow
-- [WhatsApp invoice from Tally](https://takkada.com/whatsapp-invoice-tally/): field-sales invoicing and auto-dispatch
-- [Auto-reconciliation](https://takkada.com/auto-reconciliation-tally/): payments matching themselves into Tally
-- [Partners](https://takkada.com/partners/): the Tally partner reseller program
+- [Home](https://takkada.com/): What Takkada does for a distributor running Tally: mobile invoicing, WhatsApp dispatch, UPI collection at 0% MDR, and auto-reconciliation back into Tally. Pricing and FAQs.
+- [For distributors](https://takkada.com/for-distributors/): The collections-heavy distributor workflow, for businesses carrying 30-300 retailer receivables on Tally.
+- [Tally mobile app comparison](https://takkada.com/tally-mobile-app-comparison/): Takkada compared with other Tally mobile apps, feature by feature.
+- [Live demo](https://takkada.com/demo/): Try Takkada on a demo company with real-shaped books, no installation.
+- [Tally partner program](https://takkada.com/partners/): The reseller program for Tally partners: recurring commission on every plan and renewal.
+
+## Features
+
+- [Tally on mobile (receivables view)](https://takkada.com/mobile-tally/): See Tally outstanding from a phone, send WhatsApp reminders and share ledger statements. Works with TallyPrime and Tally ERP 9.
+- [Tally on mobile](https://takkada.com/tally-on-mobile/): Run Tally from a phone: invoice, send on WhatsApp, collect via UPI and auto-reconcile back into Tally.
+- [WhatsApp invoicing from Tally](https://takkada.com/whatsapp-invoice-tally/): Salesmen raise invoices at the retailer's shop from their phone. Syncs to Tally in real time and the retailer gets the PDF on WhatsApp.
+- [Auto-reconciliation into Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
+
+## Company
+
+- [About Takkada](https://takkada.com/about-us/): Built by Pay Saathi Innovation LLP in Guwahati, Assam, for Indian distributors and wholesalers on Tally.
+- [Contact](https://takkada.com/contact-us/): Phone, email and demo booking.
 
 ## Guides
 
-- [Blog index](https://takkada.com/blog/): practical guides on receivables, Tally workflows, and collections
-- [Is it safe to connect an app to Tally](https://takkada.com/blog/is-it-safe-to-connect-app-to-tally/): the data-safety explainer
-- [Zero-MDR UPI collection for distributors](https://takkada.com/blog/zero-mdr-upi-collection-for-distributors-india/): how UPI pass-through pricing works
-- [WhatsApp payment reminder cadence](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/): a reminder cadence that collects
+Practical guides on Tally workflows, receivables and collections. Index: https://takkada.com/blog/
+
+### Autopilot
+
+- [Auto Invoice Dispatch: Every Tally Invoice on WhatsApp, Automatically](https://takkada.com/blog/auto-invoice-dispatch-tally/)
+- [Hands-Free Reconciliation: Receipts Post to Tally on Their Own](https://takkada.com/blog/hands-free-reconciliation-tally/)
+- [Put Your Tally Collections on Autopilot](https://takkada.com/blog/tally-collections-on-autopilot/)
+- [Scheduled Payment Reminders That Send Themselves](https://takkada.com/blog/scheduled-payment-reminders-tally/)
+- [Tally on Autopilot vs Typing Every Voucher: The Time Math](https://takkada.com/blog/tally-autopilot-vs-manual-entry/)
+- [Tally on Autopilot: What Runs Without You Touching It](https://takkada.com/blog/tally-on-autopilot-for-distributors/)
+- [Turn Supplier PDFs into Tally Purchase Entries Automatically](https://takkada.com/blog/import-purchase-from-pdf-tally/)
+- [What Takkada Can (and Can't) Automate in Your Tally](https://takkada.com/blog/what-takkada-automates-in-tally/)
+
+### Collections
+
+- [Accounts Receivable Turnover Ratio for Distributors](https://takkada.com/blog/accounts-receivable-turnover-ratio-distributor/)
+- [Auto-Dispatching Invoices on WhatsApp from Tally: What It Is and What It Changes](https://takkada.com/blog/tally-whatsapp-invoice-dispatch/)
+- [Bakaya Kaise Vasool Kare: Distributor Collection Guide](https://takkada.com/blog/bakaya-kaise-vasool-kare-distributor/)
+- [Bills Receivable in Tally: Money Your Retailers Owe](https://takkada.com/blog/bills-receivable-in-tally-explained/)
+- [Can My Customers See Their Outstanding Online? Yes, Through a Link](https://takkada.com/blog/customers-see-outstanding-online/)
+- [Cash Conversion Cycle for Distributors: How to Shorten It](https://takkada.com/blog/cash-conversion-cycle-for-distributors/)
+- [Collect Payment Against Tally Invoice on WhatsApp](https://takkada.com/blog/collect-payment-against-tally-invoice-whatsapp/)
+- [Collection Efficiency Ratio for Indian Distributors: Formula, Targets, Levers](https://takkada.com/blog/collection-efficiency-ratio-formula-india/)
+- [Collections App for Textile Wholesalers on Tally](https://takkada.com/blog/collections-app-for-textile-wholesalers/)
+- [Customer Portal for Distributors in India: Do You Actually Need One?](https://takkada.com/blog/customer-portal-for-distributors-india/)
+- [Days Sales Outstanding for Indian Distributors: What It Is and How to Cut It](https://takkada.com/blog/days-sales-outstanding-distributor-india/)
+- [Distributor Credit Policy: Terms, Limits, Penalty Template](https://takkada.com/blog/distributor-credit-policy-template/)
+- [Electrical Distributor Collection: Zero MDR UPI](https://takkada.com/blog/zero-mdr-upi-for-electrical-distributors/)
+- [How Distributors Cut Receivable Days Without Losing the Retailer](https://takkada.com/blog/reduce-receivable-days-distributor/)
+- [How Distributors Lose 15 Days of Cash Every Month](https://takkada.com/blog/distributor-cash-flow-receivables/)
+- [How to Accept Online Payment on Tally Invoices](https://takkada.com/blog/accept-online-payment-on-tally-invoice/)
+- [How to Clean Up Old Receivables Sitting in Your Tally](https://takkada.com/blog/clean-up-old-receivables-tally/)
+- [Ledger Balance Confirmation Online: Do It Quarterly, Not at Year End](https://takkada.com/blog/online-balance-confirmation-ledger/)
+- [Let Buyers Choose Which Invoices to Pay: The Bill by Bill Payment Link](https://takkada.com/blog/let-buyers-choose-invoices-to-pay/)
+- [Nil MDR UPI Collection on Tally Invoices](https://takkada.com/blog/nil-mdr-upi-collection-on-tally-invoices/)
+- [Partywise Outstanding Statement in Tally: Format, WhatsApp Dispatch, Auto-Reminders](https://takkada.com/blog/partywise-outstanding-statement-tally/)
+- [Payment Reminder From Your Own WhatsApp Number: Why the Sender Decides If It Gets Read](https://takkada.com/blog/send-reminders-from-your-own-whatsapp-number/)
+- [Receivables Ageing on Mobile: Catch the 60/90-Day Parties](https://takkada.com/blog/receivables-ageing-on-mobile-tally/)
+- [Receivables App for Agri-Input Distributors](https://takkada.com/blog/receivables-app-for-agri-input-distributors/)
+- [Receivables Management for Indian Distributors: The Mobile Playbook](https://takkada.com/blog/receivables-management-for-distributors/)
+- [Sundry Debtors in Tally: See Who Owes You on Mobile](https://takkada.com/blog/sundry-debtors-tally-mobile/)
+- [Tally Collection App for Paint Distributors](https://takkada.com/blog/tally-collection-app-for-paint-distributors/)
+- [UPI Collection App for Distributors in India: What to Look For in 2026](https://takkada.com/blog/upi-collection-app-for-distributors-india/)
+- [UPI Payment Against Which Invoice? How to Identify a Credit With No Reference](https://takkada.com/blog/which-invoice-did-customer-pay-upi/)
+- [WhatsApp Business API: Own Number vs Third Party, Explained for Distributors](https://takkada.com/blog/whatsapp-business-api-own-number-vs-third-party/)
+- [WhatsApp Invoice Format for Tally: How Distributors Send Invoices That Actually Get Paid](https://takkada.com/blog/whatsapp-invoice-format-tally/)
+- [WhatsApp Payment Collection for Distributors: A Playbook](https://takkada.com/blog/whatsapp-payment-collection-playbook-india/)
+- [Zero MDR UPI Collection for Indian Distributors: What 0% Actually Means](https://takkada.com/blog/zero-mdr-upi-collection-for-distributors-india/)
+- [Zero MDR UPI for Dairy Distributor Collection](https://takkada.com/blog/zero-mdr-upi-for-dairy-distributors/)
+- [Zero MDR UPI for FMCG Distributors in India](https://takkada.com/blog/zero-mdr-upi-for-fmcg-distributors/)
+- [Zero MDR UPI for Pharma Distributors in India](https://takkada.com/blog/zero-mdr-upi-for-pharma-distributors/)
+
+### Comparisons
+
+- [Best CredFlow Alternatives for Tally Users in India (2026)](https://takkada.com/blog/best-credflow-alternatives-india-2026/)
+- [Best Tally Mobile Add-On Apps for Distributors (2026)](https://takkada.com/blog/best-tally-add-on-apps-for-distributors-2026/)
+- [BharatPe for Distributors: Is the QR Really 0% MDR?](https://takkada.com/blog/bharatpe-for-distributors-mdr/)
+- [Bill Book App Alternative for Tally Distributors](https://takkada.com/blog/billbook-alternative-for-distributors/)
+- [Biz Analyst Alternative: What Collections-First Distributors Pick](https://takkada.com/blog/biz-analyst-alternative/)
+- [BUSY Software Alternative for Tally Distributors Who Collect](https://takkada.com/blog/busy-software-alternative-for-distributors/)
+- [CredFlow Alternative for Indian Distributors: A Tally-Native View](https://takkada.com/blog/credflow-alternative-tally-native/)
+- [CredFlow vs Biz Analyst vs Takkada: Full Comparison (2026)](https://takkada.com/blog/credflow-vs-biz-analyst-vs-takkada/)
+- [Khatabook Alternative for Indian Distributors: Why Distributors Outgrow Udhar-Book Apps](https://takkada.com/blog/khatabook-alternative-for-distributors-india/)
+- [Livekeeping Alternative for Distributors Who've Outgrown Read-and-Basic-Voucher](https://takkada.com/blog/livekeeping-alternative-for-distributors/)
+- [Marg ERP Alternative: Mobile Collections for Tally Distributors](https://takkada.com/blog/marg-erp-alternative-for-distributors/)
+- [myBillBook Alternative for Tally-Native Distributors](https://takkada.com/blog/mybillbook-alternative-for-distributors/)
+- [OkCredit Alternative for Distributor Udhaar Collection](https://takkada.com/blog/okcredit-alternative-for-distributors/)
+- [Payment Collection Cost Comparison for Indian Distributors: What Each Tool Actually Costs](https://takkada.com/blog/payment-collection-cost-comparison-india/)
+- [Payment Gateway Charges: A Comparison for Distributors](https://takkada.com/blog/payment-gateway-charges-comparison-for-distributors/)
+- [Paytm for Business vs Takkada: UPI Collection on Tally](https://takkada.com/blog/paytm-for-business-vs-takkada/)
+- [Razorpay Payment Links vs Tally-Native Collection](https://takkada.com/blog/razorpay-vs-tally-native-collection/)
+- [Refrens vs Takkada: Which Fits a Tally-Using Distributor](https://takkada.com/blog/refrens-vs-takkada/)
+- [Takkada vs CredFlow: Tally Receivables Apps Compared (2026)](https://takkada.com/blog/takkada-vs-credflow/)
+- [Tally Remote Access vs a Mobile App for Distributors](https://takkada.com/blog/tally-remote-access-vs-mobile-app/)
+- [UPI vs Card vs Cash Collection Cost for Distributors](https://takkada.com/blog/upi-vs-card-vs-cash-collection-cost-distributor/)
+- [Vyapar Alternative for Distributors Using Tally: Why the Two Tools Solve Different Problems](https://takkada.com/blog/vyapar-alternative-for-distributors/)
+- [Zoho Books vs Tally for Distributors: Keep Tally, Add Mobile](https://takkada.com/blog/zoho-books-vs-tally-for-distributors/)
+
+### Compliance
+
+- [E Way Bill 180 Days Rule: The Two Deadlines That Stop a Late Dispatch](https://takkada.com/blog/e-way-bill-180-day-rule/)
+- [E Way Bill Closure: What Is Paused and What to Get Ready For](https://takkada.com/blog/e-way-bill-closure-rule-2026/)
+- [E-Way Bill Auto Generation With E-Invoice: What the IRN Actually Carries Across](https://takkada.com/blog/e-way-bill-with-e-invoice-auto-population/)
+- [E-Way Bill Expired Penalty: The Law, the 8-Hour Window and What to Do](https://takkada.com/blog/e-way-bill-expiry-extension-penalty/)
+
+### Field Sales
+
+- [Field Order Collection App for Tally: What Salesmen Need on the Phone](https://takkada.com/blog/field-order-collection-app-tally/)
+- [How to Restrict Salesman Access in Tally Without Locking Him Out of His Job](https://takkada.com/blog/restrict-salesman-access-tally/)
+- [Salesman App for Tally in India: What Field Teams Actually Need](https://takkada.com/blog/salesman-app-tally-india/)
+- [Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally](https://takkada.com/blog/salesman-order-to-tally-without-reentry/)
+- [Salesman Visit Tracking App: What Actually Proves He Went](https://takkada.com/blog/salesman-visit-tracking-photo-proof/)
+- [Salesman Wise Collection Report: Who Owns the Overdue](https://takkada.com/blog/salesman-wise-collection-accountability/)
+
+### How-To
+
+- [Accounts Receivable Automation for Tally: 2026 Guide](https://takkada.com/blog/accounts-receivable-automation-tally/)
+- [Advance Received vs Bill Adjustment in Tally](https://takkada.com/blog/advance-received-vs-bill-adjustment-tally/)
+- [Aging Report in Tally: How Distributors Read It and Act On It](https://takkada.com/blog/aging-report-tally/)
+- [Auto Reconciliation Tally: The Full Mechanic](https://takkada.com/blog/auto-reconciliation-tally/)
+- [Bad Debt Write Off in Tally: When and How Distributors Should Do It](https://takkada.com/blog/bad-debt-write-off-tally/)
+- [Cheque Bounce Recovery for Distributors: The Section 138 Playbook](https://takkada.com/blog/cheque-bounce-recovery-distributors/)
+- [Create and Manage Godowns in Tally from Your Phone](https://takkada.com/blog/create-godown-in-tally-from-mobile/)
+- [Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It](https://takkada.com/blog/credit-limit-for-retailers/)
+- [DSO for Distributors: How to Calculate and Reduce Days Sales Outstanding](https://takkada.com/blog/dso-for-distributors/)
+- [E-Invoice on Phone Tally: How Distributors Generate an IRN Without Going Back to the Office](https://takkada.com/blog/e-invoice-on-phone-tally/)
+- [E-Way Bill on Phone: How Distributors Clear ₹50,000+ Shipments Without the Office](https://takkada.com/blog/e-way-bill-on-phone/)
+- [Godown ka Stock Mobile se Kaise Dekhe](https://takkada.com/blog/godown-ka-stock-mobile-se-kaise-dekhe/)
+- [How to Access Tally on Mobile: A Step-by-Step Guide](https://takkada.com/blog/how-to-access-tally-on-mobile-step-by-step/)
+- [How to Automate Payment Reminders in Tally (Smart Reminders)](https://takkada.com/blog/automate-payment-reminders-tally/)
+- [How to Check Party Outstanding in Tally on Mobile](https://takkada.com/blog/how-to-check-party-outstanding-tally-mobile/)
+- [How to Manage Multiple Branches in Tally with Godowns](https://takkada.com/blog/manage-multiple-branches-tally-godowns/)
+- [How to Reconcile a Bank Statement With Tally on Mobile](https://takkada.com/blog/how-to-reconcile-bank-statement-tally-mobile/)
+- [How to Record Payment in Tally on Mobile](https://takkada.com/blog/how-to-record-payment-in-tally-on-mobile/)
+- [How to Send a Payment Reminder From Tally on WhatsApp](https://takkada.com/blog/how-to-send-payment-reminder-from-tally-whatsapp/)
+- [How to Share a Ledger Statement on WhatsApp From Tally](https://takkada.com/blog/how-to-share-ledger-statement-whatsapp-tally/)
+- [How to Split One UPI Payment Across Multiple Tally Invoices](https://takkada.com/blog/how-to-split-upi-payment-across-tally-invoices/)
+- [Ledger Reconciliation in Tally: Match Your Books to the Party's](https://takkada.com/blog/ledger-reconciliation-tally-distributor/)
+- [Outstanding Payment Reminder: How the Best Distributors Run It in 2026](https://takkada.com/blog/outstanding-payment-reminder-app-india/)
+- [Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation](https://takkada.com/blog/payment-link-tally-integration/)
+- [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
+- [Tally Payment Reconciliation on Mobile, Done Right](https://takkada.com/blog/tally-payment-reconciliation-on-mobile/)
+- [UPI AutoPay for Distributors: Recurring Collection](https://takkada.com/blog/upi-autopay-for-distributors/)
+- [What is a Godown in Tally?](https://takkada.com/blog/what-is-godown-in-tally/)
+- [What Is a Purchase Bill in Tally, and How to Track It](https://takkada.com/blog/purchase-bill-tracking-tally/)
+- [What Is a UTR Number, and How It Matches a Tally Payment](https://takkada.com/blog/what-is-utr-number-tally-payment/)
+- [WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/)
+
+### Market Reality
+
+- [Branch Stock Visibility for Distributors](https://takkada.com/blog/branch-stock-visibility-for-distributors/)
+- [How Indian Distributors Manage Collections in 2026: The Market Reality](https://takkada.com/blog/how-indian-distributors-manage-collections/)
+- [How Much Distributors Lose to MDR Every Year](https://takkada.com/blog/how-much-distributors-lose-to-mdr-every-year/)
+- [Is It Safe to Connect a Third-Party App to Tally?](https://takkada.com/blog/is-it-safe-to-connect-app-to-tally/)
+- [Is UPI Free for Merchants in India? The Honest Answer](https://takkada.com/blog/is-upi-free-for-merchants-in-india/)
+- [MDR vs Convenience Fee in UPI: What Distributors Pay](https://takkada.com/blog/mdr-vs-convenience-fee-upi/)
+- [Multi-Location Inventory App for Tally Distributors: What to Look For](https://takkada.com/blog/multi-location-inventory-app-tally-distributors/)
+- [Payment Collection App for Distributors India: The 2026 Reality](https://takkada.com/blog/payment-collection-app-for-distributors-india/)
+- [Payment Gateway for MSME: What Actually Matters When You're a Distributor](https://takkada.com/blog/payment-gateway-for-msme-india/)
+- [Takkada Pricing and Plans (2026): What Each Tier Includes](https://takkada.com/blog/takkada-pricing-plans-2026/)
+- [Tally Mobile App India: Five Ways Distributors Bridge the Desk-to-Field Gap](https://takkada.com/blog/tally-mobile-app-india/)
+- [The Only Tally-Native Zero MDR UPI App in India](https://takkada.com/blog/only-tally-native-zero-mdr-upi-app-india/)
+- [The Working Capital Problem for Indian Wholesalers in 2026](https://takkada.com/blog/working-capital-problem-indian-wholesalers/)
+- [UPI MDR Charges in India: The 2026 Reality](https://takkada.com/blog/upi-mdr-charges-india-2026/)
+- [What Is a VPA (UPI ID), and How Distributors Use One](https://takkada.com/blog/what-is-vpa-upi-id-distributors/)
+- [What Is MDR and Why It Matters for Distributors](https://takkada.com/blog/what-is-mdr-and-why-it-matters-for-distributors/)
+
+### Payables
+
+- [Accounts Payable Ageing Report for Distributors (Tally)](https://takkada.com/blog/accounts-payable-ageing-report-tally/)
+- [Accounts Payable in Tally: How Distributors Track What They Owe](https://takkada.com/blog/accounts-payable-in-tally-for-distributors/)
+- [Accounts Payable vs Accounts Receivable for a Distributor](https://takkada.com/blog/accounts-payable-vs-receivable-distributor/)
+- [Bill-Wise Payables Tracking in Tally](https://takkada.com/blog/bill-wise-payables-tracking-tally/)
+- [Bills Payable in Tally, Explained for Wholesalers](https://takkada.com/blog/bills-payable-in-tally-explained/)
+- [Payment Due-Date Tracking in Tally So Nothing Slips](https://takkada.com/blog/payment-due-date-tracking-tally/)
+- [Sundry Creditors in Tally: Track Supplier Dues on Mobile](https://takkada.com/blog/sundry-creditors-tally-mobile/)
+- [Vendor Portal Pending Invoices: Reconciling It With Your Tally](https://takkada.com/blog/vendor-portal-pending-invoices/)
+
+### Reports
+
+- [Cash and Bank Position Report from Tally](https://takkada.com/blog/cash-bank-report-tally-mobile/)
+- [Daily Sales Report from Tally on Your Phone](https://takkada.com/blog/daily-sales-report-tally-mobile/)
+- [Godown-Wise Stock Report from Tally on Your Phone](https://takkada.com/blog/godown-wise-stock-report-tally-mobile/)
+- [Item-Wise / Product Sales Report from Tally](https://takkada.com/blog/item-wise-sales-report-tally/)
+- [MIS Reports for Distributors: The Numbers to Check Daily](https://takkada.com/blog/mis-reports-for-distributors-tally/)
+- [Outstanding Receivables Report for Distributors (Mobile)](https://takkada.com/blog/outstanding-receivables-report-tally/)
+- [Party-Wise Sales Report in Tally on Mobile](https://takkada.com/blog/party-wise-sales-report-tally/)
+- [Profitability Report for Distributors (Tally on Mobile)](https://takkada.com/blog/profit-report-for-distributors-tally/)
+- [Purchase Report from Tally on Your Phone](https://takkada.com/blog/purchase-report-tally-mobile/)
+- [Salesman-Wise Sales Report for Distributor Teams](https://takkada.com/blog/salesman-wise-sales-report-tally/)
+- [Stock Summary Report from Tally on Mobile](https://takkada.com/blog/stock-summary-report-tally-mobile/)
+
+### Schemes
+
+- [Agri Input Dealer Scheme Software: When the Year Lands in Two Windows](https://takkada.com/blog/crop-protection-dealer-scheme-software/)
+- [Dealer Scheme Management in Tally: Why the Season Never Settles Cleanly](https://takkada.com/blog/dealer-scheme-management-tally/)
+- [Quantity Discount vs Cash Discount: What Changes in the Books and Under GST](https://takkada.com/blog/quantity-discount-vs-cash-discount-gst/)
+- [Scheme Credit Note GST Treatment: When a Payout Reduces Tax and When It Only Moves Money](https://takkada.com/blog/scheme-credit-note-gst-distributors/)
+- [Season Scheme Calculation for Dealers: Settling Kharif and Rabi Without a Fight](https://takkada.com/blog/season-scheme-settlement-agri-input/)
+
+### Tally Mobile
+
+- [Best Tally App for Receivables in India (2026)](https://takkada.com/blog/best-tally-app-for-receivables-2026/)
+- [bill-by-bill-against-reference-tally](https://takkada.com/blog/bill-by-bill-against-reference-tally/)
+- [Creditors vs Debtors in Tally: A Distributor's Cheat Sheet](https://takkada.com/blog/creditors-vs-debtors-tally/)
+- [Free Tally Mobile App vs Paid: What You Actually Get](https://takkada.com/blog/free-tally-mobile-app-vs-paid/)
+- [Godown on Sales Invoices and Delivery Challans from Mobile](https://takkada.com/blog/godown-on-sales-invoice-delivery-challan/)
+- [GST Compliance on Mobile for Distributors: What's Possible, What's Not, and Where Phones Beat Desktops](https://takkada.com/blog/gst-compliance-on-mobile-for-distributors/)
+- [How Bidirectional Tally Sync Works (and Why It Matters)](https://takkada.com/blog/bidirectional-tally-sync-explained/)
+- [How to View Tally Reports on Mobile (Owner's Guide)](https://takkada.com/blog/view-tally-reports-on-mobile/)
+- [Is There an Official Tally Mobile App? The Honest Answer](https://takkada.com/blog/is-there-an-official-tally-mobile-app/)
+- [Multi-Business Tally Mobile App: One Phone, Multiple Companies, One Dashboard](https://takkada.com/blog/multi-business-tally-mobile-app/)
+- [Restrict Staff to Their Own Warehouse in Tally](https://takkada.com/blog/restrict-staff-warehouse-access-tally/)
+- [Tally Cloud: What It Actually Means for Indian Distributors in 2026](https://takkada.com/blog/tally-cloud/)
+- [Tally Mobile App for Android: What Actually Works](https://takkada.com/blog/tally-mobile-app-for-android/)
+- [Tally Mobile Par Kaise Chalaye: Step-by-Step Guide](https://takkada.com/blog/tally-mobile-par-kaise-chalaye/)
+- [Tally on Mobile in 2026: What Actually Works, What Breaks, and What It Costs](https://takkada.com/blog/tally-on-mobile/)
+- [Tally Prime Mobile App: What Exists, What Doesn't, and How Distributors Bridge the Gap in 2026](https://takkada.com/blog/tally-prime-mobile-app/)
+- [Udhar Vasuli Kaise Kare: A Working Playbook for Indian Distributors in 2026](https://takkada.com/blog/udhar-vasuli-kaise-kare-distributor/)
+- [What Is Takkada? The Tally-Native Receivables App, Explained](https://takkada.com/blog/what-is-takkada/)
+
+### Trust
+
+- [Can My Tally Data Stay on My Own Server?](https://takkada.com/blog/tally-data-on-your-own-server/)
+- [Can Takkada Be Customised for My Business?](https://takkada.com/blog/is-takkada-customisable/)
+- [Does Takkada Change or Touch My Tally Data?](https://takkada.com/blog/does-takkada-change-my-tally/)
+- [Where Is My Tally Data Stored, and Who Can See It?](https://takkada.com/blog/where-is-my-tally-data-stored-takkada/)
 
 ## Contact
 

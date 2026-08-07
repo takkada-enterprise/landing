@@ -67,7 +67,16 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled }) {
     <header className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
-          <img src="/assets/screenshots/takkada-logo.png" alt="Takkada" className="nav-logo-img" />
+          {/* 360x128 WebP, not the 1172px PNG: this renders at 107x38 and sits
+              on every page, where the PNG cost 133KB of the throttled mobile
+              pipe the hero image needs. width/height reserve the box. */}
+          <img
+            src="/assets/screenshots/takkada-logo.webp"
+            alt="Takkada"
+            className="nav-logo-img"
+            width="107"
+            height="38"
+          />
         </Link>
         <nav className="nav-links desktop-only">
           {navLinks.map((l) => (
@@ -135,7 +144,14 @@ function SiteFooter() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <img src="/assets/screenshots/takkada-logo.png" alt="Takkada" className="footer-logo-img" />
+              <img
+                src="/assets/screenshots/takkada-logo.webp"
+                alt="Takkada"
+                className="footer-logo-img"
+                width="118"
+                height="42"
+                loading="lazy"
+              />
             </Link>
             <p className="footer-tagline">Get Paid On Time. Automatically.</p>
             <p className="footer-company">{contactInfo.company}</p>
