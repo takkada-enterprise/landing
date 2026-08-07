@@ -21,37 +21,61 @@
 
 ## Phase 1 — Open the AI-search door (highest leverage, zero new pages)
 
-**Status: BUILT 2026-08-08, on `feat/feature-landing-pages`, not yet merged. One operator action outstanding (item 1). Two premises in this phase turned out to be wrong — see the findings below before acting on them.**
+**Status: COMPLETE and LIVE on takkada.com 2026-08-08 (PR #59 merged 19:49 UTC; operator flipped the Cloudflare toggle the same evening, verified live). Two premises in this phase turned out to be wrong; read the findings below before acting on them.**
 
 **Shipped in this phase:**
-- `llms.txt` is now **generated**, not hand-written (`scripts/generate-llms-txt.mjs`). Prices derive from `pricing` in `siteContent.js`, pages from a new optional `llms: { section, title, summary }` field on `routeMetadata`, guides from blog frontmatter on disk. 11 pages + 160 guides = 171 links, up from 11. Guard tests fail on a hand-edit, on drift from the generator, and on any retired plan name reappearing. **This is the hook Phase 2 needs**: a new feature page earns its llms.txt line by registering `llms` on its route, nothing else.
+- `llms.txt` is now **generated**, not hand-written (`scripts/generate-llms-txt.mjs`). Prices derive from `pricing` in `siteContent.js`, pages from a new optional `llms: { section, title, summary }` field on `routeMetadata`, guides from blog frontmatter on disk. 11 pages + 170 guides = 181 links, up from 11. Guard tests fail on a hand-edit, on drift from the generator, and on any retired plan name reappearing. **This is the hook Phase 2 needs**: a new feature page earns its llms.txt line by registering `llms` on its route, nothing else.
 - Logo assets: nav/footer now use a 360x128 WebP (10KB) and the favicon a 180x64 PNG (13KB), replacing the 1172px 133KB source PNG that every visitor downloaded on every page. 135KB → 24KB per page load, site-wide. Both logos carry explicit `width`/`height`. The full-size PNG stays as the schema.org logo URL only.
 
 **Finding 1 — the CLS premise is stale. Do not spend more on it.**
 Measured 2026-08-08 with Lighthouse against live takkada.com, mobile, `--throttling-method=devtools`: homepage CLS **0.03** across three runs, top blog entry page **0.00**. Both comfortably green. The 0.48 in the Clarity week-of-07-26 data predates the homepage rebuild (PR #57, merged 08-06), which fixed it. Caveat worth one check: Clarity/CrUX is 75th-percentile field data across real devices and can read worse than a lab run, so re-read the Clarity CWV panel now that #57 has been live a few days before calling it closed.
 
-**Finding 2 — the real Core Web Vitals problem on the homepage is LCP, not CLS.**
-Live mobile LCP is **3.1–3.8s** against a 2.5s "good" threshold. The LCP element is the hero image, and **78% of its time is Load Time**, meaning the file is queued behind other bytes rather than being requested late (it is already preloaded with `fetchpriority=high`). Total page weight is 1,447KB. The logo fix above removes 111KB of that contention; the remaining dominant item is the JS bundle at **557KB transferred / 2.3MB raw**.
+**Finding 2 — the real Core Web Vitals problem on the homepage is LCP, not CLS. FIXED, and the fix is measured.**
+Live mobile LCP was **3.1–3.8s** against a 2.5s "good" threshold. The LCP element is the hero image, and **78% of its time was Load Time**, meaning the file was queued behind other bytes rather than requested late (it is already preloaded with `fetchpriority=high`). Total page weight was 1,447KB.
 
-Root cause of the bundle, diagnosed and confirmed: `src/lib/blogPosts.js:1` uses `import.meta.glob('/content/blog/*.md', { eager: true })`. The eager glob compiles all **160 blog posts' rendered HTML into the client bundle**, so someone landing on the homepage downloads every article on the site. Fixing it means a lazy glob plus splitting post metadata (needed by the index) from post HTML (needed only by one slug). That is a real change to blog data loading, so it is **not** done here and is proposed as its own unit — it would be the single largest performance win available, and it grows with every blog batch.
+Root cause, diagnosed and confirmed: `src/lib/blogPosts.js:1` uses `import.meta.glob('/content/blog/*.md', { eager: true })`, so every post's rendered HTML lands in whatever chunk imports it — and the blog routes were imported statically, making that chunk the main bundle. Anyone landing on the homepage downloaded every article on the site before the hero could paint. Importing the two blog routes dynamically moves the payload into a chunk only `/blog` and `/blog/:slug` fetch.
 
-**Finding 3 — the AI-bot block is narrower than this plan assumed.**
+Measured on live takkada.com, mobile, devtools throttling, three runs each:
+
+| | Before | After |
+|---|---|---|
+| LCP | 3.1–3.8s | **2.6–2.9s** |
+| Page weight | 1,447 KB | **852 KB** |
+| Main JS (gzip) | 585 KB | **72 KB** |
+| Lighthouse performance | 0.87 | **0.94–0.96** |
+
+Note the local before/after showed LCP *unchanged* at 2.3–2.5s — localhost does not reproduce the bandwidth contention. The win only appeared against the live site. Do not trust a local Lighthouse run to validate a byte-weight change on this repo.
+
+**Still not fully green:** 2.6s is above the 2.5s threshold. What remains is the Google Fonts stylesheet, render-blocking for **1,326ms** (`Fraunces` + `Plus Jakarta Sans`). That is the next LCP lever and is untouched. Careful: CLAUDE.md §7 records that removing the Fraunces `<link>` silently reverts every heading to Plus Jakarta Sans, and that this nearly shipped once — so this is a self-host-or-preload job, not a delete job.
+
+**A new failure mode this introduces, and its guard.** If a future router or `vite-react-ssg` upgrade stops awaiting `lazy`, all 170 blog pages become empty client-rendered shells that still return 200 and still sit in `sitemap.xml`. Nothing else in the build would notice. `scripts/checkBlogPrerender.mjs` fails the build on that, asserting on prose in the raw HTML rather than on route config.
+
+**Finding 3 — the AI-bot block is narrower than this plan assumed, and the control is named differently than step 1 says.**
+
+The setting is **AI Crawl Control → Signals → "Managed robots.txt"** (a single toggle), *not* Security → Bots. Confirmed by inspecting the live dashboard 2026-08-08: every per-crawler "Block Crawler" toggle under AI Crawl Control → Security is already OFF, and ClaudeBot shows 45 allowed requests — so nothing is blocked at the edge. The `Disallow: /` comes purely from the managed robots.txt file. Cloudflare's own "Robots.txt violations" panel confirms it: ClaudeBot, `Disallow: /`, 3 violations.
+
+**Zone-wide side effect, verified before recommending the change:** `app.takkada.com` and `stage.takkada.com` have **no robots.txt of their own** — their origin returns the Flutter app's `index.html` for `/robots.txt`. Cloudflare's managed file is currently the only crawler instruction those hosts have. Turning the toggle off leaves them with none. Judged acceptable (login-gated, crawlers get an empty shell, and pay-link tokens live in the URL *fragment* which browsers never transmit, so crawling cannot leak one), but the follow-up is to ship a real `Disallow`-all `robots.txt` in the Flutter app's `web/` folder rather than leave it depending on a dashboard toggle.
+
 Live `robots.txt` verified 2026-08-08. Cloudflare injects its managed block *ahead* of our file, and it disallows: `ClaudeBot`, `GPTBot`, `Google-Extended`, `Applebot-Extended`, `CCBot`, `Amazonbot`, `Bytespider`, `meta-externalagent`. It does **not** touch `OAI-SearchBot`, `ChatGPT-User`, or `PerplexityBot` — those three already have full access, which is consistent with ChatGPT already showing up as a referrer. So the operator action buys ClaudeBot (Claude citations) and Google-Extended (AI Overviews / Gemini grounding), not the whole door. Still worth doing, just not the blocker this phase treated it as.
 `scripts/checkCrawlerAccess.mjs` reports all five bots served (200). That is not a contradiction: the script measures *edge* blocking by IP, and cannot see a robots.txt directive. Noted as a real gap in that check.
 
 **Item 5 (freshness pass):** nothing done, deliberately. This phase touched no article or page copy, only generated data and asset plumbing, so no `dateModified` may honestly be bumped.
 
 1. **Operator action (Ronak, ~10 min, Cloudflare dashboard for takkada.com):**
-   - Security → Bots (and/or AI Crawl Control): turn OFF "Block AI bots" / the managed robots.txt injection, or set it to *allow* `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot`, `ClaudeBot`.
+   - **Exact location, verified in the live dashboard 2026-08-08:** AI Crawl Control → **Signals** → turn OFF the **"Managed robots.txt"** toggle (top-left of that page). It is the only control that matters; the per-crawler Block toggles under AI Crawl Control → Security are already all OFF and are not the cause.
    - Verified live 2026-08-08: Cloudflare still injects a `Disallow: /` block for ClaudeBot, GPTBot, Google-Extended ahead of our own robots.txt. Our repo file is already correct; the dashboard setting is the only fix.
    - Decision made: allow all AI-search citation crawlers. GPTBot (training) may stay blocked or be allowed — allowing it also puts Takkada in future model knowledge; recommended: allow.
-2. Fix `public/llms.txt`: it still shows retired plans ("Voucher Model / Collections Model / Full Access ₹8,499"). Replace with live plan names + prices from `src/data/siteContent.js`, and keep a Features section that lists every feature landing page as it ships.
-3. Run `scripts/checkCrawlerAccess.mjs` + live curl checks; record results here.
-4. Fix homepage CLS (0.48 → target < 0.1). Likely culprits: images without dimensions, late-loading hero/font. Verify with Lighthouse before/after.
-5. Quick freshness pass: bump `dateModified` honestly wherever content is touched.
+   - ✅ **DONE 2026-08-08.** Operator switched Managed robots.txt OFF. Verified live: `takkada.com/robots.txt` dropped from 15,962 bytes to 1,242, the `BEGIN Cloudflare Managed content` section is gone, and ClaudeBot / GPTBot / Google-Extended / Applebot-Extended all now read `Allow: /` from our own file.
+   - ⚠️ **Confirmed side effect, now real:** `app.takkada.com/robots.txt` and `stage.takkada.com/robots.txt` return the Flutter app's HTML (200, `text/html`) instead of a robots.txt, so those hosts now have no crawler instructions at all. Follow-up (b) below closes it.
+2. ✅ **DONE (live).** Fix `public/llms.txt`: it still shows retired plans ("Voucher Model / Collections Model / Full Access ₹8,499"). Replace with live plan names + prices from `src/data/siteContent.js`, and keep a Features section that lists every feature landing page as it ships.
+3. ✅ **DONE.** Run `scripts/checkCrawlerAccess.mjs` + live curl checks; record results here. See Finding 3.
+4. ✅ **DONE, but the premise was wrong.** CLS was already 0.03. The real problem was LCP; see Finding 2. Fixed and measured live: 3.1-3.8s → 2.6-2.9s.
+5. ✅ **N/A, deliberately.** No article or page copy was touched this phase, only generated data and asset plumbing, so no `dateModified` may honestly be bumped.
 
 **Done when:** live robots.txt has no conflicting AI-bot blocks, llms.txt is truthful, CLS is green.
-**Status against that bar:** llms.txt truthful and self-maintaining ✅ · CLS green ✅ (was already green; verified, not fixed) · robots.txt still blocking ClaudeBot + Google-Extended ⏳ (operator action 1, only Ronak can do it).
+**Status against that bar:** llms.txt truthful and self-maintaining ✅ live · CLS green ✅ (was already green; verified, not fixed) · LCP 3.1-3.8s → 2.6-2.9s ✅ live (bonus, not in the original bar) · robots.txt still blocking ClaudeBot + Google-Extended ✅ **done and verified live 2026-08-08**.
+
+**Carried into Phase 2 as follow-ups:** (a) render-blocking Google Fonts, 1,326ms, the last LCP lever; (b) a real `Disallow`-all `robots.txt` in the Flutter app's `web/` folder so `app.takkada.com` stops depending on a Cloudflare toggle; (c) `checkCrawlerAccess.mjs` cannot see robots.txt directives, only edge blocking — it reported all-clear while ClaudeBot was disallowed, so it needs a robots.txt parse arm.
 
 **STOP — update this file, show Ronak.**
 
