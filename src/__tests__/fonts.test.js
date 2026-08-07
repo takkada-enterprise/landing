@@ -51,31 +51,43 @@ describe('self-hosted webfonts', () => {
   });
 });
 
-// Comments are allowed to mention Google — the files carry the history of why
+// Comments are allowed to mention Google — these files carry the history of why
 // the fonts were vendored, and that context is worth more than a blunt string
-// match. What must not survive is a real reference the browser would act on.
-const stripComments = (s) => s.replace(/<!--[\s\S]*?-->/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
+// match would be. So rather than stripping comments out (which reads as a
+// sanitizer and is easy to get wrong), assert on the things a browser actually
+// acts on: link/script tags, and CSS url()/@import targets.
+const GOOGLE_FONT_HOST = /fonts\.(googleapis|gstatic)\.com/;
+
+const linkAndScriptTags = (html) => html.match(/<(?:link|script)\b[^>]*>/g) || [];
+const cssResourceRefs = (css) => [
+  ...(css.match(/url\([^)]*\)/g) || []),
+  ...(css.match(/@import[^;]*;/g) || []),
+];
 
 describe('no Google Fonts dependency remains', () => {
   // The whole point of vendoring was to get these two hosts off the critical
   // path. A re-added <link> would quietly undo it and nothing else would fail.
-  it('loads nothing from fonts.googleapis.com or fonts.gstatic.com', () => {
-    for (const [name, content] of [
-      ['index.html', indexHtml],
+  it('has no markup tag pointing at the Google font hosts', () => {
+    for (const tag of linkAndScriptTags(indexHtml)) {
+      expect(tag, 'index.html still loads from Google Fonts').not.toMatch(GOOGLE_FONT_HOST);
+    }
+  });
+
+  it('has no stylesheet fetching from the Google font hosts', () => {
+    for (const [name, css] of [
       ['src/fonts.css', fontsCss],
       ['src/styles.css', styles],
       ['src/premium.css', premium],
     ]) {
-      expect(stripComments(content), `${name} still loads from Google Fonts`).not.toMatch(
-        /(href|src|url\()\s*=?\s*["'(]?[^"')]*fonts\.(googleapis|gstatic)\.com/
-      );
+      for (const ref of cssResourceRefs(css)) {
+        expect(ref, `${name} still loads from Google Fonts`).not.toMatch(GOOGLE_FONT_HOST);
+      }
     }
   });
 
   it('keeps no preconnect to the Google font hosts', () => {
-    const tags = stripComments(indexHtml).match(/<link[^>]*rel="preconnect"[^>]*>/g) || [];
-    for (const tag of tags) {
-      expect(tag).not.toMatch(/fonts\.(googleapis|gstatic)\.com/);
+    for (const tag of linkAndScriptTags(indexHtml)) {
+      if (/rel="preconnect"/.test(tag)) expect(tag).not.toMatch(GOOGLE_FONT_HOST);
     }
   });
 });
