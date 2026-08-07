@@ -13,8 +13,6 @@ import ForDistributors from './ForDistributors';
 import TallyMobileComparison from './TallyMobileComparison';
 import TryDemo from './TryDemo';
 import Partners from './Partners';
-import BlogIndex from './BlogIndex';
-import BlogPost from './BlogPost';
 import { routeMetadata } from '../data/siteMetadata';
 
 const ELEMENT_FOR_PATH = {
@@ -50,8 +48,22 @@ export const routes = [
     element: <Layout />,
     children: [
       ...children,
-      { path: 'blog', element: <BlogIndex /> },
-      { path: 'blog/:slug', element: <BlogPost /> },
+      // Lazy, and deliberately so. BlogIndex and BlogPost are the only things
+      // that reach src/lib/blogPosts.js, whose eager import.meta.glob compiles
+      // all 160 posts' rendered HTML into whatever chunk imports it. Imported
+      // statically, that chunk was the main bundle, so someone landing on the
+      // homepage downloaded every article on the site before the hero could
+      // paint. Dynamic imports move the whole blog payload into its own chunk
+      // that only /blog and /blog/:slug ever fetch.
+      //
+      // Both routes are still prerendered to static HTML: the check that this
+      // holds is scripts/checkBlogPrerender.mjs, which fails the build if a
+      // blog page ships an empty shell.
+      { path: 'blog', lazy: async () => ({ Component: (await import('./BlogIndex')).default }) },
+      {
+        path: 'blog/:slug',
+        lazy: async () => ({ Component: (await import('./BlogPost')).default }),
+      },
     ],
   },
 ];
