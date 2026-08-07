@@ -990,6 +990,66 @@ ARTICLES = [
         "category": "Collections",
         "tagline": "Three tiers, one real trade-off, and who owns the number if you leave.",
     },
+    {
+        "slug": "manage-multiple-branches-tally-godowns",
+        "title": "Manage Multiple Branches in Tally",
+        "category": "How-To",
+        "tagline": "One company file, three locations, every movement carrying its place.",
+    },
+    {
+        "slug": "what-is-godown-in-tally",
+        "title": "What is a Godown in Tally?",
+        "category": "How-To",
+        "tagline": "A godown answers where. A stock group answers what. Two questions.",
+    },
+    {
+        "slug": "godown-wise-stock-report-tally-mobile",
+        "title": "Godown-Wise Stock Report on Mobile",
+        "category": "Reports",
+        "tagline": "What is lying at the branch, today or as of any past date.",
+    },
+    {
+        "slug": "stock-transfer-between-godowns-tally-mobile",
+        "title": "Stock Transfer Between Godowns",
+        "category": "How-To",
+        "tagline": "The quantity is known once, at the loading dock. Record it there.",
+    },
+    {
+        "slug": "restrict-staff-warehouse-access-tally",
+        "title": "Restrict Staff to Their Own Warehouse",
+        "category": "Tally Mobile",
+        "tagline": "A storekeeper who moves his own stock, and nobody else's.",
+    },
+    {
+        "slug": "multi-location-inventory-app-tally-distributors",
+        "title": "Multi-Location Inventory App for Tally",
+        "category": "Market Reality",
+        "tagline": "Eight questions to ask before the second branch tests your choice.",
+    },
+    {
+        "slug": "create-godown-in-tally-from-mobile",
+        "title": "Create Godowns in Tally from Your Phone",
+        "category": "How-To",
+        "tagline": "The branch opens Monday. The master should exist Monday.",
+    },
+    {
+        "slug": "godown-on-sales-invoice-delivery-challan",
+        "title": "Godown on Invoices and Challans",
+        "category": "Tally Mobile",
+        "tagline": "Sales move the most stock out. Stamp the location there first.",
+    },
+    {
+        "slug": "branch-stock-visibility-for-distributors",
+        "title": "Branch Stock Visibility for Distributors",
+        "category": "Market Reality",
+        "tagline": "At 9 PM the question arrives where the desktop is not.",
+    },
+    {
+        "slug": "godown-ka-stock-mobile-se-kaise-dekhe",
+        "title": "Godown ka Stock Mobile se Kaise Dekhe",
+        "category": "How-To",
+        "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
+    },
 ]
 
 if __name__ == "__main__":
