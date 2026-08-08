@@ -46,10 +46,11 @@ export const BUDGETS = [
   ['public/assets/screenshots/pending-orders-mockup.webp', 46_000, 'LCP element on /sales-orders-on-mobile'],
   ['public/assets/screenshots/settlements-mockup.webp', 28_000, 'LCP element on /bank-statement-import-tally'],
   ['public/assets/screenshots/smart-reminders-mockup.webp', 26_000, 'LCP element on /send-payment-reminders-automatically'],
-  // Phase 5: the alternative and persona pages. Same rule, and every one of
-  // these files was already on the site as a walk-through image; promoting one
-  // to a hero is what puts it on the critical path and earns it a budget.
-  ['public/assets/screenshots/settlement.webp', 56_000, 'LCP element on /biz-analyst-alternative'],
+  // Phase 5 reuses heroes that are already budgeted above. settlement.webp was
+  // briefly promoted to the /biz-analyst-alternative hero and pulled back the
+  // same day: it is a real capture carrying a named individual and two real
+  // bank UTRs, and it is not in the sanitised set. settlements-mockup.webp is
+  // the demo capture of the same screen and is what ships.
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],

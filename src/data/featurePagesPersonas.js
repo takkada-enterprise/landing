@@ -100,10 +100,11 @@ export const PERSONAS = [
         title: 'Nobody keys in a hundred receipts at night',
         body:
           'Each payment posts into Tally against the bill it belongs to, including the ones that cover three invoices at once and the ones that arrive with no reference. The evening spent matching a bank statement to a ledger goes away.',
-        image: '/assets/screenshots/settlement.webp',
-        alt: 'A collection matched against its outstanding invoice and posted into Tally as a receipt',
-        width: 904,
-        height: 1874,
+        image: '/assets/screenshots/settlements-mockup.webp',
+        alt: 'Collections settling against the invoices they belong to through the day',
+        width: 391,
+        height: 790,
+
       },
       {
         icon: 'Target',
@@ -419,10 +420,11 @@ export const PERSONAS = [
         title: 'The season settlement is a credit note, not an argument',
         body:
           'Scheme and quantity discounts are worked out and raised as credit notes from the app, written back into Tally against the dealer. The conversation at the end of the season starts from the same number on both sides.',
-        image: '/assets/screenshots/settlement.webp',
-        alt: 'A settlement worked out against a dealer account and posted into Tally',
-        width: 904,
-        height: 1874,
+        image: '/assets/screenshots/invoice-summary-mockup.webp',
+        alt: 'A credit note raised against a dealer and written back into Tally',
+        width: 600,
+        height: 1243,
+
       },
       {
         icon: 'MessageCircle',

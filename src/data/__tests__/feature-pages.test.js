@@ -96,6 +96,43 @@ describe('feature page data contract', () => {
     }
   );
 
+  // Captures that carry a real customer's name, balance, invoice number or
+  // bank reference. Phase 3 found five of them sitting in the published
+  // screenshot library and one already live on the homepage, and the only
+  // thing standing between them and a page was somebody remembering. On
+  // 2026-08-08 somebody did not: settlement.webp went in as the
+  // /biz-analyst-alternative hero and was caught by eye, not by a test. It
+  // shows a named individual and two real bank UTRs.
+  //
+  // Everything under public/assets/screenshots ships to the CDN and is
+  // fetchable by URL whether or not a page links it, so this guard is about
+  // what the site puts in front of a reader, not about what exists on disk.
+  // Add to this list rather than deleting the file, so the reason survives.
+  const UNSAFE_CAPTURES = [
+    'invoice-detail', // a real customer's invoice, named party
+    'share-ledger', // real party name, real receivable, real invoice numbers
+    'bankbook', // real company names and bank balances
+    'inventory-supplier', // real supplier names
+    'party-list', // known-banned since the homepage v3 round
+    'settlement', // named individual, two real bank UTRs
+  ];
+  const isUnsafe = (src) => {
+    const file = src.split('/').pop().replace(/\.(webp|png|jpg)$/, '');
+    return UNSAFE_CAPTURES.includes(file);
+  };
+
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: uses no screenshot carrying real customer data',
+    (_slug, page) => {
+      const used = [page.hero.image, ...page.walkthrough.map((s) => s.image)];
+      const offenders = used.filter(isUnsafe);
+      expect(
+        offenders,
+        `${page.slug} publishes a real capture. Use the sanitised -mockup variant.`
+      ).toEqual([]);
+    }
+  );
+
   // Icon names are strings on this side of the boundary, so a typo would
   // render a step with no icon and nothing would fail. This is the check that
   // the string actually resolves in FeaturePage's ICONS map.
