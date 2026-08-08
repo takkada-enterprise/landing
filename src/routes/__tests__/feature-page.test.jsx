@@ -141,9 +141,13 @@ describe.each(CASES)('%s emits the AEO schema set', (_slug, page) => {
     const last = crumb.itemListElement[crumb.itemListElement.length - 1];
     expect(last.item).toBe(canonical);
     for (const entry of crumb.itemListElement) {
-      expect(entry.item.startsWith('https://takkada.com')).toBe(true);
-      const path = '/' + entry.item.replace('https://takkada.com/', '').replace(/\/$/, '');
-      expect(KNOWN_ROUTES.has(path === '/' ? '/' : path)).toBe(true);
+      // Compare the parsed origin rather than startsWith: a prefix test passes
+      // for https://takkada.com.example.com, and CodeQL flags the pattern as
+      // incomplete URL sanitization (js/incomplete-url-substring-sanitization).
+      const url = new URL(entry.item);
+      expect(url.origin).toBe('https://takkada.com');
+      const path = url.pathname.replace(/\/$/, '');
+      expect(KNOWN_ROUTES.has(path === '' ? '/' : path)).toBe(true);
     }
   });
 
