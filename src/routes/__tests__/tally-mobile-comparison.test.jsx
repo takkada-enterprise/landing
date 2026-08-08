@@ -89,20 +89,55 @@ describe('TallyMobileComparison route', () => {
     expect(routeMetadata.some((r) => `https://takkada.com${r.path}/` === last.item)).toBe(true);
   });
 
-  it('leads with the WhatsApp CTA and cross-links the five alternative posts', () => {
+  it('leads with the WhatsApp CTA and cross-links the five head-to-head reads', () => {
     const { container } = renderRoute();
     const waLinks = [...container.querySelectorAll('a[href^="https://wa.me/"]')];
     expect(waLinks.length).toBeGreaterThan(0);
 
     const hrefs = [...container.querySelectorAll('a')].map((a) => a.getAttribute('href'));
     for (const slug of [
-      '/blog/biz-analyst-alternative/',
-      '/blog/livekeeping-alternative-for-distributors/',
+      // The first two are landing pages as of 2026-08-08, not posts. Their
+      // blog URLs are retired and redirected, so pointing here at
+      // /blog/biz-analyst-alternative/ would send a reader through a hop for
+      // no reason.
+      '/biz-analyst-alternative/',
+      '/livekeeping-alternative/',
       '/blog/credflow-alternative-tally-native/',
       '/blog/mybillbook-alternative-for-distributors/',
       '/blog/billbook-alternative-for-distributors/',
     ]) {
       expect(hrefs).toContain(slug);
     }
+  });
+
+  // Every internal link on this page must resolve, and the retired blog posts
+  // are the reason this check exists: the corpus link guard reads
+  // content/blog/*.md and is blind to an href hard-coded in a component, so a
+  // post could be deleted and this page would keep linking it with nothing
+  // going red.
+  it('has no internal link to a retired blog post', () => {
+    const { container } = renderRoute();
+    const retired = ['/blog/biz-analyst-alternative/', '/blog/livekeeping-alternative-for-distributors/'];
+    const hrefs = [...container.querySelectorAll('a')].map((a) => a.getAttribute('href'));
+    for (const dead of retired) expect(hrefs).not.toContain(dead);
+  });
+
+  // The front-loaded answer, added 2026-08-08. It is the passage an AI-search
+  // engine lifts, and it must concede the shared ground before naming the
+  // split, or it reads as a claim rather than an answer.
+  it('opens with a front-loaded answer that concedes what all three do', () => {
+    const { container } = renderRoute();
+    const answer = container.querySelector('.feature-answer');
+    expect(answer).not.toBeNull();
+    expect(answer.textContent).toMatch(/all (show|three)/i);
+    expect(answer.textContent).toMatch(/zero MDR/i);
+  });
+
+  // Corrected 2026-08-08: the guide used to tell a reader that only two of the
+  // three generate GST documents from mobile. All three do.
+  it('does not tell a reader that only some of the three generate GST documents', () => {
+    const { container } = renderRoute();
+    const guide = container.querySelector('#how-to-choose').textContent;
+    expect(guide).toMatch(/all three (create|generate)/i);
   });
 });

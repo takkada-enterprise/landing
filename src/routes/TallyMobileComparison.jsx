@@ -20,14 +20,20 @@ const SEO = {
   path: '/tally-mobile-app-comparison/',
 };
 
+// The first two are landing pages, not posts. Both blog articles that used to
+// sit here were retired on 2026-08-08 and 301'd to these URLs, because two
+// pages answering "biz analyst alternative" split the query between them.
+// Leaving the old hrefs would have pointed this page at a redirect at best and
+// a 404 at worst, and no test on the corpus would have noticed: the internal
+// link guard reads content/blog, and these links live in a component.
 const relatedPosts = [
   {
-    to: '/blog/biz-analyst-alternative/',
+    to: '/biz-analyst-alternative/',
     label: 'Biz Analyst alternative',
-    line: 'Where Biz Analyst stops at viewing and reminding, and what that means for collections.',
+    line: 'Both apps now create vouchers and GST documents. The split is collection, cancellation and how each one bills you.',
   },
   {
-    to: '/blog/livekeeping-alternative-for-distributors/',
+    to: '/livekeeping-alternative/',
     label: 'Livekeeping alternative',
     line: 'What changes when payment collection lives inside the same app as your Tally data.',
   },
@@ -48,23 +54,39 @@ const relatedPosts = [
   },
 ];
 
+// Refreshed 2026-08-08 against pitch-deck/competitor-analysis-2026-08.md. The
+// middle card used to say only Takkada and Livekeeping create GST documents
+// from mobile. Biz Analyst does too, founder-confirmed, so all three now do
+// and the honest dividing line has moved one step later in the workflow.
 const decisionGuide = [
   {
     title: 'You only want to see your books from your phone',
     body:
-      'All three apps in the matrix show your Tally data on mobile and send payment reminders. If viewing and reminding is genuinely all you need, any of them will do that job.',
+      'All three apps in the matrix show your Tally data on mobile and send payment reminders. If viewing and reminding is genuinely all you need, any of them will do that job, and the one with a support person in your town is a fair way to choose.',
   },
   {
     title: 'Your team raises invoices outside the office',
     body:
-      'Takkada and Livekeeping both create vouchers from mobile, including e-invoice and e-way bill. Takkada adds role-based controls per salesman, so a field team sees only its own parties and stock.',
+      'All three create vouchers from mobile now, and all three generate an e-invoice and an e-way bill. Takkada goes 13 voucher types deep, including credit and debit notes, and sets access per salesman down to the warehouse his stock movements may touch.',
+  },
+  {
+    title: 'Something goes wrong after the document is raised',
+    body:
+      'The order is cancelled, the truck does not leave, the IRN has to go back. Takkada cancels the e-invoice or the e-way bill from the phone with the portal reason codes and writes the status against the same voucher. Neither of the other two offers cancellation today.',
   },
   {
     title: 'Collections are the actual problem',
     body:
-      'This is where the columns separate. Takkada puts a UPI payment link on every invoice, charges zero MDR on UPI, and posts the receipt entry into Tally by itself when the payment lands. The other two stop before collection.',
+      'This is where the columns separate hardest. Takkada puts a UPI payment link on every invoice, charges zero MDR on UPI collections with no transaction cap and no monthly fee, and posts the receipt entry into Tally by itself when the payment lands. The other two stop before collection.',
   },
 ];
+
+// The front-loaded answer block, the same pattern the feature pages use. Around
+// 44% of AI-search citations come from the first 30% of a page, and this page
+// answers a question ("which Tally mobile app") that gets asked of an assistant
+// far more often than it gets typed into a search box.
+const ANSWER =
+  'Takkada, Biz Analyst and Livekeeping all show Tally on a phone, create vouchers and generate an e-invoice or e-way bill. They separate after that. Only Takkada cancels a GST document from the phone, collects on UPI at zero MDR, and posts the receipt back into Tally on its own.';
 
 function TallyMobileComparison() {
   return (
@@ -98,10 +120,11 @@ function TallyMobileComparison() {
               Choosing a Tally mobile app: the feature-by-feature picture.
             </h1>
             <p className="hero-subtitle icp-hero-subtitle">
-              Takkada, Biz Analyst, and Livekeeping all put your Tally on your phone.
-              They stop at very different points after that. The matrix below shows
-              exactly where, so you can match the app to what your business actually needs.
+              Three apps put your Tally on your phone. They stop at very different
+              points after that. The matrix below shows exactly where, so you can
+              match the app to what your business actually needs.
             </p>
+            <p className="feature-answer">{ANSWER}</p>
             <div className="hero-ctas">
               <WhatsAppCTA context="comparison" />
               <CalendarCTA context="comparison" />
