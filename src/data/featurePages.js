@@ -1208,6 +1208,171 @@ export const FEATURE_PAGES = [
     ],
     priority: 0.9,
   },
+  {
+    // Was src/routes/TallyOnMobile.jsx, which rendered the entire home page
+    // body under this canonical. That made it a near-duplicate of / and is the
+    // likeliest reason a head term with its own exact-match URL pulled no
+    // entries at all. Operator approved rebuilding it as its own page
+    // 2026-08-08. This is the broadest of the feature pages by design: it is
+    // the term someone searches before they know what the category is called,
+    // so it answers "what can a phone actually do with Tally" and hands off to
+    // the narrower pages from there.
+    slug: 'tally-on-mobile',
+    searchPhrase: 'Tally on mobile',
+    overline: 'TALLY ON MOBILE',
+    headline: 'Tally on mobile, for every hour you are not at that desk.',
+    subheadline:
+      'Tally runs on one machine in the office. The decisions do not wait for you to be sitting in front of it.',
+    // 48 words.
+    answer:
+      'Takkada puts Tally on mobile for distributors: your live books on a phone, plus the work you would otherwise wait to do at the desk. Read outstanding and reports, raise an invoice, send it on WhatsApp, collect by UPI, and every entry lands back in your own Tally.',
+    waContext: 'feature-tally-on-mobile',
+    waMessage:
+      'Hi, I want to use my Tally from my phone instead of being tied to the office machine. Can you show me what Takkada covers?',
+    seo: {
+      title: 'Tally on Mobile for Distributors | Takkada',
+      description:
+        'Run Tally on mobile: read outstanding and reports, raise invoices, send them on WhatsApp and collect by UPI. Every entry writes back into your own Tally.',
+    },
+    llms: {
+      section: 'Features',
+      title: 'Tally on mobile',
+      summary:
+        'What a distributor can actually do with Tally from a phone: read live outstanding and over twenty reports, raise invoices and other vouchers in the existing numbering series, dispatch them on WhatsApp, collect by UPI at 0% MDR, and have every entry write back into the same Tally company.',
+    },
+    footerLabel: 'Tally on mobile',
+    hero: {
+      image: '/assets/screenshots/home-screen-framed.webp',
+      alt: 'The Takkada home screen on a phone, showing the business registers at a glance',
+      width: 800,
+      height: 1624,
+    },
+    author: 'founder',
+    datePublished: '2026-08-08',
+    updated: '2026-08-08',
+    walkthroughHeading: 'What the phone actually covers',
+    walkthrough: [
+      {
+        icon: 'LayoutGrid',
+        title: 'Your books open where you are standing',
+        body:
+          'Receivables, payables, sales, purchase and stock on the first screen, read from your own Tally. The last synced position stays readable even when the office machine is off.',
+        image: '/assets/screenshots/home-screen-framed.webp',
+        alt: 'Takkada home screen with the business registers listed',
+        width: 800,
+        height: 1624,
+      },
+      {
+        icon: 'BookOpen',
+        title: 'Any party, any bill, in two taps',
+        body:
+          'Open a retailer and see what he owes, how old it is, and which invoices make it up. Share his ledger on WhatsApp from the same screen instead of promising to send it later.',
+        image: '/assets/screenshots/party-ledger-mockup.webp',
+        alt: 'Party ledger with outstanding invoices and the amount due',
+        width: 600,
+        height: 1243,
+      },
+      {
+        icon: 'ListChecks',
+        title: 'Raise the entry, do not just look at it',
+        body:
+          'Invoices, delivery challans, sales orders, receipts, credit and debit notes, in your own numbering series and your own formats. It is a Tally voucher, not a note to copy across later.',
+        image: '/assets/screenshots/add-items-mockup.webp',
+        alt: 'Voucher item lines with live stock, quantity and rate on a phone',
+        width: 600,
+        height: 1242,
+      },
+      {
+        icon: 'CalendarClock',
+        title: 'The chasing runs while you do other things',
+        body:
+          'Reminders go out on WhatsApp on a schedule with the invoice and the ledger attached, and the pay link sits in the message. Receipts match themselves back to the bill they settle.',
+        image: '/assets/screenshots/smart-reminders-mockup.webp',
+        alt: 'Reminder schedule showing the pre-due and post-due steps for an invoice',
+        width: 391,
+        height: 790,
+      },
+    ],
+    comparison: {
+      heading: 'How far the phone gets you',
+      othersLabel: 'Other Tally mobile apps',
+      rows: [
+        {
+          feature: 'Reading the books when the Tally machine is off',
+          takkada: 'Yes, the last synced position stays readable',
+          others: 'Often needs the office computer running',
+        },
+        {
+          feature: 'Raising a voucher, not only viewing one',
+          takkada: '13 voucher types, including credit and debit notes and stock journal',
+          others: 'A narrower set, typically built around sales',
+        },
+        {
+          feature: 'Getting paid from the same screen',
+          takkada: '0% MDR on UPI collections, no transaction cap, no monthly fee',
+          others: 'Reminders, without a zero-MDR collection option',
+        },
+        {
+          feature: 'Your numbering and invoice format',
+          takkada: 'Kept exactly as they are in Tally',
+          others: "Sometimes replaced by the app's own series",
+        },
+        {
+          feature: 'How the licence is counted',
+          takkada: 'Per business, with unlimited companies',
+          others: 'Often per device or per company, so each one costs again',
+        },
+      ],
+      disclaimer:
+        'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
+    },
+    planPointer: {
+      plan: 'Clarity',
+      note:
+        'Reading the books starts at the entry plan. Raising vouchers from the phone comes in one tier up, and collection is an add-on that works on either.',
+    },
+    faqs: [
+      {
+        q: 'Is there an official Tally mobile app?',
+        a: 'Tally Solutions does not publish a full mobile app that lets you run your books from a phone. What exists are third-party apps that connect to your existing Tally installation, which is what Takkada is. Your Tally licence, your data and your company stay exactly where they are, and the phone becomes another way into them.',
+      },
+      {
+        q: 'Does my Tally data leave my machine?',
+        a: 'Your Tally stays the system of record on your own computer. A connector on that machine syncs with the app so your phone can read current balances and send entries back. You are not migrating to anything, and you can stop using the app without your books being affected.',
+      },
+      {
+        q: 'Do I need my office computer switched on to use it?',
+        a: 'Not to read. The last synced position stays readable on your phone whether or not the machine is running. Entries you raise while it is off are queued and land in Tally when it next opens, which for most distributors is the following morning at the latest.',
+      },
+      {
+        q: 'How is this different from remote desktop or TeamViewer?',
+        a: 'Remote access gives you the Tally screen on a small display, which means pinching around a keyboard-driven interface and needing the office machine awake and connected. This is a phone app built for a phone, with the registers a distributor actually opens, and it keeps working when that machine is off.',
+      },
+      {
+        q: 'Will it change anything in my Tally?',
+        a: 'It writes the vouchers you raise and nothing else. Your numbering series, your invoice formats, your ledger and item masters and your existing entries are untouched. Distributors who have run the same Tally setup for a decade do not have to change any of it to start using a phone alongside it.',
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: 'tally-on-mobile',
+        title: 'Tally on Mobile in 2026: What Actually Works, What Breaks, and What It Costs',
+      },
+      {
+        slug: 'how-to-access-tally-on-mobile-step-by-step',
+        title: 'How to Access Tally on Mobile: A Step-by-Step Guide',
+      },
+      {
+        slug: 'is-there-an-official-tally-mobile-app',
+        title: 'Is There an Official Tally Mobile App? The Honest Answer',
+      },
+      {
+        slug: 'tally-mobile-par-kaise-chalaye',
+        title: 'Tally Mobile Par Kaise Chalaye: Step-by-Step Guide',
+      },
+    ],
+    priority: 0.9,
+  },
 ];
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */
