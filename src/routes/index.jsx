@@ -13,9 +13,18 @@ import ForDistributors from './ForDistributors';
 import TallyMobileComparison from './TallyMobileComparison';
 import TryDemo from './TryDemo';
 import Partners from './Partners';
+import FeaturePage from '../components/FeaturePage';
 import { routeMetadata } from '../data/siteMetadata';
+import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
+
+// Feature landing pages render from data, so they never need a line here. Every
+// other route names its element explicitly.
+const FEATURE_ELEMENTS = Object.fromEntries(
+  FEATURE_PAGES.map((page) => [featurePagePath(page), <FeaturePage page={page} />])
+);
 
 const ELEMENT_FOR_PATH = {
+  ...FEATURE_ELEMENTS,
   '/': <Home />,
   '/about-us': <AboutUs />,
   '/contact-us': <ContactUs />,

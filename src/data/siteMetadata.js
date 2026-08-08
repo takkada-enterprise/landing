@@ -9,6 +9,12 @@
 // under ('Key pages' | 'Features' | 'Company'); `title` and `summary` are the
 // link text and the one-line description an AI reads. A new feature landing
 // page becomes AI-discoverable by adding `llms` here, nothing else.
+//
+// Feature landing pages are the exception to "add an entry here": they are
+// spread in from src/data/featurePages.js, so one object in that file is the
+// whole registration (route, sitemap, llms.txt line, footer link).
+
+import { featureRouteMetadata } from './featurePages.js';
 
 export const routeMetadata = [
   {
@@ -171,4 +177,5 @@ export const routeMetadata = [
     // inbound links but is excluded from sitemap.xml (2026-07 audit item 4).
     sitemap: false,
   },
+  ...featureRouteMetadata,
 ];

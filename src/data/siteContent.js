@@ -1,3 +1,5 @@
+import { featureFooterLinks } from './featurePages.js';
+
 // Anchor contract (CLAUDE.md §11.6): every #id here must exist as an element
 // id on the rendered Home page. "How It Works" left with the section it
 // pointed at (Home v3, 2026-08-03); the setup story lives in the FAQ now.
@@ -556,6 +558,14 @@ export const footerColumns = [
       { label: 'E-Invoicing', href: '#e-invoicing' },
       { label: 'RBAC', href: '#rbac' },
     ],
+  },
+  {
+    // Built from FEATURE_PAGES, so a new feature landing page is linked from
+    // every page of the site the moment it is added. Internal links are the
+    // thing the six older feature pages never had, and the Clarity data says
+    // that is why they pull no search entries.
+    title: 'Features',
+    links: featureFooterLinks,
   },
   {
     title: 'Company',
