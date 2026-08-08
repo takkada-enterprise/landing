@@ -260,7 +260,31 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 5 — Comparison, alternative and persona pages (highest buying intent)
 
-**Status: NOT STARTED**
+**Status: BUILT 2026-08-08 on branch `feat/phase5-comparison-persona-pages`, NOT PUSHED. Waiting on Ronak's eyeball, which is what this phase's STOP asks for.** Suite 32 files / 1,140 passed / 1 skipped, `npm run build` green, all six URLs server-rendered with 1,200–1,400 words of their own prose, one h1, six JSON-LD blocks, canonical, OG, sitemap entry (208 urls) and footer link.
+
+**What shipped:** `/biz-analyst-alternative`, `/livekeeping-alternative`, `/tally-app-for-fmcg-distributors`, `/tally-app-for-pharma-distributors`, `/tally-app-for-agri-input-distributors`, plus the `/tally-mobile-app-comparison` refresh and the named grid on the homepage.
+
+**Re-verification done first, as the phase required.** Livekeeping's App Store version history read through the latest entry: create e-way/e-invoice with editable shipping address, edit HSN on creation, edit and cancel Tally vouchers, stock journal and physical stock, WhatsApp reminders. No IRN cancel, no e-way cancel, no Part-B, no extension, no payment collection of any kind. Public pricing around ₹3,000/yr with compliance as a paid add-on (IndiaMART lists the one-year plan with add-ons at ₹6,000). Biz Analyst's own site confirms per-device, per-Tally-licence billing and a voucher list without credit or debit notes. The 2026-08-06 grid holds.
+
+**Finding 1 — the live comparison grid was wrong against us, in the direction that matters.** `comparisonSection` said Biz Analyst cannot generate an e-invoice or e-way bill from mobile. They can, founder-confirmed 08-06. That row had been live on the homepage and on `/tally-mobile-app-comparison` for months, and **the table had no test at all**, so nothing could have caught it. A row that understates a competitor is worse than one that flatters us: it is the claim we cannot defend if anyone checks. Corrected, the differentiator row is now cancellation rather than generation, and the grid has a guard pinned to the two ways it can go wrong. The disclaimer still said "reviewed on April 26, 2026".
+
+**Finding 2 — a real customer capture reached a rendered page, and only an eyeball caught it.** `settlement.webp` went in as the `/biz-analyst-alternative` hero. It carries a named individual and two real bank UTRs, and its numbers (pending settlement ₹0, total settled ₹27) argued the opposite of the page they were leading. Phase 3 found five unsafe captures and wrote them into this file; **a note in a plan is not a guard**. The feature-page data test now fails on any of the six, and was watched go red. `settlements-mockup.webp` is the sanitised capture of the same screen and is what ships.
+
+**The alternative pages name their competitor, which no feature page had done.** The unnamed-competitor guard is now opt-in per page through `namesCompetitor` and permits exactly one name, so an alternative page cannot drift into a category roundup. Its banned list also matched the bare string `marg`, so any page discussing a distributor's *margins* read as name-dropping Marg ERP; that is a word boundary now.
+
+**URL decision, operator-made 2026-08-08: the landing page owns the query and the blog post redirects to it.** `/blog/biz-analyst-alternative` and `/blog/livekeeping-alternative-for-distributors` targeted the exact phrases the new pages target, and two URLs answering one query split the signal. Both posts are retired and 301'd through `public/_redirects`. The corpus guard already refused to let a post spend a landing page's search phrase as anchor text on another URL, which is the same rule from the inside.
+
+**A redirect trap worth recording.** On Cloudflare Pages a static asset wins over a redirect rule for the same path, so a rule pointing at a page the build still produces does nothing while looking exactly like a working redirect. `src/data/__tests__/redirects.test.js` asserts the source is gone from the corpus and the target is a live route, and was watched go red with the post restored. **Still unverified: the redirects themselves cannot be tested locally**, because `vite preview` does not read `_redirects`. Curl both old URLs after the merge.
+
+**Finding 3 — `/tally-mobile-app-comparison` would have shipped two dead links and nothing would have failed.** Its head-to-head cards are hard-coded hrefs in a component, and `blog-internal-links.test.js` only reads `content/blog/*.md`. Deleting the two posts left the page pointing at 404s with a green suite. Fixed, and a test now refuses either retired URL by name.
+
+**Persona pages are deliberately not the zero-MDR posts reworded.** Those posts own the "what does 0% MDR mean for my trade" query and are indexed; the pages take the broader "app for my trade" query and link down to them. Same watch item Phase 4 opened for `/send-payment-reminders-automatically`: if Search Console shows a page and its post trading places on one query, merge them. No customer is named on any of the three.
+
+**Nothing claims e-way bill closure.** The Livekeeping page answers it head-on in an FAQ citing Advisory No. 668, which is what the closure guard requires.
+
+**Still open from this phase:** the deck and `competitor-analysis-2026-08.html`/`.md` both still carry "cancels or closes" and a closure row in the capability table. The website was corrected in Phase 3; these two were not, and this phase read from that file. Fix before any reprint or send.
+
+**STOP — show Ronak the six pages in the browser before pushing.**
 
 - "Biz Analyst alternative" and "Livekeeping alternative" pages. Note: the deck guardrail says competitors stay unnamed in *sales* material, but the site already names them (`/tally-mobile-app-comparison`, vs-blog posts) — precedent stands; every claim must come from the verified grid (Biz Analyst: no payment collection, no cancel/close; Livekeeping: generate-only e-invoice, nothing after the invoice). Re-verify the Livekeeping changelog before publishing (fortnightly rule).
 - Refresh `/tally-mobile-app-comparison` with the 2026-08 grid (keep the HTML table).
