@@ -7,23 +7,23 @@
          on every page downloaded 133KB for a tab icon. The full-size PNG stays
          in the repo as the schema.org logo URL, which browsers never fetch. -->
     <link rel="icon" type="image/png" href="/assets/screenshots/takkada-favicon.png" />
-    <!-- Self-hosted fonts. Do not re-add a Google Fonts <link>: it was
-         render-blocking for 1.3s. Rationale in src/fonts.css, guards in
-         src/__tests__/fonts.test.js. Only `latin` is preloaded on purpose. -->
-    <link
-      rel="preload"
-      href="/assets/fonts/plus-jakarta-sans-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/assets/fonts/fraunces-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <!-- Self-hosted fonts (src/fonts.css). Do not re-add a Google Fonts
+         <link>: it was render-blocking for 1.3s.
+
+         And do NOT preload these fonts. That was tried and measured, and it
+         made things worse: preloading the two latin files put 93KB of
+         High-priority requests in front of the hero image, which is the LCP
+         element. Once the fonts were served from our own origin they competed
+         with it for the same connection instead of arriving over Google's, and
+         the hero's download time went 1,728ms -> 3,120ms for identical bytes.
+         Live mobile LCP regressed 2.6-2.9s -> 3.1-4.2s.
+
+         font-display: swap already renders text immediately in a fallback and
+         swaps when the font lands, which is the right trade for a page whose
+         LCP is an image. Measure before changing this.
+
+         Guards in src/__tests__/fonts.test.js. -->
+
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
