@@ -197,22 +197,45 @@ function authorNode(authorKey, resolveAuthor) {
   return node;
 }
 
-export function articleSchema(post, resolveAuthor = getAuthor) {
+// The Article node, independent of where the content lives. Blog posts and
+// feature landing pages both need a named author with a `sameAs` profile and an
+// honest dateModified; only the field names and the URL differ, so the shape is
+// built once here and the two call sites below map their own data onto it.
+export function articlePageSchema(
+  { headline, description, image, datePublished, dateModified, author, path },
+  resolveAuthor = getAuthor
+) {
+  const url = absoluteUrl(path);
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.meta_description,
-    image: absoluteUrl(post.heroImage),
-    datePublished: post.date,
-    // dateModified must reflect real edits, not mirror datePublished. An
-    // optional `updated` frontmatter field bumps it; recency is a strong
-    // AI-citation signal (plan U2 / GEO §4).
-    dateModified: post.updated ?? post.date,
-    author: authorNode(post.author, resolveAuthor),
+    headline,
+    description,
+    image: absoluteUrl(image),
+    datePublished,
+    // dateModified must reflect real edits, not mirror datePublished. Recency
+    // is a strong AI-citation signal (plan U2 / GEO §4).
+    dateModified: dateModified ?? datePublished,
+    author: authorNode(author, resolveAuthor),
     publisher: { '@id': `${SITE_URL}/#organization` },
     isPartOf: { '@id': `${SITE_URL}/#website` },
-    url: absoluteUrl(`/blog/${post.slug}`),
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    url,
+    mainEntityOfPage: url,
   };
+}
+
+export function articleSchema(post, resolveAuthor = getAuthor) {
+  return articlePageSchema(
+    {
+      headline: post.title,
+      description: post.meta_description,
+      image: post.heroImage,
+      datePublished: post.date,
+      // An optional `updated` frontmatter field bumps dateModified.
+      dateModified: post.updated,
+      author: post.author,
+      path: `/blog/${post.slug}`,
+    },
+    resolveAuthor
+  );
 }

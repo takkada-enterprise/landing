@@ -120,7 +120,29 @@ Live `robots.txt` verified 2026-08-08. Cloudflare injects its managed block *ahe
 
 ## Phase 2 — The page engine (build once, add pages in minutes forever)
 
-**Status: NOT STARTED**
+**Status: BUILT AND GREEN LOCALLY 2026-08-08, NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, commit `e913437`).**
+
+**What shipped in the commit:**
+- `src/data/featurePages.js` (content, JSX-free) + `src/components/FeaturePage.jsx` (template) + `src/feature-page.css`.
+- **Registration is one object.** `siteMetadata.js` spreads `featureRouteMetadata` and `routes/index.jsx` builds its elements from the same array, so a new entry gets the route, the sitemap line, the llms.txt line, the footer "Features" link and its own WhatsApp CTA context with no other edit. Only follow-up is `node scripts/generate-llms-txt.mjs`, and a test fails if that is skipped.
+- `articleSchema` refactored onto a shared `articlePageSchema`, so blog posts and feature pages emit the same Article node instead of two copies that drift.
+- Pilot page live at `/salesman-app-tally` on the local build: 6 walk-through cards on real app screenshots, 5-row comparison table, 6 FAQs, related-reading block into 4 existing salesman posts.
+
+**Verified, not assumed:**
+- `npm test` 269 passed / 1 skipped, 27 files. `npm run build` green through all five guard scripts.
+- `dist/salesman-app-tally/index.html` is 41KB of real prerendered HTML (14,851 chars of text), in `sitemap.xml` at priority 0.9, in `llms.txt`, linked from the footer of every page.
+- All 6 JSON-LD blocks parse: Article (named Person author, LinkedIn `sameAs`, honest `dateModified`), SoftwareApplication, FAQPage (6 Q&As), BreadcrumbList, plus site-wide Organization and WebSite.
+- 15 internal links on the page, zero dead; all 9 homepage hash targets exist.
+- Main JS bundle still **74KB gzip** — the blog chunk stayed isolated, so the Phase 1 LCP work is not undone.
+- Every new guard was falsified by breaking the data and watching it go red. One guard (`WHATSAPP_MESSAGES[ctx] === waMessage`) proved circular and was rewritten rather than left green.
+
+**Two things worth knowing before Phase 3:**
+
+**Finding 1 — the "6 existing feature landing pages" are not 6 pages.** `/tally-on-mobile` renders `<Home>` under a different canonical, so it is the homepage body with a keyword title. That is a likely part of why these pages pull zero top entries, alongside the missing internal links. Phase 3 item 8 should treat it as a rewrite onto this engine, not a refresh.
+
+**Finding 2 — competitor detail for field-sales is NOT verified.** The competitor grid (2026-08-06) covers e-invoice lifecycle, collections, AI entry, voucher depth and per-device billing. It says nothing about whether the competitors do geo-tagged visit proof or check-in. The comparison table on the pilot page therefore only carries rows the grid actually supports, and claims no absence that was never researched. Before any page leans on a field-sales absence claim, that research has to happen.
+
+**Open question for Ronak:** the blog post `salesman-app-tally-india` already targets this head term. Two of our own URLs now compete for it. Recommendation: keep both, point the post's internal links at the new page so the page wins the term and the post feeds it. That is how the plan's own evidence says pages start ranking.
 
 One `FeaturePage` template component + one content/data entry per page (same pattern as the blog). Every page automatically gets:
 

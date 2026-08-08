@@ -20,6 +20,7 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 - [Tally on mobile](https://takkada.com/tally-on-mobile/): Run Tally from a phone: invoice, send on WhatsApp, collect via UPI and auto-reconcile back into Tally.
 - [WhatsApp invoicing from Tally](https://takkada.com/whatsapp-invoice-tally/): Salesmen raise invoices at the retailer's shop from their phone. Syncs to Tally in real time and the retailer gets the PDF on WhatsApp.
 - [Auto-reconciliation into Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
+- [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
 
 ## Company
 

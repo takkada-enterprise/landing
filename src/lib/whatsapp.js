@@ -1,4 +1,5 @@
 import { appLinks } from '../data/siteContent';
+import { FEATURE_PAGES } from '../data/featurePages';
 
 // Pre-filled messages per CTA context. The visitor lands in a WhatsApp chat
 // with the founder, so each message names what they were reading — that is
@@ -34,6 +35,10 @@ export const WHATSAPP_MESSAGES = {
     'Hi, I saw the order-to-cash road on takkada.com. I want to see how the invoice-to-UPI loop works for my business.',
   'story-team-sales':
     'Hi, I run a sales team in the field. I want to see how Takkada handles salesman check-ins and orders.',
+  // Feature landing pages register their own context from their content entry,
+  // so a new page arrives in the funnel already triaged instead of falling back
+  // to the default message.
+  ...Object.fromEntries(FEATURE_PAGES.map((page) => [page.waContext, page.waMessage])),
 };
 
 // Builds a wa.me click-to-chat URL for a CTA context. Returns null when no

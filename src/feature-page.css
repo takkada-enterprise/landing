@@ -1,0 +1,257 @@
+/* Feature landing pages (src/components/FeaturePage.jsx).
+ *
+ * Everything here either extends a class that already exists in styles.css or
+ * adds a pattern the shared vocabulary genuinely lacks: the front-loaded answer
+ * block, the alternating screenshot walk-through, a comparison table whose
+ * cells hold sentences instead of tick marks, and the plan pointer. Tokens
+ * only, no new colours (CLAUDE.md §6).
+ *
+ * No motion of its own (craft rule 5). The FAQ accordion is the only moving
+ * part on these pages and it comes from the shared FAQItem.
+ */
+
+/* ── Hero ──
+ * Two columns on desktop: the copy carries the search phrase and the answer
+ * block, the mockup carries the proof. The mockup is the LCP element on these
+ * pages, so it is sized in the markup and never lazy. */
+.feature-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 64px;
+  align-items: center;
+}
+
+/* The mockups carry their own device frame on a transparent background, so a
+ * box-shadow would draw a rectangle behind a phone-shaped hole. drop-shadow
+ * follows the alpha silhouette instead. Same reason there is no border-radius:
+ * the rounded corners are already in the artwork. */
+.feature-hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 32px 60px rgba(20, 36, 28, 0.22))
+    drop-shadow(0 10px 22px rgba(20, 36, 28, 0.12));
+}
+
+/* ── The front-loaded answer, directly under the h1 ──
+ * This is the passage AI-search engines lift, so it is set apart to read as a
+ * definition rather than as more hero copy. */
+.feature-answer {
+  margin: 28px 0 0;
+  padding: 20px 24px;
+  max-width: 720px;
+  background: var(--color-sage-bg);
+  border-left: 3px solid var(--color-primary-light);
+  border-radius: var(--radius-md);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-on-container);
+}
+
+.feature-hero .hero-ctas {
+  margin-top: 32px;
+}
+
+/* ── Walk-through ──
+ * A card grid rather than alternating full-width rows. Six phone screenshots
+ * stacked one per row ran to roughly 3,700px of scroll, which is the long-scroll
+ * punishment craft rule 2 exists to prevent. Cards keep the same six steps
+ * inside about a third of the height and reuse the card vocabulary (rule 10). */
+.feature-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.feature-step {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 0;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.feature-step-copy h3 {
+  margin: 14px 0 8px;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-display);
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.feature-step-copy p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* The screenshot sits at the foot of the card and is deliberately cropped by
+ * the card edge, so a 600x1243 phone capture reads as a device peeking in
+ * rather than dictating the card's height. */
+.feature-step-shot {
+  margin-top: 24px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.feature-step-shot img {
+  display: block;
+  width: 100%;
+  max-width: 208px;
+  height: auto;
+  margin: 0 auto;
+  /* Transparent-background mockups: shadow the silhouette, not the box. */
+  filter: drop-shadow(0 10px 20px rgba(20, 36, 28, 0.14));
+}
+
+/* ── Comparison table with sentences in the cells ──
+ * The base .comparison-table is built for tick marks: centred, nowrap, narrow.
+ * These overrides let the cells carry a real clause, which is what makes the
+ * table quotable. */
+.feature-comparison-table .comparison-th {
+  white-space: normal;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.feature-comparison-table .comparison-td {
+  text-align: left;
+  line-height: 1.5;
+  vertical-align: top;
+  color: var(--color-text-secondary);
+}
+
+.feature-comparison-table .comparison-td--feature {
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 200px;
+}
+
+.feature-comparison-table .comparison-td--takkada-value {
+  color: var(--color-text);
+  font-weight: 500;
+  background: var(--color-sage-bg);
+}
+
+/* ── Plan pointer ── */
+.feature-plan-pointer {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: var(--color-surface-variant, #F3F3EE);
+  border-radius: var(--radius-lg);
+  max-width: 560px;
+}
+
+.feature-plan-pointer-note {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.feature-plan-pointer-price {
+  margin: 12px 0 0;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.feature-plan-pointer-plan {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.feature-plan-pointer-period,
+.feature-plan-pointer-term {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.feature-plan-pointer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.feature-plan-pointer-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Related reading ── */
+.feature-related {
+  padding: 72px 0;
+  background: var(--color-bg);
+}
+
+.feature-related-list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.feature-related-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+  padding: 20px 22px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.feature-related-list a svg {
+  flex-shrink: 0;
+  color: var(--color-primary-light);
+}
+
+.feature-related-list a:hover {
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 900px) {
+  /* The mockup drops below the copy and shrinks. It stays eager: it is still
+   * the largest thing in view on a phone. */
+  .feature-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-hero-shot {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .feature-answer {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+
+  .feature-steps {
+    gap: 44px;
+  }
+
+  .feature-related {
+    padding: 56px 0;
+  }
+}
