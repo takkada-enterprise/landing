@@ -636,6 +636,25 @@ export const appLinks = {
 // sign them in.
 export const demoEntryLive = true;
 
+// The named competitor grid. Renders on the homepage and on
+// /tally-mobile-app-comparison from this one source, so a correction here lands
+// on both.
+//
+// Refreshed 2026-08-08 from pitch-deck/competitor-analysis-2026-08.md, itself
+// re-verified against each product's live listings the same day. Two rows
+// changed and one of them was a correction against ourselves: the grid said
+// Biz Analyst cannot generate an e-invoice or e-way bill from mobile, and they
+// can. Their own website, help manual and store listings still do not show it,
+// which is where the wrong row came from. Never leave a row claiming a
+// competitor lacks something they have; the disclaimer carries the caveat
+// instead.
+//
+// The row that separates the columns is no longer generation, it is what
+// happens after. Cancelling an IRN or an e-way bill from the phone is
+// code-verified on our side and absent from fourteen months of Livekeeping
+// release notes and the whole Biz Analyst doc set. Closing an e-way bill is
+// deliberately NOT a row: GSTN Advisory No. 668 of 29 July 2026 put that
+// facility in abeyance, so nobody has it, us included.
 export const comparisonSection = {
   overline: 'WHY TAKKADA',
   heading: "What you get that others don't",
@@ -665,10 +684,22 @@ export const comparisonSection = {
       Livekeeping: true,
     },
     {
-      feature: 'E-invoice + e-way bill from mobile',
+      feature: 'Generate e-invoice + e-way bill from mobile',
+      Takkada: true,
+      'Biz Analyst': true,
+      Livekeeping: true,
+    },
+    {
+      feature: 'Cancel an e-invoice or e-way bill from the phone',
       Takkada: true,
       'Biz Analyst': false,
-      Livekeeping: true,
+      Livekeeping: false,
+    },
+    {
+      feature: 'Credit and debit notes from mobile',
+      Takkada: true,
+      'Biz Analyst': false,
+      Livekeeping: false,
     },
     {
       feature: 'Invoice-linked payment collection',
@@ -695,14 +726,20 @@ export const comparisonSection = {
       Livekeeping: false,
     },
     {
-      feature: 'PDF/OCR — scan purchase invoices into Tally',
+      feature: 'PDF/OCR scan of purchase invoices into Tally',
+      Takkada: true,
+      'Biz Analyst': false,
+      Livekeeping: false,
+    },
+    {
+      feature: 'Warehouse-level access control per team member',
       Takkada: true,
       'Biz Analyst': false,
       Livekeeping: false,
     },
   ],
   disclaimer:
-    'Feature details for Biz Analyst and Livekeeping are based on the pricing pages reviewed on April 26, 2026. Verify on their product pages before using this in sales materials.',
+    'Compiled on 8 August 2026 from each product’s public listings, release notes and pricing pages. Biz Analyst added e-invoice and e-way bill generation recently and their own site does not list it yet, so check their current pages before you rely on any row here.',
 };
 
 export const contactInfo = {
