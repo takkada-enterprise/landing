@@ -46,7 +46,17 @@ Measured on live takkada.com, mobile, devtools throttling, three runs each:
 
 Note the local before/after showed LCP *unchanged* at 2.3–2.5s — localhost does not reproduce the bandwidth contention. The win only appeared against the live site. Do not trust a local Lighthouse run to validate a byte-weight change on this repo.
 
-**Still not fully green:** LCP sits at **2.5–3.0s** against the 2.5s threshold. See Finding 4 for the font attempt, which did not move it.
+**Now green in the lab.** LCP **2.31–2.48s across five consecutive runs**, all under the 2.5s threshold; CLS 0.001–0.028 against 0.1; Lighthouse performance **0.95–0.97**. Started the session at LCP 3.1–3.8s / 0.87.
+
+Caveat that matters: this is *lab* data. Google ranks on *field* data (CrUX), which is a 28-day rolling 75th percentile across real devices, so it will lag this by roughly a month and can read worse. Re-check the Clarity / Search Console Core Web Vitals panel in early September before treating it as banked.
+
+What actually got it there, in order of contribution:
+1. **Blog bundle split** (PR #59) — 3.1–3.8s → 2.6–2.9s. By far the biggest single win.
+2. **Hero re-encode** (PR #64) — 2.59s → 2.36s median. 63,850 → 48,840 bytes from the lossless PNG source, dimensions unchanged.
+3. **Cloudflare email obfuscation off** (operator) — ~60ms. Lighthouse estimated 1,091ms of "potential savings"; the real gain was a small fraction of that.
+4. **Font self-hosting** (PRs #61/#62) — **zero** LCP contribution, see Finding 4. Kept for CLS and weight.
+
+**Lesson recorded twice over:** Lighthouse's `wastedMs` / "potential savings" numbers are estimates under its simulation model, not wall-clock time you get back. Two predictions in this session were built on them and both over-promised. Predict from bytes and the request timeline instead.
 
 **A new failure mode this introduces, and its guard.** If a future router or `vite-react-ssg` upgrade stops awaiting `lazy`, all 170 blog pages become empty client-rendered shells that still return 200 and still sit in `sitemap.xml`. Nothing else in the build would notice. `scripts/checkBlogPrerender.mjs` fails the build on that, asserting on prose in the raw HTML rather than on route config.
 
@@ -71,9 +81,11 @@ PR #62 fixed both: preloads removed (`font-display: swap` covers it), and `latin
 
 So: worth keeping for the CLS improvement, the weight, and losing the Google dependency — but **removing a render-blocking stylesheet does not automatically improve LCP when the LCP element is an image that then has to share the connection.** Do not assume otherwise next time; measure the request timeline, not just the render-blocking list.
 
-**What is actually left on the critical path** (measured 2026-08-08 post-fix):
-- `assets/app-*.css`, render-blocking **888ms** — 17KB that takes ~1s to arrive on a cold connection.
-- **`/cdn-cgi/scripts/.../email-decode.min.js`, render-blocking 1,091ms.** This is Cloudflare's **Scrape Shield → Email Obfuscation** feature injecting a blocking script because the pages contain email addresses. It is not in our repo and cannot be fixed in code. **This is now the single largest remaining LCP lever and it is another dashboard toggle.** Weigh it against whatever spam protection the obfuscation is buying.
+**Cloudflare email obfuscation: turned off by the operator 2026-08-08.** It was injecting `/cdn-cgi/scripts/.../email-decode.min.js` as a render-blocking script to hide exactly one footer address, and it also hid that address from the AI crawlers this phase existed to let in. Verified gone; `admin@paysaathi.com` is now readable in the HTML. Measured gain was ~60ms, not the 1,091ms Lighthouse advertised.
+
+**What is left on the critical path, and deliberately not done:**
+- `assets/app-*.css` render-blocks ~900ms (17KB, first thing on a cold connection).
+- **The 71KB JS bundle fetches at High priority alongside the hero image**, competing for bandwidth. The site is fully server-rendered, so that JS is only needed for hydration. Deprioritising it would free bandwidth for the LCP element **at the cost of CTAs (Book a Demo, WhatsApp, menu) becoming clickable later**. That is a product trade-off, not a technical one — it needs an operator decision, and the page is already under threshold without it.
 
 **Finding 3 — the AI-bot block is narrower than this plan assumed, and the control is named differently than step 1 says.**
 
