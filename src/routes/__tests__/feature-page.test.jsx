@@ -41,6 +41,19 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
     expect(h1s[0].textContent.toLowerCase()).toContain(page.searchPhrase.toLowerCase());
   });
 
+  it('renders the hero mockup eagerly at high fetch priority', () => {
+    const { container } = renderPage(page);
+    const img = container.querySelector('.feature-hero-shot img');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('src')).toBe(page.hero.image);
+    expect(img.getAttribute('alt')).toBe(page.hero.alt);
+    expect(img.getAttribute('width')).toBe(String(page.hero.width));
+    expect(img.getAttribute('height')).toBe(String(page.hero.height));
+    // The LCP element must not be lazy, and must ask for priority.
+    expect(img.getAttribute('loading')).toBeNull();
+    expect(img.getAttribute('fetchpriority')).toBe('high');
+  });
+
   it('renders the answer block ahead of the walk-through', () => {
     const { container } = renderPage(page);
     const answer = container.querySelector('.feature-answer');

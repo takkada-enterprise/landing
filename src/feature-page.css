@@ -10,6 +10,29 @@
  * part on these pages and it comes from the shared FAQItem.
  */
 
+/* ── Hero ──
+ * Two columns on desktop: the copy carries the search phrase and the answer
+ * block, the mockup carries the proof. The mockup is the LCP element on these
+ * pages, so it is sized in the markup and never lazy. */
+.feature-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 64px;
+  align-items: center;
+}
+
+/* The mockups carry their own device frame on a transparent background, so a
+ * box-shadow would draw a rectangle behind a phone-shaped hole. drop-shadow
+ * follows the alpha silhouette instead. Same reason there is no border-radius:
+ * the rounded corners are already in the artwork. */
+.feature-hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 32px 60px rgba(20, 36, 28, 0.22))
+    drop-shadow(0 10px 22px rgba(20, 36, 28, 0.12));
+}
+
 /* ── The front-loaded answer, directly under the h1 ──
  * This is the passage AI-search engines lift, so it is set apart to read as a
  * definition rather than as more hero copy. */
@@ -82,8 +105,8 @@
   max-width: 208px;
   height: auto;
   margin: 0 auto;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  box-shadow: var(--shadow-md);
+  /* Transparent-background mockups: shadow the silhouette, not the box. */
+  filter: drop-shadow(0 10px 20px rgba(20, 36, 28, 0.14));
 }
 
 /* ── Comparison table with sentences in the cells ──
@@ -202,6 +225,20 @@
 
 .feature-related-list a:hover {
   box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 900px) {
+  /* The mockup drops below the copy and shrinks. It stays eager: it is still
+   * the largest thing in view on a phone. */
+  .feature-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-hero-shot {
+    max-width: 260px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 767px) {

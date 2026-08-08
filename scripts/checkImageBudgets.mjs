@@ -23,6 +23,11 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const BUDGETS = [
   // path, max bytes, why
   ['public/assets/screenshots/home-screen-framed.webp', 56_000, 'homepage LCP element'],
+  // Re-encoded 2026-08-08 from the PNG source at q68 (83,320 -> 53,584 bytes):
+  //   cwebp -q 68 -m 6 -alpha_q 100 -sharp_yuv \
+  //     public/assets/screenshots/field-visit-photo-mockup.png \
+  //     -o public/assets/screenshots/field-visit-photo-mockup.webp
+  ['public/assets/screenshots/field-visit-photo-mockup.webp', 60_000, 'LCP element on /salesman-app-tally'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],

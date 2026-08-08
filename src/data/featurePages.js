@@ -32,6 +32,7 @@
  * @property {{title: string, description: string}} seo
  * @property {{section: string, title: string, summary: string}} llms
  * @property {string} footerLabel              link text in the footer Features column
+ * @property {{image: string, alt: string, width: number, height: number}} hero  the hero mockup; this page's LCP element
  * @property {string} author                   key into src/data/authors.js
  * @property {string} datePublished            ISO date
  * @property {string} updated                  ISO date; bump on a real edit (recency is a citation signal)
@@ -83,6 +84,16 @@ export const FEATURE_PAGES = [
         'Field-sales module for distributors on Tally: one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
     },
     footerLabel: 'Salesman app',
+    // The hero mockup is this page's LCP element, so it renders eagerly at high
+    // fetch priority and its bytes are pinned in scripts/checkImageBudgets.mjs.
+    // A real Guwahati storefront with the coordinates and timestamp on it does
+    // more for trust than any diagram of the feature (CLAUDE.md craft rule 4).
+    hero: {
+      image: '/assets/screenshots/field-visit-photo-mockup.webp',
+      alt: 'Takkada visit proof: a geo-tagged, time-stamped photo of a retailer shopfront in Guwahati',
+      width: 600,
+      height: 1243,
+    },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',

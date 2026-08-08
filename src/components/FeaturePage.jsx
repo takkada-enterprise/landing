@@ -111,16 +111,36 @@ function FeaturePage({ page }) {
       {/* ── Hero + front-loaded answer ── */}
       <section className="hero icp-hero feature-hero" id="hero">
         <div className="container">
-          <div className="hero-content icp-hero-content">
-            <Breadcrumb trail={trail} />
-            <span className="section-label hero-overline">{page.overline}</span>
-            <h1 className="hero-title icp-hero-title">{page.headline}</h1>
-            <p className="hero-subtitle icp-hero-subtitle">{page.subheadline}</p>
-            <p className="feature-answer">{page.answer}</p>
-            <div className="hero-ctas">
-              <WhatsAppCTA context={page.waContext} />
-              <CalendarCTA context={page.waContext} />
+          <div className="feature-hero-grid">
+            <div className="hero-content icp-hero-content">
+              <Breadcrumb trail={trail} />
+              <span className="section-label hero-overline">{page.overline}</span>
+              <h1 className="hero-title icp-hero-title">{page.headline}</h1>
+              <p className="hero-subtitle icp-hero-subtitle">{page.subheadline}</p>
+              <p className="feature-answer">{page.answer}</p>
+              <div className="hero-ctas">
+                <WhatsAppCTA context={page.waContext} />
+                <CalendarCTA context={page.waContext} />
+              </div>
             </div>
+            {page.hero && (
+              <div className="feature-hero-shot">
+                {/* LCP element on desktop. Eager and high priority, never lazy.
+                    Do not hand-write a <link rel=preload> for it: vite-react-ssg
+                    injects a preload for every <img>, and stripImagePreloads
+                    keeps exactly the ones whose fetchpriority is high. Setting
+                    it here is what earns the preload; adding a second one by
+                    hand is what breaks checkImagePreloads. */}
+                <img
+                  src={page.hero.image}
+                  alt={page.hero.alt}
+                  width={page.hero.width}
+                  height={page.hero.height}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

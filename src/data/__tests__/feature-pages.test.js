@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,6 +14,8 @@ import { routeMetadata } from '../siteMetadata';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
+import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
+import { findImagePreloads } from '../../../scripts/stripImagePreloads.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
@@ -58,6 +60,24 @@ describe('feature page data contract', () => {
       expect(words.length).toBeLessThanOrEqual(60);
       const firstSentence = page.answer.split(/(?<=\.)\s/)[0].toLowerCase();
       expect(firstSentence).toContain(page.searchPhrase.toLowerCase());
+    }
+  );
+
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: the hero mockup exists, is sized, and stays inside its byte budget',
+    (_slug, page) => {
+      expect(page.hero).toBeDefined();
+      const abs = resolve(repoRoot, `public${page.hero.image}`);
+      expect(existsSync(abs)).toBe(true);
+      expect(page.hero.width).toBeGreaterThan(0);
+      expect(page.hero.height).toBeGreaterThan(0);
+      expect(page.hero.alt.length).toBeGreaterThan(0);
+      // The hero is the LCP element on these pages. Every hero image must be
+      // budgeted in checkImageBudgets.mjs, or a re-export can silently put the
+      // bytes back and nothing fails the build.
+      const budgeted = BUDGETS.find(([p]) => p === `public${page.hero.image}`);
+      expect(budgeted).toBeDefined();
+      expect(statSync(abs).size).toBeLessThanOrEqual(budgeted[1]);
     }
   );
 
@@ -180,6 +200,23 @@ describe('feature page registration is automatic', () => {
     expect(featureRouteMetadata).toHaveLength(FEATURE_PAGES.length);
     expect(featureFooterLinks).toHaveLength(FEATURE_PAGES.length);
   });
+
+  // vite-react-ssg injects a preload for every <img>; stripImagePreloads keeps
+  // only the deliberate ones. On a feature page that must resolve to exactly
+  // one: the hero. If a walk-through image ever loses loading="lazy" its
+  // preload survives and starts competing with the hero for bandwidth, which is
+  // the failure mode that cost the homepage 0.7s of LCP.
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: the built page preloads the hero and nothing else',
+    (slug, page) => {
+      const built = resolve(repoRoot, `dist/${slug}/index.html`);
+      if (!existsSync(built)) return; // dist/ only exists after a build
+      const html = readFileSync(built, 'utf-8');
+      const preloads = findImagePreloads(html);
+      expect(preloads).toHaveLength(1);
+      expect(preloads[0]).toContain(page.hero.image);
+    }
+  );
 
   it('keeps the committed public/llms.txt in step with the pages', () => {
     const llms = readFileSync(resolve(repoRoot, 'public/llms.txt'), 'utf-8');
