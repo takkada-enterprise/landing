@@ -160,7 +160,6 @@ export const LEGACY_GRANDFATHERED = new Set([
   'how-to-split-upi-payment-across-tally-invoices',
   'is-upi-free-for-merchants-in-india',
   'khatabook-alternative-for-distributors-india',
-  'livekeeping-alternative-for-distributors',
   'marg-erp-alternative-for-distributors',
   'mdr-vs-convenience-fee-upi',
   'multi-business-tally-mobile-app',

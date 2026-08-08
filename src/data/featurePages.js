@@ -56,6 +56,8 @@
 // generators load this module through Node ESM, which does not resolve
 // extensionless specifiers.
 import { SECOND_BATCH } from './featurePagesSecondBatch.js';
+import { ALTERNATIVES } from './featurePagesAlternatives.js';
+import { PERSONAS } from './featurePagesPersonas.js';
 
 /** @type {FeaturePage[]} */
 const FIRST_BATCH = [
@@ -1386,13 +1388,15 @@ const FIRST_BATCH = [
  * which batch a page came from.
  * @type {FeaturePage[]}
  */
-export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH];
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS];
 
 // Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
 // file that actually changes when the page is edited.
 const SOURCE_FILES = new Map([
   ...FIRST_BATCH.map((page) => [page.slug, 'src/data/featurePages.js']),
   ...SECOND_BATCH.map((page) => [page.slug, 'src/data/featurePagesSecondBatch.js']),
+  ...ALTERNATIVES.map((page) => [page.slug, 'src/data/featurePagesAlternatives.js']),
+  ...PERSONAS.map((page) => [page.slug, 'src/data/featurePagesPersonas.js']),
 ]);
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */

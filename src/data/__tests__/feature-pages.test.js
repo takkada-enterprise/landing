@@ -108,15 +108,44 @@ describe('feature page data contract', () => {
     }
   );
 
+  // Deck guardrail: competitors stay unnamed on feature pages, and the named
+  // grid lives on /tally-mobile-app-comparison.
+  //
+  // Relaxed 2026-08-08 for the Phase 5 alternative pages, which cannot exist
+  // without naming the product someone is searching for an alternative to. The
+  // relaxation is opt-in per page through `namesCompetitor` and is narrow on
+  // purpose: a page may name the one competitor it is about and no other. That
+  // keeps the blast radius of the exception to two pages instead of turning the
+  // whole guard off, and it stops an alternative page quietly growing into a
+  // roundup that name-drops the rest of the category.
+  // \bmarg\b rather than the bare /marg/ the original guard used: that form
+  // matched the word "margins", so a page talking about a distributor's margin
+  // was indistinguishable from one name-dropping Marg ERP.
+  const COMPETITORS = /biz\s*analyst|livekeeping|khatabook|credflow|vyapar|\bmarg erp\b/gi;
+  const NAMEABLE = ['Biz Analyst', 'Livekeeping'];
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
-    '%s: the comparison table keeps competitors unnamed',
+    '%s: names at most the one competitor it opted into',
     (_slug, page) => {
-      // Deck guardrail: competitors stay unnamed on feature pages. The named
-      // grid lives only on /tally-mobile-app-comparison.
-      const banned = /biz\s*analyst|livekeeping|khatabook|credflow|vyapar|marg/i;
-      const text = JSON.stringify(page.comparison);
-      expect(text).not.toMatch(banned);
       expect(page.comparison.rows.length).toBeGreaterThan(0);
+      const mentioned = [...JSON.stringify(page).matchAll(COMPETITORS)].map((m) =>
+        m[0].toLowerCase().replace(/\s+/g, ' ')
+      );
+
+      if (!page.namesCompetitor) {
+        expect(mentioned, `${page.slug} must not name a competitor`).toEqual([]);
+        return;
+      }
+
+      expect(NAMEABLE).toContain(page.namesCompetitor);
+      const allowed = page.namesCompetitor.toLowerCase();
+      for (const name of mentioned) {
+        expect(name, `${page.slug} may only name ${page.namesCompetitor}`).toBe(allowed);
+      }
+      // An alternative page that never says the name in its comparison column
+      // has opted in for nothing, which means the reader never sees who the
+      // column is.
+      expect(page.comparison.othersLabel).toBe(page.namesCompetitor);
     }
   );
 

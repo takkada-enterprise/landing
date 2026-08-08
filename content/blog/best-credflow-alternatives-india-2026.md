@@ -53,7 +53,7 @@ Biz Analyst is a mobile companion for Tally focused on reports, dashboards, and 
 
 **Pros:** Mature Tally reporting on mobile, offline access to synced data, established user base.
 
-**Cons:** It is an analytics and data-entry layer more than a collection engine. UPI collection with 0% MDR, auto-dispatch, and automatic receipt reconciliation are not its centre of gravity. The contrast is detailed in the [Biz Analyst alternative](/blog/biz-analyst-alternative/) breakdown.
+**Cons:** It is an analytics and data-entry layer more than a collection engine. UPI collection with 0% MDR, auto-dispatch, and automatic receipt reconciliation are not its centre of gravity. The contrast is detailed in the [Biz Analyst alternative](/biz-analyst-alternative/) breakdown.
 
 ## Vyapar: Standalone Billing for Non-Tally Businesses
 
