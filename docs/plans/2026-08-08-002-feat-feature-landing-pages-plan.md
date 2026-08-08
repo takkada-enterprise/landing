@@ -177,7 +177,7 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 3 — The 8 priority pages (Ronak's keyword list)
 
-**Status: ALL 8 BUILT AND GREEN LOCALLY 2026-08-08 (29 files / 498 tests), NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, same branch as the Phase 2 engine, which was also never eyeballed).** Suite 29 files / 498 tests green, `npm run build` green, all seven new URLs plus the rebuilt /tally-on-mobile server-rendered with one h1, four JSON-LD blocks of their own, canonical, OG, sitemap entry, llms.txt line and footer link.
+**Status: COMPLETE and LIVE on takkada.com 2026-08-08 (PR #70 merged). All 8 URLs verified returning 200 from the live apex 2026-08-08.** Built green locally first (29 files / 498 tests). Suite 29 files / 498 tests green, `npm run build` green, all seven new URLs plus the rebuilt /tally-on-mobile server-rendered with one h1, four JSON-LD blocks of their own, canonical, OG, sitemap entry, llms.txt line and footer link.
 
 **What shipped, row by row:** rows 2-7 are new pages through the Phase 2 engine (`payment-collection-tally`, `payment-reminder-tally`, `e-invoice-from-phone`, `e-way-bill-from-phone`, `tally-reports-on-mobile`, `import-purchase-from-pdf`). Row 1 was the Phase 2 pilot and only changed where it carried the false close claim. Row 8 is the `/mobile-tally` refresh described below.
 
@@ -219,7 +219,7 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 4 — Second batch: remaining feature + problem pages
 
-**Status: ALL 13 BUILT AND GREEN LOCALLY 2026-08-08 (29 files / 902 tests), NOT PUSHED — waiting on Ronak's eyeball (branch `feat/phase4-landing-pages`, cut from `origin/main` after Phase 3 merged as PR #70).** Suite 29 files / 901 passed / 1 skipped, `npm run build` green, all 13 URLs server-rendered with ~1,500–1,650 words of their own prose, one h1, 6 JSON-LD blocks each, canonical, OG, sitemap entry (205 urls), llms.txt line and footer link.
+**Status: COMPLETE and LIVE on takkada.com 2026-08-08 (PR #71 merged). All 13 URLs verified returning 200 from the live apex 2026-08-08; sitemap 205 URLs and llms.txt 201 links confirmed live.** Built green locally first (29 files / 902 tests). Suite 29 files / 901 passed / 1 skipped, `npm run build` green, all 13 URLs server-rendered with ~1,500–1,650 words of their own prose, one h1, 6 JSON-LD blocks each, canonical, OG, sitemap entry (205 urls), llms.txt line and footer link.
 
 **All 10 feature pages and all 3 problem pages shipped**, so nothing in the phase is deferred. New slugs: `/outstanding-receivables-on-mobile`, `/share-ledger-statement-whatsapp`, `/debtor-ageing-report-on-phone`, `/tally-on-mobile-without-remote-access`, `/send-payment-reminders-automatically`, `/bank-statement-import-tally`, `/godown-wise-stock-on-mobile`, `/multi-company-tally-reports`, `/sales-order-on-mobile`, `/delivery-challan-from-mobile`, `/credit-note-from-phone`, `/custom-invoice-template-tally`, `/handwritten-order-to-tally`.
 
@@ -238,9 +238,7 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 **Structural note.** `src/data/featurePages.js` was 1,403 lines with 8 pages. The second batch lives in `src/data/featurePagesSecondBatch.js` and is concatenated into `FEATURE_PAGES`; nothing downstream knows which batch a page came from. `sourceFile` is now resolved per page rather than hardcoded, so the sitemap's `<lastmod>` tracks the file that actually changes. The import specifier carries an explicit `.js` because the sitemap and llms.txt generators load these modules through Node ESM, which does not resolve extensionless paths.
 
 **Done when:** all 13 live, each in sitemap + footer + llms.txt, schema validates, submitted in Google Search Console for indexing.
-**Status against that bar:** 13 pages built ✅ · sitemap, footer, llms.txt registration ✅ (llms.txt regenerated, 31 pages / 181 → 194 links) · schema present, 6 JSON-LD blocks per page ✅ · live ❌ not pushed · Search Console submission ❌ pending the push.
-
-**STOP — show Ronak the 13 pages in the browser before pushing.**
+**Status against that bar:** 13 pages built ✅ · sitemap, footer, llms.txt registration ✅ (llms.txt regenerated, 31 pages / 181 → 194 links) · schema present, 6 JSON-LD blocks per page ✅ · live ✅ merged as PR #71 and verified 200 on the apex 2026-08-08 · Search Console submission ❌ still pending, and it is now the only unmet item in Phases 3 and 4. It is an operator action; the weekly loop in `docs/ops/measurement-loop.md` step 3 carries it.
 
 | # | Page (slug) | Search phrase it targets | Plan pointer |
 |---|---|---|---|
@@ -274,7 +272,26 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 6 — Measure, refresh, repeat (ongoing loop)
 
-**Status: NOT STARTED**
+**Status: MACHINERY BUILT 2026-08-08, branch `feat/phase6-measurement-loop`, not pushed. The loop is now runnable; the first read with real search data is the week of 2026-08-15 at the earliest.**
+
+This phase is not a build, it is a habit, so what shipped is the scaffolding that makes the habit survive being forgotten for a month. Ronak chose "build the loop's machinery" over "run this week's measurement" (the Clarity and Search Console panels need a login this repo does not have, and the Phase 3/4 URLs were hours old with nothing crawled yet).
+
+**Shipped in this phase:**
+
+- **`npm run audit:freshness`** (`scripts/checkContentFreshness.mjs`) — buckets all 191 dated items, 21 feature pages plus 170 posts, by the date that actually reaches a crawler as `dateModified` (`updated` when present, else the publish date). Prints the refresh queue oldest first, undated at the top. Deliberately a report and not a build gate: content ages every day whether or not anyone edits it, so an age threshold in `npm run build` would turn the passage of time into a red build. `--fail-over=N` exists for a future cron that wants a hard threshold. **First run: 176 fresh, 15 ageing, 0 stale, 0 undated.** The 15 ageing are all blog posts from 2026-04-23 to 2026-05-06. Nothing is due yet.
+- **`npm run audit:crawlers`** — the Phase 1 carried follow-up (c) is closed. That script had one arm, edge blocking by IP, and it was blind to exactly the block that motivated Phase 1: it reported all five bots served (200) the whole time Cloudflare's managed robots.txt was disallowing ClaudeBot, GPTBot, Google-Extended and Applebot-Extended. A second arm now fetches the live robots.txt and evaluates it the way a crawler does, with real group-matching semantics (named agent beats `*`, longest path prefix wins, Allow breaks a tie). The regression test is the actual Cloudflare block reduced to its shape, so the guard is pinned against the incident rather than against a hypothetical. **Live run 2026-08-08: both arms pass, all eight required crawlers read `Allow: /`.**
+- **`docs/ops/measurement-loop.md`** — the weekly 15-minute procedure, which panels to read, which two watch items to check by name, the quarterly refresh rules, and the open items carried from earlier phases.
+- **`docs/ops/measurement-log.md`** — the tracking table, seeded with the 2026-07-26 pre-work baseline and the 2026-08-08 launch row.
+
+**Finding 1 — Phases 3 and 4 were both already live and this file said otherwise.** Both status lines read "NOT PUSHED — waiting on Ronak's eyeball". PR #70 and PR #71 are merged into `main`, and all 21 URLs return 200 on the apex, with `sitemap.xml` at 205 URLs and `llms.txt` at 201 links. The stale lines are corrected above. Worth noting because a plan that lies about what is live is worse than a plan with a gap in it, and Phase 6 exists to measure pages the plan claimed were not there.
+
+**Finding 2 — the freshness corpus is healthier than the quarterly-refresh framing assumed.** No stale content, and no undated content at all, which means every one of the 191 items is emitting a real `dateModified`. The refresh burden for this quarter is 15 posts, not a backlog.
+
+**The rule no script can enforce, and it is the one that matters.** Only bump `updated:` when the page actually changed in a way a reader would notice. A date moved on an unedited page is a false freshness signal told to a crawler, and this site's whole citation posture rests on not telling those. The script names the queue; it cannot check the honesty of the fix.
+
+**Two things stay operator-owned and neither is buildable from here:** the Clarity and Search Console reads (login), and the off-site lever, YouTube demos plus Reddit answers, which has its own checklist in `docs/ops/off-site-presence-geo.md` and is the largest uncaptured item left in this plan.
+
+**Still open, and it is the only unmet bar in Phases 3 and 4:** submitting the 21 feature URLs in Google Search Console for indexing.
 
 - Weekly: Clarity top entry pages + referrers (watch the ChatGPT line grow); Search Console impressions/clicks per landing page.
 - Quarterly content refresh (content < 3 months old is ~3× more citation-eligible); honest `dateModified` bumps.
@@ -282,3 +299,5 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 - Off-site (biggest remaining GEO lever, separate effort): YouTube demo shorts + Reddit answers — brand mentions correlate ~3× more with AI citations than backlinks.
 
 **Success =** feature pages appearing as Clarity entry pages + Search Console clicks + demo requests, and ChatGPT/Perplexity referral sessions climbing week over week.
+
+**STOP — update this file, show Ronak.**
