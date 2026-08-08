@@ -5,7 +5,7 @@ meta_title: "Restrict Salesman Access in Tally: What Owners Can Hide"
 meta_description: "Tally access is close to all or nothing. What its security levels can and cannot hide from a field salesman, and the permission model that fixes it."
 primary_keyword: "restrict salesman access in tally"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Field Sales"
 excerpt: "Most owners have not given their salesmen access to the books because of one uncomfortable fact: handing a field man the company data hands him every party's balance, every purchase rate, and the margin on every item. The reluctance is rational, and the fix is permission that scopes party by party instead of report by report."
@@ -96,7 +96,7 @@ Takkada's team access controls run on exactly those axes: which screens open for
 
 Underneath, Tally stays the book of record and stays exactly as it is. Orders sync in as sales orders so nobody retypes them, receipts post back against the specific bills, and the statement he sends comes from the same data the office is looking at. If you are weighing what changes on the Tally side first, [connecting an app to Tally safely](/blog/is-it-safe-to-connect-app-to-tally/) covers that ground.
 
-The practical sequence is short. Decide the four things you will not show, decide the four things each man must be able to do, then open the second list one member at a time and leave the first closed. Most owners find the field team wanted far less than they feared, and that nobody got access for five years because Tally's controls do not bend at the party level, which is a design choice rather than a defect. The rest of what a field team can do once access is scoped sits in the wider piece on the [salesman app for Tally](/blog/salesman-app-tally-india/).
+The practical sequence is short. Decide the four things you will not show, decide the four things each man must be able to do, then open the second list one member at a time and leave the first closed. Most owners find the field team wanted far less than they feared, and that nobody got access for five years because Tally's controls do not bend at the party level, which is a design choice rather than a defect. The rest of what a field team can do once access is scoped sits on the [salesman app for Tally](/salesman-app-tally/) page.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 
