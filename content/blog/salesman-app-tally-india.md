@@ -5,7 +5,7 @@ meta_title: "Salesman App for Tally India: What Field Teams Need in 2026"
 meta_description: "What Indian distribution salesmen actually need from a Tally mobile app — and why view-only access is only half the answer."
 primary_keyword: "salesman app tally india"
 date: "2026-05-18"
-updated: "2026-07-25"
+updated: "2026-08-08"
 author: "founder"
 category: "Field Sales"
 excerpt: "The owner of a Nagpur pharma distributor bought Biz Analyst for his three salesmen in 2023. They used it for four months, then went back to calling the office accountant before every delivery. The problem was not the app — it was that the app could only answer half of the salesman's questions."
@@ -78,6 +78,8 @@ At the retailer's shop, he creates the sales invoice on the phone — stock item
 If the retailer has an overdue invoice, the salesman shares a UPI payment link from the phone. The retailer taps, pays ₹14,200, and that receipt auto-matches to the invoice in Tally by the time the salesman reaches the next stop.
 
 No call to the accountant. No end-of-day data entry. No invoice raising the next morning.
+
+Takkada's [salesman app for Tally](/salesman-app-tally/) is built around that round trip, from the check-in at the shop through to the receipt matching itself against the invoice.
 
 ## How to Evaluate a Salesman App Before Buying
 

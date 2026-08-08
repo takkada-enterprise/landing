@@ -5,7 +5,7 @@ meta_title: "Salesman-Wise Sales Report in Tally on Mobile"
 meta_description: "A salesman wise sales report tally view shows what each field rep sold and collected, on your phone, so a distributor runs the team on numbers, not gut feel."
 primary_keyword: "salesman wise sales report tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-08"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor with four salesmen on four routes runs half his business on gut feel about who is performing. A salesman-wise sales report replaces the guess with numbers, and on the phone he can see today's field performance before the team reaches home."
@@ -49,7 +49,7 @@ Once the sales are attributed, the report answers a set of questions no route sh
 - Whether a strong territory is a strong rep or just a strong set of accounts he inherited
 - How incentives should be set, because now they rest on attributed numbers instead of impressions
 
-This is the backbone of running a field team, and it connects directly to the tools the reps carry. A [salesman app on Tally](/blog/salesman-app-tally-india/) that lets a rep invoice and collect in the field is what generates clean, attributed data in the first place.
+This is the backbone of running a field team, and it connects directly to the tools the reps carry. A [salesman app on Tally](/salesman-app-tally/) that lets a rep invoice and collect in the field is what generates clean, attributed data in the first place.
 
 ## Pairing Sales With What the Salesman Collected
 

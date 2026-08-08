@@ -5,7 +5,7 @@ meta_title: "Salesman Visit Tracking App: Photo Proof of the Visit"
 meta_description: "Did he actually go to the shop? A route report typed at night cannot answer that. A stamped photo at the counter can. What a real visit record needs."
 primary_keyword: "salesman visit tracking app"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every owner running a field team asks the same question about the same salesman: gaya tha ya nahi. The industry answered it with all-day GPS tracking, which field teams resent and quietly work around. The better answer is much smaller: a photo taken at the party's counter that carries who took it, where the phone said it was, and when."
@@ -105,7 +105,7 @@ Takkada records field visits against the party ledgers that already exist in you
 
 The mechanics follow the four facts above. The salesman checks in at a party. The app captures a photo, his name, the device's coordinates and the timestamp, and shows the photo with a caption plate carrying all four. The address on that plate is derived from the coordinates when the record is opened and is labelled approximate, because the coordinates are the stored fact. A visit whose location could not be trusted, whether the permission was refused, no fix arrived, or the position looked faked, is marked unverified rather than quietly presented as confirmed.
 
-Because the visit sits on the same party master as the invoices, it lands beside the rest of what a [salesman app for Tally](/blog/salesman-app-tally-india/) already does: the orders he books, the outstanding he can see, the parties he is allowed to see at all. Role gates decide which team member sees which ledgers and which screens, so a salesman can be limited to his own parties while the owner reads the whole territory. Field visits run in the live app today for companies that have them switched on.
+Because the visit sits on the same party master as the invoices, it lands beside the rest of what a [salesman app for Tally](/salesman-app-tally/) already does: the orders he books, the outstanding he can see, the parties he is allowed to see at all. Role gates decide which team member sees which ledgers and which screens, so a salesman can be limited to his own parties while the owner reads the whole territory. Field visits run in the live app today for companies that have them switched on.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 

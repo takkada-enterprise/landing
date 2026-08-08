@@ -5,7 +5,7 @@ meta_title: "Salesman Wise Collection Report for Distributors"
 meta_description: "Sales targets are counted to the rupee and collection is judged on impression. What a salesman wise collection report must show, and how to attribute a receipt."
 primary_keyword: "salesman wise collection report"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every distributor knows what each salesman sold last month, to the rupee. Almost none can say whose parties are sitting at 90 days. A sale carries the rep's name from the moment the order is booked; a receipt carries nothing unless somebody puts it there."
@@ -97,7 +97,7 @@ The number also does the confronting, which matters in a family-run business whe
 
 ## Reading Collection Accountability Off Your Tally Data
 
-Takkada reads your Tally data and puts the team boards on the phone, and the salesman-wise view can be read on an order basis or an invoice basis, so effort and billed reality sit side by side instead of an argument about which one the report used. The outstanding, the ageing buckets and the receipts all come from the same synced Tally books the office is working in.
+Takkada reads your Tally data and puts the team boards on the phone, and the salesman-wise view can be read on an order basis or an invoice basis, so effort and billed reality sit side by side instead of an argument about which one the report used. The outstanding, the ageing buckets and the receipts all come from the same synced Tally books the office is working in. The board is one half of the [salesman app for Tally](/salesman-app-tally/); the other half is what the rep does at the counter that fills it.
 
 Team access controls decide what each member sees. A salesman can be limited to his own parties, ledgers and screens, which is what makes it safe to put the board in the field team's hands at all. He sees his book, his ageing, and what is overdue on his route, and not what the other reps are carrying.
 

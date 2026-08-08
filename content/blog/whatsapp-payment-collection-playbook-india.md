@@ -5,7 +5,7 @@ meta_title: "WhatsApp Payment Collection Playbook (India 2026)"
 meta_description: "A WhatsApp payment collection playbook for Indian distributors: dispatch invoices, send smart reminders, and collect on UPI at 0% MDR, all from one chat thread."
 primary_keyword: "whatsapp payment collection"
 date: "2026-06-06"
-updated: "2026-06-21"
+updated: "2026-08-08"
 author: "harsh"
 category: "Collections"
 excerpt: "Every Indian retailer already lives in WhatsApp. The invoice, the reminder, and the payment do not need three different channels. This is the playbook for running the whole collection cycle inside the one app the retailer already checks fifty times a day."
@@ -94,6 +94,6 @@ A: It can be created on the phone and written into Tally through the two-way syn
 
 **Q: Can salesmen run this from the field?**
 
-A: Yes. A salesman with the right role raises the invoice at the counter, it dispatches to the retailer on WhatsApp, and collection happens on UPI from the same thread. The field workflow is covered in the [salesman app for Tally](/blog/salesman-app-tally-india/) guide.
+A: Yes. A salesman with the right role raises the invoice at the counter, it dispatches to the retailer on WhatsApp, and collection happens on UPI from the same thread. The field workflow is on the [salesman app for Tally](/salesman-app-tally/) page.
 
 Takkada runs the full WhatsApp payment collection loop for Indian distributors at 0% MDR on UPI. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

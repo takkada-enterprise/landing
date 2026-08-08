@@ -5,7 +5,7 @@ meta_title: "Salesman Order Taking Without Re-Entry Into Tally"
 meta_description: "The order gets written on a pad, photographed, then typed again in the office. What that second typing costs, and what changes when it goes."
 primary_keyword: "salesman order taking without re-entry"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every order in a distribution business gets taken twice. Once at the retailer's counter on a pad, and once again in the office at eight in the evening by an operator reading a blurry photo. The second typing is unpaid work that also happens to be where the errors come from."
@@ -98,7 +98,7 @@ In Takkada, the salesman opens the party on his phone, picks stock items from th
 
 Team access controls are the part worth setting up carefully on day one. Per team member you decide which screens open, which ledgers and ledger groups are visible, which stock groups, and which registers, so a salesman can be limited to his own parties.
 
-On the reporting side, salesman-wise boards can be read on an order basis or an invoice basis, which is the distinction between what the field brought in and what the office converted. For teams that also want the visit recorded, check-in with a stamped photo sits alongside the order, and the wider picture of what a salesman needs on the phone is covered in the [salesman app for Tally](/blog/salesman-app-tally-india/) guide.
+On the reporting side, salesman-wise boards can be read on an order basis or an invoice basis, which is the distinction between what the field brought in and what the office converted. For teams that also want the visit recorded, check-in with a stamped photo sits alongside the order, and the wider picture of what a salesman needs on the phone is on the [salesman app for Tally](/salesman-app-tally/) page.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 
