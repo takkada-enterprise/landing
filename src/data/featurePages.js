@@ -175,8 +175,15 @@ export const FEATURE_PAGES = [
           others: 'Reminders, without a zero-MDR collection option',
         },
         {
+          // "close" was here and it was wrong. The e-way bill closure facility
+          // is not in force: GSTN Advisory No. 668 of 29 July 2026 put it in
+          // abeyance until further notice, so no app can offer it, ours
+          // included. Our own content/blog/e-way-bill-closure-rule-2026.md has
+          // said so since 2026-08-04. Cancellation is real and code-verified
+          // (cancel-gst-compliance Edge Function, gated by
+          // einvoice_ewaybill_mobile), so that is what we claim.
           feature: 'E-invoice and e-way bill from the phone',
-          takkada: 'Generate, cancel, and close',
+          takkada: 'Generate and cancel, both written back into Tally',
           others: 'Generate only',
         },
         {
