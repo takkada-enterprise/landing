@@ -119,6 +119,25 @@ describe('feature page data contract', () => {
     }
   );
 
+  // Claims that depend on a government facility being live need a guard, not a
+  // memory. This one shipped to a live page on 2026-08-08: the comparison table
+  // said Takkada can "close" an e-way bill from the phone. GSTN Advisory No. 668
+  // of 29 July 2026 put the closure facility in abeyance until further notice,
+  // so nobody can offer it, and our own blog had said so since 2026-08-04.
+  // Cancellation is real and code-verified; closure is not. If GSTN revives the
+  // facility and we build against it, delete this test deliberately.
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: never claims e-way bill closure, which GSTN has in abeyance',
+    (_slug, page) => {
+      const text = JSON.stringify(page).toLowerCase();
+      const claimsClosure =
+        /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
+      expect(text).not.toMatch(claimsClosure);
+      // The compact list form the original bug took: "generate, cancel, and close".
+      expect(text).not.toMatch(/cancel,?\s+and\s+close/);
+    }
+  );
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: uses no banned marketing words',
     (_slug, page) => {
