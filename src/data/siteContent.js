@@ -636,9 +636,11 @@ export const appLinks = {
 // sign them in.
 export const demoEntryLive = true;
 
-// The named competitor grid. Renders on the homepage and on
-// /tally-mobile-app-comparison from this one source, so a correction here lands
-// on both.
+// The named competitor grid. Rendered by src/components/ComparisonSection.jsx,
+// whose only caller is /tally-mobile-app-comparison. It is NOT on the homepage
+// (the Phase 5 commit message and plan note both said it was, checked against
+// the live page afterwards and corrected). If a second surface ever renders it,
+// this comment is the thing to update.
 //
 // Refreshed 2026-08-08 from pitch-deck/competitor-analysis-2026-08.md, itself
 // re-verified against each product's live listings the same day. Two rows
