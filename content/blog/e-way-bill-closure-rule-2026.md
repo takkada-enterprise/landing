@@ -5,7 +5,7 @@ meta_title: "E Way Bill Closure: Paused Until Further Notice"
 meta_description: "GSTN Advisory No. 668 dated 29 July 2026 kept the e-way bill closure facility in abeyance. Nothing changed on 1 August. Here is the real status."
 primary_keyword: "e way bill closure"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Compliance"
 excerpt: "Half the tax sites on the internet still say the e-way bill closure facility went live on 1 August 2026. It did not. GSTN put the whole set of enhancements in abeyance four days earlier, and this is what a distributor actually needs to know."
@@ -52,7 +52,7 @@ Today an e-way bill simply expires. Its validity period runs out and there is no
 
 The voluntary part is what decides how much work this is for you. A distributor who never closes a single e-way bill would not thereby be in default, and whoever does close them, most likely the transporter, creates a delivery signal the supplier and the recipient can both see.
 
-The narrow window is the operational catch. Same day or next day is not much room when a truck reaches a retailer's shutter at 8 PM and the delivery challan comes back to the office two days later. A reliable closure record needs the person at the delivery end doing it from a phone rather than the office doing it from a desk on Monday. That is the same constraint that already applies to generating an [e-way bill from the phone](/blog/e-way-bill-on-phone/).
+The narrow window is the operational catch. Same day or next day is not much room when a truck reaches a retailer's shutter at 8 PM and the delivery challan comes back to the office two days later. A reliable closure record needs the person at the delivery end doing it from a phone rather than the office doing it from a desk on Monday. That is the same constraint that already applies to generating an [e-way bill from the phone](/e-way-bill-from-phone/).
 
 ## The Ship-To GSTIN Change That Was Paused Alongside It
 

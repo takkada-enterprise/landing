@@ -5,7 +5,7 @@ meta_title: "Purchase Report from Tally on Mobile"
 meta_description: "A purchase report tally mobile view shows what you bought and from whom, supplier by supplier, so a distributor tracks buying and what falls due."
 primary_keyword: "purchase report tally mobile"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-08"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor watches his sales closely and his buying loosely. The purchase report is the buy-side mirror: what came in, from which supplier, at what cost. On the phone he can check it before he commits to the next stock order."
@@ -56,7 +56,7 @@ That is why the purchase report reads best next to the payables view. Set your b
 
 The purchase report is only as current as the bills entered into Tally, and bill entry is where the buy side falls behind. A stack of supplier invoices waits on the accountant's desk, and until they are keyed, the purchase report understates what the business actually bought and owes.
 
-Takkada reads your purchase vouchers from Tally and shows purchases on the phone, supplier by supplier, alongside what you owe each, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on mobile](/blog/view-tally-reports-on-mobile/) carries the buy side. Import from PDF turns a supplier's invoice PDF into a Tally purchase entry, so the bills land faster and the report stays honest, and the Reports+ add-on opens deeper purchase cuts. Tally stays the system of record.
+Takkada reads your purchase vouchers from Tally and shows purchases on the phone, supplier by supplier, alongside what you owe each, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries the buy side. Import from PDF turns a supplier's invoice PDF into a Tally purchase entry, so the bills land faster and the report stays honest, and the Reports+ add-on opens deeper purchase cuts. Tally stays the system of record.
 
 ## Frequently Asked Questions
 

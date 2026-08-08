@@ -5,7 +5,7 @@ meta_title: "PDF to Tally Purchase Entry, Automatically"
 meta_description: "Turn a supplier PDF into a Tally purchase entry automatically. Import-from-PDF reads the bill and drafts the purchase voucher, so payables stops being typing."
 primary_keyword: "pdf to tally purchase entry"
 date: "2026-07-21"
-updated: "2026-07-25"
+updated: "2026-08-08"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's payables desk is a stack of supplier PDFs waiting to be typed into Tally, line by line, GST by GST. Import-from-PDF reads the bill and drafts the purchase entry, so the stack turns into a review queue instead of a typing queue."
@@ -46,7 +46,7 @@ The automation opens the supplier's PDF and extracts the fields that make a purc
 | Rate and amount per line | The taxable value on each line |
 | GST breakup (CGST/SGST/IGST) | The tax ledgers and amounts |
 
-The output is a drafted purchase voucher, sitting ready in Tally for the accountant to open, glance over, and post. The typing is done. The judgment (is this the right item, did the rate match the PO) stays with the person, which is where it belongs.
+The output is a drafted purchase voucher, sitting ready in Tally for the accountant to open, glance over, and post. That is the whole of what it means to [import purchase from PDF](/import-purchase-from-pdf/) rather than type it. The typing is done. The judgment (is this the right item, did the rate match the PO) stays with the person, which is where it belongs.
 
 ## Why a Draft Plus Review Beats Blind Entry
 

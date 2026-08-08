@@ -5,6 +5,7 @@ meta_title: "Share Ledger Statement on WhatsApp From Tally: Guide"
 meta_description: "Share a ledger statement on WhatsApp from Tally: the manual export-to-PDF route, the faster mobile way, and how to add a UPI link so the party pays on the spot."
 primary_keyword: "share ledger statement on whatsapp"
 date: "2026-06-21"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "A Dibrugarh distributor gets a WhatsApp at 8 PM: 'Bhai, statement bhej do, ₹2,40,000 dikha raha hai.' He is away from the office PC, so the answer waits till morning and the payment slips another day. Here is how to share a party ledger statement on WhatsApp from Tally, both the manual way and the faster mobile way."
@@ -53,7 +54,7 @@ This route puts the party ledger on your phone through a companion app that sync
 2. Tap **Ledger Statement** to see every bill and receipt with the running balance, the same view Tally shows on the desktop
 3. Tap **Share**, pick WhatsApp, choose the party's chat, and send the statement straight from the field
 
-Three taps, no office PC, no exported file sitting in a folder you have to hunt for. The statement that took a "kal subah bhejta hoon" delay now goes out while you are still standing at the counter. Because the app reads from the same Tally data the desktop holds, the balance the party sees on WhatsApp is the balance in your books, not a stale screenshot. If you want the background on how a phone connects to the office Tally in the first place, the step-by-step on [how to access Tally on mobile](/blog/how-to-access-tally-on-mobile-step-by-step/) covers the bridge this relies on, and the wider view of [Tally reports on mobile](/blog/view-tally-reports-on-mobile/) shows what else lands on the phone once that bridge is in place.
+Three taps, no office PC, no exported file sitting in a folder you have to hunt for. The statement that took a "kal subah bhejta hoon" delay now goes out while you are still standing at the counter. Because the app reads from the same Tally data the desktop holds, the balance the party sees on WhatsApp is the balance in your books, not a stale screenshot. If you want the background on how a phone connects to the office Tally in the first place, the step-by-step on [how to access Tally on mobile](/blog/how-to-access-tally-on-mobile-step-by-step/) covers the bridge this relies on, and the wider view of [Tally reports on mobile](/tally-reports-on-mobile/) shows what else lands on the phone once that bridge is in place.
 
 ## Why a UPI Link on the Statement Beats a Plain PDF
 

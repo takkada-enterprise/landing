@@ -144,15 +144,45 @@ describe('feature page data contract', () => {
   // so nobody can offer it, and our own blog had said so since 2026-08-04.
   // Cancellation is real and code-verified; closure is not. If GSTN revives the
   // facility and we build against it, delete this test deliberately.
+  // Refined 2026-08-08 when /e-way-bill-from-phone was added. The original
+  // form scanned the whole page object, which is right for every selling
+  // surface but wrong for the FAQ: the highest-value answer that page can give
+  // someone searching "eway bill closing on phone" is that closure does not
+  // exist yet and why, and a flat ban made writing that truth impossible. So
+  // the ban stays absolute everywhere a claim can live, and the FAQ is allowed
+  // to discuss closure only while denying it and citing the advisory.
+  const CLOSURE = /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
-    '%s: never claims e-way bill closure, which GSTN has in abeyance',
+    '%s: never claims e-way bill closure on any selling surface',
     (_slug, page) => {
-      const text = JSON.stringify(page).toLowerCase();
-      const claimsClosure =
-        /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
-      expect(text).not.toMatch(claimsClosure);
+      // Everything except the FAQ: hero, answer, walk-through, comparison
+      // table, llms summary, plan pointer, WhatsApp message. relatedPosts is
+      // out for the same reason it is out of the rupee guard, and here it
+      // matters more: the most useful post to link from an e-way page is the
+      // one titled "E Way Bill Closure: What Is Paused", whose subject is
+      // precisely that closure does not exist.
+      const { faqs, relatedPosts, ...selling } = page;
+      expect(JSON.stringify(selling).toLowerCase()).not.toMatch(CLOSURE);
       // The compact list form the original bug took: "generate, cancel, and close".
-      expect(text).not.toMatch(/cancel,?\s+and\s+close/);
+      expect(JSON.stringify(page).toLowerCase()).not.toMatch(/cancel,?\s+and\s+close/);
+    }
+  );
+
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: any FAQ that raises closure denies it and says why',
+    (_slug, page) => {
+      for (const faq of page.faqs) {
+        const answer = faq.a.toLowerCase();
+        if (!CLOSURE.test(`${faq.q} ${faq.a}`.toLowerCase())) continue;
+        // A denial names the advisory that put the facility in abeyance. An
+        // answer that raises closure without it is either a claim or a vague
+        // half-answer, and both are failures.
+        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toContain('abeyance');
+        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toMatch(/advisory no\. 668/);
+        // And it must actually say no.
+        expect(answer, `${page.slug}: closure FAQ must deny, not claim`).toMatch(/\bno\b|\bnot\b|cannot/);
+      }
     }
   );
 

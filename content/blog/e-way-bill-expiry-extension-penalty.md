@@ -5,7 +5,7 @@ meta_title: "E-Way Bill Expired Penalty: The Law and the 8-Hour Fix"
 meta_description: "E-way bill expired mid-transit? How validity is computed, the 8-hour extension window, the 360-day cap, and the Section 129 penalty with dates."
 primary_keyword: "e way bill expired penalty"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Compliance"
 excerpt: "The truck is somewhere past Jorhat, the driver has stopped for the night, and the e-way bill ran out four hours ago. There is a window to fix it, and there is a penalty clause if you miss it. Both are worth knowing before the phone rings."
@@ -97,7 +97,7 @@ Almost every expiry traces back to one of four habits, and all four are fixable 
 
 **Keep the bill reachable from a phone.** Generation, extension and cancellation all happen on the portal, and the person who has to act at two in the morning is rarely at the office computer. Handling the [e-way bill on a phone](/blog/e-way-bill-on-phone/) is the difference between an eight-hour window you can use and one that closes while everyone sleeps.
 
-The upstream discipline matters too. Where the invoice already carries an e-invoice, Part A can be auto-populated rather than retyped, which removes the transcription errors that force a cancellation and a fresh bill. Generating the [e-invoice from the phone](/blog/e-invoice-on-phone-tally/) at dispatch keeps that chain intact. The portal itself has also moved: EWB Portal 2.0 went live on 1 July 2025, two-factor authentication became applicable to all taxpayers from 1 April 2025, taxpayers with an aggregate turnover of ₹10cr and above have had a 30-day reporting limit on the invoice registration portal since the same date, and Rule 138E blocks e-way bill generation altogether for taxpayers with unfiled returns. Keeping [GST compliance on mobile](/blog/gst-compliance-on-mobile-for-distributors/) is mostly about making sure none of these surface as a surprise at the gate.
+The upstream discipline matters too. Where the invoice already carries an e-invoice, Part A can be auto-populated rather than retyped, which removes the transcription errors that force a cancellation and a fresh bill. Generating the [e-invoice from the phone](/e-invoice-from-phone/) at dispatch keeps that chain intact. The portal itself has also moved: EWB Portal 2.0 went live on 1 July 2025, two-factor authentication became applicable to all taxpayers from 1 April 2025, taxpayers with an aggregate turnover of ₹10cr and above have had a 30-day reporting limit on the invoice registration portal since the same date, and Rule 138E blocks e-way bill generation altogether for taxpayers with unfiled returns. Keeping [GST compliance on mobile](/blog/gst-compliance-on-mobile-for-distributors/) is mostly about making sure none of these surface as a surprise at the gate.
 
 Takkada generates e-way bills and e-invoices from the phone against your Tally invoice, with Part A auto-populated where the invoice already carries an e-invoice, standalone bills with QR, and a cancellation flow, all written back into Tally against the same voucher. It sits in the Assurance plan and above.
 

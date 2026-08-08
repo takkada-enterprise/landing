@@ -5,7 +5,7 @@ meta_title: "Bills Payable in Tally, Explained for Wholesalers"
 meta_description: "Bills payable meaning in Tally: it is your unpaid purchase bills with due dates. See how wholesalers read the Bills Payable report and pay suppliers on time."
 primary_keyword: "bills payable meaning tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-08"
 author: "founder"
 category: "Payables"
 excerpt: "A wholesaler knows his total supplier balance to the rupee. Ask him which of those bills is due on the 3rd and which on the 30th, and the lump number goes quiet. Bills Payable is the report that puts a date against each one."
@@ -61,7 +61,7 @@ Second, supplier goodwill and credit line. Pay a principal late a few times and 
 
 The last problem is location. The Bills Payable report lives on the Tally desktop, and the moments you need it are away from that desk: a supplier's man at your godown asking when payment comes, a call about a fresh order where you need to know what is already due, the drive back when you are deciding the week's payments.
 
-Takkada reads your purchase ledgers and open bills straight from Tally and shows the payable schedule on the phone: supplier-wise, with what falls due in the next seven days flagged, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. The same surface that carries your [Tally reports on mobile](/blog/view-tally-reports-on-mobile/) carries this one, so a payment or a stock order gets decided against the real due-date schedule, not a rough memory of it.
+Takkada reads your purchase ledgers and open bills straight from Tally and shows the payable schedule on the phone: supplier-wise, with what falls due in the next seven days flagged, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries this one, so a payment or a stock order gets decided against the real due-date schedule, not a rough memory of it.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 
