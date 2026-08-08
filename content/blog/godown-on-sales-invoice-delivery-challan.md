@@ -42,7 +42,7 @@ The location belongs on each stock line rather than once on the document, and th
 
 A retailer orders eight items. Six are at the branch and two have to go from the main warehouse. A single voucher with a single location would force somebody to either split the invoice artificially or record a dispatch that did not happen. Line-level locations let the document describe reality: six lines from the branch, two from the main warehouse, one bill to the customer.
 
-Takkada carries the godown on invoice lines and challan lines in the app, so the person raising the bill sets the location as part of picking the item rather than as a separate step afterwards. What the underlying master records is covered in [what a godown is in Tally](/blog/what-is-godown-in-tally/).
+Takkada carries the godown on invoice lines and challan lines in the app, so the person raising the bill sets the location as part of picking the item rather than as a separate step afterwards. What the underlying master records is covered in [what a godown is in Tally](/blog/what-is-godown-in-tally/). Raising a [delivery challan from mobile](/delivery-challan-from-mobile/), including a whole dispatch round at once, is covered on its own page.
 
 ## Delivery Challans and the Dispatch That Precedes the Bill
 

@@ -5,6 +5,7 @@ meta_title: "WhatsApp Invoice Format for Tally Distributors"
 meta_description: "The right WhatsApp invoice format for Tally users: PDF, one-line summary, and a 0% MDR UPI link that retailers tap-to-pay in 8 seconds."
 primary_keyword: "whatsapp invoice format tally"
 date: "2026-05-18"
+updated: "2026-08-08"
 author: "harsh"
 category: "Collections"
 excerpt: "A WhatsApp invoice that is just a PDF attachment converts 2× slower than a WhatsApp invoice that is a PDF, a one-line summary, and a tap-to-pay UPI link. The format matters as much as the timing."
@@ -133,4 +134,4 @@ A: The WhatsApp message is a delivery channel; the legal document is the Tally-g
 
 A: Yes. The UPI link in the WhatsApp invoice points directly to the distributor's UPI handle. The payment flows retailer-UPI to distributor-UPI on the NPCI rail with 0% MDR. The platform is paid through annual subscription, not through a per-transaction take.
 
-Takkada auto-dispatches WhatsApp invoices from Tally in the right format, with 0% MDR UPI payment links built in. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada auto-dispatches WhatsApp invoices from Tally in the right format, with 0% MDR UPI payment links built in. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Putting your own [custom invoice template](/custom-invoice-template-tally/) on that PDF is covered on its own page.

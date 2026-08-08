@@ -114,4 +114,4 @@ A: That depends on how you set his access. A team member can be restricted to na
 
 A: No. The phone reads a synced copy of your inventory data, so opening a report does not touch the machine Tally runs on and nobody has to leave the desktop free. Tally remains the book of record, and entries made from the phone are written back into it as normal vouchers.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). The wider view of [godown wise stock on mobile](/godown-wise-stock-on-mobile/) covers transfers between locations and per-warehouse access.

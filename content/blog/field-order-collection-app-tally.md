@@ -134,4 +134,4 @@ A: The salesman shows a UPI QR or sends a UPI link to the retailer. Retailer pay
 
 A: Most distributors are running production orders through the app within 3–5 working days. Onboarding includes connecting the Tally installation, importing the catalog, mapping party masters, and training the first 2–3 salesmen, who then train the rest.
 
-Takkada is the Tally-native field order collection app for Indian distributors, with on-the-spot GST invoicing and 0% MDR UPI collection at delivery. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is the Tally-native field order collection app for Indian distributors, with on-the-spot GST invoicing and 0% MDR UPI collection at delivery. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Booking a [sales order on mobile](/sales-order-on-mobile/) against live stock is covered in detail on its own page.

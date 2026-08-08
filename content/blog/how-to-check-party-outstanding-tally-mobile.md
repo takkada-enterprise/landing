@@ -5,6 +5,7 @@ meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
 meta_description: "How to check party outstanding in Tally on mobile: the desktop steps, the faster phone way, and how to see partywise outstanding from the field."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor is standing at a retailer's counter who wants ₹40,000 of fresh stock on credit. He needs to know the party already owes ₹1,75,000 before he loads the van. Here is how to check that party's outstanding balance in Tally, both the desktop way and the faster way from the phone."
@@ -117,4 +118,4 @@ A: On desktop, no, you would switch to WhatsApp and type the amount yourself. On
 
 A: No. A companion app connects to your existing Tally installation through Tally's own data channel and needs no extra Tally licence. You pay only for the mobile layer itself, and your Tally setup at the office stays exactly as it is.
 
-Takkada is a Tally-native mobile layer that lets distributors check party outstanding from the field, send WhatsApp reminders, and collect on UPI at 0% MDR with auto-reconciliation back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is a Tally-native mobile layer that lets distributors check party outstanding from the field, send WhatsApp reminders, and collect on UPI at 0% MDR with auto-reconciliation back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). The wider view of [outstanding receivables on mobile](/outstanding-receivables-on-mobile/) covers what else lands on the phone alongside the party balance.

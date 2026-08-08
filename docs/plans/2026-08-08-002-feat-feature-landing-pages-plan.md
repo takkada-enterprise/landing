@@ -219,15 +219,44 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 4 — Second batch: remaining feature + problem pages
 
-**Status: NOT STARTED**
+**Status: ALL 13 BUILT AND GREEN LOCALLY 2026-08-08 (29 files / 902 tests), NOT PUSHED — waiting on Ronak's eyeball (branch `feat/phase4-landing-pages`, cut from `origin/main` after Phase 3 merged as PR #70).** Suite 29 files / 901 passed / 1 skipped, `npm run build` green, all 13 URLs server-rendered with ~1,500–1,650 words of their own prose, one h1, 6 JSON-LD blocks each, canonical, OG, sitemap entry (205 urls), llms.txt line and footer link.
 
-Feature pages: ledger/statement share on WhatsApp · outstanding & receivables on mobile · delivery challans (incl. bulk) · sales orders with live stock & pending quantities · bank statement import · stock/godown on mobile · credit & debit notes from phone · multi-company + consolidated reports · your own invoice template · handwritten order from a photo.
+**All 10 feature pages and all 3 problem pages shipped**, so nothing in the phase is deferred. New slugs: `/outstanding-receivables-on-mobile`, `/share-ledger-statement-whatsapp`, `/debtor-ageing-report-on-phone`, `/tally-on-mobile-without-remote-access`, `/send-payment-reminders-automatically`, `/bank-statement-import-tally`, `/godown-wise-stock-on-mobile`, `/multi-company-tally-reports`, `/sales-order-on-mobile`, `/delivery-challan-from-mobile`, `/credit-note-from-phone`, `/custom-invoice-template-tally`, `/handwritten-order-to-tally`.
 
-Problem pages (how people search before they know an app exists): "see Tally on mobile without remote/TeamViewer" · "send payment reminders to customers automatically" · "debtor ageing report from Tally on phone".
+**The batch order this phase actually used, and why it is not the one the plan asked for.** The plan said to order by Search Console impressions from Phase 3. Phase 3 merged the same day, so those URLs have not been crawled and there is no impression data to order by. The order came from the two demand signals that do exist: which blog cluster is already pulling entries for a topic, and how many prod companies run the underlying feature. Re-order the remainder once Search Console has a few weeks on the Phase 3 URLs.
 
-Order within the batch: whatever Search Console impressions from Phase 3 suggest first.
+**Every claim re-verified against prod `company_feature_entitlements` on 2026-08-08 before the copy was written** (active and unexpired): payment_reminders 87 · payment_links 87 · invoice_created_whatsapp 87 · team_access_controls 84 · voucher_creation_mobile 79 · upi_collections 77 · einvoice_ewaybill_mobile 77 · bank_statement_import 71 · reports_plus 56 · auto_invoice_dispatch 47 · purchase_import 35 · sales_order_import 34 · team_sales 18 · payment_collection 10 · billing_module 6 · field_visits 6 · bulk_delivery_challan 4 · pending_order 3. The last two are low enough that `/delivery-challan-from-mobile` and `/sales-order-on-mobile` carry a capability claim and no adoption claim; CLAUDE.md §3 bans an adoption number for Pending Orders outright.
 
-**STOP — update this file, show Ronak.**
+**Finding 1 — one page in this batch deliberately overlaps a Phase 3 page, and it needs watching.** `/send-payment-reminders-automatically` targets the problem phrase someone types before they know a Tally app exists; `/payment-reminder-tally` targets the Tally-qualified query. Different intents and different query sets, so both were built, and the copy, FAQs and framing were written apart rather than reworded. This is *not* the `/tally-on-mobile` failure mode, which served the entire homepage body under a second canonical. It is still the closest two URLs on this site have come to competing. If Search Console shows them trading places on the same queries, merge them rather than letting both rank thinly.
+
+**Finding 2 — the screenshot gap Phase 3 recorded is now load-bearing for four pages.** Bank statement import, godown-wise stock, credit and debit notes, and the handwritten order describe screens the library has no safe capture of. `bankbook.png` shows a real customer's bank balances and `inventory-supplier.png` names a real supplier, so both stay banned along with the other three Phase 3 named. Those four pages follow the precedent `/import-purchase-from-pdf` set: lead with a real adjacent screen, and write alt text describing only what is actually in the frame. They ship honest, and a capture pass would materially improve them. `inventory-history.png` was reviewed as a candidate for the stock page and rejected: no `.webp` exists, and its sibling was banned for naming a supplier, so the conservative call was not to publish it.
+
+**Finding 3 — this phase broke the footer, and the fix is a sitewide visual change worth looking at.** The Features column is generated from `FEATURE_PAGES`, so it went from 8 links to 21 while its neighbours carry 5 to 7. As a single list it made the footer badly lopsided on every page of the site. A long generated column now spans the grid row and flows into 2 sub-columns on mobile and 3 above 720px. The guard that every feature page is linked from the footer is untouched, so this is layout only, but it changes the footer everywhere and should be part of the eyeball.
+
+**A guard caught something the plan did not mention.** `src/data/__tests__/blog-internal-links.test.js` (added by PR #69 during Phase 3) requires every feature page to be linked from at least one blog post, and forbids any post from spending a page's exact search phrase as anchor text on a different URL. 13 posts each gained one contextual sentence carrying a link to its matching landing page, with `updated:` bumped on all 13 so `dateModified` reflects a real edit. Five of those posts had no `updated:` field at all and now have one.
+
+**Structural note.** `src/data/featurePages.js` was 1,403 lines with 8 pages. The second batch lives in `src/data/featurePagesSecondBatch.js` and is concatenated into `FEATURE_PAGES`; nothing downstream knows which batch a page came from. `sourceFile` is now resolved per page rather than hardcoded, so the sitemap's `<lastmod>` tracks the file that actually changes. The import specifier carries an explicit `.js` because the sitemap and llms.txt generators load these modules through Node ESM, which does not resolve extensionless paths.
+
+**Done when:** all 13 live, each in sitemap + footer + llms.txt, schema validates, submitted in Google Search Console for indexing.
+**Status against that bar:** 13 pages built ✅ · sitemap, footer, llms.txt registration ✅ (llms.txt regenerated, 31 pages / 181 → 194 links) · schema present, 6 JSON-LD blocks per page ✅ · live ❌ not pushed · Search Console submission ❌ pending the push.
+
+**STOP — show Ronak the 13 pages in the browser before pushing.**
+
+| # | Page (slug) | Search phrase it targets | Plan pointer |
+|---|---|---|---|
+| 1 | `/outstanding-receivables-on-mobile` | outstanding receivables on mobile | Clarity |
+| 2 | `/share-ledger-statement-whatsapp` | ledger statement on WhatsApp | Clarity |
+| 3 | `/debtor-ageing-report-on-phone` | debtor ageing report on phone | Clarity |
+| 4 | `/tally-on-mobile-without-remote-access` | tally on mobile without remote access | Clarity |
+| 5 | `/send-payment-reminders-automatically` | send payment reminders automatically | Clarity |
+| 6 | `/bank-statement-import-tally` | bank statement import | Copilot |
+| 7 | `/godown-wise-stock-on-mobile` | godown wise stock on mobile | Momentum |
+| 8 | `/multi-company-tally-reports` | multi-company Tally reports | Clarity |
+| 9 | `/sales-order-on-mobile` | sales order on mobile | Momentum |
+| 10 | `/delivery-challan-from-mobile` | delivery challan from mobile | Momentum |
+| 11 | `/credit-note-from-phone` | credit note from phone | Momentum |
+| 12 | `/custom-invoice-template-tally` | custom invoice template | Momentum |
+| 13 | `/handwritten-order-to-tally` | handwritten order to Tally | Copilot |
 
 ---
 

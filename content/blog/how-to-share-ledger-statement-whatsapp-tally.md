@@ -104,4 +104,4 @@ A: For most reconciliation conversations, set the period from the start of the f
 
 A: A ledger statement holds the party's own transactions with you, which they are entitled to see, so sending it to that party's verified WhatsApp number is standard practice. Send it only to the number you have on file for that party, and avoid forwarding it into any group chat where other parties could read it.
 
-Takkada is a Tally-native mobile layer that lets distributors view and share party ledger statements on WhatsApp, attach a UPI payment link at 0% MDR, and auto-reconcile the receipt back into Tally, all from the phone. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is a Tally-native mobile layer that lets distributors view and share party ledger statements on WhatsApp, attach a UPI payment link at 0% MDR, and auto-reconcile the receipt back into Tally, all from the phone. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). The page on sharing a [ledger statement on WhatsApp](/share-ledger-statement-whatsapp/) sets out the period options and what rides with the PDF.
