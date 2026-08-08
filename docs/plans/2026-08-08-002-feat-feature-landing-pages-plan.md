@@ -177,7 +177,7 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 3 — The 8 priority pages (Ronak's keyword list)
 
-**Status: ALL 8 BUILT AND GREEN LOCALLY 2026-08-08, NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, same branch as the Phase 2 engine, which was also never eyeballed).** Suite 28 files / 439 tests green, `npm run build` green, all seven new URLs server-rendered with one h1, four JSON-LD blocks of their own, canonical, OG, sitemap entry, llms.txt line and footer link.
+**Status: ALL 8 BUILT AND GREEN LOCALLY 2026-08-08 (29 files / 498 tests), NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, same branch as the Phase 2 engine, which was also never eyeballed).** Suite 29 files / 498 tests green, `npm run build` green, all seven new URLs plus the rebuilt /tally-on-mobile server-rendered with one h1, four JSON-LD blocks of their own, canonical, OG, sitemap entry, llms.txt line and footer link.
 
 **What shipped, row by row:** rows 2-7 are new pages through the Phase 2 engine (`payment-collection-tally`, `payment-reminder-tally`, `e-invoice-from-phone`, `e-way-bill-from-phone`, `tally-reports-on-mobile`, `import-purchase-from-pdf`). Row 1 was the Phase 2 pilot and only changed where it carried the false close claim. Row 8 is the `/mobile-tally` refresh described below.
 
@@ -189,7 +189,13 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 **Finding 3 — `/mobile-tally` had two live copy defects, now fixed.** Its FAQ named two retired plans ("the Voucher and Collections plans", withdrawn in the 2026-07-25 rate card rebuild) and hand-wrote an extra-user rupee figure, both against CLAUDE.md §3. `src/routes/__tests__/icp-refresh.test.jsx` now fails on either regressing.
 
-**Row 8, honestly scoped.** `/mobile-tally` got the two things the ranking blog posts have and it did not: a front-loaded answer block and four internal links to real posts. `ICPTemplate` grew two optional props for this, so the three ICP pages that were not refreshed render byte-identically. **`/tally-on-mobile` was left alone and needs an operator decision:** it currently renders the entire homepage body under its own canonical, so it is a near-duplicate of `/`, which is the likeliest reason it pulls no entries. Converting it into its own page through the Phase 2 engine is the real fix but it is a live head-term URL, so it is not a change to make without asking.
+**Row 8, both halves done.** `/mobile-tally` got the two things the ranking blog posts have and it did not: a front-loaded answer block and four internal links to real posts. `ICPTemplate` grew two optional props for this, so the three ICP pages that were not refreshed render byte-identically.
+
+**`/tally-on-mobile` was rebuilt as its own page (operator approved 2026-08-08).** It had been `<Home seo={…} />`, the entire homepage body under a second canonical, which made it a near-duplicate of `/` and is the likeliest reason a head term with its own exact-match URL pulled no entries at all. It is now the eighth `FEATURE_PAGES` entry and deliberately the broadest of them, since "tally on mobile" is what someone searches before they know the category has a name. 91KB of duplicated homepage became 38KB of its own content. `TallyOnMobile.jsx` is deleted. `tally-on-mobile.test.jsx` was kept and its assertions reversed: it used to *require* the home hero headline and the home pricing band, which pinned the duplication in place, and it now asserts both are absent.
+
+**One guard was refined rather than worked around.** PR #68's closure guard scanned the whole page object, which made it impossible to write the most useful thing an e-way page can say to someone searching "eway bill closing on phone" — that closure does not exist and why. The ban is now absolute on every selling surface, and an FAQ may raise closure only while denying it and citing the advisory.
+
+**Watch on the next Search Console read:** `/tally-on-mobile` is a live head-term URL whose content changed completely. Impressions may move either way for a few weeks before settling.
 
 **One content gap.** `/import-purchase-from-pdf` has no screenshot of the actual PDF-import review screen, because none exists in the library. It leads with the voucher item-lines screen and the alt text describes only what is really on it. Worth a capture of the import review flow to swap in; the page ships honest without it.
 
