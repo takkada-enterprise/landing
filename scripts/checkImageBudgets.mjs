@@ -28,6 +28,16 @@ export const BUDGETS = [
   //     public/assets/screenshots/field-visit-photo-mockup.png \
   //     -o public/assets/screenshots/field-visit-photo-mockup.webp
   ['public/assets/screenshots/field-visit-photo-mockup.webp', 60_000, 'LCP element on /salesman-app-tally'],
+  // One hero per feature landing page. Each is that page's LCP element, so it
+  // is budgeted for the same reason the homepage hero is: a re-export from a
+  // design tool must not quietly double the bytes on the critical path. The
+  // feature-page data test asserts every hero has an entry here.
+  ['public/assets/screenshots/invoice-summary-mockup.webp', 52_000, 'LCP element on /e-invoice-from-phone'],
+  ['public/assets/screenshots/payment-reminders.webp', 62_000, 'LCP element on /payment-reminder-tally'],
+  ['public/assets/screenshots/whatsapp-dispatch-mockup.webp', 64_000, 'LCP element on /payment-collection-tally'],
+  ['public/assets/screenshots/delivery-challans-mockup.webp', 56_000, 'LCP element on /e-way-bill-from-phone'],
+  ['public/assets/screenshots/monthly-sales.webp', 56_000, 'LCP element on /tally-reports-on-mobile'],
+  ['public/assets/screenshots/add-items-mockup.webp', 48_000, 'LCP element on /import-purchase-from-pdf'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],

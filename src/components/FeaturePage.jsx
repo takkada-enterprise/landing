@@ -3,11 +3,27 @@ import { Link } from 'react-router-dom';
 import {
   Activity,
   ArrowRight,
+  BarChart3,
+  BookOpen,
+  CalendarClock,
   Camera,
+  CheckCheck,
+  Clock,
+  FileCheck2,
+  LayoutGrid,
+  Link2,
+  ListChecks,
   Lock,
   MapPin,
+  MessageCircle,
   PackageCheck,
+  QrCode,
+  Send,
+  Share2,
+  ShieldCheck,
   Target,
+  Truck,
+  Wallet,
 } from 'lucide-react';
 import Seo from './Seo';
 import WhatsAppCTA from './WhatsAppCTA';
@@ -39,14 +55,36 @@ import { featurePagePath } from '../data/featurePages';
 // Motion: none of its own (CLAUDE.md craft rule 5). The FAQ accordion is the
 // only moving part and it comes from the shared FAQItem.
 
+// Icons are named as strings in featurePages.js (that file must stay
+// React-free so Node ESM can load it) and resolved here. A name with no entry
+// renders the step without an icon rather than crashing, and the data test
+// pins that every name used is present.
 const ICONS = {
   Activity,
+  BarChart3,
+  BookOpen,
+  CalendarClock,
   Camera,
+  CheckCheck,
+  Clock,
+  FileCheck2,
+  LayoutGrid,
+  Link2,
+  ListChecks,
   Lock,
   MapPin,
+  MessageCircle,
   PackageCheck,
+  QrCode,
+  Send,
+  Share2,
+  ShieldCheck,
   Target,
+  Truck,
+  Wallet,
 };
+
+export const ICON_NAMES = Object.keys(ICONS);
 
 // Every price on the site is derived, never typed (CLAUDE.md §3). The plan
 // pointer names a plan; the rupees come from the live rate card.
@@ -273,7 +311,7 @@ function FeaturePage({ page }) {
             </h2>
             <p>
               Book a demo. We walk through your setup, your Tally version, and exactly what changes
-              for your team in the market.
+              for your business.
             </p>
             <div className="final-cta-actions">
               <WhatsAppCTA context={page.waContext} variant="dark" />

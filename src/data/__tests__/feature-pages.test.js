@@ -16,6 +16,7 @@ import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { findImagePreloads } from '../../../scripts/stripImagePreloads.mjs';
+import { ICON_NAMES } from '../../components/FeaturePage';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
@@ -95,6 +96,18 @@ describe('feature page data contract', () => {
     }
   );
 
+  // Icon names are strings on this side of the boundary, so a typo would
+  // render a step with no icon and nothing would fail. This is the check that
+  // the string actually resolves in FeaturePage's ICONS map.
+  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: every walk-through icon name resolves to a real icon',
+    (_slug, page) => {
+      for (const step of page.walkthrough) {
+        expect(ICON_NAMES).toContain(step.icon);
+      }
+    }
+  );
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: the comparison table keeps competitors unnamed',
     (_slug, page) => {
@@ -114,8 +127,13 @@ describe('feature page data contract', () => {
       expect(planNames).toContain(page.planPointer.plan);
       // Every price on the site is derived through planPricing (CLAUDE.md §3).
       // A hand-typed rupee amount anywhere in a page entry is the failure this
-      // catches.
-      expect(JSON.stringify(page)).not.toMatch(/₹|\\u20B9/);
+      // catches. relatedPosts is excluded because those titles are quoted
+      // verbatim from blog frontmatter and pinned character-for-character by
+      // the test above, so a rupee inside one is the post's own headline
+      // ("Clear ₹50,000+ Shipments…"), not a price this page invented. Editing
+      // it to dodge this guard would break the title-match test instead.
+      const { relatedPosts, ...priceBearing } = page;
+      expect(JSON.stringify(priceBearing)).not.toMatch(/₹|\\u20B9/);
     }
   );
 
