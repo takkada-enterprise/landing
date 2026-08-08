@@ -120,7 +120,7 @@ Live `robots.txt` verified 2026-08-08. Cloudflare injects its managed block *ahe
 
 ## Phase 2 — The page engine (build once, add pages in minutes forever)
 
-**Status: BUILT AND GREEN LOCALLY 2026-08-08, NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, commit `e913437`).**
+**Status: COMPLETE and LIVE on takkada.com 2026-08-08 (PR #66 merged 07:13 UTC, operator-approved). Pilot page: https://takkada.com/salesman-app-tally/**
 
 **What shipped in the commit:**
 - `src/data/featurePages.js` (content, JSX-free) + `src/components/FeaturePage.jsx` (template) + `src/feature-page.css`.
@@ -128,13 +128,25 @@ Live `robots.txt` verified 2026-08-08. Cloudflare injects its managed block *ahe
 - `articleSchema` refactored onto a shared `articlePageSchema`, so blog posts and feature pages emit the same Article node instead of two copies that drift.
 - Pilot page live at `/salesman-app-tally` on the local build: 6 walk-through cards on real app screenshots, 5-row comparison table, 6 FAQs, related-reading block into 4 existing salesman posts.
 
-**Verified, not assumed:**
-- `npm test` 269 passed / 1 skipped, 27 files. `npm run build` green through all five guard scripts.
-- `dist/salesman-app-tally/index.html` is 41KB of real prerendered HTML (14,851 chars of text), in `sitemap.xml` at priority 0.9, in `llms.txt`, linked from the footer of every page.
-- All 6 JSON-LD blocks parse: Article (named Person author, LinkedIn `sameAs`, honest `dateModified`), SoftwareApplication, FAQPage (6 Q&As), BreadcrumbList, plus site-wide Organization and WebSite.
+**Hero mockup (added on operator request before merge):** each page declares its own `hero` image. The pilot uses a real Guwahati storefront carrying the coordinates and timestamp, which argues the visit-proof claim better than a description of it. It is the LCP element on desktop, so it renders eager at `fetchPriority="high"` with explicit dimensions, re-encoded from PNG at q68 (83,320 → 53,584 bytes) with a `checkImageBudgets` entry pinning it.
+
+Two things learned wiring it:
+- **`fetchPriority` on the `<img>` is what earns the preload.** vite-react-ssg injects a preload per `<img>` and `stripImagePreloads` keeps only the high-priority ones. Never hand-write a second `<link rel=preload>`. A test now asserts the built page preloads the hero and nothing else, so a walk-through image losing `loading="lazy"` fails rather than quietly competing for bandwidth.
+- **These mockups have an alpha channel**, so `box-shadow` drew a rectangle behind a phone-shaped hole and read as a stray white card. `drop-shadow` follows the silhouette. Applies to every mockup on the site.
+
+**Verified on the live site, not assumed:**
+- `npm test` 272 passed / 1 skipped, 27 files. `npm run build` green through all five guard scripts.
+- `https://takkada.com/salesman-app-tally/` returns 200 with **41,728 bytes** of real prerendered HTML (14,828 chars of text). Correct title, canonical and h1.
+- All 6 JSON-LD blocks parse live: Article (named Person author, LinkedIn `sameAs`, honest `dateModified`), SoftwareApplication, FAQPage, BreadcrumbList, plus site-wide Organization and WebSite.
+- Exactly **1 image preload** on the live page, and it is the hero. Hero serves at 53,584 bytes as `image/webp`.
+- Live in `sitemap.xml` at priority 0.9, in `llms.txt`, and linked from the footer of every page including the homepage.
 - 15 internal links on the page, zero dead; all 9 homepage hash targets exist.
 - Main JS bundle still **74KB gzip** — the blog chunk stayed isolated, so the Phase 1 LCP work is not undone.
 - Every new guard was falsified by breaking the data and watching it go red. One guard (`WHATSAPP_MESSAGES[ctx] === waMessage`) proved circular and was rewritten rather than left green.
+
+**CodeQL note for the next PR:** copying the `expect(url.startsWith('https://takkada.com'))` assertion out of `landing-schema.test.jsx` trips `js/incomplete-url-substring-sanitization` and fails the PR's CodeQL check on a *new* alert. Six alerts of that same rule are already open on `main` from the same copied pattern, which is why main itself stays green. Assert `new URL(x).origin` instead: it clears the alert and is stricter (the prefix test passes for `https://takkada.com.example.com`). Worth backfilling those six when someone is next in those files.
+
+**Not measured yet:** live LCP for this page. Phase 1 established that a local Lighthouse run does not reproduce the bandwidth contention that matters, so this needs a run against the live URL before any claim about its speed.
 
 **Two things worth knowing before Phase 3:**
 
