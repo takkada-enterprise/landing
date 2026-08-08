@@ -23,7 +23,8 @@
 // Not part of `npm run build` on purpose — the build must not depend on a
 // network fetch from Google, which is the exact dependency this removes.
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -46,6 +47,46 @@ export const GOOGLE_CSS_URL =
 // dropped: nothing on this site is written in them, and an unexpected glyph
 // falls back exactly as it would have anyway.
 export const KEEP_SUBSETS = ['latin', 'latin-ext'];
+
+// Google's latin-ext files are 59KB (Fraunces) and 22KB (Plus Jakarta Sans),
+// and this site uses exactly ONE character from that range: the rupee sign
+// U+20B9, 1,710 times. Shipping 81KB to draw one glyph cost the homepage its
+// LCP — the browser gives a font discovered during layout VeryHigh priority, so
+// those two files were stealing bandwidth from the hero image mid-download.
+//
+// So latin-ext is re-subset down to just the rupee: 81,228 bytes -> 2,568.
+// The unicode-range is narrowed to match, which keeps the declaration honest —
+// a browser will not request the file for a character it no longer contains.
+//
+// If a second latin-ext character ever appears in the content, it would
+// silently fall back to a system font. src/__tests__/fonts.test.js scans the
+// whole site and fails if that happens, so it cannot pass unnoticed.
+export const SUBSET_TO_CODEPOINTS = { 'latin-ext': 'U+20B9' };
+
+// pyftsubset ships with fonttools. This script is run by hand, not by the
+// build, so a Python dependency here costs nobody anything at build time:
+//   python3 -m venv /tmp/fontenv && /tmp/fontenv/bin/pip install fonttools brotli
+export const PYFTSUBSET = process.env.PYFTSUBSET || 'pyftsubset';
+
+function subsetFile(path, unicodes) {
+  try {
+    execFileSync(PYFTSUBSET, [
+      path,
+      `--unicodes=${unicodes}`,
+      '--flavor=woff2',
+      `--output-file=${path}`,
+      '--no-hinting',
+      '--desubroutinize',
+    ]);
+  } catch (err) {
+    throw new Error(
+      `vendorFonts: pyftsubset failed for ${path}. Install it with\n` +
+        '  python3 -m venv /tmp/fontenv && /tmp/fontenv/bin/pip install fonttools brotli\n' +
+        'then re-run with PYFTSUBSET=/tmp/fontenv/bin/pyftsubset node scripts/vendorFonts.mjs\n' +
+        String(err.message)
+    );
+  }
+}
 
 // A desktop Chrome UA, because Google serves woff2 only to browsers it knows.
 const UA =
@@ -104,7 +145,12 @@ export function buildCss(blocks) {
     if (!url) continue;
     const fileName = localFileName(block, subset);
     downloads.set(url, fileName);
-    parts.push(`/* ${subset} */\n${rewriteBlock(block, fileName)}`);
+    let out = rewriteBlock(block, fileName);
+    const narrowed = SUBSET_TO_CODEPOINTS[subset];
+    if (narrowed) {
+      out = out.replace(/unicode-range:[^;]*;/, `unicode-range: ${narrowed};`);
+    }
+    parts.push(`/* ${subset} */\n${out}`);
   }
 
   const header = [
@@ -147,9 +193,21 @@ async function main() {
     if (!fr.ok) throw new Error(`vendorFonts: ${fileName} returned ${fr.status}`);
     // eslint-disable-next-line no-await-in-loop
     const buf = Buffer.from(await fr.arrayBuffer());
-    writeFileSync(resolve(FONT_DIR, fileName), buf);
-    total += buf.length;
-    process.stdout.write(`  ${String(buf.length).padStart(7)} bytes  ${fileName}\n`);
+    const dest = resolve(FONT_DIR, fileName);
+    writeFileSync(dest, buf);
+
+    const subset = [...Object.keys(SUBSET_TO_CODEPOINTS)].find((k) => fileName.includes(`-${k}.`));
+    if (subset) {
+      subsetFile(dest, SUBSET_TO_CODEPOINTS[subset]);
+      const after = statSync(dest).size;
+      total += after;
+      process.stdout.write(
+        `  ${String(after).padStart(7)} bytes  ${fileName}  (subset to ${SUBSET_TO_CODEPOINTS[subset]}, was ${buf.length})\n`
+      );
+    } else {
+      total += buf.length;
+      process.stdout.write(`  ${String(buf.length).padStart(7)} bytes  ${fileName}\n`);
+    }
   }
 
   writeFileSync(CSS_OUT, out);
