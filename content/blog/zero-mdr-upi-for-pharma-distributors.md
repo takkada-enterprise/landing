@@ -58,7 +58,7 @@ For a pharma distributor, a zero MDR rail is only complete if it includes:
 - **UTR auto-matching** so look-alike payments reconcile without screenshots
 - **A receipt voucher posted back into Tally**, so the books stay clean without manual entry
 
-Takkada brings these together for the pharma channel. The wider feature checklist is in the rundown of the [UPI collection app for distributors](/blog/upi-collection-app-for-distributors-india/).
+Takkada brings these together for the pharma channel. The wider feature checklist is in the rundown of the [UPI collection app for distributors](/blog/upi-collection-app-for-distributors-india/), and the full picture for a chemist book on 60 to 90 day credit is on the [pharma distribution page](/tally-app-for-pharma-distributors/).
 
 ## Frequently Asked Questions
 

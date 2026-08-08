@@ -13,6 +13,11 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 - [Tally mobile app comparison](https://takkada.com/tally-mobile-app-comparison/): Takkada compared with other Tally mobile apps, feature by feature.
 - [Live demo](https://takkada.com/demo/): Try Takkada on a demo company with real-shaped books, no installation.
 - [Tally partner program](https://takkada.com/partners/): The reseller program for Tally partners: recurring commission on every plan and renewal.
+- [Biz Analyst alternative](https://takkada.com/biz-analyst-alternative/): Takkada compared with Biz Analyst for Indian distributors on Tally. Both read Tally on mobile, create vouchers and send reminders. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone. Biz Analyst bills per device and is offline-capable, which Takkada is not.
+- [Livekeeping alternative](https://takkada.com/livekeeping-alternative/): Takkada compared with Livekeeping for Indian distributors on Tally. Both create vouchers from mobile and generate e-invoices and e-way bills. Livekeeping has no payment collection of any kind and sells compliance as a paid tier. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone.
+- [Tally app for FMCG distributors](https://takkada.com/tally-app-for-fmcg-distributors/): Takkada for FMCG distributors running high-volume, low-ticket beats on Tally: salesman check-in with geo-tagged photo proof, orders booked against live stock, invoices raised at the counter, UPI collection at zero MDR with no per-receipt fee, and receipts reconciled into Tally automatically. Built for the case where a hundred small payments a day is normal.
+- [Tally app for pharma distributors](https://takkada.com/tally-app-for-pharma-distributors/): Takkada for pharma distributors on Tally, where margins are thin and chemist credit runs 60 to 90 days: e-invoice with IRN and e-way bill raised and cancelled from the phone, pre-due and post-due WhatsApp reminder schedules with per-party caps, ledger statements shared on demand, UPI collection at zero MDR, and receipts reconciled into Tally automatically.
+- [Tally app for agri-input distributors](https://takkada.com/tally-app-for-agri-input-distributors/): Takkada for fertiliser, seed and crop-protection distributors on Tally, whose dealer receivables run across a sowing-to-harvest cycle rather than a 30 or 60 day calendar: debtor ageing on custom slabs, scheme and discount credit notes raised from the phone, godown-wise stock across branches, reminders timed to the season, and UPI collection at zero MDR reconciled into Tally.
 
 ## Features
 
@@ -106,12 +111,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Best Tally Mobile Add-On Apps for Distributors (2026)](https://takkada.com/blog/best-tally-add-on-apps-for-distributors-2026/)
 - [BharatPe for Distributors: Is the QR Really 0% MDR?](https://takkada.com/blog/bharatpe-for-distributors-mdr/)
 - [Bill Book App Alternative for Tally Distributors](https://takkada.com/blog/billbook-alternative-for-distributors/)
-- [Biz Analyst Alternative: What Collections-First Distributors Pick](https://takkada.com/blog/biz-analyst-alternative/)
 - [BUSY Software Alternative for Tally Distributors Who Collect](https://takkada.com/blog/busy-software-alternative-for-distributors/)
 - [CredFlow Alternative for Indian Distributors: A Tally-Native View](https://takkada.com/blog/credflow-alternative-tally-native/)
 - [CredFlow vs Biz Analyst vs Takkada: Full Comparison (2026)](https://takkada.com/blog/credflow-vs-biz-analyst-vs-takkada/)
 - [Khatabook Alternative for Indian Distributors: Why Distributors Outgrow Udhar-Book Apps](https://takkada.com/blog/khatabook-alternative-for-distributors-india/)
-- [Livekeeping Alternative for Distributors Who've Outgrown Read-and-Basic-Voucher](https://takkada.com/blog/livekeeping-alternative-for-distributors/)
 - [Marg ERP Alternative: Mobile Collections for Tally Distributors](https://takkada.com/blog/marg-erp-alternative-for-distributors/)
 - [myBillBook Alternative for Tally-Native Distributors](https://takkada.com/blog/mybillbook-alternative-for-distributors/)
 - [OkCredit Alternative for Distributor Udhaar Collection](https://takkada.com/blog/okcredit-alternative-for-distributors/)

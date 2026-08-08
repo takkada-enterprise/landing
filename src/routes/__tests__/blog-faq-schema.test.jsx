@@ -15,7 +15,7 @@ import { getAllPosts, getPostBySlug } from '../../lib/blogPosts';
 afterEach(cleanup);
 
 // A FAQ-bearing post and the FAQ-less stub, both real corpus entries.
-const FAQ_SLUG = 'biz-analyst-alternative';
+const FAQ_SLUG = 'khatabook-alternative-for-distributors-india';
 const FAQLESS_SLUG = 'distributor-cash-flow-receivables';
 
 function renderPost(slug) {
