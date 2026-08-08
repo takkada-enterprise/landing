@@ -5,7 +5,7 @@ meta_title: "Multi-Business Tally Mobile App for Indian Distributors"
 meta_description: "A multi-business Tally mobile app shows consolidated outstanding, collections, and stock across 2–5 companies on one phone. Here is what to look for."
 primary_keyword: "multi business tally mobile app"
 date: "2026-05-18"
-updated: "2026-07-25"
+updated: "2026-08-08"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "An Indian distributor often runs three businesses out of one office: a parent FMCG firm, a sister pharma firm in the spouse's name, and a hardware vertical under the son. Three Tally companies, three sets of books, one owner who needs to see all of it on one screen."
@@ -126,4 +126,4 @@ A: Yes. Role-based access requires each user to have their own login. This is al
 
 A: Practically, no. Takkada supports as many companies as the distributor has running, with the ₹1,000 per-extra-business pricing applying from the second company onward.
 
-Takkada is the multi-business Tally mobile app for Indian distributors with consolidated dashboards, role-based access, and 0% MDR UPI collection across every company. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is the multi-business Tally mobile app for Indian distributors with consolidated dashboards, role-based access, and 0% MDR UPI collection across every company. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). What each business shows on the phone is set out on the [multi-company Tally reports](/multi-company-tally-reports/) page.

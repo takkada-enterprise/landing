@@ -52,8 +52,13 @@
 // purpose and pinned by src/data/__tests__/feature-pages.test.js, which reads
 // the real frontmatter off disk and fails on a drifted title or a dead slug.
 
+// The extension is load-bearing. siteMetadata.js and the sitemap / llms.txt
+// generators load this module through Node ESM, which does not resolve
+// extensionless specifiers.
+import { SECOND_BATCH } from './featurePagesSecondBatch.js';
+
 /** @type {FeaturePage[]} */
-export const FEATURE_PAGES = [
+const FIRST_BATCH = [
   {
     slug: 'salesman-app-tally',
     searchPhrase: 'Salesman app for Tally',
@@ -1375,6 +1380,21 @@ export const FEATURE_PAGES = [
   },
 ];
 
+/**
+ * Every live feature landing page, in the order they were shipped. The split
+ * across two modules is only about file size; nothing downstream knows or cares
+ * which batch a page came from.
+ * @type {FeaturePage[]}
+ */
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH];
+
+// Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
+// file that actually changes when the page is edited.
+const SOURCE_FILES = new Map([
+  ...FIRST_BATCH.map((page) => [page.slug, 'src/data/featurePages.js']),
+  ...SECOND_BATCH.map((page) => [page.slug, 'src/data/featurePagesSecondBatch.js']),
+]);
+
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */
 export function featurePagePath(page) {
   return `/${page.slug}`;
@@ -1391,7 +1411,7 @@ export function getFeaturePage(slug) {
 export const featureRouteMetadata = FEATURE_PAGES.map((page) => ({
   path: featurePagePath(page),
   llms: page.llms,
-  sourceFile: 'src/data/featurePages.js',
+  sourceFile: SOURCE_FILES.get(page.slug),
   changefreq: 'monthly',
   priority: page.priority,
 }));

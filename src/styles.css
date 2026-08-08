@@ -1989,6 +1989,29 @@ html.js .animated-heading .letter {
   margin-bottom: 16px;
 }
 
+/* A generated column (Features) outgrows its neighbours as landing pages ship.
+   Rather than leaving one 21-item list beside a 7-item one, it takes the full
+   grid row and flows into sub-columns. `break-inside` keeps a link from being
+   split across the column boundary. */
+.footer-col-wide {
+  grid-column: 1 / -1;
+}
+
+.footer-col-wide .footer-col-links {
+  columns: 2;
+  column-gap: 32px;
+}
+
+.footer-col-links a {
+  break-inside: avoid;
+}
+
+@media (min-width: 720px) {
+  .footer-col-wide .footer-col-links {
+    columns: 3;
+  }
+}
+
 .footer-col a {
   display: block;
   font-size: 14px;

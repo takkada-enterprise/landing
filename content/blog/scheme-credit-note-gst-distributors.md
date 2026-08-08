@@ -5,7 +5,7 @@ meta_title: "Scheme Credit Note GST Treatment for Distributors"
 meta_description: "A season scheme payout only reduces GST if it clears section 15(3)(b) of the CGST Act. What a tax credit note needs, and when it is only a financial one."
 primary_keyword: "scheme credit note gst"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-08"
 author: "founder"
 category: "Schemes"
 excerpt: "Two credit notes can carry the same rupee figure and the same dealer name, and only one of them brings your output tax down. The difference was decided months earlier, on the day the scheme was agreed, and most distributors find that out at settlement."
@@ -94,7 +94,7 @@ That means four things exist on paper before the first scheme invoice goes out. 
 
 Decide the classification up front too. Some payouts you will run as tax credit notes, and some you will accept as financial credit notes because the pre-agreement is not there. Both are fine.
 
-Takkada has a scheme settlement module that runs against your synced Tally data, switched on for a company on request rather than sold as part of a plan. It holds the item classification and each dealer's booking, runs the settlement off the actual vouchers, flags what it could not resolve, issues the credit notes and exports the working. Because a run keeps its own record of the vouchers it counted, the invoices behind a payout are still nameable months later. The wider settlement problem is covered in [dealer scheme management in Tally](/blog/dealer-scheme-management-tally/), and it bites [agri-input distributors](/blog/receivables-app-for-agri-input-distributors/) hardest.
+Takkada has a scheme settlement module that runs against your synced Tally data, switched on for a company on request rather than sold as part of a plan. It holds the item classification and each dealer's booking, runs the settlement off the actual vouchers, flags what it could not resolve, issues the credit notes and exports the working. Because a run keeps its own record of the vouchers it counted, the invoices behind a payout are still nameable months later. The wider settlement problem is covered in [dealer scheme management in Tally](/blog/dealer-scheme-management-tally/), and it bites [agri-input distributors](/blog/receivables-app-for-agri-input-distributors/) hardest. Raising a [credit note from phone](/credit-note-from-phone/) against the original invoice is covered on its own page.
 
 This article describes the statutory position as we read it. Confirm the treatment of your own schemes with your tax adviser before acting.
 

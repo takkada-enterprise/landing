@@ -128,4 +128,4 @@ A: No, and this is the part to set up before rolling out order taking. Access sh
 
 A: Read the salesman-wise board on both bases. On an order basis you see what the field brought in, which tells you who is working his beat plan. On an invoice basis you see what converted and was billed, which tells you what the business actually earned. A wide gap between the two for one person is usually a stock or credit problem rather than an effort problem.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Where the team still writes on paper, turning a [handwritten order to Tally](/handwritten-order-to-tally/) from a photo is covered on its own page.

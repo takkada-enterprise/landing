@@ -160,8 +160,16 @@ function SiteFooter() {
           </div>
           <div className="footer-columns">
             {footerColumns.map((col) => (
-              <div key={col.title} className="footer-col">
+              // The Features column is generated from FEATURE_PAGES, so it grows
+              // every time a landing page ships. Past ten links a single list
+              // makes the footer badly lopsided, so a long column spans the grid
+              // and flows its links into sub-columns instead.
+              <div
+                key={col.title}
+                className={`footer-col${col.links.length > 10 ? ' footer-col-wide' : ''}`}
+              >
                 <p className="footer-col-title">{col.title}</p>
+                <div className="footer-col-links">
                 {col.links.map((link) => {
                   if (link.page) {
                     return (
@@ -177,6 +185,7 @@ function SiteFooter() {
                     <a href={link.href} key={link.label}>{link.label}</a>
                   );
                 })}
+                </div>
               </div>
             ))}
           </div>

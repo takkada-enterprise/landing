@@ -38,6 +38,14 @@ export const BUDGETS = [
   ['public/assets/screenshots/delivery-challans-mockup.webp', 56_000, 'LCP element on /e-way-bill-from-phone'],
   ['public/assets/screenshots/monthly-sales.webp', 56_000, 'LCP element on /tally-reports-on-mobile'],
   ['public/assets/screenshots/add-items-mockup.webp', 48_000, 'LCP element on /import-purchase-from-pdf'],
+  // Second batch of feature pages (plan Phase 4). Several of these heroes are
+  // shared across pages, which is fine: the budget is a property of the file on
+  // the critical path, not of the page pointing at it.
+  ['public/assets/screenshots/party-ledger-mockup.webp', 48_000, 'LCP element on /outstanding-receivables-on-mobile'],
+  ['public/assets/screenshots/reports-screen.webp', 52_000, 'LCP element on /multi-company-tally-reports'],
+  ['public/assets/screenshots/pending-orders-mockup.webp', 46_000, 'LCP element on /sales-orders-on-mobile'],
+  ['public/assets/screenshots/settlements-mockup.webp', 28_000, 'LCP element on /bank-statement-import-tally'],
+  ['public/assets/screenshots/smart-reminders-mockup.webp', 26_000, 'LCP element on /send-payment-reminders-automatically'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
