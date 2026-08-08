@@ -46,9 +46,34 @@ Measured on live takkada.com, mobile, devtools throttling, three runs each:
 
 Note the local before/after showed LCP *unchanged* at 2.3–2.5s — localhost does not reproduce the bandwidth contention. The win only appeared against the live site. Do not trust a local Lighthouse run to validate a byte-weight change on this repo.
 
-**Still not fully green:** 2.6s is above the 2.5s threshold. What remains is the Google Fonts stylesheet, render-blocking for **1,326ms** (`Fraunces` + `Plus Jakarta Sans`). That is the next LCP lever and is untouched. Careful: CLAUDE.md §7 records that removing the Fraunces `<link>` silently reverts every heading to Plus Jakarta Sans, and that this nearly shipped once — so this is a self-host-or-preload job, not a delete job.
+**Still not fully green:** LCP sits at **2.5–3.0s** against the 2.5s threshold. See Finding 4 for the font attempt, which did not move it.
 
 **A new failure mode this introduces, and its guard.** If a future router or `vite-react-ssg` upgrade stops awaiting `lazy`, all 170 blog pages become empty client-rendered shells that still return 200 and still sit in `sitemap.xml`. Nothing else in the build would notice. `scripts/checkBlogPrerender.mjs` fails the build on that, asserting on prose in the raw HTML rather than on route config.
+
+**Finding 4 — self-hosting the fonts did NOT deliver the LCP win it was predicted to. Record this before anyone tries it again.**
+
+The Google Fonts `<link>` was render-blocking for 1,326ms, so vendoring it looked like the obvious next LCP lever. It was shipped (PR #61) and **made things worse**: live mobile LCP went 2.6–2.9s → **3.1–4.2s** across five consecutive runs.
+
+Cause, from the request timeline: the hero image is the LCP element, and its download time went 1,728ms → 3,120ms **on identical bytes**. Off Google's origin the fonts had their own connection; on ours they compete with the image for the same one. Two specific thieves:
+1. The `rel=preload` hints put 93KB of High-priority font requests ahead of the hero at ~705ms.
+2. Worse, `latin-ext` arrived at **VeryHigh** priority mid-hero-download — a font discovered during layout is treated as critical. 81KB of it.
+
+PR #62 fixed both: preloads removed (`font-display: swap` covers it), and `latin-ext` subset from 81,228 → 2,568 bytes because **the site uses exactly one character from that range — ₹, 1,710 times**. LCP returned to **2.5–3.0s**, i.e. back to where it was before the font work, not better.
+
+**Honest scorecard for the font change:**
+
+| | Before fonts | After fonts + fix |
+|---|---|---|
+| LCP | 2.6–2.9s | 2.5–3.0s (**no gain**) |
+| CLS | 0.029 | **0.002** (real gain) |
+| Font payload | 175 KB | **98 KB** |
+| Third-party dependency | Google | none |
+
+So: worth keeping for the CLS improvement, the weight, and losing the Google dependency — but **removing a render-blocking stylesheet does not automatically improve LCP when the LCP element is an image that then has to share the connection.** Do not assume otherwise next time; measure the request timeline, not just the render-blocking list.
+
+**What is actually left on the critical path** (measured 2026-08-08 post-fix):
+- `assets/app-*.css`, render-blocking **888ms** — 17KB that takes ~1s to arrive on a cold connection.
+- **`/cdn-cgi/scripts/.../email-decode.min.js`, render-blocking 1,091ms.** This is Cloudflare's **Scrape Shield → Email Obfuscation** feature injecting a blocking script because the pages contain email addresses. It is not in our repo and cannot be fixed in code. **This is now the single largest remaining LCP lever and it is another dashboard toggle.** Weigh it against whatever spam protection the obfuscation is buying.
 
 **Finding 3 — the AI-bot block is narrower than this plan assumed, and the control is named differently than step 1 says.**
 
