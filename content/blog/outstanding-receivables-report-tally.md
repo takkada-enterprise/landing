@@ -5,7 +5,7 @@ meta_title: "Outstanding Receivables Report in Tally on Mobile"
 meta_description: "An outstanding report tally mobile view shows total receivables, party by party, with ageing, so a distributor knows who owes what and how old it is."
 primary_keyword: "outstanding report tally mobile"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-08"
 author: "founder"
 category: "Reports"
 excerpt: "The single number a distributor checks most is how much is stuck in the market. Tally holds it in the Receivables report, party by party, but only on the office desktop. On the phone, with ageing next to each party, it becomes the report he opens before every credit decision."
@@ -50,7 +50,7 @@ Turn on bill-wise details and each open bill carries a due date, worked out from
 
 The credit decision happens at the counter, not the desk. A retailer asks for one more consignment on credit, and the owner needs to know, right then, how much that party already owes and how old it is.
 
-Takkada reads your debtor ledgers and open bills from Tally and shows party-wise outstanding with ageing on the phone, refreshed live because it holds a two-way sync with Tally rather than a stale copy. The same surface that carries your [Tally reports on mobile](/blog/view-tally-reports-on-mobile/) carries the outstanding position, and the [party outstanding check](/blog/how-to-check-party-outstanding-tally-mobile/) is one tap before a fresh-credit decision. Tally stays the system of record; the phone just puts the number where the decision is made.
+Takkada reads your debtor ledgers and open bills from Tally and shows party-wise outstanding with ageing on the phone, refreshed live because it holds a two-way sync with Tally rather than a stale copy. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries the outstanding position, and the [party outstanding check](/blog/how-to-check-party-outstanding-tally-mobile/) is one tap before a fresh-credit decision. Tally stays the system of record; the phone just puts the number where the decision is made.
 
 ## From the Report to Actually Collecting
 

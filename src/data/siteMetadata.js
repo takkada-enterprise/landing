@@ -84,18 +84,6 @@ export const routeMetadata = [
     priority: 0.8,
   },
   {
-    path: '/tally-on-mobile',
-    llms: {
-      section: 'Features',
-      title: 'Tally on mobile',
-      summary:
-        "Run Tally from a phone: invoice, send on WhatsApp, collect via UPI and auto-reconcile back into Tally.",
-    },
-    sourceFile: 'src/routes/TallyOnMobile.jsx',
-    changefreq: 'weekly',
-    priority: 0.9,
-  },
-  {
     path: '/whatsapp-invoice-tally',
     llms: {
       section: 'Features',

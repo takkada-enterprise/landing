@@ -8,10 +8,18 @@ import Breadcrumb from './Breadcrumb';
 import FAQItem from './FAQItem';
 import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
 
+// `answer` and `relatedPosts` are optional and were added 2026-08-08 for the
+// Phase 3 refresh of the older ICP pages. Clarity's week-of-07-26 data showed
+// these pages pulling zero search entries while blog posts pulled all of them,
+// and the two things the posts had that these did not were a front-loaded
+// answer paragraph and internal links. Both render only when supplied, so the
+// ICP pages that have not been refreshed are byte-identical to before.
 function ICPTemplate({
   overline,
   headline,
   subheadline,
+  answer,
+  relatedPosts = [],
   waContext,
   ctaPrimary,
   ctaSecondary,
@@ -48,6 +56,7 @@ function ICPTemplate({
             <span className="section-label hero-overline">{overline}</span>
             <h1 className="hero-title icp-hero-title">{headline}</h1>
             <p className="hero-subtitle icp-hero-subtitle">{subheadline}</p>
+            {answer && <p className="feature-answer">{answer}</p>}
             <div className="hero-ctas">
               <WhatsAppCTA context={waContext} />
               <CalendarCTA context={waContext}>{ctaPrimary.text}</CalendarCTA>
@@ -136,6 +145,27 @@ function ICPTemplate({
           </div>
         </div>
       </section>
+
+      {/* ── Related reading ── */}
+      {relatedPosts.length > 0 && (
+        <section className="feature-related" id="related">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">Read further</h2>
+            </div>
+            <ul className="feature-related-list">
+              {relatedPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link to={`/blog/${post.slug}`}>
+                    {post.title}
+                    <ArrowRight size={16} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* ── Footer CTA Band ── */}
       <section className="final-cta" id="final-cta">

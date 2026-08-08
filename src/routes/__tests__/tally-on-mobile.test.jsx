@@ -2,72 +2,75 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-// Render Head children (title, canonical, JSON-LD) inline so we can assert on
-// them without react-helmet-async's async document.head writes.
 vi.mock('vite-react-ssg', () => ({
   Head: ({ children }) => children,
   ClientOnly: ({ children }) => children,
 }));
 
-import TallyOnMobile from '../TallyOnMobile';
+import FeaturePage from '../../components/FeaturePage';
+import { getFeaturePage } from '../../data/featurePages';
 import { routeMetadata } from '../../data/siteMetadata';
-import { PhoneModalProvider } from '../../context/PhoneModalContext';
+import { heroContent } from '../../data/siteContent';
 
 afterEach(cleanup);
 
-const CANONICAL = 'https://takkada.com/tally-on-mobile/';
+// This file used to assert the opposite of what it asserts now, and that is the
+// point of keeping it rather than deleting it.
+//
+// /tally-on-mobile shipped as `<Home seo={...} />`: the entire home page body
+// served under a second canonical, deliberately, on the theory that an
+// exact-match URL wins the head term. It did not. The Clarity week-of-07-26
+// data had it pulling zero search entries, and a near-duplicate of / is the
+// obvious explanation. The operator approved rebuilding it as its own page on
+// 2026-08-08.
+//
+// The old test pinned the duplication in place: it asserted the page contained
+// the home hero headline and the home pricing band. Anyone converting the route
+// would have hit those two assertions and had to decide whether the test knew
+// something they did not. So these assertions now state the reverse, with the
+// reason, and the generic feature-page suites cover everything else about it.
+
+const PAGE = getFeaturePage('tally-on-mobile');
 
 function renderRoute() {
-  const { container } = render(
+  return render(
     <MemoryRouter>
-      <PhoneModalProvider>
-        <TallyOnMobile />
-      </PhoneModalProvider>
+      <FeaturePage page={PAGE} />
     </MemoryRouter>
   );
-  const schemas = [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>
-    JSON.parse(s.textContent)
-  );
-  return { container, schemas };
 }
 
-const byType = (schemas, type) => schemas.find((s) => s['@type'] === type);
-
-describe('TallyOnMobile route', () => {
-  it('is registered in routeMetadata at the exact-match path', () => {
-    expect(routeMetadata.some((r) => r.path === '/tally-on-mobile')).toBe(true);
-  });
-
-  it('targets the /tally-on-mobile canonical and the keyword title', () => {
-    renderRoute();
-    // React 19 hoists <title>/<link>/<meta> to document.head.
-    const canonical = document.querySelector('link[rel="canonical"]');
-    expect(canonical?.getAttribute('href')).toBe(CANONICAL);
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    expect(ogUrl?.getAttribute('content')).toBe(CANONICAL);
-    const title = document.querySelector('title');
-    expect(title?.textContent).toMatch(/Tally on Mobile/i);
-    expect(title?.textContent.length).toBeLessThanOrEqual(60);
-  });
-
-  it('renders the full home body verbatim (same page content)', () => {
+describe('/tally-on-mobile', () => {
+  it('is a feature page, not a second copy of the home page', () => {
+    expect(PAGE).toBeDefined();
     const { container } = renderRoute();
-    // Hero headline that only the home body carries.
-    expect(container.textContent).toContain('Get paid without chasing');
-    // Pricing band shared with the home page.
-    expect(container.textContent).toContain('₹2,900 to ₹8,500 per year. GST extra.');
+    const text = container.textContent;
+
+    // The two strings the old test required. Their presence here would mean
+    // the homepage body is being served under this canonical again.
+    expect(text).not.toContain(heroContent.headline);
+    expect(text).not.toContain('₹2,900 to ₹8,500 per year. GST extra.');
+
+    // And it carries the things a feature page has and the home clone did not.
+    expect(container.querySelector('.feature-answer')).not.toBeNull();
+    expect(container.querySelector('.feature-comparison-table')).not.toBeNull();
+    expect(container.querySelectorAll('.feature-related-list a').length).toBeGreaterThan(0);
   });
 
-  it('emits the same SoftwareApplication + FAQPage schema as the home page', () => {
-    const { container, schemas } = renderRoute();
-    const app = byType(schemas, 'SoftwareApplication');
-    expect(app).toBeDefined();
-    expect(app.publisher).toEqual({ '@id': 'https://takkada.com/#organization' });
+  it('keeps the exact-match route registered, now via the page engine', () => {
+    const entry = routeMetadata.find((r) => r.path === '/tally-on-mobile');
+    expect(entry).toBeDefined();
+    // Sourced from the data file, so sitemap lastmod tracks content edits.
+    expect(entry.sourceFile).toBe('src/data/featurePages.js');
+    expect(entry.sitemap).not.toBe(false);
+  });
 
-    const faq = byType(schemas, 'FAQPage');
-    expect(faq).toBeDefined();
-    const visibleQuestions = container.querySelectorAll('.faq-question');
-    expect(faq.mainEntity).toHaveLength(visibleQuestions.length);
-    expect(faq.mainEntity.length).toBeGreaterThan(0);
+  it('still targets the head term in the h1 and the title', () => {
+    const { container } = renderRoute();
+    const h1 = container.querySelectorAll('h1');
+    expect(h1).toHaveLength(1);
+    expect(h1[0].textContent.toLowerCase()).toContain('tally on mobile');
+    expect(PAGE.seo.title.toLowerCase()).toContain('tally on mobile');
+    expect(PAGE.seo.title.length).toBeLessThanOrEqual(60);
   });
 });

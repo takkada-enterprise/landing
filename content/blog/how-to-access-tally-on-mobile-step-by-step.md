@@ -5,7 +5,7 @@ meta_title: "How to Access Tally on Mobile: Step-by-Step Setup"
 meta_description: "How to access Tally on mobile: the four real bridges from your phone to the office Tally machine, what each one costs, and which fits a distributor's day."
 primary_keyword: "how to access tally on mobile"
 date: "2026-06-14"
-updated: "2026-06-21"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor leaves the office at 9 AM and does not see his Tally screen again until night. By the time he checks a party's ₹1,40,000 outstanding, the salesman has already given fresh credit. Here is how to put that Tally data on the phone, step by step, across the four ways that actually work."
@@ -44,7 +44,7 @@ Before you install anything, decide what you need the phone to do:
 - **Create vouchers and collect payments from the field**: you need a read-and-write companion app
 - **Give a CA or auditor temporary access**: the official Tally.NET remote feature is built for exactly this
 
-Picking first saves you from installing three tools and using none. A family-run distributor who only wants to answer "what does this party owe" has a very different setup from a collections-heavy distributor running e-invoices from the counter.
+Picking first saves you from installing three tools and using none. If what you want is [Tally on mobile](/tally-on-mobile/) in the everyday sense, reading the books and raising an entry from a phone, that is the last of the routes below. A family-run distributor who only wants to answer "what does this party owe" has a very different setup from a collections-heavy distributor running e-invoices from the counter.
 
 ## Step 2: Set Up Remote Desktop Access
 

@@ -9,7 +9,7 @@
 - `pitch-deck/competitor-analysis-2026-08.html` (competitor facts + claim guardrails)
 - `CLAUDE.md` in this repo (pricing, voice rules, retired plan names)
 - Locked wording, verbatim: **"0% MDR on UPI collections, no transaction cap, no monthly fee."**
-- E-way bill **cancel and close from the phone are built** (deck 2026-08-06) — "only app that cancels or closes an e-invoice/e-way bill from the phone" is claimable; re-verify before each new page that uses it.
+- ~~E-way bill **cancel and close from the phone are built** (deck 2026-08-06) — "only app that cancels or closes an e-invoice/e-way bill from the phone" is claimable~~ **WRONG, corrected 2026-08-08. Cancel is real. CLOSE IS NOT, and cannot be, because the facility does not exist.** GSTN Advisory No. 668 dated 29 July 2026 put the e-way bill closure facility in abeyance until further notice, so no software can offer it. Verified three ways: our own blog post `content/blog/e-way-bill-closure-rule-2026.md` (founder-authored, cites the advisory), and the backend, which has `create-ewaybill` and `cancel-gst-compliance` edge functions and **no close function of any kind**. The claim was live in the Phase 2 pilot's comparison table and has been corrected to "Generate and cancel". **Two follow-ups the operator owns:** `pitch-deck/takkada-product-deck-2026-08.html` still says "or close the e-way bill, right from the app", and `competitor-analysis-2026-08.html` still carries "Only app that cancels or closes an e-invoice/e-way bill from the phone" as verified-true. Both need the same correction before the next reprint or send.
 - **Never claim:** AI calling (does not exist), offline mode (concede it), adoption numbers for Pending Orders.
 
 **Evidence this plan is built on (Clarity, week of 07-26):**
@@ -177,7 +177,29 @@ Ship with **one pilot page — Salesman app for Tally** — end to end, `flutter
 
 ## Phase 3 — The 8 priority pages (Ronak's keyword list)
 
-**Status: NOT STARTED**
+**Status: ALL 8 BUILT AND GREEN LOCALLY 2026-08-08 (29 files / 498 tests), NOT PUSHED — waiting on Ronak's eyeball (branch `feat/feature-page-engine`, same branch as the Phase 2 engine, which was also never eyeballed).** Suite 29 files / 498 tests green, `npm run build` green, all seven new URLs plus the rebuilt /tally-on-mobile server-rendered with one h1, four JSON-LD blocks of their own, canonical, OG, sitemap entry, llms.txt line and footer link.
+
+**What shipped, row by row:** rows 2-7 are new pages through the Phase 2 engine (`payment-collection-tally`, `payment-reminder-tally`, `e-invoice-from-phone`, `e-way-bill-from-phone`, `tally-reports-on-mobile`, `import-purchase-from-pdf`). Row 1 was the Phase 2 pilot and only changed where it carried the false close claim. Row 8 is the `/mobile-tally` refresh described below.
+
+**Every claim was re-verified against prod `company_feature_entitlements` on 2026-08-08 before the copy was written:** team_sales 18 · field_visits 6 · payment_reminders 87 · payment_links 87 · upi_collections 77 · einvoice_ewaybill_mobile 77 · reports_plus 56 · purchase_import 35 · payment_collection 10. Every page's underlying feature is live for real customers.
+
+**Finding 1 — the plan's e-way close premise was wrong and the pilot was already shipping it.** See the corrected bullet at the top of this file. The deck and the competitor grid still carry it.
+
+**Finding 2 — the screenshot library is not all safe to publish, and one unsafe image is already live.** Five files under `public/assets/screenshots/` carry real customer party names or balances: `invoice-detail` (Hindustan Unilever Ltd), `share-ledger` (Shyamal Das, ₹8.56 Lacs receivable, real invoice numbers), `bankbook` (Favorite Food Co, Sundarbans Food Products, real bank balances), `inventory-supplier` (ACT II, Sundrop Brands Limited), `party-list` (already known-banned). None of those five are referenced by any page, but **`einvoice-eway.webp` is, and it is live on the homepage today** — it shows the party "Shyamal Das" and a Red Bull line. It was the obvious hero for the e-invoice page and was deliberately not used. Recommend pulling it from the homepage road and re-capturing. Note also that all of these ship to the CDN and are fetchable by URL whether or not a page links them.
+
+**Finding 3 — `/mobile-tally` had two live copy defects, now fixed.** Its FAQ named two retired plans ("the Voucher and Collections plans", withdrawn in the 2026-07-25 rate card rebuild) and hand-wrote an extra-user rupee figure, both against CLAUDE.md §3. `src/routes/__tests__/icp-refresh.test.jsx` now fails on either regressing.
+
+**Row 8, both halves done.** `/mobile-tally` got the two things the ranking blog posts have and it did not: a front-loaded answer block and four internal links to real posts. `ICPTemplate` grew two optional props for this, so the three ICP pages that were not refreshed render byte-identically.
+
+**`/tally-on-mobile` was rebuilt as its own page (operator approved 2026-08-08).** It had been `<Home seo={…} />`, the entire homepage body under a second canonical, which made it a near-duplicate of `/` and is the likeliest reason a head term with its own exact-match URL pulled no entries at all. It is now the eighth `FEATURE_PAGES` entry and deliberately the broadest of them, since "tally on mobile" is what someone searches before they know the category has a name. 91KB of duplicated homepage became 38KB of its own content. `TallyOnMobile.jsx` is deleted. `tally-on-mobile.test.jsx` was kept and its assertions reversed: it used to *require* the home hero headline and the home pricing band, which pinned the duplication in place, and it now asserts both are absent.
+
+**One guard was refined rather than worked around.** PR #68's closure guard scanned the whole page object, which made it impossible to write the most useful thing an e-way page can say to someone searching "eway bill closing on phone" — that closure does not exist and why. The ban is now absolute on every selling surface, and an FAQ may raise closure only while denying it and citing the advisory.
+
+**Watch on the next Search Console read:** `/tally-on-mobile` is a live head-term URL whose content changed completely. Impressions may move either way for a few weeks before settling.
+
+**One content gap.** `/import-purchase-from-pdf` has no screenshot of the actual PDF-import review screen, because none exists in the library. It leads with the voucher item-lines screen and the alt text describes only what is really on it. Worth a capture of the import review flow to swap in; the page ships honest without it.
+
+**STOP — show Ronak the seven pages in the browser before pushing.**
 
 | # | Page (slug) | Search phrases it catches | Key claim |
 |---|---|---|---|
