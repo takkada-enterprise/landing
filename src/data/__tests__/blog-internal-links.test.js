@@ -33,6 +33,47 @@ const normalise = (href) => {
 
 const KNOWN_ROUTES = new Set(routeMetadata.map((r) => r.path));
 
+function inboundLinks(page) {
+  const target = featurePagePath(page);
+  return POSTS.filter(({ body }) => linksIn(body).some(({ href }) => normalise(href) === target));
+}
+
+// The link floor, per page. A brand-new feature landing page starts at
+// DEFAULT_FLOOR and is expected to earn depth over time; a page listed here has
+// already earned it, and the number is a ratchet against silent erosion.
+//
+// The rule for future rounds: after a blog round that links a feature page,
+// re-run the count and raise that page's floor to what it actually reached. A
+// page absent from this map is held at DEFAULT_FLOOR, which is what makes
+// adding a 27th feature page cheap.
+//
+// Lowering a number here is allowed, but it should be a deliberate line in a
+// diff someone reviews, which is the entire point of pinning it. The counts
+// below are the state after the 2026-08-09 deepening sweep.
+const DEFAULT_FLOOR = 1;
+
+const LINK_FLOORS = {
+  'salesman-app-tally': 9,
+  'godown-wise-stock-on-mobile': 6,
+  'e-invoice-from-phone': 5,
+  'e-way-bill-from-phone': 5,
+  'tally-on-mobile-without-remote-access': 5,
+  'tally-reports-on-mobile': 5,
+  'outstanding-receivables-on-mobile': 4,
+  'payment-collection-tally': 4,
+  'payment-reminder-tally': 4,
+  'sales-order-on-mobile': 4,
+  'send-payment-reminders-automatically': 4,
+  'share-ledger-statement-whatsapp': 4,
+  'biz-analyst-alternative': 3,
+  'handwritten-order-to-tally': 3,
+  'tally-app-for-fmcg-distributors': 3,
+  'tally-app-for-pharma-distributors': 3,
+  'tally-on-mobile': 3,
+};
+
+const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;
+
 describe('blog internal links', () => {
   it('resolves every non-blog internal link to a registered route', () => {
     const dead = [];
@@ -47,15 +88,29 @@ describe('blog internal links', () => {
   });
 
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
-    '%s: is linked from at least one blog post',
-    (_slug, page) => {
-      const target = featurePagePath(page);
-      const linking = POSTS.filter(({ body }) =>
-        linksIn(body).some(({ href }) => normalise(href) === target)
-      );
-      expect(linking.length).toBeGreaterThan(0);
+    '%s: holds its inbound blog link floor',
+    (slug, page) => {
+      const floor = floorFor(slug);
+      const linking = inboundLinks(page).map((p) => p.file);
+      expect(
+        linking.length,
+        `/${slug} needs ${floor} inbound blog link(s), found ${linking.length}: ` +
+          `${linking.join(', ') || 'none'}. Either restore the link, or lower this page's ` +
+          'entry in LINK_FLOORS deliberately.'
+      ).toBeGreaterThanOrEqual(floor);
     }
   );
+
+  it('floors only real feature pages, so a renamed slug cannot go unwatched', () => {
+    const known = new Set(FEATURE_PAGES.map((p) => p.slug));
+    expect(Object.keys(LINK_FLOORS).filter((slug) => !known.has(slug))).toEqual([]);
+  });
+
+  it('holds an unfloored page to one link, so a new feature page starts cheap', () => {
+    const unfloored = FEATURE_PAGES.filter((p) => !(p.slug in LINK_FLOORS));
+    expect(unfloored.length).toBeGreaterThan(0);
+    for (const page of unfloored) expect(floorFor(page.slug)).toBe(1);
+  });
 
   // The cannibalisation guard. A post using a feature page's exact search
   // phrase as anchor text, pointed at some other URL, spends that page's
