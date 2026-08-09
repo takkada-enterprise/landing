@@ -53,7 +53,8 @@ export const FEATURE_GROUPS = [
       'tally-on-mobile',
       'tally-on-mobile-without-remote-access',
       'tally-reports-on-mobile',
-          ],
+      'multi-company-tally-reports',
+    ],
   },
   {
     id: 'team-in-the-market',

@@ -110,7 +110,7 @@ function Features() {
                     className="tally-card features-hub-card"
                   >
                     <h3>{page.llms.title}</h3>
-                    <p className="tabular-nums">{page.llms.summary}</p>
+                    <p className="tabular-nums">{page.blurb}</p>
                     <span className="features-hub-card-cue">
                       Read the page <ArrowRight size={15} />
                     </span>
