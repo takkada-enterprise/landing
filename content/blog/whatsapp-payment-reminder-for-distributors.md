@@ -35,7 +35,7 @@ Blanket WhatsApp broadcasts have gone the same way. "Dear sir, please clear pend
 
 ## The five-stage WhatsApp reminder cadence
 
-A WhatsApp payment reminder cadence for distributors that works treats each invoice as its own conversation. The messages escalate in tone as the invoice ages, they reference the specific invoice and amount, and they offer a one-tap payment path. This is not a new idea; it is what collections agencies have done for decades. The change in 2026 is that mobile-first tools let a distributor run this at scale without hiring a collections team. A [payment reminder from Tally](/payment-reminder-tally) is built off the invoice and due date already sitting in your books, so every stage below goes out with the right bill number and the right figure without anyone retyping them.
+A WhatsApp payment reminder cadence for distributors that works treats each invoice as its own conversation. The messages escalate in tone as the invoice ages, they reference the specific invoice and amount, and they offer a one-tap payment path. Collections agencies have worked this way for decades. The change in 2026 is that mobile-first tools let a distributor run it at scale without hiring a collections team. A [payment reminder from Tally](/payment-reminder-tally) is built off the invoice and due date already sitting in your books, so every stage below goes out with the right bill number and the right figure without anyone retyping them.
 
 Stage 1: Invoice dispatch (Day 0, at the moment of invoice creation)
 

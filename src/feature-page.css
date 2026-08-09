@@ -308,24 +308,6 @@
   color: var(--color-primary);
 }
 
-.features-hub-card-cue svg {
-  transition: transform var(--dur-fast) var(--ease-out);
-}
-
-.features-hub-card:hover .features-hub-card-cue svg {
-  transform: translateX(3px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .features-hub-card-cue svg {
-    transition: none;
-  }
-
-  .features-hub-card:hover .features-hub-card-cue svg {
-    transform: none;
-  }
-}
-
 @media (max-width: 767px) {
   .features-hub-group + .features-hub-group {
     margin-top: 48px;

@@ -141,7 +141,8 @@
 :root .blog-post-body h2,
 :root .blog-post-body h3,
 :root .blog-related-heading,
-:root .blog-related-title {
+:root .blog-related-title,
+:root .features-hub-group-title {
   font-weight: var(--weight-display);
 }
 
