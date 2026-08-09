@@ -5,7 +5,7 @@ meta_title: "Sundry Debtors in Tally on Mobile for Distributors"
 meta_description: "Sundry debtors in Tally is the group holding your retailer ledgers. See who owes you, party by party, on mobile with live outstanding and ageing from Tally."
 primary_keyword: "sundry debtors tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Collections"
 excerpt: "At 9 PM a distributor reaches for his phone to check which retailer still owes him, and Tally is on a desktop he left hours ago. Sundry Debtors is that list of retailers, and it belongs on the phone he is already holding."
@@ -54,7 +54,7 @@ Read this way, the sub-dealer at 88 days is the owner-level call and the wholesa
 
 ## Why It Belongs on the Phone
 
-The moments a distributor needs this are away from the desktop. The owner checks his book at 9 PM from the sofa. The salesman is at a shop and wants to know the party's balance before he takes a fresh order. The accountant is on a call with a retailer who claims he already paid. On the desktop, all three have to wait until someone is back at the office.
+The moments a distributor needs this are away from the desktop. The owner checks his book at 9 PM from the sofa. The salesman is at a shop and wants to know the party's balance before he takes a fresh order. The accountant is on a call with a retailer who claims he already paid. On the desktop, all three have to wait until someone is back at the office. All three are asking one question, and [outstanding receivables on mobile](/outstanding-receivables-on-mobile) is the answer to it: who owes what right now, and how old is each bill behind that figure.
 
 Takkada reads your Sundry Debtors ledgers and open bills from Tally and shows party-wise outstanding with ageing on the phone, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. The salesman sees a party's outstanding before he books the next order. The owner sees the whole book at night. Checking who owes what stops being an office-hours job. This is the same live outstanding covered in [how to check party outstanding in Tally on mobile](/blog/how-to-check-party-outstanding-tally-mobile/).
 

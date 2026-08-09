@@ -5,7 +5,7 @@ meta_title: "Branch Stock Visibility for Distributors"
 meta_description: "Branch stock visibility decides what a distributor can promise a retailer today. What blocks it, what it costs, and how the answer moves from desktop to phone."
 primary_keyword: "branch stock visibility distributor"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Market Reality"
 excerpt: "At 9 PM the owner is not reading a report. He is trying to remember whether the Jorhat branch still has the item he promised somebody at four o'clock."
@@ -59,6 +59,8 @@ The cost is easy to miss because it never appears as a line in the books. It app
 | "Let me check and call you back" at a counter | The order, sometimes |
 | Annual physical count that does not reconcile | Days of reconstruction and an adjustment nobody trusts |
 
+The first row and the third are the same failure seen from two sides, and both of them close when the person at the counter can book a [sales order on mobile](/sales-order-on-mobile) against the quantity the branch is actually holding.
+
 None of these are catastrophes. They are a small tax on every week, and in a business running on distribution margins, a small tax on every week is the difference between a branch being worth having and being a headache the owner tolerates.
 
 ## The Three People Who Need the Answer
@@ -79,7 +81,7 @@ Four things have to be true together, and missing any one of them puts you back 
 
 The position is readable wherever the question arrives, which means a phone rather than a desktop. The position is current, which means entries are made when goods move rather than when somebody reaches a machine. The position is complete, which means outward documents carry locations and transit has a home. And the person asking can get the answer without asking a colleague, which is a permissions question as much as a reporting one.
 
-Takkada reads the godowns already defined in your Tally and puts location-wise stock on the phone, with item drill-down and a view as of a past date, while transfers, challans and location-stamped invoices are recorded from the same phone and written back into Tally. Tally stays the book of record. What changes is who can see the position and when the entry gets made.
+Takkada reads the godowns already defined in your Tally and puts [godown wise stock on mobile](/godown-wise-stock-on-mobile), with item drill-down and a view as of a past date, while transfers, challans and location-stamped invoices are recorded from the same phone and written back into Tally. Tally stays the book of record. What changes is who can see the position and when the entry gets made.
 
 One caveat to carry into any conversation with a backdated screen: quantities for a past date are historical and exact, while the value beside them is computed at the item's current rate. Quantity is the answer branch questions usually need.
 

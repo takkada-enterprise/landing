@@ -5,7 +5,7 @@ meta_title: "Multi-Location Inventory App for Tally: What to Look For"
 meta_description: "Choosing a multi location inventory app for Tally? Eight things to test before you buy, from writeback and location scoping to what happens to old blank lines."
 primary_keyword: "multi location inventory app tally"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Market Reality"
 excerpt: "Every demo shows stock on a phone. The questions that decide whether it survives your second branch are never the ones the demo answers."
@@ -32,7 +32,7 @@ A multi-location inventory app for Tally is judged on one thing: whether your lo
 
 ## Does It Write Back, or Only Read
 
-The first question separates most of the field. An app that reads your Tally can show location-wise stock. An app that writes back can record the transfer, the challan and the invoice at the moment the goods move.
+The first question separates most of the field. An app that reads your Tally can show [godown wise stock on mobile](/godown-wise-stock-on-mobile), location by location. An app that writes back can also record the transfer, the challan and the invoice at the moment the goods move.
 
 The difference is not a feature comparison, it is a difference in what happens to your accuracy. A read-only app leaves entry on the desktop, so the phone shows a position that is as stale as the desktop backlog. The gap between the goods moving and the entry being made is exactly the gap where branch stock goes wrong.
 

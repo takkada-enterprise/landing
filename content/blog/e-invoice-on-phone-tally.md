@@ -5,6 +5,7 @@ meta_title: "E-Invoice on Phone Tally: Field IRN in Under a Minute"
 meta_description: "How to generate an e-invoice on phone with Tally sync. IRN workflow, pitfalls, and what it changes for distributors above ₹5 crore turnover."
 primary_keyword: "e-invoice on phone tally"
 date: "2026-04-25"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "The Indian government has lowered the e-invoicing threshold in waves: ₹500 crore in 2020, then ₹100 crore, ₹50 crore, ₹20 crore, ₹10 crore, and ₹5 crore as of 1 August 2023. Any B2B invoice from a business above this turnover needs an IRN (Invoice Reference Number) generated through the Invoice Registration Portal before the goods move or the service is delivered."
@@ -66,7 +67,7 @@ The app sends the JSON payload to the NIC IRP. Under normal network load the IRN
 
 Step 4: The IRN posts back to Tally automatically
 
-Here is where mobile-only tools stop short and Tally-integrated ones go further. The IRN, acknowledgement number and QR image get written back to the voucher sitting in your Tally data file. Your accountant does not re-key anything at 9 PM.
+Here is where mobile-only tools stop short and Tally-integrated ones go further. The IRN, acknowledgement number and QR image get written back to the voucher sitting in your Tally data file. Your accountant does not re-key anything at 9 PM. That write-back is what decides whether an [e-invoice from the phone](/e-invoice-from-phone) actually saves work or just moves the typing to a different desk.
 
 Step 5: Share the e-invoice
 

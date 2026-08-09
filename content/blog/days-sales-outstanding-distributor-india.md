@@ -5,6 +5,7 @@ meta_title: "Days Sales Outstanding: Guide for Indian Distributors"
 meta_description: "What DSO means for Indian distributors, what your number should be, and the specific steps that compress it without damaging retailer relationships."
 primary_keyword: "days sales outstanding distributor india"
 date: "2026-05-18"
+updated: "2026-08-09"
 author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Nagpur with ₹8 crore annual turnover and a 72-day DSO is floating ₹1.58 crore in unpaid invoices at any given moment. Cut that to 45 days and ₹60 lakh comes back into the business — no new customers, no extra sales."
@@ -62,6 +63,8 @@ The right DSO target depends on your category and geography. Indian distributor 
 | Electricals and hardware | 60–90 days | 50–70 days |
 | Agri-inputs (seasonal) | 90–150 days | 70–110 days |
 | Beverages (controlled credit) | 15–30 days | 15–25 days |
+
+The pharma row is the one distributors question most often, because a chemist paying at 60 days is normal in that trade and the margin absorbing the wait is thin. What that does to a pharma book, and which of the levers below move it, is worked through on the [Tally app for pharma distributors](/tally-app-for-pharma-distributors) page.
 
 A few important calibrations before benchmarking your own number:
 

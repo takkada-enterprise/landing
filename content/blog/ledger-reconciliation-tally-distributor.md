@@ -5,7 +5,7 @@ meta_title: "Ledger Reconciliation in Tally for Distributors"
 meta_description: "Ledger reconciliation in Tally: how a distributor matches his party ledger to the party's own books, finds mismatched entries, and closes the gap on the phone."
 primary_keyword: "ledger reconciliation tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "A retailer says he owes ₹1,80,000. Your Tally says ₹2,05,000. Both of you are sure. The ₹25,000 gap is one payment he entered and you missed, or one bill he never got. Ledger reconciliation is how you find that entry instead of arguing about the total."
@@ -75,7 +75,7 @@ This is why [bill-by-bill against reference](/blog/bill-by-bill-against-referenc
 
 Reconciliation disputes get worse the longer they sit. A ₹25,000 gap caught this week is one missed receipt; the same gap found at year-end is buried under six months of fresh transactions. The problem is that reconciliation lives on the office desktop, while the disagreement surfaces on a call from the field, "bhai aapka balance galat hai".
 
-Takkada keeps your party ledgers close to reconciled continuously, because each UPI receipt is matched to the right open bill and written back into Tally rather than parked loose. The owner sees each party's live outstanding on the phone, bill by bill, so when a retailer disputes a number he can pull up the exact bills on the spot instead of promising to check at the office. Because Takkada holds [reconciliation matched automatically](/blog/auto-reconciliation-tally/), fewer receipts drift into the On Account limbo that causes gaps in the first place.
+Takkada keeps your party ledgers close to reconciled continuously, because each UPI receipt is matched to the right open bill and written back into Tally rather than parked loose. The owner sees each party's live outstanding on the phone, bill by bill, so when a retailer disputes a number he can pull up the exact bills on the spot instead of promising to check at the office. If the party wants the whole period to tick off against his own books, the [ledger statement on WhatsApp](/share-ledger-statement-whatsapp) goes out from that same screen for whichever dates he asked for. Because Takkada holds [reconciliation matched automatically](/blog/auto-reconciliation-tally/), fewer receipts drift into the On Account limbo that causes gaps in the first place.
 
 Tally stays the system of record. Reconciliation still confirms the two businesses agree. The phone just lets a distributor catch the mismatched entry while it is small, and settle it with a bill number instead of a raised voice.
 

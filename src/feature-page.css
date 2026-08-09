@@ -255,3 +255,61 @@
     padding: 56px 0;
   }
 }
+
+/* ── /features hub (src/routes/Features.jsx) ──
+ * A directory, so it borrows the existing card vocabulary rather than
+ * inventing one (CLAUDE.md craft rule 10). Everything below is spacing and
+ * the link reset that turns a .tally-card into a whole-card target; the card
+ * surface, radius, shadow and hover lift all still come from .tally-card. */
+.features-hub-group + .features-hub-group {
+  margin-top: 64px;
+}
+
+.features-hub-group-header {
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.features-hub-group-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.features-hub-group-intro {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* The whole card is the link, so the cue below is decoration rather than a
+ * second tab stop. */
+.features-hub-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.features-hub-card p {
+  flex: 1;
+}
+
+.features-hub-card-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .features-hub-group + .features-hub-group {
+    margin-top: 48px;
+  }
+}

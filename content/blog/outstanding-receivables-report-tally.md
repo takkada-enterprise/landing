@@ -5,7 +5,7 @@ meta_title: "Outstanding Receivables Report in Tally on Mobile"
 meta_description: "An outstanding report tally mobile view shows total receivables, party by party, with ageing, so a distributor knows who owes what and how old it is."
 primary_keyword: "outstanding report tally mobile"
 date: "2026-07-21"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Reports"
 excerpt: "The single number a distributor checks most is how much is stuck in the market. Tally holds it in the Receivables report, party by party, but only on the office desktop. On the phone, with ageing next to each party, it becomes the report he opens before every credit decision."
@@ -54,7 +54,7 @@ Takkada reads your debtor ledgers and open bills from Tally and shows party-wise
 
 ## From the Report to Actually Collecting
 
-Seeing the outstanding is half the job. The other half is bringing it in, and a report alone does not move money.
+Seeing the outstanding is half the job. The other half is bringing it in, and a report alone does not move money. Reading [outstanding receivables on mobile](/outstanding-receivables-on-mobile) puts the party, the overdue bill and the reminder on the same screen, so the chase starts from the number you just looked at.
 
 Once the ageing view flags an overdue party, the next step is a reminder with a payment link, so "bhai statement bhej do" turns into a WhatsApp message and a UPI collection instead of another phone call. When the money lands, the receipt reconciles back into Tally against the right bill, and the outstanding number drops on its own. That loop, see it, chase it, collect it, clear it, is what turns the report from a worry list into a shrinking one.
 

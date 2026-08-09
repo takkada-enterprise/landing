@@ -5,7 +5,11 @@ import { featureFooterLinks } from './featurePages.js';
 // pointed at (Home v3, 2026-08-03); the setup story lives in the FAQ now.
 export const navLinks = [
   { label: 'Product', href: '#product' },
-  { label: 'Features', href: '#features' },
+  // Points at the hub page, not the homepage #features section. The section
+  // still exists and still tells the story; what it cannot do is give the 26
+  // feature landing pages a crawlable parent, which is the job this slot now
+  // does. Two "Features" entries would only confuse the menu.
+  { label: 'Features', href: '/features' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Partners', href: '/partners' },
   { label: 'Blog', href: '/blog' },
@@ -565,7 +569,9 @@ export const footerColumns = [
     // thing the six older feature pages never had, and the Clarity data says
     // that is why they pull no search entries.
     title: 'Features',
-    links: featureFooterLinks,
+    // The hub leads the column so the footer has a way up to the directory as
+    // well as across to each page.
+    links: [{ label: 'All features', page: 'features' }, ...featureFooterLinks],
   },
   {
     title: 'Company',

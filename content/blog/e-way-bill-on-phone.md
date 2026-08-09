@@ -5,6 +5,7 @@ meta_title: "E-Way Bill on Phone: Generate in Under a Minute"
 meta_description: "Generate e-way bill on phone for ₹50,000+ shipments. Flow, common rejections, and how Tally-linked mobile apps clear goods without the desktop."
 primary_keyword: "e-way bill on phone"
 date: "2026-04-25"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "Under the current GST rules, an e-way bill is required any time goods worth more than ₹50,000 move between two locations on a conveyance. The threshold is ₹50,000 per consignment for most goods, lowered in specific states and for specific sensitive items. All interstate movement above ₹50,000 is covered; intra-state rules vary slightly by state but most follow the same threshold."
@@ -70,7 +71,7 @@ Distance drives validity. Up to 200 km gives you one day of validity. Each addit
 
 Step 5: Submit
 
-The app sends the payload to the EWB portal. Under normal load the e-way bill number and PDF come back in 3 to 8 seconds. The number and QR post back to the Tally voucher automatically, same as the IRN does for e-invoice.
+The app sends the payload to the EWB portal. Under normal load the e-way bill number and PDF come back in 3 to 8 seconds. The number and QR post back to the Tally voucher automatically, same as the IRN does for e-invoice. That write-back is the reason an [e-way bill from the phone](/e-way-bill-from-phone) is worth setting up, because the office stops keeping a second register of which bill was raised against which voucher.
 
 Step 6: Share with transporter and buyer
 

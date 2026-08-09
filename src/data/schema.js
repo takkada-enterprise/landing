@@ -197,6 +197,32 @@ function authorNode(authorKey, resolveAuthor) {
   return node;
 }
 
+// A directory page: an ItemList of named, described URLs wrapped in a
+// CollectionPage, so a crawler reads it as an index of other pages rather than
+// as one more marketing page. Built here beside the other schema builders
+// rather than inside the route, so the next directory page does not hand-roll a
+// second copy. Its output is asserted through the hub in features-hub.test.jsx.
+export function collectionPageSchema({ name, description, path, items }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: absoluteUrl(path),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.name,
+        description: item.description,
+        url: absoluteUrl(item.path),
+      })),
+    },
+  };
+}
+
 // The Article node, independent of where the content lives. Blog posts and
 // feature landing pages both need a named author with a `sameAs` profile and an
 // honest dateModified; only the field names and the URL differ, so the shape is

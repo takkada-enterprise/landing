@@ -5,7 +5,7 @@ meta_title: "How to Access Tally on Mobile: Step-by-Step Setup"
 meta_description: "How to access Tally on mobile: the four real bridges from your phone to the office Tally machine, what each one costs, and which fits a distributor's day."
 primary_keyword: "how to access tally on mobile"
 date: "2026-06-14"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor leaves the office at 9 AM and does not see his Tally screen again until night. By the time he checks a party's ₹1,40,000 outstanding, the salesman has already given fresh credit. Here is how to put that Tally data on the phone, step by step, across the four ways that actually work."
@@ -55,7 +55,7 @@ This is the oldest way to access Tally on mobile and needs no new licence.
 3. Leave the office PC powered on and signed in to Tally
 4. Connect from the phone and drive the desktop Tally screen with touch
 
-It works for a quick look. It breaks the moment the network thins out. A 2G zone on a Barpeta route will not render full Tally screens fast enough to be usable, and every column becomes a zoom-and-pan on a 6-inch display. Treat this as a backup, not a daily tool.
+It works for a quick look. It breaks the moment the network thins out. A 2G zone on a Barpeta route will not render full Tally screens fast enough to be usable, and every column becomes a zoom-and-pan on a 6-inch display. Treat this as a backup, not a daily tool. If the pinching is the part you want gone, the case for [Tally on mobile without remote access](/tally-on-mobile-without-remote-access) sets out what a synced app does in its place.
 
 ## Step 3: Turn On the Official Tally Remote Feature
 

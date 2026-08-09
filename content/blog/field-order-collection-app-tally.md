@@ -5,7 +5,7 @@ meta_title: "Field Order Collection App for Tally Distributors"
 meta_description: "A field order collection app for Tally lets salesmen take retailer orders on their phones with live stock, prices, and credit limits. Here is what it must do."
 primary_keyword: "field order collection app tally"
 date: "2026-05-18"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Field Sales"
 excerpt: "A salesman who calls back to the office to check if 200 cartons of detergent are in stock has already lost the order. A field order collection app for Tally puts live stock, prices, and credit limits in his hand, so the order is closed at the retailer's counter."
@@ -28,7 +28,7 @@ excerpt: "A salesman who calls back to the office to check if 200 cartons of det
 
 ## Why a Field Order Collection App for Tally Matters
 
-A salesman covers 8–15 retailers a day. At each retailer, the conversation goes the same way: what is in stock, what is the rate, can I get on credit, when will it deliver. The salesman without a field order collection app for Tally either guesses (and gets it wrong), calls the office (and waits), or writes the order on paper (and re-types it back at the office at 7 PM).
+A salesman covers 8–15 retailers a day. At each retailer, the conversation goes the same way: what is in stock, what is the rate, can I get on credit, when will it deliver. The salesman without a field order collection app for Tally either guesses (and gets it wrong), calls the office (and waits), or writes the order on paper (and re-types it back at the office at 7 PM). Where the pad stays in the bag, photographing the page and turning that [handwritten order to Tally](/handwritten-order-to-tally) at least takes the 7 PM typing out of it.
 
 A field order collection app for Tally lets the salesman answer those four questions in real time from the retailer's counter:
 

@@ -5,7 +5,7 @@ meta_title: "Manage Multiple Branches in Tally with Godowns"
 meta_description: "Make each branch a godown and every movement carries its location. How distributors run multi-branch stock, transfers and billing from Tally on a phone."
 primary_keyword: "manage multiple branches tally"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "One company file, three locations, and no way to see what the branch is holding without ringing the branch. Godowns are how Tally already answers that, and the phone is where the answer becomes useful."
@@ -56,7 +56,7 @@ Once godowns exist, every stock voucher asks which one. That is the point. It is
 
 Here is the pattern that survives in almost every multi-branch distributor. The godowns are set up correctly, the entries are being made correctly, and the owner still calls the branch to ask what is lying there, because the report that would answer him is on a desktop in the other office.
 
-Takkada shows godown-wise stock on the phone. You pick a location, you get its items with quantity and value, you tap an item to see how it is spread across your other godowns, and you can ask the same question as of a past date instead of only today. That last part is what makes a stock argument end. The full mechanics are in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/), and the plain item-level view without locations is the [stock summary report](/blog/stock-summary-report-tally-mobile/).
+Takkada puts [godown wise stock on mobile](/godown-wise-stock-on-mobile). You pick a location, you get its items with quantity and value, you tap an item to see how it is spread across your other godowns, and you can ask the same question as of a past date instead of only today. That last part is what makes a stock argument end. The full mechanics are in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/), and the plain item-level view without locations is the [stock summary report](/blog/stock-summary-report-tally-mobile/).
 
 One honest caveat, because it changes how you read the number. Quantities as of a past date are the real historical quantities. The values shown against them use the item's current rate, so a backdated view is accurate on units and indicative on rupees. For availability questions, which is what a branch view is mostly used for, quantity is the answer you needed anyway.
 

@@ -5,7 +5,7 @@ meta_title: "Scheduled Payment Reminders for Tally"
 meta_description: "Scheduled payment reminders that send themselves off your Tally due dates, so every retailer is chased on time without anyone keeping a diary of who to call."
 primary_keyword: "scheduled payment reminders"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor keeps a diary of who to call for payment, and the diary only works on the days he remembers to open it. Scheduled reminders take the diary out of his head and put it on a clock that never has a busy day."
@@ -55,7 +55,7 @@ The aim is to send the right message at each stage on time, rather than simply m
 
 ## Set It Once, Then It Runs
 
-The work a person does here is one-time. The owner picks the cadence (how many days before due, how many touches, when to escalate) and after that the schedule runs itself for every invoice, forever, off the Tally due dates. New invoices join the schedule automatically as they are raised. Paid invoices drop off it. There is no daily list to work through.
+The work a person does here is one-time. The owner picks the cadence (how many days before due, how many touches, when to escalate) and after that the schedule runs itself for every invoice, forever, off the Tally due dates. New invoices join the schedule automatically as they are raised. Paid invoices drop off it. There is no daily list to work through. From that point the app can [send payment reminders automatically](/send-payment-reminders-automatically) against every open bill in the book, including the ones raised tomorrow.
 
 That is what makes it autopilot rather than a to-do list. The decision is the cadence, made once. The chasing is the execution, done by the clock. This mirrors the wider [collections-on-autopilot loop](/blog/tally-collections-on-autopilot/), where the reminder is the first step and reconciliation is the last.
 

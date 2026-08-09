@@ -3,9 +3,18 @@
 // One object in FEATURE_PAGES is one live page. Adding an object registers the
 // route, the sitemap entry, the llms.txt line and the footer "Features" link,
 // because src/data/siteMetadata.js spreads `featureRouteMetadata` and
-// src/routes/index.jsx builds its elements from this same array. The only
-// follow-up is `node scripts/generate-llms-txt.mjs` to refresh the committed
-// public/llms.txt, which a test enforces.
+// src/routes/index.jsx builds its elements from this same array.
+//
+// Two follow-ups, both test-enforced, so a new page is three edits and not one:
+//   - `node scripts/generate-llms-txt.mjs` refreshes the committed
+//     public/llms.txt.
+//   - src/data/featureGroups.js needs the slug in a group and a one-line blurb,
+//     or the page is absent from the /features hub. features-hub.test.jsx names
+//     the omission; nothing else will.
+// Folding `group` and `blurb` onto the page object would restore the
+// one-object-registers-everything property. It was left out of the hub change
+// because it means editing all 26 objects across four files, and the tests fail
+// loudly enough in the meantime.
 //
 // This file must stay JSX-free and import-free of React. The sitemap and
 // llms.txt generators load it through Node ESM (same constraint that governs
@@ -240,7 +249,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'salesman-app-tally-india',
-        title: 'Salesman App for Tally in India: What Field Teams Actually Need',
+        title: 'What Field Teams Actually Need From a Tally App in India',
       },
       {
         slug: 'salesman-visit-tracking-photo-proof',
@@ -1040,7 +1049,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'view-tally-reports-on-mobile',
-        title: "How to View Tally Reports on Mobile (Owner's Guide)",
+        title: 'The Five Reports an Owner Actually Opens on a Phone',
       },
       {
         slug: 'mis-reports-for-distributors-tally',
@@ -1363,7 +1372,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'tally-on-mobile',
-        title: 'Tally on Mobile in 2026: What Actually Works, What Breaks, and What It Costs',
+        title: 'The Four Bridges From Your Phone to Tally, and What Each One Costs',
       },
       {
         slug: 'how-to-access-tally-on-mobile-step-by-step',
