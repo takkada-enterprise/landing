@@ -5,7 +5,7 @@ meta_title: "Stock Summary Report from Tally on Mobile"
 meta_description: "A stock summary tally mobile view shows what is in the godown, by item, quantity, and value, so a distributor confirms stock before promising delivery."
 primary_keyword: "stock summary tally mobile"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Reports"
 excerpt: "A salesman standing at a retailer's counter needs to know one thing before he promises delivery: is it in stock. The stock summary answers that, and on the phone it stops the awkward call to the godown that loses the moment."
@@ -32,7 +32,7 @@ A stock summary report from Tally is what is sitting in your godown right now, i
 
 Inventory is where a distributor's cash leaves the bank and waits to come back. The stock summary is the report that shows how much cash is waiting, and in what form. Its total is one of the three numbers that make up working capital, sitting alongside receivables and payables, and an owner who does not watch it can be cash-poor while his godown is quietly overfull.
 
-Item by item, the same report answers the most operational question in the business: do we have it. A retailer wants forty cases of a fast mover, and the answer is either yes, ship it, or no, back-order it, and getting that answer wrong either loses a sale or over-promises one. The stock summary holds both the strategic total and the operational detail in one report.
+Item by item, the same report answers the most operational question in the business: do we have it. A retailer wants forty cases of a fast mover, and the answer is either yes, ship it, or no, back-order it, and getting that answer wrong either loses a sale or over-promises one. The stock summary holds both the strategic total and the operational detail in one report. When the answer is yes, the same screen is where a [sales order on mobile](/sales-order-on-mobile) gets booked against that quantity, so the promise and the availability are read off the same number.
 
 ## Where Stock Lives Inside Tally
 

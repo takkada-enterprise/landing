@@ -5,7 +5,7 @@ meta_title: "E-Way Bill Auto Generation With E-Invoice"
 meta_description: "When an invoice already has an IRN, Part A of the e-way bill auto-populates from it. What carries across, what you still enter, and when validity starts."
 primary_keyword: "e way bill auto generation with e invoice"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-09"
 author: "founder"
 category: "Compliance"
 excerpt: "Distributors key the same consignment twice: once into the invoice, once into the e-way bill portal. When the invoice already carries an IRN, most of that second entry is already done for you, and the part that is left is the part the office never has at the right moment anyway."
@@ -86,7 +86,7 @@ Entering Part B where the truck is, at the moment it is loaded, fixes both probl
 
 ## Generating the E-Way Bill From the Invoice in Takkada
 
-In Takkada, the e-way bill starts from the invoice. Open the sales voucher on the phone and generate the e-way bill from it. Where that invoice already carries an e-invoice, Part A comes across from it, so the person at the loading bay is entering transport details and nothing else. Standalone e-way bills, for the movements that do not begin with an e-invoice, are generated the same way and come back with the QR on them. Cancellation runs from the same screen.
+In Takkada, the e-way bill starts from the invoice. Open the sales voucher on the phone and generate the e-way bill from it. Where the invoice already carries an IRN because the [e-invoice from the phone](/e-invoice-from-phone) was raised at the counter, Part A comes across from it, so the person at the loading bay is entering transport details and nothing else. Standalone e-way bills, for the movements that do not begin with an e-invoice, are generated the same way and come back with the QR on them. Cancellation runs from the same screen.
 
 What comes back gets written into Tally against the same voucher, so nobody is retyping an e-way bill number at 9 PM off a WhatsApp screenshot, and the voucher in the books carries the same reference the driver is showing at the check-post. The mechanics of that write-back are described in [how the two-way Tally sync works](/blog/bidirectional-tally-sync-explained/). This is part of the Assurance plan and above, at ₹6,480 a year with GST extra.
 

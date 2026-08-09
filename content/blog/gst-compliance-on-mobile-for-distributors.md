@@ -5,6 +5,7 @@ meta_title: "GST Compliance on Mobile: What Distributors Can Actually Do"
 meta_description: "GST compliance on mobile for Indian distributors in 2026. E-invoice, e-way bill, HSN validation, GSTR-2B reconciliation and what still needs the desktop."
 primary_keyword: "gst compliance on mobile for distributors"
 date: "2026-04-25"
+updated: "2026-08-09"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A mid-sized distributor — say ₹15 crore turnover, 80 to 120 retail parties, 30 to 50 B2B invoices a day — carries roughly this monthly compliance load:"
@@ -44,9 +45,9 @@ Based on industry averages and distributor_pain_points_research.md, micro enterp
 
 ## What already works cleanly on mobile
 
-E-invoice generation. Covered in depth in our e-invoice on phone Tally piece. Phone → NIC IRP → IRN + QR → Tally voucher update, in under 30 seconds.
+E-invoice generation. Covered in depth in our e-invoice on phone Tally piece. Phone → NIC IRP → IRN + QR → Tally voucher update, in under 30 seconds. Raising an [e-invoice from the phone](/e-invoice-from-phone) puts the IRN on the same Tally voucher your accountant already has, so nothing gets typed twice.
 
-E-way bill generation. Covered in our e-way bill on phone piece. 40 to 90 seconds from godown to EWB PDF on the transporter's WhatsApp.
+E-way bill generation. Covered in our e-way bill on phone piece. 40 to 90 seconds from godown to EWB PDF on the transporter's WhatsApp. An [e-way bill from the phone](/e-way-bill-from-phone) comes off the invoice you just raised, with the distance prefilled and the EWB number written back against the same voucher.
 
 HSN and GSTIN validation. A mobile companion app can validate the buyer's GSTIN against the live GSTN database before submission, catch six-digit HSN mismatches at the ₹5 crore+ threshold, and flag place-of-supply errors between intra-state and inter-state transactions.
 

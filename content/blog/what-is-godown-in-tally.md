@@ -5,7 +5,7 @@ meta_title: "What is a Godown in Tally? A Distributor's Guide"
 meta_description: "A godown in Tally is a physical place your stock sits. What it records, how it differs from a stock group, and how distributors use it across branches."
 primary_keyword: "what is godown in tally"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "Most distributors meet the godown field the day an operator presses Enter through it. Understanding what it actually records is the difference between a location report you trust and one you stop opening."
@@ -78,7 +78,7 @@ None of these are Tally faults. They are consequences of a location field that h
 
 Tally's godown-wise reports live where Tally is installed. For an owner who is at one branch and wants to know what another is holding, or a salesman at a retailer's counter who needs to know whether the item can be dispatched today, that location is the wrong one.
 
-Takkada reads the godowns already defined in your Tally and shows stock by location on the phone, with item-level drill-down and an as-of-date view. Quantities for a past date are the real historical quantities; the values beside them use the item's current rate, so read a backdated view as exact on units and indicative on rupees. The report mechanics are in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/), and the wider branch setup is in [managing multiple branches in Tally with godowns](/blog/manage-multiple-branches-tally-godowns/).
+Takkada reads the godowns already defined in your Tally and puts [godown wise stock on mobile](/godown-wise-stock-on-mobile), with item-level drill-down and an as-of-date view. Quantities for a past date are the real historical quantities; the values beside them use the item's current rate, so read a backdated view as exact on units and indicative on rupees. The report mechanics are in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/), and the wider branch setup is in [managing multiple branches in Tally with godowns](/blog/manage-multiple-branches-tally-godowns/).
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 

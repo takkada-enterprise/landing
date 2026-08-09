@@ -5,7 +5,7 @@ meta_title: "Receivables Ageing on Mobile from Tally"
 meta_description: "Receivables ageing on mobile from Tally: catch the 60 and 90-day parties as they slip, chase them on WhatsApp, and pull the bill off the list when they pay."
 primary_keyword: "receivables ageing tally mobile"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Collections"
 excerpt: "The party that hurts you is never the one shouting. It is the quiet retailer whose ₹90,000 slid from 45 days to 92 while nobody was looking at the desktop. Receivables ageing on the phone catches him while it still matters."
@@ -61,7 +61,7 @@ Takkada takes the overdue bills straight off the live ageing and fires a WhatsAp
 
 ## Reading It Between Shop Visits
 
-The last piece is who reads it and where. On the desktop, only whoever sits at the office machine can see ageing. On the phone, the owner reads the whole aged book from home at night, and a salesman with the right role checks a party's ageing before he takes the next order, so he does not load more stock onto a retailer already 80 days deep.
+The last piece is who reads it and where. On the desktop, only whoever sits at the office machine can see ageing. On the phone, the owner reads the whole aged book from home at night, and a salesman with the right role checks a party's ageing before he takes the next order, so he does not load more stock onto a retailer already 80 days deep. The ageing sits next to the rest of the [outstanding receivables on mobile](/outstanding-receivables-on-mobile), so a party's balance and the age of each bill behind it are read on one screen.
 
 Takkada shows the live ageing on the phone in [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/), which is why the number on the screen matches the desktop and updates as receipts land. The payable side ages the same way; the mirror report for suppliers is the [accounts payable ageing report](/blog/accounts-payable-ageing-report-tally/), so a distributor can watch money coming in and money going out on the same phone.
 

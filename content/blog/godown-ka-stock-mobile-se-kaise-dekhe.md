@@ -5,7 +5,7 @@ meta_title: "Godown ka Stock Mobile se Kaise Dekhe"
 meta_description: "Godown ka stock mobile se dekhna hai? Tally ke godowns phone par, location wise quantity, item drill-down aur past date ka position, bina desktop khole."
 primary_keyword: "godown ka stock mobile se"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "Counter par customer khada hai, item chahiye aaj hi. Godown mein hai ya nahi, yeh ek call ka sawal nahi hona chahiye."
@@ -42,7 +42,7 @@ Takkada aapki Tally ke godowns padhta hai, isliye phone par alag se kuch setup n
 
 Phone par location choose kijiye aur us godown ke items quantity aur value ke saath dikh jaate hain. Search se seedha item nikal sakte hain, jo tab kaam aata hai jab catalogue bada hai aur scroll karna practical nahi. Agar company mein sirf ek hi location hai toh yeh screen apne aap chhup jaati hai, taaki bina matlab ka tile na dikhe.
 
-Godown ka stock mobile se dekhna sirf owner ke liye nahi hai. Warehouse aur dispatch staff ko sirf apne godowns tak seemit kiya ja sakta hai, jo [staff ko apne warehouse tak seemit karna](/blog/restrict-staff-warehouse-access-tally/) mein cover hai.
+[Godown wise stock on mobile](/godown-wise-stock-on-mobile) sirf owner ke liye nahi hai. Warehouse aur dispatch staff ko sirf apne godowns tak seemit kiya ja sakta hai, jo [staff ko apne warehouse tak seemit karna](/blog/restrict-staff-warehouse-access-tally/) mein cover hai.
 
 ## Item Drill-Down: Kis Branch Mein Kitna
 

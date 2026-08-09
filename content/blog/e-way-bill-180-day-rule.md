@@ -5,7 +5,7 @@ meta_title: "E Way Bill 180 Days Rule and the 360-Day Cap"
 meta_description: "Since 1 January 2025, an e-way bill needs a document dated within 180 days, and extensions cannot cross 360 days. What both limits mean for dispatch."
 primary_keyword: "e way bill 180 days rule"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-08-09"
 author: "founder"
 category: "Compliance"
 excerpt: "Two limits went live on 1 January 2025 and still catch distributors out. An e-way bill cannot be generated against a document dated more than 180 days ago, and no extension can carry one past 360 days from generation. Both are portal-level walls with no workaround."
@@ -93,7 +93,7 @@ Two related timing limits are worth knowing before you plan a late dispatch. Tax
 
 The failure that costs a day is discovering the 180-day problem when the truck is already loaded and the operator is on the portal. What you want instead is to know at the moment somebody decides to dispatch against an old bill, which is usually a conversation on the godown floor and not at a desk.
 
-Takkada generates the e-way bill from the phone against the Tally voucher itself, so the document date in front of you is the one the portal will test. Part A is auto-populated when the invoice already carries an e-invoice, which is the same flow described in [e-invoice on phone](/blog/e-invoice-on-phone-tally/). Standalone e-way bills with the QR can be raised where there is no e-invoice, and cancellation runs from the same screen. The e-way bill number is written back into Tally against the same voucher, so the office is not maintaining a second register of what was generated against what. E-Way Bill and E-Invoice generation are part of the Assurance plan and above.
+Takkada generates the [e-way bill from the phone](/e-way-bill-from-phone) against the Tally voucher itself, so the document date in front of you is the one the portal will test. Part A is auto-populated when the invoice already carries an e-invoice, which is the same flow described in [e-invoice on phone](/blog/e-invoice-on-phone-tally/). Standalone e-way bills with the QR can be raised where there is no e-invoice, and cancellation runs from the same screen. The e-way bill number is written back into Tally against the same voucher, so the office is not maintaining a second register of what was generated against what. E-Way Bill and E-Invoice generation are part of the Assurance plan and above.
 
 The godown manager holding the phone is the one who knows the truck is loaded. Putting the generation step in his hands turns a stale-document problem into a five-minute question for the owner rather than a truck standing overnight.
 

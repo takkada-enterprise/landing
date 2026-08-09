@@ -5,7 +5,7 @@ meta_title: "Tally Collections on Autopilot"
 meta_description: "Automate collections in Tally end to end: reminder, UPI link, payment, and reconciliation running as one loop, so money comes in without anyone chasing it."
 primary_keyword: "automate collections tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's collection depends on one person remembering to chase, and that person is already running the warehouse, the salesmen, and the bank. Putting collections on autopilot takes the remembering out of a human head and turns it into a loop that runs whether anyone is watching or not."
@@ -32,7 +32,7 @@ To put Tally collections on autopilot is to run the whole money-in loop without 
 
 A distributor managing 50 to 300 retail parties cannot reliably remember which invoice is due today while also running everything else. The reminder that does not get sent is a capacity limit, not a discipline failure. And retailers read that limit. A retailer juggling fifteen supplier relationships pays the ones who follow up consistently and lets the quiet ones wait, so the distributor who forgets to chase ends up funding the retailer's cash cycle the longest.
 
-Manual collection also breaks at handoffs. The reminder lives in one person's head or diary, the payment lands in the bank statement, and the matching happens in Tally hours later. Every handoff is a place the money slows down. Autopilot removes the handoffs by making the whole thing one loop.
+Manual collection also breaks at handoffs. The reminder lives in one person's head or diary, the payment lands in the bank statement, and the matching happens in Tally hours later. Every handoff is a place the money slows down. Autopilot removes the handoffs by making the whole thing one loop. The first one to go is the chasing itself, because a [payment reminder from Tally](/payment-reminder-tally) fires off the bill and its due date rather than off somebody's memory of who to call today.
 
 ## The Four Steps of the Autopilot Loop
 

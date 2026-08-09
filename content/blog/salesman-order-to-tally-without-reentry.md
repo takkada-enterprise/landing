@@ -5,7 +5,7 @@ meta_title: "Salesman Order Taking Without Re-Entry Into Tally"
 meta_description: "The order gets written on a pad, photographed, then typed again in the office. What that second typing costs, and what changes when it goes."
 primary_keyword: "salesman order taking without re-entry"
 date: "2026-08-04"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every order in a distribution business gets taken twice. Once at the retailer's counter on a pad, and once again in the office at eight in the evening by an operator reading a blurry photo. The second typing is unpaid work that also happens to be where the errors come from."
@@ -34,7 +34,7 @@ Salesman order taking without re-entry means the order is captured once, at the 
 
 Order punching in most distribution houses is a separate job with a separate person. The salesman's output for the day is a stack of pad sheets or a run of photographs. Somebody in the office turns that into vouchers. The two are treated as different work, done by different people, at different hours, and the handover between them is a phone camera.
 
-Taking the order without re-entry collapses that into one step. The salesman opens the party on his phone, picks items from the same stock item list Tally holds, enters quantities, and saves. The order lands in Tally as a sales order. The office reads it rather than retypes it, and the dispatch team can start picking against it while the salesman is still on his beat plan for the day.
+Taking the order without re-entry collapses that into one step. The salesman opens the party on his phone, picks items from the same stock item list Tally holds, enters quantities, and saves. That is a [sales order on mobile](/sales-order-on-mobile), and it lands in Tally as a sales order voucher. The office reads it rather than retypes it, and the dispatch team can start picking against it while the salesman is still on his beat plan for the day.
 
 Saving the operator's time matters on its own, and a team of six salesmen at eight calls a day produces enough lines to occupy somebody for a good part of an evening. The bigger change is that the order stops waiting.
 

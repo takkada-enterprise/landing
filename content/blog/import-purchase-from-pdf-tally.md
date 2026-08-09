@@ -5,7 +5,7 @@ meta_title: "PDF to Tally Purchase Entry, Automatically"
 meta_description: "Turn a supplier PDF into a Tally purchase entry automatically. Import-from-PDF reads the bill and drafts the purchase voucher, so payables stops being typing."
 primary_keyword: "pdf to tally purchase entry"
 date: "2026-07-21"
-updated: "2026-08-08"
+updated: "2026-08-09"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's payables desk is a stack of supplier PDFs waiting to be typed into Tally, line by line, GST by GST. Import-from-PDF reads the bill and drafts the purchase entry, so the stack turns into a review queue instead of a typing queue."
@@ -52,7 +52,7 @@ The output is a drafted purchase voucher, sitting ready in Tally for the account
 
 The honest design here is that Import-from-PDF drafts, it does not silently post. A supplier's bill can have a smudged line, an item name that does not match your Tally master exactly, or a rounding difference. If the software posted these blind, it would quietly corrupt stock and payables.
 
-So the automation does the reading and the person does the confirming. The accountant sees the drafted voucher next to the source PDF, fixes anything the extraction got wrong (a mis-read quantity, an item that needs mapping to the right master), and posts. That is a few seconds of review against several minutes of full manual entry, and it keeps a human in the loop exactly where judgment is needed. This is the same principle that runs across [Tally on autopilot](/blog/tally-on-autopilot-for-distributors/): automate the typing, keep the deciding.
+So the automation does the reading and the person does the confirming. The accountant sees the drafted voucher next to the source PDF, fixes anything the extraction got wrong (a mis-read quantity, an item that needs mapping to the right master), and posts. That is a few seconds of review against several minutes of full manual entry, and it keeps a human in the loop exactly where judgment is needed. The same draft-and-check pattern runs on the sales side, where a photographed [handwritten order to Tally](/handwritten-order-to-tally) becomes voucher lines somebody approves before anything posts. This is the same principle that runs across [Tally on autopilot](/blog/tally-on-autopilot-for-distributors/): automate the typing, keep the deciding.
 
 ## How It Feeds Bill-Wise Payables
 

@@ -5,7 +5,7 @@ meta_title: "Payment Due-Date Tracking in Tally for Distributors"
 meta_description: "Payment due date tracking in Tally: set due dates on every bill, read them as a schedule, and get reminded so no supplier payment or retailer collection slips."
 primary_keyword: "payment due date tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Payables"
 excerpt: "The bill that slips is never the one you remember. It is the freight payment due on the 3rd or the retailer whose 45 days quietly became 60, lost in a lump balance nobody read as a set of dates. Due-date tracking is how you stop that."
@@ -61,7 +61,7 @@ A distributor who reads both schedules on the same morning knows whether the cas
 
 ## Turning Due Dates Into Reminders
 
-A due date on a desktop only helps the person sitting at the desk on the right day. The bill that slips is usually the one whose date passed while everyone was busy elsewhere. The fix is to make the due date reach out instead of waiting to be read.
+A due date on a desktop only helps the person sitting at the desk on the right day. The bill that slips is usually the one whose date passed while everyone was busy elsewhere. The fix is to make the due date reach out instead of waiting to be read. In practice that means letting the app [send payment reminders automatically](/send-payment-reminders-automatically) off the dates already sitting on the bills.
 
 On the receivable side, that means a reminder that fires on the retailer automatically as a bill approaches or passes its due date, with the specific bill and a UPI link attached, so collection does not depend on the accountant remembering. Running that cadence by hand across 150 parties is impossible, which is why it runs on [automated payment reminders](/blog/automate-payment-reminders-tally/) that change tone by how overdue the bill is. Takkada carries the whole due-date schedule to the phone in [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/), flags what falls due this week on both sides, and fires the receivable reminders on time, so a date passing is an alert instead of a miss. Tally stays the book of record; the phone makes sure nothing slips.
 

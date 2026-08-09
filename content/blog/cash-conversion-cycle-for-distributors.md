@@ -5,6 +5,7 @@ meta_title: "Cash Conversion Cycle for Distributors Explained"
 meta_description: "The cash conversion cycle for distributors, explained with the CCC formula and real ₹ figures. See how lower DSO frees cash stuck in your receivables book."
 primary_keyword: "cash conversion cycle for distributors"
 date: "2026-06-21"
+updated: "2026-08-09"
 author: "harsh"
 category: "Collections"
 excerpt: "A ₹12 crore FMCG distributor in Indore runs a 71-day cash conversion cycle, which means cash leaves the business 71 days before it comes back. Shave 15 days off through faster collection and roughly ₹49 lakh comes back into the bank, with no new sales."
@@ -29,7 +30,7 @@ excerpt: "A ₹12 crore FMCG distributor in Indore runs a 71-day cash conversion
 
 The cash conversion cycle for distributors is the number of days between paying for stock and collecting the cash from selling it. You pay your supplier on day 0 for goods. You sell those goods to a retailer on credit. The retailer pays you weeks later. The gap, measured in days, is how long your own money is locked inside the business before it comes back. That gap is the cash conversion cycle, and shortening it is one of the few levers that frees cash without selling a single extra carton.
 
-A Rajkot FMCG distributor put it plainly: "Maal ka paisa pehle jaata hai, customer ka paisa baad mein aata hai. Beech ka gap apni jeb se bharta hoon." The supplier gets paid first, the retailer pays last, and the distributor funds the middle out of his own pocket. The longer that middle stretches, the more capital sits idle inside the cycle instead of buying the next round of stock.
+A Rajkot FMCG distributor put it plainly: "Maal ka paisa pehle jaata hai, customer ka paisa baad mein aata hai. Beech ka gap apni jeb se bharta hoon." The supplier gets paid first, the retailer pays last, and the distributor funds the middle out of his own pocket. The longer that middle stretches, the more capital sits idle inside the cycle instead of buying the next round of stock. In FMCG the money comes back in a couple of hundred small pieces off the beat rather than in a few large cheques, so a [Tally app for FMCG distributors](/tally-app-for-fmcg-distributors) earns its keep by shortening each of those pieces.
 
 CCC for distributors has three moving parts. How long stock sits before it sells, how long retailers take to pay, and how long you get to hold supplier money before paying it back. Get a handle on all three and you control how much working capital your business swallows.
 
