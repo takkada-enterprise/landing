@@ -10,6 +10,7 @@ vi.mock('vite-react-ssg', () => ({
 
 import Layout from './Layout';
 import Home from './routes/Home';
+import { navLinks } from './data/siteContent';
 
 afterEach(cleanup);
 
@@ -95,5 +96,57 @@ describe('brand logo assets', () => {
       const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
       expect(Math.abs(ratio - sourceRatio)).toBeLessThan(0.1);
     }
+  });
+});
+
+// The nav "Features" slot used to scroll to the homepage #features section.
+// Repointed to /features (the hub) so the 26 feature landing pages have a
+// crawlable parent in the top menu instead of footer links alone. The homepage
+// section still exists; it just no longer owns the menu slot.
+describe('Features nav slot', () => {
+  function renderLayout(at = '/') {
+    const { container } = render(
+      <MemoryRouter initialEntries={[at]}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+            <Route path="blog" element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    return container;
+  }
+
+  const featuresLinkIn = (container, selector) =>
+    [...container.querySelectorAll(`${selector} a`)].find((a) => a.textContent === 'Features');
+
+  it('renders Features as a link to /features in the desktop nav', () => {
+    const link = featuresLinkIn(renderLayout(), '.nav-links');
+    expect(link).toBeDefined();
+    expect(link.getAttribute('href')).toBe('/features');
+  });
+
+  it('renders the same link in the mobile menu', () => {
+    const link = featuresLinkIn(renderLayout(), '.mobile-nav-links');
+    expect(link).toBeDefined();
+    expect(link.getAttribute('href')).toBe('/features');
+  });
+
+  it('reaches the hub from a non-home route too, not just the homepage', () => {
+    const link = featuresLinkIn(renderLayout('/blog'), '.nav-links');
+    expect(link.getAttribute('href')).toBe('/features');
+  });
+
+  it('leaves no navLinks entry pointing at a hash anchor named features', () => {
+    const hashed = navLinks.filter((l) => l.href === '#features');
+    expect(hashed).toEqual([]);
+  });
+
+  it('gives the footer Features column a way up to the hub', () => {
+    const hrefs = [...renderLayout().querySelectorAll('.footer-col-links a')].map((a) =>
+      a.getAttribute('href')
+    );
+    expect(hrefs).toContain('/features');
   });
 });
