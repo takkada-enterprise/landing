@@ -107,10 +107,18 @@ describe('blog internal links', () => {
     expect(Object.keys(LINK_FLOORS).filter((slug) => !known.has(slug))).toEqual([]);
   });
 
-  it('holds an unfloored page to one link, so a new feature page starts cheap', () => {
-    const unfloored = FEATURE_PAGES.filter((p) => !(p.slug in LINK_FLOORS));
-    expect(unfloored.length).toBeGreaterThan(0);
-    for (const page of unfloored) expect(floorFor(page.slug)).toBe(1);
+  // A page that has quietly earned depth should be ratcheted, not left at the
+  // default where the depth can drain away unnoticed. This is the half of the
+  // ratchet that fails upward; every other assertion here only fails downward.
+  it('has a floor for every page that has outgrown the default', () => {
+    const unratcheted = FEATURE_PAGES.filter(
+      (page) => !(page.slug in LINK_FLOORS) && inboundLinks(page).length > DEFAULT_FLOOR
+    ).map((page) => `${page.slug} (${inboundLinks(page).length} links)`);
+    expect(
+      unratcheted,
+      'These pages now have more inbound links than the default floor protects. ' +
+        'Add them to LINK_FLOORS at their current count so the depth cannot drain away.'
+    ).toEqual([]);
   });
 
   // The cannibalisation guard. A post using a feature page's exact search
@@ -140,19 +148,18 @@ describe('blog internal links', () => {
   );
 });
 
-// Four posts used to chase the same phrase as one of the feature landing
-// pages, so the site was bidding against itself for the head term and the
-// blog post, being older, usually won. They were retitled to narrower angles
-// (URLs untouched, so the inbound equity survived) and each was given a link
-// up to its feature page inside the lead answer. Both halves are pinned here:
-// a future edit that re-leads a title with the head phrase, or drops the link
-// back out of the lead, reintroduces exactly the problem this fixed.
-// Two of the four (the reminder how-to and the reports owner's guide) already
-// led with something other than the head phrase and were not retitled; they are
-// pinned here prospectively, so the guard is forward-looking for them rather
-// than a record of a change. `startsWith` is the deliberate predicate, not
-// `includes`: the reminder post's title legitimately contains "Payment Reminder
-// From Tally" mid-sentence, and only leading with the phrase is the collision.
+// Four posts chased the same head phrase as one of the feature landing pages,
+// so the site bid against itself and the older blog post usually won. Three
+// were retitled to narrower angles (URLs untouched, so the inbound equity
+// survived); the fourth, the reminder how-to, kept its title because it already
+// led with "How to Send a" rather than the head phrase, and only the leading
+// position is the collision.
+//
+// The title half of this guard is now derived across the whole corpus above.
+// What stays listed here is the link half: each of these four carries a link up
+// to its feature page inside the lead answer, which is the passage a citation
+// engine lifts. Only 4 of 104 relatedPosts pairs do that, so it is a narrow
+// ratchet on the posts that were deliberately repositioned, not a general rule.
 const RETITLED = [
   ['tally-on-mobile', 'tally-on-mobile'],
   ['view-tally-reports-on-mobile', 'tally-reports-on-mobile'],
@@ -169,10 +176,22 @@ describe('retitled posts stay off their feature page\'s head phrase', () => {
     expect(pageNamed(pageSlug)).toBeDefined();
   });
 
-  it.each(RETITLED)('%s: title does not lead with the feature page phrase', (postSlug, pageSlug) => {
-    const title = matter(postNamed(postSlug).body).data.title ?? '';
-    const phrase = pageNamed(pageSlug).searchPhrase;
-    expect(title.toLowerCase().startsWith(phrase.toLowerCase())).toBe(false);
+  // Derived, not listed. An allow-list would protect only the posts already
+  // fixed and stay silent when next month's post leads with a head phrase,
+  // which is how this cannibalisation started.
+  it('no post title leads with any feature page search phrase', () => {
+    const phrases = FEATURE_PAGES.map((p) => p.searchPhrase.toLowerCase());
+    const colliding = [];
+    for (const { file, body } of POSTS) {
+      const title = (matter(body).data.title ?? '').toLowerCase();
+      const hit = phrases.find((phrase) => title.startsWith(phrase));
+      if (hit) colliding.push(`${file}: "${hit}..."`);
+    }
+    expect(
+      colliding,
+      'A post whose title leads with a feature page\'s exact search phrase competes ' +
+        'with that page for its own head term. Narrow the post title.'
+    ).toEqual([]);
   });
 
   // "The lead answer" is defined once, by the guard that owns the convention

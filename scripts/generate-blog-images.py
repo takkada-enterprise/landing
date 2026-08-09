@@ -182,7 +182,7 @@ ARTICLES = [
     },
     {
         "slug": "salesman-app-tally-india",
-        "title": "Salesman App for Tally in India: What Field Teams Actually Need",
+        "title": "What Field Teams Actually Need From a Tally App in India",
         "category": "Field Sales",
         "tagline": "View-only access covers half the job. Here's what closes the gap.",
     },
@@ -332,7 +332,7 @@ ARTICLES = [
     },
     {
         "slug": "view-tally-reports-on-mobile",
-        "title": "View Tally Reports on Mobile",
+        "title": "The Five Reports an Owner Actually Opens on a Phone",
         "category": "Tally Mobile",
         "tagline": "The five reports a distributor reads from the phone every day.",
     },

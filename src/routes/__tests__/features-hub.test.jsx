@@ -13,6 +13,7 @@ import Features from '../Features';
 import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
 import { FEATURE_BLURBS, FEATURE_GROUPS } from '../../data/featureGroups';
 import { routeMetadata } from '../../data/siteMetadata';
+import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 
 afterEach(cleanup);
 
@@ -104,6 +105,38 @@ describe('/features hub', () => {
     const crumbs = byType(schemas, 'BreadcrumbList');
     expect(crumbs).toBeDefined();
     expect(crumbs.itemListElement.at(-1).item).toBe('https://takkada.com/features/');
+  });
+
+  // The schema is the whole reason a crawler reads this page as a directory, so
+  // every ListItem field is pinned. Asserting only @type and numberOfItems let a
+  // relative url or a dropped description through with the suite green.
+  it('gives every ListItem an absolute url, a name and a description', () => {
+    const { schemas } = renderHub();
+    const items = byType(schemas, 'CollectionPage').mainEntity.itemListElement;
+    const bySlug = new Map(FEATURE_PAGES.map((p) => [featurePagePath(p), p]));
+
+    items.forEach((item, i) => {
+      expect(item.position, item.name).toBe(i + 1);
+      expect(item.url, item.name).toMatch(/^https:\/\/takkada\.com\/[a-z0-9-]+\/$/);
+      const page = bySlug.get(new URL(item.url).pathname.replace(/\/$/, ''));
+      expect(page, `${item.url} is not a feature page`).toBeDefined();
+      expect(item.name).toBe(page.llms.title);
+      expect(item.description).toBe(FEATURE_BLURBS[page.slug]);
+    });
+  });
+
+  // An unknown CTA context silently falls back to the generic message, costing
+  // the founder the triage signal the whole map exists for. Only a console.warn
+  // marks it, and the suite already ignores those.
+  it('wires both CTAs to the hub WhatsApp context, not the default message', () => {
+    const { container } = renderHub();
+    const wa = [...container.querySelectorAll('a[href^="https://wa.me/"]')];
+    expect(wa.length).toBeGreaterThan(0);
+    for (const link of wa) {
+      const text = decodeURIComponent(link.getAttribute('href').split('?text=')[1] ?? '');
+      expect(text).toBe(WHATSAPP_MESSAGES['features-hub']);
+      expect(text).not.toBe(WHATSAPP_MESSAGES.default);
+    }
   });
 });
 

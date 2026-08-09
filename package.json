@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "lint:content": "node scripts/checkLeadAnswer.mjs",
-    "build": "npm run lint:content && node scripts/generate-llms-txt.mjs && vite-react-ssg build && node scripts/generate-sitemap.mjs && node scripts/checkImagePreloads.mjs && node scripts/checkBlogImages.mjs && node scripts/checkBlogPrerender.mjs && node scripts/checkFeaturesHub.mjs && node scripts/checkImageBudgets.mjs",
+    "build": "npm run lint:content && node scripts/generate-llms-txt.mjs && vite-react-ssg build && node scripts/generate-sitemap.mjs && node scripts/checkImagePreloads.mjs && node scripts/checkBlogImages.mjs && node scripts/checkBlogPrerender.mjs && node scripts/checkRoutePrerender.mjs && node scripts/checkFeaturesHub.mjs && node scripts/checkImageBudgets.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
