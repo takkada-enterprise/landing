@@ -43,10 +43,8 @@ describe('/features hub', () => {
   it('renders exactly one card per FEATURE_PAGES entry', () => {
     const { container } = renderHub();
     const hrefs = cardLinks(container).map((a) => a.getAttribute('href'));
-    // Count derived from the array, never hardcoded: a new feature page must
-    // move this number on its own.
-    expect(hrefs).toHaveLength(FEATURE_PAGES.length);
-    expect(new Set(hrefs).size).toBe(FEATURE_PAGES.length);
+    // Derived from the array, never hardcoded: a new feature page moves this on
+    // its own. Set-equality also covers the count and rules out a duplicate card.
     expect(hrefs.sort()).toEqual(FEATURE_PAGES.map(featurePagePath).sort());
   });
 
@@ -62,6 +60,7 @@ describe('/features hub', () => {
   it('is itself a registered, sitemapped route carrying an llms entry', () => {
     const entry = routeMetadata.find((r) => r.path === '/features');
     expect(entry).toBeDefined();
+    // An absent `sitemap` key means included; only an explicit false opts out.
     expect(entry.sitemap).not.toBe(false);
     expect(entry.llms?.title).toBeTruthy();
   });
@@ -84,12 +83,13 @@ describe('/features hub', () => {
     expect(head().querySelector('meta[name="twitter:card"]')).not.toBeNull();
   });
 
-  it('has a title and description no other route already uses', () => {
+  it('does not reuse a feature page title or description', () => {
     renderHub();
+    // The 26 feature pages are the nearest neighbours and the likeliest collision.
     const title = head().querySelector('title').textContent;
-    expect(title).not.toBe('');
-    // The feature pages are the nearest neighbours and the likeliest collision.
+    const description = head().querySelector('meta[name="description"]').getAttribute('content');
     expect(FEATURE_PAGES.map((p) => p.seo.title)).not.toContain(title);
+    expect(FEATURE_PAGES.map((p) => p.seo.description)).not.toContain(description);
   });
 
   it('emits CollectionPage and BreadcrumbList schema covering every page', () => {
@@ -112,12 +112,6 @@ describe('feature grouping', () => {
     const grouped = FEATURE_GROUPS.flatMap((g) => g.slugs);
     expect(new Set(grouped).size).toBe(grouped.length);
     expect(grouped.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
-  });
-
-  it('names only real feature pages', () => {
-    const known = new Set(FEATURE_PAGES.map((p) => p.slug));
-    const unknown = FEATURE_GROUPS.flatMap((g) => g.slugs).filter((s) => !known.has(s));
-    expect(unknown).toEqual([]);
   });
 
   it('renders no empty group, and gives each a heading and an intro', () => {

@@ -21,10 +21,15 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // A shell renders neither.
 const MIN_PARAGRAPHS = 5;
 
+// The SSG mount point from index.html, left empty when a page shipped as a
+// client-rendered shell. Exported because every prerender guard needs it and a
+// second private copy would go blind in step with this one.
+export const hasEmptyRoot = (html) => /<div id="root">\s*<\/div>/.test(html);
+
 export function inspectPage(html) {
   const paragraphs = (html.match(/<p[\s>]/g) || []).length;
   const hasH1 = /<h1[\s>]/.test(html);
-  const emptyRoot = /<div id="root">\s*<\/div>/.test(html);
+  const emptyRoot = hasEmptyRoot(html);
   return { paragraphs, hasH1, emptyRoot, ok: !emptyRoot && hasH1 && paragraphs >= MIN_PARAGRAPHS };
 }
 

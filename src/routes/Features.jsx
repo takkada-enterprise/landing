@@ -5,8 +5,8 @@ import Breadcrumb from '../components/Breadcrumb';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
-import { FEATURE_BLURBS, groupFeaturePages } from '../data/featureGroups';
-import { breadcrumbSchema, SITE_URL, absoluteUrl } from '../data/schema';
+import { groupFeaturePages } from '../data/featureGroups';
+import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/schema';
 
 // The /features hub. Until this page existed the 26 feature landing pages hung
 // off the footer alone and the nav's "Features" item scrolled to a homepage
@@ -31,34 +31,29 @@ const seo = {
   path: '/features',
 };
 
+// Shape fixed by the shared <Breadcrumb>, which takes { name, url } and strips
+// the origin back off for its router links. absoluteUrl owns the trailing-slash
+// rule, so it is called rather than restated as a literal.
 const trail = [
-  { name: 'Home', url: `${SITE_URL}/` },
-  { name: 'Features', url: `${SITE_URL}/features/` },
+  { name: 'Home', url: absoluteUrl('/') },
+  { name: 'Features', url: absoluteUrl(seo.path) },
 ];
 
-// CollectionPage wrapping an ItemList, so a crawler reads the hub as a
-// directory of 26 named pages rather than one more marketing page.
-function collectionSchema(groups) {
-  const entries = groups.flatMap((group) => group.pages);
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
+// Reads the hub as a directory of 26 named pages. Same page objects the cards
+// render from, so a card and its ListItem can never describe different things.
+const hubSchema = (groups) =>
+  collectionPageSchema({
     name: 'Takkada features for distributors on Tally',
     description: seo.description,
-    url: absoluteUrl('/features'),
-    mainEntity: {
-      '@type': 'ItemList',
-      numberOfItems: entries.length,
-      itemListElement: entries.map((page, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
+    path: seo.path,
+    items: groups
+      .flatMap((group) => group.pages)
+      .map((page) => ({
         name: page.llms.title,
-        description: FEATURE_BLURBS[page.slug] ?? page.llms.summary,
-        url: absoluteUrl(featurePagePath(page)),
+        description: page.blurb,
+        path: featurePagePath(page),
       })),
-    },
-  };
-}
+  });
 
 function Features() {
   const groups = groupFeaturePages(FEATURE_PAGES);
@@ -70,7 +65,7 @@ function Features() {
         description={seo.description}
         path={seo.path}
         schemas={[
-          collectionSchema(groups),
+          hubSchema(groups),
           breadcrumbSchema(trail.map((e) => ({ name: e.name, path: e.url }))),
         ]}
       />
@@ -99,7 +94,7 @@ function Features() {
       </section>
 
       {/* ── The directory ── */}
-      <section className="tally-section features-hub" id="all-features">
+      <section className="tally-section" id="all-features">
         <div className="container">
           {groups.map((group) => (
             <div key={group.id} className="features-hub-group" id={group.id}>
@@ -115,7 +110,7 @@ function Features() {
                     className="tally-card features-hub-card"
                   >
                     <h3>{page.llms.title}</h3>
-                    <p>{FEATURE_BLURBS[page.slug] ?? page.llms.summary}</p>
+                    <p>{page.blurb}</p>
                     <span className="features-hub-card-cue">
                       Read the page <ArrowRight size={15} />
                     </span>

@@ -164,22 +164,23 @@ export const FEATURE_BLURBS = {
 };
 
 /**
- * Fold FEATURE_PAGES into the groups above, preserving each group's slug order.
- * A page missing from FEATURE_GROUPS lands in the final group rather than
- * disappearing; the hub test is what makes that omission visible.
+ * Fold FEATURE_PAGES into the groups above, preserving each group's slug order
+ * and attaching each page's directory line as `blurb`.
+ *
+ * A page missing from FEATURE_GROUPS is simply absent from the result. There is
+ * deliberately no catch-all group: the hub test asserts the grouping covers
+ * FEATURE_PAGES exactly, so a missing entry is already a red test, and filing
+ * the page under some unrelated group's heading would be a worse answer than
+ * leaving it out.
  */
 export function groupFeaturePages(pages) {
   const bySlug = new Map(pages.map((page) => [page.slug, page]));
-  const placed = new Set(FEATURE_GROUPS.flatMap((g) => g.slugs));
 
-  return FEATURE_GROUPS.map((group, i) => {
-    const slugs =
-      i === FEATURE_GROUPS.length - 1
-        ? [...group.slugs, ...pages.filter((p) => !placed.has(p.slug)).map((p) => p.slug)]
-        : group.slugs;
-    return {
-      ...group,
-      pages: slugs.map((slug) => bySlug.get(slug)).filter(Boolean),
-    };
-  }).filter((group) => group.pages.length > 0);
+  return FEATURE_GROUPS.map((group) => ({
+    ...group,
+    pages: group.slugs
+      .map((slug) => bySlug.get(slug))
+      .filter(Boolean)
+      .map((page) => ({ ...page, blurb: FEATURE_BLURBS[page.slug] ?? page.llms.summary })),
+  }));
 }

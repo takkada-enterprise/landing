@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
 import { routeMetadata } from '../siteMetadata';
+import { extractLead } from '../../../scripts/checkLeadAnswer.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const blogDir = resolve(repoRoot, 'content/blog');
@@ -153,26 +154,30 @@ const RETITLED = [
   ['how-to-send-payment-reminder-from-tally-whatsapp', 'payment-reminder-tally'],
 ];
 
-// Everything above the first `##`: the lead-answer block a citation engine
-// lifts, and the only place a link counts as "prominent".
-const leadBlock = (body) => matter(body).content.split(/^##\s/m)[0];
+const postNamed = (slug) => POSTS.find((p) => p.file === `${slug}.md`);
+const pageNamed = (slug) => FEATURE_PAGES.find((p) => p.slug === slug);
 
 describe('retitled posts stay off their feature page\'s head phrase', () => {
   it.each(RETITLED)('%s: exists and targets a real feature page', (postSlug, pageSlug) => {
-    expect(POSTS.some((p) => p.file === `${postSlug}.md`)).toBe(true);
-    expect(FEATURE_PAGES.some((p) => p.slug === pageSlug)).toBe(true);
+    expect(postNamed(postSlug)).toBeDefined();
+    expect(pageNamed(pageSlug)).toBeDefined();
   });
 
   it.each(RETITLED)('%s: title does not lead with the feature page phrase', (postSlug, pageSlug) => {
-    const post = POSTS.find((p) => p.file === `${postSlug}.md`);
-    const phrase = FEATURE_PAGES.find((p) => p.slug === pageSlug).searchPhrase;
-    const title = matter(post.body).data.title ?? '';
+    const title = matter(postNamed(postSlug).body).data.title ?? '';
+    const phrase = pageNamed(pageSlug).searchPhrase;
     expect(title.toLowerCase().startsWith(phrase.toLowerCase())).toBe(false);
   });
 
+  // "The lead answer" is defined once, by the guard that owns the convention
+  // (CLAUDE.md §5). Splitting on the first `##` here instead would be a second,
+  // looser definition of the site's most load-bearing content rule, and a link
+  // in a stray second paragraph would satisfy this test while the guard did not
+  // consider it part of the lead at all.
   it.each(RETITLED)('%s: links up to its feature page from the lead answer', (postSlug, pageSlug) => {
-    const post = POSTS.find((p) => p.file === `${postSlug}.md`);
-    const hrefs = linksIn(leadBlock(post.body)).map(({ href }) => normalise(href));
-    expect(hrefs).toContain(`/${pageSlug}`);
+    const lead = extractLead(postNamed(postSlug).body);
+    expect(lead.kind).toBe('paragraph');
+    const hrefs = linksIn(lead.text).map(({ href }) => normalise(href));
+    expect(hrefs).toContain(featurePagePath(pageNamed(pageSlug)));
   });
 });

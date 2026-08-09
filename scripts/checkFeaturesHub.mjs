@@ -16,13 +16,15 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { FEATURE_PAGES, featurePagePath } from '../src/data/featurePages.js';
+import { hasEmptyRoot } from './checkBlogPrerender.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 export function inspectHub(html, expectedPaths) {
-  const emptyRoot = /<div id="root">\s*<\/div>/.test(html);
-  const missing = expectedPaths.filter((path) => !html.includes(`href="${path}"`));
-  return { emptyRoot, missing, ok: !emptyRoot && missing.length === 0 };
+  return {
+    emptyRoot: hasEmptyRoot(html),
+    missing: expectedPaths.filter((path) => !html.includes(`href="${path}"`)),
+  };
 }
 
 function main() {
@@ -33,9 +35,9 @@ function main() {
   }
 
   const expected = FEATURE_PAGES.map(featurePagePath);
-  const { emptyRoot, missing, ok } = inspectHub(readFileSync(file, 'utf-8'), expected);
+  const { emptyRoot, missing } = inspectHub(readFileSync(file, 'utf-8'), expected);
 
-  if (!ok) {
+  if (emptyRoot || missing.length > 0) {
     if (emptyRoot) {
       process.stderr.write('checkFeaturesHub: /features prerendered as an empty shell.\n');
     }
@@ -48,6 +50,6 @@ function main() {
   process.stdout.write(`checkFeaturesHub: OK (${expected.length} feature links in raw HTML)\n`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url))) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   main();
 }
