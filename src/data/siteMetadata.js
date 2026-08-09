@@ -144,6 +144,18 @@ export const routeMetadata = [
     priority: 0.9,
   },
   {
+    path: '/features',
+    llms: {
+      section: 'Key pages',
+      title: 'All features',
+      summary:
+        "Directory of every Takkada feature page, grouped by job: getting paid, receivables, Tally on the phone, field sales, GST documents, billing and stock, imports, and comparisons.",
+    },
+    sourceFile: 'src/routes/Features.jsx',
+    changefreq: 'monthly',
+    priority: 0.9,
+  },
+  {
     path: '/partners',
     llms: {
       section: 'Key pages',

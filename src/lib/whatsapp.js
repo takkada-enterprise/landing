@@ -13,6 +13,10 @@ export const WHATSAPP_MESSAGES = {
     'Hi, I run a distribution business on Tally. I saw takkada.com and want to see how it works.',
   features:
     'Hi, I am looking at the features on takkada.com and want a walkthrough.',
+  // The /features hub, kept separate from the homepage section above so the
+  // two surfaces stay distinguishable in the funnel.
+  'features-hub':
+    'Hi, I went through the features list on takkada.com and want help working out which parts my business needs.',
   pricing:
     'Hi, I am looking at Takkada pricing. Which plan fits my business?',
   'final-cta':
