@@ -240,7 +240,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'salesman-app-tally-india',
-        title: 'Salesman App for Tally in India: What Field Teams Actually Need',
+        title: 'What Field Teams Actually Need From a Tally App in India',
       },
       {
         slug: 'salesman-visit-tracking-photo-proof',
@@ -1040,7 +1040,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'view-tally-reports-on-mobile',
-        title: "How to View Tally Reports on Mobile (Owner's Guide)",
+        title: 'The Five Reports an Owner Actually Opens on a Phone',
       },
       {
         slug: 'mis-reports-for-distributors-tally',
@@ -1363,7 +1363,7 @@ const FIRST_BATCH = [
     relatedPosts: [
       {
         slug: 'tally-on-mobile',
-        title: 'Tally on Mobile in 2026: What Actually Works, What Breaks, and What It Costs',
+        title: 'The Four Bridges From Your Phone to Tally, and What Each One Costs',
       },
       {
         slug: 'how-to-access-tally-on-mobile-step-by-step',

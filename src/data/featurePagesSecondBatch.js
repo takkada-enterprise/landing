@@ -1371,7 +1371,7 @@ export const SECOND_BATCH = [
       },
       {
         slug: 'view-tally-reports-on-mobile',
-        title: "How to View Tally Reports on Mobile (Owner's Guide)",
+        title: 'The Five Reports an Owner Actually Opens on a Phone',
       },
     ],
     priority: 0.9,

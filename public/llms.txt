@@ -141,10 +141,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 - [Field Order Collection App for Tally: What Salesmen Need on the Phone](https://takkada.com/blog/field-order-collection-app-tally/)
 - [How to Restrict Salesman Access in Tally Without Locking Him Out of His Job](https://takkada.com/blog/restrict-salesman-access-tally/)
-- [Salesman App for Tally in India: What Field Teams Actually Need](https://takkada.com/blog/salesman-app-tally-india/)
 - [Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally](https://takkada.com/blog/salesman-order-to-tally-without-reentry/)
 - [Salesman Visit Tracking App: What Actually Proves He Went](https://takkada.com/blog/salesman-visit-tracking-photo-proof/)
 - [Salesman Wise Collection Report: Who Owns the Overdue](https://takkada.com/blog/salesman-wise-collection-accountability/)
+- [What Field Teams Actually Need From a Tally App in India](https://takkada.com/blog/salesman-app-tally-india/)
 
 ### How-To
 
@@ -241,15 +241,15 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Godown on Sales Invoices and Delivery Challans from Mobile](https://takkada.com/blog/godown-on-sales-invoice-delivery-challan/)
 - [GST Compliance on Mobile for Distributors: What's Possible, What's Not, and Where Phones Beat Desktops](https://takkada.com/blog/gst-compliance-on-mobile-for-distributors/)
 - [How Bidirectional Tally Sync Works (and Why It Matters)](https://takkada.com/blog/bidirectional-tally-sync-explained/)
-- [How to View Tally Reports on Mobile (Owner's Guide)](https://takkada.com/blog/view-tally-reports-on-mobile/)
 - [Is There an Official Tally Mobile App? The Honest Answer](https://takkada.com/blog/is-there-an-official-tally-mobile-app/)
 - [Multi-Business Tally Mobile App: One Phone, Multiple Companies, One Dashboard](https://takkada.com/blog/multi-business-tally-mobile-app/)
 - [Restrict Staff to Their Own Warehouse in Tally](https://takkada.com/blog/restrict-staff-warehouse-access-tally/)
 - [Tally Cloud: What It Actually Means for Indian Distributors in 2026](https://takkada.com/blog/tally-cloud/)
 - [Tally Mobile App for Android: What Actually Works](https://takkada.com/blog/tally-mobile-app-for-android/)
 - [Tally Mobile Par Kaise Chalaye: Step-by-Step Guide](https://takkada.com/blog/tally-mobile-par-kaise-chalaye/)
-- [Tally on Mobile in 2026: What Actually Works, What Breaks, and What It Costs](https://takkada.com/blog/tally-on-mobile/)
 - [Tally Prime Mobile App: What Exists, What Doesn't, and How Distributors Bridge the Gap in 2026](https://takkada.com/blog/tally-prime-mobile-app/)
+- [The Five Reports an Owner Actually Opens on a Phone](https://takkada.com/blog/view-tally-reports-on-mobile/)
+- [The Four Bridges From Your Phone to Tally, and What Each One Costs](https://takkada.com/blog/tally-on-mobile/)
 - [Udhar Vasuli Kaise Kare: A Working Playbook for Indian Distributors in 2026](https://takkada.com/blog/udhar-vasuli-kaise-kare-distributor/)
 - [What Is Takkada? The Tally-Native Receivables App, Explained](https://takkada.com/blog/what-is-takkada/)
 
