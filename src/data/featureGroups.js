@@ -5,9 +5,9 @@
 // the hub should not mean editing 26 objects across four files. The trade-off
 // is that a new feature page has to be named here as well as in
 // featurePages.js, and src/routes/__tests__/features-hub.test.jsx fails loudly
-// when it is not. The hub itself is forgiving at runtime (an unmapped page
-// falls into the last group) so a missed entry is a red test, never a page
-// that quietly vanishes from the directory.
+// when it is not: it asserts the grouping covers FEATURE_PAGES exactly, in both
+// directions. An unmapped page is simply absent from the hub, which is why that
+// test is the thing standing between a missed entry and a page nobody links.
 //
 // Keep this file JSX-free and free of React imports, the same constraint that
 // governs featurePages.js and siteMetadata.js. Node ESM loads this module

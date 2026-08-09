@@ -8,8 +8,13 @@
 // in sitemap.xml, and every unit test would still pass, because they assert on
 // a jsdom render rather than on the file a crawler reads.
 //
-// So this asserts on the built HTML, and counts the links against the same
-// FEATURE_PAGES array the page renders from.
+// The links are counted inside the directory section only. A first version of
+// this guard searched the whole document and was unfalsifiable: SiteFooter
+// renders an anchor for all 26 feature pages on every page of the site, so the
+// check passed against dist/partners/index.html, which has no hub on it at all.
+// A guard that cannot fail is worse than no guard, because it reads as
+// coverage. Hence CARD_RE, which matches the hub's own card anchors and
+// nothing else.
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -20,10 +25,17 @@ import { hasEmptyRoot } from './checkBlogPrerender.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
+// The directory card anchor, as Features.jsx renders it. Deliberately keyed on
+// the `features-hub-card` class so a footer link, a nav link, or a path that
+// merely appears inside inlined JSON can never satisfy this guard.
+const CARD_RE = /<a\b[^>]*\bclass="[^"]*\bfeatures-hub-card\b[^"]*"[^>]*\bhref="([^"]+)"/g;
+
 export function inspectHub(html, expectedPaths) {
+  const linked = new Set([...html.matchAll(CARD_RE)].map(([, href]) => href.replace(/\/$/, '')));
   return {
     emptyRoot: hasEmptyRoot(html),
-    missing: expectedPaths.filter((path) => !html.includes(`href="${path}"`)),
+    linked,
+    missing: expectedPaths.filter((path) => !linked.has(path)),
   };
 }
 
@@ -35,19 +47,28 @@ function main() {
   }
 
   const expected = FEATURE_PAGES.map(featurePagePath);
-  const { emptyRoot, missing } = inspectHub(readFileSync(file, 'utf-8'), expected);
+  const { emptyRoot, linked, missing } = inspectHub(readFileSync(file, 'utf-8'), expected);
 
   if (emptyRoot || missing.length > 0) {
     if (emptyRoot) {
       process.stderr.write('checkFeaturesHub: /features prerendered as an empty shell.\n');
     }
     for (const path of missing) {
-      process.stderr.write(`checkFeaturesHub: /features is missing a link to ${path}\n`);
+      process.stderr.write(`checkFeaturesHub: the hub has no card linking ${path}\n`);
     }
     process.exit(1);
   }
 
-  process.stdout.write(`checkFeaturesHub: OK (${expected.length} feature links in raw HTML)\n`);
+  // A card pointing somewhere unexpected is as wrong as a missing one.
+  const stray = [...linked].filter((href) => !expected.includes(href));
+  if (stray.length > 0) {
+    for (const href of stray) {
+      process.stderr.write(`checkFeaturesHub: the hub links ${href}, which is not a feature page\n`);
+    }
+    process.exit(1);
+  }
+
+  process.stdout.write(`checkFeaturesHub: OK (${linked.size} feature cards in raw HTML)\n`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {

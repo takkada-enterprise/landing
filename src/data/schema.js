@@ -199,9 +199,9 @@ function authorNode(authorKey, resolveAuthor) {
 
 // A directory page: an ItemList of named, described URLs wrapped in a
 // CollectionPage, so a crawler reads it as an index of other pages rather than
-// as one more marketing page. Built here beside the other schema builders (and
-// pinned by schema.test.js) rather than inside the route, so the next directory
-// page does not hand-roll a second copy.
+// as one more marketing page. Built here beside the other schema builders
+// rather than inside the route, so the next directory page does not hand-roll a
+// second copy. Its output is asserted through the hub in features-hub.test.jsx.
 export function collectionPageSchema({ name, description, path, items }) {
   return {
     '@context': 'https://schema.org',

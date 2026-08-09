@@ -147,6 +147,12 @@ describe('blog internal links', () => {
 // up to its feature page inside the lead answer. Both halves are pinned here:
 // a future edit that re-leads a title with the head phrase, or drops the link
 // back out of the lead, reintroduces exactly the problem this fixed.
+// Two of the four (the reminder how-to and the reports owner's guide) already
+// led with something other than the head phrase and were not retitled; they are
+// pinned here prospectively, so the guard is forward-looking for them rather
+// than a record of a change. `startsWith` is the deliberate predicate, not
+// `includes`: the reminder post's title legitimately contains "Payment Reminder
+// From Tally" mid-sentence, and only leading with the phrase is the collision.
 const RETITLED = [
   ['tally-on-mobile', 'tally-on-mobile'],
   ['view-tally-reports-on-mobile', 'tally-reports-on-mobile'],
