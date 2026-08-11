@@ -14,6 +14,7 @@ import {
   FileCheck,
   FileText,
   IndianRupee,
+  Link2,
   MessageCircle,
   MonitorCheck,
   RefreshCw,
@@ -62,7 +63,13 @@ const gridIconMap = {
   building: Building,
   chart: BarChart3,
   share: Share2,
+  link: Link2,
 };
+
+// Exported for home-v3.test.jsx. The lookup below falls back to a tick, so an
+// unmapped key renders a plausible wrong icon rather than an obvious hole;
+// the test needs the key list to catch that.
+export const GRID_ICON_KEYS = Object.keys(gridIconMap);
 
 const aiIconMap = {
   camera: Camera,

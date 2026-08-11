@@ -121,6 +121,62 @@ describe('feature page data contract', () => {
     return UNSAFE_CAPTURES.includes(file);
   };
 
+  // Placeholder artwork the operator still owes us, and the pages allowed to
+  // reference it. Both halves are load-bearing:
+  //
+  //   - a placeholder may only appear on a page that is behind a release gate,
+  //     so removing the page from HELD_PAGES turns the guard red until the real
+  //     image lands. That is the merge-day step, not a reviewer's memory.
+  //   - the sha256 pins the stamped artwork itself. Replace the file and this
+  //     goes red, which is what forces the entry out of the list rather than
+  //     letting it rot into a lie about what ships.
+  //
+  // The placeholder is a hazard-striped slab reading PLACEHOLDER. It is ugly on
+  // purpose: a tasteful grey box is the kind of thing that survives a review.
+  const PLACEHOLDER_ASSETS = {
+    'order-link-inbox-mockup':
+      '9810c7339e2303f880dda060f5f7f464a93e044aae27941d8e0ded5b5df2f113',
+  };
+  const HELD_PAGES = {
+    'order-booking-app-tally':
+      'Order Link v2 is stage-only. Prod customer_order_links still has the v1 shape and zero rows (verified 2026-08-11), so this page cannot publish yet.',
+  };
+
+  it('every held page is a real page, so the gate list cannot rot', () => {
+    const slugs = FEATURE_PAGES.map((p) => p.slug);
+    for (const slug of Object.keys(HELD_PAGES)) {
+      expect(slugs, `HELD_PAGES names "${slug}", which is not a page`).toContain(slug);
+    }
+  });
+
+  it('places every placeholder asset on a page that is still behind a gate', () => {
+    for (const page of FEATURE_PAGES) {
+      const used = [page.hero.image, ...page.walkthrough.map((s) => s.image)];
+      const placeholders = used
+        .map((src) => src.split('/').pop().replace(/\.(webp|png|jpg)$/, ''))
+        .filter((file) => file in PLACEHOLDER_ASSETS);
+      if (placeholders.length === 0) continue;
+      expect(
+        HELD_PAGES,
+        `${page.slug} publishes placeholder artwork (${placeholders.join(', ')}) ` +
+          'but is not behind a release gate. Land the real image before releasing it.'
+      ).toHaveProperty(page.slug);
+    }
+  });
+
+  it('has not quietly swapped a placeholder for real artwork', async () => {
+    const { createHash } = await import('node:crypto');
+    for (const [file, expected] of Object.entries(PLACEHOLDER_ASSETS)) {
+      const path = resolve(repoRoot, `public/assets/screenshots/${file}.webp`);
+      const actual = createHash('sha256').update(readFileSync(path)).digest('hex');
+      expect(
+        actual,
+        `${file}.webp is no longer the stamped placeholder. Drop it from ` +
+          'PLACEHOLDER_ASSETS in the same commit that lands the real image.'
+      ).toBe(expected);
+    }
+  });
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: uses no screenshot carrying real customer data',
     (_slug, page) => {

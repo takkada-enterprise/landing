@@ -57,10 +57,20 @@ export const FEATURE_GROUPS = [
     ],
   },
   {
+    // The id is the section's DOM anchor and stays put; the title moved.
+    // "Your team in the market" covered three pages about the salesman's day
+    // and then fought its own intro once the customer ordering link joined,
+    // because the retailer sending his own order is nobody's team. What all
+    // four pages share is where the order comes from, so that is the heading.
     id: 'team-in-the-market',
-    title: 'Your team in the market',
-    intro: 'What your salesmen do between leaving at nine and reporting at night.',
-    slugs: ['salesman-app-tally', 'sales-order-on-mobile', 'handwritten-order-to-tally'],
+    title: 'Orders from the market',
+    intro: 'Every way an order reaches your books from outside the office, whether your salesman brings it in or the retailer sends it himself.',
+    slugs: [
+      'salesman-app-tally',
+      'sales-order-on-mobile',
+      'handwritten-order-to-tally',
+      'order-booking-app-tally',
+    ],
   },
   {
     id: 'gst-paperwork',
@@ -135,6 +145,8 @@ export const FEATURE_BLURBS = {
     'Orders booked against live stock and written into Tally, with the pending quantity visible.',
   'handwritten-order-to-tally':
     'A photograph of the order book page turned into draft voucher lines you approve.',
+  'order-booking-app-tally':
+    'A link your retailer opens with nothing installed, ordering from your catalogue at your rates.',
   'e-invoice-from-phone':
     'IRN and signed QR raised without a portal login, written back onto the same Tally voucher.',
   'e-way-bill-from-phone':

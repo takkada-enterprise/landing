@@ -816,7 +816,11 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
 
 .home-v3 .hv3-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* Three columns on desktop rather than four: nine tiles fill 3x3 exactly,
+     and the wider card stops every second description wrapping to four lines.
+     min(300px, 100%) rather than a bare 300px so a 320px phone cannot push
+     the track wider than its container and give the page a sideways scroll. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 16px;
 }
 

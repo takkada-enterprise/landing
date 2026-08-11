@@ -2214,4 +2214,208 @@ export const SECOND_BATCH = [
     ],
     priority: 0.8,
   },
+
+  // ── Customer ordering link ────────────────────────────────────────────────
+  // HELD. This page describes Order Link v2, which is live on stage and NOT on
+  // prod: prod's customer_order_links still has the v1 shape (no pricing_mode,
+  // no party_ledger_id, no price_level_name, no include_out_of_stock_items) and
+  // carries zero rows, and the five 20260809-18xxxx customer_order_v2_*
+  // migrations are absent from supabase-functions origin/main. Verified against
+  // both live databases on 2026-08-11. The PR carrying this object stays a
+  // draft until that is no longer true — see the checklist in its body.
+  //
+  // Every claim below was exercised on stage on 2026-08-11 against company 112
+  // "Shreeji Distributors (Demo)", not read off a spec: a personal link was
+  // created through customer_order_create_link, opened at
+  // stage.takkada.com/order/, and an order was placed end to end. Two things
+  // that run were deliberately left unclaimed because nobody has watched them
+  // finish on prod: the approved order landing in Tally as a sales order, and
+  // the GST lookup's live GSTN round trip.
+  //
+  // The screenshots come from that demo company. Its item and party names are
+  // invented for the demo. Captures were NOT taken from company 418 Sri Balaji
+  // Distributors, whose stage catalogue is a real customer's.
+  {
+    slug: 'order-booking-app-tally',
+    searchPhrase: 'Order booking app for Tally',
+    overline: 'CUSTOMER ORDERS',
+    headline: 'Order booking app for Tally, and your retailer installs nothing.',
+    // The distributor's evening, not the product (CLAUDE.md craft rule 11).
+    // The answer block below is where the capability list belongs.
+    subheadline:
+      'The order reaches you at nine at night. A voice note, a photo of a diary page, and somebody types it into Tally in the morning and hopes the rates were right.',
+    // Front-loaded answer, 50 words. Entity-first because this is the passage
+    // an AI-search engine lifts, and it opens with the search phrase verbatim
+    // because src/data/__tests__/feature-pages.test.js asserts exactly that.
+    answer:
+      'Takkada is an order booking app for Tally where your retailer needs nothing installed. You send him a link on WhatsApp. He opens your catalogue at your rates, puts in quantities, and sends the order. You approve it with one tap and it becomes a sales order in your Tally.',
+    waContext: 'feature-order-booking-app-tally',
+    waMessage:
+      'Hi, I want my retailers ordering from a link instead of sending voice notes at night. Can you show me how the Takkada ordering link works?',
+    seo: {
+      title: 'Order Booking App for Tally | No App for Buyers | Takkada',
+      description:
+        'Order booking app for Tally: send retailers a link, they order from your catalogue at your rates, and you approve each order into Tally as a sales order.',
+    },
+    llms: {
+      section: 'Features',
+      title: 'Order booking app for Tally',
+      summary:
+        'Customer ordering link for distributors on Tally: the retailer opens a WhatsApp link, browses the priced catalogue and places an order without installing an app or logging in. Prices are resolved from the merchant’s own books, per-buyer links carry that party’s rates, and the merchant approves each order into Tally as a sales order.',
+    },
+    footerLabel: 'Customer order link',
+    // The hero is this page's LCP element, so it is budgeted in
+    // scripts/checkImageBudgets.mjs and rendered eagerly. Showing the buyer's
+    // real screen with the running total does more than a diagram of the flow.
+    hero: {
+      image: '/assets/screenshots/order-link-buyer-mockup.webp',
+      alt: 'A distributor’s ordering link open on a phone, showing priced items, quantity steppers and a running order total',
+      width: 600,
+      height: 1243,
+    },
+    author: 'founder',
+    datePublished: '2026-08-11',
+    updated: '2026-08-11',
+    walkthroughHeading: 'One order, from his phone into your Tally',
+    walkthrough: [
+      {
+        icon: 'Link2',
+        title: 'You send him a link, once',
+        body:
+          'He opens it and your catalogue is already there, at the rates you decided. Nothing to download, no account to make, no password for him to forget and ring you about.',
+        image: '/assets/screenshots/order-link-catalog-mockup.webp',
+        alt: 'Ordering link showing a distributor’s item list with prices and a search box',
+        width: 600,
+        height: 1243,
+      },
+      {
+        icon: 'ListChecks',
+        title: 'He puts in quantities and watches the total',
+        body:
+          'Search by a few letters, set the quantity in the unit you actually sell in, and the running total sits at the bottom of the screen. Rates come from your books, so nothing is negotiated in his browser.',
+        image: '/assets/screenshots/order-link-cart-mockup.webp',
+        alt: 'Order review screen listing each item, its rate and the total before GST',
+        width: 600,
+        height: 1243,
+      },
+      {
+        icon: 'Send',
+        title: 'He sends it with his mobile number and nothing else',
+        body:
+          'No login and no OTP. He types his mobile number, adds a line about delivery if he wants, and the order goes. He gets a reference number back, and on a personal link his shop name is already on the order.',
+        image: '/assets/screenshots/order-link-sent-mockup.webp',
+        alt: 'Order confirmation screen showing the order reference, the item lines and the total before GST',
+        width: 600,
+        height: 1243,
+      },
+      {
+        // PLACEHOLDER ASSET. Listed in PENDING_OPERATOR_ASSETS in
+        // src/data/__tests__/feature-pages.test.js, which fails while it is
+        // still here. Operator is supplying the real mockup.
+        icon: 'CheckCheck',
+        title: 'It lands with you, and you decide',
+        body:
+          'The order arrives in your inbox with the party already matched against your books. Approve it and it becomes a sales order in your Tally. Nobody retypes the lines, and the rates were yours the whole way.',
+        image: '/assets/screenshots/order-link-inbox-mockup.webp',
+        alt: 'Merchant order inbox showing an incoming customer order ready to approve into Tally',
+        width: 600,
+        height: 1243,
+      },
+    ],
+    comparison: {
+      heading: 'What your retailer has to do before he can order',
+      othersLabel: 'Other Tally mobile apps',
+      rows: [
+        {
+          feature: 'What the retailer installs',
+          takkada: 'Nothing. He opens a link in whatever browser his phone already has',
+          others: 'A buyer app, or an account on a portal',
+        },
+        {
+          feature: 'How he signs in',
+          takkada: 'He does not. He confirms his mobile number when he sends the order',
+          others: 'Registration, then a password or an OTP each time',
+        },
+        {
+          feature: 'What price he sees',
+          takkada:
+            'Your Tally rates, a price level, rates you set on the link, or no prices at all',
+          others: 'Usually one list, the same for every buyer',
+        },
+        {
+          feature: 'Rates for a particular party',
+          takkada: 'A personal link carries that party’s own rates and names him on arrival',
+          others: 'Not offered on a public catalogue',
+        },
+        {
+          feature: 'Where the price is decided',
+          takkada: 'On the server, from your books, at browse and again at submit',
+          others: 'Varies, and a browser-side price can be edited',
+        },
+        {
+          feature: 'What the order becomes',
+          takkada: 'A sales order in your Tally once you approve it',
+          others: 'A record in the app, often re-entered by hand',
+        },
+      ],
+      disclaimer:
+        'Checked on 11 August 2026 against the Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
+    },
+    planPointer: {
+      plan: 'Momentum',
+      // R7: the ordering link carries no rate-card row and no price of its own.
+      // Naming the plan the resulting voucher needs is the honest pointer.
+      note:
+        'An approved order becomes a sales order in your Tally, and sales orders start at this plan. The ordering link itself is switched on per business rather than sold as a rate-card row, so ask for it when you set up.',
+    },
+    faqs: [
+      {
+        q: 'What is an order booking app for Tally?',
+        a: 'It is a way for your customers to place orders that land in your Tally without anybody retyping them. With Takkada the customer does not get an app at all. You send a link on WhatsApp, he opens your catalogue at your rates, picks quantities and sends the order, and you approve it into your books as a sales order.',
+      },
+      {
+        q: 'Does my retailer have to install anything or make an account?',
+        a: 'No. The link opens in whatever browser is already on his phone, and there is no download, no registration and no password. When he sends the order he confirms his mobile number, which is the only thing he types about himself. That is deliberate, because a retailer who has to make an account will simply send a voice note instead.',
+      },
+      {
+        q: 'Which prices does the customer see on the link?',
+        a: 'You choose per link. It can show the rates sitting in your Tally, the rates from a price level you already maintain, rates you set on the link itself, or no prices at all if you would rather confirm them yourself. Whichever you pick, the price is worked out on the server from your books, both while he browses and again when he sends the order.',
+      },
+      {
+        q: 'Can a particular retailer see his own rates?',
+        a: 'Yes. A link can be tied to one party in your books, and that link carries that party’s rates and arrives already named as him, so he never fills in who he is. Your other customers get a different link, and neither one can see what the other pays.',
+      },
+      {
+        q: 'What happens if somebody I do not know opens the link?',
+        a: 'He can identify himself with his GSTIN and the registered name fills itself in, so you get a usable name rather than whatever he felt like typing. If that GSTIN already belongs to a party in your books, the order arrives flagged as a match to that party instead of creating a second version of the same customer.',
+      },
+      {
+        q: 'Does the order go into Tally automatically?',
+        a: 'Only after you approve it. Every order sits in your inbox first, with the items, the quantities and the party it matched to. Nothing reaches your books until you accept it, so a stray or duplicate order stays out of Tally rather than being something you have to go and delete.',
+      },
+      {
+        q: 'Can I hide items that are out of stock?',
+        a: 'Yes, that is a setting on the link. You can leave out-of-stock items off the catalogue entirely, or leave them showing so a retailer can still order against a shipment that is on its way. Either way the buyer never sees your stock counts, only whether an item is there to order.',
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: 'salesman-order-to-tally-without-reentry',
+        title: 'Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally',
+      },
+      {
+        slug: 'field-order-collection-app-tally',
+        title: 'Field Order Collection App for Tally: What Salesmen Need on the Phone',
+      },
+      {
+        slug: 'credit-limit-for-retailers',
+        title: 'Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It',
+      },
+      {
+        slug: 'tally-whatsapp-invoice-dispatch',
+        title: 'Auto-Dispatching Invoices on WhatsApp from Tally: What It Is and What It Changes',
+      },
+    ],
+    priority: 0.9,
+  },
 ];
