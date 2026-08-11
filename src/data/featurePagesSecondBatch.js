@@ -2265,13 +2265,16 @@ export const SECOND_BATCH = [
     },
     footerLabel: 'Customer order link',
     // The hero is this page's LCP element, so it is budgeted in
-    // scripts/checkImageBudgets.mjs and rendered eagerly. Showing the buyer's
-    // real screen with the running total does more than a diagram of the flow.
+    // scripts/checkImageBudgets.mjs and rendered eagerly. Operator-supplied
+    // mockup (2026-08-11), and it earns the slot over the stage capture below
+    // it for one reason: the browser address bar is in the frame. The whole
+    // claim of this page is that the retailer installs nothing, and a phone
+    // showing an ordinary browser proves that faster than the sentence does.
     hero: {
       image: '/assets/screenshots/order-link-buyer-mockup.webp',
-      alt: 'A distributor’s ordering link open on a phone, showing priced items, quantity steppers and a running order total',
+      alt: 'A distributor’s ordering link open in a phone browser, showing priced items, quantity steppers and a running order total before GST',
       width: 600,
-      height: 1243,
+      height: 1218,
     },
     author: 'founder',
     datePublished: '2026-08-11',
@@ -2283,8 +2286,12 @@ export const SECOND_BATCH = [
         title: 'You send him a link, once',
         body:
           'He opens it and your catalogue is already there, at the rates you decided. Nothing to download, no account to make, no password for him to forget and ring you about.',
+        // The personal-link capture: the header reads "Ordering for <party>",
+        // which is the evidence behind the personal-link claim in the
+        // comparison table. The hero shows the public link, so this is the
+        // only place on the page that shows a link naming its buyer.
         image: '/assets/screenshots/order-link-catalog-mockup.webp',
-        alt: 'Ordering link showing a distributor’s item list with prices and a search box',
+        alt: 'Ordering link opened for a named retailer, showing the item list with prices, quantity steppers and a running total',
         width: 600,
         height: 1243,
       },
