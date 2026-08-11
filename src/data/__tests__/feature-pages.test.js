@@ -372,7 +372,7 @@ describe('hub tiers partition the feature pages', () => {
   const sections = () => sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
   const index = () => secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
 
-  it('names eight distinct lead slugs that are all real pages', () => {
+  it('names distinct lead slugs that are all real pages', () => {
     const known = new Set(FEATURE_PAGES.map((p) => p.slug));
     expect(new Set(LEAD_FEATURE_SLUGS).size).toBe(LEAD_FEATURE_SLUGS.length);
     expect(LEAD_FEATURE_SLUGS.filter((slug) => !known.has(slug))).toEqual([]);

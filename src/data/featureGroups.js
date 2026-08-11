@@ -182,17 +182,19 @@ export const FEATURE_BLURBS = {
 // for. It now opens with a lead tier, then two labelled sections, then a
 // compact index of everything else.
 //
-// The tiers are derived, not listed. Only the eight lead slugs and the two
-// section ids are written down; every other page falls into the index by
+// The tiers are derived, not listed. Only the lead slugs and the two section
+// ids are written down; every other page falls into the index by
 // subtraction. A twenty-eighth page therefore joins the hub on the strength of
 // its FEATURE_GROUPS entry alone, exactly as before, and nobody has to
 // remember a second list. That property is what the partition invariants in
 // src/data/__tests__/feature-pages.test.js exist to keep.
 
 /**
- * The eight features the hub opens with, in the order the operator approved
- * them (2026-08-11). Order is meaningful: this is the reading order of the
- * lead grid, of the header disclosure panel, and of the footer column.
+ * The features the hub opens with, in the order the operator approved them
+ * (2026-08-11). Order is meaningful: this is the reading order of the lead
+ * grid, of the header disclosure panel, and of the footer column. Adding a
+ * slug here promotes the page across all three surfaces and removes it from
+ * the compact index, because the index is what these leave behind.
  * @type {string[]}
  */
 export const LEAD_FEATURE_SLUGS = [
@@ -201,6 +203,12 @@ export const LEAD_FEATURE_SLUGS = [
   'tally-on-mobile',
   'tally-reports-on-mobile',
   'salesman-app-tally',
+  // Promoted 2026-08-11 on the operator's read of the shipped page: it was a
+  // plain name near the foot of the compact index, and a feature the site
+  // actively sells cannot be the hardest one on the page to find. Sits beside
+  // the salesman app because the two are the same story from opposite ends —
+  // the order arriving from outside the office, brought in or sent in.
+  'order-booking-app-tally',
   'e-invoice-from-phone',
   'e-way-bill-from-phone',
   'import-purchase-from-pdf',

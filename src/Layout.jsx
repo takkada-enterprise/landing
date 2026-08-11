@@ -90,7 +90,7 @@ function NavHashLink({ href, children, onClick, className }) {
 // The panel is always in the DOM. Closed, `inert` plus the CSS visibility step
 // keep its links out of the tab order and the accessibility tree, but a
 // crawler reads the HTML regardless — so every page of the site now carries
-// the eight lead-feature links, which is part of what pays for the footer's
+// the lead-feature links, which is part of what pays for the footer's
 // long tail being curated down.
 //
 // Deliberately NOT opening on focus of the chevron: Escape closes the panel and
