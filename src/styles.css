@@ -142,7 +142,8 @@
 :root .blog-post-body h3,
 :root .blog-related-heading,
 :root .blog-related-title,
-:root .features-hub-group-title {
+:root .features-hub-group-title,
+:root .features-hub-index-title {
   font-weight: var(--weight-display);
 }
 
@@ -341,6 +342,119 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
+/* ── Features disclosure (desktop nav) ──
+   A link and a chevron, not one merged button: the link keeps the hub in the
+   top menu on every page, the chevron owns the panel. The desktop nav starts
+   at 768px, so on an iPad the chevron is the only way in and its hit target is
+   a full 44px square, made from padding and pulled back with negative margin
+   so it does not blow the nav's spacing apart. */
+.nav-features {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-features-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: -4px -14px -4px -15px;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.nav-features:hover .nav-features-toggle,
+.nav-features.open .nav-features-toggle {
+  color: var(--color-text);
+}
+
+.nav-features.open .nav-features-toggle {
+  transform: rotate(180deg);
+}
+
+/* Anchored to the left edge of the item, not the right: "Features" sits near
+   the start of the nav, so a right-aligned panel would hang off the viewport
+   at tablet widths. The width clamp is the belt to that braces. */
+.nav-features-panel {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: -12px;
+  width: min(440px, calc(100vw - 48px));
+  padding: 12px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out),
+              visibility 0s linear var(--dur-fast);
+}
+
+.nav-features.open .nav-features-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.nav-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px 6px;
+}
+
+/* Scoped past `.nav-links a`, which sets the top-level item's size, colour and
+   the premium.css underline sweep. A menu row is none of those things. */
+.nav-links .nav-features-panel a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.nav-links .nav-features-panel a::after {
+  display: none;
+}
+
+.nav-links .nav-features-panel a:hover {
+  background: var(--color-sage-bg);
+  color: var(--color-primary);
+}
+
+.nav-links .nav-features-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-hairline);
+  border-radius: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.nav-links .nav-features-all:hover {
+  background: transparent;
+  color: var(--color-primary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-features-panel,
+  .nav-features-toggle { transition: none; }
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -359,7 +473,18 @@ html.js .animated-heading .letter {
   .mobile-menu-btn { display: flex; }
 }
 
-/* Mobile Overlay */
+/* Mobile Overlay ──
+   The surface never fades. An opaque panel animated from opacity 0 to 1 is
+   see-through for the whole length of the fade, which is the "the menu looks
+   like a rendering bug" report: page text reads straight through the menu
+   mid-animation. The panel now appears at once, on a visibility step borrowed
+   from .mobile-cta-bar below, and the links do the moving.
+
+   The visibility step also earns its keep when the menu is closed: this
+   element is `position: fixed; inset: 0` at every width, so with opacity
+   alone its links stayed in the tab order of every page, including desktop
+   where the menu can never be opened. `inert` in Layout.jsx covers the same
+   ground for browsers mid-transition; the two agree. */
 .mobile-overlay {
   position: fixed;
   inset: 0;
@@ -368,15 +493,21 @@ html.js .animated-heading .letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
+  justify-content: flex-start;
+  /* Top-aligned and scrollable: centred content sat under the header once the
+     header went opaque, and a menu taller than the viewport had no way down. */
+  padding: 96px 24px calc(40px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: visibility 0s linear var(--dur);
 }
 
 .mobile-overlay.open {
-  opacity: 1;
+  visibility: visible;
   pointer-events: all;
+  transition: visibility 0s;
 }
 
 .mobile-nav-links {
@@ -384,12 +515,33 @@ html.js .animated-heading .letter {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  width: 100%;
+  max-width: 320px;
+  margin: auto 0;
+}
+
+/* The one piece of motion here, and it teaches: the menu's contents arrive.
+   Nothing underneath is ever visible through them. */
+.mobile-nav-links > * {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.mobile-overlay.open .mobile-nav-links > * {
+  opacity: 1;
+  transform: none;
 }
 
 .mobile-nav-links a {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-overlay,
+  .mobile-nav-links > * { transition: none; }
 }
 
 /* ── Nav Connector Link ── */
