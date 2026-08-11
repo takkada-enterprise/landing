@@ -435,14 +435,47 @@ describe('feature page registration is automatic', () => {
     }
   );
 
-  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
-    '%s: is linked from the footer Features column',
-    (_slug, page) => {
-      const features = footerColumns.find((c) => c.title === 'Features');
-      expect(features).toBeDefined();
-      expect(features.links.some((l) => l.page === page.slug)).toBe(true);
-    }
-  );
+  // REVERSED 2026-08-11, deliberately. This asserted that every feature page
+  // was linked from the footer on every page of the site. That was the whole
+  // strategy until the column reached twenty-seven links and became a
+  // grid-spanning block of small type that a reader learns to skip. The column
+  // is now curated to the lead tier, and restoring the dump would undo the
+  // change — so the assertion is inverted rather than deleted, and says what
+  // the footer is now FOR. Reachability moved to the hub and is asserted below
+  // as a union, which is the claim that actually matters (R12).
+  it('carries exactly the lead tier plus a way up to the hub in the footer column', () => {
+    const features = footerColumns.find((c) => c.title === 'Features');
+    expect(features).toBeDefined();
+    expect(features.links.map((l) => l.page)).toEqual(['features', ...LEAD_FEATURE_SLUGS]);
+  });
+
+  it('still reaches every feature page from the hub and footer together', () => {
+    const footerSlugs = footerColumns
+      .find((c) => c.title === 'Features')
+      .links.map((l) => l.page);
+    // The hub tiers cover FEATURE_PAGES exactly (asserted above), so the union
+    // is the hub. Stated as a union anyway: if the hub's coverage is ever
+    // narrowed, this names the page that lost its last crawlable link rather
+    // than leaving it to the build guard alone.
+    const reachable = new Set([
+      ...leadFeaturePages(FEATURE_PAGES).map((p) => p.slug),
+      ...sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
+      ...secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
+      ...footerSlugs,
+    ]);
+    expect(FEATURE_PAGES.filter((p) => !reachable.has(p.slug)).map((p) => p.slug)).toEqual([]);
+  });
+
+  it('gives the footer the connector download under a label of its own', () => {
+    const product = footerColumns.find((c) => c.title === 'Product');
+    const downloads = product.links.filter((l) => l.download);
+    expect(downloads).toHaveLength(1);
+    // The homepage-section link and the installer must not share a label: one
+    // scrolls, one starts a download, and they sit a row apart.
+    expect(downloads[0].label).not.toBe('Tally Connector');
+    expect(downloads[0].href).toMatch(/\.exe$/);
+    expect(product.links.some((l) => l.href === '#tally')).toBe(true);
+  });
 
   // Asserting WHATSAPP_MESSAGES[waContext] === waMessage would be circular:
   // whatsapp.js builds that map from these same entries, so both sides move

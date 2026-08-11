@@ -277,6 +277,17 @@ describe('header top level', () => {
     const mobile = renderLayout().querySelector('.mobile-nav-links');
     expect(mobile.querySelectorAll('a[download]').length).toBeGreaterThan(0);
   });
+
+  // The data side of this is pinned in feature-pages.test.js; what is checked
+  // here is that SiteFooter's plain-anchor branch passes the flag through at
+  // all, and that it does not hand one to the mailto and social links that
+  // share the branch.
+  it('renders the footer connector as a download and nothing else in the footer', () => {
+    const footer = renderLayout().querySelector('.footer');
+    const downloads = [...footer.querySelectorAll('a[download]')];
+    expect(downloads).toHaveLength(1);
+    expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
+  });
 });
 
 // The open menu read as a rendering bug on a phone: page text showed straight

@@ -343,8 +343,13 @@ function SiteFooter() {
                       <NavHashLink key={link.label} href={link.href}>{link.label}</NavHashLink>
                     );
                   }
+                  // `download` is passed through rather than assumed from the
+                  // href: the Connect column's mailto and social links live on
+                  // this same branch and must not acquire one.
                   return (
-                    <a href={link.href} key={link.label}>{link.label}</a>
+                    <a href={link.href} key={link.label} download={link.download}>
+                      {link.label}
+                    </a>
                   );
                 })}
                 </div>

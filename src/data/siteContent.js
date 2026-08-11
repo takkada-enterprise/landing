@@ -1,4 +1,19 @@
 import { featureFooterLinks } from './featurePages.js';
+import { LEAD_FEATURE_SLUGS } from './featureGroups.js';
+
+// The footer's Features column, curated 2026-08-11 down to the lead tier. It
+// used to carry every feature page, which past ten links spilled into a
+// grid-spanning block of small type on every page of the site — the shape a
+// reader learns to skip. Order follows LEAD_FEATURE_SLUGS, so the column, the
+// header panel and the hub's lead grid read the same way round.
+//
+// Reachability is unaffected and provable: the hub links all of them and its
+// build guard fails if it ever stops, the header panel now carries the lead
+// eight on every page, and the union is asserted in
+// src/data/__tests__/feature-pages.test.js.
+const leadFooterLinks = LEAD_FEATURE_SLUGS.map((slug) =>
+  featureFooterLinks.find((link) => link.page === slug)
+).filter(Boolean);
 
 // Anchor contract (CLAUDE.md §11.6): every #id here must exist as an element
 // id on the rendered Home page. "How It Works" left with the section it
@@ -621,12 +636,23 @@ export const faqItems = [
   },
 ];
 
+// Named here rather than read off appLinks below, which is declared after this
+// array and would be in its temporal dead zone. appLinks.tallyConnector points
+// at this same constant, so there is still one URL.
+const TALLY_CONNECTOR_URL =
+  'https://paysaathi-desktop-autoupdate.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe';
+
 export const footerColumns = [
   {
     title: 'Product',
     links: [
       { label: 'Import from PDF', href: '#pdf-import' },
       { label: 'Tally Connector', href: '#tally' },
+      // The installer itself, directly under the section that explains it.
+      // Wording is deliberately different from the line above: two links a row
+      // apart both reading "Tally Connector", one scrolling and one starting a
+      // download, is the collision this label exists to avoid.
+      { label: 'Download for Windows', href: TALLY_CONNECTOR_URL, download: true },
       { label: 'Payment Collection', href: '#digital-collection' },
       { label: 'Smart Reminders', href: '#smart-reminders' },
       { label: 'E-Invoicing', href: '#e-invoicing' },
@@ -634,14 +660,11 @@ export const footerColumns = [
     ],
   },
   {
-    // Built from FEATURE_PAGES, so a new feature landing page is linked from
-    // every page of the site the moment it is added. Internal links are the
-    // thing the six older feature pages never had, and the Clarity data says
-    // that is why they pull no search entries.
     title: 'Features',
     // The hub leads the column so the footer has a way up to the directory as
-    // well as across to each page.
-    links: [{ label: 'All features', page: 'features' }, ...featureFooterLinks],
+    // well as across to each page. See leadFooterLinks above for why the
+    // column stops at the lead tier.
+    links: [{ label: 'All features', page: 'features' }, ...leadFooterLinks],
   },
   {
     title: 'Company',
@@ -683,7 +706,7 @@ export const appLinks = {
   download: 'https://onelink.to/zs6yp4',
   playStore: 'https://play.google.com/store/apps/details?id=com.paysaathi.takkadaapp',
   appStore: 'https://apps.apple.com/in/app/takkada/id6755435132',
-  tallyConnector: 'https://paysaathi-desktop-autoupdate.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe',
+  tallyConnector: TALLY_CONNECTOR_URL,
   bookDemo: 'https://calendar.notion.so/meet/ronakmalu/takkada',
   // WhatsApp Business number behind every wa.me CTA (digits only, country
   // code included). Currently the founder's number from CLAUDE.md §13; swap
