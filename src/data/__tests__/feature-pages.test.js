@@ -10,6 +10,16 @@ import {
   featurePagePath,
   getFeaturePage,
 } from '../featurePages';
+import {
+  FEATURE_BLURBS,
+  FEATURE_GROUPS,
+  LEAD_FEATURE_SLUGS,
+  SECTION_GROUP_IDS,
+  drainedGroupIds,
+  leadFeaturePages,
+  secondaryFeatureGroups,
+  sectionFeatureGroups,
+} from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
@@ -347,6 +357,67 @@ describe('feature page data contract', () => {
   it('resolves a page by slug and returns undefined for an unknown one', () => {
     expect(getFeaturePage(FEATURE_PAGES[0].slug)).toBe(FEATURE_PAGES[0]);
     expect(getFeaturePage('no-such-page')).toBeUndefined();
+  });
+});
+
+// The hub renders three tiers now: a lead grid, two labelled sections, and a
+// compact index of the rest. Only the lead slugs and the section ids are
+// written down; the index is what is left over. These assertions are the reason
+// that subtraction is safe to rely on, and they run against the data rather
+// than a rendered page so they stay true of the header panel and the footer
+// column, which read the same exports.
+describe('hub tiers partition the feature pages', () => {
+  const slugsOf = (pages) => pages.map((p) => p.slug);
+  const lead = () => slugsOf(leadFeaturePages(FEATURE_PAGES));
+  const sections = () => sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
+  const index = () => secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
+
+  it('names eight distinct lead slugs that are all real pages', () => {
+    const known = new Set(FEATURE_PAGES.map((p) => p.slug));
+    expect(new Set(LEAD_FEATURE_SLUGS).size).toBe(LEAD_FEATURE_SLUGS.length);
+    expect(LEAD_FEATURE_SLUGS.filter((slug) => !known.has(slug))).toEqual([]);
+    // Resolution, not just membership: a slug that survives the check above but
+    // resolves to nothing would silently shorten the lead grid.
+    expect(lead()).toEqual(LEAD_FEATURE_SLUGS);
+  });
+
+  it('covers every feature page exactly once across the three tiers', () => {
+    const all = [...lead(), ...sections(), ...index()];
+    expect(new Set(all).size, 'a page appears in more than one tier').toBe(all.length);
+    expect(all.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
+  });
+
+  it('keeps the two comparison and trade groups out of the compact index', () => {
+    expect(sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id)).toEqual(SECTION_GROUP_IDS);
+    expect(secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id)).not.toContain(
+      SECTION_GROUP_IDS[0]
+    );
+  });
+
+  it('renders no empty heading in the compact index', () => {
+    for (const group of secondaryFeatureGroups(FEATURE_PAGES)) {
+      expect(group.pages.length, group.id).toBeGreaterThan(0);
+      expect(group.title).toBeTruthy();
+    }
+  });
+
+  // Every group id has been a linkable #anchor on the hub since it shipped.
+  // A group whose pages all got promoted to the lead tier stops heading a
+  // section, so its id has to be re-homed rather than dropped; the hub does
+  // that, and features-hub.test.jsx checks the DOM side.
+  it('accounts for the id of every group the lead tier drained', () => {
+    const drained = drainedGroupIds(FEATURE_PAGES);
+    const rendered = new Set([
+      ...sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id),
+      ...secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id),
+    ]);
+    expect([...rendered, ...drained].sort()).toEqual(FEATURE_GROUPS.map((g) => g.id).sort());
+    // Today that is exactly gst-paperwork: both its pages lead.
+    expect(drained).toEqual(['gst-paperwork']);
+  });
+
+  it('carries a directory line for every page, whichever tier it lands in', () => {
+    expect(FEATURE_PAGES.filter((p) => !FEATURE_BLURBS[p.slug]).map((p) => p.slug)).toEqual([]);
   });
 });
 

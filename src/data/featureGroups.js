@@ -175,6 +175,52 @@ export const FEATURE_BLURBS = {
     'Dealer receivables stretched from sowing right through to after the crop is sold.',
 };
 
+// ── Hub tiers (2026-08-11) ──
+//
+// The hub used to render nine equal groups of equal text cards, which is a wall
+// of uniform grey to anyone who does not already know what they are looking
+// for. It now opens with a lead tier, then two labelled sections, then a
+// compact index of everything else.
+//
+// The tiers are derived, not listed. Only the eight lead slugs and the two
+// section ids are written down; every other page falls into the index by
+// subtraction. A twenty-eighth page therefore joins the hub on the strength of
+// its FEATURE_GROUPS entry alone, exactly as before, and nobody has to
+// remember a second list. That property is what the partition invariants in
+// src/data/__tests__/feature-pages.test.js exist to keep.
+
+/**
+ * The eight features the hub opens with, in the order the operator approved
+ * them (2026-08-11). Order is meaningful: this is the reading order of the
+ * lead grid, of the header disclosure panel, and of the footer column.
+ * @type {string[]}
+ */
+export const LEAD_FEATURE_SLUGS = [
+  'payment-collection-tally',
+  'payment-reminder-tally',
+  'tally-on-mobile',
+  'tally-reports-on-mobile',
+  'salesman-app-tally',
+  'e-invoice-from-phone',
+  'e-way-bill-from-phone',
+  'import-purchase-from-pdf',
+];
+
+/**
+ * Groups that render as their own labelled section on the hub instead of as
+ * rows of the compact index. Both hold pages a visitor arrives at in a
+ * different frame of mind — comparing products, or checking the thing was
+ * built for their line of trade — so burying them in an alphabet of feature
+ * names would lose them.
+ * @type {string[]}
+ */
+export const SECTION_GROUP_IDS = ['weighing-options', 'built-for-your-trade'];
+
+const withBlurb = (page) => ({
+  ...page,
+  blurb: FEATURE_BLURBS[page.slug] ?? page.llms.summary,
+});
+
 /**
  * Fold FEATURE_PAGES into the groups above, preserving each group's slug order
  * and attaching each page's directory line as `blurb`.
@@ -190,9 +236,45 @@ export function groupFeaturePages(pages) {
 
   return FEATURE_GROUPS.map((group) => ({
     ...group,
-    pages: group.slugs
-      .map((slug) => bySlug.get(slug))
-      .filter(Boolean)
-      .map((page) => ({ ...page, blurb: FEATURE_BLURBS[page.slug] ?? page.llms.summary })),
+    pages: group.slugs.map((slug) => bySlug.get(slug)).filter(Boolean).map(withBlurb),
   }));
+}
+
+/** The lead tier, in LEAD_FEATURE_SLUGS order. */
+export function leadFeaturePages(pages) {
+  const bySlug = new Map(pages.map((page) => [page.slug, page]));
+  return LEAD_FEATURE_SLUGS.map((slug) => bySlug.get(slug)).filter(Boolean).map(withBlurb);
+}
+
+/** The groups that render as their own labelled section, in FEATURE_GROUPS order. */
+export function sectionFeatureGroups(pages) {
+  return groupFeaturePages(pages).filter((group) => SECTION_GROUP_IDS.includes(group.id));
+}
+
+/**
+ * The compact index: every group that is not a section, minus the pages already
+ * shown in the lead tier. A group left with nothing is dropped rather than
+ * rendered as an empty heading — see drainedGroupIds for what happens to its
+ * DOM anchor.
+ */
+export function secondaryFeatureGroups(pages) {
+  const lead = new Set(LEAD_FEATURE_SLUGS);
+  return groupFeaturePages(pages)
+    .filter((group) => !SECTION_GROUP_IDS.includes(group.id))
+    .map((group) => ({ ...group, pages: group.pages.filter((page) => !lead.has(page.slug)) }))
+    .filter((group) => group.pages.length > 0);
+}
+
+/**
+ * Group ids that no longer head a rendered section because every one of their
+ * pages was promoted to the lead tier. "GST paperwork" is the first: both its
+ * pages lead. Their ids are still anchor targets that have been linkable since
+ * the hub shipped, so the hub re-attaches them to the lead section rather than
+ * letting them 404 into the top of the page.
+ */
+export function drainedGroupIds(pages) {
+  const surviving = new Set(secondaryFeatureGroups(pages).map((group) => group.id));
+  return FEATURE_GROUPS.filter(
+    (group) => !SECTION_GROUP_IDS.includes(group.id) && !surviving.has(group.id)
+  ).map((group) => group.id);
 }
