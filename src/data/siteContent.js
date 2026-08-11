@@ -4,12 +4,21 @@ import { featureFooterLinks } from './featurePages.js';
 // id on the rendered Home page. "How It Works" left with the section it
 // pointed at (Home v3, 2026-08-03); the setup story lives in the FAQ now.
 export const navLinks = [
-  { label: 'Product', href: '#product' },
+  // "Product" left the top level on 2026-08-11. It scrolled to a homepage
+  // section, so from any other page it was a link back to the homepage
+  // labelled as though it went somewhere about the product, and it sat next to
+  // Features saying roughly the same thing. Home keeps its #product id: the
+  // anchor contract runs one way, ids without menu items break nothing.
+  //
   // Points at the hub page, not the homepage #features section. The section
-  // still exists and still tells the story; what it cannot do is give the 26
+  // still exists and still tells the story; what it cannot do is give the
   // feature landing pages a crawlable parent, which is the job this slot now
-  // does. Two "Features" entries would only confuse the menu.
-  { label: 'Features', href: '/features' },
+  // does. `disclosure` opts this entry into the desktop panel in Layout.jsx —
+  // it stays an ordinary link everywhere else, the mobile menu included.
+  { label: 'Features', href: '/features', disclosure: 'features' },
+  // The one documented exception to "no homepage-section anchors in the top
+  // level": there is no standalone pricing page to point at, and creating one
+  // is out of scope. Revisit if a /pricing route ever ships.
   { label: 'Pricing', href: '#pricing' },
   { label: 'Partners', href: '/partners' },
   { label: 'Blog', href: '/blog' },
