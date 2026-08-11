@@ -42,6 +42,16 @@ Add-ons (per year):
 
 Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 
+**Bigger setups** (published on the public rate card 2026-08-11; the live source is `biggerSetups` in `src/data/siteContent.js`, pinned by `src/routes/__tests__/pricing-table.test.jsx`):
+- **Host it on your own server: ₹30,000 one-time implementation, then ₹15,000/year maintenance from the second year.** The customer's database and backend run on their own server.
+- **Consolidated reports across companies: custom pricing.** One combined view of receivables, sales and reports across every company the customer runs.
+
+Both figures are operator-supplied (2026-08-06) and print on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
+
+These are deliberately **not** plan columns and **not** capability-matrix rows: neither is priced per user, and the self-hosting line carries two figures on two different clocks, which the add-on pill strip (label + one price string) cannot render without dropping one. They close the rate table as their own block. Do not "tidy" either one into the matrix or the add-on list.
+
+Claims discipline: both are capability claims with **zero delivered deployments as of 2026-08-11**. No adoption language anywhere near them, and the first buyer is also the first implementation. `pitch-deck/product-deck-claims-2026-08.md` still records these two rows as "not on the public site/rate card" and needs correcting now that they are.
+
 ## 4. GTM motion
 
 Reseller-led through the Tally partner network (~18,000 certified partners nationally). Partners earn recurring commission on every plan sold and every renewal, with the exact percentage confirmed in the partner agreement. Do not publish a fixed commission percentage on the public site; the agreement governs the commercials. Commissions paid 5th of every month via UPI. "First 3 customers done-with-you": Takkada handles the first three sales end-to-end for each new partner.

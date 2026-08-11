@@ -8,7 +8,8 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { pricing, planPricing } from '../../data/siteContent';
+import { pricing, planPricing, formatInr, biggerSetups } from '../../data/siteContent';
+import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -102,5 +103,102 @@ describe('pricing comparison table', () => {
     expect(container.querySelectorAll('.rate-picker-option[aria-pressed]')).toHaveLength(
       pricing.plans.length
     );
+  });
+});
+
+// The self-hosting and multi-company lines are quoted per business, not per
+// user, so they close the table as their own block instead of becoming a
+// fifth plan column or a capability row. These guards pin that placement and
+// pin both figures to formatInr, because the deck (slide 13) and the site
+// have to keep saying the same number to the same prospect.
+describe('bigger setups block', () => {
+  it('renders inside the rate table, after the add-on strip', () => {
+    const container = renderHome();
+    const table = container.querySelector('.rate-table');
+    const bigger = container.querySelector('.rate-bigger');
+    expect(bigger, 'the bigger-setups block is missing').toBeTruthy();
+    expect(table.contains(bigger), 'the block orphaned below the table').toBe(true);
+
+    const addons = container.querySelector('.rate-addons');
+    expect(
+      addons.compareDocumentPosition(bigger) & Node.DOCUMENT_POSITION_FOLLOWING,
+      'the block must come after the add-on strip'
+    ).toBeTruthy();
+  });
+
+  it('carries both self-hosting figures, derived rather than typed', () => {
+    const container = renderHome();
+    const card = [...container.querySelectorAll('.rate-bigger-card')].find((el) =>
+      /own server/i.test(el.textContent)
+    );
+    expect(card, 'no self-hosting card rendered').toBeTruthy();
+    // Recomputed here, so a hand-typed rupee string in the component or the
+    // data entry fails this instead of drifting silently from the deck.
+    expect(card.textContent).toContain(formatInr(30000));
+    expect(card.textContent).toContain(formatInr(15000));
+    expect(card.textContent).toMatch(/one-time implementation/i);
+    expect(card.textContent).toMatch(/from the second year/i);
+  });
+
+  it('sets every rupee figure in tabular figures', () => {
+    const container = renderHome();
+    const amounts = [...container.querySelectorAll('.rate-bigger-amount')];
+    expect(amounts.length).toBeGreaterThan(0);
+    for (const el of amounts) {
+      if (!el.textContent.includes('₹')) continue;
+      expect(
+        el.classList.contains('tabular-nums'),
+        `"${el.textContent}" is not in tabular figures`
+      ).toBe(true);
+    }
+    // Every ₹ figure in the block lives in an amount span. A figure written
+    // into the prose would escape the tabular-nums check above.
+    const prose = [...container.querySelectorAll('.rate-bigger-card-body, .rate-bigger-note')];
+    for (const el of prose) {
+      expect(el.textContent, 'a rupee figure escaped into the prose').not.toContain('₹');
+    }
+  });
+
+  it('quotes the multi-company line without a rupee figure', () => {
+    const container = renderHome();
+    const card = [...container.querySelectorAll('.rate-bigger-card')].find((el) =>
+      /across companies/i.test(el.textContent)
+    );
+    expect(card, 'no multi-company card rendered').toBeTruthy();
+    expect(card.textContent).toContain('Custom pricing');
+    expect(card.textContent).not.toContain('₹');
+  });
+
+  it('did not become a plan column or a capability row', () => {
+    expect(pricing.plans).toHaveLength(4);
+    expect(pricing.matrix).toHaveLength(4);
+    const labels = [
+      ...pricing.plans.map((p) => p.plan),
+      ...pricing.matrix.flatMap((g) => [g.group, ...g.rows.map((r) => r.label)]),
+      ...pricing.addons.map((a) => a.label),
+    ].join(' | ');
+    expect(labels).not.toMatch(/self-host|own server|consolidated report/i);
+  });
+
+  it('sends the block CTA to its own WhatsApp context', () => {
+    const container = renderHome();
+    const cta = container.querySelector('.rate-bigger-foot a[href*="wa.me"]');
+    expect(cta, 'the block has no WhatsApp CTA').toBeTruthy();
+    expect(cta.getAttribute('href')).toContain(
+      encodeURIComponent(WHATSAPP_MESSAGES['bigger-setups'])
+    );
+    expect(cta.getAttribute('href')).not.toContain(
+      encodeURIComponent(WHATSAPP_MESSAGES.pricing)
+    );
+  });
+
+  it('keeps adoption language away from an option nobody has taken yet', () => {
+    // Zero delivered self-hosted deployments as of 2026-08-11. A capability
+    // claim is allowed here; a usage claim is not (CLAUDE.md §3, §5).
+    const text = [
+      biggerSetups.note,
+      ...biggerSetups.items.flatMap((i) => [i.title, i.body]),
+    ].join(' ');
+    expect(text).not.toMatch(/customers (run|use|host)|used by|trusted by|\d+\s*(businesses|companies) (run|use)/i);
   });
 });
