@@ -359,7 +359,18 @@ html.js .animated-heading .letter {
   .mobile-menu-btn { display: flex; }
 }
 
-/* Mobile Overlay */
+/* Mobile Overlay ──
+   The surface never fades. An opaque panel animated from opacity 0 to 1 is
+   see-through for the whole length of the fade, which is the "the menu looks
+   like a rendering bug" report: page text reads straight through the menu
+   mid-animation. The panel now appears at once, on a visibility step borrowed
+   from .mobile-cta-bar below, and the links do the moving.
+
+   The visibility step also earns its keep when the menu is closed: this
+   element is `position: fixed; inset: 0` at every width, so with opacity
+   alone its links stayed in the tab order of every page, including desktop
+   where the menu can never be opened. `inert` in Layout.jsx covers the same
+   ground for browsers mid-transition; the two agree. */
 .mobile-overlay {
   position: fixed;
   inset: 0;
@@ -368,15 +379,21 @@ html.js .animated-heading .letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
+  justify-content: flex-start;
+  /* Top-aligned and scrollable: centred content sat under the header once the
+     header went opaque, and a menu taller than the viewport had no way down. */
+  padding: 96px 24px calc(40px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: visibility 0s linear var(--dur);
 }
 
 .mobile-overlay.open {
-  opacity: 1;
+  visibility: visible;
   pointer-events: all;
+  transition: visibility 0s;
 }
 
 .mobile-nav-links {
@@ -384,12 +401,33 @@ html.js .animated-heading .letter {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  width: 100%;
+  max-width: 320px;
+  margin: auto 0;
+}
+
+/* The one piece of motion here, and it teaches: the menu's contents arrive.
+   Nothing underneath is ever visible through them. */
+.mobile-nav-links > * {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.mobile-overlay.open .mobile-nav-links > * {
+  opacity: 1;
+  transform: none;
 }
 
 .mobile-nav-links a {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-overlay,
+  .mobile-nav-links > * { transition: none; }
 }
 
 /* ── Nav Connector Link ── */

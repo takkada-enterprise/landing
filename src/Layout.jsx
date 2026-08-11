@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
 import { Download, Menu, X } from 'lucide-react';
@@ -8,6 +8,8 @@ import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
 import { navLinks, footerColumns, contactInfo, appLinks } from './data/siteContent';
 import { organizationSchema, webSiteSchema } from './data/schema';
+
+const MOBILE_MENU_ID = 'mobile-menu';
 
 function hashTargetFrom(href) {
   if (!href || !href.startsWith('#')) return null;
@@ -61,10 +63,10 @@ function NavHashLink({ href, children, onClick, className }) {
   );
 }
 
-function SiteHeader({ menuOpen, setMenuOpen, scrolled }) {
+function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef }) {
   const { setOpen } = usePhoneModal();
   return (
-    <header className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`site-nav ${scrolled ? 'scrolled' : ''}${menuOpen ? ' menu-open' : ''}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
           {/* 360x128 WebP, not the 1172px PNG: this renders at 107x38 and sits
@@ -95,8 +97,11 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled }) {
         <button
           type="button"
           className="mobile-menu-btn"
+          ref={menuButtonRef}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls={MOBILE_MENU_ID}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -105,10 +110,48 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled }) {
   );
 }
 
-function MobileMenu({ menuOpen, setMenuOpen }) {
+// The overlay is `position: fixed; inset: 0` at every width and is never
+// unmounted, so without `inert` its links sat in the tab order of every page
+// on the site, desktop included, where the menu cannot even be opened. `inert`
+// takes them out of the tab order and the accessibility tree; the CSS
+// visibility step does the same for the paint. Dialog semantics follow
+// PhoneModal.jsx: labelled, modal, Escape closes, focus moves in on open and
+// returns to the toggle on close.
+function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
   const { setOpen } = usePhoneModal();
+  const overlayRef = useRef(null);
+  const wasOpen = useRef(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      overlayRef.current?.querySelector('a, button')?.focus();
+    } else if (wasOpen.current) {
+      // Only on a real close. Without the wasOpen guard every mount would
+      // steal focus to the hamburger before the visitor had touched anything.
+      menuButtonRef?.current?.focus();
+    }
+    wasOpen.current = menuOpen;
+  }, [menuOpen, menuButtonRef]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [menuOpen, setMenuOpen]);
+
   return (
-    <div className={`mobile-overlay ${menuOpen ? 'open' : ''}`}>
+    <div
+      id={MOBILE_MENU_ID}
+      ref={overlayRef}
+      className={`mobile-overlay ${menuOpen ? 'open' : ''}`}
+      role={menuOpen ? 'dialog' : undefined}
+      aria-modal={menuOpen ? 'true' : undefined}
+      aria-label={menuOpen ? 'Menu' : undefined}
+      inert={!menuOpen}
+    >
       <nav className="mobile-nav-links">
         {navLinks.map((l) => (
           <NavHashLink key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
@@ -239,8 +282,19 @@ function LayoutInner() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const menuButtonRef = useRef(null);
 
   useScrollToHash();
+
+  // Any route change closes the menu, not just a tap on one of its links.
+  // Browser back and forward used to leave the overlay open over the new page
+  // with `lock-scroll` still on the body, so the page could not be scrolled and
+  // nothing on screen explained why. The per-link closers below stay: on the
+  // homepage NavHashLink scrolls with history.replaceState, which never moves
+  // the router location, so this effect would not fire for the Pricing anchor.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -264,8 +318,13 @@ function LayoutInner() {
         <script type="application/ld+json">{JSON.stringify(organizationSchema())}</script>
         <script type="application/ld+json">{JSON.stringify(webSiteSchema())}</script>
       </Head>
-      <SiteHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} scrolled={scrolled || forceLightNav} />
-      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <SiteHeader
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        scrolled={scrolled || forceLightNav}
+        menuButtonRef={menuButtonRef}
+      />
+      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} menuButtonRef={menuButtonRef} />
       <Outlet />
       <SiteFooter />
       <StickyMobileCTA menuOpen={menuOpen} />

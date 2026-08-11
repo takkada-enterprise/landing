@@ -68,6 +68,19 @@ body {
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   box-shadow: 0 1px 0 rgba(20,36,28,0.06), 0 12px 30px -22px rgba(20,36,28,0.3);
 }
+
+/* With the mobile menu open the header is the top of one opaque surface, not
+   a glass strip floating over it. The blurred .scrolled background sampled the
+   page underneath and showed it through the header band while the overlay sat
+   below at z-index 99. Declared after .scrolled (same specificity) in the file
+   that loads last, so it wins over both copies of the .scrolled rule. */
+.site-nav.menu-open {
+  background: var(--color-white);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
 .nav-links a { position: relative; }
 /* Full-width underline revealed by transform, not by animating `right` —
    scaleX composites on the GPU; the old right-edge animation relaid out

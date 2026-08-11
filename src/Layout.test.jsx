@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 // Passthrough Head so global + page JSON-LD render inline into the container.
 vi.mock('vite-react-ssg', () => ({
@@ -148,5 +148,104 @@ describe('Features nav slot', () => {
       a.getAttribute('href')
     );
     expect(hrefs).toContain('/features');
+  });
+});
+
+// The open menu read as a rendering bug on a phone: page text showed straight
+// through it. The paint half of that fix is CSS (the surface no longer fades),
+// which jsdom cannot see, so what is asserted here is the contract the CSS and
+// the assistive-technology tree both hang off: the open/inert/dialog state, and
+// the navigation paths that must put the menu back.
+describe('mobile menu overlay', () => {
+  function renderLayout() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+            <Route path="partners" element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    return {
+      container,
+      overlay: () => container.querySelector('.mobile-overlay'),
+      toggle: () => container.querySelector('.mobile-menu-btn'),
+    };
+  }
+
+  it('starts closed, inert, and out of the accessibility tree', () => {
+    const { overlay, toggle } = renderLayout();
+    expect(overlay().className).not.toContain('open');
+    // The overlay is fixed at inset 0 on every viewport and is never
+    // unmounted, so a closed menu that is merely transparent leaves its links
+    // tabbable on desktop, where the menu cannot even be opened.
+    expect(overlay().hasAttribute('inert')).toBe(true);
+    expect(overlay().getAttribute('role')).toBeNull();
+    expect(toggle().getAttribute('aria-expanded')).toBe('false');
+    expect(toggle().getAttribute('aria-controls')).toBe(overlay().id);
+  });
+
+  it('opens as a labelled modal dialog with focus inside it', () => {
+    const { overlay, toggle } = renderLayout();
+    fireEvent.click(toggle());
+
+    expect(overlay().className).toContain('open');
+    expect(overlay().hasAttribute('inert')).toBe(false);
+    expect(overlay().getAttribute('role')).toBe('dialog');
+    expect(overlay().getAttribute('aria-modal')).toBe('true');
+    expect(overlay().getAttribute('aria-label')).toBeTruthy();
+    expect(toggle().getAttribute('aria-expanded')).toBe('true');
+    expect(overlay().contains(document.activeElement)).toBe(true);
+  });
+
+  it('closes on Escape and hands focus back to the toggle', () => {
+    const { overlay, toggle } = renderLayout();
+    fireEvent.click(toggle());
+    fireEvent.keyDown(window, { key: 'Escape' });
+
+    expect(overlay().className).not.toContain('open');
+    expect(overlay().hasAttribute('inert')).toBe(true);
+    expect(document.activeElement).toBe(toggle());
+  });
+
+  it('locks body scroll only while the menu is open', () => {
+    const { toggle } = renderLayout();
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
+    fireEvent.click(toggle());
+    expect(document.body.classList.contains('lock-scroll')).toBe(true);
+    fireEvent.click(toggle());
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
+  });
+
+  // Back and forward are not link clicks, so the per-link closers never ran for
+  // them: the overlay stayed open over the new page with the body still
+  // scroll-locked, and nothing on screen said why.
+  it('closes on a route change that did not come from one of its links', () => {
+    let go;
+    function Probe() {
+      go = useNavigate();
+      return null;
+    }
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Probe />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+            <Route path="partners" element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    const overlay = () => container.querySelector('.mobile-overlay');
+    fireEvent.click(container.querySelector('.mobile-menu-btn'));
+    expect(overlay().className).toContain('open');
+
+    act(() => go('/partners'));
+
+    expect(overlay().className).not.toContain('open');
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
   });
 });
