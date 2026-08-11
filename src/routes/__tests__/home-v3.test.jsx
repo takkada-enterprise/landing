@@ -10,13 +10,14 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
-import Home from '../Home';
+import Home, { GRID_ICON_KEYS } from '../Home';
 import {
   navLinks,
   footerColumns,
   demoEntryLive,
   storyOrderToCash,
   storyTeamSales,
+  featureGridV3,
 } from '../../data/siteContent';
 import { whatsappHref, WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
@@ -188,5 +189,50 @@ describe('home.css stays scoped to the homepage', () => {
       }
     }
     expect(noComments).not.toMatch(/:root/);
+  });
+});
+
+// The feature grid is a wall of capability claims with no links, so nothing
+// downstream fails when one goes wrong. These are the guards that do.
+describe('home feature grid', () => {
+  it('resolves every tile icon, rather than falling back to a tick', () => {
+    // gridIconMap in Home.jsx falls back to `Check`, so an unmapped key does
+    // not render an empty box that somebody would notice. It renders a
+    // plausible wrong icon. Counting rendered tick icons is how that surfaces.
+    const { container } = renderHome();
+    const cards = container.querySelectorAll('.hv3-grid-card');
+    expect(cards).toHaveLength(featureGridV3.length);
+    for (const card of cards) {
+      expect(
+        card.querySelector('.hv3-grid-icon svg'),
+        `${card.id} rendered no icon`
+      ).toBeTruthy();
+    }
+    const keys = new Set(featureGridV3.map((f) => f.icon));
+    for (const key of keys) {
+      expect(GRID_ICON_KEYS, `featureGridV3 uses an unmapped icon key "${key}"`).toContain(key);
+    }
+  });
+
+  it('renders each tile title exactly once', () => {
+    const { container } = renderHome();
+    for (const tile of featureGridV3) {
+      const card = container.querySelector(`#${tile.id}`);
+      expect(card, `no tile rendered for ${tile.id}`).toBeTruthy();
+      expect(card.textContent).toContain(tile.title);
+    }
+  });
+
+  it('keeps adoption numbers off the grid, for every tile and not just the new one', () => {
+    // The array's own comment says "capability claims only; adoption numbers
+    // stay off this list". This is that sentence, enforced.
+    for (const tile of featureGridV3) {
+      const copy = `${tile.title} ${tile.description}`;
+      expect(
+        copy,
+        `${tile.id} carries an adoption claim`
+      ).not.toMatch(/\b\d[\d,]*\+?\s*(businesses|companies|customers|distributors|users)\b/i);
+      expect(copy).not.toMatch(/\b(trusted by|used by|join)\b/i);
+    }
   });
 });

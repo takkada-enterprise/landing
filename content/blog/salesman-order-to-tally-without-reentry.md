@@ -5,7 +5,7 @@ meta_title: "Salesman Order Taking Without Re-Entry Into Tally"
 meta_description: "The order gets written on a pad, photographed, then typed again in the office. What that second typing costs, and what changes when it goes."
 primary_keyword: "salesman order taking without re-entry"
 date: "2026-08-04"
-updated: "2026-08-09"
+updated: "2026-08-11"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every order in a distribution business gets taken twice. Once at the retailer's counter on a pad, and once again in the office at eight in the evening by an operator reading a blurry photo. The second typing is unpaid work that also happens to be where the errors come from."
@@ -65,6 +65,8 @@ The specific failures are consistent:
 - The order lives in a chat thread, so a line that was misread has no audit trail beyond scrolling back through the group
 
 The photo solves distance. Everything else stays exactly where it was.
+
+The same failure arrives from the other direction when the retailer skips the salesman and sends the order himself, usually as a voice note at nine at night. Nobody is going to persuade him to install software for it, so the fix has to ask nothing of him. An [order booking app for Tally](/order-booking-app-tally/) that hands the retailer a link to your priced catalogue moves the typing off both desks, because what he sends is already the item names and rates your books hold.
 
 ## What Changes When the Order Is Taken Against the Live List
 

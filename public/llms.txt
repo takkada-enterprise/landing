@@ -4,7 +4,7 @@
 
 Pricing (annual list price per business, GST extra): Clarity ₹2,900 · Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹8,500. A 3-year term is 25% off, billed once.
 
-Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year · Extra device ₹3,000 / device / year · WhatsApp 8,000-message pack ₹2,000 / year · Your own WhatsApp number (early access) ₹2,000 / year.
+Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year · Extra device ₹3,000 / device / year · WhatsApp 8,000-message pack ₹2,000 / year · Your own WhatsApp number (early access) ₹2,000 / year · Customer Order Link ₹3,999 / year.
 
 ## Key pages
 
@@ -46,6 +46,7 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 - [Credit note from phone](https://takkada.com/credit-note-from-phone/): Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.
 - [Custom invoice template](https://takkada.com/custom-invoice-template-tally/): Invoice PDFs sent in the distributor’s own format: logo, terms, bank and UPI details laid out to match what the business already prints, delivered on WhatsApp as soon as the invoice is saved in Tally.
 - [Handwritten order to Tally](https://takkada.com/handwritten-order-to-tally/): A photograph of a handwritten order book page turned into draft voucher lines: items, quantities and rates read off the page, matched against the item masters, checked by a person, and only then written into Tally.
+- [Order booking app for Tally](https://takkada.com/order-booking-app-tally/): Customer ordering link for distributors on Tally: the retailer opens a WhatsApp link, browses the priced catalogue and places an order without installing an app or logging in. Prices are resolved from the merchant’s own books, per-buyer links carry that party’s rates, and the merchant approves each order into Tally as a sales order.
 
 ## Company
 

@@ -211,6 +211,11 @@ export const featureGridV3 = [
   { id: 'smart-reminders', title: 'Smart Reminders', description: 'Pre-due and post-due WhatsApp follow-ups on your schedule.', icon: 'bell' },
   { id: 'rbac', title: 'Role-Based Access', description: 'Decide what each salesman and accountant can see and do.', icon: 'shield' },
   { id: 'pending-orders', title: 'Pending Orders', description: 'Take orders now, bill later, and watch what is still open.', icon: 'clock' },
+  // Entitlement-gated the same way Pending Orders is, so this is a capability
+  // claim and never an adoption one. Reuses the `share` icon key rather than
+  // adding a tenth: gridIconMap falls back to a tick, so an unmapped key would
+  // render a plausible-looking wrong icon instead of failing.
+  { id: 'order-link', title: 'Customer Order Link', description: 'Your retailers order from a link, and you approve each one into Tally.', icon: 'link' },
   { id: 'bulk-challan', title: 'Bulk Delivery Challans', description: 'Raise a day of challans in one go, available on request.', icon: 'truck' },
   { id: 'reports', title: '20+ Reports', description: 'Outstanding by age, customer analytics, the whole year at a glance.', icon: 'chart' },
   { id: 'share-pdfs', title: 'Share Ledgers & PDFs', description: 'Ledgers, invoices, and credit notes reach any party in a tap.', icon: 'share' },
@@ -521,6 +526,16 @@ export const pricing = {
     // 2026-08-03) and must sit in the label \u2014 addon pills render label +
     // price only, and the rendered-page guard checks the same sentence.
     { label: 'Your own WhatsApp number (early access)', price: '\u20B92,000 / year' },
+    // Operator-set 2026-08-11. Derived through formatInr rather than typed,
+    // the same way biggerSetups and every plan price are, so the figure has
+    // one source. The neighbours above are older literal strings; new entries
+    // go through the helper.
+    //
+    // This pill and /order-booking-app-tally ship on the SAME branch on
+    // purpose. Publishing a price for the ordering link while the v2 backend
+    // is stage-only would put a number on something a prod customer cannot be
+    // given, so both sit behind the same release gate.
+    { label: 'Customer Order Link', price: `${formatInr(3999)} / year` },
   ],
 };
 

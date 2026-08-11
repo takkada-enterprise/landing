@@ -39,6 +39,7 @@ Add-ons (per year):
 - Extra business: removed from the public rate card 2026-08-04 (operator direction) — do not re-add without asking
 - WhatsApp 8,000-message pack: ₹2,000
 - Your own WhatsApp Business number: ₹2,000 (early access — zero enabled customers as of 2026-08-03; "early access" wording is mandatory anywhere this is mentioned)
+- **Customer Order Link: ₹3,999** (operator-set 2026-08-11). Retailers order from a link and the merchant approves each order into Tally as a sales order. Derived through `formatInr(3999)`, not typed. **Ships on the same branch as `/order-booking-app-tally` and behind the same gate**: the v2 backend is stage-only, so publishing this price before it reaches prod would put a figure on something a prod customer cannot be given. Do not lift this pill onto `main` on its own.
 
 Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 
