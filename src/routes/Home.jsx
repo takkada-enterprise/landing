@@ -36,6 +36,7 @@ import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
   appLinks,
   pricing,
+  biggerSetups,
   planPricing,
   formatInr,
   heroContent,
@@ -618,6 +619,40 @@ function Home({ seo = HOME_SEO }) {
                 receipt back into Tally. With your own WhatsApp number, early access for now, every
                 reminder and invoice goes out from your number instead of ours. Every plan includes 1 user.
               </p>
+            </div>
+
+            {/* Bigger setups close the table for the same reason add-ons do:
+                both apply across every column above, and neither is a plan.
+                Two cards rather than pills, because the self-hosting line
+                carries two figures on two different clocks and a pill renders
+                one price string. */}
+            <div className="rate-bigger">
+              <div className="rate-bigger-head">
+                <div className="rate-bigger-title">{biggerSetups.title}</div>
+                <p className="rate-bigger-intro">{biggerSetups.intro}</p>
+              </div>
+              <div className="rate-bigger-cards">
+                {biggerSetups.items.map((item) => (
+                  <div className="rate-bigger-card" key={item.id}>
+                    <h3 className="rate-bigger-card-title">{item.title}</h3>
+                    <p className="rate-bigger-card-body">{item.body}</p>
+                    <div className="rate-bigger-prices">
+                      {item.price.map((line) => (
+                        <div className="rate-bigger-price" key={line.amount}>
+                          <span className="rate-bigger-amount tabular-nums">{line.amount}</span>
+                          <span className="rate-bigger-price-note">{line.note}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="rate-bigger-foot">
+                <p className="rate-bigger-note">{biggerSetups.note}</p>
+                <WhatsAppCTA context="bigger-setups" variant="outline">
+                  {biggerSetups.ctaLabel}
+                </WhatsAppCTA>
+              </div>
             </div>
           </div>
 

@@ -19,6 +19,11 @@ export const WHATSAPP_MESSAGES = {
     'Hi, I went through the features list on takkada.com and want help working out which parts my business needs.',
   pricing:
     'Hi, I am looking at Takkada pricing. Which plan fits my business?',
+  // Kept separate from 'pricing' because the two lead somewhere different:
+  // this one is a scoping conversation about companies or a server, not a
+  // plan choice, and the founder needs to know which arrived.
+  'bigger-setups':
+    'Hi, I read the bigger setups part on takkada.com. I want to talk about running this across my companies, or on my own server.',
   'final-cta':
     'Hi, I want to set up Takkada for my business. What is the next step?',
   'icp-mobile-tally':
