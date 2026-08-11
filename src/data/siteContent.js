@@ -302,8 +302,10 @@ export const homeFaqItems = [
   },
   {
     question: 'Is there a plan for a business with only one user?',
+    // Per-device pricing was withdrawn 2026-08-12 (it was drift, not an
+    // offer) \u2014 this answer must not quote a device price.
     answer:
-      'Yes. Every plan includes one user. Extra users are \u20B93,000 per year each, and an extra device on the same user is \u20B93,000 per year.',
+      'Yes. Every plan includes one user. Extra users are \u20B93,000 per year each.',
   },
 ];
 

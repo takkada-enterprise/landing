@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import snapshot from './rateCardSnapshot.json' with { type: 'json' };
+import { snapshot } from '../../scripts/checkRateCardDrift.mjs';
 import { PRICING_TERMS, planPricing, pricing } from './siteContent.js';
 
 // The 3-year term is DERIVED on both surfaces from the same 25% constant —

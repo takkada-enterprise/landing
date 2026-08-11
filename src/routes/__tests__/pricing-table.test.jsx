@@ -99,7 +99,10 @@ describe('pricing comparison table', () => {
     // Removed 2026-08-12: nothing in the product or the partner rate card
     // sells per-device pricing — the pill was drift, not an offer.
     const container = renderHome();
-    expect(container.textContent).not.toContain('Extra device');
+    // Case-insensitive on purpose: the FAQ once carried a lowercase
+    // "extra device" price sentence that a .toContain('Extra device')
+    // assertion sailed past.
+    expect(container.textContent).not.toMatch(/extra device/i);
     expect(pricing.addons.map((a) => a.label)).not.toContain('Extra device');
     expect(pricing.addons).toHaveLength(5);
   });

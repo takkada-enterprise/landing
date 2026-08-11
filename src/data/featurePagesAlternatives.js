@@ -204,7 +204,7 @@ export const ALTERNATIVES = [
       },
       {
         q: 'How does the per-device pricing difference actually work out?',
-        a: 'Biz Analyst bills per mobile device per Tally licence, so each additional salesman phone is another full subscription. Takkada bills per plan for the business, with extra users and extra devices priced as add-ons on top. For a single owner checking his books, the per-device model is usually cheaper. Once you put four or five people in the field, the plan-based shape normally wins. Bring your headcount to the demo and we will work out both numbers.',
+        a: 'Biz Analyst bills per mobile device per Tally licence, so each additional salesman phone is another full subscription. Takkada bills per plan for the business, with extra users priced as add-ons on top. For a single owner checking his books, the per-device model is usually cheaper. Once you put four or five people in the field, the plan-based shape normally wins. Bring your headcount to the demo and we will work out both numbers.',
       },
       {
         q: 'Does the UPI collection really cost nothing?',

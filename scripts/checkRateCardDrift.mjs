@@ -25,20 +25,29 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import snapshot from '../src/data/rateCardSnapshot.json' with { type: 'json' };
 import { pricing, formatInr } from '../src/data/siteContent.js';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-/** Every rupee integer the snapshot can justify on a rendered page. */
+// readFileSync + JSON.parse rather than a JSON import attribute: the deploy
+// build is the only gate, and the `with { type: 'json' }` syntax carries a
+// Node >= 20.10 floor the rest of scripts/ does not have.
+export const snapshot = JSON.parse(
+  readFileSync(resolve(repoRoot, 'src/data/rateCardSnapshot.json'), 'utf-8'),
+);
+
+/**
+ * Every rupee integer the snapshot can justify on a rendered page. Rounded
+ * like formatInr rounds, so a plan price that is not a multiple of 4 does not
+ * fail a correctly-synced deploy over 2242.5 vs the rendered ₹2,243.
+ */
 export function allowedFigures(snap) {
   const allowed = new Set();
   for (const { annualInr } of Object.values(snap.plans)) {
-    const perYear = annualInr * (1 - snap.termDiscount);
+    const perYear = Math.round(annualInr * (1 - snap.termDiscount));
     allowed.add(annualInr); // 1-year price
-    allowed.add(perYear); // 3-year per-year headline (== the "you keep" saving)
-    allowed.add(perYear * snap.termYears); // billed-once total
-    allowed.add(annualInr * snap.termYears); // struck-through list total
+    allowed.add(perYear); // 3-year per-year headline
+    allowed.add(Math.round(annualInr * (1 - snap.termDiscount) * snap.termYears)); // billed-once total
   }
   for (const { priceInr } of Object.values(snap.addons)) {
     allowed.add(priceInr);
@@ -49,11 +58,23 @@ export function allowedFigures(snap) {
   return allowed;
 }
 
-/** All ₹-figures in a page, as integers. "₹8,500" → 8500. Bare "₹" is ignored. */
+// Prerendered React splits adjacent JSX children with comment nodes, so a
+// rupee figure can arrive as "₹<!-- -->17<!-- -->Cr+". The matcher skips
+// comments/whitespace after ₹, and a figure followed by a scale word
+// (₹17Cr+, ₹2 lakh) is a marketing stat, not a rate-card price.
+const RUPEE_RE = /₹((?:<!--[^>]*-->|&nbsp;|\s)*)([\d,]*\d)/g;
+const GAP_RE = /^(?:<!--[^>]*-->|&nbsp;|\s)+/;
+const SCALE_RE = /^(?:cr(?:ore)?s?|lakhs?|l\b)/i;
+
+/** All ₹-priced figures in a page, as integers. "₹8,500" → 8500. Bare "₹" is ignored. */
 export function extractFigures(html) {
-  return [...html.matchAll(/₹([\d,]*\d)/g)].map(([, digits]) =>
-    Number(digits.replaceAll(',', '')),
-  );
+  const figures = [];
+  for (const match of html.matchAll(RUPEE_RE)) {
+    const rest = html.slice(match.index + match[0].length).replace(GAP_RE, '');
+    if (SCALE_RE.test(rest)) continue;
+    figures.push(Number(match[2].replaceAll(',', '')));
+  }
+  return figures;
 }
 
 /** Layer 2: scan one rendered page. */
@@ -77,6 +98,12 @@ export function inspectData(sitePricing, snap) {
     } else if (sitePlan.annualPrice !== annualInr) {
       problems.push(
         `plan "${publicName}": site sells ₹${sitePlan.annualPrice}, snapshot says ₹${annualInr}`,
+      );
+    } else if (sitePlan.price !== formatInr(annualInr)) {
+      // plan.price is a duplicated literal string that RefundPolicy renders
+      // directly — it can drift from annualPrice on its own.
+      problems.push(
+        `plan "${publicName}": price string "${sitePlan.price}" disagrees with annualPrice ${annualInr}`,
       );
     }
   }
@@ -108,7 +135,11 @@ export function inspectData(sitePricing, snap) {
   return problems;
 }
 
-// Homepage + refund policy: the two non-blog pages that print prices.
+// Homepage + refund policy: the two pages whose prices come from the rate
+// table. The 26 feature pages also print plan money, but only via
+// planPricing() (derived, covered by the data layer) mixed with illustrative
+// prose figures (₹50,000 invoices etc.) — scanning them needs a per-page
+// allow-list, not a longer array. Blog HTML is out of scope by design.
 const SCANNED_PAGES = ['dist/index.html', 'dist/refund-policy/index.html'];
 
 function main() {
@@ -145,6 +176,9 @@ function main() {
   );
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+// Same main-detection idiom as checkLeadAnswer.mjs — a missed compare here
+// would exit 0 without running anything, the silent green this file exists
+// to prevent.
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   main();
 }
