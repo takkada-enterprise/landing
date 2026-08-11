@@ -257,10 +257,98 @@
 }
 
 /* ── /features hub (src/routes/Features.jsx) ──
- * A directory, so it borrows the existing card vocabulary rather than
- * inventing one (CLAUDE.md craft rule 10). Everything below is spacing and
- * the link reset that turns a .tally-card into a whole-card target; the card
- * surface, radius, shadow and hover lift all still come from .tally-card. */
+ * Three tiers. The lead card is the one new pattern the page introduces
+ * (craft rule 10): a device standing beside its line, which is the only way a
+ * directory of twenty-seven names tells you what any of them look like. Its
+ * surface, radius, shadow and hover lift still come from .tally-card, and
+ * every tier below it reuses .tally-card or a plain link.
+ *
+ * .features-hub-card itself carries nothing but the link reset, because the
+ * class is a build contract (scripts/checkFeaturesHub.mjs) that has to sit on
+ * three differently-shaped things. Appearance lives on the modifiers. */
+.features-hub-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* The hub's intro is three blocks where a feature page's is five, so it does
+ * not need a feature page's landing room underneath it. Every pixel here is a
+ * pixel between a phone visitor and the first card. */
+.features-hub-hero {
+  padding-bottom: 32px;
+}
+
+/* Lead tier */
+.features-hub-lead {
+  padding: 56px 0 84px;
+}
+
+.features-hub-lead-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.features-hub-card--lead {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+}
+
+/* The media box is sized by HEIGHT, not width. These eight mockups come from
+ * two aspect-ratio families and carry different amounts of transparent margin
+ * around the device, so a fixed width rendered them at visibly different
+ * heights and the row read as ragged. A fixed box with object-fit: contain
+ * lands every phone on the same baseline. */
+.features-hub-lead-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 188px;
+}
+
+/* The frame is baked into the artwork, so the card must not add a second one:
+ * no border-radius and no box-shadow on the image, only the drop-shadow that
+ * follows the phone's own silhouette. Same treatment as .hv3-step-phone. */
+.features-hub-lead-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 22px rgba(20, 36, 28, 0.24));
+}
+
+.features-hub-lead-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.features-hub-lead-body p {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-text-secondary);
+}
+
+/* The answer passage, once it left the hero. Sized as prose, not as a card. */
+.features-hub-answer {
+  max-width: 660px;
+  margin-top: 44px;
+}
+
+/* An anchor with no box of its own: it exists so a group id the lead tier
+ * drained still lands on the tier that swallowed it. */
+.features-hub-anchor {
+  display: block;
+  height: 0;
+  scroll-margin-top: 96px;
+}
+
 .features-hub-group + .features-hub-group {
   margin-top: 64px;
 }
@@ -287,14 +375,12 @@
 
 /* The whole card is the link, so the cue below is decoration rather than a
  * second tab stop. */
-.features-hub-card {
+.features-hub-card--text {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
 }
 
-.features-hub-card p {
+.features-hub-card--text p {
   flex: 1;
 }
 
@@ -308,8 +394,84 @@
   color: var(--color-primary);
 }
 
+/* Compact index ──
+ * Names, nothing else. This is the tier you read when you already know what
+ * you are looking for, so it is set as a list and stays out of the way of the
+ * two above it. */
+.features-hub-index {
+  padding: 84px 0 96px;
+}
+
+.features-hub-index-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.features-hub-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px 32px;
+}
+
+.features-hub-index-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.features-hub-index-list li + li {
+  border-top: 1px solid var(--color-hairline);
+}
+
+.features-hub-card--index {
+  display: block;
+  padding: 9px 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--color-text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.features-hub-card--index:hover {
+  color: var(--color-primary);
+}
+
 @media (max-width: 767px) {
   .features-hub-group + .features-hub-group {
     margin-top: 48px;
+  }
+
+  .features-hub-hero {
+    padding-bottom: 20px;
+  }
+
+  .features-hub-lead {
+    padding: 36px 0 56px;
+  }
+
+  .features-hub-card--lead {
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
+    padding: 16px 18px;
+  }
+
+  .features-hub-lead-media {
+    height: 150px;
+  }
+
+  .features-hub-lead-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .features-hub-index {
+    padding: 56px 0 64px;
   }
 }

@@ -11,8 +11,16 @@ vi.mock('vite-react-ssg', () => ({
 
 import Features from '../Features';
 import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
-import { FEATURE_BLURBS, FEATURE_GROUPS } from '../../data/featureGroups';
+import {
+  FEATURE_BLURBS,
+  FEATURE_GROUPS,
+  LEAD_FEATURE_SLUGS,
+  leadFeaturePages,
+  secondaryFeatureGroups,
+  sectionFeatureGroups,
+} from '../../data/featureGroups';
 import { routeMetadata } from '../../data/siteMetadata';
+import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 
 afterEach(cleanup);
@@ -140,6 +148,15 @@ describe('/features hub', () => {
   });
 });
 
+// Rewritten 2026-08-11 with the re-tier. What these used to assert was that the
+// hub rendered nine equal groups of nine identical cards, which is the layout
+// the re-tier deliberately replaced: keeping them would have been keeping a
+// test that encodes an abandoned strategy. What survives untouched is the part
+// that is about coverage rather than shape — every page reachable, exactly
+// once, under its own title — because that is the invariant the hub exists for
+// and the one the SEO of twenty-seven pages hangs off. Per-tier counts derive
+// from the featureGroups exports so a lead-list edit is still a one-line data
+// change.
 describe('feature grouping', () => {
   it('places every feature page in exactly one group', () => {
     const grouped = FEATURE_GROUPS.flatMap((g) => g.slugs);
@@ -147,29 +164,109 @@ describe('feature grouping', () => {
     expect(grouped.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
   });
 
-  it('renders no empty group, and gives each a heading and an intro', () => {
-    const { container } = renderHub();
-    const groups = [...container.querySelectorAll('.features-hub-group')];
-    expect(groups).toHaveLength(FEATURE_GROUPS.length);
-    for (const group of groups) {
-      expect(group.querySelectorAll('a.features-hub-card').length).toBeGreaterThan(0);
-      expect(group.querySelector('.features-hub-group-title').textContent).not.toBe('');
-      expect(group.querySelector('.features-hub-group-intro').textContent).not.toBe('');
-    }
-  });
-
   it('carries a directory line for every page', () => {
     const missing = FEATURE_PAGES.filter((p) => !FEATURE_BLURBS[p.slug]).map((p) => p.slug);
     expect(missing).toEqual([]);
   });
 
-  it('renders each page under its own title and directory line', () => {
+  it('renders each page under its own title, whichever tier it lands in', () => {
     const { container } = renderHub();
     for (const page of FEATURE_PAGES) {
       const card = container.querySelector(`a.features-hub-card[href="${featurePagePath(page)}"]`);
       expect(card, page.slug).not.toBeNull();
+      expect(card.textContent).toContain(page.llms.title);
+    }
+  });
+});
+
+describe('hub tiers render', () => {
+  const inTier = (container, modifier) => [
+    ...container.querySelectorAll(`a.features-hub-card--${modifier}`),
+  ];
+
+  it('splits the cards across the three tiers in the proportions the data gives', () => {
+    const { container } = renderHub();
+    const sectionCount = sectionFeatureGroups(FEATURE_PAGES).reduce(
+      (n, g) => n + g.pages.length,
+      0
+    );
+    const indexCount = secondaryFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
+
+    expect(inTier(container, 'lead')).toHaveLength(LEAD_FEATURE_SLUGS.length);
+    expect(inTier(container, 'text')).toHaveLength(sectionCount);
+    expect(inTier(container, 'index')).toHaveLength(indexCount);
+    // And the three together are the whole set — no card outside a tier.
+    expect(cardLinks(container)).toHaveLength(FEATURE_PAGES.length);
+  });
+
+  it('leads with the approved features in the approved order', () => {
+    const { container } = renderHub();
+    const hrefs = inTier(container, 'lead').map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(leadFeaturePages(FEATURE_PAGES).map(featurePagePath));
+  });
+
+  it('gives every lead card a title, its directory line and its own hero image', () => {
+    const { container } = renderHub();
+    for (const page of leadFeaturePages(FEATURE_PAGES)) {
+      const card = container.querySelector(
+        `a.features-hub-card--lead[href="${featurePagePath(page)}"]`
+      );
+      expect(card, page.slug).not.toBeNull();
       expect(card.querySelector('h3').textContent).toBe(page.llms.title);
       expect(card.querySelector('p').textContent).toBe(FEATURE_BLURBS[page.slug]);
+
+      // The card's visual is the page's own hero object, alt text and intrinsic
+      // box included. A second asset mapping is the thing this avoids.
+      const img = card.querySelector('img');
+      expect(img, page.slug).not.toBeNull();
+      expect(img.getAttribute('src')).toBe(page.hero.image);
+      expect(img.getAttribute('alt')).toBe(page.hero.alt);
+      expect(Number(img.getAttribute('width'))).toBe(page.hero.width);
+      expect(Number(img.getAttribute('height'))).toBe(page.hero.height);
     }
+  });
+
+  it('keeps the compact index title-only, so it stays scannable', () => {
+    const { container } = renderHub();
+    for (const link of inTier(container, 'index')) {
+      expect(link.querySelector('img')).toBeNull();
+      expect(link.querySelector('p')).toBeNull();
+    }
+  });
+
+  // Every group id has been a linkable #anchor since the hub shipped. Both GST
+  // pages are lead cards now, so that group heads nothing — its id has to be
+  // re-homed onto the tier that swallowed it rather than quietly disappear.
+  it('resolves every group id to exactly one element on the page', () => {
+    const { container } = renderHub();
+    for (const group of FEATURE_GROUPS) {
+      expect(
+        container.querySelectorAll(`[id="${group.id}"]`),
+        `#${group.id} must exist exactly once on the hub`
+      ).toHaveLength(1);
+    }
+  });
+
+  it('fetches one hub image eagerly and lazy-loads the rest', () => {
+    const { container } = renderHub();
+    const imgs = [...container.querySelectorAll('.features-hub-lead-grid img')];
+    const priority = imgs.filter((img) => img.getAttribute('fetchpriority') === 'high');
+    expect(priority).toHaveLength(1);
+    expect(priority[0].getAttribute('loading')).toBe('eager');
+    for (const img of imgs.filter((i) => i !== priority[0])) {
+      expect(img.getAttribute('loading'), img.getAttribute('src')).toBe('lazy');
+    }
+  });
+
+  // Eight images is ~400KB on a page that had none. Every one of them is
+  // already on the critical path of its own feature page, so the budget guard
+  // already covers them — but only while that stays true.
+  it('puts every hub image under the byte budget guard', () => {
+    const { container } = renderHub();
+    const budgeted = new Set(BUDGETS.map(([path]) => path.replace(/^public/, '')));
+    const unbudgeted = [...container.querySelectorAll('.features-hub-lead-grid img')]
+      .map((img) => img.getAttribute('src'))
+      .filter((src) => !budgeted.has(src));
+    expect(unbudgeted).toEqual([]);
   });
 });

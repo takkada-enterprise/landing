@@ -28,6 +28,15 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // The directory card anchor, as Features.jsx renders it. Deliberately keyed on
 // the `features-hub-card` class so a footer link, a nav link, or a path that
 // merely appears inside inlined JSON can never satisfy this guard.
+//
+// That class is therefore a BUILD CONTRACT and not a style hook. The hub was
+// re-tiered on 2026-08-11 into lead cards, section cards and a compact index,
+// three different-looking things; all three carry `features-hub-card` and take
+// their appearance from a modifier class beside it, precisely so this regex
+// and the coverage it buys did not have to move. Renaming the class, or
+// dropping it from one tier because that tier stopped looking like a card,
+// silently un-covers every page in it. Nothing that is not a feature page may
+// carry it either — the stray check below is the other half of that.
 const CARD_RE = /<a\b[^>]*\bclass="[^"]*\bfeatures-hub-card\b[^"]*"[^>]*\bhref="([^"]+)"/g;
 
 export function inspectHub(html, expectedPaths) {

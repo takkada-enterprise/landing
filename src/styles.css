@@ -142,7 +142,8 @@
 :root .blog-post-body h3,
 :root .blog-related-heading,
 :root .blog-related-title,
-:root .features-hub-group-title {
+:root .features-hub-group-title,
+:root .features-hub-index-title {
   font-weight: var(--weight-display);
 }
 
