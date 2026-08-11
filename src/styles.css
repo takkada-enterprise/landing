@@ -3206,6 +3206,119 @@ html.js .animated-heading .letter {
   color: var(--color-text-secondary);
 }
 
+/* Bigger setups: the last strip of the table, on the white surface so it
+   reads as its own band after the tinted add-on strip rather than as more
+   add-ons. Same --rate-cols track list as every strip above, so the label
+   column stays aligned with the capability labels. */
+.rate-bigger {
+  display: grid;
+  grid-template-columns: var(--rate-cols);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.rate-bigger-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 20px;
+}
+
+.rate-bigger-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-bigger-intro {
+  max-width: 34ch;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+.rate-bigger-cards {
+  grid-column: 2 / -1;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 20px 4px;
+}
+
+.rate-bigger-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-variant);
+}
+
+.rate-bigger-card-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: var(--weight-display);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.rate-bigger-card-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* The price lines sit at the foot of the card on a hairline, so a card
+   carrying two figures and a card carrying one still line up. */
+.rate-bigger-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--color-hairline);
+}
+
+.rate-bigger-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rate-bigger-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.rate-bigger-price-note {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.rate-bigger-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  padding: 16px 20px 20px;
+}
+
+.rate-bigger-note {
+  flex: 1 1 340px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
 /* Below 900px four columns cannot fit, so the picker chooses one and the
    other three are removed from the grid entirely. */
 @media (max-width: 900px) {
@@ -3259,7 +3372,10 @@ html.js .animated-heading .letter {
   .rate-row-label,
   .rate-addons-title,
   .rate-addons-list,
-  .rate-addons-note {
+  .rate-addons-note,
+  .rate-bigger-head,
+  .rate-bigger-cards,
+  .rate-bigger-foot {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -3272,6 +3388,22 @@ html.js .animated-heading .letter {
   .rate-addons-list {
     border-top: 0;
     padding-top: 0;
+  }
+
+  /* The tick column is gone below 900px, so the label column no longer buys
+     anything: both strips take the full width and the cards stack. */
+  .rate-bigger-cards {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+  }
+
+  .rate-bigger-head {
+    padding-bottom: 12px;
+  }
+
+  .rate-bigger-intro {
+    max-width: none;
   }
 }
 

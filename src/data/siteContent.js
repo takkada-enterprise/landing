@@ -529,6 +529,52 @@ export const pricing = {
   ],
 };
 
+// Two options that cannot be a plan column or a capability row, because
+// neither is priced per user. The self-hosting line carries two figures on
+// two different clocks (once at implementation, then yearly from the second
+// year) and the add-on pills render a single price string, so a pill would
+// have to drop one of them. This block closes the rate table the same way
+// `pricing.addons` does.
+//
+// Both lines are operator-supplied (2026-08-06) and already print on slide 13
+// of pitch-deck/takkada-product-deck-2026-08.html. The wording here is adapted
+// from that slide on purpose: the prospect who gets the deck and the prospect
+// who only finds the site should read the same offer.
+//
+// Claims discipline: these are capability claims with ZERO delivered
+// deployments as of 2026-08-11. No adoption language ("customers run this",
+// "used by") is permitted anywhere near them (CLAUDE.md \u00A73, \u00A75).
+//
+// Rupee figures go through formatInr for the same reason every plan price
+// does: a hand-typed string here could drift from the deck and nothing would
+// catch it. src/routes/__tests__/pricing-table.test.jsx recomputes both.
+export const biggerSetups = {
+  title: 'Bigger setups',
+  // Sits in the table's label column, the way `rate-table-corner` carries the
+  // "what you get" note. Without it the column is 450px of empty white next
+  // to two tall cards.
+  intro: 'Some businesses need more than a plan column. Both of these are priced against your setup rather than your user count.',
+  items: [
+    {
+      id: 'multi-company',
+      title: 'Consolidated reports across companies',
+      body: 'The second company keeps its own books, and somebody adds the two together by hand every month end. Receivables, sales and reports arrive as one view across every company you run.',
+      price: [{ amount: 'Custom pricing', note: 'quoted against your company list' }],
+    },
+    {
+      id: 'self-hosting',
+      title: 'Host it on your own server',
+      body: 'Your database and backend run on a server you own instead of on ours. We do the implementation with whoever looks after your IT.',
+      price: [
+        { amount: formatInr(30000), note: 'one-time implementation' },
+        { amount: `${formatInr(15000)} / year`, note: 'maintenance, from the second year' },
+      ],
+    },
+  ],
+  note: 'GST extra, same as every price on this page.',
+  ctaLabel: 'Talk through your setup on WhatsApp',
+};
+
 export const faqItems = [
   {
     question: 'How does Takkada sync with Tally?',
