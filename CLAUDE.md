@@ -35,7 +35,7 @@ Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts eac
 Add-ons (per year):
 - **Payment Collection: ₹1,500.** UPI links on every invoice, zero MDR, auto-reconciled into Tally. Available on **every** plan; it is no longer bundled into any tier.
 - Extra user: ₹3,000
-- Extra device: ₹3,000
+- Extra device: removed 2026-08-12 — nothing in the product or the partner rate card sells a per-device price; it was drift, not an offer. Do not re-add without asking
 - Extra business: removed from the public rate card 2026-08-04 (operator direction) — do not re-add without asking
 - WhatsApp 8,000-message pack: ₹2,000
 - Your own WhatsApp Business number: ₹2,000 (early access — zero enabled customers as of 2026-08-03; "early access" wording is mandatory anywhere this is mentioned)

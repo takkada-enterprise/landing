@@ -39,6 +39,7 @@ import {
   pricing,
   biggerSetups,
   planPricing,
+  planPriceRange,
   formatInr,
   heroContent,
   storyOrderToCash,
@@ -97,8 +98,10 @@ const trustIconMap = {
 // many entry points, no drift.
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
-  description:
-    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,900 to ₹8,500/year.',
+  // The price range is derived from pricing.plans — this description ships in
+  // the prerendered meta tag, so a typed figure here would be drift the page
+  // itself can't see.
+  description: `Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ${planPriceRange()}/year.`,
   path: '/',
 };
 
@@ -507,7 +510,7 @@ function Home({ seo = HOME_SEO }) {
             <div className="rate-head-copy">
               <span className="section-label">Pricing</span>
               <h2 className="section-title rate-title tabular-nums">
-                ₹2,900 to ₹8,500 per year. GST extra.
+                {planPriceRange()} per year. GST extra.
               </h2>
               <p className="section-subtitle rate-subtitle">
                 7-day free trial on every plan. No card required.

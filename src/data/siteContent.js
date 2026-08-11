@@ -544,7 +544,8 @@ export const pricing = {
       note: 'UPI links on every invoice, zero MDR. Auto-reconciles into Tally. Available on every plan.',
     },
     { label: 'Extra user', price: '\u20B93,000 / user / year' },
-    { label: 'Extra device', price: '\u20B93,000 / device / year' },
+    // "Extra device" was removed 2026-08-12: nothing in the product or the
+    // partner rate card sells a per-device price \u2014 it was drift, not an offer.
     { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
     // Early access wording is guard-enforced (zero enabled customers,
     // 2026-08-03) and must sit in the label \u2014 addon pills render label +
@@ -562,6 +563,16 @@ export const pricing = {
     { label: 'Customer Order Link', price: `${formatInr(3999)} / year` },
   ],
 };
+
+/**
+ * The homepage's headline range ("₹2,900 to ₹8,500"), derived from the plan
+ * list. A hand-typed copy of this range in Home.jsx drifted from the table
+ * once already (drift episode #2, 2026-08) — derive it, never type it.
+ */
+export function planPriceRange() {
+  const prices = pricing.plans.map((p) => p.annualPrice);
+  return `${formatInr(Math.min(...prices))} to ${formatInr(Math.max(...prices))}`;
+}
 
 // Two options that cannot be a plan column or a capability row, because
 // neither is priced per user. The self-hosting line carries two figures on
