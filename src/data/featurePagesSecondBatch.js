@@ -2374,10 +2374,13 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      // R7: the ordering link carries no rate-card row and no price of its own.
-      // Naming the plan the resulting voucher needs is the honest pointer.
+      // The ordering link became a priced add-on on 2026-08-11 (operator
+      // direction, ₹3,999/year in pricing.addons). It still needs a plan
+      // underneath it, because the thing it produces is a sales order, so the
+      // pointer names that plan and sends the reader to the rate card for the
+      // add-on figure rather than repeating it here (CLAUDE.md §3).
       note:
-        'An approved order becomes a sales order in your Tally, and sales orders start at this plan. The ordering link itself is switched on per business rather than sold as a rate-card row, so ask for it when you set up.',
+        'The Customer Order Link is an add-on you switch on per business, and it needs a plan under it: an approved order becomes a sales order in your Tally, which starts here. Both figures are on the rate card.',
     },
     faqs: [
       {

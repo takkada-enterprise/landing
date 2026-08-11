@@ -192,6 +192,26 @@ describe('bigger setups block', () => {
     );
   });
 
+  it('prices the Customer Order Link add-on from a number, not a typed string', () => {
+    // Operator-set 2026-08-11. Recomputed here so a hand-edited figure in the
+    // data file fails instead of quietly disagreeing with CLAUDE.md §3.
+    const container = renderHome();
+    const addon = pricing.addons.find((a) => a.label === 'Customer Order Link');
+    expect(addon, 'the Customer Order Link add-on is missing').toBeTruthy();
+    expect(addon.price).toBe(`${formatInr(3999)} / year`);
+
+    const strip = container.querySelector('.rate-addons');
+    expect(strip.textContent).toContain('Customer Order Link');
+    expect(strip.textContent).toContain(formatInr(3999));
+
+    // It is an add-on, never a plan column or a capability row.
+    const rows = [
+      ...pricing.plans.map((p) => p.plan),
+      ...pricing.matrix.flatMap((g) => [g.group, ...g.rows.map((r) => r.label)]),
+    ].join(' | ');
+    expect(rows).not.toMatch(/order link/i);
+  });
+
   it('keeps adoption language away from an option nobody has taken yet', () => {
     // Zero delivered self-hosted deployments as of 2026-08-11. A capability
     // claim is allowed here; a usage claim is not (CLAUDE.md §3, §5).
