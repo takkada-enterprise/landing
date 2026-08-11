@@ -139,9 +139,13 @@ describe('feature page data contract', () => {
   // If you add one back: make the artwork ugly on purpose. A hazard-striped
   // slab reading PLACEHOLDER survives review; a tasteful grey box does not.
   const PLACEHOLDER_ASSETS = {};
+  // Pages that shipped ahead of the backend they describe. Kept as a record,
+  // not a wish: it is the list to re-read when a claim on one of these pages
+  // is questioned, because the page went live before its feature could be
+  // switched on for a prod customer.
   const HELD_PAGES = {
     'order-booking-app-tally':
-      'Order Link v2 is stage-only. Prod customer_order_links still has the v1 shape and zero rows (verified 2026-08-11), so this page cannot publish yet.',
+      'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
   };
 
   it('every held page is a real page, so the gate list cannot rot', () => {
