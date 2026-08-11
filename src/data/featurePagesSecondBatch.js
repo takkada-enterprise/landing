@@ -2323,15 +2323,12 @@ export const SECOND_BATCH = [
         height: 1243,
       },
       {
-        // PLACEHOLDER ASSET. Listed in PENDING_OPERATOR_ASSETS in
-        // src/data/__tests__/feature-pages.test.js, which fails while it is
-        // still here. Operator is supplying the real mockup.
         icon: 'CheckCheck',
         title: 'It lands with you, and you decide',
         body:
-          'The order arrives in your inbox with the party already matched against your books. Approve it and it becomes a sales order in your Tally. Nobody retypes the lines, and the rates were yours the whole way.',
+          'The order arrives in your inbox against the party it matched in your books, so you know who sent it before you open it. Approve it and it becomes a sales order in your Tally. Nobody retypes the lines, and the rates were yours the whole way.',
         image: '/assets/screenshots/order-link-inbox-mockup.webp',
-        alt: 'Merchant order inbox showing an incoming customer order ready to approve into Tally',
+        alt: 'Merchant inbox listing incoming customer orders, each with its item count, value before GST and the party it matched in the books',
         width: 600,
         height: 1243,
       },

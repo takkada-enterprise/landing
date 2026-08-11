@@ -131,12 +131,14 @@ describe('feature page data contract', () => {
   //     goes red, which is what forces the entry out of the list rather than
   //     letting it rot into a lie about what ships.
   //
-  // The placeholder is a hazard-striped slab reading PLACEHOLDER. It is ugly on
-  // purpose: a tasteful grey box is the kind of thing that survives a review.
-  const PLACEHOLDER_ASSETS = {
-    'order-link-inbox-mockup':
-      '9810c7339e2303f880dda060f5f7f464a93e044aae27941d8e0ded5b5df2f113',
-  };
+  // Empty as of 2026-08-11: order-link-inbox-mockup was the only entry and the
+  // operator's real capture landed. It did its job on the way out — replacing
+  // the file turned the sha guard red before the list was updated, which is
+  // the direction that is easy to forget.
+  //
+  // If you add one back: make the artwork ugly on purpose. A hazard-striped
+  // slab reading PLACEHOLDER survives review; a tasteful grey box does not.
+  const PLACEHOLDER_ASSETS = {};
   const HELD_PAGES = {
     'order-booking-app-tally':
       'Order Link v2 is stage-only. Prod customer_order_links still has the v1 shape and zero rows (verified 2026-08-11), so this page cannot publish yet.',
