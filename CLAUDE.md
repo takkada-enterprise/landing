@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+docs/REPO-MAP.md is the repo map — read it before exploring, update it in the same commit when you change structure, commands, or conventions.
+
 ## 1. Product one-liner
 
 Takkada is a mobile-first SaaS layer for Tally that helps Indian distributors and wholesalers get paid without chasing customers. It sits on top of the distributor's existing Tally installation and adds mobile invoicing (including e-invoice and e-way bill), auto invoice dispatch on WhatsApp, UPI payment collection, and auto-reconciliation back into Tally.
