@@ -51,9 +51,9 @@ export const BUDGETS = [
   // same day: it is a real capture carrying a named individual and two real
   // bank UTRs, and it is not in the sanitised set. settlements-mockup.webp is
   // the demo capture of the same screen and is what ships.
-  // Encoded 2026-08-11 from the operator-supplied mockup at q68 (39,732
+  // Encoded 2026-08-11 from the operator-supplied mockup at q68 (42,970
   // bytes), same recipe as the field-visit entry above.
-  ['public/assets/screenshots/order-link-buyer-mockup.webp', 46_000, 'LCP element on /order-booking-app-tally'],
+  ['public/assets/screenshots/order-link-buyer-mockup.webp', 50_000, 'LCP element on /order-booking-app-tally'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],

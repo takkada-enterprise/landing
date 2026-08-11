@@ -2264,17 +2264,16 @@ export const SECOND_BATCH = [
         'Customer ordering link for distributors on Tally: the retailer opens a WhatsApp link, browses the priced catalogue and places an order without installing an app or logging in. Prices are resolved from the merchant’s own books, per-buyer links carry that party’s rates, and the merchant approves each order into Tally as a sales order.',
     },
     footerLabel: 'Customer order link',
-    // The hero is this page's LCP element, so it is budgeted in
-    // scripts/checkImageBudgets.mjs and rendered eagerly. Operator-supplied
-    // mockup (2026-08-11), and it earns the slot over the stage capture below
-    // it for one reason: the browser address bar is in the frame. The whole
-    // claim of this page is that the retailer installs nothing, and a phone
-    // showing an ordinary browser proves that faster than the sentence does.
+    // Operator-supplied mockups throughout (2026-08-11), from the same design
+    // set as the other 26 feature pages. The hero is this page's LCP element,
+    // so it is budgeted in scripts/checkImageBudgets.mjs and rendered eagerly.
+    // It carries the state the others do not: quantities entered and a running
+    // total, which is the moment the page is actually about.
     hero: {
       image: '/assets/screenshots/order-link-buyer-mockup.webp',
-      alt: 'A distributor’s ordering link open in a phone browser, showing priced items, quantity steppers and a running order total before GST',
+      alt: 'A distributor’s ordering link open on a phone, showing priced items, quantity steppers and a running order total before GST',
       width: 600,
-      height: 1218,
+      height: 1245,
     },
     author: 'founder',
     datePublished: '2026-08-11',
@@ -2285,23 +2284,21 @@ export const SECOND_BATCH = [
         icon: 'Link2',
         title: 'You send him a link, once',
         body:
-          'He opens it and your catalogue is already there, at the rates you decided. Nothing to download, no account to make, no password for him to forget and ring you about.',
-        // The personal-link capture: the header reads "Ordering for <party>",
-        // which is the evidence behind the personal-link claim in the
-        // comparison table. The hero shows the public link, so this is the
-        // only place on the page that shows a link naming its buyer.
+          'He opens it and your catalogue is already there, at the rates you decided. He finds an item by typing a few letters and sets the quantity in the unit you actually sell in. Nothing to download, no account to make, no password for him to forget and ring you about.',
+        // Header reads "Ordering for <party>", which is the evidence behind
+        // the personal-link claim in the comparison table.
         image: '/assets/screenshots/order-link-catalog-mockup.webp',
-        alt: 'Ordering link opened for a named retailer, showing the item list with prices, quantity steppers and a running total',
+        alt: 'Ordering link opened for a named retailer, showing the item list with a price and an Add button against each item',
         width: 600,
         height: 1243,
       },
       {
         icon: 'ListChecks',
-        title: 'He puts in quantities and watches the total',
+        title: 'He checks the order and the total before it goes',
         body:
-          'Search by a few letters, set the quantity in the unit you actually sell in, and the running total sits at the bottom of the screen. Rates come from your books, so nothing is negotiated in his browser.',
+          'Every line carries its rate and its amount, and the total is marked before GST so the bill is no surprise later. He can drop a line and add another. Rates come from your books, so nothing is negotiated in his browser.',
         image: '/assets/screenshots/order-link-cart-mockup.webp',
-        alt: 'Order review screen listing each item, its rate and the total before GST',
+        alt: 'Order review screen listing each item with its rate, its amount and the total before GST',
         width: 600,
         height: 1243,
       },
@@ -2309,9 +2306,19 @@ export const SECOND_BATCH = [
         icon: 'Send',
         title: 'He sends it with his mobile number and nothing else',
         body:
-          'No login and no OTP. He types his mobile number, adds a line about delivery if he wants, and the order goes. He gets a reference number back, and on a personal link his shop name is already on the order.',
+          'No login and no OTP. He types his number, adds a line about delivery if he wants, and that is the whole form. On a personal link his shop name is already on the order, so he never types who he is.',
+        image: '/assets/screenshots/order-link-confirm-mockup.webp',
+        alt: 'Confirmation step asking only for a mobile number and an optional note to the seller',
+        width: 600,
+        height: 1243,
+      },
+      {
+        icon: 'MessageCircle',
+        title: 'He gets a reference, and the thread stays on WhatsApp',
+        body:
+          'The order comes back with its own number, so a later call about it has something to name. One tap tells you on WhatsApp, which is where he was going to message you anyway.',
         image: '/assets/screenshots/order-link-sent-mockup.webp',
-        alt: 'Order confirmation screen showing the order reference, the item lines and the total before GST',
+        alt: 'Order sent screen showing the order reference, the item lines, the total before GST and a button to tell the seller on WhatsApp',
         width: 600,
         height: 1243,
       },
