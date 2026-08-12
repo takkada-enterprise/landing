@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // Render Head children inline so JSON-LD can be asserted synchronously,
@@ -106,6 +106,24 @@ describe('Home v3 structure (AE1)', () => {
       // Observed, and nothing reported in view yet, so the timer is gated.
       expect(observe).toHaveBeenCalled();
       expect(tourClass(container)).toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
+    // Scrolling the tour under a resting cursor fires mouseenter, so pausing
+    // on mouseenter froze the tour the moment it woke and held it there until
+    // the reader moved the mouse off the section (2026-08-13). It reads as a
+    // dead section, and on a trackpad it is the common case, not the edge one.
+    it('does not pause when the section arrives under a still cursor', () => {
+      vi.stubGlobal('matchMedia', () => ({ matches: true }));
+      const { container } = renderHome();
+      const tour = container.querySelector('#digital-collection .hv3-tour');
+      fireEvent.mouseEnter(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      // A pointer that actually moves over it is a reader, so that still pauses.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+      fireEvent.mouseLeave(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
       vi.unstubAllGlobals();
     });
 

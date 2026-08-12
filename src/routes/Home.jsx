@@ -248,10 +248,20 @@ function RoadSection({ story, ctaContext }) {
              the countdown bar, and a bar filling off-screen would greet the
              arriving reader half-drawn against a timer that just started. */
           className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused || !inView ? ' hv3-tour--paused' : ''}`}
-          /* Touch fires mouseenter on tap and never mouseleave, which would
+          /* Pause on the pointer MOVING over the tour, not on mouseenter.
+             Scrolling the section under a resting cursor fires mouseenter too,
+             and on a trackpad the cursor is almost always sitting in the middle
+             of the screen — right where the tour arrives. That paused the tour
+             the instant it woke and held it there until the reader happened to
+             move the mouse away, which reads as a dead section (2026-08-13).
+             A reader who has not moved the pointer is not reading a station,
+             so nothing needs pausing yet.
+
+             Touch fires mouseenter on tap and never mouseleave, which would
              pause the tour permanently — so only a real hovering pointer
              pauses it. */
-          onMouseEnter={() => {
+          onMouseMove={() => {
+            if (paused) return;
             if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
           }}
           onMouseLeave={() => setPaused(false)}
