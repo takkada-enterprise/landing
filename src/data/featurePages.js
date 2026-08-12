@@ -115,129 +115,75 @@ const FIRST_BATCH = [
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-12',
-    walkthroughHeading: 'One shop visit, start to finish',
-    walkthrough: [
-      {
-        icon: 'Route',
-        title: 'His day starts on a beat',
-        body:
-          'Group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. Everyone opens the app knowing which shops are theirs today.',
-        image: '/assets/screenshots/beats-mockup.webp',
-        alt: 'Beats screen listing named routes, each with its salesman and dealer count',
-        width: 600,
-        height: 1242,
-      },
-      {
-        icon: 'MapPin',
-        title: 'He checks in when he reaches the shop',
-        body:
-          'One tap marks the visit with the time and the place. You see who is standing at which retailer without ringing anyone to ask.',
-        image: '/assets/screenshots/field-visits-feed-mockup.webp',
-        alt: 'Field visit feed showing salesman check-ins with time and location',
-        width: 600,
-        height: 1242,
-      },
-      {
-        icon: 'Camera',
-        title: 'The visit proves itself',
-        body:
-          'Every visit carries a geo-tagged, time-stamped photo. The shop front, the shelf, the stock lying in the corner. Nothing to argue about at month end.',
-        image: '/assets/screenshots/field-visit-photo-mockup.webp',
-        alt: 'Geo-tagged and time-stamped photo captured on a field visit',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'PackageCheck',
-        title: 'The order is booked against live stock',
-        body:
-          'Live stock sits next to every item, so nobody promises what the godown does not have. The order becomes a sales order in your Tally, and the pending quantity is tracked until it ships.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Sales order screen showing pending quantities against each item',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Truck',
-        title: 'The godown loads the van from one sheet',
-        body:
-          'The orders booked on a route total themselves into one load sheet. So many bags, so many crates, then the same list dealer by dealer. As the van empties, deliveries get ticked off against each shop.',
-        image: '/assets/screenshots/beat-load-sheet-mockup.webp',
-        alt: 'Dispatch load sheet totalling the items to load for one route, with the per-dealer breakdown below',
-        width: 600,
-        height: 1242,
-      },
-      {
-        icon: 'Activity',
-        title: 'You watch the day while it happens',
-        body:
-          'Visits, orders and collections per salesman, as they land. The evening call asking everyone what they did stops being necessary.',
-        image: '/assets/screenshots/field-visit-outcomes-mockup.webp',
-        alt: 'Live view of visit outcomes, orders and collections per salesman',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Target',
-        title: 'Targets and commission settle themselves',
-        body:
-          'Monthly targets with live progress, and commission worked out per salesman from what actually got billed and collected.',
-        image: '/assets/screenshots/sales-target-mockup.webp',
-        alt: 'Monthly sales target with live progress for a salesman',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Lock',
-        title: 'Each person sees only their part',
-        body:
-          'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
-      },
-    ],
-    // Scroll-driven tour (2026-08-12): one order followed from the shop
-    // counter to the receipt in Tally. Same story shape as the homepage
-    // order-to-cash road, but the reader's scroll advances the stations
-    // instead of a timer. Rendered by FeatureTour when present; every
+    // No `walkthrough` on this page, on purpose (2026-08-12). It used to carry
+    // an 8-card grid AND the tour below, which narrated the same day twice and
+    // read as two competing stories. The grid's bottom-cropped phones also sat
+    // at eight different heights because each card cropped after a
+    // variable-length paragraph. The tour is now the page's only story and it
+    // runs the whole day in order. FeaturePage renders the grid section only
+    // when `walkthrough` is non-empty, so the other 26 pages are untouched.
+    //
+    // Scroll-driven tour: one salesman's day, morning to night, six stations.
+    // The reader's scroll advances the stations (no timer), and every
     // screenshot is an already-shipped sanitised mockup.
     tour: {
-      overline: 'Order to money',
-      heading: 'The order walks the rest of the road on its own.',
+      overline: 'One day on a beat',
+      heading: 'One day on a beat, from the first shop to the last rupee.',
       intro:
-        'Follow one order booked on a beat. It leaves the godown on a load sheet, becomes an invoice on WhatsApp, and comes back as money matched in your Tally.',
+        'Follow one salesman through his day. Every screen here is what he sees in the market, and every entry lands in your Tally while he is still standing at the shop.',
       stations: [
         {
-          title: 'Booked at the shop counter',
+          title: 'Nine in the morning, he opens his beat',
           body:
-            'Your salesman builds the order at the shop, with live stock next to every item. It lands in your Tally as a sales order the moment he saves it.',
+            'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each. He opens the app and today’s shops are already listed for him.',
+          screenshot: '/assets/screenshots/beats-mockup.webp',
+          screenshotAlt:
+            'Beats screen in Takkada listing named routes, each with its salesman and dealer count',
+        },
+        {
+          title: 'He checks in, and the visit proves itself',
+          body:
+            'One tap marks the visit with the time and the place, and it carries a geo-tagged, time-stamped photo. The shop front, the shelf, the stock lying in the corner. Nothing to argue about at month end.',
+          screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
+          screenshotAlt:
+            'Field visit feed in Takkada showing salesman check-ins with the time and location of each',
+        },
+        {
+          title: 'The order is booked against live stock',
+          body:
+            'Live stock sits next to every item, so nobody promises what the godown does not have. It lands in your Tally as a sales order the moment he saves it, with the pending quantity tracked until it ships.',
           screenshot: '/assets/screenshots/add-items-mockup.webp',
           screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
         },
         {
-          title: 'Loaded onto the van by route',
+          title: 'The godown loads the van from one sheet',
           body:
-            'The dispatch sheet totals every order on the beat, so the godown loads once, item by item. Deliveries get ticked off shop by shop as the van empties.',
+            'The orders booked on a route total themselves into one load sheet. So many bags, so many crates, then the same list dealer by dealer. As the van empties, deliveries get ticked off against each shop.',
           screenshot: '/assets/screenshots/beat-load-sheet-mockup.webp',
-          screenshotAlt: 'Dispatch load sheet in Takkada totalling the items to load for one route',
+          screenshotAlt:
+            'Dispatch load sheet in Takkada totalling the items to load for one route, with the per-dealer breakdown below',
         },
         {
-          title: 'Invoiced, and already on WhatsApp',
+          title: 'The invoice reaches the retailer on WhatsApp',
           body:
-            'The invoice posts with items, GST and your Tally number series. The PDF and a Pay now link reach the retailer before your salesman leaves the shop.',
+            'The invoice posts with items, GST and your Tally number series. The PDF and a Pay now link reach the retailer before your salesman leaves the shop, and the UPI receipt matches itself against that bill.',
           screenshot: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
           screenshotAlt: 'WhatsApp chat with a Takkada invoice PDF and a Pay now link',
         },
         {
-          title: 'Paid, matched, closed in Tally',
+          title: 'By night you already know how the day went',
           body:
-            'The retailer pays the UPI link and the receipt posts itself against the right invoice. What is left to collect shows on the party ledger.',
-          screenshot: '/assets/screenshots/party-ledger-mockup.webp',
-          screenshotAlt: 'Party ledger in Takkada with sales, receipts, and the amount left to collect',
+            'Visits, orders and collections per salesman as they land, with monthly targets and commission worked out from what actually got billed and collected. The evening call asking everyone what they did stops being necessary.',
+          screenshot: '/assets/screenshots/team-sales-hub-mockup.webp',
+          screenshotAlt:
+            'Team Sales screen in Takkada: who is out today, and the leaderboard with targets and commission per salesman',
         },
       ],
+      // RBAC is not a station: it has no hour in the day, and dropping it into
+      // the timeline is exactly the "everything at random" feel this refactor
+      // removes. It keeps its FAQ answer and its comparison row.
+      footnote:
+        'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
     },
     comparison: {
       heading: 'What changes once the order leaves the shop',

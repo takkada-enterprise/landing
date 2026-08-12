@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Scroll-driven order tour for feature pages. A sticky phone crossfades
-// between screens while the reader's scroll moves an order down the road,
-// station by station.
+// Scroll-driven tour for feature pages. A sticky phone crossfades between
+// screens while the reader's scroll walks the story station by station.
 //
 // Motion reason (CLAUDE.md craft rule 5): the crossfade IS the product story.
-// The same order moving from screen to screen is exactly what Takkada does to
-// it, so the animation teaches rather than decorates. Scroll drives the
-// advance (no timer): the reader sets the pace, the animation can never run
-// ahead of them, and stopping mid-story freezes it exactly where they are.
+// One phone showing one screen after another is exactly what the day looks
+// like to the person holding it, so the animation teaches rather than
+// decorates. Scroll drives the advance (no timer): the reader sets the pace,
+// the animation can never run ahead of them, and stopping mid-story freezes it
+// exactly where they are.
 //
 // New pattern justification (craft rule 10): first scrollytelling section on
 // a feature page. It borrows the homepage tour's vocabulary (numbered
@@ -22,9 +22,12 @@ import { useEffect, useRef, useState } from 'react';
 //   homepage mobile tour uses.
 // - Stations are also buttons. A click activates immediately (and scrolls the
 //   station into the band so the observer agrees with the click).
-// - The crossfade pairs opacity with a 2px blur bridge so the two screens
-//   read as one object changing, not two overlapping. CSS transitions, so an
-//   interrupted fade retargets smoothly mid-flight.
+// - The crossfade is opacity plus a 2px blur bridge and nothing else. The blur
+//   makes the two screens read as one object changing rather than two
+//   overlapping; the scale pulse that used to ride along was removed on
+//   2026-08-12 because the phone is furniture the eye parks on for the whole
+//   section, and six twitches of the device edge is not the story. CSS
+//   transitions, so an interrupted fade retargets smoothly mid-flight.
 // - prefers-reduced-motion collapses everything to an instant swap (CSS).
 export default function FeatureTour({ tour }) {
   const [active, setActive] = useState(0);
@@ -97,6 +100,10 @@ export default function FeatureTour({ tour }) {
             ))}
           </div>
         </div>
+        {/* Anything true about the day that has no hour of its own (RBAC, for
+            instance) lands here rather than becoming a station and breaking
+            the timeline. Same pattern as storyOrderToCash.footnote. */}
+        {tour.footnote && <p className="ftour-footnote">{tour.footnote}</p>}
       </div>
     </section>
   );

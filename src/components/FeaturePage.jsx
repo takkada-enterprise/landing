@@ -137,7 +137,14 @@ function FeaturePage({ page }) {
           articlePageSchema({
             headline: page.searchPhrase,
             description: page.seo.description,
-            image: page.walkthrough[0]?.image,
+            // A page tells its story through a walk-through grid or a scroll
+            // tour, so the schema image falls through both before the hero.
+            // Without the fallback, a tour-only page emits Article with no
+            // image at all.
+            image:
+              page.walkthrough?.[0]?.image ??
+              page.tour?.stations?.[0]?.screenshot ??
+              page.hero?.image,
             datePublished: page.datePublished,
             dateModified: page.updated,
             author: page.author,
@@ -186,7 +193,10 @@ function FeaturePage({ page }) {
         </div>
       </section>
 
-      {/* ── Walk-through, one real screenshot per step ── */}
+      {/* ── Walk-through, one real screenshot per step. Only on pages whose
+          story is a grid. A page carrying a scroll tour instead tells the same
+          day once, below, and rendering both narrated it twice. ── */}
+      {page.walkthrough?.length > 0 && (
       <section className="tally-section feature-walkthrough" id="walkthrough">
         <div className="container">
           <div className="section-header">
@@ -221,6 +231,7 @@ function FeaturePage({ page }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Scroll-driven order tour, only on pages whose data carries one.
           Motion reasons live in FeatureTour.jsx's header. ── */}

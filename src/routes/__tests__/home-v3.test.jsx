@@ -67,6 +67,58 @@ describe('Home v3 structure (AE1)', () => {
     expect(steps[0].className).toContain('is-active');
   });
 
+  // The road auto-advanced from page load, several screens above where it
+  // sits, so a reader arriving at it found the story already mid-way through
+  // (2026-08-12). It now waits until it is in view. Both halves are asserted
+  // because the first attempt got this wrong in a way nothing caught: the
+  // initial state was `typeof IntersectionObserver === 'undefined'`, which is
+  // true in the prerender and false in the browser, and the hydration mismatch
+  // left the markup saying "awake" while the timer stayed asleep.
+  describe('the order-to-cash road wakes on scroll', () => {
+    const tourClass = (container) =>
+      container.querySelector('#digital-collection .hv3-tour').className;
+
+    it('renders asleep until the observer says the reader has arrived', () => {
+      // Several components on this page observe something, so the stub has to
+      // satisfy the whole interface, not just the calls RoadSection makes.
+      const observe = vi.fn();
+      class ObserverStub {
+        constructor(callback) {
+          this.callback = callback;
+        }
+        observe = observe;
+        unobserve = vi.fn();
+        disconnect = vi.fn();
+        takeRecords = () => [];
+      }
+      vi.stubGlobal('IntersectionObserver', ObserverStub);
+      // Handing jsdom an observer wakes CountUp's effect too, and that one
+      // calls window.matchMedia unguarded. jsdom does not implement it, so a
+      // browser-shaped stub stands in.
+      vi.stubGlobal('matchMedia', () => ({
+        matches: false,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+      }));
+      const { container } = renderHome();
+      // Observed, and nothing reported in view yet, so the timer is gated.
+      expect(observe).toHaveBeenCalled();
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
+    it('falls back to running immediately where there is no observer', () => {
+      vi.stubGlobal('IntersectionObserver', undefined);
+      const { container } = renderHome();
+      // Old browsers and jsdom keep the pre-2026-08-12 behavior rather than
+      // getting a tour that can never start.
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+  });
+
   it('orders the sections hero → story 1 → story 2 → grid → tally → pricing', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
