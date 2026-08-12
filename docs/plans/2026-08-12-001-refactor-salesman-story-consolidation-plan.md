@@ -1,7 +1,7 @@
 ---
 title: "refactor: One chronological story on the salesman page, wake-on-scroll homepage road"
 type: refactor
-status: active
+status: completed
 created: 2026-08-12
 planning_docs: []
 ---
