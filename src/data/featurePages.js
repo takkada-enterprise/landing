@@ -83,21 +83,23 @@ const FIRST_BATCH = [
     // lifts, so it is entity-first by design and answers the query in the
     // opening sentence. The hero copy above it stays distributor-first
     // (CLAUDE.md §11).
+    // 58 words. Beats and the dispatch load sheet joined the module on
+    // 2026-08-11 (live on prod, both repos), so the answer carries them.
     answer:
-      'Takkada is a salesman app for Tally. Your field team checks in at a shop, books the order against live stock, raises the invoice, and collects by UPI, all from a phone. Every visit carries a geo-tagged photo. Orders and receipts land in your Tally as vouchers, with targets and commission worked out per salesman.',
+      'Takkada is a salesman app for Tally. Your field team works fixed beats, checks in with geo-tagged photos, books orders against live stock, raises invoices, and collects by UPI, all from a phone. Orders total into a dispatch load sheet per route, and everything lands in your Tally as vouchers, with targets and commission worked out per salesman.',
     waContext: 'feature-salesman-app-tally',
     waMessage:
       'Hi, I have salesmen in the market and want their visits, orders and collections coming into my Tally. Can you show me how Takkada does it?',
     seo: {
       title: 'Salesman App for Tally | Field Sales on Mobile | Takkada',
       description:
-        'Salesman app for Tally: geo-tagged visit proof, orders on live stock, invoices and UPI collection from the shop counter. Targets and commission per salesman.',
+        'Salesman app for Tally: beat routes, geo-tagged visit proof, orders on live stock, a dispatch load sheet per route, UPI collection, commission per salesman.',
     },
     llms: {
       section: 'Features',
       title: 'Salesman app for Tally',
       summary:
-        'Field-sales module for distributors on Tally: one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
+        'Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
     },
     footerLabel: 'Salesman app',
     // The hero mockup is this page's LCP element, so it renders eagerly at high
@@ -112,9 +114,19 @@ const FIRST_BATCH = [
     },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-08-12',
     walkthroughHeading: 'One shop visit, start to finish',
     walkthrough: [
+      {
+        icon: 'Route',
+        title: 'His day starts on a beat',
+        body:
+          'Group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. Everyone opens the app knowing which shops are theirs today.',
+        image: '/assets/screenshots/beats-mockup.webp',
+        alt: 'Beats screen listing named routes, each with its salesman and dealer count',
+        width: 600,
+        height: 1242,
+      },
       {
         icon: 'MapPin',
         title: 'He checks in when he reaches the shop',
@@ -144,6 +156,16 @@ const FIRST_BATCH = [
         alt: 'Sales order screen showing pending quantities against each item',
         width: 600,
         height: 1243,
+      },
+      {
+        icon: 'Truck',
+        title: 'The godown loads the van from one sheet',
+        body:
+          'The orders booked on a route total themselves into one load sheet. So many bags, so many crates, then the same list dealer by dealer. As the van empties, deliveries get ticked off against each shop.',
+        image: '/assets/screenshots/beat-load-sheet-mockup.webp',
+        alt: 'Dispatch load sheet totalling the items to load for one route, with the per-dealer breakdown below',
+        width: 600,
+        height: 1242,
       },
       {
         icon: 'Activity',
@@ -176,6 +198,47 @@ const FIRST_BATCH = [
         height: 1874,
       },
     ],
+    // Scroll-driven tour (2026-08-12): one order followed from the shop
+    // counter to the receipt in Tally. Same story shape as the homepage
+    // order-to-cash road, but the reader's scroll advances the stations
+    // instead of a timer. Rendered by FeatureTour when present; every
+    // screenshot is an already-shipped sanitised mockup.
+    tour: {
+      overline: 'Order to money',
+      heading: 'The order walks the rest of the road on its own.',
+      intro:
+        'Follow one order booked on a beat. It leaves the godown on a load sheet, becomes an invoice on WhatsApp, and comes back as money matched in your Tally.',
+      stations: [
+        {
+          title: 'Booked at the shop counter',
+          body:
+            'Your salesman builds the order at the shop, with live stock next to every item. It lands in your Tally as a sales order the moment he saves it.',
+          screenshot: '/assets/screenshots/add-items-mockup.webp',
+          screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
+        },
+        {
+          title: 'Loaded onto the van by route',
+          body:
+            'The dispatch sheet totals every order on the beat, so the godown loads once, item by item. Deliveries get ticked off shop by shop as the van empties.',
+          screenshot: '/assets/screenshots/beat-load-sheet-mockup.webp',
+          screenshotAlt: 'Dispatch load sheet in Takkada totalling the items to load for one route',
+        },
+        {
+          title: 'Invoiced, and already on WhatsApp',
+          body:
+            'The invoice posts with items, GST and your Tally number series. The PDF and a Pay now link reach the retailer before your salesman leaves the shop.',
+          screenshot: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
+          screenshotAlt: 'WhatsApp chat with a Takkada invoice PDF and a Pay now link',
+        },
+        {
+          title: 'Paid, matched, closed in Tally',
+          body:
+            'The retailer pays the UPI link and the receipt posts itself against the right invoice. What is left to collect shows on the party ledger.',
+          screenshot: '/assets/screenshots/party-ledger-mockup.webp',
+          screenshotAlt: 'Party ledger in Takkada with sales, receipts, and the amount left to collect',
+        },
+      ],
+    },
     comparison: {
       heading: 'What changes once the order leaves the shop',
       othersLabel: 'Other Tally mobile apps',
@@ -232,6 +295,10 @@ const FIRST_BATCH = [
       {
         q: 'Can I stop a salesman from seeing my whole ledger?',
         a: 'Yes. View and create rights are set per register and per person, and you can restrict which ledgers and which stock groups a user sees. A salesman can be given his own parties and the registers he needs to work, while purchase costs, other salesmen’s parties and the rest of the book stay out of his view.',
+      },
+      {
+        q: 'Can I set up beats or routes for my salesmen?',
+        a: 'Yes. You group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.',
       },
       {
         q: 'What happens to the order the salesman books at the shop?',

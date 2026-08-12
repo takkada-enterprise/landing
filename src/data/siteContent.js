@@ -142,8 +142,11 @@ export const storyOrderToCash = {
 
 // Story 2: the field sales day. Claims discipline: check-in/check-out and
 // geo-tagged photo stamps are live on prod (2026-08-03 verification); the
-// order/invoice basis toggle is live. Screenshots are operator-framed
-// mockups (2026-08-04 set). Step 3's shop photo is an Unsplash-licensed
+// order/invoice basis toggle is live. Beats and the dispatch load sheet went
+// live on prod 2026-08-11 (both repos), so the load-by-beat step is a
+// capability claim, not a promise. Screenshots are operator-framed mockups
+// (2026-08-04 set, plus the 2026-08-12 beats/dispatch set). Step 3's shop
+// photo is an Unsplash-licensed
 // storefront (photo bAKYjjvAQIE, cropped to exclude faces, the real shop's
 // name, and brand logos) composited into the operator's geotagged template.
 export const storyTeamSales = {
@@ -172,6 +175,15 @@ export const storyTeamSales = {
       screenshotAlt: 'Geo-tagged, time-stamped field visit photo of a dealer shop in Takkada',
     },
     {
+      title: 'The van loads by beat',
+      body:
+        'Dealers sit in beats, the routes your market already runs on. Booked orders total into a load sheet per route, and the godown ticks off deliveries as the van empties.',
+      screenshot: '/assets/screenshots/dispatch-mockup.webp',
+      screenshotWidth: 600,
+      screenshotHeight: 1242,
+      screenshotAlt: 'Dispatch screen in Takkada totalling booked orders into a load per beat route',
+    },
+    {
       title: 'You watch the day live',
       body:
         'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
@@ -184,10 +196,10 @@ export const storyTeamSales = {
       title: 'Targets and commission settle themselves',
       body:
         'Monthly targets, live progress, and commission worked out per salesman. The month-end argument is over before it starts.',
-      screenshot: '/assets/screenshots/sales-target-mockup.webp',
+      screenshot: '/assets/screenshots/team-sales-hub-mockup.webp',
       screenshotWidth: 600,
-      screenshotHeight: 1243,
-      screenshotAlt: 'Team Sales leaderboard in Takkada with targets, progress, and commission per salesman',
+      screenshotHeight: 1242,
+      screenshotAlt: 'Team Sales screen in Takkada: who is out today, and the leaderboard with targets and commission per salesman',
     },
   ],
   ctaLine: 'Run a field team? Ask us about the salesman module.',

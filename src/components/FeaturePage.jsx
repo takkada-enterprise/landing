@@ -18,6 +18,7 @@ import {
   MessageCircle,
   PackageCheck,
   QrCode,
+  Route,
   Send,
   Share2,
   ShieldCheck,
@@ -26,6 +27,7 @@ import {
   Wallet,
 } from 'lucide-react';
 import Seo from './Seo';
+import FeatureTour from './FeatureTour';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
@@ -76,6 +78,7 @@ const ICONS = {
   MessageCircle,
   PackageCheck,
   QrCode,
+  Route,
   Send,
   Share2,
   ShieldCheck,
@@ -218,6 +221,10 @@ function FeaturePage({ page }) {
           </div>
         </div>
       </section>
+
+      {/* ── Scroll-driven order tour, only on pages whose data carries one.
+          Motion reasons live in FeatureTour.jsx's header. ── */}
+      {page.tour && <FeatureTour tour={page.tour} />}
 
       {/* ── Comparison table. Real <table>, competitors unnamed. ── */}
       <section className="comparison-section feature-comparison" id="comparison">
