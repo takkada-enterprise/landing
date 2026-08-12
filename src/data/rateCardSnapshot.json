@@ -1,0 +1,31 @@
+{
+  "$comment": "The cross-surface pricing truth. scripts/checkRateCardDrift.mjs enforces site == snapshot (both directions, data + rendered HTML) in this repo's build gate; the partner dashboard's plans_pricing config matching this file is a CONVENTION its own suite pins from its side (lib/rate-card tests), not something enforced here. Config keys are the partner-dashboard names; publicName/publicLabel are what this site renders. Changing any price is a deliberate three-way edit: this file, siteContent.js, the dashboard config. dashboardOnlyKeys is documentation of the offers the dashboard sells that never render here (the guard's actual mechanism is 'on the site but absent from the snapshot' failing); exemptions are site-only blocks priced against setups, not plans.",
+  "termDiscount": 0.25,
+  "termYears": 3,
+  "plans": {
+    "view_only": { "publicName": "Clarity", "annualInr": 2900 },
+    "voucher": { "publicName": "Momentum", "annualInr": 4500 },
+    "collections": { "publicName": "Assurance", "annualInr": 6480 },
+    "full_access": { "publicName": "Copilot", "annualInr": 8500 }
+  },
+  "addons": {
+    "payment_collection": { "publicLabel": "Payment Collection", "priceInr": 1500 },
+    "extra_user": { "publicLabel": "Extra user", "priceInr": 3000 },
+    "whatsapp_pack": { "publicLabel": "WhatsApp 8,000-message pack", "priceInr": 2000 },
+    "own_whatsapp_number": {
+      "publicLabel": "Your own WhatsApp number (early access)",
+      "priceInr": 2000
+    },
+    "customer_order_link": { "publicLabel": "Customer Order Link", "priceInr": 3999 }
+  },
+  "dashboardOnlyKeys": [
+    "business_insights",
+    "extra_business",
+    "auto_dispatch_addon",
+    "plans_six_month",
+    "extra_user_slabs"
+  ],
+  "exemptions": {
+    "biggerSetups": [30000, 15000]
+  }
+}

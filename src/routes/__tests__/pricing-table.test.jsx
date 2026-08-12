@@ -8,7 +8,13 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { pricing, planPricing, formatInr, biggerSetups } from '../../data/siteContent';
+import {
+  pricing,
+  planPricing,
+  planPriceRange,
+  formatInr,
+  biggerSetups,
+} from '../../data/siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
@@ -87,6 +93,28 @@ describe('pricing comparison table', () => {
       expect(addons.textContent).toContain(addon.label);
       expect(addons.textContent).toContain(addon.price);
     }
+  });
+
+  it('no longer sells an "Extra device" price anywhere on the page', () => {
+    // Removed 2026-08-12: nothing in the product or the partner rate card
+    // sells per-device pricing — the pill was drift, not an offer.
+    const container = renderHome();
+    // Case-insensitive on purpose: the FAQ once carried a lowercase
+    // "extra device" price sentence that a .toContain('Extra device')
+    // assertion sailed past.
+    expect(container.textContent).not.toMatch(/extra device/i);
+    expect(pricing.addons.map((a) => a.label)).not.toContain('Extra device');
+    expect(pricing.addons).toHaveLength(5);
+  });
+
+  it('derives the headline price range from the plan list, never a typed string', () => {
+    const container = renderHome();
+    const heading = container.querySelector('.rate-title');
+    expect(heading).toBeTruthy();
+    const min = Math.min(...pricing.plans.map((p) => p.annualPrice));
+    const max = Math.max(...pricing.plans.map((p) => p.annualPrice));
+    expect(planPriceRange()).toBe(`${formatInr(min)} to ${formatInr(max)}`);
+    expect(heading.textContent).toContain(planPriceRange());
   });
 
   it('marks exactly one plan as the highlighted column', () => {

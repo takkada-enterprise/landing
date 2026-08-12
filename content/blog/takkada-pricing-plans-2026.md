@@ -66,7 +66,6 @@ Beyond the base plans, the add-ons extend the tool to a team, to more businesses
 |---|---|
 | Payment Collection (UPI links, 0% MDR, auto-reconciled into Tally) | ₹1,500 |
 | Extra user | ₹3,000 |
-| Extra device | ₹3,000 |
 | Extra business | ₹1,000 |
 | WhatsApp 8,000-message pack | ₹2,000 |
 
@@ -98,9 +97,9 @@ A: No. On the Payment Collection add-on, UPI receipts carry 0% MDR with no trans
 
 A: A distributor whose work is invoicing in the field usually needs Assurance (₹6,480) for e-invoice and e-way bill from the phone, or Copilot (₹8,500) to also have every invoice auto-dispatched on WhatsApp the moment it is created. Add Payment Collection at ₹1,500 a year on either one to collect on a UPI link.
 
-**Q: What does an extra device or extra user cost?**
+**Q: What does an extra user cost?**
 
-A: An extra device is ₹3,000 a year and an extra user is ₹3,000 a year. A WhatsApp 8,000-message pack is ₹2,000 a year. These are flat annual add-ons, not per-transaction charges.
+A: An extra user is ₹3,000 a year. A WhatsApp 8,000-message pack is ₹2,000 a year. These are flat annual add-ons, not per-transaction charges.
 
 **Q: Do I pay extra to run more than one business?**
 
