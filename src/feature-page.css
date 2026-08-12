@@ -6,8 +6,10 @@
  * cells hold sentences instead of tick marks, and the plan pointer. Tokens
  * only, no new colours (CLAUDE.md §6).
  *
- * No motion of its own (craft rule 5). The FAQ accordion is the only moving
- * part on these pages and it comes from the shared FAQItem.
+ * Motion: one deliberate exception to "no motion of its own" (craft rule 5) —
+ * the scroll-driven order tour at the bottom of this file, whose reason lives
+ * in FeatureTour.jsx's header. Everything else stays still; the FAQ accordion
+ * comes from the shared FAQItem.
  */
 
 /* ── Hero ──
@@ -473,5 +475,244 @@
 
   .features-hub-index {
     padding: 56px 0 64px;
+  }
+}
+
+/* ── The scroll-driven order tour (FeatureTour.jsx) ──
+ * The one moving section on a feature page; the reason it moves at all is in
+ * the component's header. Vocabulary borrowed from the homepage tour
+ * (numbered stations, one phone, crossfade) so the two read as one site.
+ * Only transform, opacity and filter animate, and every transition is a CSS
+ * transition, so an interrupted crossfade retargets instead of restarting. */
+.ftour {
+  padding: 96px 0;
+  background: var(--color-bg);
+}
+
+.ftour-intro {
+  max-width: 560px;
+  margin: 16px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.ftour-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+/* Phone first on narrow screens (order, not DOM), sticky under the nav on an
+ * opaque plate so station rows scrolling under it disappear behind it. Same
+ * geometry as the homepage mobile tour. */
+.ftour-phone {
+  order: -1;
+  position: sticky;
+  top: 56px;
+  z-index: 2;
+  width: 100%;
+  height: 348px;
+  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(250, 250, 247, 0) 100%);
+}
+
+/* The mockups carry their own device frame (transparent background), so the
+ * shadow is a drop-shadow following the alpha silhouette, kept identical in
+ * both states so only the blur interpolates. The 2px blur bridge makes the
+ * two screens read as one object changing rather than two overlapping.
+ *
+ * Opacity and blur only, no scale (2026-08-12). The phone is fixed furniture
+ * the reader's eye parks on for the whole section, so a scale pulse on every
+ * station read as the phone twitching six times rather than as the screen
+ * changing. The blur alone does the bridging the scale was there to help
+ * with, and the device edge now holds perfectly still. */
+.ftour-phone img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 316px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(2px);
+  transition:
+    opacity 0.4s var(--ease-out),
+    filter 0.4s var(--ease-out);
+}
+
+.ftour-phone img.is-active {
+  opacity: 1;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(0px);
+}
+
+.ftour-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ftour-step button {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  /* Inactive stations dim rather than collapse: during a scroll-driven story
+   * a height change under the pointer is jank, an opacity change is not. */
+  opacity: 0.4;
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.ftour-step.is-active button {
+  opacity: 1;
+}
+
+/* Pressable things press (whole-row target, so the dip stays subtle). */
+.ftour-step button:active {
+  transform: scale(0.99);
+}
+
+.ftour-num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.ftour-step.is-active .ftour-num {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.ftour-step-text {
+  display: block;
+}
+
+/* padding-top optically centres the first line of the title against the 32px
+ * number circle: (32 - 18 * 1.35) / 2 ≈ 4. The desktop override below redoes
+ * the same sum at 20px. Get this wrong and every station sits at its own
+ * height against its own number. */
+.ftour-step-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-display, 700);
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--color-text);
+  padding-top: 4px;
+}
+
+/* The one thing about the day with no hour of its own. Centred under the tour
+ * and set like the intro, so it reads as a closing note on the section rather
+ * than a seventh station. */
+.ftour-footnote {
+  max-width: 640px;
+  margin: 32px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.ftour-step-body {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 44ch;
+}
+
+/* Desktop: stations left, phone sticky in the right column, centered in the
+ * viewport. Each station holds a band of scroll so the reader's pace drives
+ * the crossfade. */
+@media (min-width: 900px) {
+  .ftour-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 96px;
+    align-items: start;
+  }
+
+  .ftour-list {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ftour-phone {
+    order: 0;
+    grid-column: 2;
+    grid-row: 1;
+    /* Centered in the viewport, but never under the fixed nav on a short
+     * screen (the calc goes negative below 750px of height). */
+    top: max(76px, calc(50vh - 300px));
+    height: auto;
+    width: min(290px, 100%);
+    aspect-ratio: 0.483;
+    margin: 0 auto;
+    background: none;
+  }
+
+  .ftour-phone img {
+    inset: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+
+  .ftour-step {
+    /* The scroll band per station. Shallow enough that the section never
+     * feels like a scroll toll, deep enough that the center-band observer
+     * gets one clean station at a time. */
+    min-height: 38vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .ftour-step button {
+    padding: 24px 0;
+  }
+
+  .ftour-step-title {
+    font-size: 20px;
+    /* (32 - 20 * 1.35) / 2 ≈ 3. See the base rule. */
+    padding-top: 3px;
+  }
+}
+
+/* Reduced motion: the tour switches instantly. The screen still changes with
+ * the active station (comprehension), it just stops travelling. */
+@media (prefers-reduced-motion: reduce) {
+  .ftour-phone img,
+  .ftour-step button,
+  .ftour-num {
+    transition: none;
+  }
+
+  .ftour-phone img {
+    filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
   }
 }

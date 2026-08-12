@@ -365,12 +365,19 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   width: auto;
   object-fit: contain;
   opacity: 0;
-  transition: opacity 0.45s var(--ease-out);
-  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+  /* Opacity alone left two whole screens legible at once mid-fade, which
+     reads as two phones overlapping. The 2px blur bridge blends them into one
+     screen changing (same recipe as .ftour-phone img). The drop-shadow is held
+     identical in both states so only the blur interpolates. */
+  transition:
+    opacity 0.45s var(--ease-out),
+    filter 0.45s var(--ease-out);
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(2px);
 }
 
 .home-v3 .hv3-tour-phone img.is-active {
   opacity: 1;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(0px);
 }
 
 .home-v3 .hv3-tour-list {
@@ -985,6 +992,11 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   .home-v3 .hv3-tour-step-title,
   .home-v3 .hv3-tour-step-reveal,
   .home-v3 .hv3-tour-step-body { transition: none; }
+  /* With no transition the blur would simply be the resting state of every
+     inactive screen, which is a permanently soft phone, not a still one. */
+  .home-v3 .hv3-tour-phone img {
+    filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+  }
   /* No auto-advance under reduced motion, so no countdown either. */
   html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::after {
     animation: none;

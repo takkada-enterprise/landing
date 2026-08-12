@@ -54,27 +54,43 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
     expect(img.getAttribute('fetchpriority')).toBe('high');
   });
 
-  it('renders the answer block ahead of the walk-through', () => {
+  it('renders the answer block ahead of the story section', () => {
     const { container } = renderPage(page);
     const answer = container.querySelector('.feature-answer');
     expect(answer.textContent).toBe(page.answer);
-    const walkthrough = container.querySelector('#walkthrough');
-    // Node.DOCUMENT_POSITION_FOLLOWING: the walk-through comes after the answer.
-    expect(answer.compareDocumentPosition(walkthrough) & 4).toBeTruthy();
+    // The story is a walk-through grid or a tour, never both (2026-08-12).
+    const story = container.querySelector('#walkthrough') ?? container.querySelector('#tour');
+    expect(story).not.toBeNull();
+    // Node.DOCUMENT_POSITION_FOLLOWING: the story comes after the answer.
+    expect(answer.compareDocumentPosition(story) & 4).toBeTruthy();
   });
 
-  it('renders every walk-through step with a dimensioned, lazy screenshot', () => {
+  it('renders exactly one story section, matching its data', () => {
     const { container } = renderPage(page);
-    const steps = container.querySelectorAll('.feature-step');
-    expect(steps).toHaveLength(page.walkthrough.length);
-    page.walkthrough.forEach((step, i) => {
-      const img = steps[i].querySelector('img');
-      expect(img.getAttribute('src')).toBe(step.image);
-      expect(img.getAttribute('alt')).toBe(step.alt);
-      expect(img.getAttribute('width')).toBe(String(step.width));
-      expect(img.getAttribute('height')).toBe(String(step.height));
-      expect(img.getAttribute('loading')).toBe('lazy');
-    });
+    const grid = container.querySelector('#walkthrough');
+    const tour = container.querySelector('#tour');
+    expect(Boolean(grid) !== Boolean(tour)).toBe(true);
+    if (grid) {
+      expect(page.walkthrough.length).toBeGreaterThan(0);
+      const steps = container.querySelectorAll('.feature-step');
+      expect(steps).toHaveLength(page.walkthrough.length);
+      page.walkthrough.forEach((step, i) => {
+        const img = steps[i].querySelector('img');
+        expect(img.getAttribute('src')).toBe(step.image);
+        expect(img.getAttribute('alt')).toBe(step.alt);
+        expect(img.getAttribute('width')).toBe(String(step.width));
+        expect(img.getAttribute('height')).toBe(String(step.height));
+        expect(img.getAttribute('loading')).toBe('lazy');
+      });
+    } else {
+      expect(container.querySelectorAll('.feature-step')).toHaveLength(0);
+      const stations = container.querySelectorAll('.ftour-step');
+      expect(stations).toHaveLength(page.tour.stations.length);
+      page.tour.stations.forEach((station, i) => {
+        expect(stations[i].textContent).toContain(station.title);
+        expect(stations[i].textContent).toContain(station.body);
+      });
+    }
   });
 
   it('renders the comparison as a real table with a row per claim', () => {
@@ -127,6 +143,11 @@ describe.each(CASES)('%s emits the AEO schema set', (_slug, page) => {
     expect(article.author['@type']).toBe('Person');
     expect(article.author.name).toBeTruthy();
     expect(article.author.sameAs?.[0]).toMatch(/linkedin\.com/);
+    // The image used to come from walkthrough[0] alone, so a tour-only page
+    // emitted Article with no image (2026-08-12). Assert the asset URL, not
+    // just truthiness: absoluteUrl(undefined) defaults to the site root, which
+    // is truthy and makes a toBeTruthy() check here vacuous.
+    expect(article.image).toMatch(/^https:\/\/takkada\.com\/assets\/.+\.(webp|png|jpg)$/);
   });
 
   it('emits a SoftwareApplication reference published by the organization', () => {

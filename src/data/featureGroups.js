@@ -140,7 +140,7 @@ export const FEATURE_BLURBS = {
   'multi-company-tally-reports':
     'Two firms or three inside one app, each keeping its own books and its own numbers.',
   'salesman-app-tally':
-    'Check-in, geo-tagged visit proof, orders and UPI collection from the shop counter.',
+    'Beats, geo-tagged visit proof, orders and UPI collection from the shop counter.',
   'sales-order-on-mobile':
     'Orders booked against live stock and written into Tally, with the pending quantity visible.',
   'handwritten-order-to-tally':

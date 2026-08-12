@@ -83,21 +83,23 @@ const FIRST_BATCH = [
     // lifts, so it is entity-first by design and answers the query in the
     // opening sentence. The hero copy above it stays distributor-first
     // (CLAUDE.md §11).
+    // 58 words. Beats and the dispatch load sheet joined the module on
+    // 2026-08-11 (live on prod, both repos), so the answer carries them.
     answer:
-      'Takkada is a salesman app for Tally. Your field team checks in at a shop, books the order against live stock, raises the invoice, and collects by UPI, all from a phone. Every visit carries a geo-tagged photo. Orders and receipts land in your Tally as vouchers, with targets and commission worked out per salesman.',
+      'Takkada is a salesman app for Tally. Your field team works fixed beats, checks in with geo-tagged photos, books orders against live stock, raises invoices, and collects by UPI, all from a phone. Orders total into a dispatch load sheet per route, and everything lands in your Tally as vouchers, with targets and commission worked out per salesman.',
     waContext: 'feature-salesman-app-tally',
     waMessage:
       'Hi, I have salesmen in the market and want their visits, orders and collections coming into my Tally. Can you show me how Takkada does it?',
     seo: {
       title: 'Salesman App for Tally | Field Sales on Mobile | Takkada',
       description:
-        'Salesman app for Tally: geo-tagged visit proof, orders on live stock, invoices and UPI collection from the shop counter. Targets and commission per salesman.',
+        'Salesman app for Tally: beat routes, geo-tagged visit proof, orders on live stock, a dispatch load sheet per route, UPI collection, commission per salesman.',
     },
     llms: {
       section: 'Features',
       title: 'Salesman app for Tally',
       summary:
-        'Field-sales module for distributors on Tally: one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
+        'Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
     },
     footerLabel: 'Salesman app',
     // The hero mockup is this page's LCP element, so it renders eagerly at high
@@ -112,70 +114,77 @@ const FIRST_BATCH = [
     },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
-    walkthroughHeading: 'One shop visit, start to finish',
-    walkthrough: [
-      {
-        icon: 'MapPin',
-        title: 'He checks in when he reaches the shop',
-        body:
-          'One tap marks the visit with the time and the place. You see who is standing at which retailer without ringing anyone to ask.',
-        image: '/assets/screenshots/field-visits-feed-mockup.webp',
-        alt: 'Field visit feed showing salesman check-ins with time and location',
-        width: 600,
-        height: 1242,
-      },
-      {
-        icon: 'Camera',
-        title: 'The visit proves itself',
-        body:
-          'Every visit carries a geo-tagged, time-stamped photo. The shop front, the shelf, the stock lying in the corner. Nothing to argue about at month end.',
-        image: '/assets/screenshots/field-visit-photo-mockup.webp',
-        alt: 'Geo-tagged and time-stamped photo captured on a field visit',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'PackageCheck',
-        title: 'The order is booked against live stock',
-        body:
-          'Live stock sits next to every item, so nobody promises what the godown does not have. The order becomes a sales order in your Tally, and the pending quantity is tracked until it ships.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Sales order screen showing pending quantities against each item',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Activity',
-        title: 'You watch the day while it happens',
-        body:
-          'Visits, orders and collections per salesman, as they land. The evening call asking everyone what they did stops being necessary.',
-        image: '/assets/screenshots/field-visit-outcomes-mockup.webp',
-        alt: 'Live view of visit outcomes, orders and collections per salesman',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Target',
-        title: 'Targets and commission settle themselves',
-        body:
-          'Monthly targets with live progress, and commission worked out per salesman from what actually got billed and collected.',
-        image: '/assets/screenshots/sales-target-mockup.webp',
-        alt: 'Monthly sales target with live progress for a salesman',
-        width: 600,
-        height: 1243,
-      },
-      {
-        icon: 'Lock',
-        title: 'Each person sees only their part',
-        body:
-          'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
-      },
-    ],
+    updated: '2026-08-12',
+    // No `walkthrough` on this page, on purpose (2026-08-12). It used to carry
+    // an 8-card grid AND the tour below, which narrated the same day twice and
+    // read as two competing stories. The grid's bottom-cropped phones also sat
+    // at eight different heights because each card cropped after a
+    // variable-length paragraph. The tour is now the page's only story and it
+    // runs the whole day in order. FeaturePage renders the grid section only
+    // when `walkthrough` is non-empty, so the other 26 pages are untouched.
+    //
+    // Scroll-driven tour: one salesman's day, morning to night, six stations.
+    // The reader's scroll advances the stations (no timer), and every
+    // screenshot is an already-shipped sanitised mockup.
+    tour: {
+      overline: 'One day on a beat',
+      heading: 'One day on a beat, from the first shop to the last rupee.',
+      intro:
+        'Follow one salesman through his day. Every screen here is what he sees in the market, and every entry lands in your Tally while he is still standing at the shop.',
+      stations: [
+        {
+          title: 'Nine in the morning, he opens his beat',
+          body:
+            'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each. He opens the app and today’s shops are already listed for him.',
+          screenshot: '/assets/screenshots/beats-mockup.webp',
+          screenshotAlt:
+            'Beats screen in Takkada listing named routes, each with its salesman and dealer count',
+        },
+        {
+          title: 'He checks in, and the visit proves itself',
+          body:
+            'One tap marks the visit with the time and the place, and it carries a geo-tagged, time-stamped photo. The shop front, the shelf, the stock lying in the corner. Nothing to argue about at month end.',
+          screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
+          screenshotAlt:
+            'Field visit feed in Takkada showing salesman check-ins with the time and location of each',
+        },
+        {
+          title: 'The order is booked against live stock',
+          body:
+            'Live stock sits next to every item, so nobody promises what the godown does not have. It lands in your Tally as a sales order the moment he saves it, with the pending quantity tracked until it ships.',
+          screenshot: '/assets/screenshots/add-items-mockup.webp',
+          screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
+        },
+        {
+          title: 'The godown loads the van from one sheet',
+          body:
+            'The orders booked on a route total themselves into one load sheet. So many bags, so many crates, then the same list dealer by dealer. As the van empties, deliveries get ticked off against each shop.',
+          screenshot: '/assets/screenshots/beat-load-sheet-mockup.webp',
+          screenshotAlt:
+            'Dispatch load sheet in Takkada totalling the items to load for one route, with the per-dealer breakdown below',
+        },
+        {
+          title: 'The invoice reaches the retailer on WhatsApp',
+          body:
+            'The invoice posts with items, GST and your Tally number series. The PDF and a Pay now link reach the retailer before your salesman leaves the shop, and the UPI receipt matches itself against that bill.',
+          screenshot: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
+          screenshotAlt: 'WhatsApp chat with a Takkada invoice PDF and a Pay now link',
+        },
+        {
+          title: 'By night you already know how the day went',
+          body:
+            'Visits, orders and collections per salesman as they land, with monthly targets and commission worked out from what actually got billed and collected. The evening call asking everyone what they did stops being necessary.',
+          screenshot: '/assets/screenshots/team-sales-hub-mockup.webp',
+          screenshotAlt:
+            'Team Sales screen in Takkada: who is out today, and the leaderboard with targets and commission per salesman',
+        },
+      ],
+      // RBAC is not a station: it has no hour in the day, and dropping it into
+      // the timeline is exactly the "everything at random" feel this refactor
+      // removes. It keeps its FAQ answer and its comparison row.
+      footnote:
+        'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
+    },
     comparison: {
       heading: 'What changes once the order leaves the shop',
       othersLabel: 'Other Tally mobile apps',
@@ -232,6 +241,10 @@ const FIRST_BATCH = [
       {
         q: 'Can I stop a salesman from seeing my whole ledger?',
         a: 'Yes. View and create rights are set per register and per person, and you can restrict which ledgers and which stock groups a user sees. A salesman can be given his own parties and the registers he needs to work, while purchase costs, other salesmen’s parties and the rest of the book stay out of his view.',
+      },
+      {
+        q: 'Can I set up beats or routes for my salesmen?',
+        a: 'Yes. You group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.',
       },
       {
         q: 'What happens to the order the salesman books at the shop?',

@@ -167,12 +167,66 @@ function RoadSection({ story, ctaContext }) {
   const [active, setActive] = useState(0);
   const [userDrove, setUserDrove] = useState(false);
   const [paused, setPaused] = useState(false);
+  // The tour used to start its clock at page load, several screens above the
+  // fold, so by the time a reader scrolled down to it the story was already
+  // mid-way through at whichever station the timer happened to be on. It now
+  // waits until it is actually being looked at (2026-08-12).
+  // Starts false on both sides of the render, never `typeof
+  // IntersectionObserver === 'undefined'`: that expression is true in Node and
+  // false in the browser, and the resulting hydration mismatch left the
+  // markup carrying the server's class list while state said otherwise, so
+  // the section rendered as awake while the timer was asleep.
+  const [inView, setInView] = useState(false);
   const listRef = useRef(null);
+  const tourRef = useRef(null);
+  const lastScrollAt = useRef(0);
+
+  // Scrolling means the reader is moving through the page, not dwelling on a
+  // station, so it releases the hover pause and suppresses the mousemove that
+  // caused it. Chrome fires mousemove while the page scrolls under a
+  // stationary cursor, so without this the tour re-paused on every scroll and
+  // only ever released when the reader physically moved the pointer off the
+  // section. Measured in a real browser on 2026-08-13: the tour was paused for
+  // all but 3 seconds of a 13-second read, and never got the 4.5s of clear air
+  // it needs to advance even once.
+  useEffect(() => {
+    const onScroll = () => {
+      lastScrollAt.current = Date.now();
+      setPaused(false);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const node = tourRef.current;
+    if (!node) return undefined;
+    // No observer (old browsers, jsdom): fall back to today's behavior and
+    // let the timer run, rather than silently killing the tour.
+    if (typeof IntersectionObserver === 'undefined') {
+      setInView(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      // "Any part of the tour is crossing the middle band of the viewport",
+      // NOT "35% of the tour is on screen" (2026-08-13). A ratio threshold is
+      // unsatisfiable whenever the section is tall relative to the window:
+      // 35% of a 650px tour is 228px, but the section grows past 2000px as it
+      // reflows on a narrow or zoomed window, and then no amount of scrolling
+      // ever reaches the threshold and the tour stays switched off for good.
+      // A margin band cannot fail that way, whatever the section's height, and
+      // it is the geometry the mobile station observer below already uses.
+      { rootMargin: '-25% 0px -25% 0px', threshold: 0 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   // Desktop only: the timed tour. On phones the scroll drives the stations
   // (below), so a timer would fight the reader's thumb.
   useEffect(() => {
-    if (userDrove || paused) return undefined;
+    if (userDrove || paused || !inView) return undefined;
     if (!window.matchMedia?.('(min-width: 900px)').matches) return undefined;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
     const timer = setInterval(
@@ -180,7 +234,7 @@ function RoadSection({ story, ctaContext }) {
       4500
     );
     return () => clearInterval(timer);
-  }, [userDrove, paused, story.stations.length]);
+  }, [userDrove, paused, inView, story.stations.length]);
 
   // Mobile: the station scrolled under the sticky phone becomes active, so
   // the phone changes screens as the reader moves down the list.
@@ -214,11 +268,25 @@ function RoadSection({ story, ctaContext }) {
             is-visible flag the scroll observer adds to the same element. */}
         <div className="reveal">
         <div
-          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused ? ' hv3-tour--paused' : ''}`}
-          /* Touch fires mouseenter on tap and never mouseleave, which would
-             pause the tour permanently — so only a real hovering pointer
-             pauses it. */
-          onMouseEnter={() => {
+          ref={tourRef}
+          /* --paused carries "not in view" as well as hover. It is what stops
+             the countdown bar, and a bar filling off-screen would greet the
+             arriving reader half-drawn against a timer that just started. */
+          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused || !inView ? ' hv3-tour--paused' : ''}`}
+          /* Pause on the pointer MOVING over the tour, and only when that
+             movement is the reader's own rather than the page scrolling
+             underneath them. Both halves are load-bearing (2026-08-13):
+             mouseenter alone fires when the section slides under a resting
+             cursor, and mousemove alone still fires on every scroll, because
+             Chrome re-targets the pointer as the page moves. Either one on its
+             own leaves the tour permanently paused for a trackpad reader whose
+             cursor sits mid-screen, which is where the section arrives.
+
+             Touch fires these on tap and never mouseleave, which would pause
+             the tour permanently — so only a real hovering pointer pauses it. */
+          onMouseMove={() => {
+            if (paused) return;
+            if (Date.now() - lastScrollAt.current < 250) return;
             if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
           }}
           onMouseLeave={() => setPaused(false)}

@@ -92,7 +92,23 @@ describe('feature page data contract', () => {
     }
   );
 
+  // A page tells its story once, through a walk-through grid or a scroll tour.
+  // /salesman-app-tally carried both until 2026-08-12 and narrated the same day
+  // twice; the fix made `walkthrough` optional, so this is the guard that a
+  // page cannot end up with neither.
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+    '%s: tells its story through a walk-through grid or a tour',
+    (_slug, page) => {
+      const steps = page.walkthrough?.length ?? 0;
+      const stations = page.tour?.stations?.length ?? 0;
+      expect(
+        steps + stations,
+        `${page.slug} has neither a walkthrough nor a tour, so the page has no story section.`
+      ).toBeGreaterThan(0);
+    }
+  );
+
+  it.each(FEATURE_PAGES.filter((p) => p.walkthrough?.length).map((p) => [p.slug, p]))(
     '%s: every walk-through step has a real screenshot with explicit dimensions',
     (_slug, page) => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
@@ -131,6 +147,47 @@ describe('feature page data contract', () => {
     return UNSAFE_CAPTURES.includes(file);
   };
 
+  // Every image a reader can see on the page. Tour stations belong here as
+  // much as walk-through steps do: they are full-bleed phone screens, and
+  // before 2026-08-12 the sweeps below scanned only hero + walkthrough, so a
+  // real-customer capture could have shipped inside a tour untouched.
+  const pageImages = (page) => [
+    page.hero.image,
+    ...(page.walkthrough?.map((s) => s.image) ?? []),
+    ...(page.tour?.stations?.map((s) => s.screenshot) ?? []),
+  ];
+
+  it.each(FEATURE_PAGES.filter((p) => p.tour).map((p) => [p.slug, p]))(
+    '%s: every tour station has a real screenshot and alt text',
+    (_slug, page) => {
+      expect(page.tour.stations.length).toBeGreaterThan(0);
+      for (const station of page.tour.stations) {
+        expect(
+          existsSync(resolve(repoRoot, `public${station.screenshot}`)),
+          `${page.slug} tour station "${station.title}" points at a missing file.`
+        ).toBe(true);
+        expect(station.screenshotAlt.length).toBeGreaterThan(0);
+        expect(station.title.length).toBeGreaterThan(0);
+        expect(station.body.length).toBeGreaterThan(0);
+      }
+    }
+  );
+
+  // The consolidation itself (2026-08-12). Pinned rather than left to the
+  // generic guards because the whole point of the change is that this page
+  // tells the day exactly once, and re-adding a walkthrough here would sail
+  // through every test above.
+  it('salesman-app-tally tells the day once, as a six-station tour', () => {
+    const page = getFeaturePage('salesman-app-tally');
+    expect(page.walkthrough).toBeUndefined();
+    expect(page.walkthroughHeading).toBeUndefined();
+    expect(page.tour.stations).toHaveLength(6);
+    // RBAC has no hour in the day, so it rides as a footnote instead of
+    // becoming a seventh station out of sequence.
+    expect(page.tour.footnote.length).toBeGreaterThan(0);
+    expect(page.tour.footnote).toContain('per register');
+  });
+
   // Placeholder artwork the operator still owes us, and the pages allowed to
   // reference it. Both halves are load-bearing:
   //
@@ -167,7 +224,7 @@ describe('feature page data contract', () => {
 
   it('places every placeholder asset on a page that is still behind a gate', () => {
     for (const page of FEATURE_PAGES) {
-      const used = [page.hero.image, ...page.walkthrough.map((s) => s.image)];
+      const used = pageImages(page);
       const placeholders = used
         .map((src) => src.split('/').pop().replace(/\.(webp|png|jpg)$/, ''))
         .filter((file) => file in PLACEHOLDER_ASSETS);
@@ -196,7 +253,7 @@ describe('feature page data contract', () => {
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: uses no screenshot carrying real customer data',
     (_slug, page) => {
-      const used = [page.hero.image, ...page.walkthrough.map((s) => s.image)];
+      const used = pageImages(page);
       const offenders = used.filter(isUnsafe);
       expect(
         offenders,
@@ -208,7 +265,7 @@ describe('feature page data contract', () => {
   // Icon names are strings on this side of the boundary, so a typo would
   // render a step with no icon and nothing would fail. This is the check that
   // the string actually resolves in FeaturePage's ICONS map.
-  it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
+  it.each(FEATURE_PAGES.filter((p) => p.walkthrough?.length).map((p) => [p.slug, p]))(
     '%s: every walk-through icon name resolves to a real icon',
     (_slug, page) => {
       for (const step of page.walkthrough) {

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // Render Head children inline so JSON-LD can be asserted synchronously,
@@ -65,6 +65,100 @@ describe('Home v3 structure (AE1)', () => {
     for (const img of imgs) expect(img.getAttribute('alt')).toBeTruthy();
     // Station 1 leads the tour on load.
     expect(steps[0].className).toContain('is-active');
+  });
+
+  // The road auto-advanced from page load, several screens above where it
+  // sits, so a reader arriving at it found the story already mid-way through
+  // (2026-08-12). It now waits until it is in view. Both halves are asserted
+  // because the first attempt got this wrong in a way nothing caught: the
+  // initial state was `typeof IntersectionObserver === 'undefined'`, which is
+  // true in the prerender and false in the browser, and the hydration mismatch
+  // left the markup saying "awake" while the timer stayed asleep.
+  describe('the order-to-cash road wakes on scroll', () => {
+    const tourClass = (container) =>
+      container.querySelector('#digital-collection .hv3-tour').className;
+
+    it('renders asleep until the observer says the reader has arrived', () => {
+      // Several components on this page observe something, so the stub has to
+      // satisfy the whole interface, not just the calls RoadSection makes.
+      const observe = vi.fn();
+      class ObserverStub {
+        constructor(callback) {
+          this.callback = callback;
+        }
+        observe = observe;
+        unobserve = vi.fn();
+        disconnect = vi.fn();
+        takeRecords = () => [];
+      }
+      vi.stubGlobal('IntersectionObserver', ObserverStub);
+      // Handing jsdom an observer wakes CountUp's effect too, and that one
+      // calls window.matchMedia unguarded. jsdom does not implement it, so a
+      // browser-shaped stub stands in.
+      vi.stubGlobal('matchMedia', () => ({
+        matches: false,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+      }));
+      const { container } = renderHome();
+      // Observed, and nothing reported in view yet, so the timer is gated.
+      expect(observe).toHaveBeenCalled();
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
+    // Scrolling the tour under a resting cursor fires mouseenter, so pausing
+    // on mouseenter froze the tour the moment it woke and held it there until
+    // the reader moved the mouse off the section (2026-08-13). It reads as a
+    // dead section, and on a trackpad it is the common case, not the edge one.
+    it('does not pause when the section arrives under a still cursor', () => {
+      vi.stubGlobal('matchMedia', () => ({ matches: true }));
+      const { container } = renderHome();
+      const tour = container.querySelector('#digital-collection .hv3-tour');
+      fireEvent.mouseEnter(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      // A pointer that actually moves over it is a reader, so that still pauses.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+      fireEvent.mouseLeave(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
+    // Chrome re-targets the pointer as the page moves, so a scroll fires
+    // mousemove even when the reader's hand never left the trackpad. Measured
+    // in a real browser 2026-08-13: the tour was paused for all but 3 seconds
+    // of a 13-second read and never got the 4.5s of clear air it needs to
+    // advance once. Scrolling means moving through the page, not dwelling.
+    it('ignores the mousemove a scroll generates, and unpauses on scroll', () => {
+      vi.stubGlobal('matchMedia', () => ({ matches: true }));
+      const { container } = renderHome();
+      const tour = container.querySelector('#digital-collection .hv3-tour');
+
+      // A real hover pauses it.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+
+      // Scrolling releases that pause without the pointer going anywhere.
+      fireEvent.scroll(window);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+
+      // And the mousemove the scroll itself generates must not re-pause it.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
+    it('falls back to running immediately where there is no observer', () => {
+      vi.stubGlobal('IntersectionObserver', undefined);
+      const { container } = renderHome();
+      // Old browsers and jsdom keep the pre-2026-08-12 behavior rather than
+      // getting a tour that can never start.
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
   });
 
   it('orders the sections hero → story 1 → story 2 → grid → tally → pricing', () => {
