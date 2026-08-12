@@ -179,6 +179,24 @@ function RoadSection({ story, ctaContext }) {
   const [inView, setInView] = useState(false);
   const listRef = useRef(null);
   const tourRef = useRef(null);
+  const lastScrollAt = useRef(0);
+
+  // Scrolling means the reader is moving through the page, not dwelling on a
+  // station, so it releases the hover pause and suppresses the mousemove that
+  // caused it. Chrome fires mousemove while the page scrolls under a
+  // stationary cursor, so without this the tour re-paused on every scroll and
+  // only ever released when the reader physically moved the pointer off the
+  // section. Measured in a real browser on 2026-08-13: the tour was paused for
+  // all but 3 seconds of a 13-second read, and never got the 4.5s of clear air
+  // it needs to advance even once.
+  useEffect(() => {
+    const onScroll = () => {
+      lastScrollAt.current = Date.now();
+      setPaused(false);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const node = tourRef.current;
@@ -191,8 +209,15 @@ function RoadSection({ story, ctaContext }) {
     }
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
-      // A third of the tour on screen means the reader has arrived at it.
-      { threshold: 0.35 }
+      // "Any part of the tour is crossing the middle band of the viewport",
+      // NOT "35% of the tour is on screen" (2026-08-13). A ratio threshold is
+      // unsatisfiable whenever the section is tall relative to the window:
+      // 35% of a 650px tour is 228px, but the section grows past 2000px as it
+      // reflows on a narrow or zoomed window, and then no amount of scrolling
+      // ever reaches the threshold and the tour stays switched off for good.
+      // A margin band cannot fail that way, whatever the section's height, and
+      // it is the geometry the mobile station observer below already uses.
+      { rootMargin: '-25% 0px -25% 0px', threshold: 0 }
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -248,20 +273,20 @@ function RoadSection({ story, ctaContext }) {
              the countdown bar, and a bar filling off-screen would greet the
              arriving reader half-drawn against a timer that just started. */
           className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused || !inView ? ' hv3-tour--paused' : ''}`}
-          /* Pause on the pointer MOVING over the tour, not on mouseenter.
-             Scrolling the section under a resting cursor fires mouseenter too,
-             and on a trackpad the cursor is almost always sitting in the middle
-             of the screen — right where the tour arrives. That paused the tour
-             the instant it woke and held it there until the reader happened to
-             move the mouse away, which reads as a dead section (2026-08-13).
-             A reader who has not moved the pointer is not reading a station,
-             so nothing needs pausing yet.
+          /* Pause on the pointer MOVING over the tour, and only when that
+             movement is the reader's own rather than the page scrolling
+             underneath them. Both halves are load-bearing (2026-08-13):
+             mouseenter alone fires when the section slides under a resting
+             cursor, and mousemove alone still fires on every scroll, because
+             Chrome re-targets the pointer as the page moves. Either one on its
+             own leaves the tour permanently paused for a trackpad reader whose
+             cursor sits mid-screen, which is where the section arrives.
 
-             Touch fires mouseenter on tap and never mouseleave, which would
-             pause the tour permanently — so only a real hovering pointer
-             pauses it. */
+             Touch fires these on tap and never mouseleave, which would pause
+             the tour permanently — so only a real hovering pointer pauses it. */
           onMouseMove={() => {
             if (paused) return;
+            if (Date.now() - lastScrollAt.current < 250) return;
             if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
           }}
           onMouseLeave={() => setPaused(false)}

@@ -127,6 +127,30 @@ describe('Home v3 structure (AE1)', () => {
       vi.unstubAllGlobals();
     });
 
+    // Chrome re-targets the pointer as the page moves, so a scroll fires
+    // mousemove even when the reader's hand never left the trackpad. Measured
+    // in a real browser 2026-08-13: the tour was paused for all but 3 seconds
+    // of a 13-second read and never got the 4.5s of clear air it needs to
+    // advance once. Scrolling means moving through the page, not dwelling.
+    it('ignores the mousemove a scroll generates, and unpauses on scroll', () => {
+      vi.stubGlobal('matchMedia', () => ({ matches: true }));
+      const { container } = renderHome();
+      const tour = container.querySelector('#digital-collection .hv3-tour');
+
+      // A real hover pauses it.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).toContain('hv3-tour--paused');
+
+      // Scrolling releases that pause without the pointer going anywhere.
+      fireEvent.scroll(window);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+
+      // And the mousemove the scroll itself generates must not re-pause it.
+      fireEvent.mouseMove(tour);
+      expect(tourClass(container)).not.toContain('hv3-tour--paused');
+      vi.unstubAllGlobals();
+    });
+
     it('falls back to running immediately where there is no observer', () => {
       vi.stubGlobal('IntersectionObserver', undefined);
       const { container } = renderHome();
