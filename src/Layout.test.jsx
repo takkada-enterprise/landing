@@ -27,7 +27,7 @@ vi.mock('./data/siteContent', async (importOriginal) => {
 
 import Layout from './Layout';
 import Home from './routes/Home';
-import { navLinks } from './data/siteContent';
+import { appLinks, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { leadFeaturePages } from './data/featureGroups';
 
@@ -285,13 +285,12 @@ describe('header top level', () => {
     expect(navLinks.filter((l) => l.href.startsWith('#')).map((l) => l.href)).toEqual(['#pricing']);
   });
 
-  // A Windows installer sitting beside "Book a Demo" read as a peer of it to
-  // someone who had never heard of Takkada. It lives in the footer and the
-  // mobile menu now, where the people who want it look.
-  it('presents two primary actions and no download in the button row', () => {
+  // A Windows installer wearing pill chrome read as a peer of "Book a Demo" to
+  // someone who had never heard of Takkada. It is back in the bar, but as a
+  // nav-family mark: two pills, and a third thing that is not one.
+  it('keeps the button row at two pills however many actions the bar carries', () => {
     const actions = renderLayout().querySelector('.nav-actions');
-    expect(actions.children).toHaveLength(2);
-    expect(actions.querySelectorAll('[download]')).toHaveLength(0);
+    expect(actions.querySelectorAll('.cta-btn')).toHaveLength(2);
   });
 
   it('keeps the connector reachable from the mobile menu', () => {
@@ -308,6 +307,59 @@ describe('header top level', () => {
     const downloads = [...footer.querySelectorAll('a[download]')];
     expect(downloads).toHaveLength(1);
     expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
+  });
+});
+
+// The connector was pulled out of the desktop header once already, and the
+// reason it had to go was the pill chrome, not the link. These assertions are
+// what stops a later edit from putting the chrome back.
+describe('Tally Connector mark in the header', () => {
+  function renderLayout() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    return {
+      container,
+      mark: () => container.querySelector('.nav-actions .nav-connector-link'),
+    };
+  }
+
+  it('puts the installer one click from every page, on the real S3 href', () => {
+    const link = renderLayout().mark();
+    expect(link).not.toBeNull();
+    expect(link.getAttribute('href')).toBe(appLinks.tallyConnector);
+    expect(link.hasAttribute('download')).toBe(true);
+  });
+
+  // A muted 13px mark cannot say "Windows installer" in its visible label
+  // without becoming the loudest thing in the bar, so the honesty about what
+  // the click actually starts lives where a screen reader will read it.
+  it('names the connector and the platform in its accessible name', () => {
+    const name = renderLayout().mark().getAttribute('aria-label');
+    expect(name).toMatch(/tally connector/i);
+    expect(name).toMatch(/windows/i);
+    // WCAG 2.5.3: the accessible name has to contain the visible one, or voice
+    // control cannot address the link by what is written on it.
+    expect(name.toLowerCase()).toContain('tally connector');
+  });
+
+  it('carries no button class, so it cannot drift back into a third pill', () => {
+    const link = renderLayout().mark();
+    expect(link.className).toContain('nav-connector-link');
+    expect(link.className).not.toMatch(/cta-btn/);
+  });
+
+  it('leaves the mobile menu on its own full-size treatment', () => {
+    const { container } = renderLayout();
+    const mobile = container.querySelector('.mobile-overlay .mobile-connector-link');
+    expect(mobile).not.toBeNull();
+    expect(mobile.getAttribute('href')).toBe(appLinks.tallyConnector);
   });
 });
 

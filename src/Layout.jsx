@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
-import { ArrowRight, ChevronDown, Download, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Download, Menu, Plug, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';
 import WhatsAppCTA from './components/WhatsAppCTA';
 import DemoTryCTA from './components/DemoTryCTA';
@@ -217,6 +217,23 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOp
             every page of the site the moment anyone flipped demoEntryLive
             back. */}
         <div className="nav-actions desktop-only">
+          {/* A plug, not a download arrow. The arrow was a call to action, which
+              is what made this read as a third pill beside the two real ones. A
+              plug says "this joins two things", which is what the connector is
+              and all the mark is here to mention. No border, no fill, nav-link
+              type: a first-time visitor's eye skips it, and the customer who
+              came back to reinstall finds it without scrolling to the footer.
+              The href and the installer are untouched, and the destination is
+              named in full where a screen reader will read it. */}
+          <a
+            href={appLinks.tallyConnector}
+            className="nav-connector-link"
+            download
+            aria-label="Download the Tally Connector for Windows"
+            title="Download the Tally Connector for Windows"
+          >
+            <Plug size={15} aria-hidden="true" /> Tally Connector
+          </a>
           {demoEntryLive ? (
             <DemoTryCTA context="header" variant="secondary" />
           ) : (

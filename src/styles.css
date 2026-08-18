@@ -544,24 +544,28 @@ html.js .animated-heading .letter {
   .mobile-nav-links > * { transition: none; }
 }
 
-/* ── Nav Connector Link ── */
+/* ── Nav Connector Link ──
+   Deliberately built from `.nav-links a`, not from `.cta-btn`: same size,
+   weight, colour and vertical padding, so the mark sits in the nav-link family
+   a tier below the two pills it stands beside. It carried pill chrome once and
+   read as a third call to action; the chrome is what did that, so none of it
+   comes back. The extra right margin makes the tier legible as spacing too:
+   16px to the pills against the 10px the pills keep between themselves. */
 .nav-connector-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-  padding: 9px 13px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid rgba(52,78,65,0.28);
-  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 10px 0;
+  margin-right: 6px;
+  transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
 .nav-connector-link:hover {
-  background: var(--color-sage-bg);
-  border-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .mobile-connector-link {
@@ -2070,11 +2074,12 @@ html.js .animated-heading .letter {
   text-decoration: underline;
 }
 
-/* With three header actions (connector, calendar, WhatsApp) the nav wraps
-   on narrow desktop widths; the connector download is the most specialist
-   action, so it yields first. It stays reachable in the #tally section and
-   the mobile menu. */
-@media (max-width: 1210px) {
+/* The desktop nav switches on at 768px, and 768-1023px is where the bar is
+   tightest: logo, five items and two pills with nothing to spare. The connector
+   is the most specialist of the three actions, so it is the one that yields
+   there. It stays reachable in the mobile menu and the footer's Product column
+   at every width. */
+@media (max-width: 1023px) {
   .nav-actions .nav-connector-link {
     display: none;
   }
