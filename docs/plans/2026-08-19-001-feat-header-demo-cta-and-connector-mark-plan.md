@@ -1,7 +1,7 @@
 ---
 title: "feat: Header demo CTA and symbolic Tally Connector mark"
 type: feat
-status: active
+status: completed
 created: 2026-08-19
 depth: standard
 repo: takkada website/landing
