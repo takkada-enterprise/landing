@@ -4,9 +4,10 @@ import { Head } from 'vite-react-ssg';
 import { ArrowRight, ChevronDown, Download, Menu, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';
 import WhatsAppCTA from './components/WhatsAppCTA';
+import DemoTryCTA from './components/DemoTryCTA';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
-import { navLinks, footerColumns, contactInfo, appLinks } from './data/siteContent';
+import { navLinks, footerColumns, contactInfo, appLinks, demoEntryLive } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { leadFeaturePages } from './data/featureGroups';
 import { organizationSchema, webSiteSchema } from './data/schema';
@@ -204,13 +205,23 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOp
             )
           )}
         </nav>
-        {/* Two primary actions, both conversations. The connector download used
-            to sit here as a third pill, which made a Windows installer look
-            like a peer of "Book a Demo" to someone who had never heard of
-            Takkada. It keeps its place in the footer's Product column and in
-            the mobile menu, where the people who actually want it look. */}
+        {/* Still two pills. The demo takes the slot the calendar held, because
+            the calendar and the live demo read as the same offer when they sit
+            side by side and only one of them converts without spending the
+            founder's morning. "Book a Demo" keeps the hero, the pricing
+            section, the footer and the mobile menu.
+
+            The branch is on the flag here rather than on DemoTryCTA's own
+            fallback: that fallback is a WhatsApp button, and dropping it beside
+            the header's WhatsApp button would put two identical green pills on
+            every page of the site the moment anyone flipped demoEntryLive
+            back. */}
         <div className="nav-actions desktop-only">
-          <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          {demoEntryLive ? (
+            <DemoTryCTA context="header" variant="secondary" />
+          ) : (
+            <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          )}
           <WhatsAppCTA context="header" />
         </div>
         <button

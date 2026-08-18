@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -8,11 +8,32 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
+// The header branches on demoEntryLive, and the branch it does not take today
+// is the one that ships two WhatsApp pills if it is written carelessly. Mocking
+// the module exercises both branches at whatever value the flag actually
+// carries, so neither assertion is vacuous and neither waits for a flip day to
+// start running.
+const siteContentMock = vi.hoisted(() => ({ demoEntryLive: true }));
+
+vi.mock('./data/siteContent', async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    get demoEntryLive() {
+      return siteContentMock.demoEntryLive;
+    },
+  };
+});
+
 import Layout from './Layout';
 import Home from './routes/Home';
 import { navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { leadFeaturePages } from './data/featureGroups';
+
+beforeEach(() => {
+  siteContentMock.demoEntryLive = true;
+});
 
 afterEach(cleanup);
 
@@ -287,6 +308,101 @@ describe('header top level', () => {
     const downloads = [...footer.querySelectorAll('a[download]')];
     expect(downloads).toHaveLength(1);
     expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
+  });
+});
+
+// The header is the only surface that reaches all 26 feature pages, the hub,
+// the pricing section and ~170 blog posts. Until now the live demo was on two
+// routes, so a curious reader anywhere else could only reach a conversation.
+describe('header actions', () => {
+  function renderLayout() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    const header = container.querySelector('.site-nav');
+    return {
+      container,
+      header,
+      actions: () => header.querySelector('.nav-actions'),
+      // Counted by href, not by label. DemoTryCTA's flag-off fallback is a
+      // WhatsApp button with the same visible text as the header's own, so a
+      // label-based count would read two pills as one.
+      whatsappHrefs: (root) =>
+        [...root.querySelectorAll('a')]
+          .map((a) => a.getAttribute('href') ?? '')
+          .filter((h) => h.includes('wa.me')),
+      byName: (root, name) =>
+        [...root.querySelectorAll('button, a')].filter((el) => name.test(el.textContent)),
+    };
+  }
+
+  it('puts the live demo in the button row', () => {
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /try the demo/i)).toHaveLength(1);
+    expect(byName(actions(), /chat on whatsapp/i)).toHaveLength(1);
+  });
+
+  // The sharp edge of the whole change. DemoTryCTA falls back to a WhatsApp
+  // button when the flag is off, so a header that delegated to that fallback
+  // instead of branching itself would ship two identical green pills on every
+  // page of the site the moment anyone flipped demoEntryLive back.
+  it('renders exactly one WhatsApp link at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { header, whatsappHrefs } = renderLayout();
+      expect(whatsappHrefs(header), `demoEntryLive=${live}`).toHaveLength(1);
+      cleanup();
+    }
+  });
+
+  it('gives the calendar its header slot up to the demo', () => {
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /book a demo/i)).toHaveLength(0);
+  });
+
+  it('falls all the way back to the calendar when the flag is off', () => {
+    siteContentMock.demoEntryLive = false;
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /book a demo/i)).toHaveLength(1);
+    expect(byName(actions(), /try the demo/i)).toHaveLength(0);
+  });
+
+  // A real button, not an anchor. An href into the app would let a middle-click
+  // or a copied link reach the demo with no number captured, which is the one
+  // thing this funnel exists to do.
+  it('opens the capture modal on the demo destination instead of navigating', () => {
+    const { container, actions, byName } = renderLayout();
+    const cta = byName(actions(), /try the demo/i)[0];
+    expect(cta.tagName).toBe('BUTTON');
+
+    fireEvent.click(cta);
+
+    expect(container.textContent).toMatch(/open the live demo/i);
+    expect(container.textContent).toMatch(/send code/i);
+  });
+
+  it('points no header link at the app, at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { header } = renderLayout();
+      const appHrefs = [...header.querySelectorAll('a')]
+        .map((a) => a.getAttribute('href') ?? '')
+        .filter((h) => h.includes('app.takkada.com'));
+      expect(appHrefs, `demoEntryLive=${live}`).toEqual([]);
+      cleanup();
+    }
+  });
+
+  it('leaves the calendar in the mobile menu, where there is room for both', () => {
+    const { container, byName } = renderLayout();
+    const menu = container.querySelector('.mobile-overlay');
+    expect(byName(menu, /book a demo/i)).toHaveLength(1);
   });
 });
 
