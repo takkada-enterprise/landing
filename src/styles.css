@@ -533,7 +533,12 @@ html.js .animated-heading .letter {
   transform: none;
 }
 
-.mobile-nav-links a {
+/* Nav links only. WhatsAppCTA and the connector are anchors too, and this rule
+   outranks `.cta-btn--primary` on specificity, so the WhatsApp pill in the menu
+   was rendering its label near-black at 20px on the green gradient while the
+   identical <button> beside it rendered white at 15px. The exclusions say out
+   loud which anchors in here are not nav links. */
+.mobile-nav-links a:not(.cta-btn):not(.mobile-connector-link) {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);

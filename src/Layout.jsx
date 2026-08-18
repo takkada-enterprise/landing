@@ -322,6 +322,7 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
         {demoEntryLive && (
           <DemoTryCTA
             context="mobile-menu"
+            variant="secondary"
             fullWidth
             onClick={() => setMenuOpen(false)}
           />

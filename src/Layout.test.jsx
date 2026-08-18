@@ -520,6 +520,16 @@ describe('mobile menu actions', () => {
     }
   });
 
+  // Two green pills in a vertical stack read as a pair with no order to them,
+  // which is the same confusion D1 took out of the header, arriving through a
+  // different door. The demo wears the header's treatment here too.
+  it('gives the stack one primary, so the eye has somewhere to land', () => {
+    const primaries = openMenu()
+      .actions()
+      .filter((el) => el.className.includes('cta-btn--primary'));
+    expect(primaries.map((el) => el.textContent.trim())).toEqual(['Chat on WhatsApp']);
+  });
+
   it('closes the overlay before opening the modal, not behind it', () => {
     const { container, menu, actions } = openMenu();
     expect(menu.className).toContain('open');
