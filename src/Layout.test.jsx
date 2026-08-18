@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -8,11 +8,32 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
+// The header branches on demoEntryLive, and the branch it does not take today
+// is the one that ships two WhatsApp pills if it is written carelessly. Mocking
+// the module exercises both branches at whatever value the flag actually
+// carries, so neither assertion is vacuous and neither waits for a flip day to
+// start running.
+const siteContentMock = vi.hoisted(() => ({ demoEntryLive: true }));
+
+vi.mock('./data/siteContent', async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    get demoEntryLive() {
+      return siteContentMock.demoEntryLive;
+    },
+  };
+});
+
 import Layout from './Layout';
 import Home from './routes/Home';
-import { navLinks } from './data/siteContent';
+import { appLinks, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { leadFeaturePages } from './data/featureGroups';
+
+beforeEach(() => {
+  siteContentMock.demoEntryLive = true;
+});
 
 afterEach(cleanup);
 
@@ -264,13 +285,12 @@ describe('header top level', () => {
     expect(navLinks.filter((l) => l.href.startsWith('#')).map((l) => l.href)).toEqual(['#pricing']);
   });
 
-  // A Windows installer sitting beside "Book a Demo" read as a peer of it to
-  // someone who had never heard of Takkada. It lives in the footer and the
-  // mobile menu now, where the people who want it look.
-  it('presents two primary actions and no download in the button row', () => {
+  // A Windows installer wearing pill chrome read as a peer of "Book a Demo" to
+  // someone who had never heard of Takkada. It is back in the bar, but as a
+  // nav-family mark: two pills, and a third thing that is not one.
+  it('keeps the button row at two pills however many actions the bar carries', () => {
     const actions = renderLayout().querySelector('.nav-actions');
-    expect(actions.children).toHaveLength(2);
-    expect(actions.querySelectorAll('[download]')).toHaveLength(0);
+    expect(actions.querySelectorAll('.cta-btn')).toHaveLength(2);
   });
 
   it('keeps the connector reachable from the mobile menu', () => {
@@ -287,6 +307,255 @@ describe('header top level', () => {
     const downloads = [...footer.querySelectorAll('a[download]')];
     expect(downloads).toHaveLength(1);
     expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
+  });
+});
+
+// The connector was pulled out of the desktop header once already, and the
+// reason it had to go was the pill chrome, not the link. These assertions are
+// what stops a later edit from putting the chrome back.
+describe('Tally Connector mark in the header', () => {
+  function renderLayout() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    return {
+      container,
+      mark: () => container.querySelector('.nav-actions .nav-connector-link'),
+    };
+  }
+
+  it('puts the installer one click from every page, on the real S3 href', () => {
+    const link = renderLayout().mark();
+    expect(link).not.toBeNull();
+    expect(link.getAttribute('href')).toBe(appLinks.tallyConnector);
+    expect(link.hasAttribute('download')).toBe(true);
+  });
+
+  // A muted 13px mark cannot say "Windows installer" in its visible label
+  // without becoming the loudest thing in the bar, so the honesty about what
+  // the click actually starts lives where a screen reader will read it.
+  it('names the connector and the platform in its accessible name', () => {
+    const name = renderLayout().mark().getAttribute('aria-label');
+    expect(name).toMatch(/tally connector/i);
+    expect(name).toMatch(/windows/i);
+    // WCAG 2.5.3: the accessible name has to contain the visible one, or voice
+    // control cannot address the link by what is written on it.
+    expect(name.toLowerCase()).toContain('tally connector');
+  });
+
+  it('carries no button class, so it cannot drift back into a third pill', () => {
+    const link = renderLayout().mark();
+    expect(link.className).toContain('nav-connector-link');
+    expect(link.className).not.toMatch(/cta-btn/);
+  });
+
+  it('leaves the mobile menu on its own full-size treatment', () => {
+    const { container } = renderLayout();
+    const mobile = container.querySelector('.mobile-overlay .mobile-connector-link');
+    expect(mobile).not.toBeNull();
+    expect(mobile.getAttribute('href')).toBe(appLinks.tallyConnector);
+  });
+});
+
+// The header is the only surface that reaches all 26 feature pages, the hub,
+// the pricing section and ~170 blog posts. Until now the live demo was on two
+// routes, so a curious reader anywhere else could only reach a conversation.
+describe('header actions', () => {
+  function renderLayout() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    const header = container.querySelector('.site-nav');
+    return {
+      container,
+      header,
+      actions: () => header.querySelector('.nav-actions'),
+      // Counted by href, not by label. DemoTryCTA's flag-off fallback is a
+      // WhatsApp button with the same visible text as the header's own, so a
+      // label-based count would read two pills as one.
+      whatsappHrefs: (root) =>
+        [...root.querySelectorAll('a')]
+          .map((a) => a.getAttribute('href') ?? '')
+          .filter((h) => h.includes('wa.me')),
+      byName: (root, name) =>
+        [...root.querySelectorAll('button, a')].filter((el) => name.test(el.textContent)),
+    };
+  }
+
+  it('puts the live demo in the button row', () => {
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /try the demo/i)).toHaveLength(1);
+    expect(byName(actions(), /chat on whatsapp/i)).toHaveLength(1);
+  });
+
+  // The sharp edge of the whole change. DemoTryCTA falls back to a WhatsApp
+  // button when the flag is off, so a header that delegated to that fallback
+  // instead of branching itself would ship two identical green pills on every
+  // page of the site the moment anyone flipped demoEntryLive back.
+  it('renders exactly one WhatsApp link at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { header, whatsappHrefs } = renderLayout();
+      expect(whatsappHrefs(header), `demoEntryLive=${live}`).toHaveLength(1);
+      cleanup();
+    }
+  });
+
+  it('gives the calendar its header slot up to the demo', () => {
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /book a demo/i)).toHaveLength(0);
+  });
+
+  it('falls all the way back to the calendar when the flag is off', () => {
+    siteContentMock.demoEntryLive = false;
+    const { actions, byName } = renderLayout();
+    expect(byName(actions(), /book a demo/i)).toHaveLength(1);
+    expect(byName(actions(), /try the demo/i)).toHaveLength(0);
+  });
+
+  // A real button, not an anchor. An href into the app would let a middle-click
+  // or a copied link reach the demo with no number captured, which is the one
+  // thing this funnel exists to do.
+  it('opens the capture modal on the demo destination instead of navigating', () => {
+    const { container, actions, byName } = renderLayout();
+    const cta = byName(actions(), /try the demo/i)[0];
+    expect(cta.tagName).toBe('BUTTON');
+
+    fireEvent.click(cta);
+
+    expect(container.textContent).toMatch(/open the live demo/i);
+    expect(container.textContent).toMatch(/send code/i);
+  });
+
+  // Matched on the parsed hostname, not on the href as a substring. A substring
+  // test answers "does this string appear anywhere in the URL", which is true of
+  // `https://evil.test/?next=app.takkada.com` and false of nothing that matters
+  // here. The host is the thing that decides where a click actually lands.
+  it('points no header link at the app, at either value of the flag', () => {
+    const appHost = (href) => {
+      try {
+        return new URL(href, 'https://takkada.com').hostname;
+      } catch {
+        return '';
+      }
+    };
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { header } = renderLayout();
+      const appHrefs = [...header.querySelectorAll('a')]
+        .map((a) => a.getAttribute('href') ?? '')
+        .filter((h) => appHost(h) === 'app.takkada.com');
+      expect(appHrefs, `demoEntryLive=${live}`).toEqual([]);
+      cleanup();
+    }
+  });
+
+  it('leaves the calendar in the mobile menu, where there is room for both', () => {
+    const { container, byName } = renderLayout();
+    const menu = container.querySelector('.mobile-overlay');
+    expect(byName(menu, /book a demo/i)).toHaveLength(1);
+  });
+});
+
+// The phone is where the OTP handoff actually lands, so the menu carrying the
+// demo matters more than the header does. It is also the surface where the
+// two-WhatsApp-pills failure would be least visible in review: the menu is a
+// vertical stack, so two green pills read as a list rather than as a mistake.
+describe('mobile menu actions', () => {
+  function openMenu() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    fireEvent.click(container.querySelector('.mobile-menu-btn'));
+    const menu = container.querySelector('.mobile-overlay');
+    return {
+      container,
+      menu,
+      actions: () => [...menu.querySelectorAll('.cta-btn')],
+      whatsappHrefs: () =>
+        [...menu.querySelectorAll('a')]
+          .map((a) => a.getAttribute('href') ?? '')
+          .filter((h) => h.includes('wa.me')),
+    };
+  }
+
+  it('offers the demo, the conversation and the calendar, in that order', () => {
+    const labels = openMenu().actions().map((el) => el.textContent.trim());
+    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a Demo']);
+  });
+
+  it('renders exactly one WhatsApp link at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      expect(openMenu().whatsappHrefs(), `demoEntryLive=${live}`).toHaveLength(1);
+      cleanup();
+    }
+  });
+
+  it('falls back to the menu as it stands today when the flag is off', () => {
+    siteContentMock.demoEntryLive = false;
+    const labels = openMenu().actions().map((el) => el.textContent.trim());
+    expect(labels).toEqual(['Chat on WhatsApp', 'Book a Demo']);
+  });
+
+  // A stack of full-width pills with one half-width one in it reads as broken.
+  // Asserted at both flag values because the fallback is a different component
+  // and has to be handed the prop separately.
+  it('keeps every action full width at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { actions } = openMenu();
+      expect(actions().length, `demoEntryLive=${live}`).toBeGreaterThan(0);
+      for (const el of actions()) {
+        expect(el.className, `${el.textContent} at demoEntryLive=${live}`).toContain('cta-btn--full');
+      }
+      cleanup();
+    }
+  });
+
+  // Two green pills in a vertical stack read as a pair with no order to them,
+  // which is the same confusion D1 took out of the header, arriving through a
+  // different door. The demo wears the header's treatment here too.
+  it('gives the stack one primary, so the eye has somewhere to land', () => {
+    const primaries = openMenu()
+      .actions()
+      .filter((el) => el.className.includes('cta-btn--primary'));
+    expect(primaries.map((el) => el.textContent.trim())).toEqual(['Chat on WhatsApp']);
+  });
+
+  it('closes the overlay before opening the modal, not behind it', () => {
+    const { container, menu, actions } = openMenu();
+    expect(menu.className).toContain('open');
+
+    fireEvent.click(actions()[0]);
+
+    expect(menu.className).not.toContain('open');
+    expect(menu.hasAttribute('inert')).toBe(true);
+    expect(container.textContent).toMatch(/open the live demo/i);
+  });
+
+  it('leaves the hamburger holding focus after the menu closes', () => {
+    const { container, actions } = openMenu();
+    fireEvent.click(actions()[0]);
+    expect(document.activeElement).toBe(container.querySelector('.mobile-menu-btn'));
   });
 });
 

@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
-import { ArrowRight, ChevronDown, Download, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Download, Menu, Plug, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';
 import WhatsAppCTA from './components/WhatsAppCTA';
+import DemoTryCTA from './components/DemoTryCTA';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
-import { navLinks, footerColumns, contactInfo, appLinks } from './data/siteContent';
+import { navLinks, footerColumns, contactInfo, appLinks, demoEntryLive } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { leadFeaturePages } from './data/featureGroups';
 import { organizationSchema, webSiteSchema } from './data/schema';
@@ -204,13 +205,40 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOp
             )
           )}
         </nav>
-        {/* Two primary actions, both conversations. The connector download used
-            to sit here as a third pill, which made a Windows installer look
-            like a peer of "Book a Demo" to someone who had never heard of
-            Takkada. It keeps its place in the footer's Product column and in
-            the mobile menu, where the people who actually want it look. */}
+        {/* Still two pills. The demo takes the slot the calendar held, because
+            the calendar and the live demo read as the same offer when they sit
+            side by side and only one of them converts without spending the
+            founder's morning. "Book a Demo" keeps the hero, the pricing
+            section, the footer and the mobile menu.
+
+            The branch is on the flag here rather than on DemoTryCTA's own
+            fallback: that fallback is a WhatsApp button, and dropping it beside
+            the header's WhatsApp button would put two identical green pills on
+            every page of the site the moment anyone flipped demoEntryLive
+            back. */}
         <div className="nav-actions desktop-only">
-          <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          {/* A plug, not a download arrow. The arrow was a call to action, which
+              is what made this read as a third pill beside the two real ones. A
+              plug says "this joins two things", which is what the connector is
+              and all the mark is here to mention. No border, no fill, nav-link
+              type: a first-time visitor's eye skips it, and the customer who
+              came back to reinstall finds it without scrolling to the footer.
+              The href and the installer are untouched, and the destination is
+              named in full where a screen reader will read it. */}
+          <a
+            href={appLinks.tallyConnector}
+            className="nav-connector-link"
+            download
+            aria-label="Download the Tally Connector for Windows"
+            title="Download the Tally Connector for Windows"
+          >
+            <Plug size={15} aria-hidden="true" /> Tally Connector
+          </a>
+          {demoEntryLive ? (
+            <DemoTryCTA context="header" variant="secondary" />
+          ) : (
+            <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+          )}
           <WhatsAppCTA context="header" />
         </div>
         <button
@@ -285,6 +313,20 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
         >
           <Download size={18} /> Tally Connector
         </a>
+        {/* The phone is the surface the OTP handoff was built for, so the demo
+            goes first. Guarded by the flag for the same reason as the header:
+            DemoTryCTA's fallback is a WhatsApp button and the menu already has
+            one. Unlike the header, the menu keeps "Book a Demo" — there is
+            vertical room, and two labels a full row apart do not read as the
+            same offer the way two adjacent pills do. */}
+        {demoEntryLive && (
+          <DemoTryCTA
+            context="mobile-menu"
+            variant="secondary"
+            fullWidth
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
         <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
         <CTAButton
           variant="secondary"

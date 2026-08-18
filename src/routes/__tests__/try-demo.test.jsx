@@ -80,7 +80,7 @@ describe('TryDemo route (/demo/)', () => {
       window.clarity = vi.fn();
       renderRoute();
 
-      const cta = screen.getAllByRole('button', { name: /try it yourself/i })[0];
+      const cta = screen.getAllByRole('button', { name: /try the demo/i })[0];
       expect(cta).toBeDefined();
       fireEvent.click(cta);
 

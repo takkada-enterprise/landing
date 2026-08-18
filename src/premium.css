@@ -82,11 +82,15 @@ body {
   box-shadow: none;
 }
 
-.nav-links a { position: relative; }
+.nav-links a,
+.nav-connector-link { position: relative; }
 /* Full-width underline revealed by transform, not by animating `right` —
    scaleX composites on the GPU; the old right-edge animation relaid out
-   the nav on every frame. */
-.nav-links a::after {
+   the nav on every frame. The connector mark borrows it rather than getting
+   an underline of its own: one hover treatment for the whole nav family is
+   what keeps the mark from reading as a button. */
+.nav-links a::after,
+.nav-connector-link::after {
   content: "";
   position: absolute;
   left: 0; right: 0;
@@ -99,7 +103,8 @@ body {
   transition: transform var(--dur) var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
-  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a:hover::after,
+  .nav-connector-link:hover::after { transform: scaleX(1); }
 }
 
 /* ── Buttons: pill with quiet shine + confident lift ── */

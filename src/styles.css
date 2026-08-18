@@ -344,10 +344,10 @@ html.js .animated-heading .letter {
 
 /* ── Features disclosure (desktop nav) ──
    A link and a chevron, not one merged button: the link keeps the hub in the
-   top menu on every page, the chevron owns the panel. The desktop nav starts
-   at 768px, so on an iPad the chevron is the only way in and its hit target is
-   a full 44px square, made from padding and pulled back with negative margin
-   so it does not blow the nav's spacing apart. */
+   top menu on every page, the chevron owns the panel. The desktop nav starts at
+   900px, so on a landscape tablet the chevron is the only way in and its hit
+   target is a full 44px square, made from padding and pulled back with negative
+   margin so it does not blow the nav's spacing apart. */
 .nav-features {
   position: relative;
   display: flex;
@@ -468,7 +468,14 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
-@media (max-width: 767px) {
+/* The bar carries a logo, four nav items and two pills, and measured against
+   the built site it needs 845px to hold all of that without clipping. It used
+   to switch to the hamburger at 767px, so every width from 768 to 844 rendered
+   a desktop bar with the WhatsApp pill cut off the right edge — iPad portrait
+   is 768px, squarely inside that band. 899px puts the switch above the measured
+   fit with room for a longer label later, and hands those widths the full-screen
+   menu, which carries every action at full width and is touch-sized already. */
+@media (max-width: 899px) {
   .desktop-only { display: none !important; }
   .mobile-menu-btn { display: flex; }
 }
@@ -533,7 +540,12 @@ html.js .animated-heading .letter {
   transform: none;
 }
 
-.mobile-nav-links a {
+/* Nav links only. WhatsAppCTA and the connector are anchors too, and this rule
+   outranks `.cta-btn--primary` on specificity, so the WhatsApp pill in the menu
+   was rendering its label near-black at 20px on the green gradient while the
+   identical <button> beside it rendered white at 15px. The exclusions say out
+   loud which anchors in here are not nav links. */
+.mobile-nav-links a:not(.cta-btn):not(.mobile-connector-link) {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);
@@ -544,24 +556,28 @@ html.js .animated-heading .letter {
   .mobile-nav-links > * { transition: none; }
 }
 
-/* ── Nav Connector Link ── */
+/* ── Nav Connector Link ──
+   Deliberately built from `.nav-links a`, not from `.cta-btn`: same size,
+   weight, colour and vertical padding, so the mark sits in the nav-link family
+   a tier below the two pills it stands beside. It carried pill chrome once and
+   read as a third call to action; the chrome is what did that, so none of it
+   comes back. The extra right margin makes the tier legible as spacing too:
+   16px to the pills against the 10px the pills keep between themselves. */
 .nav-connector-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-  padding: 9px 13px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid rgba(52,78,65,0.28);
-  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 10px 0;
+  margin-right: 6px;
+  transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
 .nav-connector-link:hover {
-  background: var(--color-sage-bg);
-  border-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .mobile-connector-link {
@@ -2070,11 +2086,12 @@ html.js .animated-heading .letter {
   text-decoration: underline;
 }
 
-/* With three header actions (connector, calendar, WhatsApp) the nav wraps
-   on narrow desktop widths; the connector download is the most specialist
-   action, so it yields first. It stays reachable in the #tally section and
-   the mobile menu. */
-@media (max-width: 1210px) {
+/* The desktop nav switches on at 768px, and 768-1023px is where the bar is
+   tightest: logo, five items and two pills with nothing to spare. The connector
+   is the most specialist of the three actions, so it is the one that yields
+   there. It stays reachable in the mobile menu and the footer's Product column
+   at every width. */
+@media (max-width: 1023px) {
   .nav-actions .nav-connector-link {
     display: none;
   }
