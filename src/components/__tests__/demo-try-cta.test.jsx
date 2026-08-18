@@ -100,6 +100,36 @@ describe('DemoTryCTA with the demo entry not yet live', () => {
   });
 });
 
+// Presentation and callbacks belong to the caller, not to whichever branch of
+// the flag happens to be live. A prop honoured by one branch and dropped by the
+// other is a layout that changes shape on flip day, in a surface nobody is
+// looking at when the flag moves.
+describe('DemoTryCTA passes its caller through both branches', () => {
+  function renderWith(props) {
+    return render(
+      <PhoneModalProvider>
+        <DemoTryCTA context="mobile-menu" {...props} />
+      </PhoneModalProvider>
+    );
+  }
+
+  it.each([true, false])('honours fullWidth at demoEntryLive=%s', (live) => {
+    siteContentMock.demoEntryLive = live;
+    const { container } = renderWith({ fullWidth: true });
+    expect(container.querySelector('.cta-btn').className).toContain('cta-btn--full');
+  });
+
+  it.each([true, false])('runs the caller onClick at demoEntryLive=%s', (live) => {
+    siteContentMock.demoEntryLive = live;
+    const onClick = vi.fn();
+    renderWith({ onClick });
+
+    fireEvent.click(document.querySelector('.cta-btn'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+});
+
 // The demo door is named in one place, the component default, but it now opens
 // from five surfaces: the homepage hero, /try-demo twice, the header and the
 // mobile menu. A per-file matcher pins the surfaces it happens to know about;

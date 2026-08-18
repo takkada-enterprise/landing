@@ -313,6 +313,19 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
         >
           <Download size={18} /> Tally Connector
         </a>
+        {/* The phone is the surface the OTP handoff was built for, so the demo
+            goes first. Guarded by the flag for the same reason as the header:
+            DemoTryCTA's fallback is a WhatsApp button and the menu already has
+            one. Unlike the header, the menu keeps "Book a Demo" — there is
+            vertical room, and two labels a full row apart do not read as the
+            same offer the way two adjacent pills do. */}
+        {demoEntryLive && (
+          <DemoTryCTA
+            context="mobile-menu"
+            fullWidth
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
         <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
         <CTAButton
           variant="secondary"

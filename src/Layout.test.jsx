@@ -458,6 +458,86 @@ describe('header actions', () => {
   });
 });
 
+// The phone is where the OTP handoff actually lands, so the menu carrying the
+// demo matters more than the header does. It is also the surface where the
+// two-WhatsApp-pills failure would be least visible in review: the menu is a
+// vertical stack, so two green pills read as a list rather than as a mistake.
+describe('mobile menu actions', () => {
+  function openMenu() {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+    fireEvent.click(container.querySelector('.mobile-menu-btn'));
+    const menu = container.querySelector('.mobile-overlay');
+    return {
+      container,
+      menu,
+      actions: () => [...menu.querySelectorAll('.cta-btn')],
+      whatsappHrefs: () =>
+        [...menu.querySelectorAll('a')]
+          .map((a) => a.getAttribute('href') ?? '')
+          .filter((h) => h.includes('wa.me')),
+    };
+  }
+
+  it('offers the demo, the conversation and the calendar, in that order', () => {
+    const labels = openMenu().actions().map((el) => el.textContent.trim());
+    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a Demo']);
+  });
+
+  it('renders exactly one WhatsApp link at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      expect(openMenu().whatsappHrefs(), `demoEntryLive=${live}`).toHaveLength(1);
+      cleanup();
+    }
+  });
+
+  it('falls back to the menu as it stands today when the flag is off', () => {
+    siteContentMock.demoEntryLive = false;
+    const labels = openMenu().actions().map((el) => el.textContent.trim());
+    expect(labels).toEqual(['Chat on WhatsApp', 'Book a Demo']);
+  });
+
+  // A stack of full-width pills with one half-width one in it reads as broken.
+  // Asserted at both flag values because the fallback is a different component
+  // and has to be handed the prop separately.
+  it('keeps every action full width at either value of the flag', () => {
+    for (const live of [true, false]) {
+      siteContentMock.demoEntryLive = live;
+      const { actions } = openMenu();
+      expect(actions().length, `demoEntryLive=${live}`).toBeGreaterThan(0);
+      for (const el of actions()) {
+        expect(el.className, `${el.textContent} at demoEntryLive=${live}`).toContain('cta-btn--full');
+      }
+      cleanup();
+    }
+  });
+
+  it('closes the overlay before opening the modal, not behind it', () => {
+    const { container, menu, actions } = openMenu();
+    expect(menu.className).toContain('open');
+
+    fireEvent.click(actions()[0]);
+
+    expect(menu.className).not.toContain('open');
+    expect(menu.hasAttribute('inert')).toBe(true);
+    expect(container.textContent).toMatch(/open the live demo/i);
+  });
+
+  it('leaves the hamburger holding focus after the menu closes', () => {
+    const { container, actions } = openMenu();
+    fireEvent.click(actions()[0]);
+    expect(document.activeElement).toBe(container.querySelector('.mobile-menu-btn'));
+  });
+});
+
 // The open menu read as a rendering bug on a phone: page text showed straight
 // through it. The paint half of that fix is CSS (the surface no longer fades),
 // which jsdom cannot see, so what is asserted here is the contract the CSS and
