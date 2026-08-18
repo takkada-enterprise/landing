@@ -344,10 +344,10 @@ html.js .animated-heading .letter {
 
 /* ── Features disclosure (desktop nav) ──
    A link and a chevron, not one merged button: the link keeps the hub in the
-   top menu on every page, the chevron owns the panel. The desktop nav starts
-   at 768px, so on an iPad the chevron is the only way in and its hit target is
-   a full 44px square, made from padding and pulled back with negative margin
-   so it does not blow the nav's spacing apart. */
+   top menu on every page, the chevron owns the panel. The desktop nav starts at
+   900px, so on a landscape tablet the chevron is the only way in and its hit
+   target is a full 44px square, made from padding and pulled back with negative
+   margin so it does not blow the nav's spacing apart. */
 .nav-features {
   position: relative;
   display: flex;
@@ -468,7 +468,14 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
-@media (max-width: 767px) {
+/* The bar carries a logo, four nav items and two pills, and measured against
+   the built site it needs 845px to hold all of that without clipping. It used
+   to switch to the hamburger at 767px, so every width from 768 to 844 rendered
+   a desktop bar with the WhatsApp pill cut off the right edge — iPad portrait
+   is 768px, squarely inside that band. 899px puts the switch above the measured
+   fit with room for a longer label later, and hands those widths the full-screen
+   menu, which carries every action at full width and is touch-sized already. */
+@media (max-width: 899px) {
   .desktop-only { display: none !important; }
   .mobile-menu-btn { display: flex; }
 }
