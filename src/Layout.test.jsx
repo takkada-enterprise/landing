@@ -439,13 +439,24 @@ describe('header actions', () => {
     expect(container.textContent).toMatch(/send code/i);
   });
 
+  // Matched on the parsed hostname, not on the href as a substring. A substring
+  // test answers "does this string appear anywhere in the URL", which is true of
+  // `https://evil.test/?next=app.takkada.com` and false of nothing that matters
+  // here. The host is the thing that decides where a click actually lands.
   it('points no header link at the app, at either value of the flag', () => {
+    const appHost = (href) => {
+      try {
+        return new URL(href, 'https://takkada.com').hostname;
+      } catch {
+        return '';
+      }
+    };
     for (const live of [true, false]) {
       siteContentMock.demoEntryLive = live;
       const { header } = renderLayout();
       const appHrefs = [...header.querySelectorAll('a')]
         .map((a) => a.getAttribute('href') ?? '')
-        .filter((h) => h.includes('app.takkada.com'));
+        .filter((h) => appHost(h) === 'app.takkada.com');
       expect(appHrefs, `demoEntryLive=${live}`).toEqual([]);
       cleanup();
     }
