@@ -4,7 +4,7 @@ import { usePhoneModal } from '../context/PhoneModalContext';
 import { demoEntryLive } from '../data/siteContent';
 import { track } from '../lib/track';
 
-// The "try it yourself" action. While demoEntryLive is false this renders the
+// The "try the demo" action. While demoEntryLive is false this renders the
 // WhatsApp CTA with the demo context, so the page never ships a dead app link.
 //
 // Once live it opens the phone capture modal rather than linking out. That is
@@ -34,7 +34,7 @@ function DemoTryCTA({ context = 'demo', variant = 'primary', children }) {
         });
       }}
     >
-      {children || 'Try it yourself'}
+      {children || 'Try the demo'}
     </CTAButton>
   );
 }

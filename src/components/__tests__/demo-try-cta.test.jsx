@@ -1,5 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { readFileSync, readdirSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // The flag's live branch is unreachable in a normal run: demoEntryLive is false
 // in the shipped source, so every assertion about the live path would be
@@ -50,7 +53,7 @@ describe('DemoTryCTA with the demo entry live', () => {
   it('renders a button, never an anchor into the app', () => {
     const { container } = renderCta();
 
-    expect(screen.getByRole('button', { name: /try it yourself/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /try the demo/i })).toBeInTheDocument();
     const hrefs = [...container.querySelectorAll('a')].map((a) => a.getAttribute('href') ?? '');
     expect(hrefs.filter((h) => h.includes('app.takkada.com'))).toEqual([]);
   });
@@ -59,7 +62,7 @@ describe('DemoTryCTA with the demo entry live', () => {
     window.clarity = vi.fn();
     renderCta();
 
-    fireEvent.click(screen.getByRole('button', { name: /try it yourself/i }));
+    fireEvent.click(screen.getByRole('button', { name: /try the demo/i }));
 
     expect(openWith).toHaveBeenCalledTimes(1);
     const options = openWith.mock.calls[0][0];
@@ -77,7 +80,7 @@ describe('DemoTryCTA with the demo entry live', () => {
     // Internal names stay out of outbound copy. The visitor-facing word is
     // "code".
     renderCta();
-    fireEvent.click(screen.getByRole('button', { name: /try it yourself/i }));
+    fireEvent.click(screen.getByRole('button', { name: /try the demo/i }));
 
     const copy = JSON.stringify(openWith.mock.calls[0][0]);
     expect(copy).not.toMatch(/\bOTP\b/i);
@@ -93,6 +96,49 @@ describe('DemoTryCTA with the demo entry not yet live', () => {
     const wa = screen.getByRole('link', { name: /chat on whatsapp/i });
     expect(wa.getAttribute('href')).toContain('wa.me');
     expect(openWith).not.toHaveBeenCalled();
-    expect(screen.queryByRole('button', { name: /try it yourself/i })).toBeNull();
+    expect(screen.queryByRole('button', { name: /try the demo/i })).toBeNull();
+  });
+});
+
+// The demo door is named in one place, the component default, but it now opens
+// from five surfaces: the homepage hero, /try-demo twice, the header and the
+// mobile menu. A per-file matcher pins the surfaces it happens to know about;
+// this pins the whole tree, so a call site that hardcodes the old name fails
+// loudly instead of shipping a second name for one action (CLAUDE.md §11.10).
+describe('one name for the demo door', () => {
+  const srcRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+
+  function sourceFiles(dir) {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) return sourceFiles(path);
+      return /\.(jsx?|css)$/.test(entry.name) ? [path] : [];
+    });
+  }
+
+  const files = sourceFiles(srcRoot);
+
+  // Assembled rather than written out, so this file is not its own offender.
+  const OLD_NAME = new RegExp(['try', 'it', 'yourself'].join(String.raw`\s+`), 'i');
+  const NEW_NAME = /try the demo/i;
+
+  it('reads the source tree, so the sweep below cannot pass by scanning nothing', () => {
+    expect(files.length).toBeGreaterThan(50);
+    const named = files.filter((f) => NEW_NAME.test(readFileSync(f, 'utf-8')));
+    expect(named.some((f) => f.endsWith('DemoTryCTA.jsx'))).toBe(true);
+  });
+
+  it('leaves no surface still saying the old name', () => {
+    const offenders = files.filter((f) => OLD_NAME.test(readFileSync(f, 'utf-8')));
+    expect(offenders.map((f) => f.slice(srcRoot.length + 1))).toEqual([]);
+  });
+
+  it('names the action the same way the blog band already does', () => {
+    // BlogCTABand shipped `Try the demo` before the component default caught
+    // up. The two must agree or the site has two doors with two names.
+    const component = readFileSync(join(srcRoot, 'components/DemoTryCTA.jsx'), 'utf-8');
+    const band = readFileSync(join(srcRoot, 'components/BlogCTABand.jsx'), 'utf-8');
+    expect(component).toContain('Try the demo');
+    expect(band).toContain('Try the demo');
   });
 });

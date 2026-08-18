@@ -217,7 +217,7 @@ describe('anchor contract (no dead anchors, CLAUDE.md §11.6)', () => {
 describe('demo-entry gate', () => {
   it.skipIf(demoEntryLive)('renders no demo-entry CTA while demoEntryLive is false', () => {
     const { container } = renderHome();
-    expect(container.textContent).not.toMatch(/try it yourself/i);
+    expect(container.textContent).not.toMatch(/try the demo/i);
   });
 
   // Unconditional. The capture modal, not an anchor, is the only way into the
