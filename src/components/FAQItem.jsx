@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-function FAQItem({ item, isOpen, onToggle, delay = 0 }) {
+function FAQItem({ item, isOpen, onToggle }) {
   return (
     <div className={`faq-item ${isOpen ? 'open' : ''}`}>
       <button type="button" className="faq-trigger" onClick={onToggle} aria-expanded={isOpen}>
@@ -16,4 +17,4 @@ function FAQItem({ item, isOpen, onToggle, delay = 0 }) {
   );
 }
 
-export default FAQItem;
+export default memo(FAQItem);
