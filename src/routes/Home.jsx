@@ -192,7 +192,7 @@ function RoadSection({ story, ctaContext }) {
   useEffect(() => {
     const onScroll = () => {
       lastScrollAt.current = Date.now();
-      setPaused(false);
+      setPaused((prev) => (prev ? false : prev));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);

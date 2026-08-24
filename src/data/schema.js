@@ -106,7 +106,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Mobile-first collections, e-invoicing, and reconciliation layer for businesses running on Tally.',
     url: SITE_URL,
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Android, iOS',
+    operatingSystem: 'Android, iOS, Windows, Web',
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
