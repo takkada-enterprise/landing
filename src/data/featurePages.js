@@ -1426,9 +1426,11 @@ export function featurePagePath(page) {
   return `/${page.slug}`;
 }
 
+const featurePageMap = new Map(FEATURE_PAGES.map((p) => [p.slug, p]));
+
 /** Look one page up by slug. Returns undefined when the slug is unknown. */
 export function getFeaturePage(slug) {
-  return FEATURE_PAGES.find((p) => p.slug === slug);
+  return featurePageMap.get(slug);
 }
 
 // Spread into routeMetadata by src/data/siteMetadata.js. `sourceFile` points at

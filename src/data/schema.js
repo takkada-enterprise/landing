@@ -245,6 +245,7 @@ export function articlePageSchema(
     author: authorNode(author, resolveAuthor),
     publisher: { '@id': `${SITE_URL}/#organization` },
     isPartOf: { '@id': `${SITE_URL}/#website` },
+    inLanguage: 'en-IN',
     url,
     mainEntityOfPage: url,
   };

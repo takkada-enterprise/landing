@@ -416,8 +416,19 @@ function StickyMobileCTA({ menuOpen }) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
-    const onScroll = () => setShow(window.scrollY > 560);
-    onScroll();
+    let ticking = false;
+    const update = () => {
+      const next = window.scrollY > 560;
+      setShow((prev) => (prev !== next ? next : prev));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -466,8 +477,19 @@ function LayoutInner() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
+    let ticking = false;
+    const update = () => {
+      const next = window.scrollY > 40;
+      setScrolled((prev) => (prev !== next ? next : prev));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);

@@ -4,9 +4,15 @@ import BlogCtaBand from '../components/BlogCtaBand';
 import { getAllPosts } from '../lib/blogPosts';
 import { breadcrumbSchema } from '../data/schema';
 
+const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
 function formatDate(dateStr) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+  if (!dateStr) return '';
+  return indianDateFormatter.format(new Date(dateStr));
 }
 
 function PostCard({ post }) {
