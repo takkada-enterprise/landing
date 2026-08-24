@@ -5,9 +5,15 @@ import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
 import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
 import { getAuthor } from '../data/authors';
 
+const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
 function formatDate(dateStr) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+  if (!dateStr) return '';
+  return indianDateFormatter.format(new Date(dateStr));
 }
 
 export function getStaticPaths() {

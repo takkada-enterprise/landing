@@ -239,24 +239,53 @@ const withBlurb = (page) => ({
  * the page under some unrelated group's heading would be a worse answer than
  * leaving it out.
  */
-export function groupFeaturePages(pages) {
-  const bySlug = new Map(pages.map((page) => [page.slug, page]));
+let lastPagesRef = null;
+let cachedGrouped = null;
+let cachedLead = null;
+let cachedSections = null;
+let cachedSecondary = null;
+let cachedDrained = null;
 
-  return FEATURE_GROUPS.map((group) => ({
+function checkPagesCache(pages) {
+  if (pages !== lastPagesRef) {
+    lastPagesRef = pages;
+    cachedGrouped = null;
+    cachedLead = null;
+    cachedSections = null;
+    cachedSecondary = null;
+    cachedDrained = null;
+  }
+}
+
+export function groupFeaturePages(pages) {
+  checkPagesCache(pages);
+  if (cachedGrouped) return cachedGrouped;
+
+  const bySlug = new Map(pages.map((page) => [page.slug, page]));
+  cachedGrouped = FEATURE_GROUPS.map((group) => ({
     ...group,
     pages: group.slugs.map((slug) => bySlug.get(slug)).filter(Boolean).map(withBlurb),
   }));
+  return cachedGrouped;
 }
 
 /** The lead tier, in LEAD_FEATURE_SLUGS order. */
 export function leadFeaturePages(pages) {
+  checkPagesCache(pages);
+  if (cachedLead) return cachedLead;
+
   const bySlug = new Map(pages.map((page) => [page.slug, page]));
-  return LEAD_FEATURE_SLUGS.map((slug) => bySlug.get(slug)).filter(Boolean).map(withBlurb);
+  cachedLead = LEAD_FEATURE_SLUGS.map((slug) => bySlug.get(slug)).filter(Boolean).map(withBlurb);
+  return cachedLead;
 }
 
 /** The groups that render as their own labelled section, in FEATURE_GROUPS order. */
 export function sectionFeatureGroups(pages) {
-  return groupFeaturePages(pages).filter((group) => SECTION_GROUP_IDS.includes(group.id));
+  checkPagesCache(pages);
+  if (cachedSections) return cachedSections;
+
+  cachedSections = groupFeaturePages(pages).filter((group) => SECTION_GROUP_IDS.includes(group.id));
+  return cachedSections;
 }
 
 /**
@@ -266,11 +295,15 @@ export function sectionFeatureGroups(pages) {
  * DOM anchor.
  */
 export function secondaryFeatureGroups(pages) {
+  checkPagesCache(pages);
+  if (cachedSecondary) return cachedSecondary;
+
   const lead = new Set(LEAD_FEATURE_SLUGS);
-  return groupFeaturePages(pages)
+  cachedSecondary = groupFeaturePages(pages)
     .filter((group) => !SECTION_GROUP_IDS.includes(group.id))
     .map((group) => ({ ...group, pages: group.pages.filter((page) => !lead.has(page.slug)) }))
     .filter((group) => group.pages.length > 0);
+  return cachedSecondary;
 }
 
 /**
@@ -281,8 +314,12 @@ export function secondaryFeatureGroups(pages) {
  * letting them 404 into the top of the page.
  */
 export function drainedGroupIds(pages) {
+  checkPagesCache(pages);
+  if (cachedDrained) return cachedDrained;
+
   const surviving = new Set(secondaryFeatureGroups(pages).map((group) => group.id));
-  return FEATURE_GROUPS.filter(
+  cachedDrained = FEATURE_GROUPS.filter(
     (group) => !SECTION_GROUP_IDS.includes(group.id) && !surviving.has(group.id)
   ).map((group) => group.id);
+  return cachedDrained;
 }
