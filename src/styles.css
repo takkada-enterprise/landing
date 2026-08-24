@@ -3901,8 +3901,8 @@ html.js .animated-heading .letter {
 .blog-post-card > .blog-post-card-title,
 .blog-post-card > .blog-post-card-excerpt,
 .blog-post-card > .blog-read-more {
-  margin-left: 28px;
-  margin-right: 28px;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .blog-post-card > .blog-post-card-meta {
@@ -3910,17 +3910,17 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-card > .blog-post-card-title {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .blog-post-card > .blog-post-card-excerpt {
-  margin-top: 12px;
+  margin-top: 16px;
   flex: 1;
 }
 
 .blog-post-card > .blog-read-more {
-  margin-top: 12px;
-  margin-bottom: 28px;
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .blog-post-card-meta {
@@ -4404,11 +4404,25 @@ html.js .animated-heading .letter {
   .blog-posts-section {
     padding: 40px 0 40px;
   }
-  .blog-featured-card {
-    padding: 28px 24px;
+  .blog-post-card > .blog-post-card-meta,
+  .blog-post-card > .blog-post-card-title,
+  .blog-post-card > .blog-post-card-excerpt,
+  .blog-post-card > .blog-read-more {
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  .blog-post-card {
-    padding: 24px;
+  .blog-post-card > .blog-post-card-meta {
+    margin-top: 20px;
+  }
+  .blog-post-card > .blog-post-card-title {
+    margin-top: 14px;
+  }
+  .blog-post-card > .blog-post-card-excerpt {
+    margin-top: 14px;
+  }
+  .blog-post-card > .blog-read-more {
+    margin-top: 14px;
+    margin-bottom: 20px;
   }
   .blog-post-header {
     padding: 64px 0 40px;

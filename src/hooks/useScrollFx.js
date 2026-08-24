@@ -33,11 +33,18 @@ export function useScrollReveal() {
 
 export function useParallaxVariable() {
   useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
+
     let raf = 0;
+    let lastScrollY = -1;
 
     const update = () => {
       raf = 0;
-      document.documentElement.style.setProperty('--scroll-y', `${window.scrollY.toFixed(2)}`);
+      const currentScrollY = window.scrollY;
+      if (currentScrollY === lastScrollY) return;
+      lastScrollY = currentScrollY;
+      document.documentElement.style.setProperty('--scroll-y', `${currentScrollY.toFixed(2)}`);
     };
 
     const onScroll = () => {
@@ -54,3 +61,4 @@ export function useParallaxVariable() {
     };
   }, []);
 }
+
