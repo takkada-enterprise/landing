@@ -1050,6 +1050,12 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
     },
+    {
+        "slug": "tally-reports-for-distributors-daily-checklist",
+        "title": "The Reports a Distributor Should Open Every Day",
+        "category": "Reports",
+        "tagline": "Outstanding at 8:30, Daybook at noon, Trial Balance when the month closes.",
+    },
 ]
 
 if __name__ == "__main__":
