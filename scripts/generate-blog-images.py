@@ -1110,6 +1110,12 @@ ARTICLES = [
         "category": "Collections",
         "tagline": "Kaun kitna baaki, kisne kab promise kiya.",
     },
+    {
+        "slug": "stockout-control-for-distributors-india",
+        "title": "Stockout Control for Distributors",
+        "category": "Market Reality",
+        "tagline": "Four numbers per item, read off Tally, before the godown goes dry.",
+    },
 ]
 
 if __name__ == "__main__":
