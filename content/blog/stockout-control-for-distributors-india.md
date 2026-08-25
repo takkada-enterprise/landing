@@ -50,7 +50,7 @@ Keep these four on each item you actually care about. A notebook is enough. A sh
 | Days of cover | Quantity on hand divided by average daily sales | Stock Summary, or godown-wise stock if you have more than one location |
 | Reorder point | Average daily sales times lead time, plus a buffer the owner chooses | Computed by the owner, not by Tally |
 
-On the shampoo: 40 a day, 8 days lead time, 80 bottles on hand. Days of cover is 2. Reorder point, with a 2-day buffer, is 40 × 8 + 80 = 400. You are 320 bottles below the point. The purchase is today, not after the two cases run out.
+On the shampoo: 40 a day, 8 days lead time, 80 bottles on hand. Days of cover is 2. Reorder point, with a 2-day buffer, is 40 × 8 + 40 × 2 = 400. On hand is 80, so the gap is 320 bottles. The purchase is today, not after the two cases run out.
 
 Lead time is the number people skip, and it is the one Tally will not store for you. Supplier A in Delhi is 8 days. Supplier B in Guwahati is 2. Supplier C in Kolkata is 12 in the rains. Those figures live in the owner's head, or in a note against the supplier's name. They do not appear as a field next to the stock item. Treating all six suppliers as "about a week" is how the 12-day line goes dry while the 2-day line is over-bought.
 
@@ -92,7 +92,7 @@ Delhi 8 days, Guwahati 2, Kolkata 12 in the rains: those figures live in the pur
 
 The books record the forty bottles that went out. They do not record the Fancy Bazaar retailer who asked for the 200 ml, found two cases gone, and bought from the next van. That reconstruction, if you want it, is a mark in the same notebook.
 
-Purchase orders can be created on the phone, including import from a photo of a supplier's PO or quotation, and they land in Tally. That is the capture half, one step, so the reorder you just decided does not wait for an evening typing session.
+Purchase orders can be created on the phone, including import from a photo of a supplier's PO, and they land in Tally. That is the capture half, one step, so the reorder you just decided does not wait for an evening typing session.
 
 Inventory and Stock Summary have no export. If the Monday purchase call needs a sheet, Velocity's PDF or Excel export is the one that exists. The rest is read on the phone.
 
