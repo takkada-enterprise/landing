@@ -201,6 +201,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Multi-Location Inventory App for Tally Distributors: What to Look For](https://takkada.com/blog/multi-location-inventory-app-tally-distributors/)
 - [Payment Collection App for Distributors India: The 2026 Reality](https://takkada.com/blog/payment-collection-app-for-distributors-india/)
 - [Payment Gateway for MSME: What Actually Matters When You're a Distributor](https://takkada.com/blog/payment-gateway-for-msme-india/)
+- [Stockout Control for Distributors: A Method You Can Run From Tally Data](https://takkada.com/blog/stockout-control-for-distributors-india/)
 - [Takkada Pricing and Plans (2026): What Each Tier Includes](https://takkada.com/blog/takkada-pricing-plans-2026/)
 - [Tally Mobile App India: Five Ways Distributors Bridge the Desk-to-Field Gap](https://takkada.com/blog/tally-mobile-app-india/)
 - [The Only Tally-Native Zero MDR UPI App in India](https://takkada.com/blog/only-tally-native-zero-mdr-upi-app-india/)
