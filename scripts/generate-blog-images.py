@@ -1050,6 +1050,12 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
     },
+    {
+        "slug": "beat-wise-sales-management-tally-distributors",
+        "title": "Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders",
+        "category": "Field Sales",
+        "tagline": "Station Road at 10:40. A photo, a load sheet, an order in Tally.",
+    },
 ]
 
 if __name__ == "__main__":
