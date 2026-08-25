@@ -27,5 +27,8 @@ test-results/
 # Python bytecode from scripts/generate-blog-images.py
 __pycache__/
 
-# Local Pillow venv for blog header images
+# Local Pillow venv for blog header images. Do not commit.
 .venv-blog/
+
+# Git worktrees checked out under this repo path
+.worktrees/
