@@ -1290,6 +1290,12 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Reports screen, two groups. Share sheet se WhatsApp.",
     },
+    {
+        "slug": "beat-wise-sales-management-tally-distributors",
+        "title": "Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders",
+        "category": "Field Sales",
+        "tagline": "Station Road at 10:40. A photo, a load sheet, an order in Tally.",
+    },
 ]
 
 if __name__ == "__main__":
