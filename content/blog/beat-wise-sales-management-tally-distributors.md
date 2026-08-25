@@ -16,7 +16,7 @@ Distributors manage salesmen beat-wise with Tally by grouping dealers into named
 ## Key Highlights
 
 - Station Road is a beat: a name plus a dealer list, with one salesman assigned. Gupta Stores can sit on Station Road or on GS Road, not both, and moving it shows what moved
-- At 9:15 the godown opens Today's load, pending orders from a 3-day window including today, then Dispatch totals items across beats and a Load sheet per beat shows the per-dealer breakdown
+- At 9:15 Raju opens Today's load, pending orders from a 3-day window including today. In the godown Dispatch totals items across beats and a Load sheet per beat shows the per-dealer breakdown
 - At 10:40 Raju checks in at Gupta Stores with a camera photo, GPS location, device time, his name and the dealer. A mock location is refused and still shown to the owner
 
 ## In This Article
