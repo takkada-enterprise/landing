@@ -243,6 +243,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Purchase Report from Tally on Your Phone](https://takkada.com/blog/purchase-report-tally-mobile/)
 - [Salesman-Wise Sales Report for Distributor Teams](https://takkada.com/blog/salesman-wise-sales-report-tally/)
 - [Stock Summary Report from Tally on Mobile](https://takkada.com/blog/stock-summary-report-tally-mobile/)
+- [The Reports a Distributor Should Open Every Day (and Which Ones Live on the Phone)](https://takkada.com/blog/tally-reports-for-distributors-daily-checklist/)
 
 ### Schemes
 
