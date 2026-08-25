@@ -1050,6 +1050,12 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
     },
+    {
+        "slug": "payment-recovery-dashboard-for-distributors",
+        "title": "Payment Recovery Dashboard for Distributors",
+        "category": "Collections",
+        "tagline": "The 8:40 card: due promises, missed dates, nobody chased.",
+    },
 ]
 
 if __name__ == "__main__":
