@@ -252,7 +252,7 @@ const FIRST_BATCH = [
       },
       {
         q: 'Does it work when the shop has no network?',
-        a: 'It needs a working data connection. Takkada does not have an offline mode, so in a dead-signal pocket your salesman will have to move to where there is signal before the entry goes through. On ordinary 4G in a market street it works normally.',
+        a: 'Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. On ordinary 4G in a market street it works normally. In a dead-signal pocket the salesman has to move to where there is signal before an order, invoice or receipt goes through.',
       },
       {
         q: 'How does commission get calculated?',

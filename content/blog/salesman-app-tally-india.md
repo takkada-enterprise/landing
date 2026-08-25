@@ -5,7 +5,7 @@ meta_title: "What Field Teams Need From a Tally App in India"
 meta_description: "What Indian distribution salesmen actually need from a Tally mobile app, and why view-only access answers only the first half of a day in the market."
 primary_keyword: "salesman app tally india"
 date: "2026-05-18"
-updated: "2026-08-09"
+updated: "2026-08-26"
 author: "founder"
 category: "Field Sales"
 excerpt: "The owner of a Nagpur pharma distributor bought Biz Analyst for his three salesmen in 2023. They used it for four months, then went back to calling the office accountant before every delivery. The problem was not the app — it was that the app could only answer half of the salesman's questions."
@@ -107,7 +107,7 @@ A: Yes, through role-based access on mobile companion apps. A salesman role typi
 
 **Q: What happens if the salesman creates an invoice on the phone and the internet drops?**
 
-A: Better apps queue the write and post it when connectivity returns. The salesman can continue working — invoices and receipts created offline are held locally and sync to Tally once the connection is restored. Verify this with a live demo: create an invoice in airplane mode, restore connection, and confirm the voucher appears in Tally.
+A: Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. Ask to see that split on a live demo: check-in still saves in airplane mode, but an invoice does not go through until the phone is back on data.
 
 **Q: How much does a salesman seat cost on top of the base app?**
 
