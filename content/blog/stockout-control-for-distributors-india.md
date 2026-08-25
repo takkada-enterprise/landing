@@ -11,7 +11,7 @@ category: "Market Reality"
 excerpt: "A distributor running 400 SKUs and six suppliers still runs out of the one item a retailer came for. Stockout control is four numbers per item, kept against Tally stock and sales. Lead time lives with the owner."
 ---
 
-Distributors avoid stockouts using Tally data by keeping four numbers on each item, average daily sales, supplier lead time in days, days of cover, and a reorder point, then reading those against live stock and sales from the same books. Tally holds the quantities and the sales; it does not compute a reorder point, so stockout control for a distributor is a method the owner runs, not a ping from the app. A Guwahati FMCG distributor with 400 SKUs and six suppliers looks at yesterday's item-wise sales, today's Stock Summary, and sales orders already in Tally that have not yet become invoices, then places a purchase before days of cover fall below lead time. Velocity shows how fast each item moves and sits in Reports+. Godown-wise stock answers which location is actually dry. This article lays out the four numbers, which live reports supply the sales side, why sales orders make demand visible, and what the owner still has to hold himself.
+Distributors avoid stockouts using Tally data by keeping four numbers on each item, average daily sales, supplier lead time in days, days of cover, and a reorder point, then reading those against live stock and sales from the same books. Tally holds the quantities and the sales; it does not compute a reorder point, so stockout control for a distributor is a method the owner runs from those two facts plus a lead time he already knows. A Guwahati FMCG distributor with 400 SKUs and six suppliers looks at yesterday's item-wise sales, today's Stock Summary, and sales orders already in Tally that have not yet become invoices, then places a purchase before days of cover fall below lead time. Velocity shows how fast each item moves and sits in Reports+. Godown-wise stock answers which location is actually dry. This article lays out the four numbers, the live reports that feed them, why sales orders make demand visible, and what the owner still holds himself.
 
 ## Key Highlights
 
@@ -37,7 +37,7 @@ That is the whole problem, scaled across 400 SKUs and six suppliers. Tally alrea
 
 The owner does not watch all 400. He watches the ones whose days of cover are close to lead time. A slow crate at the back of the godown with 90 days of cover is a working-capital question. The shampoo with 7 days of cover and an 8-day lead time is this afternoon's purchase call.
 
-The reports that feed the arithmetic live on the phone, which matters because the question is asked in the godown and at the counter, not at the Tally desk. The method is the same whether you read those reports on the desktop or on the phone. The phone is simply where the person making the promise is standing.
+The arithmetic is asked at 11 AM in the godown, when a salesman has already promised forty bottles of the 200 ml to a Fancy Bazaar retailer. The Tally desktop is in the office. Stock Summary and item-wise sales have to be readable on the phone in his hand, or that promise is a guess.
 
 ## Stockout control for a distributor starts with four numbers
 
@@ -60,9 +60,9 @@ The reorder point is a line the owner draws, not a master in Tally. Some books k
 
 ## Which live reports supply the sales side
 
-Four live reports do the sales-and-stock half. Lead time stays with the owner.
+Lead time stays with the owner. The sales and stock half comes from three live report families on the phone.
 
-The Inventory report has two tabs. **Stock** is what is there. **Velocity** is how fast each item moves, and Velocity sits in Reports+. Velocity is the ranking that tells you which of the 400 SKUs can actually go dry this week. An item with high stock and low velocity is capital sitting still. An item with low stock and high velocity is the shampoo.
+The Inventory report has two tabs. **Stock** is what is there. **Velocity** is how fast each item moves, and Velocity sits in Reports+. Velocity is the ranking that tells you which of the 400 SKUs can actually go dry this week. An item with high stock and low velocity is capital sitting still. An item with low stock and high velocity is the 200 ml shampoo at forty a day.
 
 [Stock Summary from Tally on mobile](/blog/stock-summary-report-tally-mobile/) is the godown as of a date, with item drill-down. You can read it as of today or as of any past date. Quantities for a past date are the real historical quantities. The rupee value beside them is at the item's current rate, so a backdated view is exact on units and indicative on rupees. Inventory and Stock Summary have no export. Velocity exports to PDF or Excel, which is the sheet you take into the Monday purchase call.
 
@@ -70,7 +70,7 @@ The Inventory report has two tabs. **Stock** is what is there. **Velocity** is h
 
 [Item-wise sales](/blog/item-wise-sales-report-tally/) is the average-daily-sales input. Quantity and value per item over the period, on the phone, so the ranking is available while you are standing in the aisle. [Party-wise sales](/blog/party-wise-sales-report-tally/) tells you who will feel it if that item goes to zero: the three retailers who lift 60% of that SKU will be in tomorrow asking, and they are the calls that cost you the relationship.
 
-Those five surfaces, Stock, Velocity, Stock Summary, godown-wise, item-wise and party-wise, are the Tally data in "how do distributors avoid stockouts using Tally data." They do not include a reorder quantity, a supplier lead-time field, or a figure for sales that did not happen.
+Inventory, Stock Summary, godown-wise stock, item-wise sales and party-wise sales are the Tally data behind how distributors avoid stockouts using Tally data. They give quantity and movement. They do not give a reorder quantity, a supplier lead-time field, or a figure for a sale that never got billed.
 
 ## Why sales orders make demand visible
 
@@ -86,17 +86,17 @@ Without sales orders in Tally, demand is a memory of who asked. With them, the 4
 
 A few things stay outside the reports.
 
-There is no stockout alert. Nobody pings you when the shampoo crosses the reorder point. The owner looks, or a purchase person looks, on a cadence the shop already has, Monday and Thursday for most FMCG books, daily in season for agri-input. The reports are there when you open them.
+The shampoo does not raise a hand when it crosses 400 bottles. At 9 AM on Monday, and again on Thursday for this FMCG book, the owner or the purchase person opens Velocity, writes cover next to lead time, and decides. Agri-input shops do the same look daily in season.
 
-Supplier lead times and reorder quantities are not fields in the app. The six suppliers' days live where they live today, in the owner's head and in the purchase notebook. Tally's own reorder master is not the source for this method.
+Delhi 8 days, Guwahati 2, Kolkata 12 in the rains: those figures live in the purchase notebook against the supplier's name. They are not a column next to the stock item. Tally's own reorder master is not the source for this method.
 
-The books record what sold. They do not record the retailer who asked for the shampoo, found two cases gone, and bought from the next van. That reconstruction, if you want it, is yours.
+The books record the forty bottles that went out. They do not record the Fancy Bazaar retailer who asked for the 200 ml, found two cases gone, and bought from the next van. That reconstruction, if you want it, is a mark in the same notebook.
 
 Purchase orders can be created on the phone, including import from a photo of a supplier's PO or quotation, and they land in Tally. That is the capture half, one step, so the reorder you just decided does not wait for an evening typing session.
 
 Inventory and Stock Summary have no export. If the Monday purchase call needs a sheet, Velocity's PDF or Excel export is the one that exists. The rest is read on the phone.
 
-Tally stays the book of record. The method sits on top of it. It does not replace the godown count, and it does not run itself.
+Saturday's godown count still has to match Monday's Stock Summary. The eight days still live in the notebook. The method does not run itself between those two looks.
 
 ## Running it on 400 SKUs and six suppliers
 
