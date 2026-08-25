@@ -32,7 +32,7 @@ Distributors manage salesmen beat-wise with Tally by grouping dealers into named
 
 ## How do distributors manage salesmen beat-wise with Tally?
 
-Ask the Guwahati owner what Tuesday looks like and he starts with Station Road. Raju has twenty-four kirana shops on that stretch. Manoj has GS Road. The other three have Fancy Bazaar, NH-37 and Beltola. About 120 dealers, five named lists the market has run for years. The [Salesman app for Tally](/salesman-app-tally) carries that day. What [field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) is the same loop: the party in front of him, the order into the books, and a visit record made at the counter. By evening the owner opens Team Sales rather than calling five people.
+Ask the Guwahati owner what Tuesday looks like and he starts with Station Road. Raju has twenty-four kirana shops on that stretch. Manoj has GS Road. The other three have Fancy Bazaar, NH-37 and Beltola. About 120 dealers across five named lists. The [Salesman app for Tally](/salesman-app-tally) carries that day. What [field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) is the same loop: the party in front of him, the order into the books, and a visit record made at the counter. By evening the owner opens Team Sales rather than calling five people.
 
 ## Grouping 120 dealers onto named beats
 
@@ -44,7 +44,7 @@ Member permissions set view and create rights per register, restrict which ledge
 
 ## Today's load, Dispatch and the Load sheet
 
-Tuesday, 9:15. Raju opens Today's load for Station Road. What he sees is pending orders from a 3-day window including today: Sunday's leftover, Monday's bookings, Tuesday morning. The carton Gupta Stores booked on Saturday sits behind an older pending chip. Today's load is that 3-day pending window.
+Tuesday, 9:15. Raju opens Today's load for Station Road: pending orders from a 3-day window including today, Sunday's leftover, Monday's bookings, Tuesday morning. The carton Gupta Stores booked on Saturday sits behind an older pending chip.
 
 In the godown the dispatcher opens Dispatch, the screen for what goes out today. Pending orders across all five beats total into one item list: so many bags of atta, so many crates of oil, so many cartons of biscuits. Then he opens the Load sheet for Station Road, Gupta Stores on top with its lines, then the next shop on that beat. Fancy Bazaar has its own sheet. The van is loaded from the totals. The delivery boys work from the per-dealer breakdown.
 
