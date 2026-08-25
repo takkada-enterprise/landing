@@ -70,6 +70,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Collections
 
+- [A Payment Recovery Dashboard for Distributors: Parties, Bills, Habits, Team](https://takkada.com/blog/payment-recovery-dashboard-for-distributors/)
 - [Accounts Receivable Turnover Ratio for Distributors](https://takkada.com/blog/accounts-receivable-turnover-ratio-distributor/)
 - [Auto-Dispatching Invoices on WhatsApp from Tally: What It Is and What It Changes](https://takkada.com/blog/tally-whatsapp-invoice-dispatch/)
 - [Bakaya Kaise Vasool Kare: Distributor Collection Guide](https://takkada.com/blog/bakaya-kaise-vasool-kare-distributor/)
