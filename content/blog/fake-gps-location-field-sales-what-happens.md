@@ -77,7 +77,7 @@ Distance at check-out is from where the visit started, not from a dealer pin. Fa
 
 By evening the owner has a pile of rows. Station Road: Gupta Stores refused at 10:40, next kirana landed at 11:05, two shops with no attempt. GS Road: Manoj, one Unverified on an exempted phone.
 
-A refused attempt is a conversation. "Mock location kyun on hai" is a smaller call than "gaya tha ya nahi" with nothing on the feed. [Visit outcomes, booked on the visit versus at the dealer](/blog/field-visit-outcomes-orders-booked-vs-dealers-visited/) reads orders against stamps that landed. A refused Gupta Stores does not put 14 cartons on Booked on these visits. He can still [book the order into Tally without re-entry](/blog/salesman-order-to-tally-without-reentry/) once the flag is off and there is signal.
+A refused attempt is a conversation. "Mock location kyun on hai" is a smaller call than "gaya tha ya nahi" with nothing on the feed. [Visit outcomes, booked on the visit versus at the dealer](/blog/field-visit-outcomes-orders-booked-vs-dealers-visited/) reads orders against stamps that landed. A refused Gupta Stores does not put 14 cartons on Booked on these visits. He can still [book the order into Tally without re-entry](/blog/salesman-order-to-tally-without-reentry/) when there is signal.
 
 [What field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) starts at this counter. The stop on fake GPS location in field sales is the flag, the refused attempt on the owner's feed, and Unverified when the owner has chosen to let that device through. There is no root detection, no tamper detection, and no geo-fence. He can check in when he is not at the shop. The photo still has to be taken there and then.
 
