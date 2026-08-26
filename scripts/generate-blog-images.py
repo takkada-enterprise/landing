@@ -1296,6 +1296,30 @@ ARTICLES = [
         "category": "Field Sales",
         "tagline": "Station Road at 10:40. A photo, a load sheet, an order in Tally.",
     },
+    {
+        "slug": "what-is-a-beat-in-distribution-sales",
+        "title": "What Is a Beat in Distribution Sales (and How Many Dealers Fit in One)",
+        "category": "Market Reality",
+        "tagline": "A beat is a named dealer list. Station Road holds twenty-four shops.",
+    },
+    {
+        "slug": "create-beats-and-assign-salesman-mobile",
+        "title": "Create Beats and Assign a Salesman from Your Phone",
+        "category": "How-To",
+        "tagline": "Type Station Road, add Gupta Stores, put Raju on it.",
+    },
+    {
+        "slug": "dispatch-load-sheet-for-distributors",
+        "title": "The Dispatch Load Sheet: What Goes Out Today, Beat by Beat",
+        "category": "How-To",
+        "tagline": "Pending orders in a 3-day window, then a Load sheet per beat.",
+    },
+    {
+        "slug": "mark-orders-delivered-without-touching-tally",
+        "title": "Mark Orders Delivered Without Touching Tally",
+        "category": "Tally Mobile",
+        "tagline": "Tick Mark delivered. Tally is not told. The Sales Order stays open.",
+    },
 ]
 
 if __name__ == "__main__":
