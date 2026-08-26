@@ -70,8 +70,6 @@ At 10:52 Raju has walked twenty metres toward Station Road's main stretch. Signa
 
 If he tries to book before he has data, the order does not queue. He waits. Gupta is used to that. "Signal aate hi likh dena."
 
-Live stock is why the order needs a connection. The godown figure has to be the current one, not a figure the phone remembered at 9 AM. Visits do not promise cartons. They can wait.
-
 The [dispatch load sheet](/blog/dispatch-load-sheet-for-distributors/) still totals pending orders from a 3-day window once those orders exist in Tally. An order that never left the dead lane never reaches the sheet.
 
 ## What the owner sees after the upload
@@ -84,7 +82,7 @@ A Tuesday with two dead-signal pockets will show those visits late, in a cluster
 
 [Restricting salesman access in Tally](/blog/restrict-salesman-access-tally/) still decides which ledgers Raju can open. He can only check in on parties he can see. Saved on this phone is not a back door to the rest of the book.
 
-Manoj on GS Road, the Fancy Bazaar man, the NH-37 man, the Beltola man: same two sentences. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. The rest of the [Salesman app for Tally](/salesman-app-tally) needs data, the same as the FAQ. Saved on this phone is the line Raju looks for when the lane dies. Check-in, check-out, walk to signal, Take an order.
+Manoj on GS Road, the Fancy Bazaar man, the NH-37 man, the Beltola man: same two sentences. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. Orders, invoices and receipts on the [Salesman app for Tally](/salesman-app-tally) need a connection, the same as the FAQ. Saved on this phone is the line Raju looks for when the lane dies. Check-in, check-out, walk to signal, Take an order.
 
 ## Frequently Asked Questions
 
@@ -98,7 +96,7 @@ A: Check-in and check-out. The phone shows Saved on this phone until the upload.
 
 **Q: Why is Take an order offered after check-out?**
 
-A: Because sales orders need signal. Check-out finishes the visit stamp, which can wait on the phone. The order against live stock needs a working data connection, so the godown figure is current. He books once he has bars.
+A: Because sales orders need signal. Check-out finishes the visit stamp, which can wait on the phone. Take an order is offered after check-out. He books once he has bars.
 
 **Q: Will the visit time change when it uploads?**
 
