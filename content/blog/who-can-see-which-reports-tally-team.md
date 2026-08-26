@@ -40,7 +40,7 @@ The Tally desktop story of security levels, and of rights that attach to a repor
 
 ## Restrict reports access tally for one team member
 
-Restrict reports access tally by opening that member and switching the Reports permission off. One member, one switch. Raju off. The accountant on. The owner on. A second salesman, same as Raju, off.
+Restrict reports access tally by opening that member and switching the Reports permission off. One member, one switch. Raju's Reports tab stays off, while the accountant and the owner keep theirs on. A second salesman, same as Raju, off.
 
 With the tab off, the member does not see the Reports section. Financial Statements (Trial Balance, Profit & Loss, Balance Sheet, MIS Reports) stay out of reach. Action Reports (Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook) stay out of reach. The This Financial Year band of ten register totals stays out of reach with them.
 

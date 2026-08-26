@@ -50,7 +50,7 @@ Party search is a search box. Type Sharma. There is no picker and no multi-selec
 
 ## Mustard oil at 11 cases, 9 PM in the car
 
-The godown locked at 8:40. The owner is still in the car on the GS Road stretch. He opens Sales Analytics because the stack he walked past looked untouched. 1-litre mustard oil, 11 cases this week. Last week was 38. The [daily sales report](/blog/daily-sales-report-tally-mobile/) for today still looks fine, because rice and atta carried the rupee total. The SKU did not.
+The godown locked at 8:40. The owner is still in the car on the GS Road stretch. He opens Sales Analytics because the stack he walked past looked untouched. 1-litre mustard oil stands at 11 cases on the books now. The godown still looks like a 38-case run, and a usual week is 40. The [daily sales report](/blog/daily-sales-report-tally-mobile/) for today still looks fine, because rice and atta carried the rupee total. The SKU did not.
 
 Tomorrow's counter conversation is specific. Sharma takes oil when it is on the floor. If Raju stopped putting it down, that is a beat problem. If Sharma switched to a cheaper tin from another van, that is a price problem. The report named the SKU. It did not name Raju. There is no salesman filter on this report. Godown is its own report, next to the [stock summary](/blog/stock-summary-report-tally-mobile/).
 
@@ -86,7 +86,7 @@ Purchase Analytics is the buying-side pair, next to the [purchase report on mobi
 
 Monday 7:40 AM, the purchase manager is already in the godown. The owner forwards yesterday's Sales Analytics Excel from the share sheet, WhatsApp, 9:11 PM sitting. The 1-litre mustard oil line is 11. The usual week is 40. Rice is fine. Atta is 4. The reorder list on the concrete floor is rice yes, oil wait, atta wait.
 
-If they had reordered oil on Saturday because the stack "looked low," they would have bought a slow week at the old rate. Sales analytics tally caught the 11. The stack looked low because last week's 38 had not been replaced, and this week did not need replacing. That is a ₹1,20,000 purchase that can sit until the counter actually pulls tins again.
+If they had reordered oil on Saturday because the stack "looked low," they would have bought a slow week at the old rate. Sales analytics tally caught the 11. The stack looked low because the last full run had not been replaced, and 11 on the books now does not need replacing. That is a ₹1,20,000 purchase that can sit until the counter actually pulls tins again.
 
 The purchase manager still wants a supplier name. That is Purchase Analytics, not this screen. This screen named the SKU. Sharma Kirana of Fancy Bazaar still takes oil when it is on the floor. The gap between 11 and 40 might be Raju's beat, or a cheaper tin from another van. The owner finds out at the counter. He does not find out from a salesman chip, because there is none.
 
