@@ -73,6 +73,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Accounts Receivable Turnover Ratio for Distributors](https://takkada.com/blog/accounts-receivable-turnover-ratio-distributor/)
 - [Auto-Dispatching Invoices on WhatsApp from Tally: What It Is and What It Changes](https://takkada.com/blog/tally-whatsapp-invoice-dispatch/)
 - [Bakaya Kaise Vasool Kare: Distributor Collection Guide](https://takkada.com/blog/bakaya-kaise-vasool-kare-distributor/)
+- [Bill-wise vs FIFO: Two Ways to Read the Same Receipts](https://takkada.com/blog/bill-wise-vs-fifo-receivables-report/)
 - [Bills Receivable in Tally: Money Your Retailers Owe](https://takkada.com/blog/bills-receivable-in-tally-explained/)
 - [Can My Customers See Their Outstanding Online? Yes, Through a Link](https://takkada.com/blog/customers-see-outstanding-online/)
 - [Cash Conversion Cycle for Distributors: How to Shorten It](https://takkada.com/blog/cash-conversion-cycle-for-distributors/)
@@ -102,6 +103,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [WhatsApp Business API: Own Number vs Third Party, Explained for Distributors](https://takkada.com/blog/whatsapp-business-api-own-number-vs-third-party/)
 - [WhatsApp Invoice Format for Tally: How Distributors Send Invoices That Actually Get Paid](https://takkada.com/blog/whatsapp-invoice-format-tally/)
 - [WhatsApp Payment Collection for Distributors: A Playbook](https://takkada.com/blog/whatsapp-payment-collection-playbook-india/)
+- [Which Customers Pay Late: The Payment Behaviour Report](https://takkada.com/blog/customer-payment-behaviour-report-tally/)
 - [Zero MDR UPI Collection for Indian Distributors: What 0% Actually Means](https://takkada.com/blog/zero-mdr-upi-collection-for-distributors-india/)
 - [Zero MDR UPI for Dairy Distributor Collection](https://takkada.com/blog/zero-mdr-upi-for-dairy-distributors/)
 - [Zero MDR UPI for FMCG Distributors in India](https://takkada.com/blog/zero-mdr-upi-for-fmcg-distributors/)
@@ -173,6 +175,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Ledger Reconciliation in Tally: Match Your Books to the Party's](https://takkada.com/blog/ledger-reconciliation-tally-distributor/)
 - [Outstanding Payment Reminder: How the Best Distributors Run It in 2026](https://takkada.com/blog/outstanding-payment-reminder-app-india/)
 - [Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation](https://takkada.com/blog/payment-link-tally-integration/)
+- [Set Your Own Ageing Slabs for Receivables (0-15, 15-45, 45-90 or Whatever Your Trade Uses)](https://takkada.com/blog/customise-ageing-slabs-receivables-tally/)
 - [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
 - [Tally Payment Reconciliation on Mobile, Done Right](https://takkada.com/blog/tally-payment-reconciliation-on-mobile/)
 - [Tally-Format Export: The Same Layout Your CA Expects, From the Phone](https://takkada.com/blog/tally-format-export-trial-balance-balance-sheet/)
@@ -215,6 +218,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 ### Reports
 
 - [Cash and Bank Position Report from Tally](https://takkada.com/blog/cash-bank-report-tally-mobile/)
+- [Customer Analytics from Tally: Who Buys, How Often, How Much](https://takkada.com/blog/customer-analytics-report-tally/)
 - [Daily Sales Report from Tally on Your Phone](https://takkada.com/blog/daily-sales-report-tally-mobile/)
 - [Daybook from Tally on Your Phone: Today's Vouchers Without Opening the Desktop](https://takkada.com/blog/daybook-tally-mobile/)
 - [Godown-Wise Stock Report from Tally on Your Phone](https://takkada.com/blog/godown-wise-stock-report-tally-mobile/)
@@ -227,8 +231,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Profitability Report for Distributors (Tally on Mobile)](https://takkada.com/blog/profit-report-for-distributors-tally/)
 - [Purchase Report from Tally on Your Phone](https://takkada.com/blog/purchase-report-tally-mobile/)
 - [Reading Your Balance Sheet on the Phone: Group to Ledger Drill-Down](https://takkada.com/blog/balance-sheet-tally-mobile-distributor/)
+- [Sales Analytics from Tally for Distributors: Beyond the Sales Register](https://takkada.com/blog/sales-analytics-report-tally-distributor/)
 - [Salesman-Wise Sales Report for Distributor Teams](https://takkada.com/blog/salesman-wise-sales-report-tally/)
 - [Stock Summary Report from Tally on Mobile](https://takkada.com/blog/stock-summary-report-tally-mobile/)
+- [The Cross-sell Gap Report: Items Your Customers Should Be Buying From You](https://takkada.com/blog/cross-sell-gap-report-distributors/)
 - [The Reports a Distributor Should Open Every Day (and Which Ones Live on the Phone)](https://takkada.com/blog/tally-reports-for-distributors-daily-checklist/)
 - [Trial Balance from Tally on Your Phone: What It Shows and What It Does Not](https://takkada.com/blog/trial-balance-tally-mobile/)
 
@@ -261,6 +267,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [This Year's Sales, Purchases, Receipts and Payments at a Glance](https://takkada.com/blog/financial-year-totals-tally-mobile/)
 - [Udhar Vasuli Kaise Kare: A Working Playbook for Indian Distributors in 2026](https://takkada.com/blog/udhar-vasuli-kaise-kare-distributor/)
 - [What Is Takkada? The Tally-Native Receivables App, Explained](https://takkada.com/blog/what-is-takkada/)
+- [Who Can See Which Reports: Report Access for Your Team](https://takkada.com/blog/who-can-see-which-reports-tally-team/)
 
 ### Trust
 
