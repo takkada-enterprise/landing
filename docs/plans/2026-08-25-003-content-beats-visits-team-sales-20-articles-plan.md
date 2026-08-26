@@ -1,7 +1,7 @@
 ---
 title: "content: 20-article Beats, visit tracking and team sales round (Plan 3 of 3)"
 type: content
-status: active
+status: completed
 created: 2026-08-25
 executor: Cursor + Grok 4.6 (high). No Claude-specific tooling is assumed anywhere in this file.
 ---
