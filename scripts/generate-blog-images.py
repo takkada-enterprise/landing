@@ -1260,6 +1260,36 @@ ARTICLES = [
         "category": "Tally Mobile",
         "tagline": "Reports tab is all or nothing per team member.",
     },
+    {
+        "slug": "export-tally-report-to-excel-from-mobile",
+        "title": "How to Export a Tally Report to Excel from Your Phone",
+        "category": "How-To",
+        "tagline": "Eleven reports get Excel. Two are PDF only. Daybook is CSV.",
+    },
+    {
+        "slug": "share-tally-report-pdf-on-whatsapp",
+        "title": "How to Share a Tally Report as PDF on WhatsApp",
+        "category": "How-To",
+        "tagline": "Report PDFs leave through the phone share sheet. Web is text only.",
+    },
+    {
+        "slug": "pending-bills-statement-vs-ledger-statement-whatsapp",
+        "title": "Pending Bills or Full Ledger on WhatsApp",
+        "category": "Collections",
+        "tagline": "Ledger Account or Pending Bills. Include details. That is the list.",
+    },
+    {
+        "slug": "send-statement-from-own-whatsapp-vs-business-number",
+        "title": "Own WhatsApp or the Business Number",
+        "category": "Collections",
+        "tagline": "Own WhatsApp opens your chat. Business number shows queued.",
+    },
+    {
+        "slug": "tally-ki-report-mobile-par-kaise-dekhe",
+        "title": "Tally ki Report Mobile par Kaise Dekhe",
+        "category": "How-To",
+        "tagline": "Reports screen, two groups. Share sheet se WhatsApp.",
+    },
 ]
 
 if __name__ == "__main__":
