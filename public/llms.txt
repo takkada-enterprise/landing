@@ -127,6 +127,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [CredFlow Alternative for Indian Distributors: A Tally-Native View](https://takkada.com/blog/credflow-alternative-tally-native/)
 - [CredFlow vs Biz Analyst vs Takkada: Full Comparison (2026)](https://takkada.com/blog/credflow-vs-biz-analyst-vs-takkada/)
 - [Geo-tagged Visit Photo vs All-day GPS Tracking for Salesmen](https://takkada.com/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/)
+- [Incentive on Orders or on Invoices: Pick a Basis and Stick to It](https://takkada.com/blog/sales-incentive-on-orders-or-invoices/)
 - [Khatabook Alternative for Indian Distributors: Why Distributors Outgrow Udhar-Book Apps](https://takkada.com/blog/khatabook-alternative-for-distributors-india/)
 - [Marg ERP Alternative: Mobile Collections for Tally Distributors](https://takkada.com/blog/marg-erp-alternative-for-distributors/)
 - [myBillBook Alternative for Tally-Native Distributors](https://takkada.com/blog/mybillbook-alternative-for-distributors/)
@@ -158,6 +159,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How Long Was He at the Dealer: Check-out, Duration and Distance](https://takkada.com/blog/visit-duration-and-check-out-field-sales/)
 - [How to Restrict Salesman Access in Tally Without Locking Him Out of His Job](https://takkada.com/blog/restrict-salesman-access-tally/)
 - [Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally](https://takkada.com/blog/salesman-order-to-tally-without-reentry/)
+- [Salesman Targets and Commission Computed from Tally Sales](https://takkada.com/blog/salesman-targets-and-commission-from-tally/)
 - [Salesman Visit Tracking App: What Actually Proves He Went](https://takkada.com/blog/salesman-visit-tracking-photo-proof/)
 - [Salesman Wise Collection Report: Who Owns the Overdue](https://takkada.com/blog/salesman-wise-collection-accountability/)
 - [Visit Check-in With No Signal: Saved on the Phone, Uploaded Later](https://takkada.com/blog/offline-visit-check-in-for-salesmen/)
@@ -214,6 +216,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [What Is a Purchase Bill in Tally, and How to Track It](https://takkada.com/blog/purchase-bill-tracking-tally/)
 - [What Is a UTR Number, and How It Matches a Tally Payment](https://takkada.com/blog/what-is-utr-number-tally-payment/)
 - [WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/)
+- [Who Gets Credit for the Order: Attribution and Reassignment](https://takkada.com/blog/order-attribution-and-reassignment-salesman/)
 
 ### Market Reality
 

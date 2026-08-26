@@ -1374,6 +1374,24 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Camera photo, location, time. All-day GPS nahi.",
     },
+    {
+        "slug": "salesman-targets-and-commission-from-tally",
+        "title": "Salesman Targets and Commission Computed from Tally Sales",
+        "category": "Field Sales",
+        "tagline": "₹8,00,000 target. Commission from Tally sales, not receipts.",
+    },
+    {
+        "slug": "sales-incentive-on-orders-or-invoices",
+        "title": "Incentive on Orders or on Invoices: Pick a Basis and Stick to It",
+        "category": "Comparisons",
+        "tagline": "Orders or invoices. Pick a basis. Leave it for the period.",
+    },
+    {
+        "slug": "order-attribution-and-reassignment-salesman",
+        "title": "Who Gets Credit for the Order: Attribution and Reassignment",
+        "category": "How-To",
+        "tagline": "Reassign the credit. The Tally voucher stays put.",
+    },
 ]
 
 if __name__ == "__main__":
