@@ -1110,6 +1110,66 @@ ARTICLES = [
         "category": "Collections",
         "tagline": "Kaun kitna baaki, kisne kab promise kiya.",
     },
+    {
+        "slug": "stockout-control-for-distributors-india",
+        "title": "Stockout Control for Distributors",
+        "category": "Market Reality",
+        "tagline": "Four numbers per item, read off Tally, before the godown goes dry.",
+    },
+    {
+        "slug": "reorder-point-formula-for-distributors",
+        "title": "The Reorder Point Formula for Distributors",
+        "category": "How-To",
+        "tagline": "Daily sales times lead time, plus a buffer, in cases and rupees.",
+    },
+    {
+        "slug": "supplier-lead-time-tracking-for-distributors",
+        "title": "Track Supplier Lead Time from Purchases",
+        "category": "How-To",
+        "tagline": "Median and worst case from your receipts, not the average.",
+    },
+    {
+        "slug": "lost-sales-due-to-stockout-how-to-measure",
+        "title": "Lost Sales Due to Stockout Leave No Invoice",
+        "category": "Market Reality",
+        "tagline": "The invoice register cannot name a sale that was never billed.",
+    },
+    {
+        "slug": "days-of-inventory-cover-distributor",
+        "title": "Days of Cover: How Many Days Stock Lasts",
+        "category": "How-To",
+        "tagline": "96 bottles, 24 a day: four days against a seven-day truck.",
+    },
+    {
+        "slug": "fast-moving-slow-moving-items-report-tally",
+        "title": "Fast-Moving and Slow-Moving Items from Tally",
+        "category": "Reports",
+        "tagline": "Velocity ranks movement. Stock sits beside it.",
+    },
+    {
+        "slug": "dead-stock-identification-tally-distributor",
+        "title": "Finding Dead Stock in Tally Before Year-End",
+        "category": "How-To",
+        "tagline": "Quiet for 90 days, still on the shelf, before March values it.",
+    },
+    {
+        "slug": "seasonal-stock-planning-for-distributors",
+        "title": "Seasonal Stock Planning for Distributors",
+        "category": "Market Reality",
+        "tagline": "Last year's item-wise sales is the forecast for this Puja.",
+    },
+    {
+        "slug": "why-record-sales-orders-in-tally-demand-visibility",
+        "title": "Why Record Sales Orders in Tally",
+        "category": "Tally Mobile",
+        "tagline": "Invoices show billed sales. Orders show promised demand.",
+    },
+    {
+        "slug": "stock-khatam-hone-se-pehle-kaise-pata-kare",
+        "title": "Stock Khatam Hone se Pehle Kaise Pata Kare",
+        "category": "How-To",
+        "tagline": "Char number, Tally stock, notebook ka lead time.",
+    },
 ]
 
 if __name__ == "__main__":
