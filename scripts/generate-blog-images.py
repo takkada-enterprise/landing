@@ -1098,6 +1098,24 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Raju can raise the order. He cannot raise the invoice.",
     },
+    {
+        "slug": "geo-tagged-visit-photo-vs-all-day-gps-tracking",
+        "title": "Geo-tagged Visit Photo vs All-day GPS Tracking for Salesmen",
+        "category": "Comparisons",
+        "tagline": "Photo, location, time at the counter. The rest of Tuesday is his.",
+    },
+    {
+        "slug": "visit-duration-and-check-out-field-sales",
+        "title": "How Long Was He at the Dealer: Check-out, Duration and Distance",
+        "category": "Field Sales",
+        "tagline": "At the dealer 12 minutes. Checked out 40 m from the start.",
+    },
+    {
+        "slug": "offline-visit-check-in-for-salesmen",
+        "title": "Visit Check-in With No Signal: Saved on the Phone, Uploaded Later",
+        "category": "Field Sales",
+        "tagline": "Check-in saved on this phone. Orders wait for signal.",
+    },
 ]
 
 if __name__ == "__main__":

@@ -116,6 +116,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [BUSY Software Alternative for Tally Distributors Who Collect](https://takkada.com/blog/busy-software-alternative-for-distributors/)
 - [CredFlow Alternative for Indian Distributors: A Tally-Native View](https://takkada.com/blog/credflow-alternative-tally-native/)
 - [CredFlow vs Biz Analyst vs Takkada: Full Comparison (2026)](https://takkada.com/blog/credflow-vs-biz-analyst-vs-takkada/)
+- [Geo-tagged Visit Photo vs All-day GPS Tracking for Salesmen](https://takkada.com/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/)
 - [Khatabook Alternative for Indian Distributors: Why Distributors Outgrow Udhar-Book Apps](https://takkada.com/blog/khatabook-alternative-for-distributors-india/)
 - [Marg ERP Alternative: Mobile Collections for Tally Distributors](https://takkada.com/blog/marg-erp-alternative-for-distributors/)
 - [myBillBook Alternative for Tally-Native Distributors](https://takkada.com/blog/mybillbook-alternative-for-distributors/)
@@ -143,10 +144,12 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [A Self-Order Link for Your Dealers: They Order, You Convert](https://takkada.com/blog/customer-self-order-link-for-distributors/)
 - [Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders](https://takkada.com/blog/beat-wise-sales-management-tally-distributors/)
 - [Field Order Collection App for Tally: What Salesmen Need on the Phone](https://takkada.com/blog/field-order-collection-app-tally/)
+- [How Long Was He at the Dealer: Check-out, Duration and Distance](https://takkada.com/blog/visit-duration-and-check-out-field-sales/)
 - [How to Restrict Salesman Access in Tally Without Locking Him Out of His Job](https://takkada.com/blog/restrict-salesman-access-tally/)
 - [Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally](https://takkada.com/blog/salesman-order-to-tally-without-reentry/)
 - [Salesman Visit Tracking App: What Actually Proves He Went](https://takkada.com/blog/salesman-visit-tracking-photo-proof/)
 - [Salesman Wise Collection Report: Who Owns the Overdue](https://takkada.com/blog/salesman-wise-collection-accountability/)
+- [Visit Check-in With No Signal: Saved on the Phone, Uploaded Later](https://takkada.com/blog/offline-visit-check-in-for-salesmen/)
 - [What Field Teams Actually Need From a Tally App in India](https://takkada.com/blog/salesman-app-tally-india/)
 
 ### How-To
