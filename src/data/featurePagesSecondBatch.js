@@ -677,7 +677,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Does it work where the mobile signal is weak?',
-        a: 'It loads over an ordinary 4G connection, which is where remote desktop sessions usually become unusable. It does need a working data connection, because there is no offline mode. In a dead-signal pocket you will have to move to where there is signal before a screen loads or an entry goes through.',
+        a: 'It loads over an ordinary 4G connection, which is where remote desktop sessions usually become unusable. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. In a dead-signal pocket you will have to move to where there is signal before an order, invoice or receipt goes through.',
       },
       {
         q: 'Does my Tally data leave my machine?',
