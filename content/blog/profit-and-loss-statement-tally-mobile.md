@@ -48,7 +48,7 @@ The phone reading of [Tally reports on mobile](/tally-reports-on-mobile) is the 
 
 ## Reading August at Fancy Bazaar
 
-The owner is still on the counter. Mustard oil cases on the left, the CA on the phone. What he actually reads: sales for the period against purchase, then the expense ledgers that quietly ate August, then whether the result is the profit he quoted his brother last week. If sales look like ₹6,20,000 and he remembers a ₹7 lakh month, Daybook and the sales register are the next stop, not an argument with the CA from memory.
+The owner is still on the counter. Mustard oil cases on the left, the CA on the phone. What he actually reads: sales for the period against purchase, then the expense ledgers that quietly ate August, then whether the result is the profit he quoted his brother last week. If sales look like ₹6,20,000 and he remembers a ₹7,00,000 month, Daybook and the sales register are the next stop, not an argument with the CA from memory.
 
 Baruah Store of Paltan Bazaar lifted ₹2,20,000 in August on paper, in the salesman's notebook. If those bills never posted, the P&L will not contain them, and the CA will file a thinner year than the godown felt. The statement is the books. The notebook is still the notebook.
 
@@ -62,7 +62,7 @@ Godown rent that posted twice will sit in the P&L until someone deletes the dupl
 
 The CA wants a file. PDF and Excel export exist for Profit & Loss, behind a chooser sheet. Tally-format export, the layout Tally itself prints, exists for five statutory reports: Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period. If the CA wants last year's P&L in Tally format, that file still comes from Tally on the desktop.
 
-At 9:28 the owner almost sends a screenshot of the P&L scroll. The CA will not file a screenshot. He will ask for the layout Tally prints. Chooser sheet, Tally format, share sheet, WhatsApp. Forty seconds. Fancy Bazaar does not close. The file that lands in the CA's chat is the current-period statement, which is the one the rule allows.
+At 9:28 the owner almost sends a screenshot of the P&L scroll. The CA will not file a screenshot. He will ask for the layout Tally prints. The owner picks Tally format from the chooser, then WhatsApp on the share sheet. Fancy Bazaar does not close. The file that lands in the CA's chat is the current-period statement, which is the one the rule allows.
 
 Every exported PDF or Excel goes through the phone's share sheet, where you pick WhatsApp, or email, or Drive. At 9:30 the owner picks WhatsApp, sends the current-period Tally-format P&L, and stays at Fancy Bazaar. The five-report list and the current-period rule are in [Tally-format export from the phone](/blog/tally-format-export-trial-balance-balance-sheet/).
 
