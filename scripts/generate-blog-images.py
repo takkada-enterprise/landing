@@ -1392,6 +1392,24 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Reassign the credit. The Tally voucher stays put.",
     },
+    {
+        "slug": "gps-tracking-app-for-salesman-what-to-look-for",
+        "title": "GPS Tracking App for Salesmen: What to Look For Before You Buy",
+        "category": "Market Reality",
+        "tagline": "Photo check-in, mock-location honesty, Tally Sales Orders.",
+    },
+    {
+        "slug": "sales-team-leaderboard-for-distributors",
+        "title": "A Sales Team Leaderboard From Your Own Tally Books",
+        "category": "Field Sales",
+        "tagline": "Rank from Tally sales. Receipts do not move the row.",
+    },
+    {
+        "slug": "a-day-on-a-beat-distributor-field-sales-routine",
+        "title": "A Day on a Beat: The Field Sales Routine, Hour by Hour",
+        "category": "Market Reality",
+        "tagline": "Today's load, photo check-in, Sales Order, Team Sales at 8 PM.",
+    },
 ]
 
 if __name__ == "__main__":

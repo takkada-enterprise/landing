@@ -152,6 +152,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Field Sales
 
+- [A Sales Team Leaderboard From Your Own Tally Books](https://takkada.com/blog/sales-team-leaderboard-for-distributors/)
 - [A Self-Order Link for Your Dealers: They Order, You Convert](https://takkada.com/blog/customer-self-order-link-for-distributors/)
 - [Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders](https://takkada.com/blog/beat-wise-sales-management-tally-distributors/)
 - [Fake GPS on a Salesman's Phone: What the App Does and What It Does Not](https://takkada.com/blog/fake-gps-location-field-sales-what-happens/)
@@ -220,7 +221,9 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Market Reality
 
+- [A Day on a Beat: The Field Sales Routine, Hour by Hour](https://takkada.com/blog/a-day-on-a-beat-distributor-field-sales-routine/)
 - [Branch Stock Visibility for Distributors](https://takkada.com/blog/branch-stock-visibility-for-distributors/)
+- [GPS Tracking App for Salesmen: What to Look For Before You Buy](https://takkada.com/blog/gps-tracking-app-for-salesman-what-to-look-for/)
 - [How Indian Distributors Manage Collections in 2026: The Market Reality](https://takkada.com/blog/how-indian-distributors-manage-collections/)
 - [How Much Distributors Lose to MDR Every Year](https://takkada.com/blog/how-much-distributors-lose-to-mdr-every-year/)
 - [Is It Safe to Connect a Third-Party App to Tally?](https://takkada.com/blog/is-it-safe-to-connect-app-to-tally/)
