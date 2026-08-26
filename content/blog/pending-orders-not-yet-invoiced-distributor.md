@@ -33,7 +33,7 @@ You see all sales orders not yet invoiced in Tally by opening Pending Orders, on
 
 You open Pending Orders. Every Sales Order that has not yet been invoiced sits in that one list. Gupta Stores' 14 cartons from Tuesday morning are there until the office writes the invoice. Fancy Bazaar's oil from Monday is there. Beltola's leftover from Sunday is there if it still has no bill.
 
-The Tally desktop already holds those vouchers in the Sales Order register. The pending orders report a distributor wants is the same set, filtered to not-yet-invoiced, on the phone and on the web, without walking company to company on a Monday. Tally keeps the Sales Order. The list keeps score of which ones still need a bill.
+The Tally desktop already holds those vouchers in the Sales Order register. The pending orders report a distributor wants is the same set, filtered to Sales Orders not yet invoiced. Tally keeps the Sales Order. The list keeps score of which ones still need a bill.
 
 [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) already assumed this pile. Today's load and Dispatch read from it. This article is the pile itself: every open Sales Order, then the 3-day slice the van actually loads.
 
@@ -81,7 +81,7 @@ Closing pending means invoicing the Sales Order. The [field order collection app
 
 ## Where the lines come from
 
-A line arrives on pending when a Sales Order exists and no invoice has followed it yet. Raju books Gupta Stores after check-out, and the voucher lands in Tally. The self-order link converts with one tap, and that tap is also a Sales Order. Both doors feed the same list.
+A line arrives on pending when a Sales Order exists and no invoice has followed it yet. [Salesman order taking without re-entry](/blog/salesman-order-to-tally-without-reentry/) is Raju booking Gupta Stores after check-out. The voucher lands in Tally. The self-order link converts with one tap, and that tap is also a Sales Order. Both doors feed the same list.
 
 Order creation is not gated on Team Sales. Raju can raise the order on the phone with signal. The dealer can send from the link. Pending cares that the bill is still missing.
 
