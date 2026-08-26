@@ -45,7 +45,7 @@ Per customer, Habits: how many days this party takes to pay, and the median of t
 
 Per salesman, Team Speed: median days to collect, for the money that person actually brought in during the period. Ramesh at 22 days and Suresh at 71 days can recover the same rupees. Speed is how you see that the rupees were different jobs. The [collection team board](/blog/collection-team-board-recovered-outstanding-speed/) is that card. Habits is the customer underneath it.
 
-Reports+ is named once because that is where Habits sits. It is not a second product. It is the tab that holds behaviour next to the ageing you already understand.
+Habits is the Reports+ tab that sits next to ageing and holds payment behaviour.
 
 Tally remains the neighbour. Receipt dates and invoice dates in the books are the inputs. Habits does not invent a payment that is not in Tally. If receipts were posted late in a lump, median days will look worse than the retailer's actual behaviour. Fix the posting, then trust the median. Garbage in, a calm median of garbage out.
 
