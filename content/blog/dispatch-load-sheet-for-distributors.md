@@ -11,7 +11,7 @@ category: "How-To"
 excerpt: "At 9:15 the godown opens Dispatch, totals pending orders across Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola, then prints a Load sheet per beat with Gupta Stores on top."
 ---
 
-You make a load sheet for tomorrow's deliveries by totalling pending orders from a 3-day window that includes today, then opening a Load sheet per beat with the per-dealer breakdown. The window is today plus the two days behind it, not a separate tomorrow list. Saturday's leftover carton sits behind an older pending chip. A dispatch load sheet is that per-beat breakdown after Dispatch has totalled items across beats into one item list. The salesman opens Today's load for his beat. The godown opens Dispatch, what goes out today, then the Load sheet. On a Guwahati book with five salesmen and about 120 dealers, Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola each get a sheet. Raju sees Station Road. The dispatcher sees all five totals, then Gupta Stores' lines on the Station Road sheet.
+You make a load sheet for tomorrow's deliveries by totalling pending orders from a 3-day window that includes today, then opening a Load sheet per beat with the per-dealer breakdown. The window is today plus the two days behind it, not a separate tomorrow list. On Tuesday, Saturday's leftover carton sits behind an older pending chip on Today's load. The salesman opens that chip there. A dispatch load sheet is the per-beat breakdown after Dispatch has totalled items across beats into one item list. The salesman opens Today's load for his beat. The godown opens Dispatch, what goes out today, then the Load sheet. On a Guwahati book with five salesmen and about 120 dealers, Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola each get a sheet. Raju sees Station Road. The dispatcher sees all five totals, then Gupta Stores' lines on the Station Road sheet.
 
 ## Key Highlights
 
@@ -31,9 +31,9 @@ You make a load sheet for tomorrow's deliveries by totalling pending orders from
 
 ## How do I make a load sheet for tomorrow's deliveries?
 
-You open Dispatch in the godown and let pending orders from a 3-day window including today total into one item list, then you open a Load sheet per beat. That is the load sheet for what the van should carry. The product does not hold a separate tomorrow list. Monday morning's sheet is Sunday's leftover, Saturday's booking that still sits in the window, and anything already booked for Monday.
+You open Dispatch in the godown and let pending orders from a 3-day window including today total into one item list, then you open a Load sheet per beat. That is the load sheet for what the van should carry. The product does not hold a separate tomorrow list. Tuesday morning's sheet is Sunday's leftover, Monday's booking, and anything already booked for Tuesday.
 
-The owner WhatsApps the godown at 8:50. "Kal ka load nikal, Station Road pehle." What he gets is the 3-day window as of this morning, not a distinct next-day pile. Gupta Stores' carton from Saturday is on the Station Road sheet if it is still pending inside those three days. If it is older, it sits behind the older pending chip until someone pulls it forward by dealing with it.
+The owner WhatsApps the godown at 8:50. "Kal ka load nikal, Station Road pehle." What he gets is the 3-day window as of this morning, not a distinct next-day pile. Gupta Stores' carton from Saturday sits behind the older pending chip on Today's load, because Saturday is outside Tuesday's window. Raju opens that chip on Station Road.
 
 [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) is the named lists this sheet is cut from. [What a beat is in distribution sales](/blog/what-is-a-beat-in-distribution-sales/) is Station Road as a dealer list. The dispatch load sheet is the pending orders on that list, totalled and then broken down.
 
@@ -45,7 +45,7 @@ Dispatch is the screen titled for what goes out today. It does not care which sa
 
 The [Salesman app for Tally](/salesman-app-tally) is where the salesman already booked those lines as Sales Orders. [Salesman order taking without re-entry](/blog/salesman-order-to-tally-without-reentry/) is how they got into the books. What [field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) is this morning at the gate: the pending pile as weight on a van, beat by beat. The dispatch load sheet is that view.
 
-The loader does not walk Tally. He walks the sheet. Gupta Stores on top with its lines. Next shutter. The Tempo fills from the item total so the count at the gate matches the count at the last shop.
+The loader walks the sheet. Gupta Stores on top with its lines. The Tempo fills from the item total so the count at the gate matches the count at the last shop.
 
 ## Today's load on the salesman's phone
 
@@ -67,15 +67,15 @@ The van is loaded from the totals. The delivery boys work from the per-dealer br
 
 ## The 3-day window and the older pending chip
 
-The window is three days including today. Tuesday morning holds Sunday, Monday, and Tuesday. A carton Gupta Stores booked on Saturday sits behind the older pending chip. The carton is still there, off the main Today's load list. Someone in the godown or the owner opens that chip when they want the older pile on the same beat.
+The window is three days including today. Tuesday morning holds Sunday, Monday, and Tuesday. A carton Gupta Stores booked on Saturday sits behind the older pending chip on Today's load, because Saturday is outside that window. The carton is still pending. It is off the main Today's load list. Raju opens that chip when he wants the older pile on Station Road.
 
-That is the honest answer to tomorrow. There is no distinct next-day bucket. If you want Wednesday's van loaded on Tuesday evening, you are looking at the 3-day window as of Tuesday, which already includes Tuesday's bookings. Wednesday morning the window will have shifted. Monday drops out of the main list unless it is still pending, in which case it may now sit behind the older pending chip.
+That is the honest answer to tomorrow. There is no distinct next-day bucket. If you want Wednesday's van loaded on Tuesday evening, you are looking at the 3-day window as of Tuesday, which already includes Tuesday's bookings. Wednesday morning the window is Monday, Tuesday, and Wednesday. Sunday drops out of the main list. If Sunday's lines are still pending, they sit behind the older pending chip because they are now outside the window.
 
-The chip is how a Saturday leftover stays visible without crowding Raju's Tuesday morning. He works the 3-day window. The godown can still pull the older lines when the Tempo has space.
+The chip lives on Today's load. Raju opens it. That is how a Saturday leftover stays visible without crowding his Tuesday morning list. Dispatch totals the 3-day window across beats, then the Load sheets. Older pending stays on Today's load, behind the chip.
 
 ## Who opens which screen
 
-The salesman opens Today's load. Raju, Station Road, pending orders from a 3-day window including today. The godown opens Dispatch, what goes out today, then the Load sheet per beat with the per-dealer breakdown. Those are two doors into the same pending pile.
+The salesman opens Today's load. Raju, Station Road, pending orders from a 3-day window including today, and the older pending chip on that same screen. The godown opens Dispatch, what goes out today, then the Load sheet per beat with the per-dealer breakdown. Those are two doors into the pending pile for the window.
 
 Raju does not total five beats. The dispatcher does not walk Station Road shop by shop unless he has opened that beat's Load sheet. The owner, if he has full access, can open both. At 9:15 the useful split is already the one the market runs: the field looks at his beat, the gate looks at the totals and the sheets.
 
@@ -85,7 +85,7 @@ Five salesmen, about 120 dealers, five Load sheets. Gupta Stores on Station Road
 
 **Q: How do I make a load sheet for tomorrow's deliveries?**
 
-A: Open Dispatch and let pending orders from a 3-day window including today total into one item list, then open a Load sheet per beat with the per-dealer breakdown. The product totals that window. It does not hold a separate tomorrow list. Saturday's leftover carton sits behind an older pending chip.
+A: Open Dispatch and let pending orders from a 3-day window including today total into one item list, then open a Load sheet per beat with the per-dealer breakdown. The product totals that window. It does not hold a separate tomorrow list. On Tuesday, Saturday's leftover carton sits behind an older pending chip on Today's load, which the salesman opens.
 
 **Q: What is a dispatch load sheet on a distributor's morning?**
 
@@ -97,7 +97,7 @@ A: The salesman opens Today's load for his beat. The godown opens Dispatch, what
 
 **Q: What does the older pending chip hold?**
 
-A: Pending orders older than the 3-day window including today. Gupta Stores' carton from Saturday sits there on a Tuesday morning. It stays visible. It does not crowd the main Today's load list.
+A: Pending orders older than the 3-day window including today. Gupta Stores' carton from Saturday sits there on a Tuesday morning. Raju opens the chip on Today's load. It stays visible. It does not crowd the main Today's load list.
 
 **Q: Do shops with nothing pending appear on Today's load?**
 

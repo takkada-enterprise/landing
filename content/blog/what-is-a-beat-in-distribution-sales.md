@@ -43,7 +43,7 @@ Five salesmen. About 120 dealers. Five road names. Station Road is Raju's. GS Ro
 
 That is what is a beat in sales on this book: a named list, with no calendar on it. The owner [creates beats and assigns a salesman from the phone](/blog/create-beats-and-assign-salesman-mobile/) by typing Station Road, adding the twenty-four shops, and putting Raju on that list. He can leave a beat with no salesman if he is still deciding. The list still exists. The dealers on it are still grouped.
 
-Raju's working set is Station Road because member permissions restrict which ledgers (parties) he sees. That is the same job as [restricting salesman access in Tally](/blog/restrict-salesman-access-tally/), applied to the parties on his beat. He does not carry Fancy Bazaar's ledgers in his pocket.
+Raju's working set is Station Road because that is the beat he is assigned to. Fancy Bazaar stays Manoj's list. [Restricting salesman access in Tally](/blog/restrict-salesman-access-tally/) is a different job from naming the beat.
 
 ## How many dealers fit in one beat
 
