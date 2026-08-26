@@ -71,7 +71,7 @@ Tally stays the neighbour. The Sales Order was written from the phone when Raju 
 
 ## Who ticks the sheet
 
-The delivery boy, standing at Gupta Stores with the Tempo open, ticks the Station Road Load sheet. That is the usual thumb. The godown can tick from Dispatch as sheets come back. The salesman can see Today's load, which is his pending pile, and is a different door. The useful split from the [dispatch load sheet](/blog/dispatch-load-sheet-for-distributors/) still holds: Raju walks the beat, the gate holds the totals, the boy at the shutter ticks the drop.
+The delivery boy, standing at Gupta Stores with the Tempo open, ticks the Station Road Load sheet. That is the usual thumb. Ticks stay on the Load sheet. The salesman can see Today's load, which is his pending pile, and is a different door. The useful split from the [dispatch load sheet](/blog/dispatch-load-sheet-for-distributors/) still holds: Raju walks the beat, the gate holds the totals, the boy at the shutter ticks the drop.
 
 If Raju is also the one handing cartons in, he can tick. The product does not wait for a role named delivery boy. It waits for someone with the Load sheet open and the cartons at the door. Undo is the recovery when that someone ticked the wrong dealer.
 
@@ -97,7 +97,7 @@ A: No. The Sales Order stays open in Tally. The tick is only on Takkada. The off
 
 **Q: Who should tick the Load sheet, the salesman or the delivery boy?**
 
-A: The person standing at the shutter with the cartons, usually the delivery boy on the Station Road Tempo. The salesman opens Today's load for pending orders. Dispatch stays the godown's door. Whoever has the Load sheet open can tick. Undo covers a wrong dealer.
+A: The person standing at the shutter with the cartons, usually the delivery boy on the Station Road Tempo. The salesman opens Today's load for pending orders. Whoever has the Load sheet open can tick. Undo covers a wrong dealer.
 
 **Q: Can the owner see which Station Road drops are done without opening Tally?**
 
