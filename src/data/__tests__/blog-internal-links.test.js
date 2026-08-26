@@ -71,6 +71,7 @@ const LINK_FLOORS = {
   'tally-app-for-fmcg-distributors': 3,
   'tally-app-for-pharma-distributors': 3,
   'tally-on-mobile': 3,
+  'debtor-ageing-report-on-phone': 2,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

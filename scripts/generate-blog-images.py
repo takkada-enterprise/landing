@@ -1218,6 +1218,48 @@ ARTICLES = [
         "category": "Reports",
         "tagline": "A 12-month movement grid versus a period result. Both have a job.",
     },
+    {
+        "slug": "customise-ageing-slabs-receivables-tally",
+        "title": "Set Your Own Ageing Slabs for Receivables",
+        "category": "How-To",
+        "tagline": "Pharma 0-7-15-30. Agri 0-45-90-120. Remembered on that phone.",
+    },
+    {
+        "slug": "customer-payment-behaviour-report-tally",
+        "title": "Which Customers Pay Late",
+        "category": "Collections",
+        "tagline": "Which customers pay late, and how many days they take.",
+    },
+    {
+        "slug": "sales-analytics-report-tally-distributor",
+        "title": "Sales Analytics from Tally for Distributors",
+        "category": "Reports",
+        "tagline": "Past the sales register: which items moved, which parties bought.",
+    },
+    {
+        "slug": "customer-analytics-report-tally",
+        "title": "Customer Analytics from Tally",
+        "category": "Reports",
+        "tagline": "Who buys, how often, how much. PDF export, no Excel.",
+    },
+    {
+        "slug": "cross-sell-gap-report-distributors",
+        "title": "The Cross-sell Gap Report",
+        "category": "Reports",
+        "tagline": "Items a customer should be buying and is not.",
+    },
+    {
+        "slug": "bill-wise-vs-fifo-receivables-report",
+        "title": "Bill-wise vs FIFO",
+        "category": "Collections",
+        "tagline": "Three bills, one part payment. Bill-wise or FIFO.",
+    },
+    {
+        "slug": "who-can-see-which-reports-tally-team",
+        "title": "Who Can See Which Reports",
+        "category": "Tally Mobile",
+        "tagline": "Reports tab is all or nothing per team member.",
+    },
 ]
 
 if __name__ == "__main__":
