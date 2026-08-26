@@ -56,7 +56,7 @@ Route matters. The same company shipping from Delhi in fair weather and from a f
 
 MOQ, meaning minimum order quantity, is a different number. A supplier who will not ship under 20 cases changes the purchase quantity, not the days the truck takes. Keep MOQ next to lead time if you want, in a fifth column. Do not let it replace the days.
 
-You do not need software for this sheet. A notebook with 80 rows for the movers is enough. Update a row when the next receipt lands, not in a year-end project. Six recent trips beat forty trips from 2023, because the highway and the supplier's own stocking have both changed.
+A notebook with 80 rows for the movers is enough for this sheet. Update a row when the next receipt lands, not in a year-end project. Six recent trips beat forty trips from 2023, because the highway and the supplier's own stocking have both changed.
 
 The [purchase report from Tally on mobile](/blog/purchase-report-tally-mobile/) is the buy-side list: which supplier, which bills, which value. It tells you who you bought from. Lead time is the extra subtraction you do on the dates behind those bills.
 
@@ -74,7 +74,7 @@ Use 8 as the lead time in the reorder point. Use 14 to set the buffer conversati
 
 Keep both figures. The median is what you plan on. The worst case is what you decide about. Dropping the 14 because "that was the rains" is how the next rains surprise you.
 
-Five receipts: 6, 7, 8, 11, 14. Median is the middle one, 8. Same method. You do not need a statistics course. You need a sorted list and a willingness to look at the last number.
+Five receipts: 6, 7, 8, 11, 14. Median is the middle one, 8. Same method. Sort the list and look at the last number.
 
 Do not average in a 2-day Guwahati local supplier with the Kolkata line. Different origin, different row, different median.
 

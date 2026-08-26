@@ -21,7 +21,7 @@ You find fast-moving and slow-moving items in Tally by ranking each stock item o
 
 ## In This Article
 
-- How do I find fast-moving and slow-moving items in Tally?
+- How do I find fast moving slow moving items tally on the phone?
 - Velocity next to Stock
 - Item-wise sales as the other ranking
 - What a fast mover needs on Monday
@@ -29,7 +29,7 @@ You find fast-moving and slow-moving items in Tally by ranking each stock item o
 - The sheet you take into the purchase call
 - Frequently Asked Questions
 
-## How do I find fast-moving and slow-moving items in Tally?
+## How do I find fast moving slow moving items tally on the phone?
 
 You find fast-moving and slow-moving items in Tally by sorting stock items on movement, then looking at what is still on the shelf. Movement without stock is a trivia ranking. Stock without movement is a pile.
 

@@ -33,7 +33,7 @@ You calculate how many days of stock you have left by dividing quantity on hand 
 
 Take what is on the shelf. Divide by how many units leave on a normal day. The answer is how many days of stock you have left. That is days of inventory cover.
 
-Monday 9:10, 96 bottles, 24 a day, 4 days. You do not need a percentage. You need a number you can put next to the 7 days Kolkata takes.
+Monday 9:10, 96 bottles, 24 a day, 4 days. Put those four days next to the 7 days Kolkata takes.
 
 If you skip the division and look at rupees, ₹17,760 of oil looks like a healthy shelf. It is four days. Fancy Bazaar's two cases on Thursday afternoon need a shelf that still has Thursday in it.
 

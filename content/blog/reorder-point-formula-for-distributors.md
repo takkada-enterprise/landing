@@ -84,7 +84,7 @@ At ₹185 a bottle, 24 a day is ₹4,440 of sales a day while the oil is in stoc
 
 If 50 bottles are already promised on sales orders that have not yet become invoices, free stock is 96 − 50 = 46, which is under two days. The purchase is still 6 cases, and it is still this morning. Pending Orders, a paid add-on available on request, is the list of those not-yet-invoiced orders. Without it, you subtract from a notebook of what the salesmen already promised.
 
-Purchase orders can be created on the phone, including import from a photo of a supplier's PO, and they land in Tally. That is the capture half, one step, so the six cases you just decided do not wait for an evening typing session.
+Purchase Orders on mobile, including import from a photo of a supplier's PO/quotation, land in Tally.
 
 ## Where average daily sales and stock come from
 
