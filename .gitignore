@@ -26,3 +26,6 @@ test-results/
 
 # Python bytecode from scripts/generate-blog-images.py
 __pycache__/
+
+# Local Pillow venv for blog header images
+.venv-blog/

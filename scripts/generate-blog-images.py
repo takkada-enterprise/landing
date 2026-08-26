@@ -1050,6 +1050,66 @@ ARTICLES = [
         "category": "How-To",
         "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
     },
+    {
+        "slug": "payment-recovery-dashboard-for-distributors",
+        "title": "Payment Recovery Dashboard for Distributors",
+        "category": "Collections",
+        "tagline": "The 8:40 card: due promises, missed dates, nobody chased.",
+    },
+    {
+        "slug": "customer-follow-up-log-for-collections",
+        "title": "Keep a Follow-up Log Against Every Outstanding Customer",
+        "category": "How-To",
+        "tagline": "Call, WhatsApp, visit: log it against the party.",
+    },
+    {
+        "slug": "promise-to-pay-tracking-distributors",
+        "title": "Promise to Pay: Record It, Date It, Know When It Was Broken",
+        "category": "Collections",
+        "tagline": "Date the promise. Missed only after Tally is quiet.",
+    },
+    {
+        "slug": "daily-collection-brief-for-distributor-owners",
+        "title": "The Morning Collection Brief: What to Look at Before the First Call",
+        "category": "Collections",
+        "tagline": "Open the card. Share it by hand.",
+    },
+    {
+        "slug": "assign-recovery-owner-per-customer",
+        "title": "One Owner per Outstanding Customer: Assigning Recovery Responsibility",
+        "category": "How-To",
+        "tagline": "One salesman per overdue party, reassigned in the app.",
+    },
+    {
+        "slug": "collection-team-board-recovered-outstanding-speed",
+        "title": "Recovered, Outstanding, Speed: Reading a Collection Team Board",
+        "category": "Collections",
+        "tagline": "Recovered, Outstanding, Speed on each member's card.",
+    },
+    {
+        "slug": "how-often-to-send-payment-reminders-cadence",
+        "title": "How Often to Send Payment Reminders: Presets and a Custom Cadence",
+        "category": "How-To",
+        "tagline": "Company-wide: every day, 2, 3 (default), or 7.",
+    },
+    {
+        "slug": "overdue-customers-nobody-has-chased",
+        "title": "The Overdue Customers Nobody Has Chased",
+        "category": "Collections",
+        "tagline": "The overdue parties with no call, no visit, no owner.",
+    },
+    {
+        "slug": "customer-payment-speed-median-days-to-pay",
+        "title": "Payment Speed: Median Days to Pay per Customer and per Salesman",
+        "category": "Reports",
+        "tagline": "Median days to pay, per customer and per salesman.",
+    },
+    {
+        "slug": "vasuli-ka-dashboard-mobile-par",
+        "title": "Vasuli ka Dashboard Mobile par: Kaun Kitna Baaki",
+        "category": "Collections",
+        "tagline": "Kaun kitna baaki, kisne kab promise kiya.",
+    },
 ]
 
 if __name__ == "__main__":
