@@ -47,7 +47,7 @@ The screen is member permissions. Tally remains the neighbour. The Sales Order s
 
 Tuesday, 10:52. Raju has signal. Gupta Stores has ordered 14 cartons. He saves a Sales Order. The books have an open order. Invoice create is off for him, so the bill cannot be his. The owner does not rely on Raju remembering to leave billing to the office.
 
-[Restrict salesman access](/blog/restrict-salesman-access-tally/) is the wider job of hiding other people's parties and purchase rates. Voucher type permission is the narrower job: which voucher he is allowed to create when he is on a party he can see.
+[Restrict salesman access](/blog/restrict-salesman-access-tally/) is the wider job of hiding other people's parties. Voucher type permission is the narrower job: which voucher he is allowed to create when he is on a party he can see.
 
 ## Per-register view and create
 
@@ -75,7 +75,7 @@ Tuesday on Station Road is the test. Raju checks in at Gupta Stores, books 14 ca
 
 That split keeps Tally's number series in the office. The Sales Order is the promise. The invoice is the books after the cartons have a story. Raju is allowed the promise.
 
-A dealer who orders from a [customer self-order link](/blog/customer-self-order-link-for-distributors/) still needs someone in the merchant inbox to convert. Conversion is a Sales Order. If the owner wants only the office converting, Raju simply does not get that inbox. If the owner wants Raju converting Station Road's incoming lines, that is still Sales Order create, still not invoice create.
+A dealer who orders from a [customer self-order link](/blog/customer-self-order-link-for-distributors/) still needs conversion. Conversion is Sales Order create, the same voucher type this how-to already allows. The bill still waits for the office because invoice create stays off.
 
 [Pending orders not yet invoiced](/blog/pending-orders-not-yet-invoiced-distributor/) is what the office opens to see Gupta Stores still waiting for a bill. Raju's permission is why that wait is the office's job. He can add to the pile. He cannot empty it by invoicing.
 

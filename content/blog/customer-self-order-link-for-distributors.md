@@ -63,7 +63,7 @@ Five salesmen, about 120 dealers, five roads. Station Road, GS Road, Fancy Bazaa
 
 ## Priced server-side, with category chips
 
-Priced server-side means the rate the kirana sees is worked out on the merchant's side, from the books, while he browses and again when he sends. He picks a quantity against a rate the office already holds. That is why the owner can convert without re-checking every rupee on a 14-carton atta line.
+Priced server-side means the rate the kirana sees is worked out on the merchant's side, from the books. He picks a quantity against a rate the office already holds. The kirana does not set the rate.
 
 Category chips filter the catalogue so Gupta Stores finds atta without walking the full item list. Atta, oil, biscuits, or whatever this company's groups already are. A chip is a filter. The same items Raju would pick on the phone sit behind those chips.
 
@@ -105,7 +105,7 @@ A: No. Personal links still ask the buyer for a mobile number. Gupta Stores' kir
 
 **Q: Who sets the rates the dealer sees?**
 
-A: Prices are resolved server-side from the merchant's books, while the dealer browses and again when he sends. The kirana picks quantities. He does not author the rate.
+A: Prices are resolved server-side from the merchant's books. The kirana picks quantities. He does not set the rate.
 
 **Q: Does the converted order show on Today's load?**
 
