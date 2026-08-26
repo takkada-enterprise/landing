@@ -11,7 +11,7 @@ category: "How-To"
 excerpt: "On the second of the month the CA asks for a Trial Balance in the layout Tally itself prints. The owner sends it from Fancy Bazaar through the phone's share sheet, from the five statutory reports that offer Tally-format export."
 ---
 
-You can export a trial balance in Tally format from your phone for your CA, from Financial Statements, using Tally-format export, the layout Tally itself prints. Tally format export exists for five statutory reports: Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period. On the second of the month the CA WhatsApps "TB Tally format mein bhej do" while the owner is still at Fancy Bazaar. The file leaves through the phone's share sheet, where you pick WhatsApp, or email, or Drive. PDF and Excel remain a separate chooser on those same statements. Last year's P&L in Tally format still comes from the desktop. The current-period Trial Balance, and the current-period P&L, leave from the phone.
+You can export a trial balance in Tally format from your phone for your CA, from Financial Statements, using Tally-format export, the layout Tally itself prints. Tally format export exists for five statutory reports: Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period. On the second of the month the CA WhatsApps "TB Tally format mein bhej do" while the owner is still at Fancy Bazaar. The file leaves through the phone's share sheet, where you pick WhatsApp, or email, or Drive. PDF and Excel remain a separate chooser on those same statements. Last year's P&L in Tally format still comes from the desktop. The Trial Balance, and the current-period P&L, leave from the phone.
 
 ## Key Highlights
 
@@ -34,7 +34,7 @@ You can export a trial balance in Tally format from your phone for your CA, from
 
 Tally-format export is the layout Tally itself prints, as a file, from the phone. The CA has been reading that layout for years. A screenshot of a scroll is not that layout. A PDF the phone designed for a small screen is a different file. Tally format is the one that looks like the print from the desktop, which is why the CA names it.
 
-On the second of the month that is the whole request. "TB Tally format mein bhej do." The owner does not need to ride back to the office desktop if the report is one of the five, and if the period rule below holds. The numbers in the file are the Tally books synced to the phone, the same books as [the trial balance on the phone](/blog/trial-balance-tally-mobile/) and [the Balance Sheet drill](/blog/balance-sheet-tally-mobile-distributor/).
+On the second of the month that is the whole request. "TB Tally format mein bhej do." The owner does not need to ride back to the office desktop if the report is one of the five. For Profit & Loss and Balance Sheet, the period rule below also has to hold. The numbers in the file are the Tally books synced to the phone, the same books as [the trial balance on the phone](/blog/trial-balance-tally-mobile/) and [the Balance Sheet drill](/blog/balance-sheet-tally-mobile-distributor/).
 
 A screenshot of the Trial Balance scroll, sent at 9:12, comes back at 9:18: "Tally format chahiye." The CA is not being difficult. His working is built on that print. Tally-format export is how the phone gives him that print without the office chair.
 

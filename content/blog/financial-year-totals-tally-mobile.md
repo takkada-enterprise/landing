@@ -32,7 +32,7 @@ You can see this year's total sales and purchases from Tally on your phone in th
 
 ## What financial year totals tally show on the Reports screen
 
-The This Financial Year band sits on the Reports screen, above the action list. It is this year's running total for ten registers, read from the Tally books synced to the phone. For a Guwahati FMCG distributor it is the glance before Outstanding: have we billed, have we bought, has the money come in, has the money gone out.
+The This Financial Year band sits on the Reports screen. It is this year's running total for ten registers, read from the Tally books synced to the phone. For a Guwahati FMCG distributor it is the glance before Outstanding: have we billed, have we bought, has the money come in, has the money gone out.
 
 It answers one morning question well: where does this year stand, in ten numbers I can tap. It does not tell you whether August made money. That is Profit & Loss. It does not age Sharma Kirana's ₹1,85,000. That is Collections Outstanding. It does not list today's seven sales vouchers. That is [Daybook on the phone](/blog/daybook-tally-mobile/).
 
