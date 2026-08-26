@@ -1176,6 +1176,48 @@ ARTICLES = [
         "category": "Reports",
         "tagline": "Outstanding at 8:30, Daybook at noon, Trial Balance when the month closes.",
     },
+    {
+        "slug": "trial-balance-tally-mobile",
+        "title": "Trial Balance from Tally on Your Phone",
+        "category": "Reports",
+        "tagline": "A flat list from the synced books. Drill-down lives on the Balance Sheet.",
+    },
+    {
+        "slug": "profit-and-loss-statement-tally-mobile",
+        "title": "Profit and Loss Statement from Tally on Mobile",
+        "category": "Reports",
+        "tagline": "Income against expense, read from the Tally books on the phone.",
+    },
+    {
+        "slug": "balance-sheet-tally-mobile-distributor",
+        "title": "Reading Your Balance Sheet on the Phone",
+        "category": "Reports",
+        "tagline": "Group to sub-group to ledger. A Difference row means look in Tally.",
+    },
+    {
+        "slug": "daybook-tally-mobile",
+        "title": "Daybook from Tally on Your Phone",
+        "category": "Reports",
+        "tagline": "Today's vouchers on the phone, with Today and a voucher-type chip.",
+    },
+    {
+        "slug": "financial-year-totals-tally-mobile",
+        "title": "This Year's Sales, Purchases, Receipts and Payments",
+        "category": "Tally Mobile",
+        "tagline": "Ten register totals for this year, each tappable into its register.",
+    },
+    {
+        "slug": "tally-format-export-trial-balance-balance-sheet",
+        "title": "Tally-Format Export from the Phone",
+        "category": "How-To",
+        "tagline": "The same Tally layout your CA expects, from five statutory reports.",
+    },
+    {
+        "slug": "mis-report-vs-profit-and-loss-distributor",
+        "title": "MIS Report vs Profit and Loss",
+        "category": "Reports",
+        "tagline": "A 12-month movement grid versus a period result. Both have a job.",
+    },
 ]
 
 if __name__ == "__main__":
