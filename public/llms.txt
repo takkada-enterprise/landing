@@ -140,6 +140,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Field Sales
 
+- [A Self-Order Link for Your Dealers: They Order, You Convert](https://takkada.com/blog/customer-self-order-link-for-distributors/)
 - [Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders](https://takkada.com/blog/beat-wise-sales-management-tally-distributors/)
 - [Field Order Collection App for Tally: What Salesmen Need on the Phone](https://takkada.com/blog/field-order-collection-app-tally/)
 - [How to Restrict Salesman Access in Tally Without Locking Him Out of His Job](https://takkada.com/blog/restrict-salesman-access-tally/)
@@ -173,6 +174,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How to Share a Ledger Statement on WhatsApp From Tally](https://takkada.com/blog/how-to-share-ledger-statement-whatsapp-tally/)
 - [How to Split One UPI Payment Across Multiple Tally Invoices](https://takkada.com/blog/how-to-split-upi-payment-across-tally-invoices/)
 - [Ledger Reconciliation in Tally: Match Your Books to the Party's](https://takkada.com/blog/ledger-reconciliation-tally-distributor/)
+- [Let a Salesman Raise Orders but Never an Invoice: Voucher-type Permissions](https://takkada.com/blog/voucher-type-permissions-for-team-members-tally/)
 - [Outstanding Payment Reminder: How the Best Distributors Run It in 2026](https://takkada.com/blog/outstanding-payment-reminder-app-india/)
 - [Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation](https://takkada.com/blog/payment-link-tally-integration/)
 - [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
@@ -249,6 +251,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Is There an Official Tally Mobile App? The Honest Answer](https://takkada.com/blog/is-there-an-official-tally-mobile-app/)
 - [Mark Orders Delivered Without Touching Tally](https://takkada.com/blog/mark-orders-delivered-without-touching-tally/)
 - [Multi-Business Tally Mobile App: One Phone, Multiple Companies, One Dashboard](https://takkada.com/blog/multi-business-tally-mobile-app/)
+- [Pending Orders: Every Order Not Yet Invoiced, in One List](https://takkada.com/blog/pending-orders-not-yet-invoiced-distributor/)
 - [Restrict Staff to Their Own Warehouse in Tally](https://takkada.com/blog/restrict-staff-warehouse-access-tally/)
 - [Tally Cloud: What It Actually Means for Indian Distributors in 2026](https://takkada.com/blog/tally-cloud/)
 - [Tally Mobile App for Android: What Actually Works](https://takkada.com/blog/tally-mobile-app-for-android/)

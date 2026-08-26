@@ -1080,6 +1080,24 @@ ARTICLES = [
         "category": "Tally Mobile",
         "tagline": "Tick Mark delivered. Tally is not told. The Sales Order stays open.",
     },
+    {
+        "slug": "customer-self-order-link-for-distributors",
+        "title": "A Self-Order Link for Your Dealers: They Order, You Convert",
+        "category": "Field Sales",
+        "tagline": "Gupta Stores opens a WhatsApp link. You convert with one tap.",
+    },
+    {
+        "slug": "pending-orders-not-yet-invoiced-distributor",
+        "title": "Pending Orders: Every Order Not Yet Invoiced, in One List",
+        "category": "Tally Mobile",
+        "tagline": "Every Sales Order not yet invoiced, in one list.",
+    },
+    {
+        "slug": "voucher-type-permissions-for-team-members-tally",
+        "title": "Let a Salesman Raise Orders but Never an Invoice: Voucher-type Permissions",
+        "category": "How-To",
+        "tagline": "Raju can raise the order. He cannot raise the invoice.",
+    },
 ]
 
 if __name__ == "__main__":
