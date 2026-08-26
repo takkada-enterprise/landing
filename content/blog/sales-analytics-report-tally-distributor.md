@@ -8,10 +8,10 @@ date: "2026-08-26"
 updated: "2026-08-26"
 author: "founder"
 category: "Reports"
-excerpt: "The sales register says today's billing. Sales analytics tally on the phone says the 1-litre mustard oil that should have moved 40 cases this week moved 11. That is tomorrow's counter conversation."
+excerpt: "The sales register says today's billing. Sales analytics tally on the phone says the 1-litre mustard oil stands at 11 cases on the books now, against a usual 40. That is tomorrow's counter conversation."
 ---
 
-You can get sales analytics from Tally data as a distributor that go past the sales register: which items moved and which parties bought, read on the phone from Action Reports. Sales Analytics unlocks with Reports+, a paid add-on bundled into the Copilot plan. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive. A Guwahati FMCG owner at 9 PM, godown locked, still in the car, opens sales analytics tally and sees the 1-litre mustard oil SKU at 11 cases against a week that should have been 40. The [daily sales report](/blog/daily-sales-report-tally-mobile/) already told him today's rupee total. This screen names the SKU. There is no salesman filter and no godown filter. Party search is a search box. You type a name.
+You can get sales analytics from Tally data as a distributor that go past the sales register: which items moved and which parties bought, read on the phone from Action Reports. Sales Analytics unlocks with Reports+, a paid add-on bundled into the Copilot plan. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive. A Guwahati FMCG owner at 9 PM, godown locked, still in the car, opens sales analytics tally and sees the 1-litre mustard oil SKU at 11 cases on the books now. He knows a usual run is 40. The [daily sales report](/blog/daily-sales-report-tally-mobile/) already told him today's rupee total. This screen names the SKU. There is no salesman filter and no godown filter. Party search is a search box. You type a name.
 
 ## Key Highlights
 
@@ -42,7 +42,7 @@ The cousins on the site are the [item wise sales report](/blog/item-wise-sales-r
 
 A sales register filtered to today is a list of vouchers. Useful at 7 PM when someone claims twelve bills and Daybook shows seven. Useless at 9 PM when the question is why the mustard-oil stack is still full. Sales analytics tally is the cut that names the SKU and the party.
 
-Item movement is the reorder question. 11 cases of 1-litre against a week that usually takes 40 is a purchase hold, or a scheme, or a salesman who stopped putting it on the counter. Party buying is the credit question. Sharma Kirana of Fancy Bazaar still tickets around ₹22,000 when he lifts. A party who used to lift weekly and has gone quiet shows here before Outstanding does, because Outstanding only wakes you when the old bills are still open.
+Item movement is the reorder question. 11 cases of 1-litre on the books now, against a usual 40, is a purchase hold, or a scheme, or a salesman who stopped putting it on the counter. Party buying is the credit question. Sharma Kirana of Fancy Bazaar still tickets around ₹22,000 when he lifts. A party who used to lift weekly and has gone quiet shows here before Outstanding does, because Outstanding only wakes you when the old bills are still open.
 
 Most action reports have no date filter. Daybook has Today, Yesterday, Last 7 days, Last 30 days and Custom, plus a voucher-type chip. Ledger statement and godown reports have This FY, This Quarter, This Month, Last Month, Last FY and Custom. Sales Analytics is an action report. Treat it as the books standing now, not a March rewind.
 
@@ -58,7 +58,7 @@ A second SKU, the new atta, moved 4 bags. Cross-sell Gaps, written up as [items 
 
 ## Parties who bought, and parties who went quiet
 
-Sharma Kirana, twice a week, tickets around ₹22,000. Das Stores, smaller outstanding, lifts in 12 days, tickets around ₹8,000. A third party, weekly last month, nothing this week. Customer Analytics, on [who buys, how often, how much](/blog/customer-analytics-report-tally/), is the dedicated who-buys screen. Sales Analytics is where the owner first notices the quiet name because the item rows for that party went flat.
+Sharma Kirana, twice a week, tickets around ₹22,000. Das Stores, smaller outstanding, lifts in 12 days, tickets around ₹8,000. A third party the owner knows used to lift every week is quiet on the books now. Customer Analytics, on [who buys, how often, how much](/blog/customer-analytics-report-tally/), is the dedicated who-buys screen. Sales Analytics is where the owner first notices the quiet name because the item rows for that party went flat.
 
 Outstanding will not flag a party who paid up and then stopped lifting. Behaviour will not either, because there is no late clock if there is no open bill. Sales Analytics will, if you look at who bought. That is why it sits in the evening, not at 8:30.
 
@@ -102,7 +102,7 @@ A: From Tally data as a distributor you can get Sales Analytics on the phone: wh
 
 **Q: Is sales analytics tally the same as the sales register?**
 
-A: No. The sales register, and the daily sales report built from it, totals today's vouchers. Sales analytics tally names the SKU and the party. A week of mustard oil at 11 cases against a usual 40 is the kind of line the register will not highlight if rice carried the rupee total.
+A: No. The sales register, and the daily sales report built from it, totals today's vouchers. Sales analytics tally names the SKU and the party. Mustard oil at 11 cases on the books now, against a usual 40, is the kind of line the register will not highlight if rice carried the rupee total.
 
 **Q: Can I export Sales Analytics from Tally to Excel on the phone?**
 
