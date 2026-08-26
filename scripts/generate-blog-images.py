@@ -1116,6 +1116,24 @@ ARTICLES = [
         "category": "Field Sales",
         "tagline": "Check-in saved on this phone. Orders wait for signal.",
     },
+    {
+        "slug": "field-visit-outcomes-orders-booked-vs-dealers-visited",
+        "title": "Visit Outcomes: Orders Booked on the Visit vs Everything at That Dealer",
+        "category": "Field Sales",
+        "tagline": "Booked on these visits vs At the dealers visited.",
+    },
+    {
+        "slug": "fake-gps-location-field-sales-what-happens",
+        "title": "Fake GPS on a Salesman's Phone: What the App Does and What It Does Not",
+        "category": "Field Sales",
+        "tagline": "Mock location refused. Exemption marked Unverified.",
+    },
+    {
+        "slug": "salesman-ki-visit-mobile-se-kaise-track-kare",
+        "title": "Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)",
+        "category": "How-To",
+        "tagline": "Camera photo, location, time. All-day GPS nahi.",
+    },
 ]
 
 if __name__ == "__main__":
