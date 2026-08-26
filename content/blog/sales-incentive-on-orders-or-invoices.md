@@ -67,13 +67,13 @@ He WhatsApps. "Woh 12,000 cancel ho gaya, commission se katega?" The answer is t
 
 ## What a partial invoice does to Tuesday's ₹42,000
 
-Friday the office bills ₹25,000 of Gupta Stores' remaining order. ₹17,000 stays open. [Pending orders not yet invoiced](/blog/pending-orders-not-yet-invoiced-distributor/) still lists that remainder.
+If instead the office bills ₹25,000 of Tuesday's ₹42,000, ₹17,000 stays open. [Pending orders not yet invoiced](/blog/pending-orders-not-yet-invoiced-distributor/) still lists that remainder.
 
-On orders basis, Raju already had the full original booking, then the cancellation, so Friday's bill does not add a new incentive rupee. The order was the event.
+On orders basis, Raju already had the full ₹42,000 when he booked it, so Friday's bill does not add a new incentive rupee. The order was the event.
 
 On invoices basis, Friday is the first credit: ₹25,000. The ₹17,000 still does not count. When the office bills the rest next week, that slice joins August or September depending on the invoice date.
 
-Same Tuesday visit. Same 14 cartons, later trimmed. Two different incentive timelines. Sales incentive on orders or invoices is that lag, written as a table so nobody has to reconstruct it from memory at month end.
+Same Tuesday visit. Same 14 cartons. Two different incentive timelines. Sales incentive on orders or invoices is that lag, written as a table so nobody has to reconstruct it from memory at month end.
 
 A Guwahati book with five salesmen will have a dozen of these every week. Fancy Bazaar parties who take a full booking and get two invoices. NH-37 shops who cancel a line after the van has left. The basis is the only way those rows stay comparable across Raju and Manoj.
 
