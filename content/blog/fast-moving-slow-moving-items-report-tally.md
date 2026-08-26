@@ -86,7 +86,7 @@ Do not reward a fast mover with a blind extra month of stock. That is how a fest
 
 A slow mover with high Stock is working capital. 200 pickle jars at ₹40 is ₹8,000 that looks small until you have forty such SKUs. Forty × ₹8,000 is ₹3,20,000 sitting in a corner while the oil is dry.
 
-The move is not a panic purchase. It is a hold, then a scheme or a return before year-end locks the valuation. That is the [dead stock](/blog/dead-stock-identification-tally-distributor/) pass: Velocity near zero for 90 days, Stock still there, identify before March.
+Hold it, then scheme or return before year-end locks the valuation. That is the [dead stock](/blog/dead-stock-identification-tally-distributor/) pass: Velocity near zero for 90 days, Stock still there, identify before March.
 
 A slow mover with low Stock is usually a line you should not refill. Thin and slow is a SKU the market already voted against. Filling it because the hook looks empty is how dead stock is born.
 
@@ -102,7 +102,7 @@ Eleven items this Monday, including the oil at 4 days against 7, the biscuit at 
 
 The pickle is on the Velocity export too, at the bottom, with 200 on Stock. It is on the sheet so nobody "just adds a case" while they are ordering Kolkata. Slow movers get protected by being visible, not by being forgotten.
 
-Thursday, a shorter look: scheme, festival lift, a large order on Wednesday. Fast moving slow moving items tally reports do not need a full rebuild twice a week. They need the ranking open, and Stock beside it, on the items that changed.
+Thursday is a shorter look on the items that changed, ranking open, Stock beside it: a scheme, a festival lift, a large order on Wednesday.
 
 The SKUs do not raise a hand when they cross from fast-and-covered to fast-and-dry. The owner opens Velocity, then Stock, and decides.
 
