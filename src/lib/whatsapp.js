@@ -6,8 +6,9 @@ import { FEATURE_PAGES } from '../data/featurePages';
 // the triage signal. Written in the visitor's voice: plain sentences a
 // distributor would actually send.
 export const WHATSAPP_MESSAGES = {
-  // 'header' and any other context without its own entry resolve to default.
   default:
+    'Hi, I am on takkada.com and want to know more about Takkada for my business.',
+  header:
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
   'home-hero':
     'Hi, I run a distribution business on Tally. I saw takkada.com and want to see how it works.',
