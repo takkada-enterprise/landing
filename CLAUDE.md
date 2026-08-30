@@ -228,6 +228,6 @@ If any check fails, fix before commit. Do not commit with outstanding craft issu
 Legal entity: Pay Saathi Innovation LLP
 Founded: December 2025
 Registered in Guwahati, Assam
-Contact: ronak@paysaathi.com, +91 94359 77777
+Contact: ronak@paysaathi.com, +91 70191 52071
 Scheduling link: https://calendar.notion.so/meet/ronakmalu/takkada
 Domains: takkada.com (primary), takkada.in, paysaathi.com
