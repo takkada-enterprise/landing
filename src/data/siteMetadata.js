@@ -178,12 +178,11 @@ export const routeMetadata = [
     sitemap: false,
   },
   {
-    path: '/chinese_novel_quotes_wuxia',
+    path: '/chinese-sayings',
     llms: {
       section: 'Key pages',
-      title: 'Chinese Novel Quotes & Wuxia Sayings',
-      summary:
-        'Popular sayings, proverbs, and cultivator quotes from Chinese Wuxia and Xianxia novels categorized by mood.',
+      title: 'Chinese Novel Sayings & Wuxia Proverbs | The Jianghu Oracle',
+      summary: 'Discover legendary Chinese novel quotes, Xianxia cultivation proverbs, and Wuxia idioms formatted as an authentic manuscript.',
     },
     sourceFile: 'src/routes/ChineseNovelQuotesRoute.jsx',
     changefreq: 'weekly',

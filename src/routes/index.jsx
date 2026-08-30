@@ -41,7 +41,7 @@ const ELEMENT_FOR_PATH = {
   '/features': <Features />,
   '/partners': <Partners />,
   '/become-a-partner': <Partners />,
-  '/chinese_novel_quotes_wuxia': <ChineseNovelQuotesRoute />,
+  '/chinese-sayings': <ChineseNovelQuotesRoute />,
 };
 
 const children = routeMetadata.map(({ path }) => {
