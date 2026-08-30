@@ -361,21 +361,49 @@ function SiteFooter() {
             <p className="footer-company">{contactInfo.company}</p>
             <p className="footer-contact tabular-nums">{contactInfo.phone}</p>
             <p className="footer-contact">{contactInfo.email}</p>
-            <div className="footer-badge" style={{ marginTop: '16px' }}>
-              <a
-                href="https://saashunt.best/projects/takkada"
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="footer-badges" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div
+                className="dpiit-badge-card"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  background: '#ffffff',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  width: 'fit-content',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
+                }}
               >
                 <img
-                  src="/assets/badges/featured-on-light.svg"
-                  alt="Featured on SaasHunt"
-                  style={{ height: '44px', width: 'auto' }}
+                  src="/assets/badges/dpiit-startup-india.png"
+                  alt="DPIIT Recognized Startup India"
+                  style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
                   loading="lazy"
-                  width="150"
-                  height="44"
+                  width="97"
+                  height="36"
                 />
-              </a>
+                <span style={{ fontSize: '12px', fontWeight: 600, color: '#0f172a', lineHeight: '1.25' }}>
+                  DPIIT Recognized<br /><span style={{ color: '#ea580c', fontWeight: 700 }}>Startup India</span> Company
+                </span>
+              </div>
+              <div className="saashunt-badge-card">
+                <a
+                  href="https://saashunt.best/projects/takkada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-block' }}
+                >
+                  <img
+                    src="/assets/badges/featured-on-light.svg"
+                    alt="Featured on SaasHunt"
+                    style={{ height: '40px', width: 'auto' }}
+                    loading="lazy"
+                    width="136"
+                    height="40"
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <div className="footer-columns">
