@@ -2,7 +2,7 @@ import Layout from '../Layout';
 import Home from './Home';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
-import PrivacyPolicy from './PrivacyPolicy';
+import LegalPrivacy from './LegalPrivacy';
 import TermsAndConditions from './TermsAndConditions';
 import RefundPolicy from './RefundPolicy';
 import MobileTally from './MobileTally';
@@ -28,7 +28,7 @@ const ELEMENT_FOR_PATH = {
   '/': <Home />,
   '/about-us': <AboutUs />,
   '/contact-us': <ContactUs />,
-  '/privacy-policy': <PrivacyPolicy />,
+  '/privacy-policy': <LegalPrivacy />,
   '/terms-and-conditions': <TermsAndConditions />,
   '/refund-policy': <RefundPolicy />,
   '/mobile-tally': <MobileTally />,
