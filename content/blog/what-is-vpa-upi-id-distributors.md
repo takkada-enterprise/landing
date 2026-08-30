@@ -39,7 +39,7 @@ Every VPA has two parts split by the `@` symbol. The left side is the identity; 
 
 | Part of the VPA | What it means | Example |
 |---|---|---|
-| Before the `@` | Your chosen name, phone number, or business label | `business`, `9435977777`, `ramesh.traders` |
+| Before the `@` | Your chosen name, phone number, or business label | `business`, `7019152071`, `ramesh.traders` |
 | The `@` symbol | The separator that marks it as a UPI address | `@` |
 | After the `@` | The bank or app handle (the PSP) that routes the money | `@oksbi`, `@axisbank`, `@ybl`, `@paytm` |
 

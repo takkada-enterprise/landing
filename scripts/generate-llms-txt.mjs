@@ -146,7 +146,7 @@ export function buildDoc({ priceData, routes, guides }) {
   lines.push(
     '## Contact',
     '',
-    '- WhatsApp/phone: +91 94359 77777 · email: ronak@paysaathi.com',
+    '- WhatsApp/phone: +91 70191 52071 · email: ronak@paysaathi.com',
     '- Demo booking: https://calendar.notion.so/meet/ronakmalu/takkada',
     ''
   );
