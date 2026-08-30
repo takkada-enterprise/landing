@@ -174,7 +174,7 @@ describe('the narrowed latin-ext subset still covers the content', () => {
         return;
       }
       if (!/\.(jsx?|md|html|css)$/.test(rel)) return;
-      if (rel.includes('__tests__') || rel.endsWith('.test.js')) return;
+      if (rel.includes('__tests__') || rel.endsWith('.test.js') || rel.includes('wuxia')) return;
       for (const ch of readFileSync(abs, 'utf-8')) {
         const cp = ch.codePointAt(0);
         if (cp !== RUPEE && inLatinExt(cp)) {

@@ -177,5 +177,17 @@ export const routeMetadata = [
     // inbound links but is excluded from sitemap.xml (2026-07 audit item 4).
     sitemap: false,
   },
+  {
+    path: '/chinese_novel_quotes_wuxia',
+    llms: {
+      section: 'Key pages',
+      title: 'Chinese Novel Quotes & Wuxia Sayings',
+      summary:
+        'Popular sayings, proverbs, and cultivator quotes from Chinese Wuxia and Xianxia novels categorized by mood.',
+    },
+    sourceFile: 'src/routes/ChineseNovelQuotesRoute.jsx',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
   ...featureRouteMetadata,
 ];
