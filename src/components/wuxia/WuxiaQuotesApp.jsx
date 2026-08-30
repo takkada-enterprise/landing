@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { PlusCircle, Sparkles } from 'lucide-react';
+import { PlusCircle } from 'lucide-react';
 import { MOOD_CATEGORIES, getAllQuotes, addCustomQuote } from '../../data/wuxiaQuotesDataset';
 import WuxiaQuoteCard from './WuxiaQuoteCard';
 import AddQuoteModal from './AddQuoteModal';
@@ -21,7 +21,7 @@ export default function WuxiaQuotesApp() {
       const found = all.find(q => q.id === qId);
       if (found) {
         setCurrentQuote(found);
-        setActiveMood(found.category || 'all');
+        setActiveMood(found.path || 'all');
         return;
       }
     }
@@ -29,10 +29,10 @@ export default function WuxiaQuotesApp() {
     pickRandomQuote('all', all);
   }, []);
 
-  const pickRandomQuote = (moodCategory, quoteList = quotes) => {
-    const filtered = moodCategory === 'all'
+  const pickRandomQuote = (moodPath, quoteList = quotes) => {
+    const filtered = moodPath === 'all'
       ? quoteList
-      : quoteList.filter(q => q.category === moodCategory);
+      : quoteList.filter(q => q.path === moodPath);
 
     if (filtered.length === 0) {
       setCurrentQuote(quoteList[0]);
@@ -47,9 +47,9 @@ export default function WuxiaQuotesApp() {
     setCurrentQuote(filtered[randomIndex]);
   };
 
-  const handleMoodSelect = (moodId) => {
-    setActiveMood(moodId);
-    pickRandomQuote(moodId);
+  const handleMoodSelect = (pathId) => {
+    setActiveMood(pathId);
+    pickRandomQuote(pathId);
   };
 
   const handleAddCustomQuote = (newQuoteData) => {
@@ -57,7 +57,7 @@ export default function WuxiaQuotesApp() {
     const updated = getAllQuotes();
     setQuotes(updated);
     setCurrentQuote(created);
-    setActiveMood(created.category);
+    setActiveMood(created.path);
   };
 
   return (
@@ -112,15 +112,22 @@ export default function WuxiaQuotesApp() {
           </motion.p>
         </section>
 
-        {/* Mood Selection Chips */}
+        {/* Mood Selection Chips (6 Core Seals) */}
         <section className="wuxia-mood-wrap">
           <div className="wuxia-mood-grid">
+            <button
+              className={`mood-chip ${activeMood === 'all' ? 'active' : ''}`}
+              onClick={() => handleMoodSelect('all')}
+            >
+              <span>☯️ All Sayings</span>
+            </button>
             {MOOD_CATEGORIES.map(cat => (
               <button
                 key={cat.id}
                 className={`mood-chip ${activeMood === cat.id ? 'active' : ''}`}
                 onClick={() => handleMoodSelect(cat.id)}
               >
+                <span style={{ fontFamily: '"Noto Serif SC", serif', fontWeight: 900, color: '#9E2A2B' }}>{cat.seal}</span>
                 <span>{cat.label}</span>
               </button>
             ))}
@@ -135,7 +142,7 @@ export default function WuxiaQuotesApp() {
           />
         )}
       </main>
-      
+
       {/* Add Custom Saying Modal */}
       <AddQuoteModal
         isOpen={modalOpen}
