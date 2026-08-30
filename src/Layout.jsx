@@ -363,16 +363,16 @@ function SiteFooter() {
             <p className="footer-contact">{contactInfo.email}</p>
             <div className="footer-badge" style={{ marginTop: '16px' }}>
               <a
-                href="https://saashunt.best/projects/takkada?utm_source=badge"
+                href="https://saashunt.best/projects/takkada"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://saashunt.best/images/badges/featured-on-light.svg"
+                  src="/assets/badges/featured-on-light.svg"
                   alt="Featured on SaasHunt"
                   style={{ height: '44px', width: 'auto' }}
                   loading="lazy"
-                  width="180"
+                  width="150"
                   height="44"
                 />
               </a>
