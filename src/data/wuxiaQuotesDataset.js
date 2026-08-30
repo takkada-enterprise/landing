@@ -1,6 +1,6 @@
 /**
  * Chinese Wuxia, Xianxia & Cultivation Novel Sayings & Idioms Dataset
- * Migrated Schema: cn, pinyin, en, sense, path, seal, sourceType, source, tags
+ * Complete 110+ entries migrated to schema: cn, pinyin, en, sense, path, seal, sourceType, source, tags
  */
 
 export const MOOD_CATEGORIES = [
@@ -13,7 +13,9 @@ export const MOOD_CATEGORIES = [
 ];
 
 export const INITIAL_QUOTES = [
-  // --- 1. MING (命) — Destiny, Fatalism, Transience ---
+  // ==========================================
+  // --- 1. MING (命) — Destiny, Fatalism & Transience
+  // ==========================================
   {
     id: 'f1',
     cn: '善恶到头终有报',
@@ -63,6 +65,30 @@ export const INITIAL_QUOTES = [
     tags: ['melancholy', 'unrequited', 'endurance']
   },
   {
+    id: 'f5',
+    cn: '夜欢晨死',
+    pinyin: 'yè huān chén sǐ',
+    en: 'The night was full of festivities and laughter, but the dawn brought only death and silence.',
+    sense: 'Bleak, sudden whiplash tragedy.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'unknown',
+    source: { text: 'Xianxia Novel Trope', author: null },
+    tags: ['tragedy', 'sudden', 'fate']
+  },
+  {
+    id: 'f6',
+    cn: '英雄无奈',
+    pinyin: 'yīng xióng wú nài',
+    en: 'A hero may gain supreme fortune under heaven, yet lose the simple freedom of his own life.',
+    sense: 'Wistful powerlessness despite holding great power.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'unknown',
+    source: { text: 'Wuxia Lore', author: null },
+    tags: ['freedom', 'heroism', 'wistful']
+  },
+  {
     id: 'f7',
     cn: '去年的雪不是今年的雪',
     pinyin: 'qù nián de xuě bù shì jīn nián de xuě',
@@ -75,16 +101,76 @@ export const INITIAL_QUOTES = [
     tags: ['grief', 'longing', 'consolation']
   },
   {
-    id: 'w13',
-    cn: '树大招风',
-    pinyin: 'shù dà zhāo fēng',
-    en: 'Tall trees attract the fierce wind.',
-    sense: 'Prominence and supreme success naturally invite envy and adversity.',
+    id: 'w1',
+    cn: '红尘',
+    pinyin: 'hóng chén',
+    en: 'Wandering through the endless red dust of the mortal world.',
+    sense: 'The transience, noise, and illusions of mortal life.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'classical',
+    source: { text: 'Buddhist & Daoist Precept', author: null },
+    tags: ['mortal', 'red dust', 'transience']
+  },
+  {
+    id: 'w2',
+    cn: '天下',
+    pinyin: 'tiān xià',
+    en: 'All lands beneath the vast heavens.',
+    sense: 'The totality of the mortal world and realm.',
     path: 'ming',
     seal: '命',
     sourceType: 'idiom',
-    source: { text: 'Traditional Proverb', author: null },
-    tags: ['weather', 'prominence', 'warning']
+    source: { text: 'Ancient Cosmology', author: null },
+    tags: ['world', 'heavens', 'realm']
+  },
+  {
+    id: 'w3',
+    cn: '天壤之别',
+    pinyin: 'tiān rǎng zhī bié',
+    en: 'A difference between them as vast as heaven and earth.',
+    sense: 'Immense, irreconcilable difference in status or cultivation level.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Book of Song', author: null },
+    tags: ['difference', 'scale', 'realm']
+  },
+  {
+    id: 'w4',
+    cn: '谋事在人，成事在天',
+    pinyin: 'móu shì zài rén, chéng shì zài tiān',
+    en: 'Man proposes the plan, but heaven disposes the final outcome.',
+    sense: 'Even the most brilliant schemes remain subject to the whims of destiny.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Romance of the Three Kingdoms', author: 'Luo Guanzhong' },
+    tags: ['fate', 'strategy', 'outcome']
+  },
+  {
+    id: 'w5',
+    cn: '天网恢恢，疏而不漏',
+    pinyin: 'tiān wǎng huī huī, shū ér bù lòu',
+    en: 'Heaven\'s net is vast and wide; none can escape its mesh.',
+    sense: 'The guilty cannot evade cosmic justice forever.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'classical',
+    source: { text: 'Dao De Jing', author: 'Laozi' },
+    tags: ['justice', 'net', 'fate']
+  },
+  {
+    id: 'w6',
+    cn: '翻天覆地',
+    pinyin: 'fān tiān fù dì',
+    en: 'Causing a radical upheaval that overturns heaven and earth!',
+    sense: 'Colossal transformation of the world order.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['upheaval', 'change', 'scale']
   },
   {
     id: 'w7',
@@ -99,19 +185,117 @@ export const INITIAL_QUOTES = [
     tags: ['time', 'change', 'transience']
   },
   {
-    id: 'w4',
-    cn: '谋事在人，成事在天',
-    pinyin: 'móu shì zài rén, chéng shì zài tiān',
-    en: 'Man proposes the plan, but heaven disposes the final outcome.',
-    sense: 'Even the most brilliant schemes remain subject to the whims of destiny.',
+    id: 'w8',
+    cn: '生米煮成熟饭',
+    pinyin: 'shēng mǐ zhǔ chéng shú fàn',
+    en: 'The raw rice is already cooked; what is done cannot be undone.',
+    sense: 'Facing irreversible reality.',
     path: 'ming',
     seal: '命',
     sourceType: 'idiom',
-    source: { text: 'Romance of the Three Kingdoms', author: 'Luo Guanzhong' },
-    tags: ['fate', 'strategy', 'outcome']
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['reality', 'irreversible', 'proverb']
+  },
+  {
+    id: 'w9',
+    cn: '水落石出',
+    pinyin: 'shuǐ luò shí chū',
+    en: 'As the water recedes, the hidden rocks appear — truth comes to light.',
+    sense: 'Truth inevitably revealed after confusion passes.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'classical',
+    source: { text: 'Ode to the Red Cliff', author: 'Su Shi' },
+    tags: ['truth', 'revelation', 'clarity']
+  },
+  {
+    id: 'w10',
+    cn: '拨云见日',
+    pinyin: 'bō yún jiàn rì',
+    en: 'Dispelling the dark clouds to finally see the sun.',
+    sense: 'Restoring peace, clarity, and hope after long hardship.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Book of Jin', author: null },
+    tags: ['hope', 'sun', 'clarity']
+  },
+  {
+    id: 'w11',
+    cn: '晴天霹雳',
+    pinyin: 'qíng tiān pī lì',
+    en: 'Striking like a sudden bolt of thunder from a clear blue sky!',
+    sense: 'A completely unexpected, shocking turn of events.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['shock', 'thunder', 'sudden']
+  },
+  {
+    id: 'w12',
+    cn: '树倒猢狲散',
+    pinyin: 'shù dǎo hú sūn sàn',
+    en: 'When the great tree falls, the opportunists scatter like monkeys.',
+    sense: 'Opportunists immediately abandoning a collapsed benefactor.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Dream of the Red Chamber', author: 'Cao Xueqin' },
+    tags: ['opportunism', 'scattering', 'tree']
+  },
+  {
+    id: 'w13',
+    cn: '树大招风',
+    pinyin: 'shù dà zhāo fēng',
+    en: 'Tall trees attract the fierce wind.',
+    sense: 'Prominence and supreme success naturally invite envy and adversity.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Proverb', author: null },
+    tags: ['weather', 'prominence', 'warning']
+  },
+  {
+    id: 'w14',
+    cn: '断线的风筝',
+    pinyin: 'duàn xiàn de fēng zheng',
+    en: 'Blown away uncontrollably like a kite with its string cut.',
+    sense: 'Drifting helplessly beyond recovery.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Metaphor', author: null },
+    tags: ['loss', 'drifting', 'uncontrollable']
+  },
+  {
+    id: 'w15',
+    cn: '泥牛入海',
+    pinyin: 'ní niú rù hǎi',
+    en: 'Disappearing completely with no hope of return, like a clay ox entering the sea.',
+    sense: 'Vanishing without a trace.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'classical',
+    source: { text: 'Jingde Record of Transmission of Lamp', author: null },
+    tags: ['vanishing', 'loss', 'clay ox']
+  },
+  {
+    id: 'w16',
+    cn: '强弩之末',
+    pinyin: 'qiáng nǔ zhī mò',
+    en: 'A spent force, like an arrow at the very end of its flight.',
+    sense: 'An exhausted power that has lost its striking force.',
+    path: 'ming',
+    seal: '命',
+    sourceType: 'classical',
+    source: { text: 'Records of the Grand Historian (Shiji)', author: 'Sima Qian' },
+    tags: ['exhausted', 'arrow', 'spent']
   },
 
-  // --- 2. SHI (势) — Power, Status, Hierarchy & Awe ---
+  // ==========================================
+  // --- 2. SHI (势) — Power, Status, Hierarchy & Awe
+  // ==========================================
   {
     id: 'pw1',
     cn: '弱肉强食',
@@ -135,6 +319,30 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Water Margin (Shui Hu Zhuan)', author: 'Shi Nai\'an' },
     tags: ['arrogance', 'mount tai', 'status']
+  },
+  {
+    id: 'pw3',
+    cn: '不放在眼里',
+    pinyin: 'bù fàng zài yǎn lǐ',
+    en: 'Not even putting them in one\'s eyes.',
+    sense: 'Disdainful disregard of lesser rivals.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Common Expression', author: null },
+    tags: ['disdain', 'arrogance', 'hierarchy']
+  },
+  {
+    id: 'pw4',
+    cn: '老子',
+    pinyin: 'lǎo zi',
+    en: 'I, your father / grandfather, am standing right here!',
+    sense: 'Asserting aggressive dominance and authority.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Pejorative Wuxia Slang', author: null },
+    tags: ['dominance', 'slang', 'aggression']
   },
   {
     id: 'pw5',
@@ -161,6 +369,18 @@ export const INITIAL_QUOTES = [
     tags: ['invincible', 'number one', 'apex']
   },
   {
+    id: 'pw7',
+    cn: '不知天高地厚',
+    pinyin: 'bù zhī tiān gāo dì hòu',
+    en: 'To not know the immensity of heaven and earth.',
+    sense: 'Rebuking exaggerated self-opinion and ignorance of true power.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Zhuangzi Tradition', author: null },
+    tags: ['warning', 'arrogance', 'limits']
+  },
+  {
     id: 'pw8',
     cn: '天外有天，人外有人',
     pinyin: 'tiān wài yǒu tiān, rén wài yǒu rén',
@@ -171,6 +391,78 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Traditional Saying', author: null },
     tags: ['humility', 'mastery', 'heavens']
+  },
+  {
+    id: 'pw9',
+    cn: '叱咤风云',
+    pinyin: 'chì zhà fēng yún',
+    en: 'Rebuking heaven and earth and commanding the storms!',
+    sense: 'Earth-shattering authority and terrifying presence.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Book of Liang', author: null },
+    tags: ['storms', 'authority', 'supreme']
+  },
+  {
+    id: 'pw10',
+    cn: '翻手为云，覆手为雨',
+    pinyin: 'fān shǒu wéi yún, fù shǒu wéi yǔ',
+    en: 'Produce clouds with one turn of the hand, and rain with another.',
+    sense: 'Possessing absolute manipulative power over events.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'classical',
+    source: { text: 'Du Fu Poem', author: 'Du Fu' },
+    tags: ['manipulation', 'control', 'power']
+  },
+  {
+    id: 'pw11',
+    cn: '呼风唤雨',
+    pinyin: 'hū fēng huàn yǔ',
+    en: 'Calling the wind and summoning the rain.',
+    sense: 'Exercising divine magical omnipotence.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Journey to the West (Xi You Ji)', author: 'Wu Cheng\'en' },
+    tags: ['magical', 'omnipotence', 'command']
+  },
+  {
+    id: 'pw12',
+    cn: '移山填海',
+    pinyin: 'yí shān tián hǎi',
+    en: 'Moving colossal mountains and draining vast seas.',
+    sense: 'Godlike display of strength.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Liezi', author: null },
+    tags: ['godlike', 'mountains', 'seas']
+  },
+  {
+    id: 'pw13',
+    cn: '翻江倒海',
+    pinyin: 'fān jiāng dǎo hǎi',
+    en: 'Overturning rivers and seas in an earth-shattering tempest.',
+    sense: 'Overwhelming, chaotic display of raw power.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Water Margin', author: null },
+    tags: ['tempest', 'force', 'chaos']
+  },
+  {
+    id: 'pw14',
+    cn: '三头六臂',
+    pinyin: 'sān tóu liù bì',
+    en: 'Three heads and six arms.',
+    sense: 'Formidable mythical combat power.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Nezha Legend', author: null },
+    tags: ['asura', 'combat', 'formidable']
   },
   {
     id: 'pw15',
@@ -185,6 +477,18 @@ export const INITIAL_QUOTES = [
     tags: ['dragon', 'talent', 'excellence']
   },
   {
+    id: 'pw16',
+    cn: '鹤立鸡群',
+    pinyin: 'hè lì jī qún',
+    en: 'Standing out like a majestic crane among a flock of humble chickens.',
+    sense: 'Standing out far above lesser peers.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Shi Shuo Xin Yu', author: 'Liu Yiqing' },
+    tags: ['excellence', 'peers', 'distinction']
+  },
+  {
     id: 'pw17',
     cn: '瘦死的骆驼比马大',
     pinyin: 'shòu sǐ de luò tuó bǐ mǎ dà',
@@ -195,6 +499,90 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Dream of the Red Chamber', author: 'Cao Xueqin' },
     tags: ['titan', 'strength', 'hierarchy']
+  },
+  {
+    id: 'pw18',
+    cn: '纸老虎',
+    pinyin: 'zhǐ lǎo hǔ',
+    en: 'Fierce on the outside, but nothing more than a paper tiger within.',
+    sense: 'Appearing dangerous but actually fragile.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['illusion', 'frail', 'tiger']
+  },
+  {
+    id: 'pw19',
+    cn: '如虎添翼',
+    pinyin: 'rú hǔ tiān yì',
+    en: 'Like a fierce tiger that has grown powerful wings!',
+    sense: 'Doubling of formidable strength.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'San Guo Zhi', author: 'Chen Shou' },
+    tags: ['powerup', 'tiger', 'unstoppable']
+  },
+  {
+    id: 'pw20',
+    cn: '虎父无犬子',
+    pinyin: 'hǔ fù wú quǎn zǐ',
+    en: 'A tiger father will never beget a dog son!',
+    sense: 'A great predecessor breeds a worthy successor.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Classic Compliment', author: null },
+    tags: ['legacy', 'tiger', 'father']
+  },
+  {
+    id: 'pw21',
+    cn: '强龙压不过地头蛇',
+    pinyin: 'qiáng lóng yā bù guò dì tóu shé',
+    en: 'Even a powerful dragon cannot repress a fierce local snake on its home turf.',
+    sense: 'Home territory advantage over mighty outsiders.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['territory', 'dragon', 'snake']
+  },
+  {
+    id: 'pw22',
+    cn: '狗仗人势',
+    pinyin: 'gǒu zhàng rén shì',
+    en: 'A dog acting fierce only because its master is standing nearby.',
+    sense: 'Bullying others using borrowed authority.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Idiom of Contempt', author: null },
+    tags: ['bully', 'borrowed power', 'contempt']
+  },
+  {
+    id: 'pw23',
+    cn: '虾兵蟹将',
+    pinyin: 'xiā bīng xiè jiàng',
+    en: 'Nothing but useless shrimp soldiers and crab generals!',
+    sense: 'Incompetent, low-level fodder troops.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Journey to the West', author: 'Wu Cheng\'en' },
+    tags: ['fodder', 'incompetent', 'troops']
+  },
+  {
+    id: 'pw24',
+    cn: '小菜一碟',
+    pinyin: 'xiǎo cài yī dié',
+    en: 'Just a small side dish — a total piece of cake!',
+    sense: 'An easy task performed with trivial effort.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Colloquial Slang', author: null },
+    tags: ['easy', 'slang', 'confidence']
   },
   {
     id: 'a1',
@@ -208,8 +596,34 @@ export const INITIAL_QUOTES = [
     source: { text: 'Yinfujing (Scripture of Hidden Harmonies)', author: null },
     tags: ['dread', 'celestial', 'apocalypse']
   },
+  {
+    id: 'a2',
+    cn: '天子之怒，伏尸百万',
+    pinyin: 'tiān zǐ zhī nù, fú shī bǎi wàn',
+    en: 'An emperor\'s anger buries a million corpses across the land.',
+    sense: 'Terrifying wrath of absolute authority.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'classical',
+    source: { text: 'Zhan Guo Ce', author: null },
+    tags: ['wrath', 'power', 'awe']
+  },
+  {
+    id: 'a3',
+    cn: '天狂有雨，人狂有祸',
+    pinyin: 'tiān kuáng yǒu yǔ, rén kuáng yǒu huò',
+    en: 'Wild heavens bring rain; wild people bring calamity.',
+    sense: 'Foreboding warning against human hubris.',
+    path: 'shi',
+    seal: '势',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['hubris', 'warning', 'calamity']
+  },
 
-  // --- 3. MOU (谋) — Strategy, Cynicism, Caution & Conflict ---
+  // ==========================================
+  // --- 3. MOU (谋) — Strategy, Caution, Cynicism & Danger
+  // ==========================================
   {
     id: 'c1',
     cn: '吃人的嘴短，拿人的手短',
@@ -221,6 +635,18 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Folk Proverb', author: null },
     tags: ['obligation', 'cynicism', 'caution']
+  },
+  {
+    id: 'c2',
+    cn: '贼不空手',
+    pinyin: 'zéi bù kōng shǒu',
+    en: 'Bandits never walk away empty-handed; even if they find nothing, they will take the door frame.',
+    sense: 'Grim humor regarding greedy predators.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Jianghu Maxim', author: null },
+    tags: ['predators', 'grim humor', 'jianghu']
   },
   {
     id: 'c3',
@@ -235,6 +661,54 @@ export const INITIAL_QUOTES = [
     tags: ['preservation', 'strategy', 'caution']
   },
   {
+    id: 'c4',
+    cn: '无利不起早',
+    pinyin: 'wú lì bù qǐ zǎo',
+    en: 'Without profit, no one rises early; philanthropists seek either name or a trap.',
+    sense: 'Wary suspicion of unearned kindness.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Proverb', author: null },
+    tags: ['suspicion', 'motive', 'realism']
+  },
+  {
+    id: 'c5',
+    cn: '升米恩，斗米仇',
+    pinyin: 'shēng mǐ ēn, dǒu mǐ chóu',
+    en: 'A pint of rice wins a friend; a bushel of rice creates a bitter enemy.',
+    sense: 'Bitter pragmatism about human ingratitude.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['pragmatism', 'human nature', 'caution']
+  },
+  {
+    id: 'c6',
+    cn: '法不责众',
+    pinyin: 'fǎ bù zé zhòng',
+    en: 'When a law is violated by everyone, it ceases to be enforced.',
+    sense: 'Dry institutional realism.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Legal Realism', author: null },
+    tags: ['law', 'realism', 'society']
+  },
+  {
+    id: 'c7',
+    cn: '人心不足蛇吞象',
+    pinyin: 'rén xīn bù zú shé tūn xiàng',
+    en: 'A man whose heart is never content is like a snake trying to swallow an elephant whole.',
+    sense: 'Cautionary contempt for endless greed.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Shan Hai Jing Tradition', author: null },
+    tags: ['greed', 'caution', 'contentment']
+  },
+  {
     id: 'c8',
     cn: '水能载舟，亦能覆舟',
     pinyin: 'shuǐ néng zǎi zhōu, yì néng fù zhōu',
@@ -247,16 +721,148 @@ export const INITIAL_QUOTES = [
     tags: ['power', 'warning', 'statecraft']
   },
   {
-    id: 'g8',
-    cn: '螳螂捕蝉，黄雀在后',
-    pinyin: 'táng láng bǔ chán, huáng què zài hòu',
-    en: 'The mantis stalks the cicada, unaware of the hungry oriole waiting behind.',
-    sense: 'Pursuing immediate gain while remaining blind to deadly hidden predators.',
+    id: 'd1',
+    cn: '找死',
+    pinyin: 'zhǎo sǐ',
+    en: 'You are courting death!',
+    sense: 'Cultivation classic warning against fatal recklessness.',
     path: 'mou',
     seal: '谋',
     sourceType: 'idiom',
-    source: { text: 'Garden of Stories (Shuo Yuan)', author: 'Liu Xiang' },
-    tags: ['blindness', 'mantis', 'oriole']
+    source: { text: 'Common Slang', author: null },
+    tags: ['warning', 'reckless', 'death']
+  },
+  {
+    id: 'd3',
+    cn: '惨死',
+    pinyin: 'cǎn sǐ',
+    en: 'Dying a miserable, dishonorable death in vain.',
+    sense: 'Dying without glory.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Common Slang', author: null },
+    tags: ['death', 'vain', 'miserable']
+  },
+  {
+    id: 'd4',
+    cn: '刀山火海',
+    pinyin: 'dāo shān huǒ hǎi',
+    en: 'Braving a mountain of blades and a sea of fire.',
+    sense: 'Facing extreme peril without retreat.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Wuxia Oath', author: null },
+    tags: ['danger', 'bravery', 'oath']
+  },
+  {
+    id: 'd5',
+    cn: '龙潭虎穴',
+    pinyin: 'lóng tán hǔ xué',
+    en: 'Walking straight into a dragon\'s pool and tiger\'s den.',
+    sense: 'Entering extremely dangerous territory.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Water Margin', author: null },
+    tags: ['den', 'peril', 'dragon']
+  },
+  {
+    id: 'd6',
+    cn: '龙争虎斗',
+    pinyin: 'lóng zhēng hǔ dòu',
+    en: 'A ferocious fight between a dragon and a tiger.',
+    sense: 'Fierce conflict between formidable titans.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Han Dynasty Poem', author: null },
+    tags: ['battle', 'titans', 'tiger']
+  },
+  {
+    id: 'd7',
+    cn: '剑拔弩张',
+    pinyin: 'jiàn bá nǔ zhāng',
+    en: 'Hostility with swords drawn and bows bent.',
+    sense: 'Imminent explosive conflict.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Shi Pin', author: 'Zhong Rong' },
+    tags: ['conflict', 'hostility', 'swords']
+  },
+  {
+    id: 'd8',
+    cn: '张牙舞爪',
+    pinyin: 'zhāng yá wǔ zhǎo',
+    en: 'Baring fangs and brandishing claws to intimidate.',
+    sense: 'Threatening gestures of aggression.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Metaphor', author: null },
+    tags: ['threat', 'intimidation', 'claws']
+  },
+  {
+    id: 'd9',
+    cn: '刀枪不入',
+    pinyin: 'dāo qiāng bù rù',
+    en: 'Invulnerable, impervious to all mortal blades and spears.',
+    sense: 'Physical invulnerability from supreme body cultivation.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Body Cultivation Lore', author: null },
+    tags: ['invulnerable', 'form', 'blades']
+  },
+  {
+    id: 'd11',
+    cn: '孤注一掷',
+    pinyin: 'gū zhù yī zhì',
+    en: 'Staking everything on a single throw of the dice.',
+    sense: 'Risking everything in a final desperate venture.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Song History (Song Shi)', author: null },
+    tags: ['risk', 'gamble', 'venture']
+  },
+  {
+    id: 'd12',
+    cn: '自投罗网',
+    pinyin: 'zì tóu luó wǎng',
+    en: 'Willingly throwing oneself into the enemy\'s net.',
+    sense: 'Walking straight into a trap.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['trap', 'net', 'mistake']
+  },
+  {
+    id: 'd13',
+    cn: '不共戴天',
+    pinyin: 'bù gòng dài tiān',
+    en: 'Irreconcilable enmity — we cannot live under the same sky!',
+    sense: 'Fierce, unyielding blood feud.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Book of Rites (Liji)', author: null },
+    tags: ['enmity', 'feud', 'sky']
+  },
+  {
+    id: 'd14',
+    cn: '以毒攻毒',
+    pinyin: 'yǐ dú gōng dú',
+    en: 'Meeting aggression with aggression — fighting poison with poison.',
+    sense: 'Using harsh methods to cure harsh threats.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Medical Precept', author: null },
+    tags: ['poison', 'aggression', 'strategy']
   },
   {
     id: 'd15',
@@ -271,6 +877,18 @@ export const INITIAL_QUOTES = [
     tags: ['alert', 'snake', 'strategy']
   },
   {
+    id: 'd16',
+    cn: '杀鸡儆猴',
+    pinyin: 'shā jī jǐng hóu',
+    en: 'Killing the chicken to warn the reckless monkey.',
+    sense: 'Punishing one to warn others.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Strategy', author: null },
+    tags: ['example', 'warning', 'strategy']
+  },
+  {
     id: 'd17',
     cn: '调虎离山',
     pinyin: 'diào hǔ lí shān',
@@ -281,6 +899,102 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Thirty-Six Stratagems', author: null },
     tags: ['lure', 'territory', 'tiger']
+  },
+  {
+    id: 'd18',
+    cn: '骑虎难下',
+    pinyin: 'qí hǔ nán xià',
+    en: 'Riding a tiger — once started, it is impossible to dismount halfway.',
+    sense: 'Trapped in a perilous situation impossible to stop.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Book of Jin', author: null },
+    tags: ['dilemma', 'tiger', 'conflict']
+  },
+  {
+    id: 'd19',
+    cn: '卧虎藏龙',
+    pinyin: 'wò hǔ cáng lóng',
+    en: 'Crouching tigers and hidden dragons concealed among the crowds.',
+    sense: 'Concealed master talent.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Yu Xin Poem', author: 'Yu Xin' },
+    tags: ['hidden', 'master', 'tiger']
+  },
+  {
+    id: 'd20',
+    cn: '鱼龙混杂',
+    pinyin: 'yú lóng hùn zá',
+    en: 'A chaotic place where fish swim together with dragons.',
+    sense: 'A place mixing the noble and treacherous.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Classic Metaphor', author: null },
+    tags: ['chaos', 'dragons', 'fish']
+  },
+  {
+    id: 'g1',
+    cn: '火上浇油',
+    pinyin: 'huǒ shàng jiāo yóu',
+    en: 'Adding oil to an already blazing fire!',
+    sense: 'Aggravating a bad situation.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['fire', 'aggravate', 'oil']
+  },
+  {
+    id: 'g2',
+    cn: '趁火打劫',
+    pinyin: 'chèn huǒ dǎ jié',
+    en: 'Looting a burning house while it crumbles.',
+    sense: 'Profiting ruthlessly from another\'s misfortune.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Thirty-Six Stratagems', author: null },
+    tags: ['loot', 'misfortune', 'greed']
+  },
+  {
+    id: 'g3',
+    cn: '浑水摸鱼',
+    pinyin: 'hún shuǐ mō yú',
+    en: 'Fishing in troubled waters to profit from confusion.',
+    sense: 'Taking advantage of chaos.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Thirty-Six Stratagems', author: null },
+    tags: ['crisis', 'profit', 'fish']
+  },
+  {
+    id: 'g4',
+    cn: '落井下石',
+    pinyin: 'luò jǐng xià shí',
+    en: 'Throwing heavy stones down a well to crush someone who fell in.',
+    sense: 'Beating someone when they are down.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Han Yu Essay', author: 'Han Yu' },
+    tags: ['crush', 'ingratitude', 'well']
+  },
+  {
+    id: 'g5',
+    cn: '忘恩负义',
+    pinyin: 'wàng ēn fù yì',
+    en: 'Forgetting past favors and violating righteousness.',
+    sense: 'Base ingratitude.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Precept', author: null },
+    tags: ['ingratitude', 'justice', 'betrayal']
   },
   {
     id: 'g6',
@@ -295,6 +1009,114 @@ export const INITIAL_QUOTES = [
     tags: ['treasure', 'greed', 'jade']
   },
   {
+    id: 'g7',
+    cn: '常在河边走哪有不湿鞋',
+    pinyin: 'cháng zài hé biān zǒu nǎ yǒu bù shī xié',
+    en: 'If you often walk by the riverside, your shoes will eventually get wet.',
+    sense: 'Persistent risk inevitably brings consequences.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['consequences', 'risk', 'shoes']
+  },
+  {
+    id: 'g8',
+    cn: '螳螂捕蝉，黄雀在后',
+    pinyin: 'táng láng bǔ chán, huáng què zài hòu',
+    en: 'The mantis stalks the cicada, unaware of the hungry oriole waiting behind.',
+    sense: 'Pursuing immediate gain while remaining blind to deadly hidden predators.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Garden of Stories (Shuo Yuan)', author: 'Liu Xiang' },
+    tags: ['blindness', 'mantis', 'oriole']
+  },
+  {
+    id: 'g9',
+    cn: '鹬蚌相争，渔翁得利',
+    pinyin: 'yù bàng xiāng zhēng, yú wēng dé lì',
+    en: 'When the sandpiper and clam fight, the fisherman reaps the reward.',
+    sense: 'A third party profiting from others\' conflict.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Zhan Guo Ce', author: null },
+    tags: ['third party', 'profit', 'conflict']
+  },
+  {
+    id: 'g10',
+    cn: '城门失火，殃及池鱼',
+    pinyin: 'chéng mén shī huǒ, yāng jí chí yú',
+    en: 'A fire at the city gates brings disaster to the innocent fish in the moat.',
+    sense: 'Innocent bystanders harmed by larger conflicts.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Bokushiki', author: null },
+    tags: ['bystanders', 'disaster', 'fish']
+  },
+  {
+    id: 'g11',
+    cn: '偷鸡不成蚀把米',
+    pinyin: 'tōu jī bù chéng shí bǎ mǐ',
+    en: 'Trying to steal a chicken, but losing the handful of grain used as bait.',
+    sense: 'Gaining nothing and ending up worse off.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['loss', 'greed', 'bait']
+  },
+  {
+    id: 'g12',
+    cn: '癞蛤蟆想吃天鹅肉',
+    pinyin: 'lài há ma xiǎng chī tiān é ròu',
+    en: 'A hideous toad lusting after the tender meat of a soaring swan!',
+    sense: 'Aspiring arrogantly for something far above one\'s station.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Water Margin', author: null },
+    tags: ['unworthy', 'toad', 'swan']
+  },
+  {
+    id: 'g13',
+    cn: '腹黑',
+    pinyin: 'fù hēi',
+    en: 'Outwardly smiling and kind, but black-bellied and manipulative within.',
+    sense: 'Two-faced, scheming character.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'idiom',
+    source: { text: 'Modern Slang', author: null },
+    tags: ['black belly', 'scheming', 'two-faced']
+  },
+  {
+    id: 'lim1',
+    cn: '井底之蛙',
+    pinyin: 'jǐng dǐ zhī wā',
+    en: 'A myopic frog viewing the vast sky from the bottom of a narrow well.',
+    sense: 'Ignorant, narrow-minded perspective.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Zhuangzi', author: 'Zhuang Zhou' },
+    tags: ['frog', 'well', 'myopic']
+  },
+  {
+    id: 'lim4',
+    cn: '九牛一毛',
+    pinyin: 'jiǔ niú yī máo',
+    en: 'An insignificant drop in the bucket — a single hair pulled from nine oxen.',
+    sense: 'Insignificant fraction of a whole.',
+    path: 'mou',
+    seal: '谋',
+    sourceType: 'classical',
+    source: { text: 'Letter to Ren An', author: 'Sima Qian' },
+    tags: ['insignificant', 'oxen', 'drop']
+  },
+  {
     id: 'a4',
     cn: '建国后不许成精',
     pinyin: 'jiàn guó hòu bù xǔ chéng jīng',
@@ -307,7 +1129,9 @@ export const INITIAL_QUOTES = [
     tags: ['satire', 'modern', 'meme']
   },
 
-  // --- 4. XING (行) — Action, Effort, Cultivation & Resilience ---
+  // ==========================================
+  // --- 4. XING (行) — Action, Effort, Cultivation & Resilience
+  // ==========================================
   {
     id: 'r1',
     cn: '物极必反',
@@ -321,6 +1145,102 @@ export const INITIAL_QUOTES = [
     tags: ['resilience', 'reversal', 'hope']
   },
   {
+    id: 'r2',
+    cn: '否极泰来',
+    pinyin: 'pǐ jí tài lái',
+    en: 'Reaching rock bottom brings reversal, and reversal brings supreme prosperity.',
+    sense: 'Triumphant perseverance through darkest times.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'I Ching (Hexagram Pi & Tai)', author: null },
+    tags: ['perseverance', 'triumph', 'reversal']
+  },
+  {
+    id: 'r3',
+    cn: '吃一堑，长一智',
+    pinyin: 'chī yī qiàn, zhǎng yī zhì',
+    en: 'Fall into a pit, gain wisdom — suffering is the tuition fee paid to master the world.',
+    sense: 'Learning from defeat.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['encouragement', 'learning', 'suffering']
+  },
+  {
+    id: 'r4',
+    cn: '宁为玉碎，不为瓦全',
+    pinyin: 'nìng wéi yù suì, bù wéi wǎ quán',
+    en: 'Better to be broken jade than intact tile — fight for a glorious death!',
+    sense: 'Defiant courage against impossible odds.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Book of Northern Qi', author: null },
+    tags: ['courage', 'defiance', 'honor']
+  },
+  {
+    id: 'r6',
+    cn: '虱多不痒，债多不愁',
+    pinyin: 'shī duō bù yǎng, zhài duō bù chóu',
+    en: 'When you are already covered with lice, you stop feeling the bites; when debt is too high, you stop worrying.',
+    sense: 'Numb resignation to hardship.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['resignation', 'hardship', 'numbness']
+  },
+  {
+    id: 'e1',
+    cn: '事半功倍',
+    pinyin: 'shì bàn gōng bèi',
+    en: 'Achieving twice the results with half the effort.',
+    sense: 'Wisdom of efficient method.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Mencius', author: 'Mencius' },
+    tags: ['efficiency', 'method', 'wisdom']
+  },
+  {
+    id: 'e2',
+    cn: '事倍功半',
+    pinyin: 'shì bèi gōng bàn',
+    en: 'Wasting twice the effort to gain only half the results.',
+    sense: 'Warning against inefficient methods.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Mencius', author: 'Mencius' },
+    tags: ['wasteful', 'warning', 'method']
+  },
+  {
+    id: 'e3',
+    cn: '突飞猛进',
+    pinyin: 'tū fēi měng jìn',
+    en: 'Cultivation progress advancing by leaps and bounds!',
+    sense: 'Rapid, remarkable progress.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Modern Slang', author: null },
+    tags: ['progress', 'cultivation', 'leaps']
+  },
+  {
+    id: 'e4',
+    cn: '斩钉截铁',
+    pinyin: 'zhǎn dīng jié tiě',
+    en: 'Resolute and decisive — chopping nails and severing iron!',
+    sense: 'Unwavering, decisive action.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Biyan Lu', author: null },
+    tags: ['decisive', 'iron', 'resolve']
+  },
+  {
     id: 'e5',
     cn: '神挡杀神，佛挡杀佛',
     pinyin: 'shén dǎng shā shén, fó dǎng shā fó',
@@ -331,6 +1251,18 @@ export const INITIAL_QUOTES = [
     sourceType: 'novel',
     source: { title: 'Cultivation Genre Trope', translator: 'Webnovel Lore' },
     tags: ['resolve', 'unstoppable', 'cultivation']
+  },
+  {
+    id: 'e6',
+    cn: '一步登天',
+    pinyin: 'yī bù dēng tiān',
+    en: 'Attaining heaven in a single bound.',
+    sense: 'Attaining instant success; often subverted in cultivation as a warning against skipping steps.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Classic Proverb', author: null },
+    tags: ['instant', 'warning', 'cultivation']
   },
   {
     id: 'e7',
@@ -357,16 +1289,40 @@ export const INITIAL_QUOTES = [
     tags: ['transformation', 'breakthrough', 'dragon']
   },
   {
-    id: 'e6',
-    cn: '一步登天',
-    pinyin: 'yī bù dēng tiān',
-    en: 'Attaining heaven in a single bound.',
-    sense: 'Attaining instant success; often subverted in cultivation as a warning against skipping steps.',
+    id: 'e9',
+    cn: '洗髓换骨',
+    pinyin: 'xǐ suǐ huàn gǔ',
+    en: 'Purifying the body: cleansing the marrow and replacing the tendons.',
+    sense: 'Purifying and strengthening physical form.',
     path: 'xing',
     seal: '行',
     sourceType: 'idiom',
-    source: { text: 'Classic Proverb', author: null },
-    tags: ['instant', 'warning', 'cultivation']
+    source: { text: 'Body Cultivation Lore', author: null },
+    tags: ['purification', 'body', 'cultivation']
+  },
+  {
+    id: 'e10',
+    cn: '脱胎换骨',
+    pinyin: 'tuō tāi huàn gǔ',
+    en: 'Shedding one\'s mortal body and exchanging mortal bones.',
+    sense: 'Total spiritual rebirth and ascension.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Daoist Text', author: null },
+    tags: ['rebirth', 'ascension', 'immortal']
+  },
+  {
+    id: 'e11',
+    cn: '举手之劳',
+    pinyin: 'jǔ shǒu zhī láo',
+    en: 'As easy as lifting a hand or turning a palm.',
+    sense: 'Task requiring minimal effort.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Saying', author: null },
+    tags: ['minimal', 'ease', 'help']
   },
   {
     id: 'e12',
@@ -379,6 +1335,54 @@ export const INITIAL_QUOTES = [
     sourceType: 'classical',
     source: { text: 'Su Shi Essay', author: 'Su Shi' },
     tags: ['flow', 'skill', 'artistry']
+  },
+  {
+    id: 'e13',
+    cn: '庖丁解牛',
+    pinyin: 'páo dīng jiě niú',
+    en: 'Executing the complex task as effortlessly as Chef Ding carving an ox.',
+    sense: 'Mastery gained through deep experience.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Zhuangzi', author: 'Zhuang Zhou' },
+    tags: ['mastery', 'ease', 'parable']
+  },
+  {
+    id: 'e14',
+    cn: '画蛇添足',
+    pinyin: 'huà shé tiān zú',
+    en: 'Ruining perfection by drawing unnecessary legs on a snake.',
+    sense: 'Wasted effort that ruins work.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Zhan Guo Ce', author: null },
+    tags: ['wasted', 'warning', 'detail']
+  },
+  {
+    id: 'e15',
+    cn: '画龙点睛',
+    pinyin: 'huà lóng diǎn jīng',
+    en: 'Adding the vital dot to the dragon\'s eyes to bring it to life!',
+    sense: 'Crucial finishing touch.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'classical',
+    source: { text: 'Shuduan', author: 'Zhang Yanyuan' },
+    tags: ['touch', 'masterpiece', 'finish']
+  },
+  {
+    id: 'e16',
+    cn: '狮子搏兔亦用全力',
+    pinyin: 'shī zi bó tù yì yòng quán lì',
+    en: 'Even when hunting a humble rabbit, a lion exerts its full strength!',
+    sense: 'Never relax even against a weak foe.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Combat Strategy', author: null },
+    tags: ['strategy', 'focus', 'caution']
   },
   {
     id: 'd2',
@@ -404,8 +1408,142 @@ export const INITIAL_QUOTES = [
     source: { text: 'Book of Sui', author: null },
     tags: ['speed', 'lightning', 'movement']
   },
+  {
+    id: 'b2',
+    cn: '吐血三升',
+    pinyin: 'tǔ xuè sān shēng',
+    en: 'Coughing up three mouthfuls of blood from internal backlash and rage!',
+    sense: 'Physical reaction to cultivate backlash or rage.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Novel Trope', author: null },
+    tags: ['blood', 'backlash', 'rage']
+  },
+  {
+    id: 'b3',
+    cn: '气血逆流',
+    pinyin: 'qì xuè nì liú',
+    en: 'Blood flowing in reverse from a devastating cultivation backlash!',
+    sense: 'Severe internal trauma.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Cultivation Backlash', author: null },
+    tags: ['trauma', 'backlash', 'blood']
+  },
+  {
+    id: 'b4',
+    cn: '打鸡血',
+    pinyin: 'dǎ jī xuè',
+    en: 'Energized as if injected with fresh chicken blood!',
+    sense: 'Extreme excitement and sudden burst of energy.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Modern Slang', author: null },
+    tags: ['excitement', 'slang', 'energy']
+  },
+  {
+    id: 'b5',
+    cn: '咬牙切齿',
+    pinyin: 'yǎo yá qiè chǐ',
+    en: 'Gnashing teeth in intense rage and frustration.',
+    sense: 'Extreme anger.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Expression', author: null },
+    tags: ['anger', 'teeth', 'rage']
+  },
+  {
+    id: 'b6',
+    cn: '倒吸一口凉气',
+    pinyin: 'dào xī yī kǒu liáng qì',
+    en: 'Sucking in a deep breath of cold air in complete shock!',
+    sense: 'Physical reaction of shock and awe.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Webnovel Trope', author: null },
+    tags: ['shock', 'breath', 'surprise']
+  },
+  {
+    id: 'b7',
+    cn: '甩袖而去',
+    pinyin: 'shuǎi xiù ér qù',
+    en: 'Departing with a grand flick of a long robe sleeve.',
+    sense: 'Flourish of indignation or dramatic departure.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Novel Trope', author: null },
+    tags: ['sleeve', 'flourish', 'robe']
+  },
+  {
+    id: 'b8',
+    cn: '悔得肠子都青了',
+    pinyin: 'huǐ de cháng zi dōu qīng le',
+    en: 'Regretting so deeply that one\'s intestines turn green!',
+    sense: 'Utter, bitter regret.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Colloquial Trope', author: null },
+    tags: ['regret', 'intestines', 'green']
+  },
+  {
+    id: 'b9',
+    cn: '七窍流血',
+    pinyin: 'qī qiào liú xuè',
+    en: 'Bleeding from all seven orifices of the head!',
+    sense: 'Severe head or internal injury.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Novel Trope', author: null },
+    tags: ['orifices', 'injury', 'head']
+  },
+  {
+    id: 'tm1',
+    cn: '一炷香功夫',
+    pinyin: 'yī zhù xiāng gōng fu',
+    en: 'In the span of time it takes an incense stick to burn down.',
+    sense: 'A short span; roughly 5 to 30 minutes.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Time Unit', author: null },
+    tags: ['time', 'incense', 'span']
+  },
+  {
+    id: 'tm2',
+    cn: '一盏茶功夫',
+    pinyin: 'yī zhǎn chá gōng fu',
+    en: 'In the time it takes to drink a single cup of tea.',
+    sense: 'Brief span; roughly 10–15 minutes.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Time Unit', author: null },
+    tags: ['time', 'tea', 'span']
+  },
+  {
+    id: 'tm4',
+    cn: '一呼吸间',
+    pinyin: 'yī hū xī jiān',
+    en: 'Accomplished in a single breath of time.',
+    sense: 'Ultra-fast span; 1 to 3 seconds.',
+    path: 'xing',
+    seal: '行',
+    sourceType: 'idiom',
+    source: { text: 'Time Unit', author: null },
+    tags: ['instant', 'breath', 'speed']
+  },
 
-  // --- 5. YIN (隐) — Solitude, Philosophy & Dao ---
+  // ==========================================
+  // --- 5. YIN (隐) — Solitude, Philosophy, Governance & Moral
+  // ==========================================
   {
     id: 'p1',
     cn: '大道无形',
@@ -417,6 +1555,18 @@ export const INITIAL_QUOTES = [
     sourceType: 'classical',
     source: { text: 'Qingjing Jing (Scripture of Purity and Tranquility)', author: 'Daoist Canon' },
     tags: ['dao', 'formless', 'transcendence']
+  },
+  {
+    id: 'p2',
+    cn: '心定则万物皆道',
+    pinyin: 'xīn dìng zé wàn wù jiē dào',
+    en: 'If the heart is certain and unwavering, all things under heaven become part of the Dao.',
+    sense: 'Steadying conviction in one\'s spiritual path.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Dao Heart Conviction', author: null },
+    tags: ['conviction', 'dao heart', 'certainty']
   },
   {
     id: 'p3',
@@ -443,6 +1593,18 @@ export const INITIAL_QUOTES = [
     tags: ['perspective', 'zhuangzi', 'wisdom']
   },
   {
+    id: 'p5',
+    cn: '阴阳相生',
+    pinyin: 'yīn yáng xiāng shēng',
+    en: 'Without the profound darkness of night, how can there be any true appreciation of light?',
+    sense: 'Reconciling dualities of existence.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Dualistic Dao Lore', author: null },
+    tags: ['yin yang', 'light', 'balance']
+  },
+  {
     id: 'p6',
     cn: '善恶皆是自我',
     pinyin: 'shàn è jiē shì zì wǒ',
@@ -453,6 +1615,18 @@ export const INITIAL_QUOTES = [
     sourceType: 'novel',
     source: { title: 'Renegade Immortal (Xian Ni)', author: 'Er Gen' },
     tags: ['cosmology', 'er gen', 'morality']
+  },
+  {
+    id: 'p7',
+    cn: '万物皆空，一心自由',
+    pinyin: 'wàn wù jiē kōng, yī xīn zì yóu',
+    en: 'All is well under heaven, and all spirits are fundamentally free.',
+    sense: 'Serene release from worldly bonds.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Zen Cultivator Saying', author: null },
+    tags: ['serenity', 'freedom', 'release']
   },
   {
     id: 'p8',
@@ -467,6 +1641,114 @@ export const INITIAL_QUOTES = [
     tags: ['wisdom', 'circle', 'flexibility']
   },
   {
+    id: 'm1',
+    cn: '仰不愧于天，俯不怍于地',
+    pinyin: 'yǎng bù kuì yú tiān, fǔ bù zuò yú dì',
+    en: 'With no guilt toward heaven above, no shame toward earth below, and no deceit toward the heart within.',
+    sense: 'Upright pride and unblemished moral integrity.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Mencius', author: 'Mencius' },
+    tags: ['integrity', 'honor', 'conscience']
+  },
+  {
+    id: 'm2',
+    cn: '王子犯法与庶民同罪',
+    pinyin: 'wáng zǐ fàn fǎ yǔ shù mín tóng zuì',
+    en: 'All laws under heaven are equal; prince or commoner, all must obey regardless of status.',
+    sense: 'Principled, egalitarian conviction.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Legalist Precept', author: null },
+    tags: ['justice', 'equality', 'law']
+  },
+  {
+    id: 'm4',
+    cn: '严以律己，宽以待人',
+    pinyin: 'yán yǐ lǜ jǐ, kuān yǐ dài rén',
+    en: 'Treat others with lenience and benevolence, but demand strict perfection from oneself.',
+    sense: 'Moral generosity and personal discipline.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Song History', author: null },
+    tags: ['generosity', 'discipline', 'morality']
+  },
+  {
+    id: 'm6',
+    cn: '酒不醉人人自醉',
+    pinyin: 'jiǔ bù zuì rén rén zì zuì',
+    en: 'Wine does not intoxicate a man; a man intoxicates himself.',
+    sense: 'Dry insistence on personal responsibility.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'idiom',
+    source: { text: 'Traditional Proverb', author: null },
+    tags: ['responsibility', 'intoxication', 'self-control']
+  },
+  {
+    id: 'm8',
+    cn: '心死胜于身死',
+    pinyin: 'xīn sǐ shèng yú shēn sǐ',
+    en: 'There is no tragedy under heaven worse than an uncaring, numb heart.',
+    sense: 'Sorrowful moral judgment on apathy.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Zhuangzi', author: 'Zhuang Zhou' },
+    tags: ['apathy', 'heart', 'tragedy']
+  },
+  {
+    id: 'l1',
+    cn: '求贤纳谏',
+    pinyin: 'qiú xián nà jiàn',
+    en: 'A true leader needs subordinates who support them, but also advisors who dare to restrict them.',
+    sense: 'Sober, mature leadership.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Statecraft Precept', author: null },
+    tags: ['leadership', 'governance', 'advisors']
+  },
+  {
+    id: 'l2',
+    cn: '欲速则不达',
+    pinyin: 'yù sù zé bù dá',
+    en: 'Governing a large faction requires steadiness over speed; haste leads to ruin.',
+    sense: 'Patient caution in governance.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Analects of Confucius', author: 'Confucius' },
+    tags: ['caution', 'governance', 'patience']
+  },
+  {
+    id: 'l4',
+    cn: '一样米养百样人',
+    pinyin: 'yī yàng mǐ yǎng bǎi yàng rén',
+    en: 'No single principle fits every situation; the same grain of rice raises a hundred different kinds of people.',
+    sense: 'Humane skepticism of rigid dogma.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['diversity', 'humanity', 'dogma']
+  },
+  {
+    id: 'i1',
+    cn: '少年不识愁滋味',
+    pinyin: 'shào nián bù shí chóu zī wèi',
+    en: 'When young, one does not know the true flavor of worry, calling it sorrow merely to write new poetry.',
+    sense: 'Nostalgic irony about youthful dramatization.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Song Ci Poem', author: 'Xin Qiji' },
+    tags: ['youth', 'irony', 'nostalgia']
+  },
+  {
     id: 'i3',
     cn: '纸上得来终觉浅，绝知此事要躬行',
     pinyin: 'zhǐ shàng dé lái zhōng jué qiǎn, jué zhī cǐ shì yào gōng xíng',
@@ -478,8 +1760,34 @@ export const INITIAL_QUOTES = [
     source: { text: 'Winter Night Reading', author: 'Lu You' },
     tags: ['practice', 'knowledge', 'humility']
   },
+  {
+    id: 'lim2',
+    cn: '高手如云',
+    pinyin: 'gāo shǒu rú yún',
+    en: 'Formidable experts standing as common as clouds in the sky!',
+    sense: 'Vast number of elite masters.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'idiom',
+    source: { text: 'Wuxia Lore', author: null },
+    tags: ['experts', 'clouds', 'masters']
+  },
+  {
+    id: 'lim3',
+    cn: '凤毛麟角',
+    pinyin: 'fèng máo lín jiǎo',
+    en: 'As rare as phoenix feathers and Qilin unicorn horns.',
+    sense: 'Extremely rare, precious talent.',
+    path: 'yin',
+    seal: '隐',
+    sourceType: 'classical',
+    source: { text: 'Nan Shi', author: null },
+    tags: ['rare', 'phoenix', 'qilin']
+  },
 
-  // --- 6. QING (情) — Emotion, Longing & Bonds ---
+  // ==========================================
+  // --- 6. QING (情) — Emotion, Longing, Beauty & Jianghu
+  // ==========================================
   {
     id: 't1',
     cn: '化身石桥',
@@ -493,6 +1801,18 @@ export const INITIAL_QUOTES = [
     tags: ['devotion', 'love', 'endurance']
   },
   {
+    id: 't2',
+    cn: '女人心，海底针',
+    pinyin: 'nǚ rén xīn, hǎi dǐ zhēn',
+    en: 'The hearts of women are like a needle at the bottom of the sea — deep and inscrutable.',
+    sense: 'Wistful bemusement regarding mystery.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'idiom',
+    source: { text: 'Folk Proverb', author: null },
+    tags: ['mystery', 'romance', 'proverb']
+  },
+  {
     id: 't3',
     cn: '仙人抚我顶，结发授长生',
     pinyin: 'xiān rén fǔ wǒ dǐng, jié fà shòu cháng shēng',
@@ -503,6 +1823,42 @@ export const INITIAL_QUOTES = [
     sourceType: 'classical',
     source: { text: 'To my Nephew', author: 'Li Bai' },
     tags: ['immortality', 'whimsy', 'li bai']
+  },
+  {
+    id: 'bt1',
+    cn: '温润如玉',
+    pinyin: 'wēn rùn rú yù',
+    en: 'Refined, flawless, and as smooth as warm, unblemished jade.',
+    sense: 'Refined, noble beauty and character.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'idiom',
+    source: { text: 'Book of Rites (Liji)', author: null },
+    tags: ['jade', 'refined', 'elegant']
+  },
+  {
+    id: 'bt2',
+    cn: '冰清玉洁',
+    pinyin: 'bīng qīng yù jié',
+    en: 'Pure and incorruptible — clear as ice and clean as unblemished jade.',
+    sense: 'Spotless, incorruptible purity.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'classical',
+    source: { text: 'Huainanzi', author: 'Liu An' },
+    tags: ['purity', 'ice', 'jade']
+  },
+  {
+    id: 'bt3',
+    cn: '秋水盈盈',
+    pinyin: 'qiū shuǐ yíng yíng',
+    en: 'Eyes as clear, striking, and deep as limpid autumn waters.',
+    sense: 'Strikingly beautiful eyes.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'classical',
+    source: { text: 'Classic Descriptor', author: null },
+    tags: ['eyes', 'autumn', 'water']
   },
   {
     id: 'j1',
@@ -527,6 +1883,42 @@ export const INITIAL_QUOTES = [
     sourceType: 'idiom',
     source: { text: 'Traditional Precept', author: null },
     tags: ['mentorship', 'honor', 'respect']
+  },
+  {
+    id: 'j3',
+    cn: '金盆洗手',
+    pinyin: 'jīn pén xǐ shǒu',
+    en: 'Washing one\'s hands in a golden basin to leave the bloodshed of the martial world behind forever.',
+    sense: 'Retiring forever from chaos and conflict.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'idiom',
+    source: { text: 'Wuxia Retirement Lore', author: null },
+    tags: ['retirement', 'peace', 'jianghu']
+  },
+  {
+    id: 'j4',
+    cn: '飞檐走壁',
+    pinyin: 'fēi yán zǒu bì',
+    en: 'Leaping across house ridges and walking across sheer walls with supreme agility.',
+    sense: 'Superb movement skills of martial artists.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'idiom',
+    source: { text: 'Qinggong Lore', author: null },
+    tags: ['qinggong', 'agility', 'rooftops']
+  },
+  {
+    id: 'j5',
+    cn: '风雨飘摇',
+    pinyin: 'fēng yǔ piāo yáo',
+    en: 'Enduring bitter wind and torrential rain across the land.',
+    sense: 'Hardships and trials of life.',
+    path: 'qing',
+    seal: '情',
+    sourceType: 'classical',
+    source: { text: 'Classic Description', author: null },
+    tags: ['wind', 'rain', 'hardship']
   },
   {
     id: 'i2',
