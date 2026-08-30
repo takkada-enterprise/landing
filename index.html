@@ -28,7 +28,13 @@
          Guards in src/__tests__/fonts.test.js. -->
 
     <script type="text/javascript">
-      if (typeof window !== 'undefined' && !['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+      if (
+        typeof window !== 'undefined' &&
+        !['localhost', '127.0.0.1'].includes(window.location.hostname) &&
+        !window.location.hostname.startsWith('192.168.') &&
+        !window.location.hostname.startsWith('10.') &&
+        !window.location.hostname.endsWith('.local')
+      ) {
         (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
