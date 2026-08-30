@@ -544,7 +544,7 @@ function LayoutInner() {
     return () => document.body.classList.remove('lock-scroll');
   }, [menuOpen]);
 
-  const isStandaloneApp = location.pathname.startsWith('/chinese_novel_quotes_wuxia');
+  const isStandaloneApp = location.pathname.startsWith('/chinese-sayings');
 
   if (isStandaloneApp) {
     return (

@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { PlusCircle } from 'lucide-react';
-import { MOOD_CATEGORIES, getAllQuotes, addCustomQuote } from '../../data/wuxiaQuotesDataset';
+import { MOOD_CATEGORIES, getAllQuotes } from '../../data/wuxiaQuotesDataset';
 import WuxiaQuoteCard from './WuxiaQuoteCard';
-import AddQuoteModal from './AddQuoteModal';
 
 export default function WuxiaQuotesApp() {
   const [quotes, setQuotes] = useState(getAllQuotes());
   const [activeMood, setActiveMood] = useState('all');
   const [currentQuote, setCurrentQuote] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
 
   // Check URL hash for shared quote (#q=f1)
   useEffect(() => {
@@ -52,14 +49,6 @@ export default function WuxiaQuotesApp() {
     pickRandomQuote(pathId);
   };
 
-  const handleAddCustomQuote = (newQuoteData) => {
-    const created = addCustomQuote(newQuoteData);
-    const updated = getAllQuotes();
-    setQuotes(updated);
-    setCurrentQuote(created);
-    setActiveMood(created.path);
-  };
-
   return (
     <div className="wuxia-app-container">
       {/* Side Vertical Chinese Calligraphy Text Accent */}
@@ -73,11 +62,6 @@ export default function WuxiaQuotesApp() {
           <div className="cinnabar-seal">江湖</div>
           <span>THE JIANGHU ORACLE</span>
         </div>
-
-        <button className="btn-draw-secondary" onClick={() => setModalOpen(true)}>
-          <PlusCircle size={16} />
-          <span>Add Saying</span>
-        </button>
       </header>
 
       {/* Main Content Area */}
@@ -142,13 +126,6 @@ export default function WuxiaQuotesApp() {
           />
         )}
       </main>
-
-      {/* Add Custom Saying Modal */}
-      <AddQuoteModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onAddQuote={handleAddCustomQuote}
-      />
     </div>
   );
 }
