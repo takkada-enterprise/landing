@@ -8,6 +8,7 @@ export default function ChineseNovelQuotesRoute() {
       <Seo
         title="Popular Sayings from Chinese Novels & Wuxia Lore"
         description="Discover legendary sayings, cultivator quotes, and martial arts wisdom categorized by mood from popular Chinese Wuxia and Xianxia web novels."
+        path="/chinese-sayings"
       />
       <WuxiaQuotesApp />
     </>
