@@ -361,6 +361,22 @@ function SiteFooter() {
             <p className="footer-company">{contactInfo.company}</p>
             <p className="footer-contact tabular-nums">{contactInfo.phone}</p>
             <p className="footer-contact">{contactInfo.email}</p>
+            <div className="footer-badge" style={{ marginTop: '16px' }}>
+              <a
+                href="https://saashunt.best/projects/takkada?utm_source=badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://saashunt.best/images/badges/featured-on-light.svg"
+                  alt="Featured on SaasHunt"
+                  style={{ height: '44px', width: 'auto' }}
+                  loading="lazy"
+                  width="180"
+                  height="44"
+                />
+              </a>
+            </div>
           </div>
           <div className="footer-columns">
             {footerColumns.map((col) => (

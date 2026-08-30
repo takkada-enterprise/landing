@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from 'react';
+import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
 const PhoneModalContext = createContext(null);
 
@@ -28,8 +28,13 @@ export function PhoneModalProvider({ children }) {
     setOpenState(true);
   }, []);
 
+  const value = useMemo(
+    () => ({ open, setOpen, openWith, options }),
+    [open, setOpen, openWith, options]
+  );
+
   return (
-    <PhoneModalContext.Provider value={{ open, setOpen, openWith, options }}>
+    <PhoneModalContext.Provider value={value}>
       {children}
     </PhoneModalContext.Provider>
   );
