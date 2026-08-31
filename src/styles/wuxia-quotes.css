@@ -37,6 +37,27 @@
   flex-direction: column;
 }
 
+/* Dynamic Wuxia Wallpaper Backdrop */
+.wuxia-bg-backdrop {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out, opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.wuxia-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(243, 235, 221, 0.28) 0%, rgba(243, 235, 221, 0.55) 70%, rgba(243, 235, 221, 0.85) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 /* Subtle Paper Texture Overlay */
 .wuxia-app-container::before {
   content: '';
