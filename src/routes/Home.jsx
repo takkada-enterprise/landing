@@ -32,6 +32,7 @@ import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
+import WuxiaBackgroundToggle from '../components/wuxia/WuxiaBackgroundToggle';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
@@ -349,10 +350,11 @@ function Home({ seo = HOME_SEO }) {
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
   // Which plan column the narrow-viewport table shows. Desktop ignores it.
   const [activePlan, setActivePlan] = useState(pricing.plans.length - 1);
+  const [wuxiaRealm, setWuxiaRealm] = useState(false);
   useScrollReveal();
 
   return (
-    <div className="home-v3">
+    <div className={`home-v3${wuxiaRealm ? ' wuxia-realm-active' : ''}`}>
       <Seo
         title={seo.title}
         description={seo.description}
@@ -365,7 +367,13 @@ function Home({ seo = HOME_SEO }) {
         <div className="container">
           <div className="hv3-hero-grid">
             <div className="hv3-hero-copy">
-              <span className="section-label hero-overline">{heroContent.overline}</span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '12px' }}>
+                <span className="section-label hero-overline">{heroContent.overline}</span>
+                <WuxiaBackgroundToggle
+                  isActive={wuxiaRealm}
+                  onToggle={() => setWuxiaRealm(!wuxiaRealm)}
+                />
+              </div>
               <h1 className="hero-title">
                 <span className="hv3-hero-lead">{heroContent.titleLead}</span>{' '}
                 <span className="hero-title-accent hv3-hero-accent">{heroContent.titleAccent}</span>

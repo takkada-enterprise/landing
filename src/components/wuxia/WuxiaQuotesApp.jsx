@@ -3,10 +3,34 @@ import { motion } from 'framer-motion';
 import { MOOD_CATEGORIES, getAllQuotes } from '../../data/wuxiaQuotesDataset';
 import WuxiaQuoteCard from './WuxiaQuoteCard';
 
+const MOOD_WALLPAPERS = {
+  all: '/assets/Wuxia/1932181.jpg',
+  fate: '/assets/Wuxia/1932181.jpg',
+  dao: '/assets/Wuxia/1932246.jpg',
+  sword: '/assets/Wuxia/wp2999269.png',
+  rebel: '/assets/Wuxia/1932198.jpg',
+  persevere: '/assets/Wuxia/1932200.jpg',
+};
+
+const WALLPAPER_PRESETS = [
+  { id: 'auto', name: '✨ Mood Auto', url: null },
+  { id: '1932181', name: '🍁 Autumn Lake', url: '/assets/Wuxia/1932181.jpg' },
+  { id: '1932200', name: '🌅 Golden Temple', url: '/assets/Wuxia/1932200.jpg' },
+  { id: '1932246', name: '🏯 Great Monastery', url: '/assets/Wuxia/1932246.jpg' },
+  { id: '1932198', name: '🌉 Mountain Bridge', url: '/assets/Wuxia/1932198.jpg' },
+  { id: 'wp2999269', name: '⚔️ Wuxia Warrior', url: '/assets/Wuxia/wp2999269.png' },
+];
+
 export default function WuxiaQuotesApp() {
   const [quotes, setQuotes] = useState(getAllQuotes());
   const [activeMood, setActiveMood] = useState('all');
   const [currentQuote, setCurrentQuote] = useState(null);
+  const [selectedWallpaper, setSelectedWallpaper] = useState('auto');
+
+  // Determine active background image
+  const activeBgImage = selectedWallpaper === 'auto'
+    ? (MOOD_WALLPAPERS[activeMood] || MOOD_WALLPAPERS.all)
+    : (WALLPAPER_PRESETS.find(w => w.id === selectedWallpaper)?.url || MOOD_WALLPAPERS.all);
 
   // Check URL hash for shared quote (#q=f1)
   useEffect(() => {
@@ -51,21 +75,52 @@ export default function WuxiaQuotesApp() {
 
   return (
     <div className="wuxia-app-container">
+      {/* Wuxia Atmospheric Background Artwork */}
+      <div
+        className="wuxia-bg-backdrop"
+        style={{ backgroundImage: `url(${activeBgImage})` }}
+      >
+        <div className="wuxia-bg-overlay" />
+      </div>
+
       {/* Side Vertical Chinese Calligraphy Text Accent */}
       <div className="vertical-chinese-sidebar">
         江湖万里风云
       </div>
 
       {/* Navbar */}
-      <header className="wuxia-navbar">
+      <header className="wuxia-navbar" style={{ position: 'relative', zIndex: 50 }}>
         <div className="wuxia-logo">
           <div className="cinnabar-seal">江湖</div>
           <span>THE JIANGHU ORACLE</span>
         </div>
+        {/* Wallpaper Switcher */}
+        <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--jade)', letterSpacing: '0.5px' }}>SCENERY:</span>
+          {WALLPAPER_PRESETS.map((wp) => (
+            <button
+              key={wp.id}
+              onClick={() => setSelectedWallpaper(wp.id)}
+              style={{
+                background: selectedWallpaper === wp.id ? 'var(--ink)' : 'rgba(229, 215, 190, 0.7)',
+                color: selectedWallpaper === wp.id ? '#FFF' : 'var(--charcoal)',
+                border: '1px solid var(--manuscript-border)',
+                borderRadius: '3px',
+                padding: '4px 8px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {wp.name}
+            </button>
+          ))}
+        </div>
       </header>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 10 }}>
         {/* Hero Section */}
         <section className="wuxia-hero">
           <motion.div
@@ -129,3 +184,4 @@ export default function WuxiaQuotesApp() {
     </div>
   );
 }
+

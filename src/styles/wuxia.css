@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════════
+   TAKKADA — Wuxia Background & Atmospheric Layer System
+   ═══════════════════════════════════════════════════ */
+
+/* Atmospheric Wuxia Hero Layer */
+.home-v3.wuxia-realm-active .hv3-hero {
+  position: relative;
+  background-color: #0f1d16;
+}
+
+.home-v3.wuxia-realm-active .hv3-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/Wuxia/1932181.jpg');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.78;
+  filter: contrast(1.12) saturate(1.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-v3.wuxia-realm-active .hv3-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 29, 22, 0.25) 0%,
+    rgba(15, 29, 22, 0.55) 60%,
+    #0f1d16 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-v3.wuxia-realm-active .hv3-hero-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.home-v3.wuxia-realm-active .hv3-hero-lead,
+.home-v3.wuxia-realm-active .hv3-hero-sub {
+  color: #F3FBF5;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+.home-v3.wuxia-realm-active .hv3-hero-accent {
+  background: linear-gradient(135deg, #FFFFFF 0%, #A5D6B1 50%, #DCE9E0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+}
+
+/* Glassmorphism Cards under Wuxia Realm */
+.home-v3.wuxia-realm-active .hv3-stat {
+  background: rgba(15, 29, 22, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(184, 212, 190, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* Wuxia Backdrop for Road Tour Section */
+.home-v3.wuxia-realm-active .hv3-story--road {
+  position: relative;
+  background-color: #0f1d16;
+}
+
+.home-v3.wuxia-realm-active .hv3-story--road::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/Wuxia/1932200.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.75;
+  filter: contrast(1.1) saturate(1.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-v3.wuxia-realm-active .hv3-story--road::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 29, 22, 0.3) 0%,
+    rgba(15, 29, 22, 0.6) 70%,
+    #0f1d16 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-v3.wuxia-realm-active .hv3-story--road .container {
+  position: relative;
+  z-index: 2;
+}
+
+.home-v3.wuxia-realm-active .hv3-story--road .hv3-story-title,
+.home-v3.wuxia-realm-active .hv3-story--road .hv3-story-intro {
+  color: #FAFAF7;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.home-v3.wuxia-realm-active .hv3-tour-step {
+  background: rgba(15, 29, 22, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(107, 158, 122, 0.4);
+}
+
+.home-v3.wuxia-realm-active .hv3-tour-step-title {
+  color: #E7F0E8;
+}
+
+.home-v3.wuxia-realm-active .hv3-tour-step-body {
+  color: #B8D4BE;
+}
+
+/* Wuxia Backdrop for AI Section */
+.home-v3.wuxia-realm-active .hv3-ai {
+  position: relative;
+  background-color: #14241C;
+}
+
+.home-v3.wuxia-realm-active .hv3-ai::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/Wuxia/1932246.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.75;
+  filter: contrast(1.1) saturate(1.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-v3.wuxia-realm-active .hv3-ai::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 36, 28, 0.3) 0%,
+    rgba(20, 36, 28, 0.6) 70%,
+    #14241C 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-v3.wuxia-realm-active .hv3-ai .container {
+  position: relative;
+  z-index: 2;
+}
+
+.home-v3.wuxia-realm-active .hv3-ai-card {
+  background: rgba(15, 29, 22, 0.84);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(184, 212, 190, 0.4);
+}
+
+.home-v3.wuxia-realm-active .hv3-ai-card-title {
+  color: #FAFAF7;
+}
+
+.home-v3.wuxia-realm-active .hv3-ai-card-body {
+  color: #B8D4BE;
+}
