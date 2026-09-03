@@ -1,6 +1,7 @@
 import React from 'react';
 import WuxiaQuotesApp from '../components/wuxia/WuxiaQuotesApp';
 import Seo from '../components/Seo';
+import '../styles/wuxia-quotes.css';
 
 export default function ChineseNovelQuotesRoute() {
   return (
