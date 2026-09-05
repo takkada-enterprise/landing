@@ -70,9 +70,9 @@ const data = {
     { name: 'Auto-Reconciliation', url: 'https://takkada.com/auto-reconciliation-tally/' },
   ],
   seo: {
-    title: 'Auto-Reconciliation for Tally | Match Every Payment',
+    title: 'Payment Reconciliation Software for Tally | Takkada',
     description:
-      'Payments auto-match to the correct Tally invoice. Partial, bulk, and unreferenced payments handled. Entries post into Tally automatically.',
+      'Automate payment reconciliation in Tally. Match UPI and bank payments to invoices, handle partial payments and post receipts back into Tally.',
     canonical: 'https://takkada.com/auto-reconciliation-tally/',
   },
 };

@@ -99,7 +99,7 @@ export const routeMetadata = [
     path: '/auto-reconciliation-tally',
     llms: {
       section: 'Features',
-      title: 'Auto-reconciliation into Tally',
+      title: 'Payment reconciliation software for Tally',
       summary:
         "Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.",
     },
@@ -111,7 +111,7 @@ export const routeMetadata = [
     path: '/for-distributors',
     llms: {
       section: 'Key pages',
-      title: 'For distributors',
+      title: 'Distributor management software for Tally',
       summary:
         "The collections-heavy distributor workflow, for businesses carrying 30-300 retailer receivables on Tally.",
     },

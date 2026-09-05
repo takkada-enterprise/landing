@@ -1410,6 +1410,30 @@ ARTICLES = [
         "category": "Market Reality",
         "tagline": "Today's load, photo check-in, Sales Order, Team Sales at 8 PM.",
     },
+    {
+        "slug": "tally-whatsapp-integration",
+        "title": "Tally WhatsApp Integration for Payment Reminders and Invoices",
+        "category": "Integration",
+        "tagline": "Invoice PDF on WhatsApp. Reminders scheduled. Zero MDR UPI.",
+    },
+    {
+        "slug": "accounts-receivable-automation",
+        "title": "Accounts Receivable Automation for Tally",
+        "category": "Receivables",
+        "tagline": "Track outstanding, send WhatsApp reminders, collect UPI.",
+    },
+    {
+        "slug": "receivables-management-software",
+        "title": "Receivables Management Software for Tally",
+        "category": "Receivables",
+        "tagline": "Party balances on phone. Direct collection. Tally sync.",
+    },
+    {
+        "slug": "distributor-management-software",
+        "title": "Distributor Management Software for Indian Businesses",
+        "category": "Distribution",
+        "tagline": "Orders, invoicing, collections and auto-reconciliation around Tally.",
+    },
 ]
 
 if __name__ == "__main__":

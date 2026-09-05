@@ -9,7 +9,7 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 ## Key pages
 
 - [Home](https://takkada.com/): What Takkada does for a distributor running Tally: mobile invoicing, WhatsApp dispatch, UPI collection at 0% MDR, and auto-reconciliation back into Tally. Pricing and FAQs.
-- [For distributors](https://takkada.com/for-distributors/): The collections-heavy distributor workflow, for businesses carrying 30-300 retailer receivables on Tally.
+- [Distributor management software for Tally](https://takkada.com/for-distributors/): The collections-heavy distributor workflow, for businesses carrying 30-300 retailer receivables on Tally.
 - [Tally mobile app comparison](https://takkada.com/tally-mobile-app-comparison/): Takkada compared with other Tally mobile apps, feature by feature.
 - [Live demo](https://takkada.com/demo/): Try Takkada on a demo company with real-shaped books, no installation.
 - [All features](https://takkada.com/features/): Directory of every Takkada feature page, grouped by job: getting paid, receivables, Tally on the phone, field sales, GST documents, billing and stock, imports, and comparisons.
@@ -25,7 +25,7 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 
 - [Tally on mobile (receivables view)](https://takkada.com/mobile-tally/): See Tally outstanding from a phone, send WhatsApp reminders and share ledger statements. Works with TallyPrime and Tally ERP 9.
 - [WhatsApp invoicing from Tally](https://takkada.com/whatsapp-invoice-tally/): Salesmen raise invoices at the retailer's shop from their phone. Syncs to Tally in real time and the retailer gets the PDF on WhatsApp.
-- [Auto-reconciliation into Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
+- [Payment reconciliation software for Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
 - [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
 - [Payment collection on Tally](https://takkada.com/payment-collection-tally/): UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.
 - [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
@@ -151,6 +151,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [E-Way Bill Auto Generation With E-Invoice: What the IRN Actually Carries Across](https://takkada.com/blog/e-way-bill-with-e-invoice-auto-population/)
 - [E-Way Bill Expired Penalty: The Law, the 8-Hour Window and What to Do](https://takkada.com/blog/e-way-bill-expiry-extension-penalty/)
 
+### Distribution
+
+- [Distributor Management Software for Indian Businesses](https://takkada.com/blog/distributor-management-software/)
+
 ### Field Sales
 
 - [A Sales Team Leaderboard From Your Own Tally Books](https://takkada.com/blog/sales-team-leaderboard-for-distributors/)
@@ -220,6 +224,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/)
 - [Who Gets Credit for the Order: Attribution and Reassignment](https://takkada.com/blog/order-attribution-and-reassignment-salesman/)
 
+### Integration
+
+- [Tally WhatsApp Integration for Payment Reminders and Invoices](https://takkada.com/blog/tally-whatsapp-integration/)
+
 ### Market Reality
 
 - [A Day on a Beat: The Field Sales Routine, Hour by Hour](https://takkada.com/blog/a-day-on-a-beat-distributor-field-sales-routine/)
@@ -255,6 +263,11 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Payment Due-Date Tracking in Tally So Nothing Slips](https://takkada.com/blog/payment-due-date-tracking-tally/)
 - [Sundry Creditors in Tally: Track Supplier Dues on Mobile](https://takkada.com/blog/sundry-creditors-tally-mobile/)
 - [Vendor Portal Pending Invoices: Reconciling It With Your Tally](https://takkada.com/blog/vendor-portal-pending-invoices/)
+
+### Receivables
+
+- [Accounts Receivable Automation for Tally](https://takkada.com/blog/accounts-receivable-automation/)
+- [Receivables Management Software for Tally](https://takkada.com/blog/receivables-management-software/)
 
 ### Reports
 
