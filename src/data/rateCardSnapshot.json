@@ -26,6 +26,6 @@
     "extra_user_slabs"
   ],
   "exemptions": {
-    "biggerSetups": [30000, 15000]
+    "biggerSetups": []
   }
 }

@@ -78,8 +78,8 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('accepts every figure the snapshot derives (annual, per-year, billed-once, addons, exemptions)', () => {
     const html =
-      '<p>₹8,500 ₹6,375 ₹19,125 ₹2,900 ₹2,175 ₹6,525 ₹1,500 ₹3,999 ₹30,000 ₹15,000</p>';
-    expect(inspectPage(html, allowed)).toEqual({ total: 10, unknown: [] });
+      '<p>₹8,500 ₹6,375 ₹19,125 ₹2,900 ₹2,175 ₹6,525 ₹1,500 ₹3,999</p>';
+    expect(inspectPage(html, allowed)).toEqual({ total: 8, unknown: [] });
   });
 
   it('does not allow the never-rendered 3-year list total (₹25,500) — the allow-list stays as narrow as the page', () => {

@@ -154,20 +154,6 @@ describe('bigger setups block', () => {
     ).toBeTruthy();
   });
 
-  it('carries both self-hosting figures, derived rather than typed', () => {
-    const container = renderHome();
-    const card = [...container.querySelectorAll('.rate-bigger-card')].find((el) =>
-      /own server/i.test(el.textContent)
-    );
-    expect(card, 'no self-hosting card rendered').toBeTruthy();
-    // Recomputed here, so a hand-typed rupee string in the component or the
-    // data entry fails this instead of drifting silently from the deck.
-    expect(card.textContent).toContain(formatInr(30000));
-    expect(card.textContent).toContain(formatInr(15000));
-    expect(card.textContent).toMatch(/one-time implementation/i);
-    expect(card.textContent).toMatch(/from the second year/i);
-  });
-
   it('sets every rupee figure in tabular figures', () => {
     const container = renderHome();
     const amounts = [...container.querySelectorAll('.rate-bigger-amount')];
