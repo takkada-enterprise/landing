@@ -620,15 +620,6 @@ export const biggerSetups = {
       body: 'The second company keeps its own books, and somebody adds the two together by hand every month end. Receivables, sales and reports arrive as one view across every company you run.',
       price: [{ amount: 'Custom pricing', note: 'quoted against your company list' }],
     },
-    {
-      id: 'self-hosting',
-      title: 'Host it on your own server',
-      body: 'Your database and backend run on a server you own instead of on ours. We do the implementation with whoever looks after your IT.',
-      price: [
-        { amount: formatInr(30000), note: 'one-time implementation' },
-        { amount: `${formatInr(15000)} / year`, note: 'maintenance, from the second year' },
-      ],
-    },
   ],
   note: 'GST extra, same as every price on this page.',
   ctaLabel: 'Talk through your setup on WhatsApp',
