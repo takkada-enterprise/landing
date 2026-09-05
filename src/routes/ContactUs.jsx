@@ -12,7 +12,7 @@ function ContactUs() {
     <CompanyPageLayout>
       <Seo
         title="Contact Takkada. Call, email, or book a demo"
-        description="Reach Takkada by phone at +91 70191 52071, by email at admin@paysaathi.com, or book a personalized demo from our Guwahati office."
+        description="Reach Takkada by phone at +91 94359 77777, by email at admin@paysaathi.com, or book a personalized demo from our Guwahati office."
         path="/contact-us"
         schemas={[
           breadcrumbSchema([

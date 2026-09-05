@@ -737,7 +737,7 @@ export const appLinks = {
   // code included). Currently the founder's number from CLAUDE.md §13; swap
   // here when a dedicated business number exists. Empty string disables the
   // WhatsApp CTAs site-wide (they fall back to the calendar link).
-  whatsappNumber: '917019152071',
+  whatsappNumber: '919435977777',
   // The app's demo entry screen. THE HASH IS LOAD-BEARING: the app runs
   // hash routing, so 'https://app.takkada.com/demo' (the value this carried
   // until 2026-08-04) has never resolved to anything. The phone is appended as
@@ -870,7 +870,7 @@ export const comparisonSection = {
 
 export const contactInfo = {
   company: 'Pay Saathi Innovations LLP',
-  phone: '+91 70191 52071',
+  phone: '+91 94359 77777',
   email: 'admin@paysaathi.com',
   website: 'www.takkada.com',
 };
