@@ -5,11 +5,13 @@ meta_title: "Share Ledger Statement on WhatsApp From Tally: Guide"
 meta_description: "Share a ledger statement on WhatsApp from Tally: the manual export-to-PDF route, the faster mobile way, and how to add a UPI link so the party pays on the spot."
 primary_keyword: "share ledger statement on whatsapp"
 date: "2026-06-21"
-updated: "2026-08-08"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A Dibrugarh distributor gets a WhatsApp at 8 PM: 'Bhai, statement bhej do, ₹2,40,000 dikha raha hai.' He is away from the office PC, so the answer waits till morning and the payment slips another day. Here is how to share a party ledger statement on WhatsApp from Tally, both the manual way and the faster mobile way."
 ---
+
+Sharing a ledger statement on WhatsApp from Tally means exporting a party's account, every invoice, payment and running balance, from Tally and sending it to the retailer's phone the same way any other message goes out, rather than making the retailer wait until someone is back at the office computer. A Dibrugarh distributor who gets a WhatsApp at 8 PM asking for the statement because it is showing ₹2,40,000 due has no good answer until morning if he is away from the office PC, and the payment slips another day simply because the document was not accessible outside the desktop. The manual route, opening Tally, generating the ledger PDF, and attaching it in WhatsApp separately, still works when someone is at a desk. The faster mobile route pulls the same ledger data synced to the phone and shares it as a PDF directly from the app in a few taps, which is the difference between answering that WhatsApp in the moment and answering it the next morning.
 
 ## Key Highlights
 

@@ -5,10 +5,13 @@ meta_title: "Collection Efficiency Ratio: Formula and Targets in India"
 meta_description: "What collection efficiency means for Indian distributors, how to calculate it from Tally, healthy ratios by category, and three levers that move it."
 primary_keyword: "collection efficiency ratio india"
 date: "2026-05-18"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A distributor who invoices ₹1 crore in a month and collects ₹85 lakh that month has a collection efficiency of 85%. The number sounds technical. What it actually measures is whether the credit being extended is coming back as cash on the schedule the business needs."
 ---
+
+Collection efficiency ratio is the percentage of billed receivables a distributor actually collects in a given period, calculated as total collections divided by total invoiced amount for that period, and it is the cleanest single number for telling whether the credit being extended is coming back as cash on schedule. A distributor who invoices ₹1 crore in a month and collects ₹85 lakh that same month has a collection efficiency of 85%, which sounds like a technical accounting ratio but actually answers a plain business question: of everything sold on credit, how much turned into real money on time. A healthy target for most Indian distribution businesses sits between 90 and 95%, with anything consistently below 80% signalling that either the credit terms are too loose, the reminder cadence is too weak, or specific retailers are being allowed to drift without consequence. The three levers that move it are tighter credit limits, a fixed reminder schedule, and faster payment collection at the point of invoicing.
 
 ## Key Highlights
 

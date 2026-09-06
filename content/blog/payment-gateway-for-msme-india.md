@@ -5,10 +5,13 @@ meta_title: "Payment Gateway for MSME India: What Distributors Need"
 meta_description: "A practical guide to payment gateway for MSME in India. UPI MDR, settlement times, B2B-specific features, and what to evaluate before signing."
 primary_keyword: "payment gateway for msme india"
 date: "2026-04-25"
+updated: "2026-09-07"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A payment gateway processes the transaction between the customer's bank and yours. For an Indian MSME, the gateway is the layer that lets you accept UPI, cards, net-banking, and (increasingly) BNPL on a single integration. Razorpay, Cashfree, PayU, and Paytm for Business are the dominant gateways serving the MSME and SMB segment."
 ---
+
+A payment gateway processes the transaction between a customer's bank and an MSME's own account, and for an Indian distributor the gateway layer is what allows accepting UPI, cards, net-banking, and increasingly buy-now-pay-later options through a single integration rather than juggling separate tools for each. Razorpay, Cashfree, PayU, and Paytm for Business are the dominant gateways serving India's MSME and SMB segment, and all of them can technically process a distributor's payments. What actually matters for a distributor, though, is narrower than what most gateway comparisons cover: whether UPI collections genuinely carry 0% MDR or a hidden per-transaction fee, whether the payment can be tied to a specific Tally invoice rather than arriving as a generic credit, and whether the receipt reconciles back into the books automatically. A gateway built for online checkout flows, e-commerce carts and app payments, solves a different problem than a distributor's actual need, which is collecting against invoices already sitting in Tally, not building a payment page from scratch.
 
 ## Key Highlights
 

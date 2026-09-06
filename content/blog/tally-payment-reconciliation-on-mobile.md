@@ -5,10 +5,13 @@ meta_title: "Tally Payment Reconciliation on Mobile: How It Works"
 meta_description: "Tally payment reconciliation on mobile: how auto-reconciliation matches UPI receipts to invoices and posts a receipt voucher, ending the 9 PM session."
 primary_keyword: "tally payment reconciliation"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati accountant stays back every night to match the day's UPI credits against invoices in Tally. Forty receipts, ninety minutes, two errors. Moving Tally payment reconciliation onto mobile with auto-matching turns that ninety minutes into zero. Here is how the matching actually works."
 ---
+
+Done right, Tally payment reconciliation on mobile means each UPI or bank receipt is matched against the correct Tally invoice the moment it lands, using the UTR or payment reference automatically, rather than an accountant comparing a bank statement to a stack of invoices at the end of the day. A Guwahati accountant who stays back every night to match the day's UPI credits against invoices in Tally typically spends ninety minutes on forty receipts and still ends up with a couple of matching errors, simply because manual matching under time pressure is where mistakes creep in. Moving that reconciliation onto mobile with auto-matching does not just move the same task to a different screen, it changes when the matching happens: instead of batching sixty receipts into one evening session, each payment reconciles against its invoice the instant it is received, using the UTR, the amount, and the payment link metadata to find the right match automatically. What used to be a ninety-minute nightly task becomes a handful of exceptions to review, not ninety minutes of matching from scratch.
 
 ## Key Highlights
 

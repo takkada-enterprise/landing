@@ -5,10 +5,13 @@ meta_title: "DSO for Distributors: How to Calculate and Reduce It"
 meta_description: "DSO formula, healthy benchmarks for Indian distributors, and five levers that pull DSO down without losing customers. With a worked example."
 primary_keyword: "dso for distributors"
 date: "2026-05-06"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "DSO, or Days Sales Outstanding, is the average number of days a distributor takes to collect cash after raising an invoice. It is the single cleanest number that tells you whether your collections operation is keeping up with your sales team."
 ---
+
+DSO for a distributor is calculated as accounts receivable divided by total credit sales for the period, multiplied by the number of days in that period, and it is the single cleanest number for telling whether a collections operation is keeping pace with the sales team. A business selling well but collecting slowly will show healthy revenue and a climbing DSO at the same time, which is exactly the pattern that quietly starves growth of working capital even while the top line looks fine. Reducing it comes down to three changes that compound: setting a credit limit per retailer instead of extending credit informally, starting the reminder cadence before the due date rather than after it, and putting a UPI payment link directly on the invoice so paying takes one tap instead of a bank transfer someone has to remember to initiate. Most Indian distribution businesses can bring DSO down by 20 to 30 days this way without changing a single thing about what or to whom they sell.
 
 ## Key Highlights
 

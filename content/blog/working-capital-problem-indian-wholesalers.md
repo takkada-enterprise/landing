@@ -5,11 +5,13 @@ meta_title: "Working Capital Problem for Indian Wholesalers in 2026"
 meta_description: "Why the working capital problem for Indian wholesalers is structural, not seasonal. Credit terms, DSO math, MSME Samadhaan data, and what fixes the gap."
 primary_keyword: "working capital problem indian wholesalers"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "harsh"
 category: "Market Reality"
 excerpt: "An Indian wholesaler — call it a ₹15 crore turnover distributor of FMCG goods in a Tier 2 city — runs on roughly this rhythm. They buy goods from 8 to 15 brands on 30-day credit terms. They sell those goods to 80 to 200 retailers on 45 to 60-day credit terms. They earn a 3 to 5% gross margin, which after operating costs (rent, salaries, transport, GST compliance) leaves a 1 to 2% net."
 ---
+
+The working capital problem for Indian wholesalers in 2026 is structural: a typical ₹15 crore FMCG distributor in a Tier 2 city buys from 8 to 15 brands on 30-day credit, sells to 80 to 200 retailers on 45 to 60-day credit, and earns a 3 to 5% gross margin that shrinks to 1 to 2% net after rent, salaries, transport and GST compliance, which means the business is permanently financing a gap between paying suppliers and collecting from retailers on margins too thin to absorb any slippage. Every day that retailer collection slips past the agreed 45 to 60 days widens that gap further, and because net margin is already down near 1 to 2%, even a modest run of late payers can turn a profitable month into one funded entirely by working capital borrowed against future sales. The problem is not solved by more sales, since more sales on the same slow-collecting terms just widens the same gap proportionally; it is solved only by collecting against the existing terms faster and more consistently than the business currently does.
 
 ## Key Highlights
 

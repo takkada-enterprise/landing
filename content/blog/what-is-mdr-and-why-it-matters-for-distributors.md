@@ -5,10 +5,13 @@ meta_title: "What Is MDR? A Plain Guide for Distributors"
 meta_description: "What is MDR? The merchant discount rate is the cut taken on each payment you receive. Here is what it costs an Indian distributor and how 0% MDR changes it."
 primary_keyword: "what is mdr"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati distributor collecting ₹2 crore a year on a payment gateway at 1% MDR pays ₹2,00,000 a year just to receive his own money. He never sees the line item because it is netted off before the money lands. Understanding what MDR is, is the first step to stopping that leak."
 ---
+
+MDR, the Merchant Discount Rate, is the percentage a payment gateway or bank deducts from every digital payment a business receives, so a 1% MDR on a ₹10,000 receipt means only ₹9,900 actually reaches the merchant's account. A Guwahati distributor collecting ₹2 crore a year on a payment gateway charging 1% MDR pays ₹2,00,000 a year just to receive money he has already earned, and he rarely notices the specific number because it is netted off before the payment ever lands, never appearing as a separate bill he has to approve. It matters more for a distributor than for most businesses because MDR scales directly with collection volume: a fixed software subscription costs the same whether a business collects ₹10 lakh or ₹10 crore, but MDR grows every single time revenue does, quietly eating a larger absolute amount as the business succeeds. Understanding what MDR actually is, and that peer-to-merchant UPI can carry a genuine 0% rate, is the first concrete step toward stopping that leak rather than treating it as an unavoidable cost of getting paid.
 
 ## Key Highlights
 

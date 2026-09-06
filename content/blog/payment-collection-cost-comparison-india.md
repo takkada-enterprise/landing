@@ -5,11 +5,13 @@ meta_title: "Payment Collection Cost Comparison for Indian Distributors"
 meta_description: "Payment collection cost comparison for Indian distributors across UPI, links, gateways, and Tally-native apps. The honest math on what ₹1 crore costs."
 primary_keyword: "payment collection cost comparison india"
 date: "2026-05-18"
-updated: "2026-07-25"
+updated: "2026-09-07"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Two distributors with the same ₹15 crore turnover can have wildly different payment collection costs. One pays ₹15 lakh a year in MDR; the other pays ₹0. The difference is the architecture, not the volume."
 ---
+
+Two Indian distributors with the same ₹15 crore turnover can end up with wildly different payment collection costs, one paying roughly ₹15 lakh a year in MDR and platform fees, the other paying close to ₹0, and the difference comes entirely from the collection architecture rather than the volume of business. A card-based payment gateway typically charges 1.5 to 2% MDR plus, often, a monthly platform fee and sometimes a per-transaction charge layered on top of the headline rate that never appears clearly on the pricing page. A generic UPI QR usually avoids MDR but can carry a flat per-transaction fee that adds up fast at high-volume, low-ticket businesses like FMCG or dairy distribution. A UPI link tied directly to a Tally invoice, with genuinely 0% MDR and no per-transaction charge, is the only architecture of the three that scales to any collection volume without the cost growing alongside it, which is exactly the trade a distributor comparing tools needs to actually run the numbers on rather than trust the brochure.
 
 ## Key Highlights
 

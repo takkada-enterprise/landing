@@ -5,11 +5,13 @@ meta_title: "E-Invoice on Phone Tally: Field IRN in Under a Minute"
 meta_description: "How to generate an e-invoice on phone with Tally sync. IRN workflow, pitfalls, and what it changes for distributors above ₹5 crore turnover."
 primary_keyword: "e-invoice on phone tally"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "The Indian government has lowered the e-invoicing threshold in waves: ₹500 crore in 2020, then ₹100 crore, ₹50 crore, ₹20 crore, ₹10 crore, and ₹5 crore as of 1 August 2023. Any B2B invoice from a business above this turnover needs an IRN (Invoice Reference Number) generated through the Invoice Registration Portal before the goods move or the service is delivered."
 ---
+
+Generating an e-invoice from a phone against Tally means a salesman or accountant can raise a GST invoice in the field and have it registered on the government's Invoice Registration Portal for an IRN, the Invoice Reference Number, without physically returning to an office desktop to do it. The government has lowered the e-invoicing turnover threshold in waves, from ₹500 crore in 2020 down to ₹5 crore as of 1 August 2023, which means any B2B invoice from a business above that turnover legally needs an IRN generated before the goods move or the service is billed. For a distributor whose business crosses that threshold, this turns e-invoicing from an occasional compliance task into something that has to happen on every single sale, all day, often at a retailer's counter rather than at a desk. A phone-based flow that raises the invoice in Tally, requests the IRN, and returns the signed QR code in seconds is what keeps that compliance step from stalling every delivery.
 
 ## Key Highlights
 

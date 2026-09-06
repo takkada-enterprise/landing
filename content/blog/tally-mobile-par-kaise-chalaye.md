@@ -5,11 +5,13 @@ meta_title: "Tally Mobile Par Kaise Chalaye: Step-by-Step Setup"
 meta_description: "Tally mobile par kaise chalaye, step by step. Companion app se Tally data phone pe sync karein, ledger aur outstanding dekhein, UPI 0% MDR pe vasooli karein."
 primary_keyword: "tally mobile par kaise chalaye"
 date: "2026-06-21"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Subah 9 baje aap office se nikal jaate hain aur Tally screen raat tak nahi dikhti. Tab tak ek party ka ₹1,40,000 ka outstanding aapko pata hi nahi chalta aur salesman fresh credit de aata hai. Yahan seedha bataya hai ki phone pe Tally data kaise laayein, step by step."
 ---
+
+Tally ko mobile par chalane ka matlab hai apne office ke Tally company file ko ek mobile app ke saath sync karna, taaki outstanding, ledger, aur reports phone par bhi wahi dikhein jo desktop par Tally mein dikhte hain, bina office jaaye. Subah 9 baje office se nikalne ke baad Tally screen raat tak nahi dikhti, aur is beech mein ek party ka ₹1,40,000 ka outstanding pata hi nahi chalta jab tak salesman fresh credit de nahi deta. Isko theek karne ka tarika hai: pehle apne Tally company ko sync-enabled banana, phir mobile app install karke usi company se connect karna, jisse balance aur ledger phone par real time mein sync ho jaate hain. Uske baad, jo app voucher creation allow karti hai usme invoice ya receipt seedha phone se bana sakte hain, jo wapas Tally mein save ho jaata hai. Yeh step-by-step process outstanding dekhne se lekar naya invoice banane tak, sab kuch office wapas gaye bina, mobile par kar deta hai.
 
 ## Key Highlights
 

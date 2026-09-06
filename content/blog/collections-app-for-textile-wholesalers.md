@@ -5,10 +5,13 @@ meta_title: "Textile Wholesaler Collection App on Tally (2026)"
 meta_description: "Textile wholesaler collection app for Tally: 60-120 day credit, part-payments across many bills, 0% MDR UPI collection that reconciles bill-by-bill."
 primary_keyword: "textile wholesaler collection app"
 date: "2026-06-21"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A fabric wholesaler in Surat ships ₹2,40,000 of suiting to a retailer who pays ₹40,000 here, ₹65,000 there, across four months and six different bills. Matching those part-payments to the right invoices is the real job. A textile wholesaler collection app that reconciles bill-by-bill on a 0% MDR UPI rail is what closes the right ledger every time."
 ---
+
+A collections app for textile wholesalers on Tally needs to match part-payments to the right invoice bill-by-bill, because textile trade almost never settles in one lump sum against one bill the way FMCG often does. A fabric wholesaler in Surat who ships ₹2,40,000 of suiting to a retailer commonly gets paid back in pieces, ₹40,000 here, ₹65,000 there, across four months and six different bills, and matching each part-payment to the specific invoice it settles is the real, recurring work, not the invoicing itself. A generic UPI QR or a standalone billing app cannot do this reliably, because it has no visibility into which of the six open bills a given part-payment is meant to close. What a textile wholesaler actually needs is a UPI link on every invoice at 0% MDR that reconciles bill-by-bill back into Tally, so a part-payment lands against the right open bill automatically instead of sitting as an unmatched credit someone has to puzzle out later.
 
 ## Key Highlights
 

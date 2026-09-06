@@ -5,10 +5,13 @@ meta_title: "How Much Distributors Lose to MDR Each Year"
 meta_description: "How much distributors lose to MDR every year, by collection volume, plus the hidden per-transaction fees and reconciliation hours that compound the cost."
 primary_keyword: "how much distributors lose to mdr"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor doing ₹6 crore a year on a 1% gateway loses ₹6,00,000 to MDR annually, the cost of two salesmen, to receive money he already earned. Working out how much distributors lose to MDR every year is the fastest way to see where a 0% rail pays for itself."
 ---
+
+A distributor doing ₹6 crore a year on a payment gateway charging 1% MDR loses ₹6,00,000 annually just to receive money he already earned, roughly the cost of two full-time salesmen, gone before it ever shows up as an expense line because it is netted off the receipt before the money lands. Working out this number for a specific business is simple: multiply annual digital collections by the effective MDR percentage, including any per-transaction fee layered on top of the headline rate. The reason most distributors underestimate it is that MDR never appears as a bill; it disappears silently from every single receipt, so a business collecting ₹50 lakh a month never sees a ₹50,000 monthly charge, it just always seems to be a little short. Working out this figure honestly is the fastest way to see whether switching to a 0% MDR UPI rail, which genuinely exists for peer-to-merchant payments in India, pays for itself immediately or over a matter of weeks.
 
 ## Key Highlights
 

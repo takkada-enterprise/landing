@@ -5,10 +5,13 @@ meta_title: "Record Payment in Tally on Mobile: Field Guide"
 meta_description: "How to record payment in Tally on mobile: log cash and UPI receipts from the field, match the UTR, and post the receipt voucher back into Tally."
 primary_keyword: "record payment in tally on mobile"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A salesman in Guwahati collects ₹87,000 across four parties before lunch, scribbles the amounts on the invoice copy, and the accountant types them into Tally at 9 PM. Two get matched to the wrong invoice. Recording the payment in Tally on mobile, the moment it lands, ends that. Here is the exact flow."
 ---
+
+Recording a payment in Tally on mobile means logging a receipt against the correct invoice from a phone the moment the money arrives, rather than writing it down on paper and typing it into Tally hours later at a desktop. A salesman in Guwahati who collects ₹87,000 across four parties before lunch and scribbles the amounts on the invoice copy is relying on an accountant to correctly transcribe all four that evening, and in practice two of them get matched to the wrong invoice because the handwriting or the memory does not hold up. Recording the receipt on mobile the instant it lands removes that gap entirely: the salesman selects the party, the specific open invoice, and the amount, right there at the counter, and it syncs into Tally as a real voucher rather than a note someone else has to interpret and re-enter later. The exact flow is party, invoice reference, amount and mode, saved on the spot, with the office copy already correct by the time anyone looks at it.
 
 ## Key Highlights
 

@@ -5,11 +5,13 @@ meta_title: "Partywise Outstanding Statement in Tally for Distributors"
 meta_description: "How to generate a partywise outstanding statement in Tally retailers can read, send it via WhatsApp, and turn it into a 0% MDR UPI collection tool."
 primary_keyword: "partywise outstanding statement tally"
 date: "2026-05-18"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A partywise outstanding statement in Tally is the document a retailer disputes against, an auditor relies on, and a collection call references. Sent badly, it gets ignored. Sent with a UPI link, it gets paid."
 ---
+
+A partywise outstanding statement in Tally is a document, generated per retailer, listing every open invoice, its date, its due date, and the running balance that party owes, and it is the single document a retailer disputes against, an auditor relies on, and a collection call references when a number is questioned. The format matters as much as the delivery: a statement listing bare invoice numbers and amounts gets glanced at and set aside, while the same statement sent with a UPI payment link attached, so the retailer can settle the exact figure shown without opening a separate app, gets acted on. Generated from Tally, the statement is usually pulled from the Outstanding Statement report under Display, then shared manually as a PDF over WhatsApp, or, in a more automated setup, dispatched on a schedule with the payment link and a reminder cadence built into the same message. Sent badly, this document gets ignored like any other PDF. Sent with a way to act on it immediately, it gets paid.
 
 ## Key Highlights
 

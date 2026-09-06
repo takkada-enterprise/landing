@@ -5,11 +5,13 @@ meta_title: "Cash Conversion Cycle for Distributors Explained"
 meta_description: "The cash conversion cycle for distributors, explained with the CCC formula and real ₹ figures. See how lower DSO frees cash stuck in your receivables book."
 primary_keyword: "cash conversion cycle for distributors"
 date: "2026-06-21"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A ₹12 crore FMCG distributor in Indore runs a 71-day cash conversion cycle, which means cash leaves the business 71 days before it comes back. Shave 15 days off through faster collection and roughly ₹49 lakh comes back into the bank, with no new sales."
 ---
+
+The cash conversion cycle for a distributor is the number of days between paying a supplier for stock and collecting cash from the retailer who bought it, and shortening it means moving cash back into the business faster without changing what gets sold. A ₹12 crore FMCG distributor in Indore running a 71-day cycle has cash locked up for over two months on every rupee of goods sold, which is why growth in this business often feels cash-starved even when sales are healthy. The three levers are the same three that make up the formula: hold less inventory, so fewer days of stock sit in the godown; collect faster from retailers, so fewer days of receivables stay outstanding; and stretch supplier terms where possible, for more days of payables. Shaving 15 days off the receivables side alone, through tighter reminders and faster reconciliation, brings roughly ₹49 lakh back into the bank on that same ₹12 crore business, with no new sales required.
 
 ## Key Highlights
 

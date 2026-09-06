@@ -5,11 +5,13 @@ meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
 meta_description: "How to check party outstanding in Tally on mobile: the desktop steps, the faster phone way, and how to see partywise outstanding from the field."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
-updated: "2026-08-08"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor is standing at a retailer's counter who wants ₹40,000 of fresh stock on credit. He needs to know the party already owes ₹1,75,000 before he loads the van. Here is how to check that party's outstanding balance in Tally, both the desktop way and the faster way from the phone."
 ---
+
+Checking a party's outstanding balance in Tally on mobile means opening the ledger for that specific retailer on a phone app synced to the same Tally company, rather than calling the office or waiting until you are back at a desktop. A Guwahati FMCG distributor standing at a retailer's counter who wants ₹40,000 of fresh stock on credit needs one number before he loads the van: does this party already owe more than he should. On the desktop, that means opening Tally, navigating to the party ledger, and reading the closing balance, which works fine at an office PC but not at a counter thirty kilometres away. The faster mobile route is the same underlying ledger, synced to the phone, searchable by party name, showing the current outstanding and the ageing breakdown in a few taps. Either way answers the question; the difference is whether the distributor gets the answer before he commits the stock or after, when it is too late to matter.
 
 ## Key Highlights
 

@@ -5,10 +5,13 @@ meta_title: "Bill by Bill Tally: Against Reference Explained"
 meta_description: "Bill by bill tally explained: what \"Against Reference\" means, the four reference types, and how matching a receipt to one invoice keeps a party ledger clean."
 primary_keyword: "bill by bill tally"
 date: "2026-06-21"
+updated: "2026-09-07"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati FMCG distributor receives ₹50,000 from a retailer who owes ₹2,15,000 across six invoices. Marked \"On Account,\" that money floats unmatched and the ledger lies. Tagged \"Against Reference\" to invoice #1182, the right bill closes and outstanding reads true."
 ---
+
+Against Reference in Tally means a payment or receipt is tagged to one specific invoice number rather than dumped into a party's account as a general balance, so the ledger shows exactly which bill got closed instead of just a lower total. A Guwahati FMCG distributor receiving ₹50,000 from a retailer who owes ₹2,15,000 across six invoices faces a real choice: mark it On Account, and the money floats unmatched while the ledger technically balances but tells no one which bill is actually paid, or tag it Against Reference to invoice #1182, and that specific bill closes while the other five stay visibly open. Bill-by-bill tracking, always choosing the second option, is what makes an aging report trustworthy and a collection call specific, since a salesman who can say invoice 1182 is clear, 1183 through 1187 are still due, collects faster than one reading out a single lump total.
 
 ## Key Highlights
 

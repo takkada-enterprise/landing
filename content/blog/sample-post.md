@@ -4,10 +4,13 @@ slug: "distributor-cash-flow-receivables"
 meta_description: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. Here's what the pattern looks like."
 primary_keyword: "distributor cash flow India"
 date: "2026-04-23"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. The gap between knowing and collecting is where cash flow dies."
 ---
+
+Distributors lose roughly 15 days of usable cash every month not because retailers refuse to pay, but because the gap between knowing who owes money and actually collecting it eats a working week's worth of calendar time. Most owners can list, off the top of their head, exactly which eight or ten retailers are overdue and roughly how much each owes. What they cannot do consistently is turn that knowledge into cash on a predictable schedule, because collection today usually means an evening WhatsApp message typed out by hand, sent to whoever is remembered rather than whoever is actually most overdue, with no record of what was promised or when. That gap, between a mental list and a working system, is where 10 to 15 days of cash sits idle every single month, not lost exactly, just parked behind a reminder that never went out on time or a payment that was never tracked back to the invoice it settled.
 
 ## The 9 PM ritual
 

@@ -5,10 +5,13 @@ meta_title: "Is UPI Free for Merchants in India? 2026 Guide"
 meta_description: "Is UPI free for merchants in India? Mostly yes on P2M UPI, but apps add hidden per-transaction fees. Here is the real cost and the reconciliation catch."
 primary_keyword: "is upi free for merchants"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Market Reality"
 excerpt: "Three retailers each paid a Barpeta distributor ₹14,320 on the same afternoon and all three sent a WhatsApp screenshot. UPI moved the money for free. Working out which screenshot cleared which invoice cost the accountant an hour. Is UPI free for merchants? The payment is. The mess around it is not."
 ---
+
+UPI itself is free for merchants in India: person-to-merchant UPI payments carry 0% MDR, so a distributor receiving money by UPI keeps every rupee the retailer sends, with nothing deducted by the bank, the network, or the app. Three retailers each paying a Barpeta distributor ₹14,320 on the same afternoon and each sending a WhatsApp screenshot as proof shows exactly where the honest complication sits: UPI moved all three payments for free, but working out which screenshot corresponds to which of several open invoices cost the accountant a full hour that evening. The payment being free does not mean the process around it is free of cost, since every unmatched UPI credit still has to be reconciled by hand unless the payment link itself is tied to a specific invoice from the start. So the honest answer is that UPI is free, but a business built on generic QR codes and screenshot proof is still paying, in time rather than in fees, for what the fee-free rail does not automatically solve.
 
 ## Key Highlights
 

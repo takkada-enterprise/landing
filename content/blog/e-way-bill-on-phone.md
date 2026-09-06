@@ -5,11 +5,13 @@ meta_title: "E-Way Bill on Phone: Generate in Under a Minute"
 meta_description: "Generate e-way bill on phone for ₹50,000+ shipments. Flow, common rejections, and how Tally-linked mobile apps clear goods without the desktop."
 primary_keyword: "e-way bill on phone"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "Under the current GST rules, an e-way bill is required any time goods worth more than ₹50,000 move between two locations on a conveyance. The threshold is ₹50,000 per consignment for most goods, lowered in specific states and for specific sensitive items. All interstate movement above ₹50,000 is covered; intra-state rules vary slightly by state but most follow the same threshold."
 ---
+
+Generating an e-way bill from a phone means a distributor can create the document required for any shipment worth more than ₹50,000 the moment goods leave the godown, without a driver waiting at the gate for someone back at the office to log into the portal. Under current GST rules, an e-way bill is mandatory whenever goods above that ₹50,000 threshold move between two locations on a vehicle, with the exact threshold and some category exceptions varying slightly by state for intra-state movement, though interstate shipments above the limit are covered uniformly. Most distributors still generate this at a desktop, which means a delivery either waits for the office to open or leaves without the document and risks a roadside penalty if it is checked. A phone-based flow pulls the invoice details already entered in Tally, generates the e-way bill against the same voucher, and hands the driver a QR code before the van has even finished loading, which is the actual time saved.
 
 ## Key Highlights
 

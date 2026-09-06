@@ -5,11 +5,13 @@ meta_title: "Field Order Collection App for Tally Distributors"
 meta_description: "A field order collection app for Tally lets salesmen take retailer orders on their phones with live stock, prices, and credit limits. Here is what it must do."
 primary_keyword: "field order collection app tally"
 date: "2026-05-18"
-updated: "2026-08-09"
+updated: "2026-09-07"
 author: "founder"
 category: "Field Sales"
 excerpt: "A salesman who calls back to the office to check if 200 cartons of detergent are in stock has already lost the order. A field order collection app for Tally puts live stock, prices, and credit limits in his hand, so the order is closed at the retailer's counter."
 ---
+
+A field order collection app for Tally puts live stock levels, current prices, and each retailer's credit limit directly on a salesman's phone, so an order gets closed at the counter instead of waiting on a callback to the office. A salesman who has to phone in to check whether 200 cartons of detergent are actually in stock has usually already lost the order, because the retailer moves on to whatever competing distributor can confirm and commit on the spot. The app that actually helps him needs three things working together, not separately: stock that reflects the real godown position as of that morning, a credit check that blocks or flags an order before it is placed rather than after, and a way to raise the invoice or sales order right there so it syncs into Tally without anyone retyping it that evening. Apps that do only one of these, visibility without the ability to act, still leave the salesman making the call from memory.
 
 ## Key Highlights
 

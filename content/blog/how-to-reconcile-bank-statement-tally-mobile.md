@@ -5,11 +5,13 @@ meta_title: "Bank Reconciliation in Tally on Mobile: Step-by-Step"
 meta_description: "Bank reconciliation in Tally, step by step: the classic Banking > BRS flow, setting bank dates, and the faster mobile way to clear UPI receipts daily."
 primary_keyword: "bank reconciliation in tally"
 date: "2026-06-21"
-updated: "2026-08-08"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor sits down at 9 PM to match a ₹4,80,000 bank statement against 60 receipts in Tally, half of them UPI with only a UTR to go on. Here is the classic Tally bank reconciliation flow, step by step, plus the faster way to clear UPI receipts through the day so the night session shrinks."
 ---
+
+Reconciling a bank statement with Tally on mobile means matching each credit that lands in the business bank account against the specific invoice or receipt it settles, using a phone app synced to the same Tally company, instead of sitting at a desktop at night comparing two separate lists line by line. A Guwahati FMCG distributor who sits down at 9 PM to match a ₹4,80,000 bank statement against 60 receipts in Tally, half of them UPI credits with only a UTR number to go on, is doing manually what a synced system can do automatically through the day. The classic Tally flow, Banking, Bank Reconciliation, ticking off each entry against the statement, still works and is worth knowing. The faster route clears UPI receipts as they land, matching the UTR to the invoice the moment the payment happens rather than batching sixty of them into one evening session, which is what actually shrinks the night-time reconciliation job down to reviewing exceptions instead of doing the matching from scratch.
 
 ## Key Highlights
 

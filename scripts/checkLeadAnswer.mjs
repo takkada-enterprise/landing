@@ -115,90 +115,9 @@ export function checkLead(markdown, opts = {}) {
   return { status: 'pass', kind: 'paragraph', wordCount: wc, message: `Lead answer ${wc} words.` };
 }
 
-// ---------------------------------------------------------------------------
-// Legacy posts predating the lead-answer convention (2026-06-21). Grandfathered
-// so the guard ships without blocking the build; backfilled opportunistically
-// (plan Follow-Up Work). The cornerstone set is intentionally absent — those are
-// front-loaded in U5 and enforced. New posts are absent too, so they are
-// enforced on day one. This set may only shrink. When empty, delete it.
-export const LEGACY_GRANDFATHERED = new Set([
-  'accept-online-payment-on-tally-invoice',
-  'accounts-receivable-automation-tally',
-  'aging-report-tally',
-  'automate-payment-reminders-tally',
-  'bad-debt-write-off-tally',
-  'bakaya-kaise-vasool-kare-distributor',
-  'best-credflow-alternatives-india-2026',
-  'best-tally-add-on-apps-for-distributors-2026',
-  'bharatpe-for-distributors-mdr',
-  'bidirectional-tally-sync-explained',
-  'bill-by-bill-against-reference-tally',
-  'busy-software-alternative-for-distributors',
-  'cash-conversion-cycle-for-distributors',
-  'cheque-bounce-recovery-distributors',
-  'collect-payment-against-tally-invoice-whatsapp',
-  'collection-efficiency-ratio-formula-india',
-  'collections-app-for-textile-wholesalers',
-  'credflow-alternative-tally-native',
-  'credit-limit-for-retailers',
-  'days-sales-outstanding-distributor-india',
-  'distributor-cash-flow-receivables',
-  'distributor-credit-policy-template',
-  'dso-for-distributors',
-  'e-invoice-on-phone-tally',
-  'e-way-bill-on-phone',
-  'field-order-collection-app-tally',
-  'free-tally-mobile-app-vs-paid',
-  'gst-compliance-on-mobile-for-distributors',
-  'how-indian-distributors-manage-collections',
-  'how-much-distributors-lose-to-mdr-every-year',
-  'how-to-check-party-outstanding-tally-mobile',
-  'how-to-reconcile-bank-statement-tally-mobile',
-  'how-to-record-payment-in-tally-on-mobile',
-  'how-to-share-ledger-statement-whatsapp-tally',
-  'how-to-split-upi-payment-across-tally-invoices',
-  'is-upi-free-for-merchants-in-india',
-  'khatabook-alternative-for-distributors-india',
-  'marg-erp-alternative-for-distributors',
-  'mdr-vs-convenience-fee-upi',
-  'multi-business-tally-mobile-app',
-  'mybillbook-alternative-for-distributors',
-  'nil-mdr-upi-collection-on-tally-invoices',
-  'okcredit-alternative-for-distributors',
-  'outstanding-payment-reminder-app-india',
-  'partywise-outstanding-statement-tally',
-  'payment-collection-cost-comparison-india',
-  'payment-gateway-charges-comparison-for-distributors',
-  'payment-gateway-for-msme-india',
-  'payment-link-tally-integration',
-  'paytm-for-business-vs-takkada',
-  'razorpay-vs-tally-native-collection',
-  'receivables-app-for-agri-input-distributors',
-  'refrens-vs-takkada',
-  'tally-cloud',
-  'tally-collection-app-for-paint-distributors',
-  'tally-mobile-app-for-android',
-  'tally-mobile-par-kaise-chalaye',
-  'tally-payment-reconciliation-on-mobile',
-  'tally-remote-access-vs-mobile-app',
-  'tally-whatsapp-invoice-dispatch',
-  'udhar-vasuli-kaise-kare-distributor',
-  'upi-autopay-for-distributors',
-  'upi-collection-app-for-distributors-india',
-  'upi-mdr-charges-india-2026',
-  'upi-vs-card-vs-cash-collection-cost-distributor',
-  'what-is-mdr-and-why-it-matters-for-distributors',
-  'what-is-utr-number-tally-payment',
-  'what-is-vpa-upi-id-distributors',
-  'whatsapp-invoice-format-tally',
-  'whatsapp-payment-reminder-for-distributors',
-  'working-capital-problem-indian-wholesalers',
-  'zero-mdr-upi-for-dairy-distributors',
-  'zero-mdr-upi-for-electrical-distributors',
-  'zero-mdr-upi-for-fmcg-distributors',
-  'zero-mdr-upi-for-pharma-distributors',
-  'zoho-books-vs-tally-for-distributors',
-]);
+// The legacy grandfather list (posts predating the 2026-06-21 lead-answer
+// convention) was backfilled to zero on 2026-09-07 and removed per its own
+// "may only shrink; when empty, delete it" rule. Every post is enforced now.
 
 function runCli() {
   const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -207,7 +126,6 @@ function runCli() {
 
   const failures = [];
   const warnings = [];
-  const grandfathered = [];
 
   for (const file of files) {
     const raw = readFileSync(resolve(blogDir, file), 'utf-8');
@@ -216,11 +134,7 @@ function runCli() {
     const result = checkLead(raw);
 
     if (result.status === 'fail') {
-      if (LEGACY_GRANDFATHERED.has(slug)) {
-        grandfathered.push({ slug, result });
-      } else {
-        failures.push({ slug, result });
-      }
+      failures.push({ slug, result });
     } else if (result.status === 'warn') {
       warnings.push({ slug, result });
     }
@@ -233,10 +147,10 @@ function runCli() {
     process.stdout.write(`FAIL  ${slug}: ${result.message}\n`);
   }
 
-  const passCount = files.length - failures.length - warnings.length - grandfathered.length;
+  const passCount = files.length - failures.length - warnings.length;
   process.stdout.write(
     `\nlint:content — ${files.length} posts: ${passCount} pass, ${warnings.length} warn, ` +
-      `${failures.length} fail, ${grandfathered.length} legacy (grandfathered).\n`
+      `${failures.length} fail.\n`
   );
 
   if (failures.length > 0) {

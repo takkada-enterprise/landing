@@ -5,10 +5,13 @@ meta_title: "Credit Limit for Retailers: How to Set and Enforce It"
 meta_description: "A practical method for setting retailer credit limits, enforcing hold-on-dispatch, and revising up or down based on payment history."
 primary_keyword: "credit limit for retailers"
 date: "2026-05-06"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A credit limit is the maximum amount a distributor is willing to let a single retailer owe at any point in time. It is the most under-used risk tool in Indian B2B distribution. Most distributors set credit limits informally in their head, never enforce them in their software, and only react when a party is already 90 days overdue on a large amount."
 ---
+
+A credit limit for a retailer is the maximum outstanding balance a distributor is willing to let that single party carry at any point in time, and setting one properly means fixing a number based on the retailer's order history and payment pattern, not a round figure picked out of habit. It is the most under-used risk tool in Indian B2B distribution: most distributors set credit limits informally in their own head, never enter them into their billing software, and only react once a party is already 90 days overdue on a large amount, by which point the exposure has already been taken. Enforcing a limit means the system itself blocks or flags a new order once a retailer's outstanding crosses the ceiling, rather than leaving that judgment call to a salesman under pressure to hit a number at month-end. Adjusting it means raising the limit only after a retailer has shown a clean payment record over several cycles, never before.
 
 ## Key Highlights
 

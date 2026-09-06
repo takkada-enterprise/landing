@@ -5,10 +5,13 @@ meta_title: "Payment Link Tally Integration: Collect and Auto-Reconcile"
 meta_description: "Step-by-step on payment link tally integration for Indian distributors. UPI links, UTR matching, split payments, and Tally receipt posting automated."
 primary_keyword: "payment link tally integration"
 date: "2026-04-25"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A UPI payment link is a URL that, when tapped on a phone, opens directly in PhonePe, Google Pay, Paytm or any UPI app, with the amount and merchant details pre-filled. The customer reviews, taps pay, authorises with their PIN, and the money arrives in your bank account in seconds."
 ---
+
+A payment link integrated with Tally is a UPI URL, generated against a specific invoice already raised in Tally, that opens directly in PhonePe, Google Pay, Paytm or any UPI app with the amount and merchant details pre-filled, so the retailer just reviews, taps pay, and authorises with a PIN. The money lands in the distributor's bank account in seconds, the same as any UPI payment, but the integration part is what happens next: the receipt is matched back to the exact invoice it settled inside Tally automatically, rather than arriving as an unmatched bank credit an accountant has to identify and allocate by hand. That matching step is precisely what the classic 9 PM reconciliation session exists to do manually, comparing a bank statement against a stack of open invoices one line at a time. A payment link that is genuinely integrated with Tally, not just a generic UPI QR, removes that session entirely by doing the matching the moment the payment happens instead of hours later at a desk.
 
 ## Key Highlights
 

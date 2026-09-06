@@ -5,10 +5,13 @@ meta_title: "BharatPe for Distributors: 0% MDR QR, Honestly"
 meta_description: "BharatPe for distributors: the UPI QR really is 0% MDR, but it does not link to your Tally invoice or reconcile the receipt. Here is what that means."
 primary_keyword: "bharatpe for distributors"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Comparisons"
 excerpt: "BharatPe built its name on a 0% MDR UPI QR, and that claim is honest. UPI person-to-merchant payments carry no MDR for anyone right now. The real question for a distributor is not the fee. It is whether a generic QR knows which of your Tally invoices the money just settled."
 ---
+
+Yes, BharatPe's UPI QR genuinely charges 0% MDR, because UPI person-to-merchant payments carry no merchant discount rate for anyone in India right now, not just BharatPe. That part of the pitch is honest. The real question for a distributor is not the fee, since every UPI QR in the country is priced the same way on that front. It is whether a generic BharatPe QR, shared across every customer and every transaction, knows which of a distributor's specific Tally invoices the money just settled. It does not: a retailer scans the same QR whether he is paying ₹8,000 against one bill or ₹40,000 against three, and the receipt lands as an unmatched credit someone still has to reconcile by hand that evening. A 0% MDR QR and an invoice-linked, auto-reconciling payment link solve two different problems, and a distributor running 100-plus retail parties on Tally needs the second one, not just the first.
 
 ## Key Highlights
 

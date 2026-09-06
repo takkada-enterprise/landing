@@ -5,11 +5,13 @@ meta_title: "Auto-Sending Invoices from Tally on WhatsApp: How It Works"
 meta_description: "What auto-dispatch of invoices from Tally to WhatsApp actually means, how it differs from manually forwarding PDFs, and what it does to collection cycles."
 primary_keyword: "tally whatsapp invoice dispatch"
 date: "2026-05-18"
-updated: "2026-07-25"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A distributor who manually shares invoices on WhatsApp spends 20–40 minutes per day on the task when volumes cross 30 invoices. Auto-dispatch eliminates that entirely and starts the payment clock before the goods arrive at the retailer."
 ---
+
+Auto-dispatching invoices on WhatsApp from Tally means the invoice PDF is sent to the retailer's phone automatically the moment the voucher is saved in Tally, with no one manually attaching a file and typing a message for each sale. A distributor who shares invoices on WhatsApp by hand spends 20 to 40 minutes a day on that single task once volumes cross roughly 30 invoices, time spent finding each PDF, opening the right WhatsApp contact, and attaching the file one at a time. Auto-dispatch removes that task entirely rather than making it faster: the moment an invoice voucher is created in Tally, the PDF generates and sends itself to the correct retailer's WhatsApp without anyone touching a keyboard. What it actually changes is the timing of the payment clock: an invoice that used to sit unsent for hours until someone had time to dispatch it now reaches the retailer, and starts the countdown to payment, before the delivery van has even left the godown.
 
 ## Key Highlights
 

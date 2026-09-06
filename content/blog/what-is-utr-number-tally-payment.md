@@ -5,10 +5,13 @@ meta_title: "UTR Number Meaning and How to Match It in Tally"
 meta_description: "What a utr number is, where to find it in your UPI app or bank statement, and how matching it to the right Tally receipt closes a bill cleanly."
 primary_keyword: "utr number"
 date: "2026-06-21"
+updated: "2026-09-07"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor gets a WhatsApp screenshot at 9 PM: a retailer paid ₹47,800 but didn't say against which invoice. The UTR number on that payment is the one thread that links the bank credit back to the exact Tally receipt and closes the bill without a phone call."
 ---
+
+A UTR number, the Unique Transaction Reference, is a unique code generated for every bank or UPI transaction in India, and it is the one piece of information that reliably links a bank credit back to the exact invoice or receipt it was meant to settle inside Tally. A Guwahati FMCG distributor who gets a WhatsApp screenshot at 9 PM saying a retailer paid ₹47,800, without saying against which invoice, has almost nothing to go on from the screenshot alone. The UTR printed on that same payment confirmation, though, is unique to that specific transaction and appears identically on both the bank statement and the payment app, which means it can be matched against the invoice's expected amount and the party's name to close the correct bill without a phone call to confirm. Any reconciliation process, manual or automated, that ignores the UTR and relies only on amount and rough timing risks matching the wrong payment to the wrong bill whenever two retailers happen to pay similar amounts the same evening.
 
 ## Key Highlights
 

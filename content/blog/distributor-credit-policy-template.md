@@ -5,10 +5,13 @@ meta_title: "Distributor Credit Policy Template: Terms, Limits, Penalty"
 meta_description: "A ready-to-use distributor credit policy template with credit terms, credit limits, a late-fee penalty clause, and a stop-supply rule to copy today."
 primary_keyword: "distributor credit policy template"
 date: "2026-06-21"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A Guwahati FMCG distributor with 64 retail parties had no written credit policy, and one party drifted to ₹4.7 lakh outstanding over 96 days before anyone noticed. A one-page credit policy with a fixed limit and a stop-supply trigger would have capped that exposure at ₹1.5 lakh. Here is the template to copy."
 ---
+
+A distributor credit policy is a one-page written document that fixes, for every retailer, a credit limit, payment terms, a late-payment penalty, and the point at which supply stops, so credit decisions do not depend on which salesman is asking or how the owner is feeling that day. A Guwahati FMCG distributor with 64 retail parties had no such document, and one party drifted to ₹4.7 lakh outstanding over 96 days before anyone in the business noticed, simply because no one had a written trigger telling them to stop. A one-page policy with a fixed limit per party and an automatic stop-supply trigger at, say, 60 days past due would have capped that same exposure at roughly ₹1.5 lakh, a fraction of what actually accumulated. The template that works in practice is short: a default limit and term for new parties, an escalation ladder for overdue accounts, and a named penalty, so every salesman enforces the same rule instead of inventing one on the spot.
 
 ## Key Highlights
 

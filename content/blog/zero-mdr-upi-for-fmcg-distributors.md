@@ -5,10 +5,13 @@ meta_title: "Zero MDR UPI for FMCG Distributors (2026)"
 meta_description: "Zero MDR UPI for FMCG distributors in India: high-volume low-ticket receipts make per-transaction fees brutal. Why 0% MDR and no per-receipt fee win."
 primary_keyword: "zero mdr upi for fmcg distributors"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "An FMCG distributor in Guwahati collects from 220 kirana stores a day, most paying ₹3,000 to ₹15,000. A ₹3 per-transaction fee on that volume is ₹1,98,000 a year, even at 'zero MDR'. For FMCG, the per-receipt fee hurts more than the percentage. Zero MDR UPI for FMCG distributors only counts if it is truly zero."
 ---
+
+Zero MDR UPI only genuinely helps an FMCG distributor if it is actually zero everywhere, including any per-transaction fee, because FMCG collection happens at extremely high frequency and low ticket size, exactly the volume pattern a hidden flat fee is designed to profit from. An FMCG distributor in Guwahati collecting from 220 kirana stores a day, most paying between ₹3,000 and ₹15,000, would pay ₹1,98,000 a year even on a modest ₹3 per-transaction fee, despite the app itself advertising zero MDR on the front page. This is the specific trap FMCG distributors need to watch for: MDR as a percentage genuinely can be zero on UPI, but a flat per-transaction charge is not MDR by definition and can still cost more, at FMCG's transaction volume, than a small percentage fee would on a lower-frequency business. Zero MDR UPI for FMCG distributors only delivers real savings when the collection app has no per-transaction fee at all, not just no percentage-based MDR, since at 220 transactions a day the difference between the two shows up fast.
 
 ## Key Highlights
 

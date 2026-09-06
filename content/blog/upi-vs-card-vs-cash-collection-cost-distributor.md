@@ -5,10 +5,13 @@ meta_title: "UPI vs Card vs Cash Collection Cost Compared"
 meta_description: "UPI vs card vs cash collection cost for distributors: the real expense of each, from MDR and cash leakage to reconciliation time, and why 0% MDR UPI wins."
 primary_keyword: "upi vs card vs cash collection cost"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Comparisons"
 excerpt: "A Guwahati distributor collects in all three: cash that leaks and needs counting, the rare card that costs 1.5%, and UPI that should be free but is not on his current app. Laying the UPI vs card vs cash collection cost side by side shows where the money and the hours actually go."
 ---
+
+Comparing UPI, card, and cash collection cost for a distributor means accounting for more than the headline fee on each: cash carries a hidden cost in counting time, handling risk, and cash that occasionally goes missing; card collection typically runs 1.5 to 2% MDR plus settlement delay; and UPI should carry 0% MDR but can still cost real money through per-transaction fees or a lack of invoice-level reconciliation. A Guwahati distributor collecting through all three at once sees this play out daily: cash that has to be counted, banked, and occasionally comes up short; the rare card payment that costs 1.5% before it even settles; and UPI that is supposed to be free but is not, on his current collection app, once the per-receipt charge is added up. Laid side by side honestly, on the same volume of collections, UPI at a genuinely 0% MDR with no per-transaction fee comes out cheapest in fees, fastest in settlement, and easiest to reconcile, provided the app collecting it does not quietly reintroduce a cost the rail itself does not require.
 
 ## Key Highlights
 

@@ -5,10 +5,13 @@ meta_title: "Nil MDR UPI Collection, Straight Off Tally"
 meta_description: "Nil MDR UPI collection on Tally invoices: attach a UPI link to each Tally invoice, collect at 0% MDR with no per-transaction fee, and auto-match into Tally."
 primary_keyword: "nil mdr upi collection"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises every invoice in Tally already. The gap is that collecting against it means a separate gateway taking a cut. Nil MDR UPI collection on Tally invoices closes that gap: the link rides on the invoice, the money lands whole, and the receipt posts itself back."
 ---
+
+Nil MDR UPI collection on Tally invoices means a distributor collects payment through a UPI link that carries zero merchant discount rate and is tied directly to the specific invoice raised in Tally, so nothing is deducted from the payment and the receipt posts back to the right bill without anyone typing it in. A Dibrugarh distributor already raises every invoice inside Tally; the gap has never been the billing, it has been that collecting against that invoice usually means a separate payment gateway taking a cut before the money lands, and the receipt arriving as an unmatched credit that has to be reconciled by hand. Nil MDR UPI collection closes both problems in one step: the link rides on the invoice itself rather than sitting in a separate app, the full amount lands in the bank account with nothing skimmed off, and the receipt matches back to that invoice automatically, which is what turns a distributor's own existing Tally habit into a complete collection loop instead of half of one.
 
 ## Key Highlights
 

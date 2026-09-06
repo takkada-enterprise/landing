@@ -5,10 +5,13 @@ meta_title: "Free Tally Mobile App vs Paid: A Buyer's Guide"
 meta_description: "Is there a free Tally mobile app? What free tiers cover (read-only viewing) versus what paid unlocks: voucher creation, collections, and auto-reconciliation."
 primary_keyword: "free tally mobile app"
 date: "2026-06-14"
+updated: "2026-09-07"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Barpeta distributor installed a free Tally mobile app, loved seeing outstanding on his phone, then hit the wall the first time he tried to log a ₹42,000 receipt and could not. The free tier showed him the problem and could not let him fix it. Here is the honest line between free and paid."
 ---
+
+A free Tally mobile app almost always gives read-only visibility, outstanding balances, ledgers, and basic reports on a phone, while a paid one adds the ability to actually create and edit vouchers, invoices, and receipts from the field and have them sync back into Tally. A Barpeta distributor installed a free Tally app, loved being able to see his outstanding on the phone for the first time, then hit a wall the very first time he tried to log a ₹42,000 receipt against a specific invoice and found the app simply could not do it. That is the honest line: free tiers show a distributor the problem, current outstanding, an ageing bucket, a party balance, but stop short of letting him fix it from the same screen. Paid tiers typically add voucher creation, WhatsApp dispatch, UPI collection, and reconciliation, the actions that turn visibility into cash actually moving, which is usually the entire reason a distributor went looking for a mobile app in the first place.
 
 ## Key Highlights
 
