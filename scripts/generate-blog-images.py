@@ -4,22 +4,33 @@ Takkada Blog Header Image Generator
 Generates 1200×630px OG-ready blog images using brand colors.
 Run from the repo root: python3 scripts/generate-blog-images.py
 Requires Pillow: pip install Pillow
+
+2026-09-06 redesign: the old template baked a "TAKKADA" wordmark + URL and
+the full tagline into every image. That text is redundant everywhere the
+image is actually used (the blog card/related-post HTML already renders the
+category, title and excerpt right below the thumbnail; the site header
+already carries the logo), so scrolling the blog index put the literal word
+"TAKKADA" in the same top-left spot on every one of ~90 identical-looking
+cards. This version drops the wordmark, URL and tagline, keeps only the
+title (still needed so a shared link unfurls with a headline on WhatsApp/
+Twitter with no surrounding page), renders it in the site's real Fraunces /
+Plus Jakarta Sans faces (converted from the woff2s under public/assets/fonts
+to scripts/fonts/*.ttf so Pillow can bake them), and gives each category its
+own low-alpha line-icon + accent tint so the ~15 categories read as a family
+with variation instead of one repeated slide.
 """
 
 from PIL import Image, ImageDraw, ImageFont
-import os
 import math
+import os
 
-# ── Brand tokens ────────────────────────────────────────────────────────────
+# ── Brand tokens (src/styles.css :root) ─────────────────────────────────────
 PRIMARY_DARK   = "#1B3026"
 PRIMARY_SAGE   = "#344E41"
 SECONDARY      = "#4A7C59"
 ACCENT         = "#6B9E7A"
-CONTAINER_TINT = "#DAE5D6"
-ON_CONTAINER   = "#0D1F12"
 LABEL_DARK     = "#B8D4BE"
 SURFACE        = "#FFFFFF"
-TEXT_MUTED     = "#9CA39D"
 
 def hex_to_rgb(h):
     h = h.lstrip("#")
@@ -27,6 +38,29 @@ def hex_to_rgb(h):
 
 # ── Canvas ───────────────────────────────────────────────────────────────────
 W, H = 1200, 630
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+FRAUNCES_TTF = os.path.join(SCRIPT_DIR, "fonts", "Fraunces.ttf")
+JAKARTA_TTF = os.path.join(SCRIPT_DIR, "fonts", "PlusJakartaSans.ttf")
+
+def get_font_display(size, weight=480):
+    """Fraunces (the site's heading serif), variable opsz+weight axes."""
+    font = ImageFont.truetype(FRAUNCES_TTF, size)
+    opsz = max(9, min(144, size))
+    try:
+        font.set_variation_by_axes([opsz, weight])
+    except Exception:
+        pass
+    return font
+
+def get_font_ui(size, weight=700):
+    """Plus Jakarta Sans (the site's body/UI face), variable weight axis."""
+    font = ImageFont.truetype(JAKARTA_TTF, size)
+    try:
+        font.set_variation_by_axes([weight])
+    except Exception:
+        pass
+    return font
 
 def make_gradient(c1, c2, width, height):
     """Vertical gradient from c1 (top) to c2 (bottom)."""
@@ -41,41 +75,6 @@ def make_gradient(c1, c2, width, height):
         b = int(b1 + (b2 - b1) * t)
         draw.line([(0, y), (width, y)], fill=(r, g, b))
     return img
-
-def draw_grid(draw, color, alpha=25):
-    """Subtle grid overlay for texture."""
-    grid_color = (*hex_to_rgb(color), alpha)
-    for x in range(0, W, 60):
-        draw.line([(x, 0), (x, H)], fill=hex_to_rgb(color), width=1)
-    for y in range(0, H, 60):
-        draw.line([(0, y), (W, y)], fill=hex_to_rgb(color), width=1)
-
-def draw_circles(draw):
-    """Decorative background circles."""
-    circle_color = (*hex_to_rgb(SECONDARY), 60)
-    # Large circle top-right
-    draw.ellipse([900, -150, 1400, 350], fill=hex_to_rgb(SECONDARY) + (40,) if False else None,
-                 outline=hex_to_rgb(ACCENT), width=1)
-    # Small circle bottom-left
-    draw.ellipse([-80, 400, 220, 700], outline=hex_to_rgb(ACCENT), width=1)
-
-def get_font(size, bold=False):
-    """Try system fonts, fall back to default."""
-    candidates = [
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-        "/Library/Fonts/Arial.ttf",
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-    ]
-    for path in candidates:
-        if os.path.exists(path):
-            try:
-                return ImageFont.truetype(path, size)
-            except Exception:
-                continue
-    return ImageFont.load_default()
 
 def wrap_text(draw, text, font, max_width):
     """Wrap text to fit within max_width pixels."""
@@ -95,75 +94,216 @@ def wrap_text(draw, text, font, max_width):
         lines.append(current)
     return lines
 
-def draw_tag(draw, text, x, y, font):
-    """Draw a small category pill."""
+def draw_tag(draw, text, x, y, font, tint):
+    """Draw a small category pill in the category's accent tint."""
     bbox = draw.textbbox((0, 0), text, font=font)
     tw = bbox[2] - bbox[0]
-    pad_x, pad_y = 16, 8
-    rx, ry = x, y
-    rw, rh = tw + pad_x * 2, bbox[3] - bbox[1] + pad_y * 2
-    draw.rounded_rectangle([rx, ry, rx + rw, ry + rh], radius=6,
-                            fill=hex_to_rgb(ACCENT))
-    draw.text((rx + pad_x, ry + pad_y), text, font=font, fill=hex_to_rgb(PRIMARY_DARK))
-    return rh + 16
+    pad_x, pad_y = 16, 9
+    rw, rh = tw + pad_x * 2, (bbox[3] - bbox[1]) + pad_y * 2
+    draw.rounded_rectangle([x, y, x + rw, y + rh], radius=8, fill=hex_to_rgb(tint))
+    draw.text((x + pad_x - bbox[0], y + pad_y - bbox[1]), text, font=font, fill=hex_to_rgb(PRIMARY_DARK))
+    return rh
+
+# ── Per-category line icons ──────────────────────────────────────────────────
+# Drawn as a single low-alpha watermark in the lower-right quadrant so each
+# category reads distinctly without competing with the title. Two categories
+# sharing an icon (e.g. Collections/Receivables, Compliance/Trust) is fine;
+# they're adjacent concepts and the icon is a mood cue, not a legend.
+
+def _icon_glyph(draw, cx, cy, r, color, glyph):
+    font = get_font_ui(int(r * 1.9), weight=700)
+    bbox = draw.textbbox((0, 0), glyph, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    draw.text((cx - tw / 2 - bbox[0], cy - th / 2 - bbox[1]), glyph, font=font, fill=color)
+
+def icon_coins(draw, cx, cy, r, color, width):
+    # Not a "₹" glyph: the Plus Jakarta Sans latin subset baked into
+    # scripts/fonts/PlusJakartaSans.ttf has no ₹ codepoint (it's outside the
+    # Latin/Latin-ext blocks the subset covers) and silently falls back to a
+    # broken glyph. Two overlapping coin outlines reads as "money" without
+    # depending on a codepoint the font doesn't have.
+    cr = r * 0.42
+    for dx, dy in [(-r * 0.28, -r * 0.05), (r * 0.28, r * 0.05)]:
+        c = (cx + dx, cy + dy)
+        draw.ellipse([c[0] - cr, c[1] - cr, c[0] + cr, c[1] + cr], outline=color, width=width)
+        draw.line([(c[0] - cr * 0.55, c[1]), (c[0] + cr * 0.55, c[1])], fill=color, width=width)
+
+def icon_percent(draw, cx, cy, r, color, width):
+    # Filled glyphs cover far more area than a thin stroke at the same alpha,
+    # so "%" reads much bolder than the line icons at matching alpha. Dim it
+    # to keep visual weight consistent with the rest of the set.
+    _icon_glyph(draw, cx, cy, r, (color[0], color[1], color[2], 20), "%")
+
+def icon_arrow_up(draw, cx, cy, r, color, width):
+    draw.line([(cx, cy + r * 0.6), (cx, cy - r * 0.5)], fill=color, width=width)
+    draw.line([(cx, cy - r * 0.5), (cx - r * 0.35, cy - r * 0.05)], fill=color, width=width)
+    draw.line([(cx, cy - r * 0.5), (cx + r * 0.35, cy - r * 0.05)], fill=color, width=width)
+
+def icon_swap(draw, cx, cy, r, color, width):
+    y1, y2 = cy - r * 0.25, cy + r * 0.25
+    draw.line([(cx - r * 0.6, y1), (cx + r * 0.5, y1)], fill=color, width=width)
+    draw.line([(cx + r * 0.5, y1), (cx + r * 0.2, y1 - r * 0.22)], fill=color, width=width)
+    draw.line([(cx + r * 0.5, y1), (cx + r * 0.2, y1 + r * 0.22)], fill=color, width=width)
+    draw.line([(cx + r * 0.6, y2), (cx - r * 0.5, y2)], fill=color, width=width)
+    draw.line([(cx - r * 0.5, y2), (cx - r * 0.2, y2 - r * 0.22)], fill=color, width=width)
+    draw.line([(cx - r * 0.5, y2), (cx - r * 0.2, y2 + r * 0.22)], fill=color, width=width)
+
+def icon_pin(draw, cx, cy, r, color, width):
+    cy = cy - r * 0.2
+    cr, gap = r * 0.5, 50
+    draw.arc([cx - cr, cy - cr, cx + cr, cy + cr], start=90 + gap, end=90 - gap + 360, fill=color, width=width)
+    a1, a2 = math.radians(90 + gap), math.radians(90 - gap)
+    p1 = (cx + math.cos(a1) * cr, cy + math.sin(a1) * cr)
+    p2 = (cx + math.cos(a2) * cr, cy + math.sin(a2) * cr)
+    tip = (cx, cy + r * 1.3)
+    draw.line([p1, tip], fill=color, width=width)
+    draw.line([p2, tip], fill=color, width=width)
+
+def icon_phone(draw, cx, cy, r, color, width):
+    w, h = r * 0.9, r * 1.5
+    x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=r * 0.22, outline=color, width=width)
+    draw.line([(cx - r * 0.15, y1 - r * 0.18), (cx + r * 0.15, y1 - r * 0.18)], fill=color, width=width)
+
+def icon_checklist(draw, cx, cy, r, color, width):
+    rows = 3
+    total_h = r * 1.4
+    start_y = cy - total_h / 2
+    box = r * 0.22
+    thin = max(2, width - 2)
+    for i in range(rows):
+        y = start_y + i * (total_h / (rows - 1))
+        draw.rounded_rectangle([cx - r * 0.7, y - box / 2, cx - r * 0.7 + box, y + box / 2], radius=box * 0.25, outline=color, width=thin)
+        draw.line([(cx - r * 0.35, y), (cx + r * 0.7, y)], fill=color, width=thin)
+
+def icon_bars(draw, cx, cy, r, color, width):
+    heights = [r * 0.6, r * 0.95, r * 1.3]
+    bw, gap = r * 0.35, r * 0.18
+    base_y = cy + r * 0.7
+    start_x = cx - (len(heights) * bw + (len(heights) - 1) * gap) / 2
+    for i, h in enumerate(heights):
+        x0 = start_x + i * (bw + gap)
+        draw.rectangle([x0, base_y - h, x0 + bw, base_y], outline=color, width=width)
+
+def icon_document(draw, cx, cy, r, color, width):
+    w, h = r * 1.1, r * 1.5
+    x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=r * 0.12, outline=color, width=width)
+    thin = max(2, width - 2)
+    for i in range(3):
+        ly = y0 + h * 0.35 + i * h * 0.16
+        draw.line([(x0 + w * 0.18, ly), (x1 - w * 0.18, ly)], fill=color, width=thin)
+
+def icon_gear(draw, cx, cy, r, color, width):
+    draw.ellipse([cx - r * 0.5, cy - r * 0.5, cx + r * 0.5, cy + r * 0.5], outline=color, width=width)
+    draw.ellipse([cx - r * 0.18, cy - r * 0.18, cx + r * 0.18, cy + r * 0.18], outline=color, width=width)
+    for i in range(8):
+        rad = math.radians(i * 45)
+        x0, y0 = cx + math.cos(rad) * r * 0.5, cy + math.sin(rad) * r * 0.5
+        x1, y1 = cx + math.cos(rad) * r * 0.72, cy + math.sin(rad) * r * 0.72
+        draw.line([(x0, y0), (x1, y1)], fill=color, width=width)
+
+def icon_shield(draw, cx, cy, r, color, width):
+    w, h = r * 1.1, r * 1.4
+    pts = [
+        (cx - w / 2, cy - h / 2 + h * 0.12),
+        (cx, cy - h / 2),
+        (cx + w / 2, cy - h / 2 + h * 0.12),
+        (cx + w / 2, cy + h * 0.05),
+        (cx, cy + h / 2),
+        (cx - w / 2, cy + h * 0.05),
+    ]
+    draw.line(pts + [pts[0]], fill=color, width=width, joint="curve")
+    draw.line(
+        [(cx - w * 0.18, cy), (cx - w * 0.02, cy + h * 0.16), (cx + w * 0.22, cy - h * 0.12)],
+        fill=color, width=max(2, width - 2), joint="curve",
+    )
+
+def icon_chain(draw, cx, cy, r, color, width):
+    lw, lh = r * 0.55, r * 0.85
+    draw.rounded_rectangle([cx - lw * 0.9, cy - lh / 2, cx - lw * 0.9 + lw, cy + lh / 2], radius=lw * 0.4, outline=color, width=width)
+    draw.rounded_rectangle([cx + lw * 0.9 - lw, cy - lh / 2, cx + lw * 0.9, cy + lh / 2], radius=lw * 0.4, outline=color, width=width)
+
+def icon_network(draw, cx, cy, r, color, width):
+    for i in range(3):
+        rad = math.radians(90 + i * 120)
+        p = (cx + math.cos(rad) * r * 0.7, cy + math.sin(rad) * r * 0.7)
+        draw.line([(cx, cy), p], fill=color, width=width)
+        draw.ellipse([p[0] - r * 0.1, p[1] - r * 0.1, p[0] + r * 0.1, p[1] + r * 0.1], fill=color)
+    draw.ellipse([cx - r * 0.13, cy - r * 0.13, cx + r * 0.13, cy + r * 0.13], fill=color)
+
+def icon_dot(draw, cx, cy, r, color, width):
+    draw.ellipse([cx - r * 0.3, cy - r * 0.3, cx + r * 0.3, cy + r * 0.3], outline=color, width=width)
+
+CATEGORY_META = {
+    "Collections":    dict(icon=icon_coins, tint=ACCENT),
+    "Receivables":    dict(icon=icon_coins, tint=ACCENT),
+    "Payables":       dict(icon=icon_arrow_up, tint=SECONDARY),
+    "Field Sales":    dict(icon=icon_pin, tint=LABEL_DARK),
+    "Tally Mobile":   dict(icon=icon_phone, tint=ACCENT),
+    "How-To":         dict(icon=icon_checklist, tint=LABEL_DARK),
+    "Market Reality": dict(icon=icon_bars, tint=SECONDARY),
+    "Reports":        dict(icon=icon_document, tint=ACCENT),
+    "Autopilot":      dict(icon=icon_gear, tint=LABEL_DARK),
+    "Schemes":        dict(icon=icon_percent, tint=SECONDARY),
+    "Compliance":     dict(icon=icon_shield, tint=ACCENT),
+    "Trust":          dict(icon=icon_shield, tint=LABEL_DARK),
+    "Integration":    dict(icon=icon_chain, tint=SECONDARY),
+    "Distribution":   dict(icon=icon_network, tint=ACCENT),
+    "Comparisons":    dict(icon=icon_swap, tint=LABEL_DARK),
+}
+DEFAULT_META = dict(icon=icon_dot, tint=ACCENT)
 
 def generate_image(slug, title, category, tagline, output_dir):
-    """Generate a single blog header image."""
-    # Base gradient
-    img = make_gradient(PRIMARY_DARK, PRIMARY_SAGE, W, H)
-    draw = ImageDraw.Draw(img, "RGBA")
+    """Generate a single blog header image. `tagline` is kept in ARTICLES as
+    descriptive metadata but is no longer rendered (see module docstring)."""
+    meta = CATEGORY_META.get(category, DEFAULT_META)
+    tint = meta["tint"]
 
-    # Subtle grid
+    # Opaque background.
+    base = make_gradient(PRIMARY_DARK, PRIMARY_SAGE, W, H).convert("RGBA")
+
+    # Every translucent element (grid + category icon) is drawn on its own
+    # fully-transparent layer and alpha-composited onto the base. Pillow's
+    # ImageDraw does NOT alpha-blend when you draw straight onto an RGBA
+    # image (it overwrites), and mixed results otherwise for text vs shapes
+    # on an RGB image with the mode="RGBA" draw hack (shapes blend, text
+    # doesn't) — a real overlay + alpha_composite is the only path that's
+    # correct for both.
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    odraw = ImageDraw.Draw(overlay)
+
     for x in range(0, W, 60):
-        draw.line([(x, 0), (x, H)], fill=(*hex_to_rgb(SECONDARY), 30), width=1)
+        odraw.line([(x, 0), (x, H)], fill=(*hex_to_rgb(SECONDARY), 22), width=1)
     for y in range(0, H, 60):
-        draw.line([(0, y), (W, y)], fill=(*hex_to_rgb(SECONDARY), 30), width=1)
+        odraw.line([(0, y), (W, y)], fill=(*hex_to_rgb(SECONDARY), 22), width=1)
 
-    # Decorative circles
-    draw.ellipse([850, -180, 1380, 350], outline=(*hex_to_rgb(ACCENT), 60), width=2)
-    draw.ellipse([950, -80, 1280, 250], outline=(*hex_to_rgb(LABEL_DARK), 30), width=1)
-    draw.ellipse([-100, 430, 200, 730], outline=(*hex_to_rgb(ACCENT), 40), width=2)
+    # Single category icon, low-alpha watermark, lower-right
+    meta["icon"](odraw, 940, 460, 150, (*hex_to_rgb(tint), 40), 7)
 
-    # Takkada wordmark (top-left)
-    font_brand = get_font(22, bold=True)
-    draw.text((64, 52), "TAKKADA", font=font_brand, fill=hex_to_rgb(LABEL_DARK))
+    img = Image.alpha_composite(base, overlay)
+    draw = ImageDraw.Draw(img)
 
-    # takkada.com label
-    font_small = get_font(18)
-    draw.text((64, 82), "takkada.com/blog", font=font_small, fill=hex_to_rgb(TEXT_MUTED))
+    # Category pill (opaque, drawn straight onto the composited image)
+    font_tag = get_font_ui(15, weight=700)
+    y_cursor = 64
+    tag_h = draw_tag(draw, category.upper(), 64, y_cursor, font_tag, tint)
+    y_cursor += tag_h + 32
 
-    # Category pill
-    font_tag = get_font(16, bold=True)
-    y_cursor = 160
-    draw_tag(draw, category.upper(), 64, y_cursor, font_tag)
-    y_cursor += 52
-
-    # Title
-    font_title = get_font(58, bold=True)
+    # Title, in the site's real display serif
+    font_title = get_font_display(56, weight=460)
     lines = wrap_text(draw, title, font_title, W - 160)
-    # If > 2 lines, reduce font size
     if len(lines) > 2:
-        font_title = get_font(46, bold=True)
+        font_title = get_font_display(44, weight=460)
         lines = wrap_text(draw, title, font_title, W - 160)
 
     for line in lines[:3]:
         draw.text((64, y_cursor), line, font=font_title, fill=hex_to_rgb(SURFACE))
         bbox = draw.textbbox((64, y_cursor), line, font=font_title)
-        y_cursor += (bbox[3] - bbox[1]) + 12
+        y_cursor += (bbox[3] - bbox[1]) + 14
 
-    y_cursor += 20
-
-    # Tagline
-    font_sub = get_font(26)
-    sub_lines = wrap_text(draw, tagline, font_sub, W - 160)
-    for line in sub_lines[:2]:
-        draw.text((64, y_cursor), line, font=font_sub, fill=hex_to_rgb(LABEL_DARK))
-        bbox = draw.textbbox((64, y_cursor), line, font=font_sub)
-        y_cursor += (bbox[3] - bbox[1]) + 8
-
-    # Bottom accent bar
-    bar_y = H - 8
-    draw.rectangle([(0, bar_y), (W, H)], fill=hex_to_rgb(ACCENT))
+    # Bottom accent bar in the category's tint
+    draw.rectangle([(0, H - 8), (W, H)], fill=hex_to_rgb(tint))
 
     # Save
     out_path = os.path.join(output_dir, f"{slug}.png")

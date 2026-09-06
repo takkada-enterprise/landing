@@ -122,7 +122,7 @@ A: <Answer 1, 2–4 sentences, specific, factual>
 
 ### Step 5 — Extend the image script and regenerate
 
-Edit `scripts/generate-blog-images.py`: append 10 new entries to the `ARTICLES` list (slug, title, category, tagline). Keep `tagline` ≤ 80 chars (it has to fit on one line of the 1200×630 banner).
+Edit `scripts/generate-blog-images.py`: append 10 new entries to the `ARTICLES` list (slug, title, category, tagline). Since the 2026-09-06 redesign, `tagline` is kept only as descriptive metadata and is **not** rendered on the banner (the baked image is title-only now, in the site's real Fraunces face, with a low-alpha per-category line-icon watermark) — so its length no longer matters for layout, but keep it anyway for future use. `category` should match one of the existing keys in `CATEGORY_META` (top of the script) so the banner gets a matching icon/tint instead of the generic default dot; add a new icon function + `CATEGORY_META` entry if you're introducing a genuinely new category rather than reusing an existing one.
 
 Run `python3 scripts/generate-blog-images.py`. Verify 10 new PNGs exist in `public/assets/blog/`.
 
