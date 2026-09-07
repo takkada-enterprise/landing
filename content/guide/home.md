@@ -20,7 +20,6 @@ quotes:
   - Choose which registers show on Home
   - Settings
   - Help & support
-  - Show help icons
 quoteSources:
   Select Business:
     - lib/screens/home_screen.dart
@@ -48,8 +47,6 @@ quoteSources:
     - lib/screens/settings_screen.dart
   Help & support:
     - lib/config/settings_catalog.dart
-  Show help icons:
-    - lib/screens/settings/app_preferences_screen.dart
 relatedGuides:
   - bills-and-outstanding
   - party-ledger
@@ -131,9 +128,6 @@ you.
 ## Where to find help
 
 - Settings has a "Help & support" entry with the ways to reach the team.
-- Under Settings, App preferences, "Show help icons" turns the small help marks
-  on screens on or off. That switch is yours alone and only on the device you
-  set it on; turning it off does not remove the written guides.
 - These public guides cover the same procedures and are open to anyone, whether
   or not they are signed in.
 

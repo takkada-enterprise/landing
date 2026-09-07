@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "appRevision": "0476d44960cb24be02ea7657e945e7a6bfd14617",
-  "siteRevision": "fd57f75dcade1252ca79201afee3aa6a525a4d81",
+  "appRevision": "22cb7e1403bb1db3d8d567eb943a8d7133624d4a",
+  "siteRevision": "933aab04ef09c520f0add165673eb4e92f22a66a",
   "guides": [
     {
       "id": "bills-and-outstanding",
@@ -73,7 +73,7 @@
       "path": "/guide/home",
       "featureKey": null,
       "checkedAgainstAppOn": "2026-09-07",
-      "contentSha256": "4b8a846b4db0260679f6a8db3bfb60aae48ffc442341b4e290c1c9764414d80b"
+      "contentSha256": "e4e84bd93fe667407493d8aa64866f6876d791a8b8232613f86a9449df2365f5"
     },
     {
       "id": "import-documents",
