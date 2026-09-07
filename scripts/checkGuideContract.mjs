@@ -28,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   concatenateAdjacentLiterals,
+  stripDartComments,
   readGuides,
   readTopics,
   validateGuideContract,
@@ -189,7 +190,11 @@ export function readAppSources(appRoot, paths) {
     if (!existsSync(absolute)) continue;
     const real = realpathSync(absolute);
     if (!real.startsWith(prefix)) continue;
-    sourceByPath[path] = concatenateAdjacentLiterals(readFileSync(real, 'utf-8'));
+    // Comments are stripped BEFORE the literals are joined: a doc comment that
+    // quotes a label is documentation about the app, not the app showing it.
+    sourceByPath[path] = concatenateAdjacentLiterals(
+      stripDartComments(readFileSync(real, 'utf-8'))
+    );
   }
 
   return sourceByPath;

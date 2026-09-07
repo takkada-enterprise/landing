@@ -110,6 +110,69 @@ const ADJACENT_RUN = new RegExp(`(?:(?:${DART_LITERAL})\\s*){2,}`, 'g');
  * Instead, append the joined forms to the source text. The original is kept, so
  * ordinary single-literal labels still match exactly as before.
  */
+/**
+ * Dart source with its comments removed.
+ *
+ * A quoted app label is a claim that the app really shows that text. Matching
+ * the raw file lets a doc comment satisfy that claim: `dispatch_stage_words.dart`
+ * explains its own rule with the sentence `"Van is loaded" -> "Loaded"`, so
+ * renaming the actual `vanIsLoaded` constant left the guard green. That is the
+ * same failure as a database fence that regexes a function body and reads its
+ * comments as code.
+ *
+ * The scanner walks the source rather than regexing it, because `//` inside a
+ * string literal (a URL, say) is not a comment and stripping it would corrupt
+ * the literal a label may legitimately live in. Dart block comments nest.
+ * Comments become spaces so nothing on either side is accidentally joined.
+ */
+export function stripDartComments(source) {
+  if (typeof source !== 'string' || source === '') return source ?? '';
+  let out = '';
+  let i = 0;
+  const n = source.length;
+  while (i < n) {
+    const ch = source[i];
+    const next = source[i + 1];
+
+    if (ch === '/' && next === '/') {
+      while (i < n && source[i] !== '\n') i += 1;
+      continue;
+    }
+
+    if (ch === '/' && next === '*') {
+      let depth = 1;
+      i += 2;
+      while (i < n && depth > 0) {
+        if (source[i] === '/' && source[i + 1] === '*') { depth += 1; i += 2; continue; }
+        if (source[i] === '*' && source[i + 1] === '/') { depth -= 1; i += 2; continue; }
+        if (source[i] === '\n') out += '\n';
+        i += 1;
+      }
+      out += ' ';
+      continue;
+    }
+
+    if (ch === "'" || ch === '"') {
+      const raw = out.endsWith('r');
+      const triple = source.startsWith(ch.repeat(3), i);
+      const quote = triple ? ch.repeat(3) : ch;
+      out += quote;
+      i += quote.length;
+      while (i < n) {
+        if (!raw && source[i] === '\\') { out += source.slice(i, i + 2); i += 2; continue; }
+        if (source.startsWith(quote, i)) { out += quote; i += quote.length; break; }
+        out += source[i];
+        i += 1;
+      }
+      continue;
+    }
+
+    out += ch;
+    i += 1;
+  }
+  return out;
+}
+
 export function concatenateAdjacentLiterals(source) {
   if (typeof source !== 'string' || source === '') return source ?? '';
   const joined = [];

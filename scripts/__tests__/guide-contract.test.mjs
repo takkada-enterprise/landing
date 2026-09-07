@@ -26,6 +26,7 @@ import {
   validateGuideContract,
   readGuides,
   concatenateAdjacentLiterals,
+  stripDartComments,
 } from '../lib/guideContract.mjs';
 import { cliOptions, submitIndexNow } from '../submitIndexNow.mjs';
 
@@ -492,5 +493,45 @@ describe('submitIndexNow dry-run CLI wiring', () => {
     const fetchMock = vi.fn().mockResolvedValue({ status: 200, ok: true });
     await submitIndexNow(['https://takkada.com/'], { ...cliOptions({}), fetch: fetchMock });
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('a doc comment is not the app showing a label', () => {
+  it('strips a line comment that quotes the label', () => {
+    const dart = [
+      "/// same verb, past and present — \"Van is loaded\" → \"Loaded\".",
+      "  static const String vanIsLoaded = 'Van is packed';",
+    ].join('\n');
+    expect(stripDartComments(dart)).not.toContain('Van is loaded');
+    expect(stripDartComments(dart)).toContain('Van is packed');
+  });
+
+  it('strips nested block comments', () => {
+    const dart = "/* outer /* inner 'Round Off' */ still comment */ const a = 'Total';";
+    const stripped = stripDartComments(dart);
+    expect(stripped).not.toContain('Round Off');
+    expect(stripped).toContain('Total');
+  });
+
+  it('does NOT treat // inside a string literal as a comment', () => {
+    const dart = "const url = 'https://takkada.com/guide'; const label = 'Round Off';";
+    const stripped = stripDartComments(dart);
+    expect(stripped).toContain('https://takkada.com/guide');
+    expect(stripped).toContain('Round Off');
+  });
+
+  it('keeps a label that lives in a triple-quoted or raw string', () => {
+    const dart = "const a = r'C:\\Users\\x'; const b = \"\"\"Van went out\"\"\";";
+    expect(stripDartComments(dart)).toContain('Van went out');
+  });
+
+  it('fails the contract when only a comment carries the label', () => {
+    const input = base();
+    input.sourceByPath['lib/screens/ledger_config_screen.dart'] = stripDartComments(
+      "/// The 'Round Off' row explains itself.\nconst x = 'Something else';"
+    );
+    expect(validateGuideContract(input)).toContain(
+      'guide gst-on-the-bill: missing app label "Round Off"'
+    );
   });
 });
