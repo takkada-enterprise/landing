@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "slug": "whatsapp-invoice-delivery",
+  "topicId": "whatsapp-invoice-delivery",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 6",
+  "screensRead": [
+    "lib/screens/settings/notification_settings_screen.dart",
+    "lib/screens/settings/invoices_settings_screen.dart",
+    "lib/screens/invoice_summary_screen.dart",
+    "lib/screens/sales_invoice_detail_screen.dart",
+    "lib/services/whatsapp_service.dart",
+    "lib/services/automated_whatsapp_pdf_send.dart",
+    "lib/widgets/automated_whatsapp_blocked_card.dart",
+    "lib/screens/reminder_history_screen.dart",
+    "lib/models/party_reminder_rollup.dart",
+    "lib/models/reminder_history.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["turn-automatic-sending-on", "decide-per-invoice", "share-by-hand"],
+    "stuckStatesPublished": [
+      "no send switch (no party number, or imported invoice)",
+      "switch on but nothing arrived (Failed vs Sent)",
+      "everything stopped: credits exhausted",
+      "cannot change the setting (not full access, or feature off)",
+      "manual share shows as Not tracked",
+      "Invoice created, but WhatsApp PDF failed - the invoice is safe, only the send failed"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": "auto_invoice_dispatch",
+    "sectionFeatureKeys": ["auto_invoice_dispatch"],
+    "permissionsDescribed": [
+      "auto_invoice_dispatch entitlement gates the business setting; a stale stored toggle is never shown as on without the entitlement",
+      "full-access membership required to change the company setting",
+      "manual sharing needs only invoice view and is declared with no featureKeys"
+    ],
+    "notes": "The inventory named settings/notification_settings_screen.dart as the primary file. That screen is only the per-user PUSH notification catalogue and contains no WhatsApp invoice-send control. The actual switch is 'Auto-send invoice via WhatsApp' in lib/screens/settings/invoices_settings_screen.dart; that file was read and is the quote source. notification_settings_screen.dart was read and found not to contain the described control."
+  },
+  "deliveryTruth": {
+    "claim": "Sent means WhatsApp accepted the message, not that it was delivered or read.",
+    "sourceOfTruth": "lib/models/party_reminder_rollup.dart ReminderTrackingState doc comments."
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "sending from the business's own WhatsApp number",
+      "featureKeys": ["own_whatsapp_number"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "reviewed and deliberately not published; the 'Your own WhatsApp number is being set up' state was seen in automated_whatsapp_blocked_card.dart and is not documented"
+    },
+    {
+      "surface": "auto-send for receipts and credit notes",
+      "featureKeys": ["auto_receipt_dispatch", "auto_credit_note_dispatch"],
+      "reason": "customer-visible, but out of scope for this topic",
+      "action": "not published here; belongs to the receipt and credit-note topics"
+    }
+  ],
+  "deliberateOmissions": [
+    "No credit prices or pack sizes. The app's own credit-exhausted sentence is quoted verbatim as the reason; no additional purchase line was written.",
+    "Payment-link attachment is mentioned only as the one sentence the invoice screen shows, because payment links depend on settlement onboarding that this guide does not cover."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

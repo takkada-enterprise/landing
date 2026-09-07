@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "slug": "import-documents",
+  "topicId": "import-documents",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 6",
+  "screensRead": [
+    "lib/screens/document_import/document_kind_chooser_screen.dart",
+    "lib/screens/document_import/import_history_screen.dart",
+    "lib/screens/document_import/batch_import_queue_screen.dart",
+    "lib/screens/document_import/import_shared_document_screen.dart",
+    "lib/screens/document_import/import_payload_lost_screen.dart",
+    "lib/models/import_document_kind.dart",
+    "lib/services/document_import_availability_service.dart",
+    "lib/screens/purchase_invoice_import/upload_purchase_invoice_pdf_screen.dart",
+    "lib/screens/purchase_invoice_import/resolve_supplier_screen.dart",
+    "lib/screens/purchase_invoice_import/resolve_lines_screen.dart",
+    "lib/screens/purchase_invoice_import/review_imported_purchase_invoice_screen.dart",
+    "lib/screens/sales_invoice_import/upload_sales_invoice_screen.dart",
+    "lib/screens/sales_invoice_import/resolve_customer_screen.dart",
+    "lib/screens/sales_invoice_import/resolve_lines_screen.dart",
+    "lib/screens/sales_invoice_import/import_payload_recovery_screen.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["choose-a-kind", "upload", "match-the-party", "match-the-items", "review-and-create", "resume-or-discard"],
+    "stuckStatesPublished": [
+      "import option absent (no entitlement, or no create right for the kind)",
+      "only one kind offered",
+      "Import failed - poor photo or oversized file",
+      "extraction wrong in places - correct on review, do not restart",
+      "Unmapped Item on the review screen",
+      "duplicate supplier reference refused on save",
+      "browser refresh loses an in-progress import",
+      "document saved but a follow-up step did not finish"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": "document_import",
+    "sectionFeatureKeys": ["document_import"],
+    "permissionsDescribed": [
+      "one consolidated per-company document_import entitlement, shared by every kind (DocumentImportAvailabilityService._defaultIsEntitled calls DocumentImportAccessService().isEnabled once, kind-independent)",
+      "plus the per-kind register CREATE right via ImportDocumentKind.voucherRegister",
+      "the intersection filters the chooser, so an unavailable kind is never offered"
+    ],
+    "notes": "No 'partial import module' claim and no separately-sold legacy key is named. sales_invoice_import, sales_order_import, purchase_order_import and purchase_import_supplier_line_description are all is_customer_visible=false in prod and are NOT declared anywhere in this guide; the guide describes the kinds as things the chooser may or may not offer you, governed by the one document_import contract plus your create rights."
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "Bank statement import",
+      "featureKeys": ["bank_statement_import"],
+      "screensReviewedNotPublished": [
+        "lib/screens/bank_statement_import/upload_bank_statement_screen.dart",
+        "lib/screens/bank_statement_import/resolve_bank_statement_lines_screen.dart",
+        "lib/screens/bank_statement_import/confirm_bank_statement_import_screen.dart"
+      ],
+      "reason": "is_customer_visible = false in production feature_definitions, verified 2026-09-07 from tool/help/visibility-evidence.json (prod, project cuwdhditjhocntmxdqiz). No customer can import a bank statement.",
+      "action": "REVIEWED AND DELIBERATELY NOT PUBLISHED. The coordinating inventory lists these three screens for this topic; the branch was read and excluded. The published guide contains no section, step, heading, kind entry or screenshot for uploading, resolving or confirming a bank statement, and the string 'bank' does not appear in the page. ImportDocumentKind.bankStatement exists in the enum and its label is deliberately omitted from the kinds list. bank_statement_import is NOT declared in any sections[].featureKeys - the validator would reject it.",
+      "revisitWhen": "bank_statement_import becomes is_customer_visible = true in production, and a fresh visibility-evidence capture proves it"
+    }
+  ],
+  "deliberateOmissions": [
+    "The kind list is published without asserting that any particular customer will see all four; the guide says the chooser shows only what applies to you.",
+    "No claim about extraction accuracy rates.",
+    "Purchase-invoice-only fields (MRP, TDS, discount ledgers) are named only where the review screen refuses to save without a mapping; the mapping procedure itself belongs to the ledger-mapping guide."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

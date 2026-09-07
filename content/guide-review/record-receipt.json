@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "slug": "record-receipt",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/create_receipt_screen.dart",
+    "lib/screens/receipts_register_screen.dart",
+    "lib/screens/select_invoices_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/screens/upi_qr_screen.dart",
+    "lib/widgets/upi/upi_qr_action.dart",
+    "lib/widgets/voucher/voucher_widgets.dart",
+    "lib/widgets/voucher/amount_input_field.dart",
+    "lib/widgets/voucher/bank_selection_list.dart",
+    "lib/widgets/voucher/create_voucher_bottom_bar.dart",
+    "lib/widgets/voucher/duplicate_voucher_dialog.dart",
+    "lib/widgets/voucher/notes_widgets.dart",
+    "lib/widgets/voucher/tax_discount_modal.dart",
+    "lib/widgets/voucher/voucher_number_field.dart",
+    "lib/widgets/voucher/voucher_success_dialog.dart",
+    "lib/models/receipt_bill_allocation.dart",
+    "lib/services/create_access_service.dart",
+    "lib/services/access_control_service.dart",
+    "lib/utils/upi_qr_gate.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "voucher_creation_mobile",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — voucher_creation_mobile: true",
+    "gate": "CreateAccessService.resolveRegisterCreateAccess(VoucherRegisterType.receipt): the voucher_creation_mobile feature first (fail-closed on lookup error), then AccessControlService.canCreateInCurrentCompanyRegister for the Receipts register.",
+    "route": "/create/receipt"
+  },
+  "behaviourReviewed": [
+    "Bill allocation card is rendered only when !isEditing; an existing receipt opens as Edit Receipt with no picker.",
+    "Select Invoices offers Unpaid / Partial / Paid / All chips plus a voucher-number search, and shows each invoice's remaining balance.",
+    "ReceiptBillAllocation links a receipt to a sales invoice via paysathi_bill (Agst Ref); leaving the picker empty leaves the receipt On Account.",
+    "Save is disabled until a bank ledger is chosen (onPressed is null when selectedBankLedgerId == null).",
+    "Validation messages: Amount must be greater than 0; Please select mode of payment.",
+    "DuplicateVoucherDialog fires on a same-party same-amount same-day match and offers Create anyway.",
+    "BankSelectionList's UPI action is opt-in and switched on for receipts only (money in); create_payment_screen deliberately leaves it off.",
+    "The read-only 'Against invoice' row appears in the payment-mode-only flow launched from an invoice."
+  ],
+  "visibilityBlocked": [
+    {
+      "surface": "Submit for approval / Resubmit for approval / Approve and save save-modes in create_receipt_screen.dart and create_voucher_bottom_bar.dart",
+      "reason": "The maker-checker flow is gated on voucher_approvals, recorded as is_customer_visible = false in the prod evidence. Under the access truth table no public procedure, teaser or slug was written for it, and none of its labels are quoted."
+    }
+  ],
+  "deliberatelyOmitted": [
+    "'Against Ref' is a Tally term and does not appear as a control label anywhere in the app, so it is explained in prose and never declared as a quote.",
+    "The approvals save-modes (see visibilityBlocked).",
+    "Any claim about how long a receipt takes to reach Tally."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug record-receipt — OK"
+}

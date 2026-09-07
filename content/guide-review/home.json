@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "slug": "home",
+  "topicId": "home",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 3",
+  "screensRead": [
+    "lib/screens/home_screen.dart",
+    "lib/screens/settings_screen.dart",
+    "lib/config/settings_catalog.dart",
+    "lib/screens/settings/app_preferences_screen.dart",
+    "lib/screens/settings/help_support_screen.dart",
+    "lib/widgets/feature_lock_presentation.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["choose-a-business", "read-home", "customise-home-registers"],
+    "stuckStatesPublished": [
+      "no figures / no business selected",
+      "stale figures pending sync",
+      "a tile disappeared after a business switch or access change"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": null,
+    "sectionFeatureKeys": [],
+    "permissionsDescribed": [
+      "three distinct tile states separated: locked (business feature off), hidden (no teaser), and permission-denied for this member"
+    ],
+    "notes": "Home hides Pending Orders entirely when the add-on is off and shows Document Import and Team Sales locked; the guide describes the three shapes generically rather than naming which feature does which, because that mapping is per-tile app logic that can change."
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "Field Visits / Schemes / Approvals Home tiles",
+      "featureKeys": ["field_visits", "scheme_credit_notes", "voucher_approvals"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "reviewed and deliberately not described; no tile name, teaser or procedure published"
+    }
+  ],
+  "deliberateOmissions": [
+    "Demo-company controls (Exit demo) not documented - not a customer path.",
+    "Kept short by instruction; deep procedures live in the linked guides."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}
