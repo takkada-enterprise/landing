@@ -15,6 +15,20 @@ export function extractUrlsFromSitemap(xmlContent) {
   return matches.map((m) => m.replace(/<\/?loc>/g, '').trim());
 }
 
+/**
+ * The CLI's options, derived from the environment.
+ *
+ * Every local build in the guide plan set runs `INDEXNOW_DRY_RUN=true npm run
+ * build`, because verifying the site must not tell Bing that a few hundred URLs
+ * changed. `submitIndexNow` has supported `dryRun` since it was written; the
+ * CLI simply never offered a way to reach it. Absent the variable — which is
+ * how deployment runs — this returns `{ dryRun: false }` and behaviour is
+ * exactly what it was.
+ */
+export function cliOptions(env = process.env) {
+  return { dryRun: env.INDEXNOW_DRY_RUN === 'true' };
+}
+
 export async function submitIndexNow(urls, options = {}) {
   const fetchFn = options.fetch || globalThis.fetch;
   if (!urls || urls.length === 0) {
@@ -58,10 +72,19 @@ async function main() {
   const xmlContent = readFileSync(sitemapPath, 'utf-8');
   const urls = extractUrlsFromSitemap(xmlContent);
 
-  console.log(`submitIndexNow: Submitting ${urls.length} URLs to IndexNow (${INDEXNOW_ENDPOINT})...`);
-  const result = await submitIndexNow(urls);
+  const options = cliOptions();
+  if (options.dryRun) {
+    console.log(`submitIndexNow: Dry run \u2014 not submitting ${urls.length} URLs.`);
+  } else {
+    console.log(`submitIndexNow: Submitting ${urls.length} URLs to IndexNow (${INDEXNOW_ENDPOINT})...`);
+  }
+  const result = await submitIndexNow(urls, options);
 
-  if (result.success) {
+  if (result.dryRun) {
+    console.log(
+      `submitIndexNow: Dry run OK \u2014 ${result.count} URLs would have been submitted. No request was made.`
+    );
+  } else if (result.success) {
     console.log(`submitIndexNow: Successfully submitted ${urls.length} URLs (HTTP ${result.status || 200}).`);
   } else {
     console.warn(`submitIndexNow: Submission warning/failed: ${result.error || `HTTP ${result.status}`}`);
