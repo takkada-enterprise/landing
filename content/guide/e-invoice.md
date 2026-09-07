@@ -2,7 +2,7 @@
 slug: e-invoice
 title: How to generate an e-invoice
 meta_title: How to generate an e-invoice in Takkada
-meta_description: Enter your GST portal credentials, generate an IRN and signed QR for a sales invoice, read the result, and cancel the GST document without cancelling the invoice.
+meta_description: "Enter your GST portal credentials, generate an IRN and signed QR for a sales invoice, read the result, and cancel the GST document but keep the invoice."
 featureKey: einvoice_ewaybill_mobile
 checkedAgainstAppOn: 2026-09-07
 appRevision: 8444b1e82e199f3b5767f74cb201c8ca8a8cff9b

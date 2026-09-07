@@ -2,7 +2,7 @@
 slug: e-way-bill
 title: How to generate an e-way bill
 meta_title: How to generate an e-way bill in Takkada
-meta_description: Enter your portal credentials and transport details, generate an e-way bill against a sales invoice, and read the number, validity and vehicle it comes back with.
+meta_description: "Enter your portal credentials and transport details, generate an e-way bill against a sales invoice, and read the number, validity and vehicle you get back."
 featureKey: einvoice_ewaybill_mobile
 checkedAgainstAppOn: 2026-09-07
 appRevision: 8444b1e82e199f3b5767f74cb201c8ca8a8cff9b

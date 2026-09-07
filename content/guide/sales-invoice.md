@@ -1,7 +1,7 @@
 ---
 slug: sales-invoice
 title: How to make a sales invoice
-meta_title: Make a sales invoice in Takkada — party, items, rate, GST and Tally sync
+meta_title: "Make a sales invoice in Takkada and send it to Tally"
 meta_description: Pick the customer, add items and rates, check the totals, set payment status and due date, and save. What each control does and what stops the save.
 featureKey: voucher_creation_mobile
 checkedAgainstAppOn: 2026-09-07

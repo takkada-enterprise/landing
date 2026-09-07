@@ -172,6 +172,69 @@ describe('guide titles', () => {
   );
 });
 
+// ───────────────────────────────────────────────────────────────────────────
+// Search-result metadata.
+//
+// CLAUDE.md §9 asks every page for a unique title under 60 characters and a
+// unique description under 160. `src/components/Seo.jsx` only warns when a
+// page breaks that, and a warning in a build log that nobody reads is how
+// thirteen of twenty-one guides ended up with titles Google truncates
+// mid-word. The limits are asserted here instead, against the same strings
+// the route hands to Seo — including the `title — Takkada` fallback a guide
+// gets when it declares no meta_title of its own, because that fallback is
+// what would actually be served.
+// ───────────────────────────────────────────────────────────────────────────
+
+const MAX_META_TITLE = 60;
+const MAX_META_DESCRIPTION = 160;
+
+/** Exactly what src/routes/GuidePost.jsx passes to <Seo title=…>. */
+const servedTitle = (guide) => guide.metaTitle || `${guide.title} — Takkada`;
+
+describe('guide search-result metadata', () => {
+  it.each(GUIDES.map((guide) => [guide.slug, guide]))(
+    '%s: has a title search engines will not truncate',
+    (slug, guide) => {
+      const title = servedTitle(guide);
+      expect(
+        title.length,
+        `${slug}: meta_title is ${title.length} characters, over the ${MAX_META_TITLE}-` +
+          `character limit: ${title}`
+      ).toBeLessThanOrEqual(MAX_META_TITLE);
+    }
+  );
+
+  it.each(GUIDES.map((guide) => [guide.slug, guide]))(
+    '%s: has a description search engines will not truncate',
+    (slug, guide) => {
+      const description = String(guide.metaDescription ?? '');
+      expect(description.trim(), `${slug}: no meta_description`).not.toBe('');
+      expect(
+        description.length,
+        `${slug}: meta_description is ${description.length} characters, over the ` +
+          `${MAX_META_DESCRIPTION}-character limit: ${description}`
+      ).toBeLessThanOrEqual(MAX_META_DESCRIPTION);
+    }
+  );
+
+  // Two guides sharing a title or a description is two pages competing for the
+  // same result, which is the same damage as one page having none.
+  it('gives every guide its own title and description', () => {
+    for (const [label, values] of [
+      ['title', GUIDES.map((guide) => [guide.slug, normalise(servedTitle(guide))])],
+      ['description', GUIDES.map((guide) => [guide.slug, normalise(guide.metaDescription)])],
+    ]) {
+      const seen = new Map();
+      const clashes = [];
+      for (const [slug, value] of values) {
+        if (seen.has(value)) clashes.push(`${seen.get(value)} and ${slug} share a ${label}`);
+        else seen.set(value, slug);
+      }
+      expect(clashes, clashes.join('; ')).toEqual([]);
+    }
+  });
+});
+
 describe('guide pages', () => {
   // W3 writes these. Until it finishes, this names what is still missing
   // rather than reporting a green manual with nothing in it.

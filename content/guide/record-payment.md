@@ -1,7 +1,7 @@
 ---
 slug: record-payment
 title: How to record a payment
-meta_title: Record a supplier payment in Takkada — bank or cash, and against the right bill
+meta_title: "Record a supplier payment in Takkada against a bill"
 meta_description: Enter money you have paid a supplier, choose which bank or cash account it left, tie it to a purchase bill, and know what it takes to reach Tally.
 featureKey: voucher_creation_mobile
 checkedAgainstAppOn: 2026-09-07

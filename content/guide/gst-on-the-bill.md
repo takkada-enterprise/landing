@@ -1,7 +1,7 @@
 ---
 slug: gst-on-the-bill
 title: How to check GST on a bill
-meta_title: GST on a bill in Takkada — inclusive, exclusive, tax rows and Round Off
+meta_title: "GST on a bill in Takkada: rates, tax rows and Round Off"
 meta_description: What the GST chips on the Invoice Summary do to your rates, why a bill shows IGST or CGST and SGST, what the badges on a line mean, and how Round Off behaves.
 featureKey: null
 checkedAgainstAppOn: 2026-09-07

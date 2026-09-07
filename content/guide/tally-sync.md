@@ -1,7 +1,7 @@
 ---
 slug: tally-sync
 title: How to check and fix Tally sync
-meta_title: Check Tally sync in Takkada — what needs attention, what is waiting, what went across
+meta_title: "Check Tally sync in Takkada: what failed, what is waiting"
 meta_description: Read the Tally Sync screen properly. What each section means, why an entry failed, what to do about it, and what "your PC has not connected" really tells you.
 featureKey: tally_sync_dashboard
 checkedAgainstAppOn: 2026-09-07

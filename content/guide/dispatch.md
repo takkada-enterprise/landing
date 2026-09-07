@@ -1,7 +1,7 @@
 ---
 slug: dispatch
 title: How to load and dispatch goods
-meta_title: Load a van and dispatch goods in Takkada — orders, challans and invoices
+meta_title: "Load a van and dispatch goods in Takkada, order to invoice"
 meta_description: Load a van from your sales orders, delivery challans or sales invoices, record what actually went out, and follow the van from Building to Delivered or Billed.
 featureKey: dispatch_load
 checkedAgainstAppOn: 2026-09-07

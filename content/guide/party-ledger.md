@@ -2,7 +2,7 @@
 slug: party-ledger
 title: How to open a party ledger and share a statement
 meta_title: How to open a party ledger and share a statement in Takkada
-meta_description: Find a customer or supplier, read the opening and closing balance for a period, set the statement period and share the statement, and understand why you may only see some parties.
+meta_description: "Find a customer or supplier, read the opening and closing balance for a period, set the statement dates and share it, and see why some parties are missing."
 featureKey: null
 checkedAgainstAppOn: 2026-09-07
 appRevision: 8444b1e82e199f3b5767f74cb201c8ca8a8cff9b

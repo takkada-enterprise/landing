@@ -1,7 +1,7 @@
 ---
 slug: purchase-invoice
 title: How to record a purchase invoice
-meta_title: Record a purchase invoice in Takkada — supplier bill, references and Tally status
+meta_title: "Record a purchase invoice in Takkada from a supplier bill"
 meta_description: Enter a supplier's bill with its own number and date, add items and taxes, mark what you have paid, and read whether the entry has actually reached Tally.
 featureKey: voucher_creation_mobile
 checkedAgainstAppOn: 2026-09-07

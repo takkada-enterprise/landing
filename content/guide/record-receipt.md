@@ -1,7 +1,7 @@
 ---
 slug: record-receipt
 title: How to record a receipt
-meta_title: Record a receipt in Takkada — money in, against a bill or on account
+meta_title: "Record a receipt in Takkada, on account or against a bill"
 meta_description: Enter money you have received, link it to the customer's unpaid bills so their balance drops, choose the bank or cash account, and watch it go across to Tally.
 featureKey: voucher_creation_mobile
 checkedAgainstAppOn: 2026-09-07

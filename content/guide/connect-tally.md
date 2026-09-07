@@ -1,7 +1,7 @@
 ---
 slug: connect-tally
 title: How to connect your Tally company
-meta_title: Connect Tally to Takkada — install the Windows client and run the first sync
+meta_title: "Connect Tally to Takkada and finish the first sync"
 meta_description: "Step by step: install the Takkada Windows client on the PC that runs Tally, link it to your account, pick the right company and finish the first sync."
 featureKey: tally_sync_dashboard
 checkedAgainstAppOn: 2026-09-07

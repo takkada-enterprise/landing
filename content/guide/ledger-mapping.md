@@ -1,7 +1,7 @@
 ---
 slug: ledger-mapping
 title: How to map your Tally ledgers
-meta_title: Map your Tally ledgers in Takkada — GST, Round Off and your own charges
+meta_title: "Map your Tally ledgers in Takkada for GST and charges"
 meta_description: Tell Takkada which Tally ledger each tax, charge and discount belongs to, so every bill the app sends lands in the right place in your books.
 featureKey: null
 checkedAgainstAppOn: 2026-09-07

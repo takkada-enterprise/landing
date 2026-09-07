@@ -1,7 +1,7 @@
 ---
 slug: credit-and-debit-notes
 title: How to make a credit note or a debit note
-meta_title: Credit and debit notes in Takkada — returns, adjustments and the original bill
+meta_title: "Credit and debit notes in Takkada, tied to the bill"
 meta_description: When to raise a credit note or a debit note, how to link a credit note to the invoice it reverses, and why the two have separate rights.
 featureKey: voucher_creation_mobile
 checkedAgainstAppOn: 2026-09-07
