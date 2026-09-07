@@ -211,13 +211,56 @@ export function readSiteRevision(root = repoRoot) {
   }
 }
 
+/**
+ * The app revision the guides were checked against.
+ *
+ * When a paired Flutter checkout is available (local work, and the app repo's
+ * own CI, which checks out both) it is read from git, and every guide's
+ * declared `appRevision` is expected to agree with it. The Cloudflare Pages
+ * builder has no access to the private app repository, so there it falls back
+ * to the guides' own frontmatter — which is the more truthful source anyway:
+ * the manifest records which app code these pages were reviewed against, not
+ * whichever checkout happened to be on the build machine. Guides that disagree
+ * with each other are a real inconsistency and fail rather than pick a winner.
+ */
+function resolveAppRevision(guides) {
+  const declared = [...new Set(guides.map((guide) => guide.appRevision).filter(Boolean))];
+  if (declared.length > 1) {
+    throw new Error(
+      `generate-guide-manifest: the corpus declares ${declared.length} different app ` +
+        `revisions (${declared.join(', ')}). One manifest cannot record which app the ` +
+        'guides were checked against until they agree.'
+    );
+  }
+  if (!declared.length) {
+    throw new Error(
+      'generate-guide-manifest: no guide declares an appRevision, so there is nothing ' +
+        'to record about which app code these pages describe.'
+    );
+  }
+
+  let appRoot = null;
+  try {
+    appRoot = resolveAppRoot();
+  } catch {
+    return declared[0];
+  }
+  const fromGit = readAppRevision(appRoot);
+  if (fromGit && !fromGit.startsWith(declared[0]) && !declared[0].startsWith(fromGit)) {
+    process.stderr.write(
+      `generate-guide-manifest: note — the corpus was checked against ${declared[0]}, ` +
+        `the paired checkout is at ${fromGit}. Recording the reviewed revision.\n`
+    );
+  }
+  return declared[0];
+}
+
 function main() {
-  const appRoot = resolveAppRoot();
-  const appRevision = readAppRevision(appRoot);
   const siteRevision = readSiteRevision(repoRoot);
 
   const topics = readTopics(repoRoot);
   const guides = readGuides(repoRoot);
+  const appRevision = resolveAppRevision(guides);
 
   const { manifest, errors } = buildGuideManifest({ topics, guides, appRevision, siteRevision });
 
