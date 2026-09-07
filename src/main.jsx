@@ -7,6 +7,7 @@ import './styles.css';
 import './premium.css';
 import './home.css';
 import './feature-page.css';
+import './guide.css';
 
 export const createRoot = ViteReactSSG(
   { routes },
