@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "slug": "team-access",
+  "topicId": "team-access",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 4",
+  "screensRead": [
+    "lib/screens/settings/team_settings_screen.dart",
+    "lib/screens/manage_team_screen.dart",
+    "lib/screens/member_permissions_screen.dart",
+    "lib/widgets/invite_team_member_modal.dart",
+    "lib/models/member_access_presets.dart",
+    "lib/widgets/member_permissions/role_picker_section.dart",
+    "lib/widgets/member_permissions/register_permissions_section.dart",
+    "lib/widgets/member_permissions/ledger_scope_section.dart",
+    "lib/widgets/member_permissions/voucher_type_scope_section.dart",
+    "lib/widgets/member_permissions/godown_scope_section.dart",
+    "lib/widgets/member_permissions/stock_scope_section.dart",
+    "lib/widgets/member_permissions/access_summary.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["invite-someone", "change-what-someone-can-do", "register-levels", "scopes"],
+    "stuckStatesPublished": [
+      "not an admin",
+      "invited person cannot sign in",
+      "accepted but sees an empty business",
+      "screen readable but every action refuses (View level)",
+      "new party invisible under Only some scope",
+      "renamed Tally voucher type dropped from an assignment",
+      "full-access member cannot add staff"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": "team_access_controls",
+    "sectionFeatureKeys": ["team_access_controls"],
+    "permissionsDescribed": [
+      "businessadmin role gates the whole team surface",
+      "four invite choices: Admin is a membership role, the other three are access presets",
+      "register levels None/View/Create & edit/Full (incl. delete)",
+      "party, voucher-type, godown and stock-group scopes",
+      "Reports and Smart Reminders as separate feature toggles"
+    ],
+    "notes": "The plan cell named only settings/team_settings_screen.dart, which is a 120-line hub with three links. The substance is in manage_team_screen.dart, member_permissions_screen.dart, invite_team_member_modal.dart and lib/widgets/member_permissions/*; those were read and are recorded here."
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "Can approve vouchers toggle on Member Permissions",
+      "featureKeys": ["voucher_approvals"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "reviewed and deliberately not published; no approver procedure, heading or screenshot"
+    }
+  ],
+  "deliberateOmissions": [
+    "Cost centre mapping (the third link on the team hub) is a Tally mapping task, not an access task; left out of this topic.",
+    "No plan-tier name is used as a proxy for team_access_controls."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

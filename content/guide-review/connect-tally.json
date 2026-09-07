@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "slug": "connect-tally",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/connect_tally_screen.dart",
+    "lib/screens/waiting_for_companies_screen.dart",
+    "lib/screens/select_companies_screen.dart",
+    "lib/screens/sync_progress_screen.dart",
+    "lib/services/loader_session_service.dart",
+    "lib/config/app_router.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "tally_sync_dashboard",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — tally_sync_dashboard: true",
+    "gate": "Onboarding route /connect-tally; no in-app entry point outside onboarding (only waiting_for_companies_screen pushes onward to /select-companies).",
+    "route": "/connect-tally"
+  },
+  "behaviourReviewed": [
+    "The screen watches for an active loader session and advances to /waiting-for-companies by itself; the manual check button only re-reads the same session.",
+    "Manual check with no session shows the snackbar 'Loader not yet connected. Please install and run the Windows client.'",
+    "Waiting screen auto-advances to /select-companies when companies arrive and offers a 5-item Connection Troubleshooting dialog.",
+    "Select Companies persists the chosen tally_companies and moves to /sync-progress.",
+    "Sync progress ends on Ready to Go! with a Go to Home button.",
+    "The four numbered instruction steps are Download Windows Client / Install on Your PC / Link Your Account / Select Companies."
+  ],
+  "inventoryDeviations": [
+    "The inventory names only lib/screens/connect_tally_screen.dart, but the connect procedure genuinely spans waiting_for_companies_screen.dart, select_companies_screen.dart and sync_progress_screen.dart. Those three were read and quoted from; topics.json sourceFiles was left untouched (another agent owns it)."
+  ],
+  "deliberatelyOmitted": [
+    "The exact Tally menu path for enabling the XML port: it differs by Tally version and is not stated anywhere in the app. The guide says what has to be true and who to ask.",
+    "Any claim that a wrongly-selected company can be un-selected from the phone; no such screen exists outside onboarding, so the guide routes to support.",
+    "The 'I've installed the loader' label is stored in Dart with an escaped apostrophe, so only the substring 'installed the loader' is declared and the body words it as a description rather than a caption."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug connect-tally — OK"
+}

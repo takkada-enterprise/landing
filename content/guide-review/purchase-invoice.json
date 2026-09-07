@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "slug": "purchase-invoice",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/purchase_invoice_register_screen.dart",
+    "lib/screens/purchase_invoice_detail_screen.dart",
+    "lib/screens/invoice_summary_screen.dart",
+    "lib/screens/add_invoice_items_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/services/create_access_service.dart",
+    "lib/config/app_router.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "voucher_creation_mobile",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — voucher_creation_mobile: true",
+    "gate": "Purchase register view/create rights are resolved separately (the register screen renders 'You do not have permission to view this register.'), on top of the voucher_creation_mobile feature.",
+    "route": "/create/invoice?type=purchase → /invoice-summary; detail at /purchase-invoice/:id"
+  },
+  "behaviourReviewed": [
+    "The purchase form is the same InvoiceSummaryScreen with invoiceType 'purchase'; its titles, number and date labels all switch on that flag.",
+    "References captured: Supplier Invoice No. and its date, Buyer PO No. and PO date (behind a company switch), Other Ref, Terms of Delivery, and the Purchase Ledger selector.",
+    "The detail screen carries an explicit Tally state line — Syncing to Tally… / Synced to Tally / Tally sync failed — with a Re-sync to Tally action that resends the invoice's current values on the next sync.",
+    "Update Payment Status asks 'Which account paid?' whenever the paid amount increases, and aborts the status change if the payment insert fails ('Payment status was left unchanged.').",
+    "Cancel Invoice keeps the record and marks it cancelled; it is refused for invoices carrying an e-invoice or e-way bill.",
+    "Editing is refused for invoices with fractional GST rates.",
+    "Voucher number can be corrected on its own via Edit Voucher Number."
+  ],
+  "inventoryDeviations": [
+    "The inventory names only purchase_invoice_register_screen.dart and purchase_invoice_detail_screen.dart. Neither contains the creation form — a purchase invoice is created through add_invoice_items_screen.dart and invoice_summary_screen.dart in 'purchase' mode. Both were read and quoted; topics.json sourceFiles was left untouched (another agent owns it)."
+  ],
+  "deliberatelyOmitted": [
+    "The maker-checker save modes (voucher_approvals is dark in the prod evidence).",
+    "Purchase import / supplier-line-description behaviour: purchase_import_supplier_line_description and purchase_order_import are is_customer_visible = false, so no import procedure was written here.",
+    "No tax advice; the GST explanation is delegated to the gst-on-the-bill guide."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug purchase-invoice — OK"
+}

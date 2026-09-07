@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "slug": "dispatch",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/dispatch/dispatch_screen.dart",
+    "lib/screens/dispatch/orders_tab.dart",
+    "lib/screens/dispatch/vans_tab.dart",
+    "lib/screens/dispatch/demand_tab.dart",
+    "lib/screens/dispatch/van_page.dart",
+    "lib/screens/dispatch/confirm_load_sheet.dart",
+    "lib/screens/dispatch/bill_load_review_screen.dart",
+    "lib/screens/dispatch/print_options_sheet.dart",
+    "lib/screens/settings/dispatch_settings_screen.dart",
+    "lib/models/dispatch_stage_words.dart",
+    "lib/models/dispatch_van_bar.dart",
+    "lib/models/dispatch_settings.dart",
+    "lib/models/dispatch_load.dart",
+    "lib/models/item_demand.dart",
+    "lib/services/loading_sheet_access_service.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "dispatch_load",
+    "gate": "LoadingSheetAccessService gates the whole surface on the dispatch_load add-on, fail-closed, with pending_order and team_sales resolved as legacy aliases of the same add-on rather than as separate products. Creating invoices from a van is a separate member right; the company-level Settings > Dispatch page is admin-only.",
+    "route": "/dispatch"
+  },
+  "visibilityBlocked": [
+    {
+      "branch": "order van -> Make challans -> bill from those challans",
+      "featureKey": "bulk_delivery_challan",
+      "isCustomerVisible": false,
+      "evidence": "tool/help/visibility-evidence.json (prod feature_definitions, captured 2026-09-07) records bulk_delivery_challan as is_customer_visible = false.",
+      "decision": "Reviewed and deliberately not published. No public heading, procedure, step, screenshot, section featureKey or slug describes making delivery challans from a van, and the guide does not mention the button at all.",
+      "appBehaviourPreserved": "The app keeps its existing disabled Make challans button and its own reason string (DispatchStageWords.bulkChallanEntitlementMissing, which the resolver names ahead of the missing delivery-challan right). Nothing about the app changed for this guide.",
+      "revisitWhen": "feature_definitions marks bulk_delivery_challan customer-visible in production. Until then this branch stays out of the public manual."
+    }
+  ],
+  "matrixCoverage": [
+    {
+      "case": "Orders -> invoices",
+      "coverage": "published",
+      "sections": ["loading-from-sales-orders", "recording-what-actually-went-out", "making-the-invoices"],
+      "note": "Building -> Van is loaded -> Loaded -> Key back what went -> Save what went out -> Keyed back -> Make invoices -> Review invoices. The guide states plainly that Loaded, not Building, is what reserves the quantity."
+    },
+    {
+      "case": "Orders -> challans -> invoices",
+      "coverage": "visibility-blocked",
+      "sections": [],
+      "note": "See visibilityBlocked above. bulk_delivery_challan is dark on production."
+    },
+    {
+      "case": "Order van, alternate billing choice",
+      "coverage": "published",
+      "sections": ["which-documents-the-first-tab-offers"],
+      "note": "Bill the van as is described as picking which billing button is the big one, not as removing the other. The delivery-note note (DispatchStageWords.noDeliveryNoteNote) is only reachable under the challan setting, so it is not published either."
+    },
+    {
+      "case": "Existing challans",
+      "coverage": "published",
+      "sections": ["existing-challans"],
+      "note": "Building -> Loaded -> Van went out -> Delivered, no key-back and no new document. The delivered van's quiet Bill from these challans link is described, with the reader's own invoice permission named as the thing that decides whether they can finish. That link is not gated on bulk_delivery_challan."
+    },
+    {
+      "case": "Existing invoices",
+      "coverage": "published",
+      "sections": ["existing-invoices"],
+      "note": "Same lane; the guide says explicitly that no second invoice is made."
+    },
+    {
+      "case": "Missing dispatch_tracking_from for a non-order source",
+      "coverage": "published",
+      "sections": ["which-documents-the-first-tab-offers", "when-the-picking-list-looks-empty"],
+      "note": "Both the not-set case and the date-floor case are named as settings, never as an empty warehouse, and the guide points at the screen's own Open Settings > Dispatch link."
+    },
+    {
+      "case": "Settings changed while a van exists",
+      "coverage": "published",
+      "sections": ["which-documents-the-first-tab-offers", "when-a-van-will-not-move"],
+      "note": "Picking follows the current setting; an existing van follows the lines actually on it. The mixed-van consequence is written up as a stuck state with its recovery."
+    },
+    {
+      "case": "Empty Building van",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Reason quoted verbatim: Put something on the van first."
+    },
+    {
+      "case": "Legacy confirmed status",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Chip says Keyed back, the button reopens key-back, saving moves it on. The guide tells the reader not to try to bill from there."
+    },
+    {
+      "case": "challans_made / part_billed",
+      "coverage": "partial",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "part_billed is published: press Make invoices again to finish the remaining shops, no shop is billed twice, and line removal is per line. challans_made cannot be reached by any customer because bulk_delivery_challan is dark, so it is not published."
+    },
+    {
+      "case": "billed",
+      "coverage": "published",
+      "sections": ["making-the-invoices"],
+      "note": "Named as the end of the road, with no further action and no line removal."
+    },
+    {
+      "case": "went_out with challan + invoice documents",
+      "coverage": "published",
+      "sections": ["existing-challans", "existing-invoices"],
+      "note": "A challan + invoice van is stated to be an ordinary delivery van. Bill from these challans is offered for the challan half only; the guide never implies the invoice half can be rebilled."
+    },
+    {
+      "case": "Orders mixed with document lines",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Take off the odd lines, with the reason quoted verbatim and the challan + invoice van explicitly excluded from the case."
+    },
+    {
+      "case": "Source changed / deleted / missing",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Take off changed lines, the vans-list A document changed badge, and the delivered/billed refusal quoted verbatim (This van is finished)."
+    },
+    {
+      "case": "Already billed in Tally",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Reason quoted; the guide tells the reader not to bill again and says why."
+    },
+    {
+      "case": "Unknown status or source",
+      "coverage": "excluded",
+      "sections": [],
+      "note": "The app shows an Unknown chip and offers nothing. There is no customer action to teach, and inventing one would be a guess. The general advice to read the line above the buttons covers what a reader can do."
+    },
+    {
+      "case": "Missing sales-invoice create permission",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Reason repeated verbatim, with no suggestion that a plan change or an upgrade would help."
+    },
+    {
+      "case": "Missing delivery-challan create permission",
+      "coverage": "visibility-blocked",
+      "sections": [],
+      "note": "Only reachable on the Make challans door, which is dark. Not published."
+    },
+    {
+      "case": "Missing bulk-challan entitlement",
+      "coverage": "visibility-blocked",
+      "sections": [],
+      "note": "See visibilityBlocked. Its reason stays in the app and out of the manual."
+    },
+    {
+      "case": "Missing Dispatch entitlement, including legacy aliases",
+      "coverage": "published",
+      "sections": ["before-you-start"],
+      "note": "Written as one prerequisite in customer language. pending_order and team_sales are never named: they are legacy aliases of the same add-on, not products, and naming them would invite a reader to shop for one."
+    },
+    {
+      "case": "E-invoice / e-way bill after billing",
+      "coverage": "excluded",
+      "sections": [],
+      "note": "Out of scope for this page and separately gated. The e-invoice guide is linked as a related guide instead, so this page makes no compliance promise."
+    },
+    {
+      "case": "Print on the picking tab",
+      "coverage": "published",
+      "sections": ["printing"],
+      "note": "Selected rows if any, otherwise the offered list; printing writes nothing."
+    },
+    {
+      "case": "Print on Load/Dispatch",
+      "coverage": "published",
+      "sections": ["printing"],
+      "note": "Open vans."
+    },
+    {
+      "case": "Print on the van page / print sheet",
+      "coverage": "published",
+      "sections": ["printing"],
+      "note": "The three blocks the sheet actually offers, remembered per company. No print control is invented."
+    },
+    {
+      "case": "To buy",
+      "coverage": "published",
+      "sections": ["to-buy"],
+      "note": "Short is the pending quantity not yet on a van; Tally stock is the last sync and still counts what is on a van. The guide promises no Print, because the tab has none."
+    },
+    {
+      "case": "Partial key-back, zero sent, line removal",
+      "coverage": "published",
+      "sections": ["recording-what-actually-went-out", "when-a-van-will-not-move"],
+      "note": "Ordered versus went out, zero as a real answer, the mandatory shortfall reason, residual demand staying owed and reappearing on the picking list and To buy, and the per-line removal rule."
+    },
+    {
+      "case": "Return from another page or another operator's change",
+      "coverage": "published",
+      "sections": ["when-a-van-will-not-move"],
+      "note": "Vans are company-shared; the list re-reads on return and on pull-to-refresh."
+    }
+  ],
+  "correctionsToThePlan": [
+    "The coordinating matrix says To buy has an existing purchase-order action if the reader is authorised. It does not. demand_tab.dart ships with no buying affordance at all. The Transfer to PO action lives on an order row's overflow menu on the picking list, and the guide says so there.",
+    "The plan's frontmatter example quotes Load/Dispatch to lib/screens/dispatch/dispatch_screen.dart, which is correct, but Van is loaded and Van went out are constants in lib/models/dispatch_stage_words.dart and only reach the screens through it.",
+    "The matrix's Loading Sheet vocabulary is retired. The Loading tab no longer exists; its wire value resolves to the vans list, and the surface a customer meets is called Dispatch."
+  ],
+  "deliberatelyOmitted": [
+    "Any procedure, heading, step or screenshot for making delivery challans from a van (dark feature, see visibilityBlocked).",
+    "Plan-tier names and prices. The bulk-challan reason is the one place the app names a plan, and that whole branch is unpublished.",
+    "Tax-law claims. E-invoice and e-way bill are linked as related guides rather than explained here.",
+    "Any promise that a disabled control will work if the reader tries again or upgrades."
+  ],
+  "screenshots": [],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug dispatch — OK"
+}

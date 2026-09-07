@@ -75,6 +75,21 @@ export const routes = [
         path: 'blog/:slug',
         lazy: async () => ({ Component: (await import('./BlogPost')).default }),
       },
+      // The public manual, lazy for exactly the same reason. src/lib/guidePosts.js
+      // is an eager import.meta.glob over content/guide/*.md, so the 21 guides'
+      // rendered HTML lands in whatever chunk imports it; only these two routes
+      // may reach it. Nothing in Home or Layout imports guidePosts, and the
+      // built chunk list is the evidence for that.
+      //
+      // Prerendering is handled by includedRoutes in vite.config.js, never by a
+      // getStaticPaths export — `lazy` never puts one on the resolved route, so
+      // the one on BlogPost.jsx has never run. scripts/checkGuidePrerender.mjs
+      // fails the build if a guide page ships as a shell or as the wrong page.
+      { path: 'guide', lazy: async () => ({ Component: (await import('./GuideIndex')).default }) },
+      {
+        path: 'guide/:slug',
+        lazy: async () => ({ Component: (await import('./GuidePost')).default }),
+      },
     ],
   },
 ];

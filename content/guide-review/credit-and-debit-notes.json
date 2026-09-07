@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "slug": "credit-and-debit-notes",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/create_credit_note_screen.dart",
+    "lib/screens/create_debit_note_screen.dart",
+    "lib/screens/credit_note_register_screen.dart",
+    "lib/screens/debit_note_register_screen.dart",
+    "lib/screens/select_invoices_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/widgets/voucher/create_voucher_bottom_bar.dart",
+    "lib/widgets/voucher/voucher_number_field.dart",
+    "lib/services/create_access_service.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "voucher_creation_mobile",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — voucher_creation_mobile: true",
+    "gate": "Each register resolves its own CreateAccessService.resolveRegisterCreateAccess — VoucherRegisterType.creditNote with registerDisplayName 'Credit Notes', and .debitNote with 'Debit Notes'. The two are independently granted, which is why the guide says so explicitly.",
+    "routes": ["/create/credit-note", "/create/debit-note"]
+  },
+  "behaviourReviewed": [
+    "Both forms are two-tab: Particulars (one ledger account plus an amount) and Items (stock lines with quantity and rate). Save validates the active tab.",
+    "The credit note carries an 'Against invoice (optional)' card that opens SelectInvoicesScreen in singleSelect mode under the title 'Against invoice'; the chosen invoice is stored as original_invoice_id and the loader turns it into an Agst Ref in Tally (source comment at create_credit_note_screen.dart:365-366).",
+    "The debit note has NO against-invoice card — verified by absence in create_debit_note_screen.dart; its reason lives in the narration.",
+    "Empty states differ: the credit note's items tab reads 'No items added' / 'Tap below to add items from your inventory'; the debit note's reads 'No items added yet'. The Items action is 'Add More Items' on the credit note and 'Modify Items' on the debit note.",
+    "Validation messages are shared: Please add at least one item / Please select a ledger account / Ledger amount must be greater than 0 / Total amount must be greater than 0.",
+    "Registers are separate screens with their own month scope and their own search hints (by customer vs by supplier)."
+  ],
+  "visibilityBlocked": [
+    {
+      "surface": "Scheme credit notes",
+      "reason": "scheme_credit_notes is is_customer_visible = false in the prod evidence. No mention, teaser or procedure was written for it."
+    },
+    {
+      "surface": "Approval save modes on both note forms",
+      "reason": "voucher_approvals is is_customer_visible = false. Not described and not quoted."
+    }
+  ],
+  "deliberatelyOmitted": [
+    "'Agst Ref' as a term — it is Tally vocabulary and appears nowhere as a control label, so the linkage is described in plain words instead.",
+    "Any statement about when a credit note must legally be raised, or GST timing rules.",
+    "Automatic credit-note dispatch on WhatsApp: mentioned only as 'a separate feature your business may or may not have', with no procedure, since it is a per-company switch."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug credit-and-debit-notes — OK"
+}

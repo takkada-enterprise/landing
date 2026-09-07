@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "slug": "sales-orders",
+  "topicId": "sales-orders",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 4",
+  "screensRead": [
+    "lib/screens/sales_order_list_screen.dart",
+    "lib/screens/sales_order_detail_screen.dart",
+    "lib/screens/sales_order_summary_screen.dart",
+    "lib/screens/fulfil_sales_order_screen.dart",
+    "lib/screens/pending_orders_screen.dart",
+    "lib/models/sales_order.dart",
+    "lib/models/dispatch_stage_words.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["take-an-order", "find-an-order", "partial-fulfilment", "cancel-a-pending-line", "bill-an-order"],
+    "stuckStatesPublished": [
+      "order hidden by a filter",
+      "Convert to Invoice disabled for a missing right or a closed order",
+      "pending quantity reduced by packed not ordered quantity",
+      "a line sitting on a van is still pending",
+      "order no longer editable after conversion or fulfilment"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": null,
+    "sectionFeatureKeys": ["pending_order", "dispatch_load"],
+    "permissionsDescribed": [
+      "sales order view and create are separate register rights",
+      "sales-invoice create right gates Convert to Invoice, with the app's own reason text quoted",
+      "delivery-challan create right gates Make challan",
+      "dispatch_load is declared on the into-dispatch SECTION only, not on the topic"
+    ],
+    "notes": "Fulfil Order replaces the plain convert only when the pending-order add-on is on; the guide says 'on a business using pending orders' rather than naming a plan."
+  },
+  "visibilityBlocked": [],
+  "deliberateOmissions": [
+    "bulk_delivery_challan is dark (is_customer_visible=false); no van-challan capability described here, only the per-order Make challan door which is a register right.",
+    "voucher_approvals is dark; the send-for-approval path on the summary screen is not described.",
+    "No claim about which of the two billing doors is highlighted for a given company beyond 'the dispatch document setting decides'."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

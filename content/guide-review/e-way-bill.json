@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "slug": "e-way-bill",
+  "topicId": "e-way-bill",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 5",
+  "screensRead": [
+    "lib/screens/generate_e_way_bill_screen.dart",
+    "lib/screens/einvoice_details_screen.dart",
+    "lib/screens/sales_invoice_detail_screen.dart",
+    "lib/utils/gst_compliance_action_gates.dart",
+    "lib/utils/eway_bill_transport.dart",
+    "lib/widgets/gst_compliance_cancellation_sheet.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["generate", "distance", "vehicle-number", "read-the-result", "cancel"],
+    "stuckStatesPublished": [
+      "no e-way bill button (feature off, below the app's amount rule, or already generated)",
+      "waiting-for-Tally disabled state",
+      "portal rejection about the consignment rather than the login",
+      "distance box locked on an e-invoiced invoice",
+      "invoice locked from cancellation once a GST document exists"
+    ],
+    "explicitWarning": "A successful invoice is not successful compliance - given its own section, per the topic brief."
+  },
+  "accessReview": {
+    "topicFeatureKey": "einvoice_ewaybill_mobile",
+    "sectionFeatureKeys": ["einvoice_ewaybill_mobile"],
+    "permissionsDescribed": ["einvoice_ewaybill_mobile fails closed; action hidden while access is resolving"],
+    "notes": ""
+  },
+  "lawVersusApp": {
+    "verifiedFromCode": "shouldShowEWayBillGenerationAction hides the action when totalAmount <= 50000 (strictly above 50,000 is required). lib/utils/gst_compliance_action_gates.dart lines 216-228.",
+    "howItIsPublished": "Stated explicitly as the APP's rule for what to put on screen, with the sentence 'It is not a statement about your legal obligation, in either direction.'",
+    "claimsDeclined": [
+      "That 50,000 is the statutory e-way bill threshold. No official source was consulted; the number is an app display rule and is published only as such.",
+      "Any statement of e-way bill validity period per kilometre. Validity is read back from the portal and displayed; no rule is asserted.",
+      "Any statement of the portal's cancellation window length."
+    ]
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "wait-for-Tally gate",
+      "featureKeys": ["irn_waits_for_tally"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "the disabled state is documented as a stuck state; the feature key is not declared in sections[].featureKeys and is not named or offered"
+    }
+  ],
+  "deliberateOmissions": [
+    "Stock-journal-sourced e-way bills are acknowledged only as far as the vehicle-number rule differs; material_in_out_vouchers is dark, so no stock-journal procedure is published.",
+    "Transporter ID, transport document number and date are read-only display fields for invoice-sourced bills; not written up as inputs."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

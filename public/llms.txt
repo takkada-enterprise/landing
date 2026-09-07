@@ -54,6 +54,32 @@ Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year
 - [About Takkada](https://takkada.com/about-us/): Built by Pay Saathi Innovation LLP in Guwahati, Assam, for Indian distributors and wholesalers on Tally.
 - [Contact](https://takkada.com/contact-us/): Phone, email and demo booking.
 
+## Manual
+
+Step-by-step instructions for people using the app, each one checked against the app itself on the date it names. Index: https://takkada.com/guide/
+
+- [How to find your way around Takkada](https://takkada.com/guide/home/): Choose which business you are working on, read the Home tiles, understand why a tile is locked, and find help inside the app.
+- [How to read bills and outstanding](https://takkada.com/guide/bills-and-outstanding/): Read who owes you and who you owe, tell due apart from overdue, change the ageing periods, and see where reading a report ends and following up begins.
+- [How to open a party ledger and share a statement](https://takkada.com/guide/party-ledger/): Find a customer or supplier, read the opening and closing balance for a period, set the statement dates and share it, and see why some parties are missing.
+- [How to record a receipt](https://takkada.com/guide/record-receipt/): Enter money you have received, link it to the customer's unpaid bills so their balance drops, choose the bank or cash account, and watch it go across to Tally.
+- [How to record a payment](https://takkada.com/guide/record-payment/): Enter money you have paid a supplier, choose which bank or cash account it left, tie it to a purchase bill, and know what it takes to reach Tally.
+- [How to make a sales invoice](https://takkada.com/guide/sales-invoice/): Pick the customer, add items and rates, check the totals, set payment status and due date, and save. What each control does and what stops the save.
+- [How to check GST on a bill](https://takkada.com/guide/gst-on-the-bill/): What the GST chips on the Invoice Summary do to your rates, why a bill shows IGST or CGST and SGST, what the badges on a line mean, and how Round Off behaves.
+- [How to record a purchase invoice](https://takkada.com/guide/purchase-invoice/): Enter a supplier's bill with its own number and date, add items and taxes, mark what you have paid, and read whether the entry has actually reached Tally.
+- [How to make a credit note or a debit note](https://takkada.com/guide/credit-and-debit-notes/): When to raise a credit note or a debit note, how to link a credit note to the invoice it reverses, and why the two have separate rights.
+- [How to take and track sales orders](https://takkada.com/guide/sales-orders/): Record what a customer has ordered, see how much is still pending, invoice part of an order, and send the order on to a van for dispatch.
+- [How to load and dispatch goods](https://takkada.com/guide/dispatch/): Load a van from your sales orders, delivery challans or sales invoices, record what actually went out, and follow the van from Building to Delivered or Billed.
+- [How to map your Tally ledgers](https://takkada.com/guide/ledger-mapping/): Tell Takkada which Tally ledger each tax, charge and discount belongs to, so every bill the app sends lands in the right place in your books.
+- [How to connect your Tally company](https://takkada.com/guide/connect-tally/): Step by step: install the Takkada Windows client on the PC that runs Tally, link it to your account, pick the right company and finish the first sync.
+- [How to check and fix Tally sync](https://takkada.com/guide/tally-sync/): Read the Tally Sync screen properly. What each section means, why an entry failed, what to do about it, and what "your PC has not connected" really tells you.
+- [How to generate an e-invoice](https://takkada.com/guide/e-invoice/): Enter your GST portal credentials, generate an IRN and signed QR for a sales invoice, read the result, and cancel the GST document but keep the invoice.
+- [How to generate an e-way bill](https://takkada.com/guide/e-way-bill/): Enter your portal credentials and transport details, generate an e-way bill against a sales invoice, and read the number, validity and vehicle you get back.
+- [How to send payment reminders on WhatsApp](https://takkada.com/guide/whatsapp-reminders/): Set a reminder schedule, choose which customers get chased, send a reminder straight away, and read what the history actually tells you about delivery.
+- [How to send invoices to customers on WhatsApp](https://takkada.com/guide/whatsapp-invoice-delivery/): Send the invoice PDF to your customer automatically when you create it, or share it yourself, and understand the switched-off and out-of-credits states.
+- [How to import documents](https://takkada.com/guide/import-documents/): Send a bill or an order into Takkada as a PDF or a photo, tell it what the document is, match the party and the items, review and create.
+- [How to add your team and set their access](https://takkada.com/guide/team-access/): Invite staff, pick a role, and control exactly which registers, parties, godowns and voucher types each person can see and create.
+- [How to take orders through a customer link](https://takkada.com/guide/customer-order-link/): Turn on your public order link, choose what customers see and pay, share the link, and review, match and approve the orders that come back.
+
 ## Guides
 
 Practical guides on Tally workflows, receivables and collections. Index: https://takkada.com/blog/

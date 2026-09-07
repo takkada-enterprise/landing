@@ -26,6 +26,10 @@ import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { findImagePreloads } from '../../../scripts/stripImagePreloads.mjs';
+import {
+  checkReferences,
+  loadManifest,
+} from '../../../scripts/checkScreenshotProvenance.mjs';
 import { ICON_NAMES } from '../../components/FeaturePage';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -121,31 +125,6 @@ describe('feature page data contract', () => {
       }
     }
   );
-
-  // Captures that carry a real customer's name, balance, invoice number or
-  // bank reference. Phase 3 found five of them sitting in the published
-  // screenshot library and one already live on the homepage, and the only
-  // thing standing between them and a page was somebody remembering. On
-  // 2026-08-08 somebody did not: settlement.webp went in as the
-  // /biz-analyst-alternative hero and was caught by eye, not by a test. It
-  // shows a named individual and two real bank UTRs.
-  //
-  // Everything under public/assets/screenshots ships to the CDN and is
-  // fetchable by URL whether or not a page links it, so this guard is about
-  // what the site puts in front of a reader, not about what exists on disk.
-  // Add to this list rather than deleting the file, so the reason survives.
-  const UNSAFE_CAPTURES = [
-    'invoice-detail', // a real customer's invoice, named party
-    'share-ledger', // real party name, real receivable, real invoice numbers
-    'bankbook', // real company names and bank balances
-    'inventory-supplier', // real supplier names
-    'party-list', // known-banned since the homepage v3 round
-    'settlement', // named individual, two real bank UTRs
-  ];
-  const isUnsafe = (src) => {
-    const file = src.split('/').pop().replace(/\.(webp|png|jpg)$/, '');
-    return UNSAFE_CAPTURES.includes(file);
-  };
 
   // Every image a reader can see on the page. Tour stations belong here as
   // much as walk-through steps do: they are full-bleed phone screens, and
@@ -250,17 +229,141 @@ describe('feature page data contract', () => {
     }
   });
 
+  // WAS: a list of six filenames, checked against these same images.
+  //
+  // That rule was written the day settlement.webp went in as the
+  // /biz-analyst-alternative hero and was caught by eye rather than by a test.
+  // It worked, once, and it could only ever work once: it recognised six files
+  // by name, so the same bytes under a seventh name, a crop of a real capture,
+  // or a capture taken from a live customer's company this afternoon all sailed
+  // through it. It also only looked here. settlement.webp — one of the six —
+  // has been shipping in the site-wide JSON-LD `screenshot` list out of
+  // src/data/schema.js the entire time, on every page, and the name rule never
+  // looked at that surface.
+  //
+  // The rule now is evidence, keyed by the SHA-256 of the actual bytes
+  // (content/image-provenance.json, scripts/checkScreenshotProvenance.mjs). The
+  // policy is the build gate's policy, imported rather than restated, so this
+  // test and `node scripts/checkScreenshotProvenance.mjs` cannot drift apart.
+  //
+  // What that buys over the six names, on this exact surface:
+  //   - a renamed real capture is still the same bytes, so it still resolves to
+  //     its record, and the record's path no longer matches: failure;
+  //   - a crop or re-encode is new bytes with no record at all: failure;
+  //   - a brand-new capture from a customer's company has no record: failure;
+  //   - swapping the artwork under a reviewed filename changes the hash and
+  //     drops the review: failure.
+  //
+  // Screenshots that pre-date the gate sit on a dated, hash-keyed backlog and
+  // are reported rather than failed — but never here. A backlog entry that is
+  // known to carry customer detail is a hard failure on a feature page, which
+  // is the old rule, preserved and generalised.
+  const provenance = loadManifest(repoRoot);
+  const readImageBytes = (relativePath) => {
+    const full = resolve(repoRoot, relativePath.replace(/^\//, ''));
+    return existsSync(full) && statSync(full).isFile() ? readFileSync(full) : null;
+  };
+  const pageReferences = (page) => [
+    { path: page.hero.image, surface: 'featurePage:hero', origin: `${page.slug} hero` },
+    ...(page.walkthrough ?? []).map((step, i) => ({
+      path: step.image,
+      surface: 'featurePage:walkthrough',
+      origin: `${page.slug} walk-through step ${i + 1}`,
+    })),
+    ...(page.tour?.stations ?? []).map((station) => ({
+      path: station.screenshot,
+      surface: 'featurePage:tour',
+      origin: `${page.slug} tour station "${station.title}"`,
+    })),
+  ];
+  const provenanceErrors = (references) =>
+    checkReferences({ references, manifest: provenance, readBytes: readImageBytes }).errors;
+
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
-    '%s: uses no screenshot carrying real customer data',
+    '%s: every image it publishes clears the provenance gate',
     (_slug, page) => {
-      const used = pageImages(page);
-      const offenders = used.filter(isUnsafe);
-      expect(
-        offenders,
-        `${page.slug} publishes a real capture. Use the sanitised -mockup variant.`
-      ).toEqual([]);
+      expect(provenanceErrors(pageReferences(page))).toEqual([]);
     }
   );
+
+  // The six the old rule named are still denied, by classification rather than
+  // by filename. This is the assertion that the replacement did not quietly
+  // drop what the list knew: the stems are checked so the knowledge survives,
+  // and every recorded encoding of them is then actually run through the gate
+  // on this surface.
+  it('still denies every capture the six-filename rule denied', () => {
+    const sensitive = Object.entries(provenance.unprovenAllowlist).filter(
+      ([, record]) => record.knownSensitive
+    );
+    const stems = new Set(
+      sensitive.map(([, record]) => record.path.split('/').pop().replace(/\.\w+$/, ''))
+    );
+    expect([...stems].sort()).toEqual([
+      'bankbook',
+      'inventory-supplier',
+      'invoice-detail',
+      'party-list',
+      'settlement',
+      'share-ledger',
+    ]);
+
+    for (const [, record] of sensitive) {
+      const path = record.path.replace(/^public/, '');
+      expect(
+        provenanceErrors([{ path, surface: 'featurePage:hero', origin: 'mutation' }]).length,
+        `${path} would have shipped as a feature-page hero`
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  // The three things the name list could not do, each run against a real file.
+  it('denies a real capture that simply has a different filename', () => {
+    const bytes = readFileSync(resolve(repoRoot, 'public/assets/screenshots/settlement.webp'));
+    const renamed = (path) =>
+      path === 'public/assets/screenshots/collections-hero.webp' ? bytes : null;
+    const { errors } = checkReferences({
+      references: [
+        {
+          path: '/assets/screenshots/collections-hero.webp',
+          surface: 'featurePage:hero',
+          origin: 'mutation',
+        },
+      ],
+      manifest: provenance,
+      readBytes: renamed,
+    });
+    expect(errors.length, 'renaming settlement.webp shed its provenance').toBeGreaterThan(0);
+  });
+
+  it('denies an image nobody has classified at all', () => {
+    // A real, unreferenced file in the published screenshot library. The old
+    // rule had no opinion about anything outside its six names.
+    expect(
+      provenanceErrors([
+        {
+          path: '/assets/screenshots/whatsapp-chat.png',
+          surface: 'featurePage:hero',
+          origin: 'mutation',
+        },
+      ]).length
+    ).toBeGreaterThan(0);
+  });
+
+  it('denies a reviewed image whose bytes were swapped afterwards', () => {
+    const swapped = () => Buffer.from('different artwork under the same name');
+    const { errors } = checkReferences({
+      references: [
+        {
+          path: '/assets/screenshots/settlements-mockup.webp',
+          surface: 'featurePage:hero',
+          origin: 'mutation',
+        },
+      ],
+      manifest: provenance,
+      readBytes: swapped,
+    });
+    expect(errors.length).toBeGreaterThan(0);
+  });
 
   // Icon names are strings on this side of the boundary, so a typo would
   // render a step with no icon and nothing would fail. This is the check that

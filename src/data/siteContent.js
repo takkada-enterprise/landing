@@ -689,6 +689,11 @@ export const footerColumns = [
       { label: 'Contact Us', page: 'contact-us' },
       { label: 'Partners', page: 'partners' },
       { label: 'Blog', page: 'blog' },
+      // The manual's hub. It sits beside the blog because both are content
+      // directories, and the label deliberately mirrors "All features": a
+      // customer looking for instructions is not looking for a buying page, so
+      // this must not reuse a feature page's search phrase as its anchor text.
+      { label: 'All guides', page: 'guide' },
       { label: 'Privacy Policy', page: 'privacy-policy' },
       { label: 'Terms & Conditions', page: 'terms-and-conditions' },
       { label: 'Refund Policy', page: 'refund-policy' },

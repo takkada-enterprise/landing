@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "lint:content": "node scripts/checkLeadAnswer.mjs",
-    "build": "npm run lint:content && node scripts/generate-llms-txt.mjs && vite-react-ssg build && node scripts/generate-sitemap.mjs && node scripts/submitIndexNow.mjs && node scripts/checkImagePreloads.mjs && node scripts/checkBlogImages.mjs && node scripts/checkBlogPrerender.mjs && node scripts/checkRoutePrerender.mjs && node scripts/checkFeaturesHub.mjs && node scripts/checkImageBudgets.mjs && node scripts/checkRateCardDrift.mjs",
+    "build": "npm run lint:content && node scripts/checkScreenshotProvenance.mjs && node scripts/generate-llms-txt.mjs && vite-react-ssg build && node scripts/generate-sitemap.mjs && node scripts/submitIndexNow.mjs && node scripts/checkImagePreloads.mjs && node scripts/checkBlogImages.mjs && node scripts/checkBlogPrerender.mjs && node scripts/checkRoutePrerender.mjs && node scripts/checkFeaturesHub.mjs && node scripts/checkImageBudgets.mjs && node scripts/checkRateCardDrift.mjs && node scripts/checkGuidePrerender.mjs && node scripts/checkGuideHub.mjs && node scripts/checkScreenshotProvenance.mjs && node scripts/generate-guide-manifest.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "audit:freshness": "node scripts/checkContentFreshness.mjs",
-    "audit:crawlers": "node scripts/checkCrawlerAccess.mjs"
+    "audit:crawlers": "node scripts/checkCrawlerAccess.mjs",
+    "verify:guides": "node scripts/checkGuideContract.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.1",

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "slug": "tally-sync",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/tally_sync_screen.dart",
+    "lib/models/tally_sync_activity.dart",
+    "lib/utils/tally_sync_explanations.dart",
+    "lib/widgets/tally_sync/tally_sync_row.dart",
+    "lib/widgets/tally_sync/tally_sync_section.dart",
+    "lib/screens/settings/tally_voucher_types_settings_screen.dart",
+    "lib/screens/home_screen.dart",
+    "lib/utils/home_quick_action_catalog.dart",
+    "lib/config/app_router.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "tally_sync_dashboard",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — tally_sync_dashboard: true",
+    "gate": "Home tile showTallySync = !_isRestrictedMember && a business is selected && the business is not the demo company (tally_jobs RLS is company-wide, so the tile is owner-scope).",
+    "route": "/tally-sync"
+  },
+  "behaviourReviewed": [
+    "Four buckets from TallySyncBucket: needsAttention (FAILED/DEAD/stuck), waiting (PENDING/PROCESSING under 48h and any unrecognised status), sent (COMPLETED), noActionNeeded (informational).",
+    "kTallySyncStuckAfter = 48 hours; kTallyPullStaleAfter = 24 hours drives the top-line warning colour and the Set up link to /setup-on-pc.",
+    "The screen is read-only by design — no retry control exists, because a blind re-push of a partially-landed voucher duplicates it in Tally.",
+    "A failed fetch renders Couldn't check the Tally sync with Try again; it never renders as an empty queue.",
+    "waitingSubtitle only blames the PC when the pull clock is stale or null; otherwise it stays neutral.",
+    "TallySyncExplanations buckets on status, never on error_kind/is_retriable; informational classes (deletion policy, superseded, operator hold) are checked first and stay out of the red count.",
+    "COMPLETED reads Sent to Tally, deliberately not 'confirmed in Tally'.",
+    "Type filter chips are built only from the types this company actually pushed; an empty filter gets its own message plus Show all."
+  ],
+  "visibilityBlocked": [
+    {
+      "sourceFile": "lib/screens/settings/tally_voucher_types_settings_screen.dart",
+      "reason": "The screen is gated on FeatureKeys.appOwnedVoucherTypes; the prod visibility evidence records app_owned_voucher_types = false. Under the access truth table a dark feature gets no public procedure, teaser or slug, so no section was written for it.",
+      "namedInInventory": true
+    }
+  ],
+  "deliberatelyOmitted": [
+    "Raw Tally/Postgres error strings; the guide describes the plain headlines the app shows and points at Technical details for support.",
+    "Any instruction to re-send or re-push a voucher — the screen offers no such control and doing it by hand would duplicate vouchers.",
+    "The 48-hour and 24-hour thresholds as numbers; the guide describes them as 'too long to be called normal' and 'more than a day old' so the page does not go stale if the constants move."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug tally-sync — OK"
+}
