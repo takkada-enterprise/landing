@@ -14,7 +14,18 @@
 .guide-page {
   background: var(--color-bg);
   min-height: 100vh;
-  padding: 56px 0 88px;
+  /* The site header is fixed: 70px tall on a phone, 82px on wider screens
+     until it compacts on scroll. At 56px the first line of every page in the
+     manual — the eyebrow above the h1 — started inside that band. It stayed
+     visible through the transparent bar, so it read as a spacing mistake
+     rather than a bug, but elementFromPoint returned nav-inner over it: the
+     line could not be selected, and it sat a few pixels under the menu. */
+  padding: 96px 0 88px;
+}
+
+@media (min-width: 768px) {
+  .guide-hub-page,
+  .guide-page { padding-top: 112px; }
 }
 
 .guide-container {
@@ -197,6 +208,14 @@
   margin: 0 0 18px;
   padding-left: 24px;
 }
+
+/* styles.css resets `ul { list-style: none }` site-wide, which is right for a
+   nav built out of lists and wrong for a procedure. Without this the manual's
+   bulleted lists rendered as indented paragraphs with no marker at all: the
+   prerequisites under "Before you start" read as one run-on block. The blog
+   prose re-enables the markers the same way. */
+.guide-prose ul { list-style: disc; }
+.guide-prose ol { list-style: decimal; }
 
 .guide-prose li { margin-bottom: 8px; }
 

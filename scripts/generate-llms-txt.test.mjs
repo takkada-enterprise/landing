@@ -5,11 +5,13 @@ import { fileURLToPath } from 'node:url';
 import {
   buildDoc,
   buildGuides,
+  buildManual,
   buildPricingBlock,
   buildSections,
   url,
   SECTION_ORDER,
 } from './generate-llms-txt.mjs';
+import { readGuides, readTopics } from './lib/guideContract.mjs';
 import { routeMetadata } from '../src/data/siteMetadata.js';
 import { pricing } from '../src/data/siteContent.js';
 
@@ -111,6 +113,7 @@ describe('the committed public/llms.txt', () => {
       priceData: pricing,
       routes: routeMetadata,
       guides: buildGuides(resolve(repoRoot, 'content/blog')),
+      manual: buildManual(readTopics(repoRoot), readGuides(repoRoot)),
     });
     expect(committed).toBe(regenerated);
   });

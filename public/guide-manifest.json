@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "appRevision": "af582ef8fc0dd4f898ec8aae0d78546121ae81d2",
+  "siteRevision": "b2702547fdf8a1b2fcf3438e25149a0ac38ebd20",
+  "guides": [
+    {
+      "id": "bills-and-outstanding",
+      "slug": "bills-and-outstanding",
+      "path": "/guide/bills-and-outstanding",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "8946d5958f2519eca457c082a29718c1ff8fcdab31b7911394a6bbd4f8adea7d"
+    },
+    {
+      "id": "connect-tally",
+      "slug": "connect-tally",
+      "path": "/guide/connect-tally",
+      "featureKey": "tally_sync_dashboard",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "78cd6ca304f633024bab4868e655a7a658297e950f1d15785e59ca37ae48caac"
+    },
+    {
+      "id": "credit-and-debit-notes",
+      "slug": "credit-and-debit-notes",
+      "path": "/guide/credit-and-debit-notes",
+      "featureKey": "voucher_creation_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "d5218f1b9df3497a525a323c1b4bb8cf8601cea61aa3578308fb1c4712555e32"
+    },
+    {
+      "id": "customer-order-link",
+      "slug": "customer-order-link",
+      "path": "/guide/customer-order-link",
+      "featureKey": "public_customer_ordering",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "0ca30eae7f44f2757c02b2252302219ce1e1e77eb201aa79ff8d93e572a26bd7"
+    },
+    {
+      "id": "dispatch",
+      "slug": "dispatch",
+      "path": "/guide/dispatch",
+      "featureKey": "dispatch_load",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "3836b8aad4e388c370df4d76a4ff5691915aef4c4148c58aacbb5c979b17c8c8"
+    },
+    {
+      "id": "e-invoice",
+      "slug": "e-invoice",
+      "path": "/guide/e-invoice",
+      "featureKey": "einvoice_ewaybill_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "54627f04ecf42282f9755cd11e57ad6b8b9e468bacc9a2b734d670671e7b6489"
+    },
+    {
+      "id": "e-way-bill",
+      "slug": "e-way-bill",
+      "path": "/guide/e-way-bill",
+      "featureKey": "einvoice_ewaybill_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "0180030d3b998ab37fd0416b7a9c523885784c4713252dcc932dc6baa6c76048"
+    },
+    {
+      "id": "gst-on-the-bill",
+      "slug": "gst-on-the-bill",
+      "path": "/guide/gst-on-the-bill",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "0ccc47a200e93dab0bd066e8b025b7b966f4cec962d4e891e75ce48072a7b209"
+    },
+    {
+      "id": "home",
+      "slug": "home",
+      "path": "/guide/home",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "4b8a846b4db0260679f6a8db3bfb60aae48ffc442341b4e290c1c9764414d80b"
+    },
+    {
+      "id": "import-documents",
+      "slug": "import-documents",
+      "path": "/guide/import-documents",
+      "featureKey": "document_import",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "905fa74f096af2d1b563cd98f80d8eb7e581d2a8787d2e03b1a38ffaf7214209"
+    },
+    {
+      "id": "ledger-mapping",
+      "slug": "ledger-mapping",
+      "path": "/guide/ledger-mapping",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "3797288e2ba81f5b772bdad63e1cb7b85e3ca6606f9f3a097f2342b38ee7fac9"
+    },
+    {
+      "id": "party-ledger",
+      "slug": "party-ledger",
+      "path": "/guide/party-ledger",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "dc57c67672dd8e517f5bd95fa33b4c72992d4ce53132f1d5ab128d26cc5a0a40"
+    },
+    {
+      "id": "purchase-invoice",
+      "slug": "purchase-invoice",
+      "path": "/guide/purchase-invoice",
+      "featureKey": "voucher_creation_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "a505340ee1fc176b9b8dcb9caece5c11503114bd78c3b1ea7f22b507230b274d"
+    },
+    {
+      "id": "record-payment",
+      "slug": "record-payment",
+      "path": "/guide/record-payment",
+      "featureKey": "voucher_creation_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "59de4444c2122d8e564ba75d65a7fc9cc0827e6e1d43d46144e7f97d785b1791"
+    },
+    {
+      "id": "record-receipt",
+      "slug": "record-receipt",
+      "path": "/guide/record-receipt",
+      "featureKey": "voucher_creation_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "553217b3fa76649858dff4fe8116ef111ad551ccc1ab7d71c8aa4627810c620c"
+    },
+    {
+      "id": "sales-invoice",
+      "slug": "sales-invoice",
+      "path": "/guide/sales-invoice",
+      "featureKey": "voucher_creation_mobile",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "a67071c7fd262e4e45d8706d7e1781328e96914e417bb5fea4a818fef3d1aedd"
+    },
+    {
+      "id": "sales-orders",
+      "slug": "sales-orders",
+      "path": "/guide/sales-orders",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "7161e15cff770646db41428a8f109d558c9a987aac2e14f92f44c06cbf199181"
+    },
+    {
+      "id": "tally-sync",
+      "slug": "tally-sync",
+      "path": "/guide/tally-sync",
+      "featureKey": "tally_sync_dashboard",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "f25a12a51771e1014b47e12e8c94744752755ec49489d860deb5b7bf029713ae"
+    },
+    {
+      "id": "team-access",
+      "slug": "team-access",
+      "path": "/guide/team-access",
+      "featureKey": "team_access_controls",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "496834a2a923ba2757c3449a7ebf5c1f48b838dba840cb6b26025a726f77cf18"
+    },
+    {
+      "id": "whatsapp-invoice-delivery",
+      "slug": "whatsapp-invoice-delivery",
+      "path": "/guide/whatsapp-invoice-delivery",
+      "featureKey": "auto_invoice_dispatch",
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "cea3df1e367f691d7f62dcd8726202392141fd360f76777bd3a09e80e49ba74e"
+    },
+    {
+      "id": "whatsapp-reminders",
+      "slug": "whatsapp-reminders",
+      "path": "/guide/whatsapp-reminders",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-09-07",
+      "contentSha256": "2c1705ce2a1ead93bea9843d4007b9da0000c9fcdb57f6b201d9286544fadc4a"
+    }
+  ]
+}

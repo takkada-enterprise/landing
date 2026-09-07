@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
 import { routeMetadata } from '../siteMetadata';
 import { extractLead } from '../../../scripts/checkLeadAnswer.mjs';
+import { INTERNAL_TOPIC_IDS, readTopics } from '../../../scripts/lib/guideContract.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const blogDir = resolve(repoRoot, 'content/blog');
@@ -32,7 +33,20 @@ const normalise = (href) => {
   return path === '' ? '/' : path;
 };
 
-const KNOWN_ROUTES = new Set(routeMetadata.map((r) => r.path));
+// The manual is not in routeMetadata — its two routes are registered lazily in
+// src/routes/index.jsx and expanded for prerender from the topic registry — so
+// without this a post linking a customer to /guide/record-receipt would read as
+// a dead link, and a post linking to a guide that does not exist would not.
+// Both halves matter: the registry is the list of pages the build actually
+// produces, so it is the honest definition of "a route that exists".
+const GUIDE_ROUTES = new Set([
+  '/guide',
+  ...readTopics(repoRoot)
+    .filter((topic) => !INTERNAL_TOPIC_IDS.has(topic.id))
+    .map((topic) => `/guide/${topic.slug}`),
+]);
+
+const KNOWN_ROUTES = new Set([...routeMetadata.map((r) => r.path), ...GUIDE_ROUTES]);
 
 function inboundLinks(page) {
   const target = featurePagePath(page);
@@ -87,6 +101,34 @@ describe('blog internal links', () => {
       }
     }
     expect(dead).toEqual([]);
+  });
+
+  it('knows the manual, so a link into a guide resolves and a typo does not', () => {
+    expect(GUIDE_ROUTES.has('/guide')).toBe(true);
+    expect(GUIDE_ROUTES.size).toBeGreaterThan(1);
+    expect(GUIDE_ROUTES.has('/guide/dispatch')).toBe(true);
+    // KD-7: "Entries waiting for approval" is explained inside the app only.
+    expect(GUIDE_ROUTES.has('/guide/entries-waiting-approval')).toBe(false);
+  });
+
+  // A guide answers "I am stuck in this screen right now"; a feature page owns
+  // the buying query. A post that links into the manual using a feature page's
+  // search phrase as the anchor spends that page's strongest internal signal on
+  // a procedure that will never rank for it, and confuses the reader about
+  // which page they are being sent to.
+  it('links into the manual by its topic, not by a feature page\'s buying query', () => {
+    const phrases = FEATURE_PAGES.map((p) => p.searchPhrase.trim().toLowerCase());
+    const misdirected = [];
+    for (const { file, body } of POSTS) {
+      for (const { text, href } of linksIn(body)) {
+        if (!normalise(href).startsWith('/guide')) continue;
+        const anchor = text.trim().toLowerCase();
+        if (phrases.some((phrase) => anchor.startsWith(phrase))) {
+          misdirected.push(`${file}: "${text}" -> ${href}`);
+        }
+      }
+    }
+    expect(misdirected).toEqual([]);
   });
 
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(

@@ -21,6 +21,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { routeMetadata } from '../src/data/siteMetadata.js';
 import { pricing, formatInr } from '../src/data/siteContent.js';
+import { INTERNAL_TOPIC_IDS, readGuides, readTopics } from './lib/guideContract.mjs';
 
 export const SITE_URL = 'https://takkada.com';
 
@@ -114,7 +115,35 @@ export function buildGuides(blogDir) {
   }));
 }
 
-export function buildDoc({ priceData, routes, guides }) {
+/**
+ * The manual: 21 procedural pages, listed in the registry's curated order.
+ *
+ * Kept separate from the blog's "Guides" heading on purpose. A blog post
+ * answers a question somebody typed into a search box; a manual page is what
+ * somebody reads with the app open in the other hand, and an assistant asked
+ * "how do I record a receipt in Takkada" should be able to tell the two apart.
+ *
+ * Internal-only topics (KD-7) have no public URL and are excluded here exactly
+ * as they are from the hub, the sitemap and the app manifest.
+ *
+ * @param {Array} topics content/guide/topics.json records
+ * @param {Array} guides GuideDocument[] from readGuides
+ */
+export function buildManual(topics, guides) {
+  const bySlug = new Map((guides ?? []).map((guide) => [guide.slug, guide]));
+  return (topics ?? [])
+    .filter((topic) => !INTERNAL_TOPIC_IDS.has(topic?.id) && bySlug.has(topic?.slug))
+    .map((topic) => {
+      const guide = bySlug.get(topic.slug);
+      return {
+        title: guide.title,
+        url: url(`/guide/${guide.slug}`),
+        summary: guide.metaDescription ?? '',
+      };
+    });
+}
+
+export function buildDoc({ priceData, routes, guides, manual = [] }) {
   const lines = [
     '# Takkada',
     '',
@@ -127,6 +156,19 @@ export function buildDoc({ priceData, routes, guides }) {
   for (const { section, entries } of buildSections(routes)) {
     lines.push(`## ${section}`, '');
     for (const e of entries) lines.push(`- [${e.title}](${e.url}): ${e.summary}`);
+    lines.push('');
+  }
+
+  if (manual.length > 0) {
+    lines.push('## Manual', '');
+    lines.push(
+      'Step-by-step instructions for people using the app, each one checked against ' +
+        `the app itself on the date it names. Index: ${url('/guide')}`,
+      ''
+    );
+    for (const page of manual) {
+      lines.push(`- [${page.title}](${page.url})${page.summary ? `: ${page.summary}` : ''}`);
+    }
     lines.push('');
   }
 
@@ -159,6 +201,7 @@ function main() {
     priceData: pricing,
     routes: routeMetadata,
     guides: buildGuides(resolve(repoRoot, 'content/blog')),
+    manual: buildManual(readTopics(repoRoot), readGuides(repoRoot)),
   });
 
   writeFileSync(resolve(repoRoot, 'public/llms.txt'), doc);
