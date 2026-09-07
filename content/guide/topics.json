@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "topics": [
+    {
+      "id": "home",
+      "slug": "home",
+      "featureKey": null,
+      "title": "How to find your way around Takkada",
+      "sourceFiles": [
+        "lib/screens/home_screen.dart",
+        "lib/screens/settings_screen.dart"
+      ]
+    },
+    {
+      "id": "bills-and-outstanding",
+      "slug": "bills-and-outstanding",
+      "featureKey": null,
+      "title": "How to read bills and outstanding",
+      "sourceFiles": [
+        "lib/screens/reports/bills_outstanding_screen.dart",
+        "lib/screens/reports/bills_receivable_screen.dart",
+        "lib/screens/reports/bills_payable_screen.dart",
+        "lib/screens/reports/bills_party_page_screen.dart",
+        "lib/screens/reports/receivables_ageing_screen.dart",
+        "lib/screens/shell/reports_tab_body.dart"
+      ]
+    },
+    {
+      "id": "party-ledger",
+      "slug": "party-ledger",
+      "featureKey": null,
+      "title": "How to open a party ledger and share a statement",
+      "sourceFiles": [
+        "lib/screens/parties_screen.dart",
+        "lib/screens/party_details_screen.dart",
+        "lib/screens/settings/statements_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "record-receipt",
+      "slug": "record-receipt",
+      "featureKey": "voucher_creation_mobile",
+      "title": "How to record a receipt",
+      "sourceFiles": [
+        "lib/screens/create_receipt_screen.dart",
+        "lib/screens/receipts_register_screen.dart"
+      ]
+    },
+    {
+      "id": "record-payment",
+      "slug": "record-payment",
+      "featureKey": "voucher_creation_mobile",
+      "title": "How to record a payment",
+      "sourceFiles": [
+        "lib/screens/create_payment_screen.dart",
+        "lib/screens/payments_register_screen.dart",
+        "lib/screens/settings/payments_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "sales-invoice",
+      "slug": "sales-invoice",
+      "featureKey": "voucher_creation_mobile",
+      "title": "How to make a sales invoice",
+      "sourceFiles": [
+        "lib/screens/invoice_summary_screen.dart",
+        "lib/screens/sale_invoice_register_screen.dart",
+        "lib/screens/settings/invoices_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "gst-on-the-bill",
+      "slug": "gst-on-the-bill",
+      "featureKey": null,
+      "title": "How to check GST on a bill",
+      "sourceFiles": [
+        "lib/screens/invoice_summary_screen.dart"
+      ]
+    },
+    {
+      "id": "purchase-invoice",
+      "slug": "purchase-invoice",
+      "featureKey": "voucher_creation_mobile",
+      "title": "How to record a purchase invoice",
+      "sourceFiles": [
+        "lib/screens/purchase_invoice_register_screen.dart",
+        "lib/screens/purchase_invoice_detail_screen.dart"
+      ]
+    },
+    {
+      "id": "credit-and-debit-notes",
+      "slug": "credit-and-debit-notes",
+      "featureKey": "voucher_creation_mobile",
+      "title": "How to make a credit note or a debit note",
+      "sourceFiles": [
+        "lib/screens/create_credit_note_screen.dart",
+        "lib/screens/create_debit_note_screen.dart",
+        "lib/screens/credit_note_register_screen.dart",
+        "lib/screens/debit_note_register_screen.dart"
+      ]
+    },
+    {
+      "id": "sales-orders",
+      "slug": "sales-orders",
+      "featureKey": null,
+      "title": "How to take and track sales orders",
+      "sourceFiles": [
+        "lib/screens/sales_order_list_screen.dart",
+        "lib/screens/sales_order_detail_screen.dart",
+        "lib/screens/sales_order_summary_screen.dart",
+        "lib/screens/fulfil_sales_order_screen.dart"
+      ]
+    },
+    {
+      "id": "dispatch",
+      "slug": "dispatch",
+      "featureKey": "dispatch_load",
+      "title": "How to load and dispatch goods",
+      "sourceFiles": [
+        "lib/screens/dispatch/dispatch_screen.dart",
+        "lib/screens/dispatch/orders_tab.dart",
+        "lib/screens/dispatch/vans_tab.dart",
+        "lib/screens/dispatch/demand_tab.dart",
+        "lib/screens/dispatch/van_page.dart",
+        "lib/screens/dispatch/confirm_load_sheet.dart",
+        "lib/screens/dispatch/bill_load_review_screen.dart",
+        "lib/screens/dispatch/print_options_sheet.dart",
+        "lib/screens/settings/dispatch_settings_screen.dart",
+        "lib/models/dispatch_stage_words.dart",
+        "lib/models/dispatch_van_bar.dart"
+      ]
+    },
+    {
+      "id": "ledger-mapping",
+      "slug": "ledger-mapping",
+      "featureKey": null,
+      "title": "How to map your Tally ledgers",
+      "sourceFiles": [
+        "lib/screens/ledger_config_screen.dart"
+      ]
+    },
+    {
+      "id": "connect-tally",
+      "slug": "connect-tally",
+      "featureKey": "tally_sync_dashboard",
+      "title": "How to connect your Tally company",
+      "sourceFiles": [
+        "lib/screens/connect_tally_screen.dart"
+      ]
+    },
+    {
+      "id": "tally-sync",
+      "slug": "tally-sync",
+      "featureKey": "tally_sync_dashboard",
+      "title": "How to check and fix Tally sync",
+      "sourceFiles": [
+        "lib/screens/tally_sync_screen.dart",
+        "lib/screens/settings/tally_voucher_types_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "e-invoice",
+      "slug": "e-invoice",
+      "featureKey": "einvoice_ewaybill_mobile",
+      "title": "How to generate an e-invoice",
+      "sourceFiles": [
+        "lib/screens/generate_e_invoice_screen.dart",
+        "lib/screens/einvoice_details_screen.dart"
+      ]
+    },
+    {
+      "id": "e-way-bill",
+      "slug": "e-way-bill",
+      "featureKey": "einvoice_ewaybill_mobile",
+      "title": "How to generate an e-way bill",
+      "sourceFiles": [
+        "lib/screens/generate_e_way_bill_screen.dart"
+      ]
+    },
+    {
+      "id": "whatsapp-reminders",
+      "slug": "whatsapp-reminders",
+      "featureKey": null,
+      "title": "How to send payment reminders on WhatsApp",
+      "sourceFiles": [
+        "lib/screens/payment_reminders_settings_screen.dart",
+        "lib/screens/reminder_parties_screen.dart",
+        "lib/screens/reminder_history_screen.dart",
+        "lib/screens/send_reminders_now_screen.dart"
+      ]
+    },
+    {
+      "id": "whatsapp-invoice-delivery",
+      "slug": "whatsapp-invoice-delivery",
+      "featureKey": "auto_invoice_dispatch",
+      "title": "How to send invoices to customers on WhatsApp",
+      "sourceFiles": [
+        "lib/screens/settings/notification_settings_screen.dart",
+        "lib/screens/invoice_summary_screen.dart"
+      ]
+    },
+    {
+      "id": "import-documents",
+      "slug": "import-documents",
+      "featureKey": "document_import",
+      "title": "How to import documents",
+      "sourceFiles": [
+        "lib/screens/document_import/document_kind_chooser_screen.dart",
+        "lib/screens/document_import/import_history_screen.dart",
+        "lib/screens/document_import/batch_import_queue_screen.dart",
+        "lib/screens/document_import/import_shared_document_screen.dart"
+      ]
+    },
+    {
+      "id": "team-access",
+      "slug": "team-access",
+      "featureKey": "team_access_controls",
+      "title": "How to add your team and set their access",
+      "sourceFiles": [
+        "lib/screens/settings/team_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "customer-order-link",
+      "slug": "customer-order-link",
+      "featureKey": "public_customer_ordering",
+      "title": "How to take orders through a customer link",
+      "sourceFiles": [
+        "lib/screens/settings/customer_order_link_settings_screen.dart",
+        "lib/screens/customer_order_inbox_screen.dart",
+        "lib/screens/customer_order_detail_screen.dart"
+      ]
+    }
+  ]
+}

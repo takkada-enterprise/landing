@@ -5,6 +5,7 @@ meta_title: "Aging Report in Tally: How Distributors Read and Act On It"
 meta_description: "How to generate the aging report in Tally Prime, read each receivables bucket, and run a weekly action plan that actually pulls cash in."
 primary_keyword: "aging report tally"
 date: "2026-05-06"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "An aging report in Tally is a list of every open invoice grouped by how long it has been outstanding. The buckets are usually 0 to 30, 31 to 60, 61 to 90, and over 90 days. It is the single most important report a distributor's accountant can pull on a Monday morning."
@@ -118,7 +119,7 @@ Three quarters of the cash that came in over those 90 days was on invoices that 
 
 ## What Takkada is, in one sentence
 
-Takkada wires the live aging report from your Tally to your phone, fires structured WhatsApp reminders on the right invoice in the right bucket, and pulls those reminders back the moment the payment lands and reconciles in Tally, so the accountant's Monday morning becomes a 30-minute exercise instead of a 3-hour one.
+Takkada wires the live aging report from your Tally to your phone, fires structured WhatsApp reminders on the right invoice in the right bucket, and pulls those reminders back the moment the payment lands and reconciles in Tally, so the accountant's Monday morning becomes a 30-minute exercise instead of a 3-hour one. The mobile view of it is set out on the [debtor ageing report on phone](/debtor-ageing-report-on-phone/) page, including how the slabs are chosen.
 
 ## Frequently Asked Questions
 

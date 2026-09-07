@@ -5,6 +5,7 @@ meta_title: "Bank Reconciliation in Tally on Mobile: Step-by-Step"
 meta_description: "Bank reconciliation in Tally, step by step: the classic Banking > BRS flow, setting bank dates, and the faster mobile way to clear UPI receipts daily."
 primary_keyword: "bank reconciliation in tally"
 date: "2026-06-21"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor sits down at 9 PM to match a ₹4,80,000 bank statement against 60 receipts in Tally, half of them UPI with only a UTR to go on. Here is the classic Tally bank reconciliation flow, step by step, plus the faster way to clear UPI receipts through the day so the night session shrinks."
@@ -113,4 +114,4 @@ A: No. Auto-matching handles the UPI collection receipts, posting them to the co
 
 A: No. A Tally-native mobile layer connects to your existing Tally installation and posts matched receipt vouchers back into it, so there is no extra Tally licence. You keep your current Tally and your current bank reconciliation flow; the mobile side only feeds clean, party-matched UPI receipts into the books so fewer lines are left to reconcile by hand.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, matching UTRs to the right party and posting the receipt into Tally as the money clears, so the 9 PM reconciliation shrinks to a quick review. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, matching UTRs to the right party and posting the receipt into Tally as the money clears, so the 9 PM reconciliation shrinks to a quick review. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Where the statement file itself is the starting point, the [bank statement import](/bank-statement-import-tally/) page covers how each credit becomes a Tally entry.

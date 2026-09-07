@@ -1,160 +1,96 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  FileText,
-  MessageCircle,
-  IndianRupee,
-  CheckCircle2,
-  RefreshCw,
-  Zap,
-  Check,
-  Shield,
-  FileCheck,
-  Building,
+  ArrowUpRight,
+  BarChart3,
   Bell,
-  Link as LinkIcon,
-  Share2,
+  Building,
+  Camera,
+  Check,
+  ClipboardList,
+  Clock,
   Download,
+  FileCheck,
+  FileText,
+  IndianRupee,
+  Link2,
+  MessageCircle,
+  MonitorCheck,
+  RefreshCw,
+  Share2,
+  Shield,
+  ShieldCheck,
+  Sparkles,
+  BadgeCheck,
+  Database,
   Truck,
-  Users,
 } from 'lucide-react';
-import CTAButton from '../components/CTAButton';
-import TestimonialCard from '../components/TestimonialCard';
+import WhatsAppCTA from '../components/WhatsAppCTA';
+import CountUp from '../components/CountUp';
+import CalendarCTA from '../components/CalendarCTA';
+import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
 import Seo from '../components/Seo';
-import ComparisonSection from '../components/ComparisonSection';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
 import {
   appLinks,
   pricing,
-  tallyFeatures,
-  heroStats,
-  painPoints,
-  featureGrid,
-  howItWorks,
+  biggerSetups,
+  planPricing,
+  planPriceRange,
+  formatInr,
+  heroContent,
+  storyOrderToCash,
+  storyTeamSales,
+  aiImport,
+  featureGridV3,
+  tallyTrust,
+  homeFaqItems,
   testimonials,
-  coreFeatures,
-  advancedFeatures,
+  trustSection,
+  demoEntryLive,
+  proofStrip,
+  differentiators,
 } from '../data/siteContent';
-
-const tallyIconMap = {
-  refresh: RefreshCw,
-  zap: Zap,
-  check: Check,
-  shield: Shield,
-};
-
-// Features added in the 2026-06-18 app refresh — surfaced with a "New" tag.
-const NEW_FEATURE_IDS = new Set(['pdf-import', 'reports']);
 
 const gridIconMap = {
   fileText: FileText,
-  refresh: RefreshCw,
   fileCheck: FileCheck,
-  check: Check,
-  building: Building,
   bell: Bell,
-  link: LinkIcon,
+  shield: Shield,
+  clock: Clock,
+  truck: Truck,
+  building: Building,
+  chart: BarChart3,
   share: Share2,
+  link: Link2,
 };
 
-const capabilities = [
-  {
-    icon: FileText,
-    title: 'Mobile invoicing, including e-invoice and e-way bill',
-    body:
-      'Create vouchers, issue invoices, generate e-invoices and e-way bills from your phone. Useful when the laptop is off, when your salesman is in the field, or when you are travelling.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Every invoice reaches the customer on WhatsApp, automatically',
-    body:
-      'The moment an invoice is created in Tally, the customer receives the PDF plus a payment link on WhatsApp. You do not type, copy, or attach anything.',
-  },
-  {
-    icon: IndianRupee,
-    title: 'Collect on UPI with zero charges',
-    body:
-      'UPI is fully pass-through. Card and netbanking MDR is borne by you. Customers pay the link, the money lands in your bank.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Payments auto-match to invoices in Tally',
-    body:
-      'When payment lands, Takkada matches it against the invoice and posts the accounting entry in Tally. Your end-of-day reconciliation ritual disappears.',
-  },
-];
+// Exported for home-v3.test.jsx. The lookup below falls back to a tick, so an
+// unmapped key renders a plausible wrong icon rather than an obvious hole;
+// the test needs the key list to catch that.
+export const GRID_ICON_KEYS = Object.keys(gridIconMap);
 
-// Floating feature pills that halo the hero phone, in the style of the existing
-// "Import from PDF" chip. Decorative (aria-hidden); positions live in styles.css
-// as .hero-pill--N. Order matters: it maps to the position rules.
-const heroPills = [
-  { icon: FileText, label: 'Import from PDF' },
-  { icon: IndianRupee, label: 'UPI Collection' },
-  { icon: LinkIcon, label: 'Payment Link' },
-  { icon: FileCheck, label: 'E-Invoicing' },
-  { icon: Truck, label: 'E-Way Bill' },
-  { icon: MessageCircle, label: 'WhatsApp Reminder' },
-  { icon: Users, label: 'Field Staff' },
-];
+const aiIconMap = {
+  camera: Camera,
+  clipboard: ClipboardList,
+  building: Building,
+};
 
-const audiences = [
-  {
-    to: '/mobile-tally',
-    label: 'Owners who want visibility',
-    line: 'See overdue receivables from your phone. Send reminders. That is it.',
-  },
-  {
-    to: '/for-distributors',
-    label: 'Collections-heavy distributors',
-    line: 'Big receivable book. E-invoice, e-way bill, UPI links, auto-recon — all in one place.',
-  },
-  {
-    to: '/whatsapp-invoice-tally',
-    label: 'Field sales teams',
-    line: 'Salesmen raise invoices from the market. Invoice reaches the customer before they leave the shop.',
-  },
-  {
-    to: '/auto-reconciliation-tally',
-    label: 'Distributors tired of manual reconciliation',
-    line: 'Stop matching bank statements to Tally by hand every evening.',
-  },
-];
+const tallyIconMap = {
+  refresh: RefreshCw,
+  shield: Shield,
+  monitor: MonitorCheck,
+};
 
-const homeFaqItems = [
-  {
-    question: 'Do I need to replace Tally?',
-    answer:
-      'No. Takkada sits on top of your existing Tally installation. Your data stays in Tally. Nothing migrates, nothing moves.',
-  },
-  {
-    question: 'Will my current invoice format and numbering stay the same?',
-    answer:
-      'Yes. Takkada reads and writes to your Tally. The invoice format you have been using, the numbering series, the GST configuration — all of it stays exactly as it is today.',
-  },
-  {
-    question: 'What happens when my laptop is off and my salesman needs to raise an invoice?',
-    answer:
-      'The salesman raises the invoice from his phone. When your laptop next opens Tally, the voucher syncs in. The field team never waits.',
-  },
-  {
-    question: 'How much does UPI cost?',
-    answer:
-      'Zero. UPI is pass-through. For card and netbanking we charge the standard MDR that the payment gateway charges us. No markup from Takkada.',
-  },
-  {
-    question: 'Can I try it before I pay?',
-    answer:
-      'Yes. Every plan comes with a 7-day free trial, no card required. If you are being onboarded by one of our partners, they will walk you through the setup.',
-  },
-  {
-    question: 'Is there a plan for a business with only one user?',
-    answer:
-      'Yes. Every plan includes one user. Extra users are ₹3,000 per year each. Extra devices on the same user are ₹1,500 to ₹3,000 per year depending on plan.',
-  },
-];
+const trustIconMap = {
+  database: Database,
+  shield: ShieldCheck,
+  badge: BadgeCheck,
+  monitor: MonitorCheck,
+};
 
 // SEO defaults for the home route. Exposed as props so a sibling route can
 // reuse this exact page body under a different canonical URL (e.g. the
@@ -162,17 +98,261 @@ const homeFaqItems = [
 // many entry points, no drift.
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
-  description:
-    'Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ₹2,700 to ₹8,499/year.',
+  // The price range is derived from pricing.plans — this description ships in
+  // the prerendered meta tag, so a typed figure here would be drift the page
+  // itself can't see.
+  description: `Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ${planPriceRange()}/year.`,
   path: '/',
 };
 
+// One story section = header + numbered step rail + a WhatsApp CTA.
+// A step renders its phone only when a screenshot exists, so a story keeps
+// working while a capture is pending (story 2 step 3 is text-only today).
+function StorySection({ story, alt = false, ctaContext }) {
+  return (
+    <section className={`hv3-story${alt ? ' hv3-story--alt' : ''}`} id={story.id}>
+      <div className="container">
+        <div className="hv3-story-head reveal">
+          <span className="section-label">{story.overline}</span>
+          <h2 className="hv3-story-title">{story.heading}</h2>
+          <p className="hv3-story-intro">{story.intro}</p>
+        </div>
+        {/* Column count follows the data so a future 3- or 5-step story
+            keeps its connector geometry. */}
+        <div className="hv3-rail" style={{ '--hv3-steps': story.steps.length }}>
+          {story.steps.map((step, i) => (
+            <div key={step.title} className="hv3-step reveal">
+              <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
+              <div className="hv3-step-content">
+                {step.screenshot && (
+                  <div className="hv3-step-phone">
+                    <img
+                      src={step.screenshot}
+                      alt={step.screenshotAlt || ''}
+                      width={step.screenshotWidth}
+                      height={step.screenshotHeight}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+                <h3 className="hv3-step-title">{step.title}</h3>
+                <p className="hv3-step-body">{step.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* WhatsAppCTA renders nothing under the site-wide kill switch
+            (empty whatsappNumber), so the calendar link keeps the story
+            from ending in a dead end (§11.6). */}
+        <div className="hv3-story-foot reveal">
+          <WhatsAppCTA context={ctaContext} variant={alt ? 'primary' : 'outline'}>
+            {story.ctaLine}
+          </WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
+        </div>
+        {story.footnote && <p className="hv3-story-footnote reveal">{story.footnote}</p>}
+      </div>
+    </section>
+  );
+}
+
+// The signature centerpiece (2026-08-04): the order-to-cash tour. The whole
+// journey fits one screen: a numbered station list on the left, one phone on
+// the right that crossfades between screens. Auto-advances every few seconds
+// so the full journey shows itself; a click takes over and stops the tour
+// (motion reasons in home.css header). On phones the device sticks to the
+// top while the list scrolls under it.
+function RoadSection({ story, ctaContext }) {
+  const [active, setActive] = useState(0);
+  const [userDrove, setUserDrove] = useState(false);
+  const [paused, setPaused] = useState(false);
+  // The tour used to start its clock at page load, several screens above the
+  // fold, so by the time a reader scrolled down to it the story was already
+  // mid-way through at whichever station the timer happened to be on. It now
+  // waits until it is actually being looked at (2026-08-12).
+  // Starts false on both sides of the render, never `typeof
+  // IntersectionObserver === 'undefined'`: that expression is true in Node and
+  // false in the browser, and the resulting hydration mismatch left the
+  // markup carrying the server's class list while state said otherwise, so
+  // the section rendered as awake while the timer was asleep.
+  const [inView, setInView] = useState(false);
+  const listRef = useRef(null);
+  const tourRef = useRef(null);
+  const lastScrollAt = useRef(0);
+
+  // Scrolling means the reader is moving through the page, not dwelling on a
+  // station, so it releases the hover pause and suppresses the mousemove that
+  // caused it. Chrome fires mousemove while the page scrolls under a
+  // stationary cursor, so without this the tour re-paused on every scroll and
+  // only ever released when the reader physically moved the pointer off the
+  // section. Measured in a real browser on 2026-08-13: the tour was paused for
+  // all but 3 seconds of a 13-second read, and never got the 4.5s of clear air
+  // it needs to advance even once.
+  useEffect(() => {
+    const onScroll = () => {
+      lastScrollAt.current = Date.now();
+      setPaused((prev) => (prev ? false : prev));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const node = tourRef.current;
+    if (!node) return undefined;
+    // No observer (old browsers, jsdom): fall back to today's behavior and
+    // let the timer run, rather than silently killing the tour.
+    if (typeof IntersectionObserver === 'undefined') {
+      setInView(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      // "Any part of the tour is crossing the middle band of the viewport",
+      // NOT "35% of the tour is on screen" (2026-08-13). A ratio threshold is
+      // unsatisfiable whenever the section is tall relative to the window:
+      // 35% of a 650px tour is 228px, but the section grows past 2000px as it
+      // reflows on a narrow or zoomed window, and then no amount of scrolling
+      // ever reaches the threshold and the tour stays switched off for good.
+      // A margin band cannot fail that way, whatever the section's height, and
+      // it is the geometry the mobile station observer below already uses.
+      { rootMargin: '-25% 0px -25% 0px', threshold: 0 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  // Desktop only: the timed tour. On phones the scroll drives the stations
+  // (below), so a timer would fight the reader's thumb.
+  useEffect(() => {
+    if (userDrove || paused || !inView) return undefined;
+    if (!window.matchMedia?.('(min-width: 900px)').matches) return undefined;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = setInterval(
+      () => setActive((current) => (current + 1) % story.stations.length),
+      4500
+    );
+    return () => clearInterval(timer);
+  }, [userDrove, paused, inView, story.stations.length]);
+
+  // Mobile: the station scrolled under the sticky phone becomes active, so
+  // the phone changes screens as the reader moves down the list.
+  useEffect(() => {
+    if (window.matchMedia?.('(min-width: 900px)').matches) return undefined;
+    const steps = [...(listRef.current?.querySelectorAll('.hv3-tour-step') ?? [])];
+    if (!steps.length || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(steps.indexOf(entry.target));
+        }
+      },
+      // A band just under the sticky phone: the row crossing it is active.
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
+    steps.forEach((step) => observer.observe(step));
+    return () => observer.disconnect();
+  }, [story.stations.length]);
+
+  return (
+    <section className="hv3-story hv3-story--road" id={story.id}>
+      <div className="container">
+        <div className="hv3-story-head reveal">
+          <span className="section-label">{story.overline}</span>
+          <h2 className="hv3-story-title">{story.heading}</h2>
+          <p className="hv3-story-intro">{story.intro}</p>
+        </div>
+        {/* The reveal class lives on its own wrapper: the inner div's class
+            list changes with state, and a React re-render would strip the
+            is-visible flag the scroll observer adds to the same element. */}
+        <div className="reveal">
+        <div
+          ref={tourRef}
+          /* --paused carries "not in view" as well as hover. It is what stops
+             the countdown bar, and a bar filling off-screen would greet the
+             arriving reader half-drawn against a timer that just started. */
+          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused || !inView ? ' hv3-tour--paused' : ''}`}
+          /* Pause on the pointer MOVING over the tour, and only when that
+             movement is the reader's own rather than the page scrolling
+             underneath them. Both halves are load-bearing (2026-08-13):
+             mouseenter alone fires when the section slides under a resting
+             cursor, and mousemove alone still fires on every scroll, because
+             Chrome re-targets the pointer as the page moves. Either one on its
+             own leaves the tour permanently paused for a trackpad reader whose
+             cursor sits mid-screen, which is where the section arrives.
+
+             Touch fires these on tap and never mouseleave, which would pause
+             the tour permanently — so only a real hovering pointer pauses it. */
+          onMouseMove={() => {
+            if (paused) return;
+            if (Date.now() - lastScrollAt.current < 250) return;
+            if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
+          }}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="hv3-tour-phone">
+            {story.stations.map((station, i) => (
+              <img
+                key={station.title}
+                src={station.screenshot}
+                alt={station.screenshotAlt}
+                className={i === active ? 'is-active' : undefined}
+                aria-hidden={i !== active}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            ))}
+          </div>
+          <ol className="hv3-tour-list" ref={listRef}>
+            {story.stations.map((station, i) => (
+              <li
+                key={station.title}
+                className={`hv3-tour-step${i === active ? ' is-active' : ''}`}
+              >
+                <button
+                  type="button"
+                  aria-expanded={i === active}
+                  aria-controls={`hv3-tour-body-${i}`}
+                  onClick={() => {
+                    setActive(i);
+                    setUserDrove(true);
+                  }}
+                >
+                  <span className="hv3-tour-num tabular-nums" aria-hidden="true">{i + 1}</span>
+                  <span className="hv3-tour-step-title">{station.title}</span>
+                </button>
+                <div className="hv3-tour-step-reveal" id={`hv3-tour-body-${i}`}>
+                  <p className="hv3-tour-step-body">{station.body}</p>
+                </div>
+                {/* Fills over the auto-advance interval so the row visibly
+                    counts down to the next station (duration mirrors the
+                    4500ms interval above). */}
+                <span className="hv3-tour-progress" aria-hidden="true" />
+              </li>
+            ))}
+          </ol>
+        </div>
+        </div>
+        <div className="hv3-story-foot hv3-story-foot--road reveal">
+          <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>
+          <CalendarCTA context={ctaContext} variant="link" />
+        </div>
+        {story.footnote && <p className="hv3-story-footnote hv3-story-footnote--road reveal">{story.footnote}</p>}
+      </div>
+    </section>
+  );
+}
+
 function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
+  const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
+  // Which plan column the narrow-viewport table shows. Desktop ignores it.
+  const [activePlan, setActivePlan] = useState(pricing.plans.length - 1);
   useScrollReveal();
 
   return (
-    <>
+    <div className="home-v3">
       <Seo
         title={seo.title}
         description={seo.description}
@@ -180,413 +360,438 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 
-      {/* ── Hero ── */}
-      <section className="hero" id="hero">
+      {/* ── Hero: split editorial — promise left, product right ── */}
+      <section className="hv3-hero" id="product">
         <div className="container">
-          <div className="hero-content">
-            <span className="section-label hero-overline">For Indian distributors on Tally</span>
-            <h1 className="hero-title">
-              Mobile-first Tally app for distributors.
-              <br />
-              <span className="hero-title-accent">Get paid without chasing.</span>
-            </h1>
-            <p className="hero-subtitle">
-              Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile in Tally. Built for Indian distributors and wholesalers.
-            </p>
-            <div className="hero-ctas">
-              <CTAButton variant="primary" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
-              <a href="#pricing" className="cta-btn cta-btn--secondary">
-                See pricing
-              </a>
+          <div className="hv3-hero-grid">
+            <div className="hv3-hero-copy">
+              <span className="section-label hero-overline">{heroContent.overline}</span>
+              <h1 className="hero-title">
+                <span className="hv3-hero-lead">{heroContent.titleLead}</span>{' '}
+                <span className="hero-title-accent hv3-hero-accent">{heroContent.titleAccent}</span>
+              </h1>
+              <p className="hv3-hero-sub">{heroContent.subtitle}</p>
+              <div className="hv3-hero-ctas">
+                {demoEntryLive ? (
+                  <>
+                    <DemoTryCTA context="home-hero" />
+                    <WhatsAppCTA context="home-hero" variant="secondary" />
+                  </>
+                ) : (
+                  <>
+                    <WhatsAppCTA context="home-hero" />
+                    <CalendarCTA context="home-hero" />
+                  </>
+                )}
+              </div>
+              <div className="hv3-hero-stats">
+                {heroContent.stats.map((s) => (
+                  <div key={s.label} className="hv3-stat">
+                    <span className="hv3-stat-value tabular-nums">
+                      <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                    </span>
+                    <span className="hv3-stat-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="hero-stats">
-              {heroStats.map((s) => (
-                <div key={s.label} className="hero-stat">
-                  <span className="hero-stat-value tabular-nums">{s.value}</span>
-                  <span className="hero-stat-label">{s.label}</span>
+            <div className="hv3-hero-visual">
+              <div className="hv3-hero-phone">
+                <img
+                  src="/assets/screenshots/home-screen-framed.webp"
+                  alt="Takkada home screen showing receivables dashboard"
+                  width={800}
+                  height={1624}
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <span className="hv3-hero-chip hv3-hero-chip--1" aria-hidden="true">
+                <MessageCircle size={15} /> Invoice sent on WhatsApp
+              </span>
+              <span className="hv3-hero-chip hv3-hero-chip--2" aria-hidden="true">
+                <IndianRupee size={15} /> Payment matched in Tally
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
+      <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
+
+      {/* ── Proof strip: the customer's voice + the two confirmed figures,
+             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The
+             stats render static here — the hero already counted them up,
+             and a second count would be decoration without a reason. ── */}
+      <section className="hv3-proof" id={proofStrip.id}>
+        <div className="container">
+          <div className="hv3-proof-card reveal">
+            <figure className="hv3-proof-quote">
+              <blockquote className="hv3-proof-text">{testimonials[0].quote}</blockquote>
+              <figcaption className="hv3-proof-attrib">
+                <span className="hv3-proof-name">{testimonials[0].name}</span>
+                <span className="hv3-proof-role">{testimonials[0].role}</span>
+              </figcaption>
+            </figure>
+            <div className="hv3-proof-stats">
+              {heroContent.stats.map((s) => (
+                <div key={s.label} className="hv3-stat">
+                  <span className="hv3-stat-value tabular-nums">
+                    {s.prefix}
+                    {s.value}
+                    {s.suffix}
+                  </span>
+                  <span className="hv3-stat-label">{s.label}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="hero-phone-frame">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada home screen showing receivables dashboard" />
+        </div>
+      </section>
+
+      {/* ── Story 2: Team Sales / the field day ── */}
+      <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />
+
+      {/* ── AI showcase: the three places the AI does the typing ── */}
+      <section className="hv3-ai" id={aiImport.id}>
+        <div className="container">
+          <div className="hv3-story-head reveal">
+            <span className="section-label">{aiImport.overline}</span>
+            <h2 className="hv3-story-title">{aiImport.heading}</h2>
+            <p className="hv3-story-intro">{aiImport.intro}</p>
+          </div>
+          <div className="hv3-ai-cards reveal">
+            {aiImport.cards.map((card) => {
+              const Icon = aiIconMap[card.icon] || Camera;
+              return (
+                <div key={card.title} className="hv3-ai-card">
+                  <div className="hv3-ai-card-top">
+                    <div className="hv3-grid-icon">
+                      <Icon size={20} />
+                    </div>
+                    <span className="hv3-ai-chip">
+                      <Sparkles size={12} /> AI reads it
+                    </span>
+                  </div>
+                  <h3 className="hv3-ai-card-title">{card.title}</h3>
+                  <p className="hv3-ai-card-body">{card.body}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Everything else: the compact grid ── */}
+      <section className="hv3-grid-section" id="features">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="section-label">And The Rest</span>
+            <h2 className="section-title">Every capability you will actually use</h2>
+          </div>
+          <div className="hv3-grid">
+            {featureGridV3.map((f) => {
+              const Icon = gridIconMap[f.icon] || Check;
+              return (
+                <div key={f.id} className="hv3-grid-card" id={f.id}>
+                  <div className="hv3-grid-icon">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <h3 className="hv3-grid-title">{f.title}</h3>
+                    <p className="hv3-grid-desc">{f.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Compressed Tally trust band ── */}
+      <section className="hv3-tally" id="tally">
+        <div className="container">
+          <div className="reveal">
+            <span className="section-label">{tallyTrust.overline}</span>
+            <h2 className="hv3-tally-title">{tallyTrust.heading}</h2>
+            <p className="hv3-tally-sub">{tallyTrust.subtitle}</p>
+          </div>
+          <div className="hv3-tally-points reveal">
+            {tallyTrust.points.map((point) => {
+              const Icon = tallyIconMap[point.icon] || RefreshCw;
+              return (
+                <div key={point.title} className="hv3-tally-point">
+                  <Icon size={22} />
+                  <h3>{point.title}</h3>
+                  <p>{point.description}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="hv3-tally-download reveal">
+            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline-light" download>
+              <Download size={16} /> Download Tally Connector
+            </a>
+            <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Differentiator band: what only Takkada does, competitors
+             unnamed (2026-08-06 conversion pass, R4). Claims contract lives
+             in siteContent.js + differentiators.test.js. ── */}
+      <section className="hv3-diff" id={differentiators.id}>
+        <div className="container">
+          <div className="hv3-story-head reveal">
+            <span className="section-label">{differentiators.overline}</span>
+            <h2 className="hv3-story-title">{differentiators.heading}</h2>
+            <p className="hv3-story-intro">{differentiators.intro}</p>
+          </div>
+          <div className="hv3-diff-rows">
+            {differentiators.rows.map((row) => (
+              <div key={row.stop} className="hv3-diff-row reveal">
+                <div className="hv3-diff-cell hv3-diff-cell--others">
+                  <span className="hv3-diff-tag">{row.stop}</span>
+                  <p className="tabular-nums">{row.others}</p>
+                </div>
+                <div className="hv3-diff-cell hv3-diff-cell--takkada">
+                  <span className="hv3-diff-tag hv3-diff-tag--takkada">Takkada keeps going</span>
+                  <p className="tabular-nums">{row.takkada}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="hv3-story-footnote reveal">{differentiators.footnote}</p>
+        </div>
+      </section>
+
+      {/* ── Pricing (ported intact from the pre-v3 page; .rate-* DOM is
+             pinned by pricing-table.test.jsx — restyle only via .home-v3) ── */}
+      <section className="pricing-section" id="pricing">
+        <div className="container">
+          {/* Header and term switch share one row so the title is still on
+              screen when the first price is. The old stacked header pushed
+              the table 450px down and the section lost its own heading. */}
+          <div className="rate-head reveal">
+            <div className="rate-head-copy">
+              <span className="section-label">Pricing</span>
+              <h2 className="section-title rate-title tabular-nums">
+                {planPriceRange()} per year. GST extra.
+              </h2>
+              <p className="section-subtitle rate-subtitle">
+                7-day free trial on every plan. No card required.
+              </p>
             </div>
-            <div className="hero-pills" aria-hidden="true">
-              {heroPills.map((p, i) => {
-                const Icon = p.icon;
+            {/* The 3-year saving is the one number a distributor does the maths
+                on before calling, so the switch is the section's only control. */}
+            <div className="rate-term" role="group" aria-label="Billing term">
+              {pricing.terms.map((term) => (
+                <button
+                  key={term.id}
+                  type="button"
+                  className={`rate-term-option${pricingTerm === term.id ? ' rate-term-option--active' : ''}`}
+                  aria-pressed={pricingTerm === term.id}
+                  onClick={() => setPricingTerm(term.id)}
+                >
+                  <span>{term.label}</span>
+                  {term.badge && <span className="rate-term-badge tabular-nums">{term.badge}</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Plan picker. Desktop shows all four columns at once; below 900px
+              a table cannot, so this selects the single column on show. */}
+          <div className="rate-picker" role="group" aria-label="Choose a plan to compare">
+            {pricing.plans.map((plan, i) => (
+              <button
+                key={plan.plan}
+                type="button"
+                className={`rate-picker-option${activePlan === i ? ' rate-picker-option--active' : ''}`}
+                aria-pressed={activePlan === i}
+                onClick={() => setActivePlan(i)}
+              >
+                {plan.plan}
+              </button>
+            ))}
+          </div>
+
+          <div className="rate-table" data-active-plan={activePlan}>
+            <div className="rate-table-head">
+              <div className="rate-table-corner">
+                <span className="rate-corner-title">What you get</span>
+                <span className="rate-corner-note">
+                  Every plan carries the one below it. Prices are per business, per year, GST extra.
+                </span>
+              </div>
+              {pricing.plans.map((plan, i) => {
+                const quote = planPricing(plan, pricingTerm);
                 return (
-                  <span key={p.label} className={`hero-pill hero-pill--${i + 1}`}>
-                    <span className="hero-pill-icon"><Icon size={15} /></span>
-                    <span className="hero-pill-label">{p.label}</span>
-                  </span>
+                  <div
+                    key={plan.plan}
+                    className={`rate-col rate-col--${i} rate-plan${plan.highlighted ? ' rate-plan--hero' : ''}`}
+                  >
+                    {plan.badge && <span className="rate-plan-badge">{plan.badge}</span>}
+                    <span className="rate-plan-name">{plan.plan}</span>
+                    <span className="rate-plan-price tabular-nums">{quote.price}</span>
+                    <span className="rate-plan-period">per year</span>
+                    <span className="rate-plan-note tabular-nums">
+                      {quote.term.discount > 0 ? (
+                        <>
+                          <s>{quote.listPrice}</s> · {formatInr(quote.total)} upfront
+                        </>
+                      ) : (
+                        'Billed yearly'
+                      )}
+                    </span>
+                  </div>
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Problem: the evenings and 9 PM ritual ── */}
-      <section className="problem-section" id="problem">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">The 9 PM ritual you know too well</span>
-            <h2 className="section-title">Cash sits in receivables. Evenings go to reconciliation.</h2>
-            <p className="section-subtitle">Every distributor running Tally has lived some version of this. Takkada moves each of these off your plate.</p>
-          </div>
-          <div className="pain-grid">
-            {painPoints.map((p) => (
-              <div key={p.stat} className="pain-card">
-                <span className="pain-stat tabular-nums">{p.stat}</span>
-                <p className="pain-desc">{p.description}</p>
+            {pricing.matrix.map((group) => (
+              <div className="rate-group" key={group.group}>
+                <div className="rate-group-title">{group.group}</div>
+                {group.rows.map((row) => (
+                  <div className="rate-row" key={row.label}>
+                    <div className="rate-row-label">{row.label}</div>
+                    {pricing.plans.map((plan, i) => (
+                      <div
+                        key={plan.plan}
+                        className={`rate-col rate-col--${i} rate-cell${plan.highlighted ? ' rate-cell--hero' : ''}`}
+                      >
+                        {i >= row.from ? (
+                          <>
+                            <Check size={16} className="rate-tick" aria-hidden="true" />
+                            <span className="sr-only">{`Included in ${plan.plan}`}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="rate-dash" aria-hidden="true" />
+                            <span className="sr-only">{`Not in ${plan.plan}`}</span>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── Intro: three phones + bento headline ── */}
-      <section className="intro-section" id="product">
-        <div className="container">
-          <div className="intro-content">
-            <span className="section-label">Built on Tally. Controlled from your phone.</span>
-            <h2 className="intro-headline">
-              The laptop in your shop stays where it is.<br />
-              The business moves to <span className="text-accent">your pocket</span>.
-            </h2>
-          </div>
-          <div className="intro-screenshots">
-            <div className="intro-phone">
-              <img src="/assets/screenshots/settlement.png" alt="Takkada payment settlement screen" />
+            {/* Add-ons close the table rather than sitting below it as an
+                orphan block, because they apply to every column above. */}
+            <div className="rate-addons">
+              <div className="rate-addons-title">Add to any plan</div>
+              <div className="rate-addons-list">
+                {pricing.addons.map((addon) => (
+                  <span key={addon.label} className="rate-addon">
+                    <span className="rate-addon-label">{addon.label}</span>
+                    <span className="rate-addon-price tabular-nums">{addon.price}</span>
+                  </span>
+                ))}
+              </div>
+              <p className="rate-addons-note">
+                Payment Collection puts a UPI link on every invoice at zero MDR and reconciles the
+                receipt back into Tally. With your own WhatsApp number, early access for now, every
+                reminder and invoice goes out from your number instead of ours. The Customer Order
+                Link lets your retailers order from a link and you approve each one into Tally.
+                Every plan includes 1 user.
+              </p>
             </div>
-            <div className="intro-phone intro-phone-center">
-              <img src="/assets/screenshots/home-screen.png" alt="Takkada receivables dashboard" />
-            </div>
-            <div className="intro-phone">
-              <img src="/assets/screenshots/payment-reminders.png" alt="Takkada WhatsApp payment reminders" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Metrics bar (honest scale) ── */}
-      <section className="metrics-bar">
-        <div className="container">
-          <div className="metrics-grid">
-            <div className="metric">
-              <span className="metric-value tabular-nums">₹17+ Crore</span>
-              <span className="metric-label">Collected Monthly</span>
-            </div>
-            <div className="metric-divider" />
-            <div className="metric">
-              <span className="metric-value tabular-nums">100+</span>
-              <span className="metric-label">Businesses Trust Takkada</span>
-            </div>
-            <div className="metric-divider" />
-            <div className="metric">
-              <span className="metric-value">Thousands</span>
-              <span className="metric-label">Of Reminders Sent Monthly</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── What Takkada does: 4 capabilities (2×2) ── */}
-      <section className="tally-section" id="what-takkada-does">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">What Takkada Does</span>
-            <h2 className="section-title">
-              Everything that happens after the sale, handled from your phone
-            </h2>
-          </div>
-          <div className="tally-grid home-capabilities-grid">
-            {capabilities.map((c) => {
-              const Icon = c.icon;
-              return (
-                <div key={c.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={22} />
+            {/* Bigger setups close the table for the same reason add-ons do:
+                both apply across every column above, and neither is a plan.
+                Two cards rather than pills, because the self-hosting line
+                carries two figures on two different clocks and a pill renders
+                one price string. */}
+            <div className="rate-bigger">
+              <div className="rate-bigger-head">
+                <div className="rate-bigger-title">{biggerSetups.title}</div>
+                <p className="rate-bigger-intro">{biggerSetups.intro}</p>
+              </div>
+              <div className="rate-bigger-cards">
+                {biggerSetups.items.map((item) => (
+                  <div className="rate-bigger-card" key={item.id}>
+                    <h3 className="rate-bigger-card-title">{item.title}</h3>
+                    <p className="rate-bigger-card-body">{item.body}</p>
+                    <div className="rate-bigger-prices">
+                      {item.price.map((line) => (
+                        <div className="rate-bigger-price" key={line.amount}>
+                          <span className="rate-bigger-amount tabular-nums">{line.amount}</span>
+                          <span className="rate-bigger-price-note">{line.note}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <h3>{c.title}</h3>
-                  <p>{c.body}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Core features: full rows with phone mockups (PDF leads) ── */}
-      <div id="features" />
-      {coreFeatures.map((feature, index) => (
-        <section
-          key={feature.title}
-          className={`feature-section ${index % 2 === 1 ? 'feature-section--reversed' : ''}${feature.id === 'pdf-import' ? ' feature-section--headline' : ''}`}
-          id={feature.id}
-        >
-          <div className="container">
-            <div className="feature-layout">
-              <div className="feature-copy reveal">
-                <span className="section-label">{feature.label}</span>
-                <h2 className="section-title">
-                  {feature.title}
-                  {NEW_FEATURE_IDS.has(feature.id) && <span className="feature-new-tag">New</span>}
-                </h2>
-                <p className="feature-description">{feature.description}</p>
-                <CTAButton variant="outline" href={appLinks.bookDemo}>
-                  See it in action <ArrowRight size={16} />
-                </CTAButton>
+                ))}
               </div>
-              <div className="feature-visuals reveal">
-                <div className="feature-phone">
-                  <img src={feature.screenshot} alt={feature.title} />
-                </div>
-                {feature.secondaryScreenshot && (
-                  <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
-                  </div>
-                )}
+              <div className="rate-bigger-foot">
+                <p className="rate-bigger-note">{biggerSetups.note}</p>
+                <WhatsAppCTA context="bigger-setups" variant="outline">
+                  {biggerSetups.ctaLabel}
+                </WhatsAppCTA>
               </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* ── Feature grid: eight-tile glance ── */}
-      <section className="grid-section">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">The Feature Sheet</span>
-            <h2 className="section-title">Every capability you will actually use</h2>
-          </div>
-          <div className="feature-grid-wrap">
-            {featureGrid.map((f) => {
-              const Icon = gridIconMap[f.icon] || Check;
-              return (
-                <div key={f.title} className="grid-card">
-                  <div className="grid-card-icon">
-                    <Icon size={22} />
-                  </div>
-                  <div>
-                    <h3 className="grid-card-title">{f.title}</h3>
-                    <p className="grid-card-desc">{f.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Advanced features: E-Way Bill / E-Invoicing, RBAC ── */}
-      {advancedFeatures.map((feature, index) => (
-        <section
-          key={feature.title}
-          className={`feature-section ${index % 2 === 0 ? 'feature-section--reversed' : ''}`}
-          id={feature.id}
-        >
-          <div className="container">
-            <div className="feature-layout">
-              <div className="feature-copy reveal">
-                <span className="section-label">Advanced</span>
-                <h2 className="section-title">{feature.title}</h2>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-              <div className="feature-visuals reveal">
-                <div className={`feature-phone ${feature.secondaryScreenshot ? '' : 'feature-phone-single'}`}>
-                  <img src={feature.screenshot} alt={feature.title} />
-                </div>
-                {feature.secondaryScreenshot && (
-                  <div className="feature-phone feature-phone-back">
-                    <img src={feature.secondaryScreenshot} alt={`${feature.title} detail`} />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* ── Competitor comparison ── */}
-      <ComparisonSection />
-
-      {/* ── Tally connector flow + four trust cards ── */}
-      <section className="tally-section" id="tally">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">The Tally Connector</span>
-            <h2 className="section-title">Your Tally. Now on your phone.</h2>
-            <p className="section-subtitle">
-              A lightweight Windows connector sits next to your Tally. Every invoice, every payment, every entry syncs both ways in real time.
-            </p>
-          </div>
-
-          <div className="tally-visual">
-            <div className="tally-flow">
-              <div className="tally-node">
-                <div className="tally-node-icon">
-                  <img src="/assets/screenshots/takkada-logo.png" alt="Takkada app" className="tally-node-img" />
-                </div>
-                <span className="tally-node-label">Takkada</span>
-              </div>
-              <div className="tally-arrows">
-                <div className="tally-arrow">
-                  <RefreshCw size={24} />
-                  <span>Real-time sync</span>
-                </div>
-              </div>
-              <div className="tally-node">
-                <div className="tally-node-icon tally-node-tally">
-                  <img src="/assets/screenshots/tally-erp-logo.png?v=2" alt="Tally Prime" className="tally-node-img" />
-                </div>
-                <span className="tally-node-label">Tally Prime</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="tally-grid">
-            {tallyFeatures.map((f) => {
-              const Icon = tallyIconMap[f.icon] || Zap;
-              return (
-                <div key={f.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={24} />
-                  </div>
-                  <h3>{f.title}</h3>
-                  <p>{f.description}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="tally-download">
-            <p className="tally-download-label">Windows PC required. Works with Tally Prime and Tally ERP 9.</p>
-            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline tally-download-btn" download>
-              <Download size={16} /> Download Tally Connector
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── How it works: 3 step cards ── */}
-      <section className="how-section" id="how-it-works">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Getting Started</span>
-            <h2 className="section-title">Up and running in days, not months</h2>
-          </div>
-          <div className="how-grid">
-            {howItWorks.map((step) => (
-              <div key={step.title} className="how-card">
-                <span className="how-step-num tabular-nums">{step.step}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Who it is for ── */}
-      <section className="grid-section" id="who-it-is-for">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Who It Is For</span>
-            <h2 className="section-title">Pick the setup that matches how you work</h2>
-          </div>
-          <div className="feature-grid-wrap home-audience-grid">
-            {audiences.map((a) => (
-              <Link key={a.to} to={a.to} className="grid-card home-audience-card">
-                <div>
-                  <h3 className="grid-card-title">{a.label}</h3>
-                  <p className="grid-card-desc">{a.line}</p>
-                </div>
-                <ArrowRight size={18} className="home-audience-arrow" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Pricing ── */}
-      <section className="pricing-section" id="pricing">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Pricing</span>
-            <h2 className="section-title tabular-nums">₹2,700 to ₹8,499 per year. GST extra.</h2>
-            <p className="section-subtitle">7-day free trial on every plan. No card required.</p>
-          </div>
-          <div className="home-pricing-strip">
-            {pricing.plans.map((plan) => (
-              <div
-                key={plan.plan}
-                className={`home-pricing-strip-card${plan.highlighted ? ' home-pricing-strip-card--highlighted' : ''}`}
-              >
-                {plan.badge && (
-                  <span className="home-pricing-badge">{plan.badge}</span>
-                )}
-                <span className="home-pricing-strip-name">{plan.plan}</span>
-                <span className="home-pricing-strip-price tabular-nums">{plan.price}</span>
-                <span className="home-pricing-strip-period tabular-nums">{plan.period}</span>
-                {plan.description && (
-                  <p className="home-pricing-strip-desc">{plan.description}</p>
-                )}
-                <ul className="home-pricing-feature-list">
-                  {plan.features.map((f) => (
-                    <li key={f} className={`home-pricing-feature-item${f.startsWith('Everything') ? ' home-pricing-feature-item--inherit' : ''}`}>
-                      {!f.startsWith('Everything') && (
-                        <Check size={13} className="home-pricing-feature-check" />
-                      )}
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Add-ons */}
-          <div className="home-pricing-addons">
-            <p className="home-pricing-addons-title">Add-ons</p>
-            <div className="home-pricing-addons-row">
-              {pricing.addons.map((addon) => (
-                <div key={addon.label} className="home-pricing-addon-item">
-                  <span className="home-pricing-addon-label">{addon.label}</span>
-                  <span className="home-pricing-addon-price tabular-nums">{addon.price}</span>
-                  {addon.note && <span className="home-pricing-addon-note">{addon.note}</span>}
-                </div>
-              ))}
             </div>
           </div>
 
           <div className="home-pricing-strip-cta">
-            <a href={appLinks.bookDemo} className="home-pricing-strip-link" target="_blank" rel="noopener noreferrer">
-              Get full pricing in the demo <ArrowRight size={16} />
-            </a>
+            <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
+            <CalendarCTA context="pricing" variant="link" className="home-pricing-strip-link">
+              or get full pricing in a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+            </CalendarCTA>
           </div>
         </div>
       </section>
 
-      {/* ── Testimonial ── */}
-      <section className="testimonials-section" id="testimonial">
+      {/* ── Data safety / legitimacy (ported; pinned by home-trust.test.jsx).
+             The testimonial wall that sat here moved up into the proof strip
+             (2026-08-06): proof now lands before the pricing decision. ── */}
+      <section className="tally-section trust-section" id="data-safety">
         <div className="container">
           <div className="section-header reveal">
-            <span className="section-label">From a Takkada Customer</span>
-            <h2 className="section-title">What our customers say</h2>
+            <span className="section-label">{trustSection.overline}</span>
+            <h2 className="section-title">{trustSection.heading}</h2>
+            <p className="section-subtitle">{trustSection.subtitle}</p>
           </div>
-          <div className="testimonial-row">
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={t.name} {...t} delay={i * 80} />
-            ))}
+          <div className="tally-grid">
+            {trustSection.points.map((point) => {
+              const Icon = trustIconMap[point.icon] || Shield;
+              return (
+                <div key={point.title} className="tally-card">
+                  <div className="tally-card-icon">
+                    <Icon size={22} />
+                  </div>
+                  <h3>{point.title}</h3>
+                  <p>{point.body}</p>
+                  {point.links && (
+                    <p className="trust-store-links">
+                      {point.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={appLinks[link.hrefKey]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label} <ArrowUpRight size={13} />
+                        </a>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
+          <p className="trust-article-link">
+            <Link to={trustSection.articleLink.href}>
+              {trustSection.articleLink.label} <ArrowRight size={15} />
+            </Link>
+          </p>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ (ported; feeds faqPageSchema above) ── */}
       <section className="faq-section" id="faq">
         <div className="container">
           <div className="section-header reveal">
@@ -607,7 +812,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Footer CTA band ── */}
+      {/* ── Footer CTA band (ported) ── */}
       <section className="final-cta" id="final-cta">
         <div className="container">
           <div className="final-cta-content">
@@ -616,18 +821,24 @@ function Home({ seo = HOME_SEO }) {
               <br />
               Start collecting.
             </h2>
-            <p>
-              Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your business.
+            {/* The onboarding-speed line ships behind the operator eyeball
+                (open question 2 in the 2026-08-06 plan): KYC ~24h and
+                same-day Tally connect mirror the long-standing FAQ claim,
+                but the operator confirms before merge. */}
+            <p className="tabular-nums">
+              Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your
+              business. KYC clears in about 24 hours, and Tally connects the same day.
             </p>
             <div className="final-cta-actions">
-              <CTAButton variant="dark" href={appLinks.bookDemo}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
+              <WhatsAppCTA context="final-cta" variant="dark" />
+              <CalendarCTA context="final-cta" variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

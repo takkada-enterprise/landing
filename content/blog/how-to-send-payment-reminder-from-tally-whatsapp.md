@@ -5,10 +5,13 @@ meta_title: "Send a Payment Reminder From Tally on WhatsApp: Guide"
 meta_description: "How to send a payment reminder from Tally on WhatsApp, step by step: the manual copy-paste way, the faster automated way, and which fits a distributor."
 primary_keyword: "send payment reminder from tally on whatsapp"
 date: "2026-06-21"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor has ₹1,40,000 sitting overdue across nine retail parties on a Tuesday morning. The bills are in Tally; the parties are on WhatsApp. Here is how to bridge those two, step by step, the manual way and the faster automated way."
 ---
+
+Sending one payment reminder from Tally on WhatsApp by hand takes five steps: open the outstanding report, read off the bill number and the amount, copy them, type the message to that party, and attach some way for him to actually pay. For one or two parties on a Tuesday morning that is fine. For thirty parties on 30 to 90 day terms it is most of a morning, so it slips, and a bill that was thirty days old quietly becomes sixty. The automated version fires the same three ingredients, correct party, exact bill and amount, and a UPI link, as one WhatsApp message built from your live Tally outstanding, at 0% MDR on what gets collected. This guide walks the manual loop first, because knowing it is what tells you whether the automated one is worth having. The scheduling side is covered under [payment reminder from Tally](/payment-reminder-tally).
 
 ## Key Highlights
 

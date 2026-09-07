@@ -5,7 +5,7 @@ meta_title: "What Is Takkada? Tally Receivables & Collection App"
 meta_description: "What is Takkada: a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch."
 primary_keyword: "what is takkada"
 date: "2026-06-06"
-updated: "2026-06-21"
+updated: "2026-07-25"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati FMCG distributor with 180 retail parties spends his evenings asking the same question: which retailer paid today, and which invoice did the money settle. Takkada is the app that answers it from his phone, and posts the receipt back into Tally before he gets home."
@@ -99,6 +99,6 @@ A: Takkada is built by Pay Saathi Innovation LLP, registered in Guwahati, Assam,
 
 **Q: What does Takkada cost?**
 
-A: Takkada is priced as a flat annual per-customer subscription across four plans, from View Only through Full Access with Auto Dispatch. The UPI collection rail carries 0% MDR regardless of plan. Full pricing is broken down in the [Takkada pricing and plans guide](/blog/takkada-pricing-plans-2026/).
+A: Takkada is priced as a flat annual per-customer subscription across four plans, from Clarity at ₹2,900 through Copilot at ₹8,500 (GST extra), with a 3-year term billed once at 25% off. The UPI collection rail carries 0% MDR. Full pricing is broken down in the [Takkada pricing and plans guide](/blog/takkada-pricing-plans-2026/).
 
 Takkada is the Tally-native, 0% MDR receivables and reconciliation app for Indian distributors. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -1,16 +1,18 @@
 import { CheckCircle2, IndianRupee, MessageCircle, Smartphone } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'FOR INDIAN DISTRIBUTORS',
   headline: 'The mobile Tally app built for distributors.',
   subheadline:
     'If you serve 30 to 300 retailers on 30-90 day terms, raise 20+ invoices a day, and lose two evening hours to reconciliation — Takkada is built for exactly your business.',
+  waContext: 'icp-for-distributors',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'The complete distributor workflow, from your phone',
   capabilities: [
     {
@@ -43,6 +45,22 @@ const data = {
   },
   faqs: [
     {
+      q: 'What is the best software for distributors using Tally?',
+      a: 'The right software depends on your workflow. Takkada is specifically built for Indian distributors that want to extend Tally into mobile operations, payment collections, field sales, and auto-reconciliation.',
+    },
+    {
+      q: 'Can distributor software integrate with Tally?',
+      a: 'Yes. Takkada uses a real-time two-way Tally Connector to synchronize information seamlessly between your existing Tally Prime or Tally ERP 9 installation and the application.',
+    },
+    {
+      q: 'Can salesmen use Takkada?',
+      a: 'Yes. Takkada supports role-based access for field sales teams to check in at retail shops, book orders, raise invoices, and record collections.',
+    },
+    {
+      q: 'Can distributors collect payments through Takkada?',
+      a: 'Yes. Takkada supports zero-MDR UPI payment collection attached to WhatsApp invoices and reminders, with automatic receipt posting back into Tally.',
+    },
+    {
       q: 'Which industries do you work with?',
       a: 'Any Tally-using distributor or wholesaler. Most of our customers are in FMCG, pharma, hardware, stationery, auto parts, and agri-inputs. The product is industry-agnostic — if your books are in Tally, Takkada fits.',
     },
@@ -55,14 +73,6 @@ const data = {
       a: 'Nothing. Takkada reads from and writes to your existing Tally. Your data, formats, and numbering all stay exactly where they are.',
     },
     {
-      q: 'Do you work with my Tally partner?',
-      a: 'We prefer to. Tell us who your Tally partner is and we will route the sale through them. If they are not a Takkada partner yet, we will onboard them.',
-    },
-    {
-      q: 'What is the smallest and largest business that uses Takkada?',
-      a: 'Smallest: one-person operations doing ₹2 crore annual. Largest: teams of 25+ doing over ₹100 crore annual. The product scales without configuration changes.',
-    },
-    {
       q: 'Can I try before I pay?',
       a: 'Every plan has a 7-day free trial, no card required. You can also see a 15-minute live demo — book using the button below.',
     },
@@ -72,9 +82,9 @@ const data = {
     { name: 'For Distributors', url: 'https://takkada.com/for-distributors/' },
   ],
   seo: {
-    title: 'Takkada for Distributors | Mobile Tally + Collections',
+    title: 'Distributor Management Software for Tally | Takkada',
     description:
-      'Built for Indian distributors on Tally with 30-300 retailer receivables. Mobile invoicing, WhatsApp auto-dispatch, UPI collection, auto-reconciliation.',
+      'Software for Indian distributors using Tally. Manage orders, invoices, receivables, WhatsApp reminders, UPI collections and reconciliation from your phone.',
     canonical: 'https://takkada.com/for-distributors/',
   },
 };

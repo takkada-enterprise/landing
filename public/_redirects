@@ -1,0 +1,19 @@
+# Cloudflare Pages redirect rules. This file is copied verbatim out of public/
+# into dist/ at build time and read by the edge.
+#
+# Static assets win over a rule for the same path on Pages, so a redirect only
+# takes effect once the page it replaces has stopped being built. Both entries
+# below are paired with a deleted markdown file in content/blog/; putting a rule
+# here while the post still builds is a no-op that reads like a fix.
+#
+# 2026-08-08, plan Phase 5. Two blog posts owned the exact queries the new
+# alternative landing pages target, and running both would have split the
+# signal between two URLs for one query. Operator decision was to let the
+# landing page own the query and send the post's accumulated links to it.
+# src/data/__tests__/blog-internal-links.test.js already refused to let a post
+# spend a landing page's search phrase as anchor text on a different URL, which
+# is the same rule expressed inside the corpus.
+/blog/biz-analyst-alternative               /biz-analyst-alternative   301
+/blog/biz-analyst-alternative/              /biz-analyst-alternative   301
+/blog/livekeeping-alternative-for-distributors    /livekeeping-alternative   301
+/blog/livekeeping-alternative-for-distributors/   /livekeeping-alternative   301

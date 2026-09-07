@@ -1,14 +1,17 @@
 ---
-title: "How to View Tally Reports on Mobile (Owner's Guide)"
+title: "The Five Reports an Owner Actually Opens on a Phone"
 slug: "view-tally-reports-on-mobile"
-meta_title: "View Tally Reports on Mobile: An Owner's Guide"
-meta_description: "View Tally reports on mobile: outstanding, ledger, day book, top parties, and stock on your phone, and where read-only ends and write-back begins."
+meta_title: "Five Tally Reports Owners Open on a Phone Every Day"
+meta_description: "The five reports a distributor opens on a phone daily: outstanding by party, party ledger, day book, top parties and stock. Plus what viewing alone cannot fix."
 primary_keyword: "tally reports on mobile"
 date: "2026-06-14"
+updated: "2026-08-09"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Dibrugarh distributor's wife runs the books while he runs the routes. He calls her six times a day to ask one question: what does this party owe. Putting Tally reports on mobile ends those calls. Here is exactly which reports a distributor reads from the phone, and where viewing stops being enough."
 ---
+
+An owner running a distribution business opens five reports again and again, and all five read cleanly from a phone: outstanding by party, the party ledger, the day book, top parties by sale, and stock summary. Between them they answer the question that generates most of the calls to your office, which is what a given retailer owes you right now. A companion app reads your data through the Tally XML gateway and syncs a copy to the device, so each of those loads from cache in under a second whether or not the office machine is awake. That covers reading. It does not cover the evening, because the bills your salesmen raised in the market still have to be typed into Tally by someone, and reading a report cannot do that. The full set of registers that open on a phone is listed under [Tally reports on mobile](/tally-reports-on-mobile).
 
 ## Key Highlights
 

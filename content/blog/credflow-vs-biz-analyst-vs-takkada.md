@@ -84,7 +84,7 @@ A: It depends on the job. For mobile Tally reporting, Biz Analyst is strong. For
 
 **Q: Is Takkada a replacement for Biz Analyst?**
 
-A: They overlap on the Tally-mobile surface but solve different problems. Biz Analyst is built for reading Tally data and light entry. Takkada runs the full collection loop, including UPI collection at 0% MDR and auto-reconciliation. The detailed contrast is in the [Biz Analyst alternative](/blog/biz-analyst-alternative/) piece.
+A: They overlap on the Tally-mobile surface but solve different problems. Biz Analyst is built for reading Tally data and light entry. Takkada runs the full collection loop, including UPI collection at 0% MDR and auto-reconciliation. The detailed contrast is in the [Biz Analyst alternative](/biz-analyst-alternative/) piece.
 
 **Q: Do all three work with Tally Prime?**
 

@@ -46,9 +46,9 @@ Most distributors looking for an add-on think they want Band 1, and discover the
 
 ## The main add-ons, by band
 
-Biz Analyst is the best-known Tally mobile companion. Its current Business plan reaches into Band 2 with dashboards, reminders, invoice sharing, limited sales-team access, and data entry. It is strong on visibility and field workflows, lighter on invoice-linked collection and Tally-side reconciliation.
+Biz Analyst is the best-known Tally mobile companion, and the [Biz Analyst alternative](/biz-analyst-alternative/) page sets out the collection gap in detail. Its current Business plan reaches into Band 2 with dashboards, reminders, invoice sharing, limited sales-team access, and data entry. It is strong on visibility and field workflows, lighter on invoice-linked collection and Tally-side reconciliation.
 
-Livekeeping sits across Bands 2 and 3. Its higher tiers add unlimited voucher creation and, at the top, e-way bill and e-invoicing, making it a solid choice for distributors whose main gap is mobile entry and compliance.
+Livekeeping sits across Bands 2 and 3. Its higher tiers add unlimited voucher creation and, at the top, e-way bill and e-invoicing, making it a solid choice for distributors whose main gap is mobile entry and compliance. The head-to-head on what happens after the invoice is raised is on the [Livekeeping alternative](/livekeeping-alternative/) page.
 
 CredFlow is strong on receivables analytics and DSO reporting, with a B2B tone aimed at larger finance teams. It is more an analytics-and-reminders layer than a field collection tool for small distributors.
 

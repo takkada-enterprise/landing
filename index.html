@@ -2,19 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KN4JNZ2MH3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KN4JNZ2MH3');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="preload" href="/assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#0b0f19" />
+    <meta name="rating" content="general" />
+    <meta name="google-site-verification" content="TGyzGp3jCMuC-oKm7cBvYPUDxSVXclaeNZ3RVIrsFDQ" />
+    <!-- 180x180 1:1 square icon symbol for Google Search snippets, browser tabs, and mobile bookmarks -->
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/screenshots/takkada-favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/screenshots/takkada-favicon.png" />
+    <!-- Self-hosted fonts (src/fonts.css). Do not re-add a Google Fonts
+         <link>: it was render-blocking for 1.3s.
+
+         And do NOT preload these fonts. That was tried and measured, and it
+         made things worse: preloading the two latin files put 93KB of
+         High-priority requests in front of the hero image, which is the LCP
+         element. Once the fonts were served from our own origin they competed
+         with it for the same connection instead of arriving over Google's, and
+         the hero's download time went 1,728ms -> 3,120ms for identical bytes.
+         Live mobile LCP regressed 2.6-2.9s -> 3.1-4.2s.
+
+         font-display: swap already renders text immediately in a fallback and
+         swaps when the font lands, which is the right trade for a page whose
+         LCP is an image. Measure before changing this.
+
+         Guards in src/__tests__/fonts.test.js. -->
+
     <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "x3qmzef9tl");
+      if (
+        typeof window !== 'undefined' &&
+        !['localhost', '127.0.0.1'].includes(window.location.hostname) &&
+        !window.location.hostname.startsWith('192.168.') &&
+        !window.location.hostname.startsWith('10.') &&
+        !window.location.hostname.endsWith('.local')
+      ) {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x3qmzef9tl");
+      }
     </script>
   </head>
   <body>

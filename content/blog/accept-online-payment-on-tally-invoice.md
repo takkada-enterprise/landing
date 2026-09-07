@@ -5,6 +5,7 @@ meta_title: "Accept Payment on Tally Invoices Without MDR"
 meta_description: "How to accept payment on Tally invoices: turn an invoice into a UPI payment link and collect at 0% MDR, with the full cost math versus a payment gateway."
 primary_keyword: "payment on tally"
 date: "2026-06-14"
+updated: "2026-08-09"
 author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises ₹1,00,000 of invoices a day and pays roughly ₹1,000 in gateway MDR to collect it online. That is ₹3,00,000 a year to receive his own money. Accepting payment on Tally invoices over a 0% MDR UPI rail puts that back in his pocket. Here is how it works."
@@ -51,7 +52,7 @@ The catch is that MDR compounds with volume. A distributor accepting ₹50,000 o
 
 ## What 0% MDR Changes
 
-A 0% MDR rail removes the percentage entirely. On Takkada the claim is exact: 0% MDR on UPI collections, no transaction cap, no monthly fee. The payment flows from the retailer's UPI handle to the distributor's UPI handle, and no intermediary takes a slice. A ₹500 receipt and a ₹5,00,000 receipt both arrive whole.
+A 0% MDR rail removes the percentage entirely. On Takkada the claim is exact: 0% MDR on UPI collections, no transaction cap, no monthly fee. The payment flows from the retailer's UPI handle to the distributor's UPI handle, and no intermediary takes a slice. A ₹500 receipt and a ₹5,00,000 receipt both arrive whole. That flat rail is what makes [payment collection on Tally](/payment-collection-tally) cost the same whether you collect ₹10 lakh a month or ₹1 crore.
 
 This does not make collections free overall; there is a flat annual subscription for the app. What it removes is the part of the cost that scales with how much you collect. The more you grow, and the more your collections move to UPI, the larger the gap between a 1% gateway and a 0% MDR rail becomes. The structural reason a 0% rail is even possible is laid out in the piece on [0% MDR UPI collection for distributors](/blog/zero-mdr-upi-collection-for-distributors-india/).
 

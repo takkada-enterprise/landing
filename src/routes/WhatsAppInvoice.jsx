@@ -1,16 +1,18 @@
 import { FileText, MessageCircle, RefreshCw, Smartphone } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'FIELD SALES INVOICING',
   headline: 'Your salesman raises the invoice at the retailer\'s counter. It\'s in Tally before he drives away.',
   subheadline:
     "No calling the office. No paper order books. No accountant spending the first two hours of every morning on data entry. The invoice is raised at the counter, synced to Tally, and on the retailer's WhatsApp before the truck leaves.",
+  waContext: 'icp-whatsapp-invoice',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'From the field to Tally, without touching a laptop',
   capabilities: [
     {
@@ -48,7 +50,7 @@ const data = {
     },
     {
       q: 'What voucher types can the salesman raise from the phone?',
-      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Collections and Full Access plans.',
+      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Assurance and Copilot plans.',
     },
     {
       q: 'Does this need the office Tally laptop to be open?',
@@ -60,7 +62,7 @@ const data = {
     },
     {
       q: 'What plan do I need for field sales invoicing?',
-      a: 'Mobile invoicing is available on the Voucher plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Collections and Full Access plans.',
+      a: 'Mobile invoicing is available on the Momentum plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Assurance and Copilot plans.',
     },
   ],
   breadcrumb: [

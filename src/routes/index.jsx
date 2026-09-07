@@ -2,33 +2,46 @@ import Layout from '../Layout';
 import Home from './Home';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
-import PrivacyPolicy from './PrivacyPolicy';
+import LegalPrivacy from './LegalPrivacy';
 import TermsAndConditions from './TermsAndConditions';
 import RefundPolicy from './RefundPolicy';
 import MobileTally from './MobileTally';
-import TallyOnMobile from './TallyOnMobile';
 import WhatsAppInvoice from './WhatsAppInvoice';
 import AutoReconciliation from './AutoReconciliation';
 import ForDistributors from './ForDistributors';
+import TallyMobileComparison from './TallyMobileComparison';
+import TryDemo from './TryDemo';
 import Partners from './Partners';
-import BlogIndex from './BlogIndex';
-import BlogPost from './BlogPost';
+import Features from './Features';
+import ChineseNovelQuotesRoute from './ChineseNovelQuotesRoute';
+import FeaturePage from '../components/FeaturePage';
 import { routeMetadata } from '../data/siteMetadata';
+import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
+
+// Feature landing pages render from data, so they never need a line here. Every
+// other route names its element explicitly.
+const FEATURE_ELEMENTS = Object.fromEntries(
+  FEATURE_PAGES.map((page) => [featurePagePath(page), <FeaturePage page={page} />])
+);
 
 const ELEMENT_FOR_PATH = {
+  ...FEATURE_ELEMENTS,
   '/': <Home />,
   '/about-us': <AboutUs />,
   '/contact-us': <ContactUs />,
-  '/privacy-policy': <PrivacyPolicy />,
+  '/privacy-policy': <LegalPrivacy />,
   '/terms-and-conditions': <TermsAndConditions />,
   '/refund-policy': <RefundPolicy />,
   '/mobile-tally': <MobileTally />,
-  '/tally-on-mobile': <TallyOnMobile />,
   '/whatsapp-invoice-tally': <WhatsAppInvoice />,
   '/auto-reconciliation-tally': <AutoReconciliation />,
   '/for-distributors': <ForDistributors />,
+  '/tally-mobile-app-comparison': <TallyMobileComparison />,
+  '/demo': <TryDemo />,
+  '/features': <Features />,
   '/partners': <Partners />,
   '/become-a-partner': <Partners />,
+  '/chinese-sayings': <ChineseNovelQuotesRoute />,
 };
 
 const children = routeMetadata.map(({ path }) => {
@@ -46,8 +59,37 @@ export const routes = [
     element: <Layout />,
     children: [
       ...children,
-      { path: 'blog', element: <BlogIndex /> },
-      { path: 'blog/:slug', element: <BlogPost /> },
+      // Lazy, and deliberately so. BlogIndex and BlogPost are the only things
+      // that reach src/lib/blogPosts.js, whose eager import.meta.glob compiles
+      // all 160 posts' rendered HTML into whatever chunk imports it. Imported
+      // statically, that chunk was the main bundle, so someone landing on the
+      // homepage downloaded every article on the site before the hero could
+      // paint. Dynamic imports move the whole blog payload into its own chunk
+      // that only /blog and /blog/:slug ever fetch.
+      //
+      // Both routes are still prerendered to static HTML: the check that this
+      // holds is scripts/checkBlogPrerender.mjs, which fails the build if a
+      // blog page ships an empty shell.
+      { path: 'blog', lazy: async () => ({ Component: (await import('./BlogIndex')).default }) },
+      {
+        path: 'blog/:slug',
+        lazy: async () => ({ Component: (await import('./BlogPost')).default }),
+      },
+      // The public manual, lazy for exactly the same reason. src/lib/guidePosts.js
+      // is an eager import.meta.glob over content/guide/*.md, so the 21 guides'
+      // rendered HTML lands in whatever chunk imports it; only these two routes
+      // may reach it. Nothing in Home or Layout imports guidePosts, and the
+      // built chunk list is the evidence for that.
+      //
+      // Prerendering is handled by includedRoutes in vite.config.js, never by a
+      // getStaticPaths export — `lazy` never puts one on the resolved route, so
+      // the one on BlogPost.jsx has never run. scripts/checkGuidePrerender.mjs
+      // fails the build if a guide page ships as a shell or as the wrong page.
+      { path: 'guide', lazy: async () => ({ Component: (await import('./GuideIndex')).default }) },
+      {
+        path: 'guide/:slug',
+        lazy: async () => ({ Component: (await import('./GuidePost')).default }),
+      },
     ],
   },
 ];

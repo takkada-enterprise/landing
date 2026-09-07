@@ -80,16 +80,18 @@ A: Next answer.
     expect(parseFaqs(md)).toEqual([]);
   });
 
-  it('parses the real biz-analyst-alternative fixture to exactly 5 pairs with the first question verbatim', () => {
+  // Fixture swapped 2026-08-08: biz-analyst-alternative.md was retired when the
+  // alternative landing page took over its query, so this parses a different
+  // real corpus entry. A synthetic string would not do, because the point of
+  // this case is that the parser survives the exact markdown the corpus writes.
+  it('parses the real khatabook-alternative fixture to exactly 5 pairs with the first question verbatim', () => {
     const raw = readFileSync(
-      resolve(__dirname, '../../content/blog/biz-analyst-alternative.md'),
+      resolve(__dirname, '../../content/blog/khatabook-alternative-for-distributors-india.md'),
       'utf-8'
     );
     const faqs = parseFaqs(raw);
     expect(faqs).toHaveLength(5);
-    expect(faqs[0].question).toBe(
-      'Can I use both Biz Analyst and a full-stack mobile platform at the same time?'
-    );
+    expect(faqs[0].question).toBe('Is Khatabook bad for distributors?');
     expect(faqs[0].answer.length).toBeGreaterThan(0);
   });
 

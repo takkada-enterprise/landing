@@ -1,16 +1,18 @@
 import { Inbox, Layers, RefreshCw, Target } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
+import { appLinks } from '../data/siteContent';
 
 const data = {
   overline: 'AUTO-RECONCILIATION',
   headline: 'Payments match themselves to the right Tally invoice.',
   subheadline:
     'When a payment lands in your bank, Takkada figures out which invoice it belongs to — partial, full, bulk, or without any reference — and posts the entry into Tally. Your evening reconciliation goes away.',
+  waContext: 'icp-auto-reconciliation',
   ctaPrimary: {
     text: 'Book a 15-min demo',
-    href: 'https://calendar.notion.so/meet/ronakmalu/takkada',
+    href: appLinks.bookDemo,
   },
-  ctaSecondary: { text: 'See pricing', href: '/#pricing-strip' },
+  ctaSecondary: { text: 'See pricing', href: '/#pricing' },
   capabilitiesHeading: 'Two hours of evening work, eliminated',
   capabilities: [
     {
@@ -68,9 +70,9 @@ const data = {
     { name: 'Auto-Reconciliation', url: 'https://takkada.com/auto-reconciliation-tally/' },
   ],
   seo: {
-    title: 'Auto-Reconciliation for Tally | Match Every Payment',
+    title: 'Payment Reconciliation Software for Tally | Takkada',
     description:
-      'Payments auto-match to the correct Tally invoice. Partial, bulk, and unreferenced payments handled. Entries post into Tally automatically.',
+      'Automate payment reconciliation in Tally. Match UPI and bank payments to invoices, handle partial payments and post receipts back into Tally.',
     canonical: 'https://takkada.com/auto-reconciliation-tally/',
   },
 };

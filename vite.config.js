@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { parseFaqs } from './src/lib/parseFaqs.js';
+import { stripBlanketImagePreloads } from './scripts/stripImagePreloads.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -48,6 +49,23 @@ function getBlogSlugs() {
   }
 }
 
+// The manual's pages come from the canonical topic registry, not from a
+// directory listing, so a guide can only be prerendered if it is a topic
+// somebody committed to publishing. A topic whose markdown is missing fails the
+// build here rather than shipping a 404 that the app is already linking to.
+function getGuidePaths() {
+  const registry = resolve(__dirname, 'content/guide/topics.json');
+  const { topics } = JSON.parse(readFileSync(registry, 'utf-8'));
+  return topics.map(({ slug }) => {
+    if (!existsSync(resolve(__dirname, `content/guide/${slug}.md`))) {
+      throw new Error(
+        `vite.config: topics.json lists "${slug}" but content/guide/${slug}.md does not exist.`
+      );
+    }
+    return `/guide/${slug}`;
+  });
+}
+
 export default defineConfig({
   base: '/',
   plugins: [markdownPlugin(), react()],
@@ -58,12 +76,28 @@ export default defineConfig({
   ssgOptions: {
     dirStyle: 'nested',
     formatting: 'minify',
+    // The SSG preloads every <img> on a page by default; keep only the
+    // deliberate ones (see scripts/stripImagePreloads.mjs). Guarded post-build
+    // by scripts/checkImagePreloads.mjs.
+    onPageRendered(route, html) {
+      return stripBlanketImagePreloads(html);
+    },
+    // Both the blog and the manual register their reader as a lazy `:slug`
+    // route, so the router hands us a literal '/blog/:slug' and '/guide/:slug'
+    // that must not become a directory; the real pages are expanded here from
+    // content. Everything else `paths` produces — the homepage, the 26 feature
+    // landing pages, every static route in siteMetadata — is passed straight
+    // through, so adding a route there still enrols it automatically.
     includedRoutes(paths) {
       const blogSlugs = getBlogSlugs();
       return [
-        ...paths,
-        '/blog',
-        ...blogSlugs.map((slug) => `/blog/${slug}`),
+        ...new Set([
+          ...paths.filter((path) => !path.includes(':')),
+          '/blog',
+          ...blogSlugs.map((slug) => `/blog/${slug}`),
+          '/guide',
+          ...getGuidePaths(),
+        ]),
       ];
     },
   },

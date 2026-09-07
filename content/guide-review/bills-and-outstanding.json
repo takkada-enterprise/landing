@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "slug": "bills-and-outstanding",
+  "topicId": "bills-and-outstanding",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 3",
+  "screensRead": [
+    "lib/screens/reports/bills_outstanding_screen.dart",
+    "lib/screens/reports/bills_receivable_screen.dart",
+    "lib/screens/reports/bills_payable_screen.dart",
+    "lib/screens/reports/bills_party_page_screen.dart",
+    "lib/screens/reports/receivables_ageing_screen.dart",
+    "lib/screens/shell/reports_tab_body.dart",
+    "lib/models/report_models.dart",
+    "lib/widgets/reports/ageing_slab_editor.dart",
+    "lib/services/access_control_service.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": [
+      "read-the-list",
+      "change-the-ageing-periods",
+      "export",
+      "follow-up-from-a-party"
+    ],
+    "stuckStatesPublished": [
+      "reports permission denied",
+      "brought-forward balance larger than the listed bills",
+      "reminder actions disabled",
+      "settled bill still showing",
+      "totals differ from Tally"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": null,
+    "sectionFeatureKeys": ["payment_reminders"],
+    "permissionsDescribed": [
+      "reports view permission gates the whole Reports tab (ReportsTabBody fails closed)",
+      "reminders permission is separate and also fails closed"
+    ],
+    "notes": "BillsPayable deliberately has no reminder lane in the app; the guide says so rather than implying a supplier-chasing feature."
+  },
+  "visibilityBlocked": [],
+  "deliberateOmissions": [
+    "No credit-period or interest calculation is described; the app does not compute one.",
+    "No claim that ageing periods sync across devices — AgeingSlabPreferences is per-device."
+  ],
+  "screenshots": {
+    "captured": [],
+    "note": "No screenshots published in this pass; images: [] in frontmatter."
+  }
+}

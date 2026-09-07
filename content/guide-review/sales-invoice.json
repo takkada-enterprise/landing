@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "slug": "sales-invoice",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/invoice_summary_screen.dart",
+    "lib/screens/add_invoice_items_screen.dart",
+    "lib/screens/sale_invoice_register_screen.dart",
+    "lib/screens/settings/invoices_settings_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/widgets/invoice/gst_basis_field.dart",
+    "lib/widgets/invoice/locked_field_caption.dart",
+    "lib/widgets/ledger_config_guard.dart",
+    "lib/models/gst_pricing_mode.dart",
+    "lib/models/invoice_defaults.dart",
+    "lib/services/create_access_service.dart",
+    "lib/config/app_router.dart",
+    "lib/config/settings_catalog.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "voucher_creation_mobile",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — voucher_creation_mobile: true",
+    "gate": "CreateAccessService for the sales-invoice register, plus LedgerConfigGuard.checkConfig before the form is reachable. Invoice settings are a SettingsScope.company category (admin only).",
+    "route": "/create/invoice → /invoice-summary"
+  },
+  "behaviourReviewed": [
+    "Amount Details renders in a fixed order: Amount → Additional Charge (only when a labour ledger is mapped) → tax rows → GST basis → company extras → Round Off (only when a round-off ledger is mapped) → Total.",
+    "The tax rows are IGST alone, or SGST+CGST — the screen picks, the user does not.",
+    "GstBasisField chips are inert with a 'Fixed in Invoice Settings' caption when invoice_defaults.gstModeLocked is set; inert with no caption where the screen has nothing to write to.",
+    "The Round Off chip is inert with the same caption under the 'Always on' policy.",
+    "The Voucher Type dropdown only renders when the company has more than one sales voucher type name.",
+    "Send invoice via WhatsApp only renders when the party has a phone and the invoice is not an imported one; the credit-blocked state disables it with its own reason.",
+    "Generate E-Invoice / Generate E-Way Bill switches render conditionally and their failure is reported separately from the invoice save.",
+    "Duplicate detection covers both a repeated invoice number and same-amount-same-day, with Proceed to override.",
+    "A second save tap is refused with 'Invoice is already being created. Please wait.'"
+  ],
+  "visibilityBlocked": [
+    {
+      "surface": "'Submit for approval · <total>' save mode and the extra-charge approval refusal in invoice_summary_screen.dart",
+      "reason": "Gated on voucher_approvals, is_customer_visible = false in prod evidence. Not described and not quoted."
+    }
+  ],
+  "deliberatelyOmitted": [
+    "Settings that are not active in the form were not turned into procedures — the guide states the rule (a field appears only when its switch is on) rather than listing every dark or conditional field.",
+    "Batch numbers, godown, cost centre, alternate unit and billing-module discount rules are mentioned only as conditional fields, since each is its own company switch and none is universally present.",
+    "No tax advice and no legal thresholds; the e-invoice/e-way switches are described purely as app behaviour and routed to their own guides."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug sales-invoice — OK"
+}

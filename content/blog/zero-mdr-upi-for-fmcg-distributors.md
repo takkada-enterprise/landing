@@ -65,7 +65,7 @@ For an FMCG distributor, a true zero MDR rail must have:
 - **UTR auto-matching** to handle hundreds of look-alike daily receipts
 - **Receipt vouchers posted into Tally** automatically, because manual entry does not scale at FMCG volume
 
-Takkada is built for exactly this shape. The broader feature checklist is in the rundown of the [UPI collection app for distributors](/blog/upi-collection-app-for-distributors-india/).
+Takkada is built for exactly this shape. The broader feature checklist is in the rundown of the [UPI collection app for distributors](/blog/upi-collection-app-for-distributors-india/), and the whole beat workflow, orders through collection, is on the [FMCG distribution page](/tally-app-for-fmcg-distributors/).
 
 ## Frequently Asked Questions
 

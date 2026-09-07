@@ -98,7 +98,8 @@
   --dur-fast: 0.18s;
   --dur: 0.28s;
   --dur-slow: 0.5s;
-  --dur-reveal: 0.7s;
+  --dur-reveal: 0.55s;
+  --dur-press: 0.14s;
 
   --max-width: 1200px;
   --scroll-y: 0;
@@ -117,7 +118,7 @@
 :root .company-article h1,
 :root .blog-post-title,
 :root .blog-index-title,
-:root .home-pricing-strip-price {
+:root .rate-plan-price {
   font-weight: var(--weight-display-hero);
 }
 
@@ -140,7 +141,9 @@
 :root .blog-post-body h2,
 :root .blog-post-body h3,
 :root .blog-related-heading,
-:root .blog-related-title {
+:root .blog-related-title,
+:root .features-hub-group-title,
+:root .features-hub-index-title {
   font-weight: var(--weight-display);
 }
 
@@ -200,7 +203,12 @@ ul { list-style: none; }
 /* ── Layout ── */
 .site-root {
   width: 100%;
-  overflow-x: hidden;
+  /* `clip`, not `hidden`. overflow-x:hidden computes overflow-y to `auto`,
+     which makes this element a scroll container and silently disables
+     position:sticky anywhere inside it (the pricing table's plan head hit
+     exactly this, 2026-07-25). `clip` gives identical horizontal clipping
+     with no scroll container. */
+  overflow-x: clip;
 }
 
 .container {
@@ -222,9 +230,9 @@ ul { list-style: none; }
    The `js` class is added by src/main.jsx before hydration. */
 html.js .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity var(--dur-reveal) cubic-bezier(0.16, 1, 0.3, 1),
+              transform var(--dur-reveal) cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--delay, 0ms);
 }
 
@@ -296,6 +304,7 @@ html.js .animated-heading .letter {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -307,6 +316,7 @@ html.js .animated-heading .letter {
 }
 
 .nav-logo {
+  flex-shrink: 0;
   font-family: var(--font-serif);
   font-size: 26px;
   color: var(--color-primary);
@@ -316,7 +326,8 @@ html.js .animated-heading .letter {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 22px;
+  white-space: nowrap;
 }
 
 .nav-links a {
@@ -331,10 +342,124 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
+/* ── Features disclosure (desktop nav) ──
+   A link and a chevron, not one merged button: the link keeps the hub in the
+   top menu on every page, the chevron owns the panel. The desktop nav starts at
+   900px, so on a landscape tablet the chevron is the only way in and its hit
+   target is a full 44px square, made from padding and pulled back with negative
+   margin so it does not blow the nav's spacing apart. */
+.nav-features {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-features-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: -4px -14px -4px -15px;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.nav-features:hover .nav-features-toggle,
+.nav-features.open .nav-features-toggle {
+  color: var(--color-text);
+}
+
+.nav-features.open .nav-features-toggle {
+  transform: rotate(180deg);
+}
+
+/* Anchored to the left edge of the item, not the right: "Features" sits near
+   the start of the nav, so a right-aligned panel would hang off the viewport
+   at tablet widths. The width clamp is the belt to that braces. */
+.nav-features-panel {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: -12px;
+  width: min(440px, calc(100vw - 48px));
+  padding: 12px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out),
+              visibility 0s linear var(--dur-fast);
+}
+
+.nav-features.open .nav-features-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.nav-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px 6px;
+}
+
+/* Scoped past `.nav-links a`, which sets the top-level item's size, colour and
+   the premium.css underline sweep. A menu row is none of those things. */
+.nav-links .nav-features-panel a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.nav-links .nav-features-panel a::after {
+  display: none;
+}
+
+.nav-links .nav-features-panel a:hover {
+  background: var(--color-sage-bg);
+  color: var(--color-primary);
+}
+
+.nav-links .nav-features-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-hairline);
+  border-radius: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.nav-links .nav-features-all:hover {
+  background: transparent;
+  color: var(--color-primary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-features-panel,
+  .nav-features-toggle { transition: none; }
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .mobile-menu-btn {
@@ -343,12 +468,30 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
-@media (max-width: 767px) {
+/* The bar carries a logo, four nav items and two pills, and measured against
+   the built site it needs 845px to hold all of that without clipping. It used
+   to switch to the hamburger at 767px, so every width from 768 to 844 rendered
+   a desktop bar with the WhatsApp pill cut off the right edge — iPad portrait
+   is 768px, squarely inside that band. 899px puts the switch above the measured
+   fit with room for a longer label later, and hands those widths the full-screen
+   menu, which carries every action at full width and is touch-sized already. */
+@media (max-width: 899px) {
   .desktop-only { display: none !important; }
   .mobile-menu-btn { display: flex; }
 }
 
-/* Mobile Overlay */
+/* Mobile Overlay ──
+   The surface never fades. An opaque panel animated from opacity 0 to 1 is
+   see-through for the whole length of the fade, which is the "the menu looks
+   like a rendering bug" report: page text reads straight through the menu
+   mid-animation. The panel now appears at once, on a visibility step borrowed
+   from .mobile-cta-bar below, and the links do the moving.
+
+   The visibility step also earns its keep when the menu is closed: this
+   element is `position: fixed; inset: 0` at every width, so with opacity
+   alone its links stayed in the tab order of every page, including desktop
+   where the menu can never be opened. `inert` in Layout.jsx covers the same
+   ground for browsers mid-transition; the two agree. */
 .mobile-overlay {
   position: fixed;
   inset: 0;
@@ -357,15 +500,21 @@ html.js .animated-heading .letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
+  justify-content: flex-start;
+  /* Top-aligned and scrollable: centred content sat under the header once the
+     header went opaque, and a menu taller than the viewport had no way down. */
+  padding: 96px 24px calc(40px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: visibility 0s linear var(--dur);
 }
 
 .mobile-overlay.open {
-  opacity: 1;
+  visibility: visible;
   pointer-events: all;
+  transition: visibility 0s;
 }
 
 .mobile-nav-links {
@@ -373,32 +522,62 @@ html.js .animated-heading .letter {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  width: 100%;
+  max-width: 320px;
+  margin: auto 0;
 }
 
-.mobile-nav-links a {
+/* The one piece of motion here, and it teaches: the menu's contents arrive.
+   Nothing underneath is ever visible through them. */
+.mobile-nav-links > * {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.mobile-overlay.open .mobile-nav-links > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Nav links only. WhatsAppCTA and the connector are anchors too, and this rule
+   outranks `.cta-btn--primary` on specificity, so the WhatsApp pill in the menu
+   was rendering its label near-black at 20px on the green gradient while the
+   identical <button> beside it rendered white at 15px. The exclusions say out
+   loud which anchors in here are not nav links. */
+.mobile-nav-links a:not(.cta-btn):not(.mobile-connector-link) {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);
 }
 
-/* ── Nav Connector Link ── */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-overlay,
+  .mobile-nav-links > * { transition: none; }
+}
+
+/* ── Nav Connector Link ──
+   Deliberately built from `.nav-links a`, not from `.cta-btn`: same size,
+   weight, colour and vertical padding, so the mark sits in the nav-link family
+   a tier below the two pills it stands beside. It carried pill chrome once and
+   read as a third call to action; the chrome is what did that, so none of it
+   comes back. The extra right margin makes the tier legible as spacing too:
+   16px to the pills against the 10px the pills keep between themselves. */
 .nav-connector-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-  padding: 9px 16px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid rgba(52,78,65,0.28);
-  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 10px 0;
+  margin-right: 6px;
+  transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
 .nav-connector-link:hover {
-  background: var(--color-sage-bg);
-  border-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .mobile-connector-link {
@@ -417,6 +596,7 @@ html.js .animated-heading .letter {
 .cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 15px;
   font-weight: 600;
@@ -428,7 +608,10 @@ html.js .animated-heading .letter {
               border-color var(--dur-fast) var(--ease-out);
   cursor: pointer;
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal;
 }
 
 .cta-btn--primary {
@@ -437,10 +620,14 @@ html.js .animated-heading .letter {
   box-shadow: 0 6px 18px rgba(20,36,28,0.18);
 }
 
-.cta-btn--primary:hover {
-  background: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(20,36,28,0.26);
+/* Hover lifts only fire for a real hovering pointer — a tap on touch
+   devices otherwise pins :hover and the button stays levitated. */
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn--primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(20,36,28,0.26);
+  }
 }
 
 .cta-btn--secondary {
@@ -449,10 +636,12 @@ html.js .animated-heading .letter {
   box-shadow: var(--shadow-sm);
 }
 
-.cta-btn--secondary:hover {
-  background: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn--secondary:hover {
+    background: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .cta-btn--outline {
@@ -470,10 +659,12 @@ html.js .animated-heading .letter {
   color: var(--color-primary-dark);
 }
 
-.cta-btn--dark:hover {
-  background: var(--color-sage-bg);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn--dark:hover {
+    background: var(--color-sage-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+  }
 }
 
 .cta-btn--outline-light {
@@ -490,6 +681,53 @@ html.js .animated-heading .letter {
 .cta-btn--full {
   width: 100%;
   justify-content: center;
+}
+
+/* Press feedback: every pressable acknowledges pointer-down before release.
+   This is feedback, not decoration, so it stays on under reduced motion.
+   The :active rule beats the hover lift while held (same specificity,
+   later in the cascade — premium.css re-asserts it after its own hovers). */
+.cta-btn:active {
+  transform: scale(0.97);
+  transition-duration: var(--dur-press);
+}
+
+/* ── Sticky mobile CTA bar ──
+   Phones only. Slides up after the visitor scrolls past the hero so the one
+   conversion action (WhatsApp) is always a thumb-reach away. Motion is a
+   single transform; reduced-motion users get an instant show/hide. */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 -6px 24px rgba(20, 36, 28, 0.14);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform var(--dur) var(--ease-out),
+              visibility 0s linear var(--dur);
+}
+
+.mobile-cta-bar.visible {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+@media (max-width: 767px) {
+  .mobile-cta-bar { display: block; }
+  /* Keep the footer's last lines readable above the bar. */
+  .footer { padding-bottom: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-cta-bar { transition: none; }
 }
 
 /* ── Hero ── */
@@ -578,6 +816,27 @@ html.js .animated-heading .letter {
   gap: 40px;
   padding-top: 28px;
   border-top: 1px solid var(--color-border);
+}
+
+.icp-hero-content .hero-ctas {
+  margin-bottom: 16px;
+}
+
+.hero-tertiary-line {
+  margin: 0 0 40px;
+  font-size: 14px;
+}
+
+.hero-tertiary-line a {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-tertiary-line a:hover,
+.hero-tertiary-line a:focus-visible {
+  color: var(--color-primary);
 }
 
 .hero-stat {
@@ -693,11 +952,28 @@ html.js .animated-heading .letter {
 }
 
 @media (max-width: 767px) {
+  .hero-visual { flex-direction: column; gap: 20px; min-height: 0; }
   .hero-phone-frame { width: 220px; }
-  /* No room for the halo beside a centred device on phones — keep only the
-     headline PDF pill, pinned at the bottom. */
-  .hero-pill { display: none; }
-  .hero-pill--1 { display: inline-flex; left: 0; top: auto; bottom: 24px; }
+  /* No room for an absolute halo beside a centred device on phones — reflow the
+     pills out of absolute positioning into a centred wrapped cluster below the
+     phone, so every capability still reads rather than showing just one. */
+  .hero-pills {
+    position: static;
+    inset: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .hero-pill {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1331,6 +1607,7 @@ html.js .animated-heading .letter {
   background: var(--color-white);
   border-radius: var(--radius-2xl);
   padding: 48px 44px 40px;
+  flex: 1 1 320px;
   max-width: 640px;
   width: 100%;
   position: relative;
@@ -1386,6 +1663,123 @@ html.js .animated-heading .letter {
 .testimonial-role {
   font-size: 13px;
   color: var(--color-text-muted);
+}
+
+/* ── Demo video ── */
+.video-section {
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.video-embed {
+  /* Fixed ratio reserves the box before any media loads (CLS guard). */
+  aspect-ratio: 16 / 9;
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-ink);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.video-embed video,
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.video-embed-poster {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-embed-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-embed-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.video-embed-poster:hover .video-embed-play,
+.video-embed-poster:focus-visible .video-embed-play {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-embed-poster:hover .video-embed-play,
+  .video-embed-poster:focus-visible .video-embed-play {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ── Data safety / trust ── */
+.trust-store-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.trust-store-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-store-links a:hover,
+.trust-store-links a:focus-visible {
+  text-decoration: underline;
+}
+
+.trust-article-link {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.trust-article-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-article-link a:hover,
+.trust-article-link a:focus-visible {
+  text-decoration: underline;
 }
 
 /* ── Pricing ── */
@@ -1589,6 +1983,12 @@ html.js .animated-heading .letter {
   padding: 20px 0;
   text-align: left;
   gap: 16px;
+  /* Press feedback: a wide row gets the barest scale so the tap reads. */
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.faq-trigger:active {
+  transform: scale(0.99);
 }
 
 .faq-question {
@@ -1668,9 +2068,37 @@ html.js .animated-heading .letter {
 
 .final-cta-actions {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.final-cta-secondary-link:hover,
+.final-cta-secondary-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* The desktop nav switches on at 768px, and 768-1023px is where the bar is
+   tightest: logo, five items and two pills with nothing to spare. The connector
+   is the most specialist of the three actions, so it is the one that yields
+   there. It stays reachable in the mobile menu and the footer's Product column
+   at every width. */
+@media (max-width: 1023px) {
+  .nav-actions .nav-connector-link {
+    display: none;
+  }
 }
 
 /* ── Footer ── */
@@ -1733,6 +2161,29 @@ html.js .animated-heading .letter {
   letter-spacing: 0.06em;
   color: rgba(255,255,255,0.4);
   margin-bottom: 16px;
+}
+
+/* A generated column (Features) outgrows its neighbours as landing pages ship.
+   Rather than leaving one 21-item list beside a 7-item one, it takes the full
+   grid row and flows into sub-columns. `break-inside` keeps a link from being
+   split across the column boundary. */
+.footer-col-wide {
+  grid-column: 1 / -1;
+}
+
+.footer-col-wide .footer-col-links {
+  columns: 2;
+  column-gap: 32px;
+}
+
+.footer-col-links a {
+  break-inside: avoid;
+}
+
+@media (min-width: 720px) {
+  .footer-col-wide .footer-col-links {
+    columns: 3;
+  }
 }
 
 .footer-col a {
@@ -2416,6 +2867,18 @@ html.js .animated-heading .letter {
   font-weight: 600;
 }
 
+.phone-consent-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+.phone-consent-note a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
 .phone-modal-footer {
   padding: 24px 32px 32px;
   display: flex;
@@ -2548,221 +3011,606 @@ html.js .animated-heading .letter {
   opacity: 0.65;
 }
 
-.home-pricing-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 16px;
+/* Term switch: one segmented pill, sage, using the shared button vocabulary. */
+/* ── Pricing: rate card as an actual rate card ──────────────────────────
+   Four tiers where each is "everything before, plus X" is a ladder, and a
+   ladder is a table. Cards forced every column to repeat "Everything in X,
+   plus:" and ran 1,542px tall with the heading and the add-ons both off
+   screen. Here the ticks fill leftward, so inheritance is visible, and the
+   Copilot column is one unbroken sage bar from head to add-ons: the single
+   signal that it carries everything. Motion is limited to the two controls. */
+
+.rate-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  text-align: left;
 }
 
-@media (max-width: 860px) {
-  .home-pricing-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.rate-head-copy {
+  max-width: 620px;
+}
+
+:root .rate-title {
+  margin: 6px 0 6px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.12;
+  max-width: none;
+}
+
+.rate-subtitle {
+  margin: 0;
+  max-width: none;
+}
+
+/* Term switch: segmented pill, shared button vocabulary. */
+.rate-term {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-variant);
+  box-shadow: var(--shadow-xs);
+}
+
+.rate-term-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.rate-term-option:hover {
+  color: var(--color-text);
+}
+
+.rate-term-option:focus-visible,
+.rate-picker-option:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.rate-term-option--active {
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.rate-term-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Plan picker: only meaningful once the table drops to one column. */
+.rate-picker {
+  display: none;
+  gap: 6px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.rate-picker::-webkit-scrollbar {
+  display: none;
+}
+
+.rate-picker-option {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-variant);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.rate-picker-option--active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* The table. One grid so every column stays aligned across all groups:
+   rows use display:contents and hand their cells to this grid directly. */
+/* The table is a block, not one tall grid, and each strip carries the same
+   --rate-cols track list. That costs one shared variable and buys a plan
+   head that can actually stick: a sticky grid ITEM is confined to its own
+   grid row, which is useless over eighteen capability rows. Identical track
+   definitions across strips keep the columns aligned to the pixel. */
+.rate-table {
+  --rate-cols: minmax(240px, 1.7fr) repeat(4, minmax(0, 1fr));
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+  /* `clip` not `hidden`: overflow:hidden on an ancestor kills the sticky. */
+  overflow: clip;
+}
+
+.rate-table-head,
+.rate-row,
+.rate-addons {
+  display: grid;
+  grid-template-columns: var(--rate-cols);
+}
+
+.rate-table-head {
+  position: sticky;
+  top: 68px;
+  z-index: 3;
+}
+
+.rate-table-corner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 30px 20px 14px;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.rate-corner-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-corner-note {
+  max-width: 30ch;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Plan heads */
+/* The plan head sticks under the nav. Eighteen capability rows is a long
+   scroll to hold four column identities in your head, so the names and
+   prices stay on screen for the whole read. */
+.rate-plan,
+.rate-table-corner {
+  background: var(--color-white);
+}
+
+.rate-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* The top padding is a badge band every column reserves, whether or not it
+     carries a badge. In flow the badge only existed in one column and pushed
+     that column's name and price down, so the four heads stopped aligning. */
+  padding: 30px 18px 14px;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.rate-plan-badge {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  right: 18px;
+  padding: 0;
+  background: none;
+  color: var(--color-sage-light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rate-plan-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-plan-price {
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.rate-plan-period {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.rate-plan-note {
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+}
+
+.rate-plan-note s {
+  color: var(--color-text-muted);
+  text-decoration-thickness: 1px;
+}
+
+/* Group bands: what the distributor stops doing, not a feature family. */
+.rate-group-title {
+  padding: 12px 20px 7px;
+  background: var(--color-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-row-label {
+  display: flex;
+  align-items: center;
+  padding: 9px 20px;
+  border-top: 0.5px solid var(--color-hairline);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.rate-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 8px;
+  border-top: 0.5px solid var(--color-hairline);
+}
+
+.rate-tick {
+  color: var(--color-primary-light);
+}
+
+.rate-dash {
+  width: 10px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: var(--color-outline, #E5E5DF);
+}
+
+/* The hero column. One unbroken sage bar from the plan head down through
+   the add-ons row: the only decoration in the section, and it is load
+   bearing, because "everything" is exactly what it means. */
+.rate-table .rate-plan--hero,
+.rate-cell--hero {
+  background: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.rate-plan--hero .rate-plan-name {
+  color: var(--color-sage-light);
+}
+
+.rate-plan--hero .rate-plan-price {
+  color: #fff;
+}
+
+.rate-plan--hero .rate-plan-period,
+.rate-plan--hero .rate-plan-note {
+  color: var(--color-sage-light);
+}
+
+.rate-plan--hero .rate-plan-note s {
+  color: rgba(184, 212, 190, 0.7);
+}
+
+.rate-cell--hero .rate-tick {
+  color: #fff;
+}
+
+.rate-cell--hero .rate-dash {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Add-ons close the table instead of orphaning below it. */
+.rate-addons-title {
+  padding: 18px 20px;
+  border-top: 0.5px solid var(--color-border);
+  background: var(--color-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-addons-list {
+  grid-column: 2 / -1;
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: center;
+  padding: 16px 20px;
+  border-top: 0.5px solid var(--color-border);
+  background: var(--color-surface-variant);
+}
+
+.rate-addon {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  box-shadow: var(--shadow-xs);
+  font-size: 13px;
+}
+
+.rate-addon-label {
+  color: var(--color-text-secondary);
+}
+
+.rate-addon-price {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.rate-addons-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0 20px 18px;
+  background: var(--color-surface-variant);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Bigger setups: the last strip of the table, on the white surface so it
+   reads as its own band after the tinted add-on strip rather than as more
+   add-ons. Same --rate-cols track list as every strip above, so the label
+   column stays aligned with the capability labels. */
+.rate-bigger {
+  display: grid;
+  grid-template-columns: var(--rate-cols);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.rate-bigger-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 20px;
+}
+
+.rate-bigger-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.rate-bigger-intro {
+  max-width: 34ch;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+.rate-bigger-cards {
+  grid-column: 2 / -1;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  padding: 18px 20px 4px;
+}
+
+.rate-bigger-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-variant);
+}
+
+.rate-bigger-card-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: var(--weight-display);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.rate-bigger-card-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* The price lines sit at the foot of the card on a hairline, so a card
+   carrying two figures and a card carrying one still line up. */
+.rate-bigger-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--color-hairline);
+}
+
+.rate-bigger-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rate-bigger-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.rate-bigger-price-note {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.rate-bigger-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  padding: 16px 20px 20px;
+}
+
+.rate-bigger-note {
+  flex: 1 1 340px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Below 900px four columns cannot fit, so the picker chooses one and the
+   other three are removed from the grid entirely. */
+@media (max-width: 900px) {
+  .rate-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .rate-picker {
+    display: flex;
+  }
+
+  .rate-table {
+    --rate-cols: minmax(0, 1fr) 84px;
+  }
+
+  .rate-table[data-active-plan='0'] .rate-col:not(.rate-col--0),
+  .rate-table[data-active-plan='1'] .rate-col:not(.rate-col--1),
+  .rate-table[data-active-plan='2'] .rate-col:not(.rate-col--2),
+  .rate-table[data-active-plan='3'] .rate-col:not(.rate-col--3) {
+    display: none;
+  }
+
+  .rate-table-head {
+    position: static;
+  }
+
+  .rate-plan {
+    padding: 30px 14px 16px;
+  }
+
+  .rate-plan-badge {
+    left: 14px;
+    right: 14px;
+  }
+
+  .rate-plan-price {
+    font-size: 24px;
+  }
+
+  /* The chosen plan head owns the full width, not the tick column. */
+  .rate-table-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rate-table-corner {
+    display: none;
+  }
+
+  .rate-row-label,
+  .rate-addons-title,
+  .rate-addons-list,
+  .rate-addons-note,
+  .rate-bigger-head,
+  .rate-bigger-cards,
+  .rate-bigger-foot {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .rate-addons-title,
+  .rate-addons-list {
+    grid-column: 1 / -1;
+  }
+
+  .rate-addons-list {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  /* The tick column is gone below 900px, so the label column no longer buys
+     anything: both strips take the full width and the cards stack. */
+  .rate-bigger-cards {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+  }
+
+  .rate-bigger-head {
+    padding-bottom: 12px;
+  }
+
+  .rate-bigger-intro {
+    max-width: none;
   }
 }
 
 @media (max-width: 480px) {
-  .home-pricing-strip {
-    grid-template-columns: minmax(0, 1fr);
+  .rate-row-label {
+    font-size: 13.5px;
+  }
+
+  .rate-term-option,
+  .rate-picker-option {
+    padding: 8px 13px;
+    font-size: 13px;
   }
 }
 
-.home-pricing-strip-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 26px 22px;
-  border-radius: var(--radius-xl);
-  background: var(--color-white);
-  box-shadow: var(--shadow-sm);
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
-}
-
-.home-pricing-strip-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.home-pricing-strip-card--highlighted {
-  box-shadow: var(--shadow-lg);
-}
-
-@media (min-width: 861px) {
-  .home-pricing-strip-card--highlighted {
-    transform: translateY(-10px);
-  }
-  .home-pricing-strip-card--highlighted:hover {
-    transform: translateY(-14px);
-  }
-}
-
-.home-pricing-strip-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-}
-
-.home-pricing-strip-price {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.1;
-  font-family: var(--font-serif);
-}
-
-.home-pricing-strip-period {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-
-.home-pricing-strip-card--highlighted {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-name {
-  color: #B8D4BE;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-price {
-  color: #fff;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-period {
-  color: #B8D4BE;
-}
-
-.home-pricing-strip-card--highlighted:hover {
-  border-color: var(--color-primary-light);
-}
-
-.home-pricing-feature-list {
-  list-style: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   padding: 0;
-  margin: 14px 0 0;
-  border-top: 0.5px solid var(--color-border);
-  padding-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.home-pricing-strip-card--highlighted .home-pricing-feature-list {
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
-
-.home-pricing-feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.45;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-item {
-  color: #B8D4BE;
-}
-
-.home-pricing-feature-check {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: #059669;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-check {
-  color: #B8D4BE;
-}
-
-.home-pricing-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: #B8D4BE;
-  margin-bottom: 6px;
-}
-
-.home-pricing-strip-desc {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  line-height: 1.4;
-  margin-top: 4px;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-strip-desc {
-  color: rgba(184, 212, 190, 0.8);
-}
-
-.home-pricing-feature-item--inherit {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-bottom: 4px;
-}
-
-.home-pricing-strip-card--highlighted .home-pricing-feature-item--inherit {
-  color: rgba(184, 212, 190, 0.7);
-}
-
-.home-pricing-feature-item--inherit .home-pricing-feature-check {
-  display: none;
-}
-
-/* Add-ons section */
-.home-pricing-addons {
-  margin-top: 36px;
-  padding: 26px 28px;
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-}
-
-.home-pricing-addons-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  margin-bottom: 14px;
-}
-
-.home-pricing-addons-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.home-pricing-addon-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.home-pricing-addon-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.home-pricing-addon-price {
-  font-size: 13px;
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
-.home-pricing-addon-note {
-  font-size: 11px;
-  color: var(--color-text-muted);
-}
 
 .home-pricing-strip-cta {
-  margin-top: 10px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-align: center;
 }
 
@@ -3057,8 +3905,8 @@ html.js .animated-heading .letter {
 .blog-post-card > .blog-post-card-title,
 .blog-post-card > .blog-post-card-excerpt,
 .blog-post-card > .blog-read-more {
-  margin-left: 28px;
-  margin-right: 28px;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .blog-post-card > .blog-post-card-meta {
@@ -3066,17 +3914,17 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-card > .blog-post-card-title {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .blog-post-card > .blog-post-card-excerpt {
-  margin-top: 12px;
+  margin-top: 16px;
   flex: 1;
 }
 
 .blog-post-card > .blog-read-more {
-  margin-top: 12px;
-  margin-bottom: 28px;
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .blog-post-card-meta {
@@ -3182,6 +4030,13 @@ html.js .animated-heading .letter {
   font-size: 16px;
   color: #B8D4BE;
   line-height: 1.6;
+}
+
+.blog-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Blog post page header */
@@ -3553,11 +4408,25 @@ html.js .animated-heading .letter {
   .blog-posts-section {
     padding: 40px 0 40px;
   }
-  .blog-featured-card {
-    padding: 28px 24px;
+  .blog-post-card > .blog-post-card-meta,
+  .blog-post-card > .blog-post-card-title,
+  .blog-post-card > .blog-post-card-excerpt,
+  .blog-post-card > .blog-read-more {
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  .blog-post-card {
-    padding: 24px;
+  .blog-post-card > .blog-post-card-meta {
+    margin-top: 20px;
+  }
+  .blog-post-card > .blog-post-card-title {
+    margin-top: 14px;
+  }
+  .blog-post-card > .blog-post-card-excerpt {
+    margin-top: 14px;
+  }
+  .blog-post-card > .blog-read-more {
+    margin-top: 14px;
+    margin-bottom: 20px;
   }
   .blog-post-header {
     padding: 64px 0 40px;

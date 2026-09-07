@@ -4,22 +4,33 @@ Takkada Blog Header Image Generator
 Generates 1200×630px OG-ready blog images using brand colors.
 Run from the repo root: python3 scripts/generate-blog-images.py
 Requires Pillow: pip install Pillow
+
+2026-09-06 redesign: the old template baked a "TAKKADA" wordmark + URL and
+the full tagline into every image. That text is redundant everywhere the
+image is actually used (the blog card/related-post HTML already renders the
+category, title and excerpt right below the thumbnail; the site header
+already carries the logo), so scrolling the blog index put the literal word
+"TAKKADA" in the same top-left spot on every one of ~90 identical-looking
+cards. This version drops the wordmark, URL and tagline, keeps only the
+title (still needed so a shared link unfurls with a headline on WhatsApp/
+Twitter with no surrounding page), renders it in the site's real Fraunces /
+Plus Jakarta Sans faces (converted from the woff2s under public/assets/fonts
+to scripts/fonts/*.ttf so Pillow can bake them), and gives each category its
+own low-alpha line-icon + accent tint so the ~15 categories read as a family
+with variation instead of one repeated slide.
 """
 
 from PIL import Image, ImageDraw, ImageFont
-import os
 import math
+import os
 
-# ── Brand tokens ────────────────────────────────────────────────────────────
+# ── Brand tokens (src/styles.css :root) ─────────────────────────────────────
 PRIMARY_DARK   = "#1B3026"
 PRIMARY_SAGE   = "#344E41"
 SECONDARY      = "#4A7C59"
 ACCENT         = "#6B9E7A"
-CONTAINER_TINT = "#DAE5D6"
-ON_CONTAINER   = "#0D1F12"
 LABEL_DARK     = "#B8D4BE"
 SURFACE        = "#FFFFFF"
-TEXT_MUTED     = "#9CA39D"
 
 def hex_to_rgb(h):
     h = h.lstrip("#")
@@ -27,6 +38,29 @@ def hex_to_rgb(h):
 
 # ── Canvas ───────────────────────────────────────────────────────────────────
 W, H = 1200, 630
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+FRAUNCES_TTF = os.path.join(SCRIPT_DIR, "fonts", "Fraunces.ttf")
+JAKARTA_TTF = os.path.join(SCRIPT_DIR, "fonts", "PlusJakartaSans.ttf")
+
+def get_font_display(size, weight=480):
+    """Fraunces (the site's heading serif), variable opsz+weight axes."""
+    font = ImageFont.truetype(FRAUNCES_TTF, size)
+    opsz = max(9, min(144, size))
+    try:
+        font.set_variation_by_axes([opsz, weight])
+    except Exception:
+        pass
+    return font
+
+def get_font_ui(size, weight=700):
+    """Plus Jakarta Sans (the site's body/UI face), variable weight axis."""
+    font = ImageFont.truetype(JAKARTA_TTF, size)
+    try:
+        font.set_variation_by_axes([weight])
+    except Exception:
+        pass
+    return font
 
 def make_gradient(c1, c2, width, height):
     """Vertical gradient from c1 (top) to c2 (bottom)."""
@@ -41,41 +75,6 @@ def make_gradient(c1, c2, width, height):
         b = int(b1 + (b2 - b1) * t)
         draw.line([(0, y), (width, y)], fill=(r, g, b))
     return img
-
-def draw_grid(draw, color, alpha=25):
-    """Subtle grid overlay for texture."""
-    grid_color = (*hex_to_rgb(color), alpha)
-    for x in range(0, W, 60):
-        draw.line([(x, 0), (x, H)], fill=hex_to_rgb(color), width=1)
-    for y in range(0, H, 60):
-        draw.line([(0, y), (W, y)], fill=hex_to_rgb(color), width=1)
-
-def draw_circles(draw):
-    """Decorative background circles."""
-    circle_color = (*hex_to_rgb(SECONDARY), 60)
-    # Large circle top-right
-    draw.ellipse([900, -150, 1400, 350], fill=hex_to_rgb(SECONDARY) + (40,) if False else None,
-                 outline=hex_to_rgb(ACCENT), width=1)
-    # Small circle bottom-left
-    draw.ellipse([-80, 400, 220, 700], outline=hex_to_rgb(ACCENT), width=1)
-
-def get_font(size, bold=False):
-    """Try system fonts, fall back to default."""
-    candidates = [
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-        "/Library/Fonts/Arial.ttf",
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-    ]
-    for path in candidates:
-        if os.path.exists(path):
-            try:
-                return ImageFont.truetype(path, size)
-            except Exception:
-                continue
-    return ImageFont.load_default()
 
 def wrap_text(draw, text, font, max_width):
     """Wrap text to fit within max_width pixels."""
@@ -95,75 +94,216 @@ def wrap_text(draw, text, font, max_width):
         lines.append(current)
     return lines
 
-def draw_tag(draw, text, x, y, font):
-    """Draw a small category pill."""
+def draw_tag(draw, text, x, y, font, tint):
+    """Draw a small category pill in the category's accent tint."""
     bbox = draw.textbbox((0, 0), text, font=font)
     tw = bbox[2] - bbox[0]
-    pad_x, pad_y = 16, 8
-    rx, ry = x, y
-    rw, rh = tw + pad_x * 2, bbox[3] - bbox[1] + pad_y * 2
-    draw.rounded_rectangle([rx, ry, rx + rw, ry + rh], radius=6,
-                            fill=hex_to_rgb(ACCENT))
-    draw.text((rx + pad_x, ry + pad_y), text, font=font, fill=hex_to_rgb(PRIMARY_DARK))
-    return rh + 16
+    pad_x, pad_y = 16, 9
+    rw, rh = tw + pad_x * 2, (bbox[3] - bbox[1]) + pad_y * 2
+    draw.rounded_rectangle([x, y, x + rw, y + rh], radius=8, fill=hex_to_rgb(tint))
+    draw.text((x + pad_x - bbox[0], y + pad_y - bbox[1]), text, font=font, fill=hex_to_rgb(PRIMARY_DARK))
+    return rh
+
+# ── Per-category line icons ──────────────────────────────────────────────────
+# Drawn as a single low-alpha watermark in the lower-right quadrant so each
+# category reads distinctly without competing with the title. Two categories
+# sharing an icon (e.g. Collections/Receivables, Compliance/Trust) is fine;
+# they're adjacent concepts and the icon is a mood cue, not a legend.
+
+def _icon_glyph(draw, cx, cy, r, color, glyph):
+    font = get_font_ui(int(r * 1.9), weight=700)
+    bbox = draw.textbbox((0, 0), glyph, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    draw.text((cx - tw / 2 - bbox[0], cy - th / 2 - bbox[1]), glyph, font=font, fill=color)
+
+def icon_coins(draw, cx, cy, r, color, width):
+    # Not a "₹" glyph: the Plus Jakarta Sans latin subset baked into
+    # scripts/fonts/PlusJakartaSans.ttf has no ₹ codepoint (it's outside the
+    # Latin/Latin-ext blocks the subset covers) and silently falls back to a
+    # broken glyph. Two overlapping coin outlines reads as "money" without
+    # depending on a codepoint the font doesn't have.
+    cr = r * 0.42
+    for dx, dy in [(-r * 0.28, -r * 0.05), (r * 0.28, r * 0.05)]:
+        c = (cx + dx, cy + dy)
+        draw.ellipse([c[0] - cr, c[1] - cr, c[0] + cr, c[1] + cr], outline=color, width=width)
+        draw.line([(c[0] - cr * 0.55, c[1]), (c[0] + cr * 0.55, c[1])], fill=color, width=width)
+
+def icon_percent(draw, cx, cy, r, color, width):
+    # Filled glyphs cover far more area than a thin stroke at the same alpha,
+    # so "%" reads much bolder than the line icons at matching alpha. Dim it
+    # to keep visual weight consistent with the rest of the set.
+    _icon_glyph(draw, cx, cy, r, (color[0], color[1], color[2], 20), "%")
+
+def icon_arrow_up(draw, cx, cy, r, color, width):
+    draw.line([(cx, cy + r * 0.6), (cx, cy - r * 0.5)], fill=color, width=width)
+    draw.line([(cx, cy - r * 0.5), (cx - r * 0.35, cy - r * 0.05)], fill=color, width=width)
+    draw.line([(cx, cy - r * 0.5), (cx + r * 0.35, cy - r * 0.05)], fill=color, width=width)
+
+def icon_swap(draw, cx, cy, r, color, width):
+    y1, y2 = cy - r * 0.25, cy + r * 0.25
+    draw.line([(cx - r * 0.6, y1), (cx + r * 0.5, y1)], fill=color, width=width)
+    draw.line([(cx + r * 0.5, y1), (cx + r * 0.2, y1 - r * 0.22)], fill=color, width=width)
+    draw.line([(cx + r * 0.5, y1), (cx + r * 0.2, y1 + r * 0.22)], fill=color, width=width)
+    draw.line([(cx + r * 0.6, y2), (cx - r * 0.5, y2)], fill=color, width=width)
+    draw.line([(cx - r * 0.5, y2), (cx - r * 0.2, y2 - r * 0.22)], fill=color, width=width)
+    draw.line([(cx - r * 0.5, y2), (cx - r * 0.2, y2 + r * 0.22)], fill=color, width=width)
+
+def icon_pin(draw, cx, cy, r, color, width):
+    cy = cy - r * 0.2
+    cr, gap = r * 0.5, 50
+    draw.arc([cx - cr, cy - cr, cx + cr, cy + cr], start=90 + gap, end=90 - gap + 360, fill=color, width=width)
+    a1, a2 = math.radians(90 + gap), math.radians(90 - gap)
+    p1 = (cx + math.cos(a1) * cr, cy + math.sin(a1) * cr)
+    p2 = (cx + math.cos(a2) * cr, cy + math.sin(a2) * cr)
+    tip = (cx, cy + r * 1.3)
+    draw.line([p1, tip], fill=color, width=width)
+    draw.line([p2, tip], fill=color, width=width)
+
+def icon_phone(draw, cx, cy, r, color, width):
+    w, h = r * 0.9, r * 1.5
+    x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=r * 0.22, outline=color, width=width)
+    draw.line([(cx - r * 0.15, y1 - r * 0.18), (cx + r * 0.15, y1 - r * 0.18)], fill=color, width=width)
+
+def icon_checklist(draw, cx, cy, r, color, width):
+    rows = 3
+    total_h = r * 1.4
+    start_y = cy - total_h / 2
+    box = r * 0.22
+    thin = max(2, width - 2)
+    for i in range(rows):
+        y = start_y + i * (total_h / (rows - 1))
+        draw.rounded_rectangle([cx - r * 0.7, y - box / 2, cx - r * 0.7 + box, y + box / 2], radius=box * 0.25, outline=color, width=thin)
+        draw.line([(cx - r * 0.35, y), (cx + r * 0.7, y)], fill=color, width=thin)
+
+def icon_bars(draw, cx, cy, r, color, width):
+    heights = [r * 0.6, r * 0.95, r * 1.3]
+    bw, gap = r * 0.35, r * 0.18
+    base_y = cy + r * 0.7
+    start_x = cx - (len(heights) * bw + (len(heights) - 1) * gap) / 2
+    for i, h in enumerate(heights):
+        x0 = start_x + i * (bw + gap)
+        draw.rectangle([x0, base_y - h, x0 + bw, base_y], outline=color, width=width)
+
+def icon_document(draw, cx, cy, r, color, width):
+    w, h = r * 1.1, r * 1.5
+    x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=r * 0.12, outline=color, width=width)
+    thin = max(2, width - 2)
+    for i in range(3):
+        ly = y0 + h * 0.35 + i * h * 0.16
+        draw.line([(x0 + w * 0.18, ly), (x1 - w * 0.18, ly)], fill=color, width=thin)
+
+def icon_gear(draw, cx, cy, r, color, width):
+    draw.ellipse([cx - r * 0.5, cy - r * 0.5, cx + r * 0.5, cy + r * 0.5], outline=color, width=width)
+    draw.ellipse([cx - r * 0.18, cy - r * 0.18, cx + r * 0.18, cy + r * 0.18], outline=color, width=width)
+    for i in range(8):
+        rad = math.radians(i * 45)
+        x0, y0 = cx + math.cos(rad) * r * 0.5, cy + math.sin(rad) * r * 0.5
+        x1, y1 = cx + math.cos(rad) * r * 0.72, cy + math.sin(rad) * r * 0.72
+        draw.line([(x0, y0), (x1, y1)], fill=color, width=width)
+
+def icon_shield(draw, cx, cy, r, color, width):
+    w, h = r * 1.1, r * 1.4
+    pts = [
+        (cx - w / 2, cy - h / 2 + h * 0.12),
+        (cx, cy - h / 2),
+        (cx + w / 2, cy - h / 2 + h * 0.12),
+        (cx + w / 2, cy + h * 0.05),
+        (cx, cy + h / 2),
+        (cx - w / 2, cy + h * 0.05),
+    ]
+    draw.line(pts + [pts[0]], fill=color, width=width, joint="curve")
+    draw.line(
+        [(cx - w * 0.18, cy), (cx - w * 0.02, cy + h * 0.16), (cx + w * 0.22, cy - h * 0.12)],
+        fill=color, width=max(2, width - 2), joint="curve",
+    )
+
+def icon_chain(draw, cx, cy, r, color, width):
+    lw, lh = r * 0.55, r * 0.85
+    draw.rounded_rectangle([cx - lw * 0.9, cy - lh / 2, cx - lw * 0.9 + lw, cy + lh / 2], radius=lw * 0.4, outline=color, width=width)
+    draw.rounded_rectangle([cx + lw * 0.9 - lw, cy - lh / 2, cx + lw * 0.9, cy + lh / 2], radius=lw * 0.4, outline=color, width=width)
+
+def icon_network(draw, cx, cy, r, color, width):
+    for i in range(3):
+        rad = math.radians(90 + i * 120)
+        p = (cx + math.cos(rad) * r * 0.7, cy + math.sin(rad) * r * 0.7)
+        draw.line([(cx, cy), p], fill=color, width=width)
+        draw.ellipse([p[0] - r * 0.1, p[1] - r * 0.1, p[0] + r * 0.1, p[1] + r * 0.1], fill=color)
+    draw.ellipse([cx - r * 0.13, cy - r * 0.13, cx + r * 0.13, cy + r * 0.13], fill=color)
+
+def icon_dot(draw, cx, cy, r, color, width):
+    draw.ellipse([cx - r * 0.3, cy - r * 0.3, cx + r * 0.3, cy + r * 0.3], outline=color, width=width)
+
+CATEGORY_META = {
+    "Collections":    dict(icon=icon_coins, tint=ACCENT),
+    "Receivables":    dict(icon=icon_coins, tint=ACCENT),
+    "Payables":       dict(icon=icon_arrow_up, tint=SECONDARY),
+    "Field Sales":    dict(icon=icon_pin, tint=LABEL_DARK),
+    "Tally Mobile":   dict(icon=icon_phone, tint=ACCENT),
+    "How-To":         dict(icon=icon_checklist, tint=LABEL_DARK),
+    "Market Reality": dict(icon=icon_bars, tint=SECONDARY),
+    "Reports":        dict(icon=icon_document, tint=ACCENT),
+    "Autopilot":      dict(icon=icon_gear, tint=LABEL_DARK),
+    "Schemes":        dict(icon=icon_percent, tint=SECONDARY),
+    "Compliance":     dict(icon=icon_shield, tint=ACCENT),
+    "Trust":          dict(icon=icon_shield, tint=LABEL_DARK),
+    "Integration":    dict(icon=icon_chain, tint=SECONDARY),
+    "Distribution":   dict(icon=icon_network, tint=ACCENT),
+    "Comparisons":    dict(icon=icon_swap, tint=LABEL_DARK),
+}
+DEFAULT_META = dict(icon=icon_dot, tint=ACCENT)
 
 def generate_image(slug, title, category, tagline, output_dir):
-    """Generate a single blog header image."""
-    # Base gradient
-    img = make_gradient(PRIMARY_DARK, PRIMARY_SAGE, W, H)
-    draw = ImageDraw.Draw(img, "RGBA")
+    """Generate a single blog header image. `tagline` is kept in ARTICLES as
+    descriptive metadata but is no longer rendered (see module docstring)."""
+    meta = CATEGORY_META.get(category, DEFAULT_META)
+    tint = meta["tint"]
 
-    # Subtle grid
+    # Opaque background.
+    base = make_gradient(PRIMARY_DARK, PRIMARY_SAGE, W, H).convert("RGBA")
+
+    # Every translucent element (grid + category icon) is drawn on its own
+    # fully-transparent layer and alpha-composited onto the base. Pillow's
+    # ImageDraw does NOT alpha-blend when you draw straight onto an RGBA
+    # image (it overwrites), and mixed results otherwise for text vs shapes
+    # on an RGB image with the mode="RGBA" draw hack (shapes blend, text
+    # doesn't) — a real overlay + alpha_composite is the only path that's
+    # correct for both.
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    odraw = ImageDraw.Draw(overlay)
+
     for x in range(0, W, 60):
-        draw.line([(x, 0), (x, H)], fill=(*hex_to_rgb(SECONDARY), 30), width=1)
+        odraw.line([(x, 0), (x, H)], fill=(*hex_to_rgb(SECONDARY), 22), width=1)
     for y in range(0, H, 60):
-        draw.line([(0, y), (W, y)], fill=(*hex_to_rgb(SECONDARY), 30), width=1)
+        odraw.line([(0, y), (W, y)], fill=(*hex_to_rgb(SECONDARY), 22), width=1)
 
-    # Decorative circles
-    draw.ellipse([850, -180, 1380, 350], outline=(*hex_to_rgb(ACCENT), 60), width=2)
-    draw.ellipse([950, -80, 1280, 250], outline=(*hex_to_rgb(LABEL_DARK), 30), width=1)
-    draw.ellipse([-100, 430, 200, 730], outline=(*hex_to_rgb(ACCENT), 40), width=2)
+    # Single category icon, low-alpha watermark, lower-right
+    meta["icon"](odraw, 940, 460, 150, (*hex_to_rgb(tint), 40), 7)
 
-    # Takkada wordmark (top-left)
-    font_brand = get_font(22, bold=True)
-    draw.text((64, 52), "TAKKADA", font=font_brand, fill=hex_to_rgb(LABEL_DARK))
+    img = Image.alpha_composite(base, overlay)
+    draw = ImageDraw.Draw(img)
 
-    # takkada.com label
-    font_small = get_font(18)
-    draw.text((64, 82), "takkada.com/blog", font=font_small, fill=hex_to_rgb(TEXT_MUTED))
+    # Category pill (opaque, drawn straight onto the composited image)
+    font_tag = get_font_ui(15, weight=700)
+    y_cursor = 64
+    tag_h = draw_tag(draw, category.upper(), 64, y_cursor, font_tag, tint)
+    y_cursor += tag_h + 32
 
-    # Category pill
-    font_tag = get_font(16, bold=True)
-    y_cursor = 160
-    draw_tag(draw, category.upper(), 64, y_cursor, font_tag)
-    y_cursor += 52
-
-    # Title
-    font_title = get_font(58, bold=True)
+    # Title, in the site's real display serif
+    font_title = get_font_display(56, weight=460)
     lines = wrap_text(draw, title, font_title, W - 160)
-    # If > 2 lines, reduce font size
     if len(lines) > 2:
-        font_title = get_font(46, bold=True)
+        font_title = get_font_display(44, weight=460)
         lines = wrap_text(draw, title, font_title, W - 160)
 
     for line in lines[:3]:
         draw.text((64, y_cursor), line, font=font_title, fill=hex_to_rgb(SURFACE))
         bbox = draw.textbbox((64, y_cursor), line, font=font_title)
-        y_cursor += (bbox[3] - bbox[1]) + 12
+        y_cursor += (bbox[3] - bbox[1]) + 14
 
-    y_cursor += 20
-
-    # Tagline
-    font_sub = get_font(26)
-    sub_lines = wrap_text(draw, tagline, font_sub, W - 160)
-    for line in sub_lines[:2]:
-        draw.text((64, y_cursor), line, font=font_sub, fill=hex_to_rgb(LABEL_DARK))
-        bbox = draw.textbbox((64, y_cursor), line, font=font_sub)
-        y_cursor += (bbox[3] - bbox[1]) + 8
-
-    # Bottom accent bar
-    bar_y = H - 8
-    draw.rectangle([(0, bar_y), (W, H)], fill=hex_to_rgb(ACCENT))
+    # Bottom accent bar in the category's tint
+    draw.rectangle([(0, H - 8), (W, H)], fill=hex_to_rgb(tint))
 
     # Save
     out_path = os.path.join(output_dir, f"{slug}.png")
@@ -182,7 +322,7 @@ ARTICLES = [
     },
     {
         "slug": "salesman-app-tally-india",
-        "title": "Salesman App for Tally in India: What Field Teams Actually Need",
+        "title": "What Field Teams Actually Need From a Tally App in India",
         "category": "Field Sales",
         "tagline": "View-only access covers half the job. Here's what closes the gap.",
     },
@@ -332,7 +472,7 @@ ARTICLES = [
     },
     {
         "slug": "view-tally-reports-on-mobile",
-        "title": "View Tally Reports on Mobile",
+        "title": "The Five Reports an Owner Actually Opens on a Phone",
         "category": "Tally Mobile",
         "tagline": "The five reports a distributor reads from the phone every day.",
     },
@@ -611,6 +751,828 @@ ARTICLES = [
         "title": "Is It Safe to Connect a Third-Party App to Tally?",
         "category": "Market Reality",
         "tagline": "What to check before any app touches your Tally data.",
+    },
+    # ── Backfill: the July 2026 batch shipped without header images, so 40 ──
+    # posts carried a broken hero and a 404 og:image for two weeks. Card
+    # titles are deliberately shorter than the posts' SEO frontmatter titles,
+    # since anything past two lines drops to a smaller face.
+    {
+        "slug": "accounts-payable-in-tally-for-distributors",
+        "title": "Accounts Payable in Tally",
+        "category": "Payables",
+        "tagline": "What you owe your suppliers this week, on the phone you already check.",
+    },
+    {
+        "slug": "accounts-payable-vs-receivable-distributor",
+        "title": "Accounts Payable vs Accounts Receivable",
+        "category": "Payables",
+        "tagline": "Two ledgers, opposite directions. Confuse them and cash goes missing.",
+    },
+    {
+        "slug": "sundry-creditors-tally-mobile",
+        "title": "Sundry Creditors in Tally on Mobile",
+        "category": "Payables",
+        "tagline": "Which supplier gets paid this Thursday, on your phone.",
+    },
+    {
+        "slug": "sundry-debtors-tally-mobile",
+        "title": "Sundry Debtors in Tally on Mobile",
+        "category": "Collections",
+        "tagline": "At 9 PM, the list of who still owes you, on the phone in your hand.",
+    },
+    {
+        "slug": "bills-payable-in-tally-explained",
+        "title": "Bills Payable in Tally, Explained",
+        "category": "Payables",
+        "tagline": "Which supplier bill falls due on the 3rd, and which on the 30th.",
+    },
+    {
+        "slug": "bills-receivable-in-tally-explained",
+        "title": "Bills Receivable in Tally",
+        "category": "Collections",
+        "tagline": "He says he paid last week. Which bill, though.",
+    },
+    {
+        "slug": "accounts-payable-ageing-report-tally",
+        "title": "Accounts Payable Ageing Report (Tally)",
+        "category": "Payables",
+        "tagline": "The supplier schedule hiding inside one lump creditor balance.",
+    },
+    {
+        "slug": "receivables-ageing-on-mobile-tally",
+        "title": "Receivables Ageing on Mobile",
+        "category": "Collections",
+        "tagline": "The quiet retailer who slid from 45 days to 92 unnoticed.",
+    },
+    {
+        "slug": "reduce-receivable-days-distributor",
+        "title": "Cut Receivable Days Without Losing the Retailer",
+        "category": "Collections",
+        "tagline": "Collect faster while the retailer still wants your stock.",
+    },
+    {
+        "slug": "bill-wise-payables-tracking-tally",
+        "title": "Bill-Wise Payables Tracking in Tally",
+        "category": "Payables",
+        "tagline": "Bill-wise is on for sales and off for purchases. That is the blur.",
+    },
+    {
+        "slug": "receivables-management-for-distributors",
+        "title": "Receivables Management: The Mobile Playbook",
+        "category": "Collections",
+        "tagline": "The whole playbook for running the book from a phone.",
+    },
+    {
+        "slug": "accounts-receivable-turnover-ratio-distributor",
+        "title": "Accounts Receivable Turnover Ratio",
+        "category": "Collections",
+        "tagline": "Same outstanding, very different business. The ratio tells them apart.",
+    },
+    {
+        "slug": "clean-up-old-receivables-tally",
+        "title": "Clean Up Old Receivables in Your Tally",
+        "category": "Collections",
+        "tagline": "Two-year-old bills nobody believes. How to clear them properly.",
+    },
+    {
+        "slug": "payment-due-date-tracking-tally",
+        "title": "Payment Due-Date Tracking in Tally",
+        "category": "Payables",
+        "tagline": "The bill that slips is never the one you remember.",
+    },
+    {
+        "slug": "tally-on-autopilot-for-distributors",
+        "title": "Tally on Autopilot",
+        "category": "Autopilot",
+        "tagline": "Forty opens a day, most of them typing. What runs itself.",
+    },
+    {
+        "slug": "tally-collections-on-autopilot",
+        "title": "Put Your Tally Collections on Autopilot",
+        "category": "Autopilot",
+        "tagline": "Chasing that runs whether anyone remembers to or not.",
+    },
+    {
+        "slug": "auto-invoice-dispatch-tally",
+        "title": "Auto Invoice Dispatch from Tally",
+        "category": "Autopilot",
+        "tagline": "The invoice sends itself the moment it is saved in Tally.",
+    },
+    {
+        "slug": "import-purchase-from-pdf-tally",
+        "title": "Supplier PDFs into Tally Purchase Entries",
+        "category": "Autopilot",
+        "tagline": "The supplier PDF stack becomes a review queue, not a typing queue.",
+    },
+    {
+        "slug": "hands-free-reconciliation-tally",
+        "title": "Hands-Free Reconciliation in Tally",
+        "category": "Autopilot",
+        "tagline": "The accountant's last hour of the day, given back.",
+    },
+    {
+        "slug": "scheduled-payment-reminders-tally",
+        "title": "Scheduled Payment Reminders",
+        "category": "Autopilot",
+        "tagline": "The chase diary moves out of your head and onto a clock.",
+    },
+    {
+        "slug": "tally-autopilot-vs-manual-entry",
+        "title": "Tally on Autopilot vs Typing Every Voucher",
+        "category": "Autopilot",
+        "tagline": "Ten minutes here and there, added up into arithmetic.",
+    },
+    {
+        "slug": "what-takkada-automates-in-tally",
+        "title": "What Takkada Can and Can't Automate",
+        "category": "Autopilot",
+        "tagline": "What runs on its own, and what you are still on the hook for.",
+    },
+    {
+        "slug": "daily-sales-report-tally-mobile",
+        "title": "Daily Sales Report from Tally",
+        "category": "Reports",
+        "tagline": "How much did we sell today, known before you reach home.",
+    },
+    {
+        "slug": "outstanding-receivables-report-tally",
+        "title": "Outstanding Receivables Report",
+        "category": "Reports",
+        "tagline": "How much is stuck in the market, party by party, with ageing.",
+    },
+    {
+        "slug": "party-wise-sales-report-tally",
+        "title": "Party-Wise Sales Report in Tally",
+        "category": "Reports",
+        "tagline": "Which retailers carry your business, ranked instead of guessed.",
+    },
+    {
+        "slug": "item-wise-sales-report-tally",
+        "title": "Item-Wise Sales Report from Tally",
+        "category": "Reports",
+        "tagline": "What moves, in quantity and value, checked from the godown floor.",
+    },
+    {
+        "slug": "salesman-wise-sales-report-tally",
+        "title": "Salesman-Wise Sales Report",
+        "category": "Reports",
+        "tagline": "Four salesmen, four routes, and numbers instead of gut feel.",
+    },
+    {
+        "slug": "purchase-report-tally-mobile",
+        "title": "Purchase Report from Tally",
+        "category": "Reports",
+        "tagline": "What came in, from whom, at what cost. Before the next order.",
+    },
+    {
+        "slug": "stock-summary-report-tally-mobile",
+        "title": "Stock Summary Report from Tally",
+        "category": "Reports",
+        "tagline": "Is it in stock, answered at the counter, not after a call.",
+    },
+    {
+        "slug": "cash-bank-report-tally-mobile",
+        "title": "Cash and Bank Position from Tally",
+        "category": "Reports",
+        "tagline": "How much is actually in the bank, before you commit the cheque.",
+    },
+    {
+        "slug": "profit-report-for-distributors-tally",
+        "title": "Profitability Report for Distributors",
+        "category": "Reports",
+        "tagline": "Three crore a month and no idea where the margin went.",
+    },
+    {
+        "slug": "mis-reports-for-distributors-tally",
+        "title": "MIS Reports for Distributors",
+        "category": "Reports",
+        "tagline": "The short fixed list an owner reads daily. No dashboard required.",
+    },
+    {
+        "slug": "tally-data-on-your-own-server",
+        "title": "Can My Tally Data Stay on My Own Server?",
+        "category": "Trust",
+        "tagline": "Your books already sit on your machine. Where the app layer can follow.",
+    },
+    {
+        "slug": "is-takkada-customisable",
+        "title": "Can Takkada Be Customised for My Business?",
+        "category": "Trust",
+        "tagline": "Does it bend to how you work, or do you bend to it.",
+    },
+    {
+        "slug": "where-is-my-tally-data-stored-takkada",
+        "title": "Where Is My Tally Data Stored?",
+        "category": "Trust",
+        "tagline": "Where the data sits, and who can actually look at it.",
+    },
+    {
+        "slug": "does-takkada-change-my-tally",
+        "title": "Does Takkada Change or Touch My Tally Data?",
+        "category": "Trust",
+        "tagline": "Whether anything reaches into your ledgers. Answered plainly.",
+    },
+    {
+        "slug": "creditors-vs-debtors-tally",
+        "title": "Creditors vs Debtors in Tally",
+        "category": "Tally Mobile",
+        "tagline": "One word confused, one ledger dirtied. The cheat sheet.",
+    },
+    {
+        "slug": "purchase-bill-tracking-tally",
+        "title": "Purchase Bills in Tally, and How to Track Them",
+        "category": "How-To",
+        "tagline": "Twelve deliveries a week. Miss one reference and the statement never ties.",
+    },
+    {
+        "slug": "advance-received-vs-bill-adjustment-tally",
+        "title": "Advance Received vs Bill Adjustment",
+        "category": "How-To",
+        "tagline": "Credit and outstanding on the same party, at the same time.",
+    },
+    {
+        "slug": "ledger-reconciliation-tally-distributor",
+        "title": "Ledger Reconciliation in Tally",
+        "category": "How-To",
+        "tagline": "Find the one entry behind the gap, instead of arguing about totals.",
+    },
+    {
+        "slug": "sample-post",
+        "title": "How Distributors Lose 15 Days of Cash Every Month",
+        "category": "Collections",
+        "tagline": "The gap between knowing who owes and actually collecting it.",
+    },
+    # ── August 2026 feature round: schemes, e-way bill, field sales, ──────
+    # customer-facing links, and WhatsApp own-number.
+    {
+        "slug": "dealer-scheme-management-tally",
+        "title": "Dealer Scheme Management in Tally",
+        "category": "Schemes",
+        "tagline": "Tally holds every invoice and none of the scheme logic.",
+    },
+    {
+        "slug": "season-scheme-settlement-agri-input",
+        "title": "Season Scheme Calculation for Dealers",
+        "category": "Schemes",
+        "tagline": "Promised in April, defended in October. How to keep it arguable-with.",
+    },
+    {
+        "slug": "scheme-credit-note-gst-distributors",
+        "title": "Scheme Credit Note GST Treatment",
+        "category": "Schemes",
+        "tagline": "When a payout reduces tax, and when it only moves money.",
+    },
+    {
+        "slug": "crop-protection-dealer-scheme-software",
+        "title": "Agri Input Dealer Scheme Software",
+        "category": "Schemes",
+        "tagline": "A year of turnover moves in two windows. The settlement comes later.",
+    },
+    {
+        "slug": "quantity-discount-vs-cash-discount-gst",
+        "title": "Quantity Discount vs Cash Discount",
+        "category": "Schemes",
+        "tagline": "One rewards how much he lifted. The other rewards when he paid.",
+    },
+    {
+        "slug": "e-way-bill-closure-rule-2026",
+        "title": "E-Way Bill Closure: Paused, Not Cancelled",
+        "category": "Compliance",
+        "tagline": "Nothing changed on 1 August 2026. Here is the real position.",
+    },
+    {
+        "slug": "e-way-bill-180-day-rule",
+        "title": "E-Way Bill 180 Days Rule",
+        "category": "Compliance",
+        "tagline": "Two portal-level walls, live since January 2025, with no workaround.",
+    },
+    {
+        "slug": "e-way-bill-with-e-invoice-auto-population",
+        "title": "E-Way Bill With E-Invoice: What Carries Across",
+        "category": "Compliance",
+        "tagline": "The IRN fills Part A. Part B is still yours to enter.",
+    },
+    {
+        "slug": "e-way-bill-expiry-extension-penalty",
+        "title": "E-Way Bill Expired: The Penalty and the Window",
+        "category": "Compliance",
+        "tagline": "The truck is on the road and the bill has run out. What the law says.",
+    },
+    {
+        "slug": "restrict-salesman-access-tally",
+        "title": "Restrict Salesman Access in Tally",
+        "category": "Field Sales",
+        "tagline": "Give him his parties without giving him every margin in the book.",
+    },
+    {
+        "slug": "salesman-visit-tracking-photo-proof",
+        "title": "Salesman Visit Tracking App",
+        "category": "Field Sales",
+        "tagline": "What actually proves he went, without following him all day.",
+    },
+    {
+        "slug": "salesman-order-to-tally-without-reentry",
+        "title": "Salesman Orders Into Tally, Typed Once",
+        "category": "Field Sales",
+        "tagline": "The order pad, the WhatsApp photo, and the evening retyping.",
+    },
+    {
+        "slug": "salesman-wise-collection-accountability",
+        "title": "Salesman-Wise Collection Report",
+        "category": "Field Sales",
+        "tagline": "Sales measured to the rupee, collection measured by feel.",
+    },
+    {
+        "slug": "customer-portal-for-distributors-india",
+        "title": "Customer Portal for Distributors in India",
+        "category": "Collections",
+        "tagline": "Four things you actually want. Only some of them need a portal.",
+    },
+    {
+        "slug": "customers-see-outstanding-online",
+        "title": "Can My Customers See Their Outstanding Online?",
+        "category": "Collections",
+        "tagline": "Yes, through a link. No account, only their own bills.",
+    },
+    {
+        "slug": "vendor-portal-pending-invoices",
+        "title": "Vendor Portal Pending Invoices",
+        "category": "Payables",
+        "tagline": "Why the principal's portal disagrees with your Tally, and how to fix it.",
+    },
+    {
+        "slug": "online-balance-confirmation-ledger",
+        "title": "Ledger Balance Confirmation Online",
+        "category": "Collections",
+        "tagline": "Do it quarterly. At year end the disagreements are already a year old.",
+    },
+    {
+        "slug": "let-buyers-choose-invoices-to-pay",
+        "title": "Let Buyers Choose Which Invoices to Pay",
+        "category": "Collections",
+        "tagline": "One lakh against nine bills. Who decides which ones it closed.",
+    },
+    {
+        "slug": "which-invoice-did-customer-pay-upi",
+        "title": "Which Invoice Did That UPI Payment Settle?",
+        "category": "Collections",
+        "tagline": "A UTR, a VPA, and no idea which bill just got paid.",
+    },
+    {
+        "slug": "send-reminders-from-your-own-whatsapp-number",
+        "title": "Reminders From Your Own WhatsApp Number",
+        "category": "Collections",
+        "tagline": "The number he has saved for eleven years gets opened. Early access.",
+    },
+    {
+        "slug": "whatsapp-business-api-own-number-vs-third-party",
+        "title": "WhatsApp API: Your Number or Theirs",
+        "category": "Collections",
+        "tagline": "Three tiers, one real trade-off, and who owns the number if you leave.",
+    },
+    {
+        "slug": "manage-multiple-branches-tally-godowns",
+        "title": "Manage Multiple Branches in Tally",
+        "category": "How-To",
+        "tagline": "One company file, three locations, every movement carrying its place.",
+    },
+    {
+        "slug": "what-is-godown-in-tally",
+        "title": "What is a Godown in Tally?",
+        "category": "How-To",
+        "tagline": "A godown answers where. A stock group answers what. Two questions.",
+    },
+    {
+        "slug": "godown-wise-stock-report-tally-mobile",
+        "title": "Godown-Wise Stock Report on Mobile",
+        "category": "Reports",
+        "tagline": "What is lying at the branch, today or as of any past date.",
+    },
+    {
+        "slug": "stock-transfer-between-godowns-tally-mobile",
+        "title": "Stock Transfer Between Godowns",
+        "category": "How-To",
+        "tagline": "The quantity is known once, at the loading dock. Record it there.",
+    },
+    {
+        "slug": "restrict-staff-warehouse-access-tally",
+        "title": "Restrict Staff to Their Own Warehouse",
+        "category": "Tally Mobile",
+        "tagline": "A storekeeper who moves his own stock, and nobody else's.",
+    },
+    {
+        "slug": "multi-location-inventory-app-tally-distributors",
+        "title": "Multi-Location Inventory App for Tally",
+        "category": "Market Reality",
+        "tagline": "Eight questions to ask before the second branch tests your choice.",
+    },
+    {
+        "slug": "create-godown-in-tally-from-mobile",
+        "title": "Create Godowns in Tally from Your Phone",
+        "category": "How-To",
+        "tagline": "The branch opens Monday. The master should exist Monday.",
+    },
+    {
+        "slug": "godown-on-sales-invoice-delivery-challan",
+        "title": "Godown on Invoices and Challans",
+        "category": "Tally Mobile",
+        "tagline": "Sales move the most stock out. Stamp the location there first.",
+    },
+    {
+        "slug": "branch-stock-visibility-for-distributors",
+        "title": "Branch Stock Visibility for Distributors",
+        "category": "Market Reality",
+        "tagline": "At 9 PM the question arrives where the desktop is not.",
+    },
+    {
+        "slug": "godown-ka-stock-mobile-se-kaise-dekhe",
+        "title": "Godown ka Stock Mobile se Kaise Dekhe",
+        "category": "How-To",
+        "tagline": "Counter par khade hue jawab, branch ko call kiye bina.",
+    },
+    {
+        "slug": "payment-recovery-dashboard-for-distributors",
+        "title": "Payment Recovery Dashboard for Distributors",
+        "category": "Collections",
+        "tagline": "The 8:40 card: due promises, missed dates, nobody chased.",
+    },
+    {
+        "slug": "customer-follow-up-log-for-collections",
+        "title": "Keep a Follow-up Log Against Every Outstanding Customer",
+        "category": "How-To",
+        "tagline": "Call, WhatsApp, visit: log it against the party.",
+    },
+    {
+        "slug": "promise-to-pay-tracking-distributors",
+        "title": "Promise to Pay: Record It, Date It, Know When It Was Broken",
+        "category": "Collections",
+        "tagline": "Date the promise. Missed only after Tally is quiet.",
+    },
+    {
+        "slug": "daily-collection-brief-for-distributor-owners",
+        "title": "The Morning Collection Brief: What to Look at Before the First Call",
+        "category": "Collections",
+        "tagline": "Open the card. Share it by hand.",
+    },
+    {
+        "slug": "assign-recovery-owner-per-customer",
+        "title": "One Owner per Outstanding Customer: Assigning Recovery Responsibility",
+        "category": "How-To",
+        "tagline": "One salesman per overdue party, reassigned in the app.",
+    },
+    {
+        "slug": "collection-team-board-recovered-outstanding-speed",
+        "title": "Recovered, Outstanding, Speed: Reading a Collection Team Board",
+        "category": "Collections",
+        "tagline": "Recovered, Outstanding, Speed on each member's card.",
+    },
+    {
+        "slug": "how-often-to-send-payment-reminders-cadence",
+        "title": "How Often to Send Payment Reminders: Presets and a Custom Cadence",
+        "category": "How-To",
+        "tagline": "Company-wide: every day, 2, 3 (default), or 7.",
+    },
+    {
+        "slug": "overdue-customers-nobody-has-chased",
+        "title": "The Overdue Customers Nobody Has Chased",
+        "category": "Collections",
+        "tagline": "The overdue parties with no call, no visit, no owner.",
+    },
+    {
+        "slug": "customer-payment-speed-median-days-to-pay",
+        "title": "Payment Speed: Median Days to Pay per Customer and per Salesman",
+        "category": "Reports",
+        "tagline": "Median days to pay, per customer and per salesman.",
+    },
+    {
+        "slug": "vasuli-ka-dashboard-mobile-par",
+        "title": "Vasuli ka Dashboard Mobile par: Kaun Kitna Baaki",
+        "category": "Collections",
+        "tagline": "Kaun kitna baaki, kisne kab promise kiya.",
+    },
+    {
+        "slug": "stockout-control-for-distributors-india",
+        "title": "Stockout Control for Distributors",
+        "category": "Market Reality",
+        "tagline": "Four numbers per item, read off Tally, before the godown goes dry.",
+    },
+    {
+        "slug": "reorder-point-formula-for-distributors",
+        "title": "The Reorder Point Formula for Distributors",
+        "category": "How-To",
+        "tagline": "Daily sales times lead time, plus a buffer, in cases and rupees.",
+    },
+    {
+        "slug": "supplier-lead-time-tracking-for-distributors",
+        "title": "Track Supplier Lead Time from Purchases",
+        "category": "How-To",
+        "tagline": "Median and worst case from your receipts, not the average.",
+    },
+    {
+        "slug": "lost-sales-due-to-stockout-how-to-measure",
+        "title": "Lost Sales Due to Stockout Leave No Invoice",
+        "category": "Market Reality",
+        "tagline": "The invoice register cannot name a sale that was never billed.",
+    },
+    {
+        "slug": "days-of-inventory-cover-distributor",
+        "title": "Days of Cover: How Many Days Stock Lasts",
+        "category": "How-To",
+        "tagline": "96 bottles, 24 a day: four days against a seven-day truck.",
+    },
+    {
+        "slug": "fast-moving-slow-moving-items-report-tally",
+        "title": "Fast-Moving and Slow-Moving Items from Tally",
+        "category": "Reports",
+        "tagline": "Velocity ranks movement. Stock sits beside it.",
+    },
+    {
+        "slug": "dead-stock-identification-tally-distributor",
+        "title": "Finding Dead Stock in Tally Before Year-End",
+        "category": "How-To",
+        "tagline": "Quiet for 90 days, still on the shelf, before March values it.",
+    },
+    {
+        "slug": "seasonal-stock-planning-for-distributors",
+        "title": "Seasonal Stock Planning for Distributors",
+        "category": "Market Reality",
+        "tagline": "Last year's item-wise sales is the forecast for this Puja.",
+    },
+    {
+        "slug": "why-record-sales-orders-in-tally-demand-visibility",
+        "title": "Why Record Sales Orders in Tally",
+        "category": "Tally Mobile",
+        "tagline": "Invoices show billed sales. Orders show promised demand.",
+    },
+    {
+        "slug": "stock-khatam-hone-se-pehle-kaise-pata-kare",
+        "title": "Stock Khatam Hone se Pehle Kaise Pata Kare",
+        "category": "How-To",
+        "tagline": "Char number, Tally stock, notebook ka lead time.",
+    },
+    {
+        "slug": "tally-reports-for-distributors-daily-checklist",
+        "title": "The Reports a Distributor Should Open Every Day",
+        "category": "Reports",
+        "tagline": "Outstanding at 8:30, Daybook at noon, Trial Balance when the month closes.",
+    },
+    {
+        "slug": "trial-balance-tally-mobile",
+        "title": "Trial Balance from Tally on Your Phone",
+        "category": "Reports",
+        "tagline": "A flat list from the synced books. Drill-down lives on the Balance Sheet.",
+    },
+    {
+        "slug": "profit-and-loss-statement-tally-mobile",
+        "title": "Profit and Loss Statement from Tally on Mobile",
+        "category": "Reports",
+        "tagline": "Income against expense, read from the Tally books on the phone.",
+    },
+    {
+        "slug": "balance-sheet-tally-mobile-distributor",
+        "title": "Reading Your Balance Sheet on the Phone",
+        "category": "Reports",
+        "tagline": "Group to sub-group to ledger. A Difference row means look in Tally.",
+    },
+    {
+        "slug": "daybook-tally-mobile",
+        "title": "Daybook from Tally on Your Phone",
+        "category": "Reports",
+        "tagline": "Today's vouchers on the phone, with Today and a voucher-type chip.",
+    },
+    {
+        "slug": "financial-year-totals-tally-mobile",
+        "title": "This Year's Sales, Purchases, Receipts and Payments",
+        "category": "Tally Mobile",
+        "tagline": "Ten register totals for this year, each tappable into its register.",
+    },
+    {
+        "slug": "tally-format-export-trial-balance-balance-sheet",
+        "title": "Tally-Format Export from the Phone",
+        "category": "How-To",
+        "tagline": "The same Tally layout your CA expects, from five statutory reports.",
+    },
+    {
+        "slug": "mis-report-vs-profit-and-loss-distributor",
+        "title": "MIS Report vs Profit and Loss",
+        "category": "Reports",
+        "tagline": "A 12-month movement grid versus a period result. Both have a job.",
+    },
+    {
+        "slug": "customise-ageing-slabs-receivables-tally",
+        "title": "Set Your Own Ageing Slabs for Receivables",
+        "category": "How-To",
+        "tagline": "Pharma 0-7-15-30. Agri 0-45-90-120. Remembered on that phone.",
+    },
+    {
+        "slug": "customer-payment-behaviour-report-tally",
+        "title": "Which Customers Pay Late",
+        "category": "Collections",
+        "tagline": "Which customers pay late, and how many days they take.",
+    },
+    {
+        "slug": "sales-analytics-report-tally-distributor",
+        "title": "Sales Analytics from Tally for Distributors",
+        "category": "Reports",
+        "tagline": "Past the sales register: which items moved, which parties bought.",
+    },
+    {
+        "slug": "customer-analytics-report-tally",
+        "title": "Customer Analytics from Tally",
+        "category": "Reports",
+        "tagline": "Who buys, how often, how much. PDF export, no Excel.",
+    },
+    {
+        "slug": "cross-sell-gap-report-distributors",
+        "title": "The Cross-sell Gap Report",
+        "category": "Reports",
+        "tagline": "Items a customer should be buying and is not.",
+    },
+    {
+        "slug": "bill-wise-vs-fifo-receivables-report",
+        "title": "Bill-wise vs FIFO",
+        "category": "Collections",
+        "tagline": "Three bills, one part payment. Bill-wise or FIFO.",
+    },
+    {
+        "slug": "who-can-see-which-reports-tally-team",
+        "title": "Who Can See Which Reports",
+        "category": "Tally Mobile",
+        "tagline": "Reports tab is all or nothing per team member.",
+    },
+    {
+        "slug": "export-tally-report-to-excel-from-mobile",
+        "title": "How to Export a Tally Report to Excel from Your Phone",
+        "category": "How-To",
+        "tagline": "Eleven reports get Excel. Two are PDF only. Daybook is CSV.",
+    },
+    {
+        "slug": "share-tally-report-pdf-on-whatsapp",
+        "title": "How to Share a Tally Report as PDF on WhatsApp",
+        "category": "How-To",
+        "tagline": "Report PDFs leave through the phone share sheet. Web is text only.",
+    },
+    {
+        "slug": "pending-bills-statement-vs-ledger-statement-whatsapp",
+        "title": "Pending Bills or Full Ledger on WhatsApp",
+        "category": "Collections",
+        "tagline": "Ledger Account or Pending Bills. Include details. That is the list.",
+    },
+    {
+        "slug": "send-statement-from-own-whatsapp-vs-business-number",
+        "title": "Own WhatsApp or the Business Number",
+        "category": "Collections",
+        "tagline": "Own WhatsApp opens your chat. Business number shows queued.",
+    },
+    {
+        "slug": "tally-ki-report-mobile-par-kaise-dekhe",
+        "title": "Tally ki Report Mobile par Kaise Dekhe",
+        "category": "How-To",
+        "tagline": "Reports screen, two groups. Share sheet se WhatsApp.",
+    },
+    {
+        "slug": "beat-wise-sales-management-tally-distributors",
+        "title": "Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders",
+        "category": "Field Sales",
+        "tagline": "Station Road at 10:40. A photo, a load sheet, an order in Tally.",
+    },
+    {
+        "slug": "what-is-a-beat-in-distribution-sales",
+        "title": "What Is a Beat in Distribution Sales (and How Many Dealers Fit in One)",
+        "category": "Market Reality",
+        "tagline": "A beat is a named dealer list. Station Road holds twenty-four shops.",
+    },
+    {
+        "slug": "create-beats-and-assign-salesman-mobile",
+        "title": "Create Beats and Assign a Salesman from Your Phone",
+        "category": "How-To",
+        "tagline": "Type Station Road, add Gupta Stores, put Raju on it.",
+    },
+    {
+        "slug": "dispatch-load-sheet-for-distributors",
+        "title": "The Dispatch Load Sheet: What Goes Out Today, Beat by Beat",
+        "category": "How-To",
+        "tagline": "Pending orders in a 3-day window, then a Load sheet per beat.",
+    },
+    {
+        "slug": "mark-orders-delivered-without-touching-tally",
+        "title": "Mark Orders Delivered Without Touching Tally",
+        "category": "Tally Mobile",
+        "tagline": "Tick Mark delivered. Tally is not told. The Sales Order stays open.",
+    },
+    {
+        "slug": "customer-self-order-link-for-distributors",
+        "title": "A Self-Order Link for Your Dealers: They Order, You Convert",
+        "category": "Field Sales",
+        "tagline": "Gupta Stores opens a WhatsApp link. You convert with one tap.",
+    },
+    {
+        "slug": "pending-orders-not-yet-invoiced-distributor",
+        "title": "Pending Orders: Every Order Not Yet Invoiced, in One List",
+        "category": "Tally Mobile",
+        "tagline": "Every Sales Order not yet invoiced, in one list.",
+    },
+    {
+        "slug": "voucher-type-permissions-for-team-members-tally",
+        "title": "Let a Salesman Raise Orders but Never an Invoice: Voucher-type Permissions",
+        "category": "How-To",
+        "tagline": "Raju can raise the order. He cannot raise the invoice.",
+    },
+    {
+        "slug": "geo-tagged-visit-photo-vs-all-day-gps-tracking",
+        "title": "Geo-tagged Visit Photo vs All-day GPS Tracking for Salesmen",
+        "category": "Comparisons",
+        "tagline": "Photo, location, time at the counter. The rest of Tuesday is his.",
+    },
+    {
+        "slug": "visit-duration-and-check-out-field-sales",
+        "title": "How Long Was He at the Dealer: Check-out, Duration and Distance",
+        "category": "Field Sales",
+        "tagline": "At the dealer 12 minutes. Checked out 40 m from the start.",
+    },
+    {
+        "slug": "offline-visit-check-in-for-salesmen",
+        "title": "Visit Check-in With No Signal: Saved on the Phone, Uploaded Later",
+        "category": "Field Sales",
+        "tagline": "Check-in saved on this phone. Orders wait for signal.",
+    },
+    {
+        "slug": "field-visit-outcomes-orders-booked-vs-dealers-visited",
+        "title": "Visit Outcomes: Orders Booked on the Visit vs Everything at That Dealer",
+        "category": "Field Sales",
+        "tagline": "Booked on these visits vs At the dealers visited.",
+    },
+    {
+        "slug": "fake-gps-location-field-sales-what-happens",
+        "title": "Fake GPS on a Salesman's Phone: What the App Does and What It Does Not",
+        "category": "Field Sales",
+        "tagline": "Mock location refused. Exemption marked Unverified.",
+    },
+    {
+        "slug": "salesman-ki-visit-mobile-se-kaise-track-kare",
+        "title": "Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)",
+        "category": "How-To",
+        "tagline": "Camera photo, location, time. All-day GPS nahi.",
+    },
+    {
+        "slug": "salesman-targets-and-commission-from-tally",
+        "title": "Salesman Targets and Commission Computed from Tally Sales",
+        "category": "Field Sales",
+        "tagline": "₹8,00,000 target. Commission from Tally sales, not receipts.",
+    },
+    {
+        "slug": "sales-incentive-on-orders-or-invoices",
+        "title": "Incentive on Orders or on Invoices: Pick a Basis and Stick to It",
+        "category": "Comparisons",
+        "tagline": "Orders or invoices. Pick a basis. Leave it for the period.",
+    },
+    {
+        "slug": "order-attribution-and-reassignment-salesman",
+        "title": "Who Gets Credit for the Order: Attribution and Reassignment",
+        "category": "How-To",
+        "tagline": "Reassign the credit. The Tally voucher stays put.",
+    },
+    {
+        "slug": "gps-tracking-app-for-salesman-what-to-look-for",
+        "title": "GPS Tracking App for Salesmen: What to Look For Before You Buy",
+        "category": "Market Reality",
+        "tagline": "Photo check-in, mock-location honesty, Tally Sales Orders.",
+    },
+    {
+        "slug": "sales-team-leaderboard-for-distributors",
+        "title": "A Sales Team Leaderboard From Your Own Tally Books",
+        "category": "Field Sales",
+        "tagline": "Rank from Tally sales. Receipts do not move the row.",
+    },
+    {
+        "slug": "a-day-on-a-beat-distributor-field-sales-routine",
+        "title": "A Day on a Beat: The Field Sales Routine, Hour by Hour",
+        "category": "Market Reality",
+        "tagline": "Today's load, photo check-in, Sales Order, Team Sales at 8 PM.",
+    },
+    {
+        "slug": "tally-whatsapp-integration",
+        "title": "Tally WhatsApp Integration for Payment Reminders and Invoices",
+        "category": "Integration",
+        "tagline": "Invoice PDF on WhatsApp. Reminders scheduled. Zero MDR UPI.",
+    },
+    {
+        "slug": "accounts-receivable-automation",
+        "title": "Accounts Receivable Automation for Tally",
+        "category": "Receivables",
+        "tagline": "Track outstanding, send WhatsApp reminders, collect UPI.",
+    },
+    {
+        "slug": "receivables-management-software",
+        "title": "Receivables Management Software for Tally",
+        "category": "Receivables",
+        "tagline": "Party balances on phone. Direct collection. Tally sync.",
+    },
+    {
+        "slug": "distributor-management-software",
+        "title": "Distributor Management Software for Indian Businesses",
+        "category": "Distribution",
+        "tagline": "Orders, invoicing, collections and auto-reconciliation around Tally.",
     },
 ]
 

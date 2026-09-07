@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "slug": "customer-order-link",
+  "topicId": "customer-order-link",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 4",
+  "screensRead": [
+    "lib/screens/settings/customer_order_link_settings_screen.dart",
+    "lib/screens/customer_order_inbox_screen.dart",
+    "lib/screens/customer_order_detail_screen.dart",
+    "lib/widgets/customer_order/customer_order_link_share_card.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["turn-the-link-on", "choose-prices-and-items", "share-the-link", "review-and-approve"],
+    "stuckStatesPublished": [
+      "feature not switched on for the business",
+      "empty catalogue from the out-of-stock filter",
+      "wrong prices from the price level or an override",
+      "approve blocked by an unmatched buyer or unloaded GST details",
+      "order created but link-back unfinished",
+      "customer holding a rotated-away link"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": "public_customer_ordering",
+    "sectionFeatureKeys": ["public_customer_ordering"],
+    "permissionsDescribed": [
+      "link setup is admin/company-wide",
+      "approving creates a sales order, so needs the sales-order create right"
+    ],
+    "notes": "CustomerOrderAccessService offers no in-app enable path; the guide says contact support rather than inventing a settings toggle."
+  },
+  "visibilityBlocked": [],
+  "deliberateOmissions": [
+    "Per-customer personal links are mentioned in the settings copy but were not given their own procedure; the topic inventory scopes this guide to the public link.",
+    "The public ordering page and the pay pages are stated to carry no help of their own, per the coordinating access truth table (no help widgets on unauthenticated surfaces). No copy was written for those pages."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

@@ -18,22 +18,40 @@ Four sub-ICPs:
 
 ## 3. Pricing (GST extra on all prices, annual per-customer MRP)
 
-Plans:
-- View Only: ₹2,700
-- Voucher Model: ₹4,500
-- Collections Model: ₹6,480
-- Full Access / Auto Dispatch: ₹8,499. Headline feature is Auto Invoice Dispatch (every Tally invoice fires on WhatsApp the moment it's created). Import from PDF (turn a supplier PDF into a purchase entry) is bundled in. Role-based access is included as a secondary benefit, not the hero.
+Rate card rebuilt 2026-07-25 to anchor against Livekeeping's ₹3,000 / ₹5,000 / ₹7,000 ladder. The live source of truth is `pricing` in `src/data/siteContent.js`; this section mirrors it and `src/data/schema.test.js` pins it. Every price string on the site is derived from `annualPrice` through `formatInr` / `planPricing` — never hand-write a rupee figure into a component.
 
-Extra devices (per year): View Only ₹1,500; Voucher/Collections/Full Access ₹3,000.
+Plans:
+- **Clarity: ₹2,900.** Read the books on mobile. Receivables, automated WhatsApp reminders, ledger/invoice share, 20+ reports, unlimited companies, 1 user.
+- **Momentum: ₹4,500.** Adds voucher creation and editing from mobile and web, delivery challans, sales orders, custom invoice PDF template.
+- **Assurance: ₹6,480.** Adds E-Invoice (IRN + QR) and E-Way Bill generation from the phone, written back into Tally against the same voucher.
+- **Copilot: ₹8,500.** Everything. Import from PDF, bank statement import, Auto Invoice Dispatch, Reports +, role-based salesman access. This is the highlighted "Most Popular" card.
+
+  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12). **Pending Orders stays out of the pricing matrix.** It was pulled on 2026-07-25 (zero active companies); re-verified 2026-08-03 it is a paid add-on active on 3 prod companies, so a capability claim (no adoption claim) is allowed on the homepage feature grid — but it is not a rate-card row. Re-check before adding any new row.
+
+Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts each stays absent: **View Only** (₹2,700), **Voucher Model**, **Collections Model**, **Full Access / Auto Dispatch** (₹8,499).
+
+**3-year term: 25% off, billed once.** Per-year effective rates ₹2,175 / ₹3,375 / ₹4,860 / ₹6,375. The site defaults to the 3-year column (`pricing.defaultTerm`).
 
 Add-ons (per year):
-- Import from PDF (turn a supplier PDF into a Tally purchase entry). Included in Full Access; available as add-on on the Collections plan, ₹4,000
-- Auto Invoice Dispatch. Included in Full Access / Auto Dispatch; available as add-on on Collections plan only, ₹1,500
-- WhatsApp 8,000-message pack: ₹2,000
+- **Payment Collection: ₹1,500.** UPI links on every invoice, zero MDR, auto-reconciled into Tally. Available on **every** plan; it is no longer bundled into any tier.
 - Extra user: ₹3,000
-- Extra business (Collections or Full Access only): ₹1,000
+- Extra device: removed 2026-08-12 — nothing in the product or the partner rate card sells a per-device price; it was drift, not an offer. Do not re-add without asking
+- Extra business: removed from the public rate card 2026-08-04 (operator direction) — do not re-add without asking
+- WhatsApp 8,000-message pack: ₹2,000
+- Your own WhatsApp Business number: ₹2,000 (early access — zero enabled customers as of 2026-08-03; "early access" wording is mandatory anywhere this is mentioned)
+- **Customer Order Link: ₹3,999** (operator-set 2026-08-11). Retailers order from a link and the merchant approves each order into Tally as a sales order. Derived through `formatInr(3999)`, not typed. **Ships on the same branch as `/order-booking-app-tally` and behind the same gate**: the v2 backend is stage-only, so publishing this price before it reaches prod would put a figure on something a prod customer cannot be given. Do not lift this pill onto `main` on its own.
 
-Extra business rule: View Only and Voucher customers pay nothing for extra businesses; Collections and Full Access pay ₹1,000 per extra business.
+Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
+
+**Bigger setups** (published on the public rate card 2026-08-11; the live source is `biggerSetups` in `src/data/siteContent.js`, pinned by `src/routes/__tests__/pricing-table.test.jsx`):
+- **Host it on your own server: ₹30,000 one-time implementation, then ₹15,000/year maintenance from the second year.** The customer's database and backend run on their own server.
+- **Consolidated reports across companies: custom pricing.** One combined view of receivables, sales and reports across every company the customer runs.
+
+Both figures are operator-supplied (2026-08-06) and print on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
+
+These are deliberately **not** plan columns and **not** capability-matrix rows: neither is priced per user, and the self-hosting line carries two figures on two different clocks, which the add-on pill strip (label + one price string) cannot render without dropping one. They close the rate table as their own block. Do not "tidy" either one into the matrix or the add-on list.
+
+Claims discipline: both are capability claims with **zero delivered deployments as of 2026-08-11**. No adoption language anywhere near them, and the first buyer is also the first implementation. `pitch-deck/product-deck-claims-2026-08.md` still records these two rows as "not on the public site/rate card" and needs correcting now that they are.
 
 ## 4. GTM motion
 
@@ -56,7 +74,7 @@ Don't:
 - No cheap shots at competitors or the customer's current workflow
 - No AI/roadmap promises that aren't shipped
 - End sections with statements, not questions
-- No vanity numbers. We have 20 customers. Do not invent "trusted by thousands". If a claim isn't true, it goes on the editing floor.
+- No vanity numbers. The public scale figures are: **100+ businesses and ₹17Cr+ collected monthly — platform-wide figures, founder-confirmed 2026-07-06**. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+/₹17Cr stats down to it. Beyond these two confirmed figures, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor.
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
@@ -104,9 +122,10 @@ Component patterns:
 
 ## 7. Typography rule
 
-The shipped site uses **one family and no others: Plus Jakarta Sans** — the exact font the Takkada Flutter app uses (the app loads it via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`). This replaced the previous Inter + DM Serif Display pairing on 2026-06-18 (second pass) because the operator wanted the landing to read as the same brand as the app, and the serif headings + Inter body did not. The earlier "two families, do not add Plus Jakarta Sans" rule is dead — it was based on the false premise that the sage teardown already matched the app.
+The shipped site uses **two families**: Plus Jakarta Sans for body/UI (the exact font the Takkada Flutter app uses via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`) and **Fraunces as the display serif for headings**, added deliberately by the 2026-06-29 premium overlay (`src/premium.css`, "One tasteful type addition"). `premium.css` imports after `styles.css` in `src/main.jsx` and re-points `--font-serif` at `--font-display: 'Fraunces', …`, so every `var(--font-serif)` heading rule renders Fraunces. The earlier "one family only / the Fraunces link is vestigial" note (2026-06-18 second pass) predates that overlay and is dead — the Fraunces `<link>` in `index.html` is load-bearing; removing it silently reverts every heading to Plus Jakarta Sans (this nearly shipped once, 2026-07-06).
 
-- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body, UI, and headings. Exposed as both `--font-sans` and `--font-serif` (the `--font-serif` token name is retained only for backward compatibility with the many `var(--font-serif)` heading rules; it now resolves to Plus Jakarta Sans, not a serif).
+- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body and UI, exposed as `--font-sans`.
+- **Fraunces** (opsz, weights 500;600;700), same `<link>`. Used for headings via `--font-display`/`--font-serif` in `src/premium.css`.
 - **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), not from a serif face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
 
 Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. The self-hosted Inter `.ttf` under `public/assets/fonts/` is now unreferenced; leave it or delete it, but do not wire it back in.
@@ -163,7 +182,7 @@ Current entry points and commands:
 
 The Takkada site is not a marketing brochure. It's the first place a distributor, a Tally partner, or an investor forms an opinion about the quality of the product behind it. If the site feels slow, cluttered, or generic, they assume the product is too. The website is the product's first demo.
 
-The craft bar is borrowed, with modification, from Stripe's website redesign principles. Stripe's principles come from a company with global scale; ours have to work at a 20-customer startup that is honest about being 20 customers. Translate the principles, don't imitate the execution.
+The craft bar is borrowed, with modification, from Stripe's website redesign principles. Stripe's principles come from a company with global scale; ours have to work at an early-stage startup that is honest about its real numbers (see §5). Translate the principles, don't imitate the execution.
 
 Eleven craft commandments. Every component Claude Code writes must satisfy these, or the work is incomplete:
 
@@ -173,7 +192,7 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 
 3. **Every claim must be a specific behavior, not a superlative.** "Fast", "seamless", "enterprise-grade", "world-class" are banned. Replace with: "invoice reaches the customer in under 10 seconds of save", "₹1,00,000 across three invoices auto-splits", "works in 2G-zone villages where Tally can't load." Specificity is the signature of someone who has actually seen the problem.
 
-4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. We have 20 customers. Our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
+4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. Our confirmed public figures are 100+ businesses on the platform and ₹17Cr+ collected monthly (see §5); beyond those, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
 
 5. **Motion serves meaning or it doesn't exist.** No decorative animations. If a button, card, or transition moves, the motion must reflect what the product actually does. A reconciliation card matching and snapping into place, an invoice PDF sliding toward a WhatsApp bubble. Motion that doesn't teach is deleted. Default state: no motion. Opt-in per-component with a reason documented in the component file header.
 
@@ -209,6 +228,6 @@ If any check fails, fix before commit. Do not commit with outstanding craft issu
 Legal entity: Pay Saathi Innovation LLP
 Founded: December 2025
 Registered in Guwahati, Assam
-Contact: ronak@paysaathi.com, +91 94359 77777
+Contact: ronak@paysaathi.com, +91 70191 52071
 Scheduling link: https://calendar.notion.so/meet/ronakmalu/takkada
 Domains: takkada.com (primary), takkada.in, paysaathi.com

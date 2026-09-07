@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "slug": "party-ledger",
+  "topicId": "party-ledger",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 3",
+  "screensRead": [
+    "lib/screens/parties_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/screens/settings/statements_settings_screen.dart",
+    "lib/widgets/parties/parties_list_header.dart",
+    "lib/widgets/member_permissions/ledger_scope_section.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["find-the-party", "set-the-statement-period", "share-a-statement"],
+    "stuckStatesPublished": [
+      "no transactions found for the chosen period",
+      "balance disagrees with Tally",
+      "recent bill missing pending sync",
+      "share statement fails",
+      "statement contents are owner-controlled"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": null,
+    "sectionFeatureKeys": [],
+    "permissionsDescribed": [
+      "party read scope: ledger_scope All parties vs Only some, from LedgerScopeSection",
+      "statement document/details are company settings, owner-only"
+    ],
+    "notes": "The plan cell named settings/statements_settings_screen.dart for 'sharing'; that screen holds only the company-wide document choice, so the sharing steps themselves were read from party_details_screen.dart."
+  },
+  "visibilityBlocked": [],
+  "deliberateOmissions": [
+    "Payment-link injection into statements/reminders exists on the party screen but belongs to the payments/reminders topics; not described here.",
+    "UPI collect QR on the party page is left to the collection guides."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

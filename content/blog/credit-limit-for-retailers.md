@@ -1,7 +1,7 @@
 ---
 title: "Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It"
 slug: "credit-limit-for-retailers"
-meta_title: "Credit Limit for Retailers: How Distributors Set and Enforce It"
+meta_title: "Credit Limit for Retailers: How to Set and Enforce It"
 meta_description: "A practical method for setting retailer credit limits, enforcing hold-on-dispatch, and revising up or down based on payment history."
 primary_keyword: "credit limit for retailers"
 date: "2026-05-06"

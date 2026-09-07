@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "slug": "ledger-mapping",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/ledger_config_screen.dart",
+    "lib/widgets/ledger_config_guard.dart",
+    "lib/screens/settings/invoices_settings_screen.dart",
+    "lib/config/settings_catalog.dart",
+    "lib/config/app_router.dart"
+  ],
+  "accessBasis": {
+    "featureKey": null,
+    "gate": "Company-scope settings category (SettingsScope.company) is hidden from non-admins by SettingsCatalog.visibleCategories and guarded in the router; the screen itself has no feature key.",
+    "route": "/ledger-config"
+  },
+  "behaviourReviewed": [
+    "Six generic GST slots; a slot's red star follows gstGenericSlotIsRequired and stops being required once every rate row for that side/tax is filled.",
+    "Rate-specific rows are added on screen via the Add a rate chips or the Add a GST rate dialog; no hardcoded slab list.",
+    "gstLedgerConfigIsComplete resolves a rate through its rate key first, then its generic key; Save is disabled otherwise.",
+    "Optional ledgers (Round Off, Additional Charge, Discount, TDS) never block Save.",
+    "Extra charge/discount rows: blank row ignored, half-filled row blocks Save with a per-row reason, duplicate name refused, duplicate ledger refused (including against a fixed slot) because SalesInvoiceService merges entries sharing a ledger_id.",
+    "Reverse-charge card is collapsed by default and carries its own explanatory subtitle.",
+    "Misdirected-GST banner is a warning, not a block, and is the only place a customer learns tax is landing on another rate's ledger.",
+    "LedgerConfigGuard shows Setup Required / Configure Ledgers before invoice creation when the mapping is incomplete."
+  ],
+  "screenExplanationsPreserved": [
+    "Generic section subtitle (both variants)",
+    "Rate section subtitle (both variants)",
+    "Reverse charge subtitle",
+    "Extra charges subtitle",
+    "Info banner: Create missing ledgers in Tally, then sync to see them here."
+  ],
+  "deliberatelyOmitted": [
+    "No tax-law guidance on which rate or which ledger a business should use.",
+    "No plan-tier or price wording.",
+    "Internal config keys (output_cgst, extra_1) are not exposed to readers."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug ledger-mapping — OK"
+}

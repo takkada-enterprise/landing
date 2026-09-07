@@ -77,7 +77,7 @@ For a seed and fertilizer distributor, an agri-input distributor receivables app
 - **UTR auto-matching into the books**, so lump-sum harvest payments covering several invoices reconcile to the right ones without screenshots
 - **A receipt voucher posted back into Tally automatically**, so a season's worth of bunched collection does not become a month of manual entry
 
-Takkada is built on top of the distributor's existing Tally for exactly this trade. The full feature checklist is in the rundown of the [payment collection app for distributors](/blog/payment-collection-app-for-distributors-india/), and the Tally-side reconciliation is covered in [nil MDR UPI collection on Tally invoices](/blog/nil-mdr-upi-collection-on-tally-invoices/).
+Takkada is built on top of the distributor's existing Tally for exactly this trade. The full feature checklist is in the rundown of the [payment collection app for distributors](/blog/payment-collection-app-for-distributors-india/), and the Tally-side reconciliation is covered in [nil MDR UPI collection on Tally invoices](/blog/nil-mdr-upi-collection-on-tally-invoices/). The season-cycle view of the same workflow, ageing slabs through scheme settlement, is on the [agri-input distribution page](/tally-app-for-agri-input-distributors/).
 
 ## Frequently Asked Questions
 

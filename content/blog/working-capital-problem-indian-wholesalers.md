@@ -5,6 +5,7 @@ meta_title: "Working Capital Problem for Indian Wholesalers in 2026"
 meta_description: "Why the working capital problem for Indian wholesalers is structural, not seasonal. Credit terms, DSO math, MSME Samadhaan data, and what fixes the gap."
 primary_keyword: "working capital problem indian wholesalers"
 date: "2026-04-25"
+updated: "2026-08-09"
 author: "harsh"
 category: "Market Reality"
 excerpt: "An Indian wholesaler — call it a ₹15 crore turnover distributor of FMCG goods in a Tier 2 city — runs on roughly this rhythm. They buy goods from 8 to 15 brands on 30-day credit terms. They sell those goods to 80 to 200 retailers on 45 to 60-day credit terms. They earn a 3 to 5% gross margin, which after operating costs (rent, salaries, transport, GST compliance) leaves a 1 to 2% net."
@@ -82,7 +83,7 @@ Net effect: the working capital problem is structurally worse than it was in 202
 
 Three behavioural changes show up in distributors who have actually reduced their working capital gap.
 
-They moved invoicing and collections to mobile. Not as a trend, but to compress the time from sale to payment-link-in-buyer's-hand from 4 to 8 hours down to under 60 seconds. Speed of dispatch directly correlates with speed of payment.
+They moved invoicing and collections to mobile. Not as a trend, but to compress the time from sale to payment-link-in-buyer's-hand from 4 to 8 hours down to under 60 seconds. Speed of dispatch directly correlates with speed of payment. On a book of 80 to 200 kirana retailers this is most of the fight, which is what a [Tally app for FMCG distributors](/tally-app-for-fmcg-distributors) has to be judged on.
 
 They introduced explicit credit policy per party. Credit limit, credit period, collection priority — written down, not held in the owner's head. Parties past 60 days have dispatch held until clearance.
 

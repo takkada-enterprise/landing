@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "slug": "e-invoice",
+  "topicId": "e-invoice",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 5",
+  "screensRead": [
+    "lib/screens/generate_e_invoice_screen.dart",
+    "lib/screens/einvoice_details_screen.dart",
+    "lib/screens/sales_invoice_detail_screen.dart",
+    "lib/widgets/credentials/whitebooks_credentials_form.dart",
+    "lib/widgets/gst_compliance_cancellation_sheet.dart",
+    "lib/utils/gst_compliance_action_gates.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["generate", "read-the-result", "cancel-the-gst-document"],
+    "stuckStatesPublished": [
+      "no e-invoice button (feature off, or IRN already present)",
+      "portal rejection naming the buyer's GST details",
+      "waiting-for-Tally disabled state",
+      "invoice locked from cancellation once a GST document exists",
+      "IRN success is not evidence the invoice reached Tally"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": "einvoice_ewaybill_mobile",
+    "sectionFeatureKeys": ["einvoice_ewaybill_mobile"],
+    "permissionsDescribed": [
+      "einvoice_ewaybill_mobile fails closed: the action is hidden, not disabled, when the entitlement is absent or still resolving",
+      "the invoice must be saved and visible to the member"
+    ],
+    "notes": ""
+  },
+  "lawVersusApp": {
+    "claimsDeclined": [
+      "Any turnover threshold or start date for mandatory e-invoicing. The app contains no such rule and no official source was consulted, so the guide states plainly that eligibility is a matter of law and points the reader to their accountant or the official portal.",
+      "Any statement of the portal's cancellation window length. The app passes the request on and does not encode a duration; the guide says the portal has its own limit without naming it."
+    ]
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "wait-for-Tally gate",
+      "featureKeys": ["irn_waits_for_tally"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "the disabled STATE and its on-screen sentence are documented as a stuck state a customer may meet, but the feature key is NOT declared in sections[].featureKeys, is not named, and is not presented as something to enable or buy"
+    },
+    {
+      "surface": "app-owned voucher types interaction with the gate",
+      "featureKeys": ["app_owned_voucher_types"],
+      "reason": "is_customer_visible = false",
+      "action": "reviewed and deliberately not published"
+    }
+  ],
+  "deliberateOmissions": [
+    "No description of the Edge Function 409 behaviour or any internal error text; the guide describes only what a customer sees.",
+    "Stock-journal-sourced compliance documents are left to their own surface."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

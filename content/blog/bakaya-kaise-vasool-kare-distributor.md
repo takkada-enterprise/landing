@@ -5,6 +5,7 @@ meta_title: "Bakaya Kaise Vasool Kare: Distributor Vasuli Guide"
 meta_description: "Bakaya kaise vasool kare: practical guide distributor ke liye. Retailer se bakaya clear karwane ka cadence, UPI link, ledger aur dispatch hold ka tareeka."
 primary_keyword: "bakaya kaise vasool kare"
 date: "2026-06-21"
+updated: "2026-08-09"
 author: "harsh"
 category: "Collections"
 excerpt: "Ek Indore ka FMCG distributor, 90 parties, hamesha ₹38 lakh bakaya phasa rehta tha aur month-end pe ledger photo bhejne mein do din nikal jaate the. Cadence fix kiya, har invoice pe UPI link laga diya, to 4 mahine mein DSO 68 din se 49 din pe aa gaya. ₹11 lakh wapas bank mein aa gaya."
@@ -41,7 +42,7 @@ Sabse common galti: month-end pe pura partywise ledger ki photo kheench ke bhej 
 
 Jo cheez kaam karti hai woh ulta hai. Ek invoice, ek amount, ek due date, aur saath mein ek UPI link jisko dabane se paisa direct chala jaata hai. "Bhai invoice #1247, ₹14,320, 20 tareekh ko due. Link se bhej do, do minute ka kaam hai." Retailer ke liye link dabana 5 second ka kaam hai, IFSC daal ke NEFT karna 5 minute ka. Behaviour simple hai. Jo asaan hai woh pehle pay hota hai.
 
-Iska matlab ye nahi ki ledger kabhi nahi bhejna. Jab koi party 60 din paar kar gayi aur poora hisaab manga rahi hai, tab ledger statement kaam ka hai. Tally se nikla saaf partywise statement bhejna alag baat hai. Isko hum ne yahan detail mein likha hai: [partywise outstanding statement Tally](/blog/partywise-outstanding-statement-tally/). Par routine vasuli ke liye ledger blast band karo, single-invoice reminder shuru karo.
+Iska matlab ye nahi ki ledger kabhi nahi bhejna. Jab koi party 60 din paar kar gayi aur poora hisaab manga rahi hai, tab ledger statement kaam ka hai. Tally se nikla saaf partywise statement bhejna alag baat hai. Isko hum ne yahan detail mein likha hai: [partywise outstanding statement Tally](/blog/partywise-outstanding-statement-tally/). Poore period ka hisaab maanga ho to [ledger statement on WhatsApp](/share-ledger-statement-whatsapp) phone se hi bhej sakte ho, party aur date range choose karke, PDF seedha uske chat mein. Par routine vasuli ke liye ledger blast band karo, single-invoice reminder shuru karo.
 
 ## Reminder cadence: kab kya message bhejna hai
 

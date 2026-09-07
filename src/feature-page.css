@@ -1,0 +1,718 @@
+/* Feature landing pages (src/components/FeaturePage.jsx).
+ *
+ * Everything here either extends a class that already exists in styles.css or
+ * adds a pattern the shared vocabulary genuinely lacks: the front-loaded answer
+ * block, the alternating screenshot walk-through, a comparison table whose
+ * cells hold sentences instead of tick marks, and the plan pointer. Tokens
+ * only, no new colours (CLAUDE.md §6).
+ *
+ * Motion: one deliberate exception to "no motion of its own" (craft rule 5) —
+ * the scroll-driven order tour at the bottom of this file, whose reason lives
+ * in FeatureTour.jsx's header. Everything else stays still; the FAQ accordion
+ * comes from the shared FAQItem.
+ */
+
+/* ── Hero ──
+ * Two columns on desktop: the copy carries the search phrase and the answer
+ * block, the mockup carries the proof. The mockup is the LCP element on these
+ * pages, so it is sized in the markup and never lazy. */
+.feature-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 64px;
+  align-items: center;
+}
+
+/* The mockups carry their own device frame on a transparent background, so a
+ * box-shadow would draw a rectangle behind a phone-shaped hole. drop-shadow
+ * follows the alpha silhouette instead. Same reason there is no border-radius:
+ * the rounded corners are already in the artwork. */
+.feature-hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 32px 60px rgba(20, 36, 28, 0.22))
+    drop-shadow(0 10px 22px rgba(20, 36, 28, 0.12));
+}
+
+/* ── The front-loaded answer, directly under the h1 ──
+ * This is the passage AI-search engines lift, so it is set apart to read as a
+ * definition rather than as more hero copy. */
+.feature-answer {
+  margin: 28px 0 0;
+  padding: 20px 24px;
+  max-width: 720px;
+  background: var(--color-sage-bg);
+  border-left: 3px solid var(--color-primary-light);
+  border-radius: var(--radius-md);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-on-container);
+}
+
+.feature-hero .hero-ctas {
+  margin-top: 32px;
+}
+
+/* ── Walk-through ──
+ * A card grid rather than alternating full-width rows. Six phone screenshots
+ * stacked one per row ran to roughly 3,700px of scroll, which is the long-scroll
+ * punishment craft rule 2 exists to prevent. Cards keep the same six steps
+ * inside about a third of the height and reuse the card vocabulary (rule 10). */
+.feature-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.feature-step {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 0;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.feature-step-copy h3 {
+  margin: 14px 0 8px;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-display);
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.feature-step-copy p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* The screenshot sits at the foot of the card and is deliberately cropped by
+ * the card edge, so a 600x1243 phone capture reads as a device peeking in
+ * rather than dictating the card's height. */
+.feature-step-shot {
+  margin-top: 24px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.feature-step-shot img {
+  display: block;
+  width: 100%;
+  max-width: 208px;
+  height: auto;
+  margin: 0 auto;
+  /* Transparent-background mockups: shadow the silhouette, not the box. */
+  filter: drop-shadow(0 10px 20px rgba(20, 36, 28, 0.14));
+}
+
+/* ── Comparison table with sentences in the cells ──
+ * The base .comparison-table is built for tick marks: centred, nowrap, narrow.
+ * These overrides let the cells carry a real clause, which is what makes the
+ * table quotable. */
+.feature-comparison-table .comparison-th {
+  white-space: normal;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.feature-comparison-table .comparison-td {
+  text-align: left;
+  line-height: 1.5;
+  vertical-align: top;
+  color: var(--color-text-secondary);
+}
+
+.feature-comparison-table .comparison-td--feature {
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 200px;
+}
+
+.feature-comparison-table .comparison-td--takkada-value {
+  color: var(--color-text);
+  font-weight: 500;
+  background: var(--color-sage-bg);
+}
+
+/* ── Plan pointer ── */
+.feature-plan-pointer {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: var(--color-surface-variant, #F3F3EE);
+  border-radius: var(--radius-lg);
+  max-width: 560px;
+}
+
+.feature-plan-pointer-note {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.feature-plan-pointer-price {
+  margin: 12px 0 0;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.feature-plan-pointer-plan {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.feature-plan-pointer-period,
+.feature-plan-pointer-term {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.feature-plan-pointer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.feature-plan-pointer-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Related reading ── */
+.feature-related {
+  padding: 72px 0;
+  background: var(--color-bg);
+}
+
+.feature-related-list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.feature-related-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+  padding: 20px 22px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.feature-related-list a svg {
+  flex-shrink: 0;
+  color: var(--color-primary-light);
+}
+
+.feature-related-list a:hover {
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 900px) {
+  /* The mockup drops below the copy and shrinks. It stays eager: it is still
+   * the largest thing in view on a phone. */
+  .feature-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-hero-shot {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .feature-answer {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+
+  .feature-steps {
+    gap: 44px;
+  }
+
+  .feature-related {
+    padding: 56px 0;
+  }
+}
+
+/* ── /features hub (src/routes/Features.jsx) ──
+ * Three tiers. The lead card is the one new pattern the page introduces
+ * (craft rule 10): a device standing beside its line, which is the only way a
+ * directory of twenty-seven names tells you what any of them look like. Its
+ * surface, radius, shadow and hover lift still come from .tally-card, and
+ * every tier below it reuses .tally-card or a plain link.
+ *
+ * .features-hub-card itself carries nothing but the link reset, because the
+ * class is a build contract (scripts/checkFeaturesHub.mjs) that has to sit on
+ * three differently-shaped things. Appearance lives on the modifiers. */
+.features-hub-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* The hub's intro is three blocks where a feature page's is five, so it does
+ * not need a feature page's landing room underneath it. Every pixel here is a
+ * pixel between a phone visitor and the first card. */
+.features-hub-hero {
+  padding-bottom: 32px;
+}
+
+/* Lead tier */
+.features-hub-lead {
+  padding: 56px 0 84px;
+}
+
+.features-hub-lead-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.features-hub-card--lead {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+}
+
+/* The media box is sized by HEIGHT, not width. These eight mockups come from
+ * two aspect-ratio families and carry different amounts of transparent margin
+ * around the device, so a fixed width rendered them at visibly different
+ * heights and the row read as ragged. A fixed box with object-fit: contain
+ * lands every phone on the same baseline. */
+.features-hub-lead-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 188px;
+}
+
+/* The frame is baked into the artwork, so the card must not add a second one:
+ * no border-radius and no box-shadow on the image, only the drop-shadow that
+ * follows the phone's own silhouette. Same treatment as .hv3-step-phone. */
+.features-hub-lead-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 22px rgba(20, 36, 28, 0.24));
+}
+
+.features-hub-lead-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.features-hub-lead-body p {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-text-secondary);
+}
+
+/* The answer passage, once it left the hero. Sized as prose, not as a card. */
+.features-hub-answer {
+  max-width: 660px;
+  margin-top: 44px;
+}
+
+/* An anchor with no box of its own: it exists so a group id the lead tier
+ * drained still lands on the tier that swallowed it. */
+.features-hub-anchor {
+  display: block;
+  height: 0;
+  scroll-margin-top: 96px;
+}
+
+.features-hub-group + .features-hub-group {
+  margin-top: 64px;
+}
+
+.features-hub-group-header {
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.features-hub-group-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.features-hub-group-intro {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* The whole card is the link, so the cue below is decoration rather than a
+ * second tab stop. */
+.features-hub-card--text {
+  display: flex;
+  flex-direction: column;
+}
+
+.features-hub-card--text p {
+  flex: 1;
+}
+
+.features-hub-card-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Compact index ──
+ * Names, nothing else. This is the tier you read when you already know what
+ * you are looking for, so it is set as a list and stays out of the way of the
+ * two above it. */
+.features-hub-index {
+  padding: 84px 0 96px;
+}
+
+.features-hub-index-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.features-hub-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px 32px;
+}
+
+.features-hub-index-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.features-hub-index-list li + li {
+  border-top: 1px solid var(--color-hairline);
+}
+
+.features-hub-card--index {
+  display: block;
+  padding: 9px 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--color-text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.features-hub-card--index:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .features-hub-group + .features-hub-group {
+    margin-top: 48px;
+  }
+
+  .features-hub-hero {
+    padding-bottom: 20px;
+  }
+
+  .features-hub-lead {
+    padding: 36px 0 56px;
+  }
+
+  .features-hub-card--lead {
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
+    padding: 16px 18px;
+  }
+
+  .features-hub-lead-media {
+    height: 150px;
+  }
+
+  .features-hub-lead-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .features-hub-index {
+    padding: 56px 0 64px;
+  }
+}
+
+/* ── The scroll-driven order tour (FeatureTour.jsx) ──
+ * The one moving section on a feature page; the reason it moves at all is in
+ * the component's header. Vocabulary borrowed from the homepage tour
+ * (numbered stations, one phone, crossfade) so the two read as one site.
+ * Only transform, opacity and filter animate, and every transition is a CSS
+ * transition, so an interrupted crossfade retargets instead of restarting. */
+.ftour {
+  padding: 96px 0;
+  background: var(--color-bg);
+}
+
+.ftour-intro {
+  max-width: 560px;
+  margin: 16px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.ftour-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+/* Phone first on narrow screens (order, not DOM), sticky under the nav on an
+ * opaque plate so station rows scrolling under it disappear behind it. Same
+ * geometry as the homepage mobile tour. */
+.ftour-phone {
+  order: -1;
+  position: sticky;
+  top: 56px;
+  z-index: 2;
+  width: 100%;
+  height: 348px;
+  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(250, 250, 247, 0) 100%);
+}
+
+/* The mockups carry their own device frame (transparent background), so the
+ * shadow is a drop-shadow following the alpha silhouette, kept identical in
+ * both states so only the blur interpolates. The 2px blur bridge makes the
+ * two screens read as one object changing rather than two overlapping.
+ *
+ * Opacity and blur only, no scale (2026-08-12). The phone is fixed furniture
+ * the reader's eye parks on for the whole section, so a scale pulse on every
+ * station read as the phone twitching six times rather than as the screen
+ * changing. The blur alone does the bridging the scale was there to help
+ * with, and the device edge now holds perfectly still. */
+.ftour-phone img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 316px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(2px);
+  transition:
+    opacity 0.4s var(--ease-out),
+    filter 0.4s var(--ease-out);
+}
+
+.ftour-phone img.is-active {
+  opacity: 1;
+  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(0px);
+}
+
+.ftour-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ftour-step button {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  /* Inactive stations dim rather than collapse: during a scroll-driven story
+   * a height change under the pointer is jank, an opacity change is not. */
+  opacity: 0.4;
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.ftour-step.is-active button {
+  opacity: 1;
+}
+
+/* Pressable things press (whole-row target, so the dip stays subtle). */
+.ftour-step button:active {
+  transform: scale(0.99);
+}
+
+.ftour-num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.ftour-step.is-active .ftour-num {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.ftour-step-text {
+  display: block;
+}
+
+/* padding-top optically centres the first line of the title against the 32px
+ * number circle: (32 - 18 * 1.35) / 2 ≈ 4. The desktop override below redoes
+ * the same sum at 20px. Get this wrong and every station sits at its own
+ * height against its own number. */
+.ftour-step-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-display, 700);
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--color-text);
+  padding-top: 4px;
+}
+
+/* The one thing about the day with no hour of its own. Centred under the tour
+ * and set like the intro, so it reads as a closing note on the section rather
+ * than a seventh station. */
+.ftour-footnote {
+  max-width: 640px;
+  margin: 32px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.ftour-step-body {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 44ch;
+}
+
+/* Desktop: stations left, phone sticky in the right column, centered in the
+ * viewport. Each station holds a band of scroll so the reader's pace drives
+ * the crossfade. */
+@media (min-width: 900px) {
+  .ftour-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 96px;
+    align-items: start;
+  }
+
+  .ftour-list {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ftour-phone {
+    order: 0;
+    grid-column: 2;
+    grid-row: 1;
+    /* Centered in the viewport, but never under the fixed nav on a short
+     * screen (the calc goes negative below 750px of height). */
+    top: max(76px, calc(50vh - 300px));
+    height: auto;
+    width: min(290px, 100%);
+    aspect-ratio: 0.483;
+    margin: 0 auto;
+    background: none;
+  }
+
+  .ftour-phone img {
+    inset: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+
+  .ftour-step {
+    /* The scroll band per station. Shallow enough that the section never
+     * feels like a scroll toll, deep enough that the center-band observer
+     * gets one clean station at a time. */
+    min-height: 38vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .ftour-step button {
+    padding: 24px 0;
+  }
+
+  .ftour-step-title {
+    font-size: 20px;
+    /* (32 - 20 * 1.35) / 2 ≈ 3. See the base rule. */
+    padding-top: 3px;
+  }
+}
+
+/* Reduced motion: the tour switches instantly. The screen still changes with
+ * the active station (comprehension), it just stops travelling. */
+@media (prefers-reduced-motion: reduce) {
+  .ftour-phone img,
+  .ftour-step button,
+  .ftour-num {
+    transition: none;
+  }
+
+  .ftour-phone img {
+    filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+  }
+}

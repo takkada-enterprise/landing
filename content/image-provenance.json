@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "demoCompanyId": 143,
+  "readMe": "See scripts/checkScreenshotProvenance.mjs. Records are keyed by the SHA-256 of the image bytes, so renaming a file does not move its provenance and replacing the bytes drops the review on the floor. Write records with scripts/capture-guide-evidence.mjs; do not hand-author an appScreenshot record in images.",
+  "images": {
+    "4fb59f810d726da4e37066965fbe1917ef568a4b9eb3608ae860f074b4b77ba5": {
+      "path": "public/assets/screenshots/takkada-logo.png",
+      "kind": "logo",
+      "sha256": "4fb59f810d726da4e37066965fbe1917ef568a4b9eb3608ae860f074b4b77ba5",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "The Takkada wordmark (\"Takkada — by Pay Saathi\"). Product branding, not a picture of the application. Inspected 2026-09-07."
+    },
+    "52950a346c22881ad5ce6dcf05ea5d6115d43f8d12a2d217cbeea43c161e114e": {
+      "path": "public/assets/screenshots/takkada-logo.webp",
+      "kind": "logo",
+      "sha256": "52950a346c22881ad5ce6dcf05ea5d6115d43f8d12a2d217cbeea43c161e114e",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "WebP encoding of the Takkada wordmark. Product branding, not a picture of the application. Inspected 2026-09-07."
+    },
+    "ed6f6591e02e532a15f28afaf1c959c7c1d5a816f53ede3c4e0ecc1ecf609f34": {
+      "path": "public/assets/screenshots/takkada-favicon.png",
+      "kind": "logo",
+      "sha256": "ed6f6591e02e532a15f28afaf1c959c7c1d5a816f53ede3c4e0ecc1ecf609f34",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "The 180x180 Takkada app icon used as the site favicon. Inspected 2026-09-07."
+    },
+    "a261c28376169f4ac3d2da65ca81900f4a0d889960aefe2030cdffc7345c9ab3": {
+      "path": "public/assets/badges/dpiit-startup-india.png",
+      "kind": "logo",
+      "sha256": "a261c28376169f4ac3d2da65ca81900f4a0d889960aefe2030cdffc7345c9ab3",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "The DPIIT Startup India recognition badge, a third-party mark. Inspected 2026-09-07."
+    },
+    "806088d1ca22e5d7e8b80588a0f4ab22fd21ed76bed5928a83a41efacc75d108": {
+      "path": "public/assets/badges/featured-on-light.svg",
+      "kind": "logo",
+      "sha256": "806088d1ca22e5d7e8b80588a0f4ab22fd21ed76bed5928a83a41efacc75d108",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "A vector \"featured on\" badge. SVG line art, no raster capture. Inspected 2026-09-07."
+    },
+    "1fe77abc0baf20a65bc94ff3387de0489fccb73bcd851279cd411e8c7cceebbf": {
+      "path": "public/assets/Wuxia/1932181.jpg",
+      "kind": "illustration",
+      "sha256": "1fe77abc0baf20a65bc94ff3387de0489fccb73bcd851279cd411e8c7cceebbf",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Third-party wuxia landscape artwork committed for the /chinese-sayings side page. Painted scene, no application UI. Inspected 2026-09-07."
+    },
+    "2f658dd70a683a103c9a522047ee22e4fb81f0b4b3510564c97b534ac96259c1": {
+      "path": "public/assets/Wuxia/1932198.jpg",
+      "kind": "illustration",
+      "sha256": "2f658dd70a683a103c9a522047ee22e4fb81f0b4b3510564c97b534ac96259c1",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
+    },
+    "bc3388881fd85d97f4345b77ee7a14bdbae6ca62ec2f3d8ee06a31a191d082de": {
+      "path": "public/assets/Wuxia/1932200.jpg",
+      "kind": "illustration",
+      "sha256": "bc3388881fd85d97f4345b77ee7a14bdbae6ca62ec2f3d8ee06a31a191d082de",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
+    },
+    "ba6e27bb815cb4d7af6fce45a1ed5ec7119fbd68a24990f6d85c667440ad9cee": {
+      "path": "public/assets/Wuxia/1932246.jpg",
+      "kind": "illustration",
+      "sha256": "ba6e27bb815cb4d7af6fce45a1ed5ec7119fbd68a24990f6d85c667440ad9cee",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
+    },
+    "831528943a885a08027a8d2b64a8f71b604ac47d205a5c1149929cb84766ddff": {
+      "path": "public/assets/Wuxia/wp2999269.png",
+      "kind": "illustration",
+      "sha256": "831528943a885a08027a8d2b64a8f71b604ac47d205a5c1149929cb84766ddff",
+      "reviewed": true,
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Third-party wuxia character artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
+    }
+  },
+  "unprovenAllowlist": {
+    "6b3db7861b181f452c1d2c8eea2180ae0f264b897d7ad520f9b7137ffcd1b4b4": {
+      "path": "public/assets/screenshots/add-items-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "ad604f90ed44a8fcd94ebded5e2c1c17cbc770a2356bc8ccc3d5bdd2c7c92002": {
+      "path": "public/assets/screenshots/beat-load-sheet-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "cd1b488bc5a3e69831653c6a6b25615b4c4e1beb7e7048be800ba257ba04f354": {
+      "path": "public/assets/screenshots/beats-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "f194ce8de52f6fedba33dfcd8f7a1317ab47bb485d0115d296d14cb944490085": {
+      "path": "public/assets/screenshots/delivery-challans-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "ef314976fa3114a91e95b1d9320b1714fd2c8247c83071346139f351185333d3": {
+      "path": "public/assets/screenshots/dispatch-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "d2ae8e8cbffb62b501fa31ebcc2d3edcb13ac5da10fd4d5cfb1fd0a357fbea2d": {
+      "path": "public/assets/screenshots/einvoice-eway.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "ef9e1e6172a03f8e2acc2490cbba756cb15646b1fe29f7e793f06a7bc21aaa02": {
+      "path": "public/assets/screenshots/field-visit-outcomes-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "f1c398cea633b0bc7184f60336876372c480b33d7b4047076d6227c2b52f8862": {
+      "path": "public/assets/screenshots/field-visit-photo-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "dc3d32f79e4b4654a9159a8a8da26bd9e1fa4ffb621374ee5771402d6cef69d2": {
+      "path": "public/assets/screenshots/field-visits-feed-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "cb35a1315962e49a071dbdd04b4e50f4ac993e92f38e09a7834a20da94a41ec8": {
+      "path": "public/assets/screenshots/home-screen-framed.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "7b77a6bcc076df19018851ea7f72a3995834ae3b8c693aa4eb9c1274a2cd239f": {
+      "path": "public/assets/screenshots/invoice-summary-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "5708ef69bc4eaed158572d9556f252b5b83472cea32af1cac99c980544dc07dd": {
+      "path": "public/assets/screenshots/monthly-sales.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "fa014956acbfcd5530e84748c71bc8c5d082c1ad1d7ae57fa7bb6eff98bb0a27": {
+      "path": "public/assets/screenshots/order-link-buyer-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "42269b53d2207fc63ba493f18c27985daf0a04db2ecb6cce665dd21a5c784e33": {
+      "path": "public/assets/screenshots/order-link-cart-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "b3497b2fd769acb9cc2aa1df4bfba2c0d2c64d7b1295015c141c80e5a3b4b04c": {
+      "path": "public/assets/screenshots/order-link-catalog-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "6730dbdb7f235a1eabcd0d8b63dd554fb36759c51bee00f6fb86d5bf048ea217": {
+      "path": "public/assets/screenshots/order-link-confirm-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "7b10a7fbd8a46721a602917d0e111b303c4a06d347ec584ab9f6a85356e55886": {
+      "path": "public/assets/screenshots/order-link-inbox-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "04d03799941c535ef662546e298d10fb5d891c9e7b5aa792522fd36afb7f7ab4": {
+      "path": "public/assets/screenshots/order-link-sent-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "92bd16a55535b8f46f56ba80183e46c4ed062dacd9341bb19876aa8e7914f116": {
+      "path": "public/assets/screenshots/party-ledger-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "01693d8e343357bb9e1567e0341c8942de880ddc681046d8a2bc502b1dded002": {
+      "path": "public/assets/screenshots/payment-reminders.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "486380caf2f7029f9d85875228009205b7e5c3aa8a46d10ae962930d7a9a18b9": {
+      "path": "public/assets/screenshots/pending-orders-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "471d22198370a813cc3d4a5dc9e094e542122f4d3a5d1adb46f07eefceafee9d": {
+      "path": "public/assets/screenshots/rbac.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "dfb9641620334088e6a718871980f12b9ed716b61dccc9e6e160f2216d24195c": {
+      "path": "public/assets/screenshots/reports-screen.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "06f4de701af4080af64b9541bf11878e4ac94a605ed0ac290d87028000801d47": {
+      "path": "public/assets/screenshots/sales-target-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "50309a7cfa491aafaf979cbcc5f82034a9b99df120c51a21650320761f2522fe": {
+      "path": "public/assets/screenshots/settlements-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "2db0c1a0f8d80a41e5a162590d3ddd862f71cecd620815099c9f3ee06316d1e0": {
+      "path": "public/assets/screenshots/smart-reminders-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "b1b86b8cebd627d65651ee06d6dfc65de6041193bbe2371a8ab305e84c47da89": {
+      "path": "public/assets/screenshots/team-sales-hub-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "3303f3c4e189fde2650ed2e7bdec4ec900143e6d9395bb59e7b1c5b5cc6d8e97": {
+      "path": "public/assets/screenshots/whatsapp-dispatch-mockup.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence. Named as a sanitised \"-mockup\" variant, which is the convention the old six-filename rule pointed readers at. A naming convention is not a capture record.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION."
+    },
+    "7e731829ba03784ad932d5c15687d711494800811764cef1fac8bbe0be5fe207": {
+      "path": "public/assets/screenshots/invoice-detail.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "a real customer's invoice, named party. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "246bae7fbe8758d7fc39e9e5e3d62ee901906b433d5bed07fc472fa90f83af77": {
+      "path": "public/assets/screenshots/invoice-detail.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "a real customer's invoice, named party. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "c61afa3ca84027f23dbb4abdbdb0199d84fc36d858eb9ffb17ce7dae652e116c": {
+      "path": "public/assets/screenshots/share-ledger.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "real party name, real receivable, real invoice numbers. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "37faff968adb0f60cbc1fefa7de9fbf07f6908b1fbe64407206564067035ac14": {
+      "path": "public/assets/screenshots/bankbook.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "real company names and bank balances. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "d3188805215e36a2bb3e9ad7f399b28be3329d7f6bdc0fa1d680ae96a2e41640": {
+      "path": "public/assets/screenshots/inventory-supplier.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "real supplier names. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "8869ed02d9ce879af08662c60ecb19e871344be76bb559be9f38de62681c0f47": {
+      "path": "public/assets/screenshots/party-list.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "known-banned since the homepage v3 round. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "6a55997daf545b5938b7221b5a1c6baeeef22df299dd48a5daa6eac6ea664634": {
+      "path": "public/assets/screenshots/party-list.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "known-banned since the homepage v3 round. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "6e28c03df03b96d793875a56458aae6141eab105d12b30751cb2052148c5434d": {
+      "path": "public/assets/screenshots/settlement.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "named individual, two real bank UTRs. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "d596f1f9708325e3097a7a451e6edbcc05d4d0f9a3d48153375d3f200c746534": {
+      "path": "public/assets/screenshots/settlement.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": true,
+      "reason": "named individual, two real bank UTRs. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
+    },
+    "73979c87d8ad0fc24a83b2fd38b3e45d54503f9182503a84695498bff74a86c6": {
+      "path": "public/assets/og/takkada-og-default.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
+    },
+    "a0f043ad369104557d4cead6baad9511ea242e0228c0108ab3d1d4b90b1ad600": {
+      "path": "public/assets/og/takkada-og-comparison.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
+    },
+    "6d5491eabebe0b005da936a90b221dd26a04e34bbb3fa5c0eb414c6d5849630a": {
+      "path": "public/assets/og/takkada-og-demo.png",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-09-07",
+      "knownSensitive": false,
+      "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
+      "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
+    }
+  },
+  "classes": [
+    {
+      "pathPrefix": "public/assets/blog/",
+      "kind": "illustration",
+      "reviewedOn": "2026-09-07",
+      "reviewedBy": "w4 classification pass (agent), unsupervised",
+      "origin": "Blog header cards rendered by scripts/generate-blog-images.py: a 1200x630 brand-coloured slide carrying the post title in the site typefaces plus a per-category line icon. No application UI is drawn, and the generator has no access to any company data. Presence is enforced per post by scripts/checkBlogImages.mjs.",
+      "note": "A class rule may only cover artwork that is generated, never captured. It cannot cover the screenshot library, and it does not license a file on a screenshot surface: an image classified this way that is published as a picture of the application fails the gate."
+    }
+  ]
+}

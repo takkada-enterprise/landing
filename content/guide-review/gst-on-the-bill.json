@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "slug": "gst-on-the-bill",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/invoice_summary_screen.dart",
+    "lib/widgets/invoice/gst_basis_field.dart",
+    "lib/widgets/invoice/locked_field_caption.dart",
+    "lib/models/gst_pricing_mode.dart",
+    "lib/models/invoice_defaults.dart",
+    "lib/screens/settings/invoices_settings_screen.dart"
+  ],
+  "accessBasis": {
+    "featureKey": null,
+    "gate": "No feature key of its own — the box lives inside whatever invoice the reader already has the right to open. Its defaults are set in a SettingsScope.company settings page (admin only).",
+    "route": "/invoice-summary"
+  },
+  "behaviourReviewed": [
+    "GstPricingMode.shortLabel gives exactly Incl. GST / Excl. GST / No GST; isRateExclusive and chargesGst are what the totals key off.",
+    "Changing the chip is written to InvoiceGstModeHolder and Add Items re-seeds the lines; the summary rebuilds totals from those, so the numbers above genuinely move.",
+    "Locked mode renders inert chips plus LockedFieldCaption ('Fixed in Invoice Settings'); the same caption appears under a locked Round Off chip.",
+    "Tax rows: IGST alone when _totalIgst > 0, else SGST and CGST; zero rows are not rendered.",
+    "Per-line badge is keyed on the line's actual gstRate, not on gstIncluded — 'GST Exempt' means a zero-rated item, 'GST off' means the whole invoice is on No GST. The code comment records that conflating them sent a customer to support.",
+    "_calculateSuggestedRoundOff rounds to the nearest whole rupee ((paise+50)~/100*100).",
+    "Round Off renders only when a round-off ledger is mapped; the settings row itself says to map one first.",
+    "The Additional Charge box offers an 18% GST chip once an amount is typed.",
+    "RoundOffPolicy hints are the three quoted sentences."
+  ],
+  "deliberatelyOmitted": [
+    "All tax advice and every legal threshold. In particular the app string 'Required for goods invoices above Rs. 50,000; generated using the IRN after e-invoice' was read but deliberately NOT quoted or paraphrased, because it is a legal eligibility claim the plan forbids repeating without verification from an official source.",
+    "Any explanation of which GST rate a business should charge, or when a supply is exempt.",
+    "Place-of-supply logic beyond the fact that the app decides it and the user does not."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug gst-on-the-bill — OK"
+}

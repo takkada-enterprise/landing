@@ -5,6 +5,7 @@ meta_title: "Accounts Receivable Automation for Tally (2026)"
 meta_description: "A guide to accounts receivable automation for Tally: automate invoicing, WhatsApp reminders, UPI collection, and reconciliation for Indian distributors."
 primary_keyword: "accounts receivable automation tally"
 date: "2026-06-06"
+updated: "2026-08-09"
 author: "founder"
 category: "How-To"
 excerpt: "A Nagpur FMCG distributor employs two people whose whole job is receivables: one types invoices from delivery notes, the other matches bank receipts to bills every evening. Accounts receivable automation does not fire those two people. It moves them off data entry and onto the retailers who actually need chasing."
@@ -51,7 +52,7 @@ This single change removes the two-to-three day lag between delivery and billing
 
 ## Step 2: Smart WhatsApp Reminders
 
-A manual reminder gets skipped when the accountant is busy or the owner is travelling. An automated reminder does not. The version that works for distributors is a smart payment reminder whose copy changes with the situation: a soft note before the due date, a firmer line with the UPI link near the due date, and an escalation to the owner once the invoice is overdue.
+A manual reminder gets skipped when the accountant is busy or the owner is travelling. An automated reminder does not. Once you [send payment reminders automatically](/send-payment-reminders-automatically), every party on the book is covered on the day their bill needs it, whether or not anyone is at the desk. The version that works for distributors is a smart payment reminder whose copy changes with the situation: a soft note before the due date, a firmer line with the UPI link near the due date, and an escalation to the owner once the invoice is overdue.
 
 - **Before due date:** "Invoice #1247 for ₹14,320 is due on 20 June. Tap to pay via UPI."
 - **On due date:** "Bhai, invoice aaj due hai. Link se bhej do, 2 minute mein settle ho jaayega."

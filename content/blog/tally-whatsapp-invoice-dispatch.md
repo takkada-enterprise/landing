@@ -5,6 +5,7 @@ meta_title: "Auto-Sending Invoices from Tally on WhatsApp: How It Works"
 meta_description: "What auto-dispatch of invoices from Tally to WhatsApp actually means, how it differs from manually forwarding PDFs, and what it does to collection cycles."
 primary_keyword: "tally whatsapp invoice dispatch"
 date: "2026-05-18"
+updated: "2026-07-25"
 author: "harsh"
 category: "Collections"
 excerpt: "A distributor who manually shares invoices on WhatsApp spends 20–40 minutes per day on the task when volumes cross 30 invoices. Auto-dispatch eliminates that entirely and starts the payment clock before the goods arrive at the retailer."
@@ -120,4 +121,4 @@ A: Meta charges per conversation on the API. A conversation is any exchange with
 
 A: Full-stack apps that support e-invoice generation from mobile also support auto-dispatch of the IRN-stamped invoice. The flow is: invoice created → IRN fetched from GSTN → IRN embedded in invoice → invoice auto-dispatched to WhatsApp. The retailer receives the compliant invoice, including the QR code with embedded IRN, before goods are even unloaded.
 
-Takkada's Full Access plan auto-dispatches every Tally invoice to the buyer's WhatsApp the moment it is saved — including e-invoices, with UPI payment links, and delivery confirmation logged against each voucher. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+The Takkada Copilot plan auto-dispatches every Tally invoice to the buyer's WhatsApp the moment it is saved — including e-invoices, with UPI payment links, and delivery confirmation logged against each voucher. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

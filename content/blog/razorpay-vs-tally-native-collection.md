@@ -5,6 +5,7 @@ meta_title: "Razorpay Payment Links vs Tally-Native Collection"
 meta_description: "Razorpay payment links vs a Tally-native collection layer for distributors: platform fees and no Tally posting, versus 0% MDR UPI and auto-reconciliation."
 primary_keyword: "razorpay payment links tally"
 date: "2026-06-14"
+updated: "2026-08-09"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Razorpay is an excellent payment gateway, built for online businesses and developers who want a payment link or a checkout in their app. A Tally distributor is neither. They want the payment tied to a bill in Tally, collected without a platform fee, and posted back to the books on its own."
@@ -44,7 +45,7 @@ Even setting fees aside, a gateway leaves the distributor's core problem unsolve
 
 A Razorpay payment link collects money and settles it to the bank. It does not know the payment was for invoice C9ST-26-27-0149, it does not know what balance remains on the party, and it does not post anything into Tally. The distributor still opens Tally, finds the party, identifies the invoice, and records the receipt by hand. The gateway did the acceptance and left the accounting.
 
-A Tally-native layer is built around exactly that accounting. Takkada presents an invoice-linked payment, collects on UPI at 0% MDR, matches the receipt to the right invoice by UTR, and posts it into Tally automatically. The link is not just a way to take money. It is tied to a specific bill in your books, and it closes that bill when it is paid.
+A Tally-native layer is built around exactly that accounting. [Payment collection on Tally](/payment-collection-tally) starts from a bill that already exists in your books, so Takkada presents an invoice-linked payment, collects on UPI at 0% MDR, matches the receipt to the right invoice by UTR, and posts it into Tally automatically. The link carries a specific bill from your books with it, and it closes that bill when it is paid.
 
 ## Capability comparison
 

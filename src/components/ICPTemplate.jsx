@@ -2,14 +2,25 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
-import CTAButton from './CTAButton';
+import WhatsAppCTA from './WhatsAppCTA';
+import CalendarCTA from './CalendarCTA';
+import Breadcrumb from './Breadcrumb';
 import FAQItem from './FAQItem';
 import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
 
+// `answer` and `relatedPosts` are optional and were added 2026-08-08 for the
+// Phase 3 refresh of the older ICP pages. Clarity's week-of-07-26 data showed
+// these pages pulling zero search entries while blog posts pulled all of them,
+// and the two things the posts had that these did not were a front-loaded
+// answer paragraph and internal links. Both render only when supplied, so the
+// ICP pages that have not been refreshed are byte-identical to before.
 function ICPTemplate({
   overline,
   headline,
   subheadline,
+  answer,
+  relatedPosts = [],
+  waContext,
   ctaPrimary,
   ctaSecondary,
   capabilitiesHeading,
@@ -41,35 +52,22 @@ function ICPTemplate({
       <section className="hero icp-hero" id="hero">
         <div className="container">
           <div className="hero-content icp-hero-content">
-            <nav aria-label="Breadcrumb" className="icp-breadcrumb">
-              {breadcrumb.map((item, i) => (
-                <span key={item.url}>
-                  {i > 0 && <span className="icp-breadcrumb-sep" aria-hidden="true">/</span>}
-                  {i === breadcrumb.length - 1 ? (
-                    <span aria-current="page">{item.name}</span>
-                  ) : (
-                    <a href={item.url}>{item.name}</a>
-                  )}
-                </span>
-              ))}
-            </nav>
+            <Breadcrumb trail={breadcrumb} />
             <span className="section-label hero-overline">{overline}</span>
             <h1 className="hero-title icp-hero-title">{headline}</h1>
             <p className="hero-subtitle icp-hero-subtitle">{subheadline}</p>
+            {answer && <p className="feature-answer">{answer}</p>}
             <div className="hero-ctas">
-              <CTAButton variant="primary" href={ctaPrimary.href}>
-                {ctaPrimary.text} <ArrowRight size={18} />
-              </CTAButton>
-              {ctaSecondary.href.startsWith('http') ? (
-                <a href={ctaSecondary.href} className="cta-btn cta-btn--secondary">
-                  {ctaSecondary.text}
-                </a>
-              ) : (
-                <Link to={ctaSecondary.href} className="cta-btn cta-btn--secondary">
-                  {ctaSecondary.text}
-                </Link>
-              )}
+              <WhatsAppCTA context={waContext} />
+              <CalendarCTA context={waContext}>{ctaPrimary.text}</CalendarCTA>
             </div>
+            <p className="hero-tertiary-line">
+              {ctaSecondary.href.startsWith('http') ? (
+                <a href={ctaSecondary.href}>{ctaSecondary.text}</a>
+              ) : (
+                <Link to={ctaSecondary.href}>{ctaSecondary.text}</Link>
+              )}
+            </p>
           </div>
         </div>
       </section>
@@ -148,6 +146,27 @@ function ICPTemplate({
         </div>
       </section>
 
+      {/* ── Related reading ── */}
+      {relatedPosts.length > 0 && (
+        <section className="feature-related" id="related">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">Read further</h2>
+            </div>
+            <ul className="feature-related-list">
+              {relatedPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link to={`/blog/${post.slug}`}>
+                    {post.title}
+                    <ArrowRight size={16} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ── Footer CTA Band ── */}
       <section className="final-cta" id="final-cta">
         <div className="container">
@@ -161,9 +180,10 @@ function ICPTemplate({
               Book a demo. We walk through your setup, your Tally version, and exactly what Takkada changes for your business.
             </p>
             <div className="final-cta-actions">
-              <CTAButton variant="dark" href={ctaPrimary.href}>
-                Book a 15-min demo <ArrowRight size={18} />
-              </CTAButton>
+              <WhatsAppCTA context={waContext} variant="dark" />
+              <CalendarCTA context={waContext} variant="link" className="final-cta-secondary-link">
+                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
+              </CalendarCTA>
             </div>
           </div>
         </div>

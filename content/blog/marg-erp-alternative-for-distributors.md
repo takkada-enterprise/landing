@@ -5,6 +5,7 @@ meta_title: "Marg ERP Alternative for Distributor Receivables"
 meta_description: "A fair Marg ERP alternative comparison for Indian distributors who run on Tally and need mobile UPI collection, WhatsApp reminders, and auto-reconciliation."
 primary_keyword: "marg erp alternative"
 date: "2026-06-14"
+updated: "2026-08-09"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Marg ERP is a capable desktop billing and inventory system, strong in pharma and FMCG distribution. The question most distributors actually ask is narrower. They already run Tally and want the field collection and reconciliation layer Marg's desktop core was never built to be."
@@ -88,7 +89,7 @@ A: Neither. Takkada is a mobile layer that sits on top of Tally. If your account
 
 **Q: I run pharma distribution on Marg. Can I just add Takkada?**
 
-A: Takkada connects to Tally, not to Marg. If your system of record is Marg, Takkada is not a drop-on layer for you today. If you run Tally (many pharma distributors do, alongside batch tracking), Takkada works on top of it.
+A: Takkada connects to Tally, not to Marg. If your system of record is Marg, Takkada is not a drop-on layer for you today. If you run Tally (many pharma distributors do, alongside batch tracking), Takkada works on top of it, and what that looks like for a stockist carrying 60 to 90 days of chemist credit is set out on the [Tally app for pharma distributors](/tally-app-for-pharma-distributors) page.
 
 **Q: Will I lose my data if I keep Tally and add a mobile layer instead of switching to an all-in-one ERP?**
 

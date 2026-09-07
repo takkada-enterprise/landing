@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "slug": "whatsapp-reminders",
+  "topicId": "whatsapp-reminders",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "523b56373606279b51e4e049fd28d5c6dc141e7f",
+  "appCheckoutHeadAtReview": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "reviewer": "guide authoring pass W3, group 6",
+  "screensRead": [
+    "lib/screens/payment_reminders_settings_screen.dart",
+    "lib/screens/reminder_parties_screen.dart",
+    "lib/screens/reminder_history_screen.dart",
+    "lib/screens/send_reminders_now_screen.dart",
+    "lib/models/reminder_history.dart",
+    "lib/models/party_reminder_rollup.dart"
+  ],
+  "procedureReview": {
+    "proceduresPublished": ["set-the-schedule", "choose-who-gets-reminded", "send-now", "read-the-history"],
+    "stuckStatesPublished": [
+      "main switch refuses until Bills fall due after is set",
+      "a party never reminded (excluded / no number / nothing overdue)",
+      "nothing sending at all (switch off or credits exhausted)",
+      "reminders held back by Only remind on or after the due date",
+      "Sent but the customer received nothing",
+      "Not tracked entries from manual shares"
+    ]
+  },
+  "accessReview": {
+    "topicFeatureKey": null,
+    "sectionFeatureKeys": ["payment_reminders_whatsapp"],
+    "permissionsDescribed": [
+      "the reminders member permission (canUseReminders) gates the screens; it is a permission, not an entitlement",
+      "schedule and company defaults are admin work, sending is not",
+      "credit exhaustion is presented with the app's own paused wording and no buy line"
+    ],
+    "notes": "Per the topic brief the screens themselves are NOT feature-gated, so payment_reminders_whatsapp is declared on the send-on-whatsapp and read-the-history SECTIONS only, never on the topic."
+  },
+  "deliveryTruth": {
+    "claim": "The guide states explicitly that Sent means WhatsApp accepted the submission, not that the message was delivered or read.",
+    "sourceOfTruth": "lib/models/party_reminder_rollup.dart ReminderTrackingState doc comments: 'Takkada submitted it and WhatsApp accepted it. Not \"delivered\" - nothing in the system records delivery yet.'"
+  },
+  "visibilityBlocked": [
+    {
+      "surface": "payment-link toggles inside the reminder screens",
+      "featureKeys": ["upi_collections", "payment_links"],
+      "reason": "customer-visible, but the in-app copy makes them inert until settlement onboarding completes",
+      "action": "deliberately not documented here; they belong to the collections surface, and publishing steps for a control that has no effect would promise a disabled control works"
+    },
+    {
+      "surface": "brought-forward reminder variants",
+      "featureKeys": ["receivables_brought_forward_reminders", "bf_reminders_operator_verified"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "reviewed and deliberately not published"
+    },
+    {
+      "surface": "sending from the business's own WhatsApp number as a separate purchase",
+      "featureKeys": ["own_whatsapp_number"],
+      "reason": "is_customer_visible = false in prod feature_definitions",
+      "action": "reviewed and deliberately not published; the guide says reminders go out from your business's number without naming or offering a number-ownership feature"
+    }
+  ],
+  "deliberateOmissions": [
+    "No credit prices, packs or top-up path; the guide says credits run out and sending resumes when they are added.",
+    "No claim about WhatsApp template approval or consent policy - not evidenced in the app source read."
+  ],
+  "screenshots": { "captured": [], "note": "images: [] in frontmatter." }
+}

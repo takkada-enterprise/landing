@@ -1,8 +1,8 @@
 ---
 title: "Cheque Bounce Recovery for Distributors: The Section 138 Playbook"
 slug: "cheque-bounce-recovery-distributors"
-meta_title: "Cheque Bounce Recovery for Distributors: Section 138 Playbook"
-meta_description: "What to do when a retailer's cheque bounces: the 30-day notice, Section 138 timeline, costs, and how digital collection prevents most cases."
+meta_title: "Cheque Bounce Recovery for Distributors: Section 138"
+meta_description: "What to do when a retailer cheque bounces: the 30-day legal notice, Section 138 timeline, costs, and how digital collection prevents most cases."
 primary_keyword: "cheque bounce recovery distributors"
 date: "2026-05-06"
 author: "founder"

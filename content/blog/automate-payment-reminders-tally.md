@@ -5,6 +5,7 @@ meta_title: "Automate Payment Reminders in Tally (2026)"
 meta_description: "How to automate payment reminders for Tally invoices with smart reminders that change copy by due date and overdue status, sent on WhatsApp with a UPI link."
 primary_keyword: "automate payment reminders tally"
 date: "2026-06-06"
+updated: "2026-08-08"
 author: "founder"
 category: "How-To"
 excerpt: "A distributor in Rajkot used to keep a diary of who to call for payment. Some days he called, some days he forgot, and the retailers learned which suppliers chased and which did not. Automating payment reminders takes the diary out of his head and turns it into a system that never forgets and never sounds the same twice."
@@ -39,7 +40,7 @@ This is different from a one-off blast. A blast sends the same message to everyo
 
 ## How Smart Reminders Change by Due Date and Overdue Status
 
-The feature that makes automated reminders work without annoying retailers is the smart payment reminder. Instead of one fixed template, the message changes with the situation. The system looks at each invoice's due date and whether it is overdue, and picks the tone to match.
+The feature that makes automated reminders work without annoying retailers is the smart payment reminder. This is how a [payment reminder from Tally](/payment-reminder-tally/) goes out on a schedule rather than whenever somebody remembers. Instead of one fixed template, the message changes with the situation. The system looks at each invoice's due date and whether it is overdue, and picks the tone to match.
 
 | Invoice status | Reminder tone | Example |
 |---|---|---|

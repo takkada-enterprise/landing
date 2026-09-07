@@ -1,7 +1,7 @@
 ---
 title: "Bad Debt Write Off in Tally: When and How Distributors Should Do It"
 slug: "bad-debt-write-off-tally"
-meta_title: "Bad Debt Write Off in Tally: When and How Distributors Should Do It"
+meta_title: "Bad Debt Write Off in Tally: When and How to Do It"
 meta_description: "When to write off a bad debt, the Tally journal entries, GST implications under Section 34, and the income tax treatment under Section 36(1)(vii)."
 primary_keyword: "bad debt write off tally"
 date: "2026-05-06"

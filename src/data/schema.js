@@ -9,7 +9,10 @@ import {
 import { getAuthor } from './authors';
 
 export const SITE_URL = 'https://takkada.com';
-export const DEFAULT_OG_IMAGE = '/assets/screenshots/takkada-logo.png';
+// Branded 1200×630 card (scripts/generate-og-cards.py), not the logo — the
+// logo unfurled as a tiny square on WhatsApp/social shares. Per-page
+// overrides pass their own card via the Seo ogImage prop.
+export const DEFAULT_OG_IMAGE = '/assets/og/takkada-og-default.png';
 
 // Every brand string the company is known by. Declaring these as
 // alternateName on both the Organization and the SoftwareApplication tells
@@ -94,7 +97,6 @@ function reviewSchema(testimonial) {
 }
 
 export function softwareApplicationSchema(reviews = testimonials) {
-  const priceNumber = (price) => price.replace(/[^\d]/g, '');
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -104,18 +106,18 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Mobile-first collections, e-invoicing, and reconciliation layer for businesses running on Tally.',
     url: SITE_URL,
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Android, iOS',
+    operatingSystem: 'Android, iOS, Windows, Web',
     publisher: { '@id': `${SITE_URL}/#organization` },
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
-      absoluteUrl('/assets/screenshots/home-screen.png'),
-      absoluteUrl('/assets/screenshots/payment-reminders.png'),
-      absoluteUrl('/assets/screenshots/settlement.png'),
+      absoluteUrl('/assets/screenshots/home-screen-framed.webp'),
+      absoluteUrl('/assets/screenshots/payment-reminders.webp'),
+      absoluteUrl('/assets/screenshots/settlement.webp'),
     ],
     offers: pricing.plans.map((plan) => ({
       '@type': 'Offer',
       name: plan.plan,
-      price: priceNumber(plan.price),
+      price: String(plan.annualPrice),
       priceCurrency: 'INR',
       category: 'Annual subscription',
       eligibleCustomerType: 'https://schema.org/BusinessEntity',
@@ -195,22 +197,72 @@ function authorNode(authorKey, resolveAuthor) {
   return node;
 }
 
-export function articleSchema(post, resolveAuthor = getAuthor) {
+// A directory page: an ItemList of named, described URLs wrapped in a
+// CollectionPage, so a crawler reads it as an index of other pages rather than
+// as one more marketing page. Built here beside the other schema builders
+// rather than inside the route, so the next directory page does not hand-roll a
+// second copy. Its output is asserted through the hub in features-hub.test.jsx.
+export function collectionPageSchema({ name, description, path, items }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: absoluteUrl(path),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.name,
+        description: item.description,
+        url: absoluteUrl(item.path),
+      })),
+    },
+  };
+}
+
+// The Article node, independent of where the content lives. Blog posts and
+// feature landing pages both need a named author with a `sameAs` profile and an
+// honest dateModified; only the field names and the URL differ, so the shape is
+// built once here and the two call sites below map their own data onto it.
+export function articlePageSchema(
+  { headline, description, image, datePublished, dateModified, author, path },
+  resolveAuthor = getAuthor
+) {
+  const url = absoluteUrl(path);
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.meta_description,
-    image: absoluteUrl(post.heroImage),
-    datePublished: post.date,
-    // dateModified must reflect real edits, not mirror datePublished. An
-    // optional `updated` frontmatter field bumps it; recency is a strong
-    // AI-citation signal (plan U2 / GEO §4).
-    dateModified: post.updated ?? post.date,
-    author: authorNode(post.author, resolveAuthor),
+    headline,
+    description,
+    image: absoluteUrl(image),
+    datePublished,
+    // dateModified must reflect real edits, not mirror datePublished. Recency
+    // is a strong AI-citation signal (plan U2 / GEO §4).
+    dateModified: dateModified ?? datePublished,
+    author: authorNode(author, resolveAuthor),
     publisher: { '@id': `${SITE_URL}/#organization` },
     isPartOf: { '@id': `${SITE_URL}/#website` },
-    url: absoluteUrl(`/blog/${post.slug}`),
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    inLanguage: 'en-IN',
+    url,
+    mainEntityOfPage: url,
   };
+}
+
+export function articleSchema(post, resolveAuthor = getAuthor) {
+  return articlePageSchema(
+    {
+      headline: post.title,
+      description: post.meta_description,
+      image: post.heroImage,
+      datePublished: post.date,
+      // An optional `updated` frontmatter field bumps dateModified.
+      dateModified: post.updated,
+      author: post.author,
+      path: `/blog/${post.slug}`,
+    },
+    resolveAuthor
+  );
 }

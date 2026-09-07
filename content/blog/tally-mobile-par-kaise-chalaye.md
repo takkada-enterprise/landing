@@ -5,6 +5,7 @@ meta_title: "Tally Mobile Par Kaise Chalaye: Step-by-Step Setup"
 meta_description: "Tally mobile par kaise chalaye, step by step. Companion app se Tally data phone pe sync karein, ledger aur outstanding dekhein, UPI 0% MDR pe vasooli karein."
 primary_keyword: "tally mobile par kaise chalaye"
 date: "2026-06-21"
+updated: "2026-08-09"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Subah 9 baje aap office se nikal jaate hain aur Tally screen raat tak nahi dikhti. Tab tak ek party ka ₹1,40,000 ka outstanding aapko pata hi nahi chalta aur salesman fresh credit de aata hai. Yahan seedha bataya hai ki phone pe Tally data kaise laayein, step by step."
@@ -90,7 +91,7 @@ UPI ka ek sneaky cost hota hai jo distributor aksar miss karte hain. MDR, yaani 
 | Patli 2G line pe chalna | Fail | Fail | Cached view | Cached view, queued writes |
 | Extra Tally licence | Nahi | Nahi | Nahi | Nahi |
 
-Agar aapki poori zaroorat ek screen pe number dekhna hai, to view-only companion pe ruk jaayein. Agar aap field se collection chalate hain, to read-and-write companion hi ek bridge hai jo tikta hai. Collection ki poori picture chahiye to [distributor ke liye payment collection app](/blog/payment-collection-app-for-distributors-india/) wala article ye dono side jodta hai.
+Agar aapki poori zaroorat ek screen pe number dekhna hai, to view-only companion pe ruk jaayein. Agar aap field se collection chalate hain, to read-and-write companion hi ek bridge hai jo tikta hai. Collection ki poori picture chahiye to [distributor ke liye payment collection app](/blog/payment-collection-app-for-distributors-india/) wala article ye dono side jodta hai. Aur agar aap remote desktop ke jhanjhat se poori tarah bahar nikalna chahte hain, to [Tally on mobile without remote access](/tally-on-mobile-without-remote-access) wala page ye raasta detail mein kholta hai.
 
 ## Frequently Asked Questions
 

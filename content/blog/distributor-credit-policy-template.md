@@ -2,7 +2,7 @@
 title: "Distributor Credit Policy: Terms, Limits, Penalty Template"
 slug: "distributor-credit-policy-template"
 meta_title: "Distributor Credit Policy Template: Terms, Limits, Penalty"
-meta_description: "A ready-to-use distributor credit policy template with credit terms, credit limits, a late-fee penalty clause, and a stop-supply rule you can copy and fill in today."
+meta_description: "A ready-to-use distributor credit policy template with credit terms, credit limits, a late-fee penalty clause, and a stop-supply rule to copy today."
 primary_keyword: "distributor credit policy template"
 date: "2026-06-21"
 author: "harsh"

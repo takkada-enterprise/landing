@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "slug": "record-payment",
+  "reviewedOn": "2026-09-07",
+  "checkedAgainstAppOn": "2026-09-07",
+  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
+  "appCheckout": "takkada/tk-wt-help",
+  "filesRead": [
+    "lib/screens/create_payment_screen.dart",
+    "lib/screens/payments_register_screen.dart",
+    "lib/screens/settings/payments_settings_screen.dart",
+    "lib/screens/purchase_invoice_detail_screen.dart",
+    "lib/screens/party_details_screen.dart",
+    "lib/widgets/voucher/bank_selection_list.dart",
+    "lib/widgets/voucher/create_voucher_bottom_bar.dart",
+    "lib/widgets/voucher/duplicate_voucher_dialog.dart",
+    "lib/widgets/voucher/voucher_number_field.dart",
+    "lib/widgets/voucher/voucher_success_dialog.dart",
+    "lib/services/create_access_service.dart",
+    "lib/config/settings_catalog.dart"
+  ],
+  "accessBasis": {
+    "featureKey": "voucher_creation_mobile",
+    "visibilityEvidence": "tool/help/visibility-evidence.json (prod) — voucher_creation_mobile: true",
+    "gate": "CreateAccessService.resolveRegisterCreateAccess(VoucherRegisterType.payment) — the voucher_creation_mobile feature, then the Payments register create permission. Payments settings live in a SettingsScope.company category, so they are admin-only.",
+    "route": "/create/payment"
+  },
+  "behaviourReviewed": [
+    "The standalone payment form has NO bill-allocation control; the widget tree is voucher number, party header, amount, tax/discount, date, notes, bank list.",
+    "BankSelectionList is instantiated WITHOUT showUpiQrAction, so no UPI action renders on a payment (deliberate: money out).",
+    "Save is disabled until a bank ledger is selected.",
+    "Purchase invoice detail's _PaymentStatusBottomSheet (Update Payment Status) is the real payment-against-a-bill path: it asks which bank/cash ledger paid whenever the paid amount increases, and ABORTS the status update if the payment insert fails, showing 'Payment status was left unchanged.'",
+    "Settings → Payments & reminders → Money in & out holds Bank accounts and the UPI QR on unpaid invoices switch, which stays inert until a bank account carries a UPI ID."
+  ],
+  "inventoryDeviations": [
+    "The inventory cell for record-payment says 'Supplier payment, bill allocation, bank/cash selection'. There is no bill-allocation picker on create_payment_screen.dart — payments recorded there are against the party, not a bill. The guide says so plainly and routes bill-level payment to the purchase invoice's Update Payment Status sheet, which is where the app actually links a payment to a bill.",
+    "settings/payments_settings_screen.dart is named in the inventory; it holds bank accounts and the UPI QR switch rather than any payment-entry setting, so it is covered under 'Bank or cash' and the collection-entitlement section."
+  ],
+  "visibilityBlocked": [
+    {
+      "surface": "Submit for approval / Resubmit for approval / Approve and save save-modes in create_payment_screen.dart",
+      "reason": "Gated on voucher_approvals, is_customer_visible = false in prod evidence. No public procedure or label written."
+    }
+  ],
+  "deliberatelyOmitted": [
+    "The approvals save-modes (see visibilityBlocked).",
+    "Any statement that collection features come with the ability to record money, or the reverse — the guide separates them explicitly as instructed."
+  ],
+  "contractCheck": "node scripts/checkGuideContract.mjs --slug record-payment — OK"
+}
