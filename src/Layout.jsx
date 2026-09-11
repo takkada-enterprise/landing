@@ -387,7 +387,7 @@ function SiteFooter() {
                   DPIIT Recognized<br /><span style={{ color: '#ea580c', fontWeight: 700 }}>Startup India</span> Company
                 </span>
               </div>
-              <div className="saashunt-badge-card">
+              {/* <div className="saashunt-badge-card">
                 <a
                   href="https://saashunt.best/projects/takkada"
                   target="_blank"
@@ -403,7 +403,7 @@ function SiteFooter() {
                     height="40"
                   />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="footer-columns">
@@ -418,26 +418,26 @@ function SiteFooter() {
               >
                 <p className="footer-col-title">{col.title}</p>
                 <div className="footer-col-links">
-                {col.links.map((link) => {
-                  if (link.page) {
+                  {col.links.map((link) => {
+                    if (link.page) {
+                      return (
+                        <Link to={`/${link.page}`} key={link.label}>{link.label}</Link>
+                      );
+                    }
+                    if (link.href && link.href.startsWith('#')) {
+                      return (
+                        <NavHashLink key={link.label} href={link.href}>{link.label}</NavHashLink>
+                      );
+                    }
+                    // `download` is passed through rather than assumed from the
+                    // href: the Connect column's mailto and social links live on
+                    // this same branch and must not acquire one.
                     return (
-                      <Link to={`/${link.page}`} key={link.label}>{link.label}</Link>
+                      <a href={link.href} key={link.label} download={link.download}>
+                        {link.label}
+                      </a>
                     );
-                  }
-                  if (link.href && link.href.startsWith('#')) {
-                    return (
-                      <NavHashLink key={link.label} href={link.href}>{link.label}</NavHashLink>
-                    );
-                  }
-                  // `download` is passed through rather than assumed from the
-                  // href: the Connect column's mailto and social links live on
-                  // this same branch and must not acquire one.
-                  return (
-                    <a href={link.href} key={link.label} download={link.download}>
-                      {link.label}
-                    </a>
-                  );
-                })}
+                  })}
                 </div>
               </div>
             ))}
