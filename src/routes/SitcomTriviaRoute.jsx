@@ -355,29 +355,8 @@ export default function SitcomTriviaRoute() {
           </div>
         )}
 
-        {/* Crawlable SEO Content Section */}
-        <section className="trivia-seo-section">
-          <h2 className="trivia-seo-title">About 60-Second American Sitcom Trivia</h2>
-          <p>
-            Welcome to the ultimate rapid-fire <strong>60-Second American Sitcom Trivia Challenge</strong>. Test your knowledge of television history, iconic characters, famous catchphrases, and unscripted running gags under intense time pressure.
-          </p>
-          <p>
-            You have exactly 60 seconds to answer as many trivia questions as possible. Each correct answer earns <strong>+3 points</strong>, while incorrect answers deduct <strong>1 point (−1)</strong>. Only the fastest and most accurate sitcom fans will claim a spot on our global Top 3 High Score Leaderboard!
-          </p>
-          <h3 style={{ color: '#ffffff', fontSize: '1.2rem', marginTop: '1.5rem' }}>
-            Featured American Sitcoms in this Quiz
-          </h3>
-          <div className="trivia-seo-grid">
-            {FEATURED_SITCOMS.map((show, i) => (
-              <div key={i} className="sitcom-tag">
-                {show}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Subtle Bottom Founder Connection Layer */}
-        <footer className="trivia-founder-footer">
+        {/* Founder Connection Card */}
+        <section className="trivia-founder-section">
           <div className="founder-footer-content">
             <p className="founder-note">
               This trivia game is a side project built by the founder of{' '}
@@ -389,7 +368,7 @@ export default function SitcomTriviaRoute() {
               >
                 Takkada.com
               </a>
-              , an accounting software for Indian distributors & wholesalers.
+              , an accounting software layer for Tally helping Indian distributors & wholesalers.
             </p>
             <p className="founder-subnote">
               Are you a founder, startup enthusiast, VC, or investor looking to connect?
@@ -416,7 +395,28 @@ export default function SitcomTriviaRoute() {
               <span>Chat on WhatsApp</span>
             </a>
           </div>
-        </footer>
+        </section>
+
+        {/* Crawlable SEO Content Section */}
+        <section className="trivia-seo-section">
+          <h2 className="trivia-seo-title">About 60-Second American Sitcom Trivia</h2>
+          <p>
+            Welcome to the ultimate rapid-fire <strong>60-Second American Sitcom Trivia Challenge</strong>. Test your knowledge of television history, iconic characters, famous catchphrases, and unscripted running gags under intense time pressure.
+          </p>
+          <p>
+            You have exactly 60 seconds to answer as many trivia questions as possible. Each correct answer earns <strong>+3 points</strong>, while incorrect answers deduct <strong>1 point (−1)</strong>. Only the fastest and most accurate sitcom fans will claim a spot on our global Top 3 High Score Leaderboard!
+          </p>
+          <h3 style={{ color: '#ffffff', fontSize: '1.2rem', marginTop: '1.5rem' }}>
+            Featured American Sitcoms in this Quiz
+          </h3>
+          <div className="trivia-seo-grid">
+            {FEATURED_SITCOMS.map((show, i) => (
+              <div key={i} className="sitcom-tag">
+                {show}
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

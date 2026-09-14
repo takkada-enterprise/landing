@@ -506,12 +506,15 @@
   text-align: center;
 }
 
-/* Subtle Founder Connection Footer */
-.trivia-founder-footer {
-  margin-top: 4rem;
-  padding-top: 2.5rem;
-  border-top: 1px dashed rgba(107, 158, 122, 0.25);
+/* Founder Connection Card */
+.trivia-founder-section {
+  margin-top: 2.5rem;
+  padding: 2rem 1.5rem;
+  background: rgba(24, 40, 31, 0.7);
+  border: 1px solid rgba(107, 158, 122, 0.3);
+  border-radius: 20px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .founder-footer-content {
