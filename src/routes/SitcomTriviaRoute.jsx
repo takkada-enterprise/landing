@@ -269,9 +269,6 @@ export default function SitcomTriviaRoute() {
                 ))}
               </div>
             </div>
-
-            {/* Founder Note inside Start Card */}
-            <FounderNoteCard />
           </div>
         )}
 
@@ -398,9 +395,6 @@ export default function SitcomTriviaRoute() {
                 {copiedShareLink ? '✓ Link Copied!' : 'Challenge a Friend 🚀'}
               </button>
             </div>
-
-            {/* Founder Note inside End Card */}
-            <FounderNoteCard />
           </div>
         )}
 
@@ -424,6 +418,11 @@ export default function SitcomTriviaRoute() {
             ))}
           </div>
         </section>
+
+        {/* Subtle Bottom Founder Connection Layer */}
+        <footer style={{ marginTop: '3.5rem' }}>
+          <FounderNoteCard />
+        </footer>
       </div>
     </div>
   );
