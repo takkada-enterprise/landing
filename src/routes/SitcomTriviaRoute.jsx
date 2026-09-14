@@ -32,6 +32,49 @@ const FEATURED_SITCOMS = [
   '30 Rock',
 ];
 
+function FounderNoteCard() {
+  return (
+    <div className="trivia-founder-section">
+      <p className="founder-note">
+        This trivia game is a side project built by the founder of{' '}
+        <a
+          href="https://takkada.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="founder-link"
+        >
+          Takkada.com
+        </a>
+        , an accounting software layer for Tally helping Indian distributors & wholesalers.
+      </p>
+      <p className="founder-subnote">
+        Are you a founder, startup enthusiast, VC, or investor looking to connect?
+      </p>
+      <a
+        href="https://wa.me/917019152071?text=Hi!%20I%20came%20across%20your%20Sitcom%20Trivia%20side%20project%20and%20would%20love%20to%20connect."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="trivia-whatsapp-btn"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ flexShrink: 0 }}
+        >
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+        <span>Chat on WhatsApp</span>
+      </a>
+    </div>
+  );
+}
+
 export default function SitcomTriviaRoute() {
   // Game state: 'START' | 'PLAYING' | 'ENDED'
   const [gameState, setGameState] = useState('START');
@@ -153,7 +196,7 @@ export default function SitcomTriviaRoute() {
           text: shareText,
           url: shareUrl,
         })
-        .catch(() => { });
+        .catch(() => {});
     } else {
       navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
       setCopiedShareLink(true);
@@ -226,6 +269,9 @@ export default function SitcomTriviaRoute() {
                 ))}
               </div>
             </div>
+
+            {/* Founder Note inside Start Card */}
+            <FounderNoteCard />
           </div>
         )}
 
@@ -352,50 +398,11 @@ export default function SitcomTriviaRoute() {
                 {copiedShareLink ? '✓ Link Copied!' : 'Challenge a Friend 🚀'}
               </button>
             </div>
+
+            {/* Founder Note inside End Card */}
+            <FounderNoteCard />
           </div>
         )}
-
-        {/* Founder Connection Card */}
-        <section className="trivia-founder-section">
-          <div className="founder-footer-content">
-            <p className="founder-note">
-              This trivia game is a side project built by the founder of{' '}
-              <a
-                href="https://takkada.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="founder-link"
-              >
-                Takkada.com
-              </a>
-              , an accounting software layer for Tally helping Indian distributors & wholesalers.
-            </p>
-            <p className="founder-subnote">
-              Are you a founder, startup enthusiast, VC, or investor looking to connect?
-            </p>
-            <a
-              href="https://wa.me/917019152071?text=Hi!%20I%20came%20across%20your%20Sitcom%20Trivia%20side%20project%20and%20would%20love%20to%20connect."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="trivia-whatsapp-btn"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ flexShrink: 0 }}
-              >
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
-              <span>Chat on WhatsApp</span>
-            </a>
-          </div>
-        </section>
 
         {/* Crawlable SEO Content Section */}
         <section className="trivia-seo-section">
