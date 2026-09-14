@@ -505,3 +505,61 @@
   color: #b8d4be;
   text-align: center;
 }
+
+/* Subtle Founder Connection Footer */
+.trivia-founder-footer {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px dashed rgba(107, 158, 122, 0.25);
+  text-align: center;
+}
+
+.founder-footer-content {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: rgba(184, 212, 190, 0.75);
+  line-height: 1.6;
+}
+
+.founder-note {
+  margin-bottom: 0.5rem;
+}
+
+.founder-link {
+  color: #88c999;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.founder-link:hover {
+  color: #22c55e;
+}
+
+.founder-subnote {
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: rgba(163, 196, 171, 0.65);
+}
+
+.trivia-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25d366;
+  color: #0b1c11;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+  transition: all 0.2s ease;
+}
+
+.trivia-whatsapp-btn:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.35);
+}
