@@ -544,9 +544,7 @@ function LayoutInner() {
     return () => document.body.classList.remove('lock-scroll');
   }, [menuOpen]);
 
-  const isStandaloneApp =
-    location.pathname.startsWith('/chinese-sayings') ||
-    location.pathname.startsWith('/sitcom-trivia');
+  const isStandaloneApp = location.pathname.startsWith('/chinese-sayings');
 
   if (isStandaloneApp) {
     return (

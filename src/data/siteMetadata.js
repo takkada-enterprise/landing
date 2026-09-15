@@ -188,16 +188,5 @@ export const routeMetadata = [
     changefreq: 'weekly',
     priority: 0.9,
   },
-  {
-    path: '/sitcom-trivia',
-    llms: {
-      section: 'Key pages',
-      title: '60-Second American Sitcom Trivia',
-      summary: 'Rapid-fire 60-second quiz featuring 100 questions from classic American sitcoms with a global top 3 leaderboard.',
-    },
-    sourceFile: 'src/routes/SitcomTriviaRoute.jsx',
-    changefreq: 'weekly',
-    priority: 0.9,
-  },
   ...featureRouteMetadata,
 ];
