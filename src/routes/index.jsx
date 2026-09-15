@@ -14,7 +14,6 @@ import TryDemo from './TryDemo';
 import Partners from './Partners';
 import Features from './Features';
 import ChineseNovelQuotesRoute from './ChineseNovelQuotesRoute';
-import SitcomTriviaRoute from './SitcomTriviaRoute';
 import FeaturePage from '../components/FeaturePage';
 import { routeMetadata } from '../data/siteMetadata';
 import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
@@ -43,7 +42,6 @@ const ELEMENT_FOR_PATH = {
   '/partners': <Partners />,
   '/become-a-partner': <Partners />,
   '/chinese-sayings': <ChineseNovelQuotesRoute />,
-  '/sitcom-trivia': <SitcomTriviaRoute />,
 };
 
 const children = routeMetadata.map(({ path }) => {
