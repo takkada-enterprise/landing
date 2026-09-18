@@ -5,7 +5,7 @@ meta_title: "Payment Recovery Dashboard for Distributors"
 meta_description: "A payment recovery dashboard shows parties, bills, habits and team. Open the morning brief, see who nobody chased, share it by hand."
 primary_keyword: "payment recovery dashboard"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Collections"
 excerpt: "At 8:40 the owner opens Collect, taps Recovery, and the daily brief names one promise due today and three overdue parties nobody has chased. The payment recovery dashboard is four tabs, not a second set of books. The brief is shared by hand."
@@ -93,7 +93,7 @@ There are four presets. Every day. Every 2 days. Every 3 days, which is the defa
 
 The Tuesday decision for that Guwahati book is usually whether the default of every 3 days is still right. A book that has slipped, DSO up, 90-plus growing, often moves to every 2 days for a month. A quiet book stays on every 3 or every 7. The setting is the same kind of once-and-done choice as [scheduled payment reminders](/blog/scheduled-payment-reminders-tally/), sitting next to the option to [send payment reminders automatically](/send-payment-reminders-automatically) off Tally due dates.
 
-WhatsApp reminders can carry a UPI payment link once payment collection is active, after KYC. They do not carry a link on every reminder by default. When collection is on, the rail is 0% MDR on UPI collections, no transaction cap, no monthly fee. Across the platform that is 100+ businesses and ₹17Cr+ collected monthly.
+WhatsApp reminders can carry a UPI payment link once payment collection is active, after KYC. They do not carry a link on every reminder by default. When collection is on, the rail is 0% MDR on UPI collections, no transaction cap, no monthly fee. Across the platform that is 100+ businesses.
 
 Reminders and statements go from the Takkada business number, shown as queued in the app, or via Send from my WhatsApp from the owner's own number. The sender question is the one [sending from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) exists to answer: a retailer opens a chat from a number he already has saved. A [Payment reminder from Tally](/payment-reminder-tally) still starts from the invoice and the due date already in the books. The Recovery view does not replace that. It tells the owner, at 8:40, which of those reminders and which of those calls actually need a person today.
 

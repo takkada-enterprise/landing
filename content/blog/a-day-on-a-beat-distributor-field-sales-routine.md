@@ -5,7 +5,7 @@ meta_title: "A Day on a Beat: Field Sales Hour by Hour"
 meta_description: "A distributor field sales daily routine with a beat app: Today's load, photo check-in, Sales Order into Tally, load sheet, WhatsApp invoice, evening Team Sales."
 primary_keyword: "distributor field sales daily routine"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Market Reality"
 excerpt: "Follow Raju through Tuesday on Station Road. Today's load at nine, Gupta Stores at 10:40, a Sales Order after check-out, the van from one sheet, WhatsApp when billed, Team Sales at 8 PM."
@@ -85,7 +85,7 @@ By night the owner already knows how the day went. Visits and orders per salesma
 
 He used to call five people. "Kitna hua aaj?" The evening call asking everyone what they did stops being necessary. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. A distributor field sales daily routine on this book ends on the same Tally sales the office already trusts.
 
-The ₹42,000, ₹8,00,000 and ₹8,400 in this article are the worked example on one Guwahati book. The only public scale figures behind Takkada are 100+ businesses and ₹17Cr+ collected monthly, platform-wide.
+The ₹42,000, ₹8,00,000 and ₹8,400 in this article are the worked example on one Guwahati book.
 
 ## Frequently Asked Questions
 

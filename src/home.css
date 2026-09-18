@@ -629,7 +629,7 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
 }
 
 /* ═══════════ Proof strip (2026-08-06 conversion pass) ═══════════ */
-/* One white plate: the customer's voice beside the two confirmed figures.
+/* One white plate: the customer's voice beside the confirmed scale figure.
    Sits between the tour and Story 2, so proof lands before pricing. */
 .home-v3 .hv3-proof { padding: 24px 0 104px; }
 
@@ -678,7 +678,7 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   color: var(--color-text-muted);
 }
 
-/* The two figures stack beside the quote, separated by a hairline. */
+/* The figure sits beside the quote, separated by a hairline. */
 .home-v3 .hv3-proof-stats {
   display: flex;
   flex-direction: column;

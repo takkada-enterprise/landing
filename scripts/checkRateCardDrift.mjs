@@ -59,9 +59,9 @@ export function allowedFigures(snap) {
 }
 
 // Prerendered React splits adjacent JSX children with comment nodes, so a
-// rupee figure can arrive as "₹<!-- -->17<!-- -->Cr+". The matcher skips
+// rupee figure can arrive as "₹<!-- -->12<!-- -->crore". The matcher skips
 // comments/whitespace after ₹, and a figure followed by a scale word
-// (₹17Cr+, ₹2 lakh) is a marketing stat, not a rate-card price.
+// (₹12 crore, ₹2 lakh) is an article figure, not a rate-card price.
 const RUPEE_RE = /₹((?:<!--[^>]*-->|&nbsp;|\s)*)([\d,]*\d)/g;
 const GAP_RE = /^(?:<!--[^>]*-->|&nbsp;|\s)+/;
 const SCALE_RE = /^(?:cr(?:ore)?s?|lakhs?|l\b)/i;

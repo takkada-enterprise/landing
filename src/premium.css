@@ -328,7 +328,7 @@ html.js .hero--poster .hero-visual { animation-delay: 0.18s; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Proof band: cinematic scale for the two confirmed figures ── */
+/* ── Proof band: cinematic scale for the confirmed scale figure ── */
 .metrics-bar { padding: 92px 0; }
 
 .metrics-grid { gap: 64px; }

@@ -421,9 +421,9 @@ function Home({ seo = HOME_SEO }) {
       {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
       <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
 
-      {/* ── Proof strip: the customer's voice + the two confirmed figures,
+      {/* ── Proof strip: the customer's voice + the confirmed scale figure,
              moved AHEAD of pricing (2026-08-06 conversion pass, R3). The
-             stats render static here — the hero already counted them up,
+             stat renders static here — the hero already counted it up,
              and a second count would be decoration without a reason. ── */}
       <section className="hv3-proof" id={proofStrip.id}>
         <div className="container">

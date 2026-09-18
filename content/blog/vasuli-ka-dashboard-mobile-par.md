@@ -5,7 +5,7 @@ meta_title: "Vasuli Dashboard Mobile par Kaise Dekhe"
 meta_description: "Vasuli dashboard mobile par Collect ke Recovery view mein hai: Parties, Bills, Habits, Team, subah ka brief. Request pe on hota hai, share haath se."
 primary_keyword: "vasuli dashboard"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Collections"
 excerpt: "Subah 8:40, Guwahati wala owner Collect kholta hai. Vasuli dashboard par Barpeta chemist ka ₹45,000 promise aaj due hai, teen overdue party ka koi owner nahi. Brief haath se share hota hai."
@@ -89,7 +89,7 @@ Char presets. Every day. Every 2 days. Every 3 days, default. Every 7 days. Har 
 
 Guwahati book agar slip kar rahi hai, DSO upar, 90-plus badh raha, to mahine bhar every 2 days. Shant book every 3 ya 7 pe reh sakti hai. Tuesday ka faisla yahi hota hai.
 
-WhatsApp reminder pe UPI link tab, jab payment collection active ho, KYC ke baad. Har reminder pe link default nahi. Collection on ho to 0% MDR, no cap, no monthly fee. Platform pe 100+ businesses, ₹17Cr+ monthly. Reminder Takkada business number se jaata hai, app mein queued, ya Send from my WhatsApp se owner ke number se.
+WhatsApp reminder pe UPI link tab, jab payment collection active ho, KYC ke baad. Har reminder pe link default nahi. Collection on ho to 0% MDR, no cap, no monthly fee. Platform pe 100+ businesses. Reminder Takkada business number se jaata hai, app mein queued, ya Send from my WhatsApp se owner ke number se.
 
 Subah ageing ab bhi ₹18 lakh overdue dikhayegi. Vasuli dashboard uske upar ₹45,000 ka promise, Nalbari ki missed date, teen naam jinhe kisi ne nahi chheda. Tally bills rakhe. Owner chase rakhe.
 
