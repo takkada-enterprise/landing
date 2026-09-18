@@ -373,7 +373,8 @@ html.js .animated-heading .letter {
    mobile overlay keep the colours above. home-v3.test.jsx pins both halves, and
    pins that a page which goes navy without coming here fails.
 
-   THE WORDMARK IS AN IMAGE and none of this reaches it — see .nav-logo-img. */
+   THE WORDMARK IS AN IMAGE, so no colour rule can reach it; it gets the footer
+   logo's filter, in its own rule below. */
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-links > a,
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-link,
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-toggle,
@@ -396,6 +397,22 @@ body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn,
 body:has(.feature-hero) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn,
 body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn {
   color: rgba(255, 255, 255, 0.82);
+}
+
+/* The wordmark is an <img> — a colour mark plus "Takkada" in dark ink on
+   transparency — so nothing above can reach it and it read at about 1.2:1 over
+   the navy. It takes the same filter the footer logo already uses
+   (.footer-logo-img) and becomes a flat white silhouette while the bar is over
+   navy. The colour mark is lost in that state; that is the owner's call
+   (2026-09-18), taken knowing it, because a logo nobody can read is worse.
+
+   The same two exclusions as the hamburger, for the same two reasons: scrolled,
+   the bar is its own paper panel, and open, the menu is a white overlay. In
+   both the logo must be its ordinary colour self. */
+body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-img,
+body:has(.feature-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-img,
+body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-img {
+  filter: brightness(0) invert(1);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2299,6 +2316,18 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .mobile-me
   height: 38px;
   width: auto;
   object-fit: contain;
+  /* On the navy pages this crosses between the white silhouette and the colour
+     mark as the bar fades in and out of its scrolled state (see the nav-on-navy
+     block). The bar's own background transition is 0.3s; 200ms keeps the logo
+     just ahead of it rather than snapping white → colour under a bar that is
+     still fading. */
+  transition: filter 200ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-logo-img {
+    transition: none;
+  }
 }
 
 .footer-logo-img {

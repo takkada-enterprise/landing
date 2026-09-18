@@ -489,6 +489,33 @@ describe('the nav over the navy hero', () => {
     }
   });
 
+  // The wordmark is an <img> of dark ink on transparency, so no colour rule can
+  // reach it. Over navy it takes the footer logo's treatment and goes to a flat
+  // white silhouette (owner's call, 2026-09-18), and it must come back to the
+  // colour mark the moment the bar is paper again.
+  it('turns the wordmark into a white silhouette on every navy page', () => {
+    const logo = onNavy.filter((sel) => sel.includes('.nav-logo-img'));
+    for (const root of NAVY_AT_THE_TOP) {
+      expect(
+        logo.some((sel) => sel.includes(`:has(${root})`)),
+        `no on-navy logo rule for ${root}: the wordmark is dark ink on navy there`
+      ).toBe(true);
+    }
+  });
+
+  it('gives the wordmark back once scrolled, and over the open menu', () => {
+    const logo = onNavy.filter((sel) => sel.includes('.nav-logo-img'));
+    expect(logo.length).toBeGreaterThan(0);
+    for (const sel of logo) {
+      expect(sel, `${sel} whitens the logo on the scrolled paper bar`).toContain(
+        ':not(.scrolled)'
+      );
+      expect(sel, `${sel} whitens the logo on the white mobile overlay`).toContain(
+        ':not(.menu-open)'
+      );
+    }
+  });
+
   it('leaves the hamburger alone once the menu is open over a white overlay', () => {
     const hamburger = onNavy.filter((sel) => sel.includes('.mobile-menu-btn'));
     expect(hamburger.length).toBeGreaterThan(0);

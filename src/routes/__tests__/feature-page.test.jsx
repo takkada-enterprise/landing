@@ -239,16 +239,12 @@ describe('every feature page shows where it sits in the invoice journey', () => 
 // to fail here, or this guard only protects the one place the mistake was not
 // going to be made.
 
-// Every stylesheet src/main.jsx imports, in its import order.
-const APP_STYLESHEETS = [
-  'src/fonts.css',
-  'src/styles.css',
-  'src/premium.css',
-  'src/home.css',
-  'src/journey.css',
-  'src/feature-page.css',
-  'src/guide.css',
-];
+// Every stylesheet src/main.jsx imports, read out of main.jsx rather than kept
+// by hand: a list typed here is a list that goes stale the first time an eighth
+// stylesheet is added, and the leak it lets through is exactly the one this
+// guard exists to catch.
+const APP_STYLESHEETS = [...readFileSync('src/main.jsx', 'utf8').matchAll(/^import\s+'(\.[^']+\.css)'/gm)]
+  .map((m) => m[1].replace(/^\.\//, 'src/'));
 
 const NAVY_SCOPE = /\.feature-hero\b|\.features-hub-hero\b/;
 
@@ -289,6 +285,15 @@ function blanketHeroParagraphs(css) {
 
 describe('the navy hero stays on the two heroes it is for', () => {
   const sheets = APP_STYLESHEETS.map((path) => [path, readFileSync(path, 'utf8')]);
+
+  // If the parse above ever comes back empty, every it.each below silently
+  // stops running and the guard passes on nothing.
+  it('found the app stylesheets in main.jsx', () => {
+    expect(APP_STYLESHEETS.length).toBeGreaterThan(3);
+    expect(APP_STYLESHEETS).toContain('src/styles.css');
+    expect(APP_STYLESHEETS).toContain('src/feature-page.css');
+    expect(APP_STYLESHEETS).toContain('src/journey.css');
+  });
 
   // `hero icp-hero` is also worn by the four ICP pages, /partners, /demo and
   // the comparison page. A rule that grounds .icp-hero in navy takes all of
