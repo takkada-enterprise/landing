@@ -23,7 +23,7 @@ function Seo({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content={robots} />
-      <meta name="theme-color" content="#0b0f19" />
+      <meta name="theme-color" content="#0F1F3D" />
       <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content={ogType} />

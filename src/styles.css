@@ -14,66 +14,74 @@
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* ── Design Tokens — Sage Paper system (teardown 2026-06-18) ──
+/* ── Design Tokens — Marine system (revamp 2026-09-18) ──
    Authoritative token set. CLAUDE.md §6 mirrors these values.
-   Deep forest-green ink on warm off-white paper, soft layered
-   elevation, and pastel accent tints that echo the refreshed app. */
+   Navy ink on cool paper-white, soft layered elevation, and pale
+   blue accent tints taken straight from the app's Marine palette. */
 :root {
   font-optical-sizing: auto;
 
-  /* Brand sage */
-  --color-primary: #344E41;        /* documented sage — was drifted #2d4a2d */
-  --color-primary-dark: #1B3026;
-  --color-primary-light: #4A7C59;
-  --color-accent: #6B9E7A;
-  --color-sage: #6B9E7A;
-  --color-sage-light: #B8D4BE;     /* label-on-dark */
-  --color-sage-bg: #E7F0E8;        /* soft mint wash */
-  --color-container: #DAE5D6;      /* container tint (app cards) */
-  --color-on-container: #0D1F12;
-  --color-ink: #14241C;            /* darkest band / footer */
+  /* Brand: the app's Marine palette (takkada lib/theme/color_palettes.dart).
+     Old sage token NAMES are kept as aliases so every existing rule restyles
+     without edits; brand-guard.test.js keeps the old HEXES out. */
+  --color-primary: #006EA6;          /* Tally blue: buttons, links, icons */
+  --color-navy: #1E3A6B;
+  --color-navy-lift: #2B5290;
+  --color-primary-dark: #0F1F3D;     /* deepest navy: hero, story band, footer */
+  --color-primary-light: #149EC2;
+  --color-accent: #9CCBEA;           /* emphasis on navy, AA on #0F1F3D */
+  --color-sage: var(--color-primary-light);
+  --color-sage-light: #9CCBEA;       /* label-on-dark */
+  --color-wash: #DCF2FB;
+  --color-sage-bg: var(--color-wash);
+  --color-container: #DCF2FB;
+  --color-on-container: #0F1F3D;
+  --color-ink: #0F1F3D;
+  --color-highlight: #FCAF1B;        /* marigold: accent dots only, never buttons */
 
-  /* Soft sage tints — sage-only, matching the app's single icon-container fill
-     (#E8F0E8 softTint) and container tint (#DAE5D6). The old warm peach/rose/
-     sand pastels were a landing-only invention the app never used; they made the
-     site feel like a different brand. Kept as separate tokens (with gentle sage
-     variation) so feature plates don't all read as one flat block. */
-  --tint-mint: #E8F0E8;
-  --tint-peach: #DEEBDD;
-  --tint-rose: #E4EFE4;
-  --tint-sky: #DCE9E0;
-  --tint-sand: #EDF2EA;
+  --tint-mint: #DCF2FB;
+  --tint-peach: #EAF3F9;
+  --tint-rose: #EEF5FA;
+  --tint-sky: #DCF2FB;
+  --tint-sand: #F7FAFC;
 
-  /* Surfaces (layered) */
-  --color-bg: #FAFAF7;
+  /* Surfaces */
+  --color-bg: #F7FAFC;
   --color-white: #FFFFFF;
-  --color-surface: #F3F3EE;        /* tinted card surface */
-  --color-surface-alt: #EEEEE8;
-  --color-surface-variant: #F3F3EE;
-  --color-dark: #14241C;           /* footer ink (was generic black) */
-  --color-dark-bg: #14241C;
+  --color-surface: #EEF5FA;
+  --color-surface-alt: #EAF3F9;
+  --color-surface-variant: #EEF5FA;
+  --color-dark: #0F1F3D;
+  --color-dark-bg: #0F1F3D;
+  --color-paper: #FBF9F2;            /* invoice slip and printed sheets only */
 
   /* Text */
-  --color-text: #1A1C1A;
-  --color-text-secondary: #5F6B64;
-  --color-text-muted: #9CA39D;
+  --color-text: #0E1C2A;
+  --color-text-secondary: #44687D;
+  --color-text-muted: #8FB4C7;
   --color-text-light: #FFFFFF;
 
   /* Lines */
-  --color-border: #E5E5DF;
-  --color-border-light: #EEEEEA;
-  --color-hairline: #EEEEEA;
+  --color-border: #D4E6F0;
+  --color-border-light: #EAF3F9;
+  --color-hairline: #EAF3F9;
 
-  /* Status */
+  /* Status (same as the app) */
   --color-success: #059669;
   --color-danger: #DC2626;
   --color-warning: #D97706;
+
+  /* Stamp inks: invoice slip only */
+  --stamp-blue: #1F5FBF;
+  --stamp-green: #0E8A5F;
+  --stamp-red: #C2372F;
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* "serif" token retained for backward compatibility, but it now resolves to the
      same Plus Jakarta Sans family. Headings get their weight from the
      "Display headings" rule, not from a serif face. */
   --font-serif: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --weight-display: 700;
   --weight-display-hero: 800;
 
@@ -84,16 +92,16 @@
   --radius-2xl: 28px;
   --radius-full: 9999px;
 
-  /* Elevation — soft, warm sage-tinted, layered (never 1px outlines) */
-  --shadow-xs: 0 1px 2px rgba(20,36,28,0.05);
-  --shadow-sm: 0 2px 8px rgba(20,36,28,0.06), 0 1px 2px rgba(20,36,28,0.04);
-  --shadow-md: 0 10px 28px rgba(20,36,28,0.09), 0 2px 6px rgba(20,36,28,0.05);
-  --shadow-lg: 0 20px 50px rgba(20,36,28,0.12), 0 4px 12px rgba(20,36,28,0.06);
-  --shadow-xl: 0 32px 72px rgba(20,36,28,0.16), 0 8px 22px rgba(20,36,28,0.08);
-  --shadow-phone: 0 44px 90px rgba(20,36,28,0.24), 0 14px 34px rgba(20,36,28,0.14);
+  /* Elevation — soft, navy-tinted, layered (never 1px outlines) */
+  --shadow-xs: 0 1px 2px rgba(10, 23, 48,0.05);
+  --shadow-sm: 0 2px 8px rgba(10, 23, 48,0.06), 0 1px 2px rgba(10, 23, 48,0.04);
+  --shadow-md: 0 10px 28px rgba(10, 23, 48,0.09), 0 2px 6px rgba(10, 23, 48,0.05);
+  --shadow-lg: 0 20px 50px rgba(10, 23, 48,0.12), 0 4px 12px rgba(10, 23, 48,0.06);
+  --shadow-xl: 0 32px 72px rgba(10, 23, 48,0.16), 0 8px 22px rgba(10, 23, 48,0.08);
+  --shadow-phone: 0 44px 90px rgba(10, 23, 48,0.24), 0 14px 34px rgba(10, 23, 48,0.14);
 
   /* Motion */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
   --dur-fast: 0.18s;
   --dur: 0.28s;
@@ -290,7 +298,7 @@ html.js .animated-heading .letter {
 }
 
 .site-nav.scrolled {
-  background: rgba(250, 250, 247, 0.92);
+  background: rgba(247, 250, 252, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--color-border);
@@ -617,7 +625,7 @@ html.js .animated-heading .letter {
 .cta-btn--primary {
   background: var(--color-primary);
   color: var(--color-text-light);
-  box-shadow: 0 6px 18px rgba(20,36,28,0.18);
+  box-shadow: 0 6px 18px rgba(10, 23, 48,0.18);
 }
 
 /* Hover lifts only fire for a real hovering pointer — a tap on touch
@@ -626,7 +634,7 @@ html.js .animated-heading .letter {
   .cta-btn--primary:hover {
     background: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(20,36,28,0.26);
+    box-shadow: 0 12px 28px rgba(10, 23, 48,0.26);
   }
 }
 
@@ -704,10 +712,10 @@ html.js .animated-heading .letter {
   bottom: 0;
   z-index: 90;
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-  background: rgba(250, 250, 247, 0.92);
+  background: rgba(247, 250, 252, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 -6px 24px rgba(20, 36, 28, 0.14);
+  box-shadow: 0 -6px 24px rgba(10, 23, 48, 0.14);
   transform: translateY(110%);
   visibility: hidden;
   transition: transform var(--dur) var(--ease-out),
@@ -738,14 +746,14 @@ html.js .animated-heading .letter {
   overflow: hidden;
 }
 
-/* Layered sage backdrop: a soft glow plate + a warm paper grain */
+/* Layered Marine backdrop: a soft glow plate + a paper grain */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 50% at 78% 18%, rgba(107,158,122,0.20) 0%, rgba(107,158,122,0) 60%),
-    radial-gradient(55% 45% at 12% 4%, rgba(218,229,214,0.55) 0%, rgba(218,229,214,0) 55%);
+    radial-gradient(60% 50% at 78% 18%, rgba(0, 110, 166,0.20) 0%, rgba(0, 110, 166,0) 60%),
+    radial-gradient(55% 45% at 12% 4%, rgba(220, 242, 251,0.55) 0%, rgba(220, 242, 251,0) 55%);
   pointer-events: none;
 }
 
@@ -859,7 +867,7 @@ html.js .animated-heading .letter {
   font-weight: 500;
 }
 
-/* Hero Visual — floating device on a sage plate */
+/* Hero Visual — floating device on a Marine plate */
 .hero-visual {
   position: relative;
   display: flex;
@@ -880,7 +888,7 @@ html.js .animated-heading .letter {
 .hero-phone-frame img {
   width: 100%;
   display: block;
-  filter: drop-shadow(0 34px 58px rgba(20,36,28,0.30));
+  filter: drop-shadow(0 34px 58px rgba(10, 23, 48,0.30));
 }
 
 /* ── Hero feature pills ──
@@ -1112,7 +1120,7 @@ html.js .animated-heading .letter {
 .intro-phone img {
   width: 100%;
   display: block;
-  filter: drop-shadow(0 22px 42px rgba(20,36,28,0.22));
+  filter: drop-shadow(0 22px 42px rgba(10, 23, 48,0.22));
 }
 
 .intro-phone-center {
@@ -1123,7 +1131,7 @@ html.js .animated-heading .letter {
 }
 
 .intro-phone-center img {
-  filter: drop-shadow(0 30px 54px rgba(20,36,28,0.28));
+  filter: drop-shadow(0 30px 54px rgba(10, 23, 48,0.28));
 }
 
 @media (max-width: 640px) {
@@ -1144,7 +1152,7 @@ html.js .animated-heading .letter {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(50% 120% at 50% 0%, rgba(107,158,122,0.22) 0%, rgba(107,158,122,0) 60%);
+  background: radial-gradient(50% 120% at 50% 0%, rgba(0, 110, 166,0.22) 0%, rgba(0, 110, 166,0) 60%);
   pointer-events: none;
 }
 
@@ -1183,7 +1191,7 @@ html.js .animated-heading .letter {
 .metric-divider {
   width: 1px;
   height: 44px;
-  background: rgba(184,212,190,0.22);
+  background: rgba(156, 203, 234,0.22);
 }
 
 @media (max-width: 640px) {
@@ -1295,7 +1303,7 @@ html.js .animated-heading .letter {
 .feature-phone img {
   width: 100%;
   display: block;
-  filter: drop-shadow(0 32px 56px rgba(20,36,28,0.28));
+  filter: drop-shadow(0 32px 56px rgba(10, 23, 48,0.28));
 }
 
 .feature-phone-back {
@@ -2041,7 +2049,7 @@ html.js .animated-heading .letter {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(60% 130% at 50% 110%, rgba(107,158,122,0.28) 0%, rgba(107,158,122,0) 60%);
+  background: radial-gradient(60% 130% at 50% 110%, rgba(0, 110, 166,0.28) 0%, rgba(0, 110, 166,0) 60%);
   pointer-events: none;
 }
 
@@ -3288,7 +3296,7 @@ html.js .animated-heading .letter {
   width: 10px;
   height: 1.5px;
   border-radius: 1px;
-  background: var(--color-outline, #E5E5DF);
+  background: var(--color-outline, var(--color-border));
 }
 
 /* The hero column. One unbroken sage bar from the plan head down through
@@ -3314,7 +3322,7 @@ html.js .animated-heading .letter {
 }
 
 .rate-plan--hero .rate-plan-note s {
-  color: rgba(184, 212, 190, 0.7);
+  color: rgba(156, 203, 234, 0.7);
 }
 
 .rate-cell--hero .rate-tick {
@@ -3672,7 +3680,7 @@ html.js .animated-heading .letter {
 
 .icp-scenario-section {
   padding: 80px 0;
-  background: #DAE5D6;
+  background: var(--color-wash);
 }
 
 .icp-scenario-inner {
@@ -3708,7 +3716,7 @@ html.js .animated-heading .letter {
 /* Index hero */
 .blog-index-hero {
   padding: 96px 0 56px;
-  background: linear-gradient(180deg, #2D5A3F 0%, #344E41 100%);
+  background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
 }
 
 .blog-index-hero .container {
@@ -3716,7 +3724,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-index-hero .overline {
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.6px;
@@ -3737,7 +3745,7 @@ html.js .animated-heading .letter {
 .blog-index-subtitle {
   font-size: 17px;
   line-height: 1.6;
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   max-width: 560px;
 }
 
@@ -3777,7 +3785,7 @@ html.js .animated-heading .letter {
 .blog-featured-thumb {
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
   overflow: hidden;
 }
 
@@ -3835,7 +3843,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-featured-title a:hover {
-  color: #344E41;
+  color: var(--color-primary);
 }
 
 .blog-featured-excerpt {
@@ -3885,7 +3893,7 @@ html.js .animated-heading .letter {
 .blog-post-card-thumb {
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
   overflow: hidden;
 }
 
@@ -3939,15 +3947,15 @@ html.js .animated-heading .letter {
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #344E41;
-  background: #DAE5D6;
+  color: var(--color-primary);
+  background: var(--color-wash);
   padding: 3px 10px;
   border-radius: 9999px;
 }
 
 .blog-category-tag--on-dark {
-  color: #B8D4BE;
-  background: rgba(184, 212, 190, 0.14);
+  color: var(--color-sage-light);
+  background: rgba(156, 203, 234, 0.14);
 }
 
 .blog-date {
@@ -3970,7 +3978,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-card-title a:hover {
-  color: #344E41;
+  color: var(--color-primary);
 }
 
 .blog-post-card-excerpt {
@@ -3989,7 +3997,7 @@ html.js .animated-heading .letter {
 .blog-read-more {
   font-size: 14px;
   font-weight: 600;
-  color: #344E41;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -4005,7 +4013,7 @@ html.js .animated-heading .letter {
 /* Blog CTA band */
 .blog-cta-band {
   padding: 72px 0;
-  background: linear-gradient(180deg, #2D5A3F 0%, #344E41 100%);
+  background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
 }
 
 .blog-cta-card {
@@ -4028,7 +4036,7 @@ html.js .animated-heading .letter {
 
 .blog-cta-body {
   font-size: 16px;
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   line-height: 1.6;
 }
 
@@ -4048,12 +4056,12 @@ html.js .animated-heading .letter {
 
 .blog-post-header {
   padding: 88px 0 calc(var(--blog-post-header-bottom-gap) + var(--blog-hero-overlap));
-  background: linear-gradient(180deg, #2D5A3F 0%, #344E41 100%);
+  background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
 }
 
 .blog-breadcrumb {
   font-size: 13px;
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -4062,7 +4070,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-breadcrumb a {
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   text-decoration: none;
 }
 
@@ -4091,12 +4099,12 @@ html.js .animated-heading .letter {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #B8D4BE;
+  color: var(--color-sage-light);
   font-size: 14px;
 }
 
 .blog-post-byline .blog-author {
-  color: #B8D4BE;
+  color: var(--color-sage-light);
 }
 
 .blog-author-link {
@@ -4111,7 +4119,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-byline .blog-date {
-  color: #B8D4BE;
+  color: var(--color-sage-light);
 }
 
 .blog-byline-sep {
@@ -4131,7 +4139,7 @@ html.js .animated-heading .letter {
   display: block;
   border-radius: 16px;
   box-shadow: var(--shadow-md);
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
 }
 
 @media (min-width: 768px) {
@@ -4217,17 +4225,17 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-body li::marker {
-  color: #6B9E7A;
+  color: var(--color-primary);
 }
 
 .blog-post-body a {
-  color: #344E41;
+  color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .blog-post-body a:hover {
-  color: #1B3026;
+  color: var(--color-primary-dark);
 }
 
 .blog-post-body .table-wrap,
@@ -4248,21 +4256,21 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-body thead {
-  background: #DAE5D6;
+  background: var(--color-wash);
 }
 
 .blog-post-body th {
   text-align: left;
   font-weight: 600;
-  color: #0D1F12;
+  color: var(--color-on-container);
   padding: 14px 16px;
-  border-bottom: 1px solid #c8d6c2;
+  border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
 
 .blog-post-body td {
   padding: 12px 16px;
-  border-bottom: 1px solid #EEEEEA;
+  border-bottom: 1px solid var(--color-border-light);
   color: var(--color-text);
   vertical-align: top;
 }
@@ -4272,7 +4280,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-post-body tbody tr:nth-child(even) {
-  background: #FAFAF7;
+  background: var(--color-bg);
 }
 
 @media (max-width: 768px) {
@@ -4293,7 +4301,7 @@ html.js .animated-heading .letter {
 
 /* Related posts */
 .blog-related-wrap {
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
   border-top: 1px solid var(--color-border-light);
 }
 
@@ -4345,7 +4353,7 @@ html.js .animated-heading .letter {
 .blog-related-thumb {
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
   overflow: hidden;
 }
 
@@ -4392,7 +4400,7 @@ html.js .animated-heading .letter {
 }
 
 .blog-related-title a:hover {
-  color: #344E41;
+  color: var(--color-primary);
 }
 
 .blog-related-excerpt {
@@ -4484,19 +4492,19 @@ html.js .animated-heading .letter {
 }
 
 .comparison-th--col {
-  background: #F3F3EE;
+  background: var(--color-surface);
   color: var(--color-text);
   min-width: 120px;
 }
 
 .comparison-th--takkada {
-  background: #344E41;
+  background: var(--color-primary);
   color: #ffffff;
   min-width: 120px;
 }
 
 .comparison-row {
-  border-bottom: 0.5px solid #EEEEEA;
+  border-bottom: 0.5px solid var(--color-border-light);
 }
 
 .comparison-row:last-child {
@@ -4533,7 +4541,7 @@ html.js .animated-heading .letter {
 .comparison-disclaimer {
   margin-top: 16px;
   font-size: 12px;
-  color: #9CA39D;
+  color: var(--color-text-muted);
   line-height: 1.5;
 }
 

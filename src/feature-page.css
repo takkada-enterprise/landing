@@ -31,8 +31,8 @@
   display: block;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 32px 60px rgba(20, 36, 28, 0.22))
-    drop-shadow(0 10px 22px rgba(20, 36, 28, 0.12));
+  filter: drop-shadow(0 32px 60px rgba(10, 23, 48, 0.22))
+    drop-shadow(0 10px 22px rgba(10, 23, 48, 0.12));
 }
 
 /* ── The front-loaded answer, directly under the h1 ──
@@ -108,7 +108,7 @@
   height: auto;
   margin: 0 auto;
   /* Transparent-background mockups: shadow the silhouette, not the box. */
-  filter: drop-shadow(0 10px 20px rgba(20, 36, 28, 0.14));
+  filter: drop-shadow(0 10px 20px rgba(10, 23, 48, 0.14));
 }
 
 /* ── Comparison table with sentences in the cells ──
@@ -144,7 +144,7 @@
 .feature-plan-pointer {
   margin-top: 32px;
   padding: 24px 28px;
-  background: var(--color-surface-variant, #F3F3EE);
+  background: var(--color-surface-variant, var(--color-surface));
   border-radius: var(--radius-lg);
   max-width: 560px;
 }
@@ -320,7 +320,7 @@
   max-width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 22px rgba(20, 36, 28, 0.24));
+  filter: drop-shadow(0 12px 22px rgba(10, 23, 48, 0.24));
 }
 
 .features-hub-lead-body h3 {
@@ -515,7 +515,7 @@
   z-index: 2;
   width: 100%;
   height: 348px;
-  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(250, 250, 247, 0) 100%);
+  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(247, 250, 252, 0) 100%);
 }
 
 /* The mockups carry their own device frame (transparent background), so the
@@ -537,7 +537,7 @@
   width: auto;
   object-fit: contain;
   opacity: 0;
-  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(2px);
+  filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32)) blur(2px);
   transition:
     opacity 0.4s var(--ease-out),
     filter 0.4s var(--ease-out);
@@ -545,7 +545,7 @@
 
 .ftour-phone img.is-active {
   opacity: 1;
-  filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32)) blur(0px);
+  filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32)) blur(0px);
 }
 
 .ftour-list {
@@ -713,6 +713,6 @@
   }
 
   .ftour-phone img {
-    filter: drop-shadow(0 24px 40px rgba(20, 36, 28, 0.32));
+    filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32));
   }
 }
