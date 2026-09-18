@@ -15,7 +15,8 @@
     "slug": "review-invoices",
     "source": "Team Sales.png",
     "shows": "Review invoices, Create 7 invoices",
-    "alt": "Review screen creating seven invoices in one go"
+    "alt": "Review screen creating seven invoices in one go",
+    "q": 66
   },
   {
     "slug": "einvoice-eway",

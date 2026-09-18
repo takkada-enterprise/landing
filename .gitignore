@@ -35,5 +35,7 @@ __pycache__/
 
 # The operator's app mockups, ~70 MB of 1-2 MB PNGs. scripts/exportScreens.mjs
 # reads them and commits only the WebP exports under public/assets/screens/, so
-# the originals have to be copied in locally before that script can run.
-public/assets/screenshots/latest mockup/
+# the originals have to be copied in locally before that script can run. They
+# live here rather than under public/ because public/ is copied into dist/ and
+# served, which would publish every unreviewed capture by URL.
+/mockups/

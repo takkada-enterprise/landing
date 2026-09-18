@@ -5,10 +5,14 @@
 // Sheets (a printed loading sheet, an exported report) are wider on screen, so
 // they export at 720w and 1440w instead.
 //
-// The originals live in `public/assets/screenshots/latest mockup/` and stay out
-// of the build: they are 1–2 MB each and nothing on the site links them. They
-// are also untracked, so a fresh checkout has to be given them before this
-// script can run. Only the exports below are committed.
+// The originals live in `mockups/` at the repo root, deliberately NOT under
+// `public/`: Vite copies everything under `public/` into `dist/` verbatim, so a
+// source folder there would be served by dev, preview and the built site — ~70 MB
+// of unreviewed captures, fetchable by URL, however thoroughly .gitignore kept
+// them out of git. `mockups/` is gitignored and never enters the build, so only
+// the exports below ship. A fresh checkout has to be given the originals before
+// this script can run; src/data/__tests__/screens.test.js fails if they ever
+// reappear under `public/`.
 //
 // Every row of scripts/screens.manifest.json has been opened and checked against
 // what the image really shows — the operator's filenames do not always match the
@@ -23,7 +27,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const srcDir = resolve(root, 'public/assets/screenshots/latest mockup');
+const srcDir = resolve(root, 'mockups');
 const outDir = resolve(root, 'public/assets/screens');
 const manifest = JSON.parse(readFileSync(resolve(root, 'scripts/screens.manifest.json'), 'utf8'));
 

@@ -105,7 +105,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"homepage.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Home: payable, receivable, quick action tiles."
+      "origin": "WebP export at 360w of \"homepage.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Home: payable, receivable, quick action tiles."
     },
     "73664480455066831dd26ecf2aa1e3752aa0c06b7c4c77773fce84f863067d0b": {
       "path": "public/assets/screens/home-720.webp",
@@ -119,7 +119,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"homepage.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Home: payable, receivable, quick action tiles."
+      "origin": "WebP export at 720w of \"homepage.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Home: payable, receivable, quick action tiles."
     },
     "806438538cc13bc88b781ec9e70160a263c8c8a12b9a65d3a60b25c7fbe3d3f5": {
       "path": "public/assets/screens/pending-orders-360.webp",
@@ -133,7 +133,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Pending order.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Pending Orders by party with Make Invoice."
+      "origin": "WebP export at 360w of \"Pending order.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Pending Orders by party with Make Invoice."
     },
     "1be0a160012a8605642009ac2988de0589ee1dfcbaf4a145f4720b49b452b102": {
       "path": "public/assets/screens/pending-orders-720.webp",
@@ -147,35 +147,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Pending order.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Pending Orders by party with Make Invoice."
-    },
-    "eddd3803f0aa2187704ce74783f5447cad6cca87a7c9cdc0a45b8a7b7e13a9bf": {
-      "path": "public/assets/screens/review-invoices-360.webp",
-      "kind": "appScreenshot",
-      "sha256": "eddd3803f0aa2187704ce74783f5447cad6cca87a7c9cdc0a45b8a7b7e13a9bf",
-      "companyId": 143,
-      "captureRecord": "latest mockup/Team Sales.png (operator mockup set)",
-      "capturedAt": "2026-09-18",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/dispatch/van/review-invoices",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Team Sales.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Review invoices, Create 7 invoices."
-    },
-    "189331d246bda85f924b52ef1346c1f20ffb234b163609f67b0eaedaec5b7d92": {
-      "path": "public/assets/screens/review-invoices-720.webp",
-      "kind": "appScreenshot",
-      "sha256": "189331d246bda85f924b52ef1346c1f20ffb234b163609f67b0eaedaec5b7d92",
-      "companyId": 143,
-      "captureRecord": "latest mockup/Team Sales.png (operator mockup set)",
-      "capturedAt": "2026-09-18",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/dispatch/van/review-invoices",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Team Sales.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Review invoices, Create 7 invoices."
+      "origin": "WebP export at 720w of \"Pending order.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Pending Orders by party with Make Invoice."
     },
     "04fcea135c2bf804a5fc8fa57afb2777c62d9c802d8bf6204d76ebbbf395ac2b": {
       "path": "public/assets/screens/einvoice-eway-360.webp",
@@ -189,7 +161,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Auto einv and eway.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice."
+      "origin": "WebP export at 360w of \"Auto einv and eway.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice."
     },
     "f508f02bad79b1fa53d601c99634e4a296fed5d13168b1ef2e5b458949e87f04": {
       "path": "public/assets/screens/einvoice-eway-720.webp",
@@ -203,7 +175,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Auto einv and eway.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice."
+      "origin": "WebP export at 720w of \"Auto einv and eway.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice."
     },
     "a25347be7f5e06b4e2929bbdf7c50f48c4fddc784e0a967ae05abb4313ea068e": {
       "path": "public/assets/screens/van-loading-360.webp",
@@ -217,7 +189,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Van Loading.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Van loading: drops in route order, Van is loaded."
+      "origin": "WebP export at 360w of \"Van Loading.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van loading: drops in route order, Van is loaded."
     },
     "ffd43f650cc39543e9ece61d656119d4ad60d98115a86f4b7adbb92d43967da8": {
       "path": "public/assets/screens/van-loading-720.webp",
@@ -231,7 +203,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Van Loading.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Van loading: drops in route order, Van is loaded."
+      "origin": "WebP export at 720w of \"Van Loading.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van loading: drops in route order, Van is loaded."
     },
     "f9f66931b1f6ae17e4e779b8f345626fe2ee590d73ece0883dc70472d6e11631": {
       "path": "public/assets/screens/invoice-sent-360.webp",
@@ -245,7 +217,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"making challans & invoices.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
+      "origin": "WebP export at 360w of \"making challans & invoices.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
     },
     "b66a1637bf894ff2fbf46c65858a66bca096e5c2004543f5a652af2ae34fcdb6": {
       "path": "public/assets/screens/invoice-sent-720.webp",
@@ -259,7 +231,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"making challans & invoices.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
+      "origin": "WebP export at 720w of \"making challans & invoices.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
     },
     "17a439263e478adc304261e836fbdb0ade72c354afd2335c517f549bb2276781": {
       "path": "public/assets/screens/reminders-360.webp",
@@ -273,7 +245,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"reminder logs.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
+      "origin": "WebP export at 360w of \"reminder logs.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
     },
     "3f244a6723bdb11edeab3f452553d849f6e09098185d96d8a1e0d4fe3645ebde": {
       "path": "public/assets/screens/reminders-720.webp",
@@ -287,7 +259,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"reminder logs.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
+      "origin": "WebP export at 720w of \"reminder logs.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
     },
     "9b635c2db2f5036e939b248bf4a58326de405f7cdf59eff31d7ae50df7d20e7a": {
       "path": "public/assets/screens/reminder-schedule-360.webp",
@@ -301,7 +273,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
+      "origin": "WebP export at 360w of \"Reminder payment.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
     },
     "0eb715eeb8a2e9e908fc0b1071df7f28cfcbb5b7c1b4e31651ac4e874cec5d7d": {
       "path": "public/assets/screens/reminder-schedule-720.webp",
@@ -315,7 +287,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
+      "origin": "WebP export at 720w of \"Reminder payment.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
     },
     "b4d545f48e5d5d61a9e90a8aaa883ca46159d75a1e10c7949d2ff7c665a76814": {
       "path": "public/assets/screens/followup-log-360.webp",
@@ -329,7 +301,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"followup log -revery dashbaord.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Log follow-up with promise to pay."
+      "origin": "WebP export at 360w of \"followup log -revery dashbaord.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Log follow-up with promise to pay."
     },
     "34ae14f605067b0d2719fe21eb61db498e6775b2bda86a1bf894b0b2ecc1a1e8": {
       "path": "public/assets/screens/followup-log-720.webp",
@@ -343,7 +315,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"followup log -revery dashbaord.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Log follow-up with promise to pay."
+      "origin": "WebP export at 720w of \"followup log -revery dashbaord.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Log follow-up with promise to pay."
     },
     "a9d9e4ce9eb962359b6b5f4904d318c9907cd76a6c57c4ed175d24549492a630": {
       "path": "public/assets/screens/recovery-team-360.webp",
@@ -357,7 +329,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Recovery dashboard team logging.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Recovery, Team tab."
+      "origin": "WebP export at 360w of \"Recovery dashboard team logging.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Recovery, Team tab."
     },
     "af0cee1c9b2e18ace8fa5bf33504754f4636907dfdf765276c017abc4c0fcc2c": {
       "path": "public/assets/screens/recovery-team-720.webp",
@@ -371,7 +343,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Recovery dashboard team logging.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Recovery, Team tab."
+      "origin": "WebP export at 720w of \"Recovery dashboard team logging.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Recovery, Team tab."
     },
     "754c456d42a47f43b08ab1448d6cd735d3e5f74748063b1f8ad582895d597d12": {
       "path": "public/assets/screens/settlements-360.webp",
@@ -385,7 +357,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Settlements.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Settlements tab."
+      "origin": "WebP export at 360w of \"Settlements.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Collect, Settlements tab."
     },
     "b9d7eaa2d96a7d3067569af58b030bcc8dad04436f3802f6397751680c981231": {
       "path": "public/assets/screens/settlements-720.webp",
@@ -399,7 +371,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Settlements.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Settlements tab."
+      "origin": "WebP export at 720w of \"Settlements.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Collect, Settlements tab."
     },
     "fd7edf96fe850d02ab0d1127cb4f881a024a9bebed2cd093d5204c4d734d5709": {
       "path": "public/assets/screens/party-list-360.webp",
@@ -413,7 +385,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Party list color coded due overdue.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Parties colour coded by due and overdue."
+      "origin": "WebP export at 360w of \"Party list color coded due overdue.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Parties colour coded by due and overdue."
     },
     "e523e835d2d78ea199fc447df8ce56fde08805e9eaa0dbac91bc24b8e6510bbc": {
       "path": "public/assets/screens/party-list-720.webp",
@@ -427,7 +399,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Party list color coded due overdue.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Parties colour coded by due and overdue."
+      "origin": "WebP export at 720w of \"Party list color coded due overdue.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Parties colour coded by due and overdue."
     },
     "bdffe840e343291127795bbc4fcf7c0192a312534d8203cc8eb1ce7b01d86fd6": {
       "path": "public/assets/screens/document-import-360.webp",
@@ -441,7 +413,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"DOCUMENT import.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Imports list: bills, bank statements and orders queued for review."
+      "origin": "WebP export at 360w of \"DOCUMENT import.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Imports list: bills, bank statements and orders queued for review."
     },
     "729e445deaf982882a178485b08bb6e3724a123bb8a25b4742e21959a07fdfc9": {
       "path": "public/assets/screens/document-import-720.webp",
@@ -455,7 +427,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"DOCUMENT import.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Imports list: bills, bank statements and orders queued for review."
+      "origin": "WebP export at 720w of \"DOCUMENT import.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Imports list: bills, bank statements and orders queued for review."
     },
     "c0bfcd678f3b508f2d62f71b3abc2b03e95567f4d7b686e7837096a407d35177": {
       "path": "public/assets/screens/godown-stock-360.webp",
@@ -469,7 +441,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Godown Wise stock.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Add Items with a godown on every line and the stock available in that godown."
+      "origin": "WebP export at 360w of \"Godown Wise stock.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Add Items with a godown on every line and the stock available in that godown."
     },
     "373b880921c15ed5b94a03f6424685eebbf3c5f811240b62e2a609d2cd258cfd": {
       "path": "public/assets/screens/godown-stock-720.webp",
@@ -483,7 +455,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Godown Wise stock.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Add Items with a godown on every line and the stock available in that godown."
+      "origin": "WebP export at 720w of \"Godown Wise stock.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Add Items with a godown on every line and the stock available in that godown."
     },
     "e22e5e117a6885544c2d58cea579c33d64f582162f86621dba667e1b83617f4e": {
       "path": "public/assets/screens/salesman-summary-360.webp",
@@ -497,7 +469,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Team sales module -target of sales man.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
+      "origin": "WebP export at 360w of \"Team sales module -target of sales man.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
     },
     "e0b830f584b78d96326262c6e3004b0cb94d49a1e7770647acc70974fd2079e7": {
       "path": "public/assets/screens/salesman-summary-720.webp",
@@ -511,7 +483,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Team sales module -target of sales man.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
+      "origin": "WebP export at 720w of \"Team sales module -target of sales man.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
     },
     "42da8e800a32c071cc95b1d3afc8c3139e7a4f6fc618973e1bead4f3da408e91": {
       "path": "public/assets/screens/sales-analytics-360.webp",
@@ -525,7 +497,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Sales Anlaytics.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Sales analytics."
+      "origin": "WebP export at 360w of \"Sales Anlaytics.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Sales analytics."
     },
     "415a2088d0302bb9c458c5ffd799c00a04bac46a2625a04c111b06a1bee7518f": {
       "path": "public/assets/screens/sales-analytics-720.webp",
@@ -539,7 +511,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Sales Anlaytics.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Sales analytics."
+      "origin": "WebP export at 720w of \"Sales Anlaytics.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Sales analytics."
     },
     "4fff73647a3ee02db9784a9c0505223e26266b52315ab671f6f76d58e456b056": {
       "path": "public/assets/screens/sheet-loading-720.webp",
@@ -553,7 +525,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Picking List.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Printed loading sheet."
+      "origin": "WebP export at 720w of \"Picking List.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Printed loading sheet."
     },
     "35118303ea8d27d3650dc39b773b3df7f667dd668a75a30f3a8db1995ed53450": {
       "path": "public/assets/screens/sheet-loading-1440.webp",
@@ -567,7 +539,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 1440w of \"Picking List.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Printed loading sheet."
+      "origin": "WebP export at 1440w of \"Picking List.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Printed loading sheet."
     },
     "7eb7e115fe6ef89e9cfcadf8278120861564b329ab4a357cc9d25aaa2aa4b7dd": {
       "path": "public/assets/screens/sheet-salesman-720.webp",
@@ -581,7 +553,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"salesman wise summary report.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
+      "origin": "WebP export at 720w of \"salesman wise summary report.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
     },
     "9a711480f5825dde35ada3cd128be6862defa7daec49dbc38e5c38738d5f7efd": {
       "path": "public/assets/screens/sheet-salesman-1440.webp",
@@ -595,7 +567,35 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 1440w of \"salesman wise summary report.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
+      "origin": "WebP export at 1440w of \"salesman wise summary report.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
+    },
+    "5ef02f9df3c5037e565cb88be87270e1d7e9a19b13062fa6744a192ca2d011f4": {
+      "path": "public/assets/screens/review-invoices-360.webp",
+      "kind": "appScreenshot",
+      "sha256": "5ef02f9df3c5037e565cb88be87270e1d7e9a19b13062fa6744a192ca2d011f4",
+      "companyId": 143,
+      "captureRecord": "latest mockup/Team Sales.png (operator mockup set)",
+      "capturedAt": "2026-09-18",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/dispatch/van/review-invoices",
+      "reviewed": true,
+      "reviewedOn": "2026-09-18",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
+      "origin": "WebP export at 360w of \"Team Sales.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Review invoices, Create 7 invoices."
+    },
+    "f7845a88c6224052e0c356dbe37a0ef9177beb998a71228c1ea8f646d9ddb70c": {
+      "path": "public/assets/screens/review-invoices-720.webp",
+      "kind": "appScreenshot",
+      "sha256": "f7845a88c6224052e0c356dbe37a0ef9177beb998a71228c1ea8f646d9ddb70c",
+      "companyId": 143,
+      "captureRecord": "latest mockup/Team Sales.png (operator mockup set)",
+      "capturedAt": "2026-09-18",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/dispatch/van/review-invoices",
+      "reviewed": true,
+      "reviewedOn": "2026-09-18",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
+      "origin": "WebP export at 720w of \"Team Sales.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Review invoices, Create 7 invoices."
     }
   },
   "unprovenAllowlist": {
