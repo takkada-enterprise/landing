@@ -156,15 +156,25 @@
   }
 }
 
-/* Reduced motion keeps the fades — they carry the change of screen — and drops
-   every transform and the ping. */
+/* Reduced motion keeps the fades — they carry the change of screen — drops the
+   ping and every transform TRANSITION, and keeps the 0.97 press STATE, which
+   then snaps. A control that does not answer the finger reads as broken, and a
+   press that arrives instantly is feedback without motion to track. Same ruling
+   as .sheet:active further down; the background-colour fades stay, because a
+   colour change is not motion. */
 @media (prefers-reduced-motion: reduce) {
   .home-v3 .pphone-hot::before {
     animation: none;
   }
+  .home-v3 .pphone-hot {
+    transition: background-color 160ms var(--ease-out);
+  }
+  .home-v3 .pphone-back {
+    transition: opacity 200ms var(--ease-out), background-color 160ms var(--ease-out);
+  }
   .home-v3 .pphone-hot:active,
   .home-v3 .pphone-back:active {
-    transform: none;
+    transform: scale(0.97);
   }
   .home-v3 .pphone-screen {
     transform: none;
@@ -470,6 +480,15 @@
   transition: opacity 320ms var(--ease-out);
 }
 .home-v3 .foi-station.is-on {
+  opacity: 1;
+}
+/* Scroll position is not the only way into a station. A keyboard visitor tabs
+   through the pills and the two sheet buttons long before the observer has
+   decided that station is the one being read, and at 0.28 alpha the focus ring
+   is painted at 0.28 too — the ring they are steering by disappears (WCAG
+   2.4.7). This has to come after both rules above: it is the same specificity
+   as .is-on, so source order is what decides. */
+.home-v3 .foi-station:focus-within {
   opacity: 1;
 }
 .home-v3 .foi-when {
@@ -1079,7 +1098,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Colour still moves — it carries no motion. The scale does not. */
+  /* Colour still moves — it carries no motion. The scale's TRANSITION goes, so
+     the press snaps instead of easing; the press STATE stays, because a link
+     that does not answer the finger reads as broken. Same ruling as the hero's
+     hotspots and the sheets. */
   .journey-strip a {
     transition:
       background-color 160ms var(--ease-out),
@@ -1088,6 +1110,6 @@
   }
 
   .journey-strip a:active {
-    transform: none;
+    transform: scale(0.97);
   }
 }

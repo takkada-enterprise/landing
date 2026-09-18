@@ -526,3 +526,111 @@ describe('the nav over the navy hero', () => {
     }
   });
 });
+
+// The stations of the invoice story sit at 0.28 alpha until the scroll observer
+// says one is being read. A ring painted on a 0.28 station is a 0.28 ring, so a
+// keyboard visitor tabbing the ~20 pills and the two sheet buttons loses the
+// only thing telling them where they are.
+describe('the invoice story stays visible to a keyboard (journey.css)', () => {
+  const css = readFileSync('src/journey.css', 'utf8');
+
+  it('lifts a station out of the dim while anything inside it holds focus', () => {
+    const dim = css.indexOf('.home-v3 .foi-station {');
+    expect(dim, 'the station dimming rule has moved; this guard is now blind').toBeGreaterThan(-1);
+
+    const lifted = css.indexOf('.home-v3 .foi-station:focus-within {');
+    expect(
+      lifted,
+      'nothing lifts a station when a pill or a sheet inside it takes focus'
+    ).toBeGreaterThan(-1);
+    // Same specificity as .is-on and as the base rule, so source order is the
+    // whole argument: declared earlier, the 0.28 simply wins again.
+    expect(
+      lifted,
+      ':focus-within is declared before the dim, so the dim overrides it'
+    ).toBeGreaterThan(dim);
+    expect(cssBlock(css, '.home-v3 .foi-station:focus-within {')).toMatch(/opacity:\s*1\b/);
+  });
+});
+
+// The ruling, one place: under prefers-reduced-motion a pressable DROPS its
+// transform transition and KEEPS its scale(0.97) press state, so the press
+// snaps. `transform: none` there is the other thing, and it reads as a dead
+// control — three call sites had drifted to it.
+const stripComments = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '');
+
+const reducedMotionBlocks = (css) => {
+  const HEAD = '@media (prefers-reduced-motion: reduce)';
+  const blocks = [];
+  for (let at = css.indexOf(HEAD); at >= 0; at = css.indexOf(HEAD, at + 1)) {
+    blocks.push(cssBlock(css.slice(at), HEAD));
+  }
+  return blocks;
+};
+
+const activeRulesIn = (block) =>
+  [...stripComments(block).matchAll(/([^{}]*)\{([^{}]*)\}/g)]
+    .map(([, head, body]) => [head.trim(), body])
+    .filter(([head]) => head.includes(':active'));
+
+describe('reduced motion drops the press transition, never the press (journey.css)', () => {
+  const css = readFileSync('src/journey.css', 'utf8');
+  const blocks = reducedMotionBlocks(css);
+  const rules = blocks.flatMap(activeRulesIn);
+
+  it('has press rules inside its reduced-motion blocks at all', () => {
+    expect(blocks.length).toBeGreaterThan(0);
+    // The hero hotspots + the back pill, the sheets, the journey strip.
+    expect(rules.length, 'no :active rule found; the checks below are vacuous').toBeGreaterThanOrEqual(3);
+  });
+
+  it('keeps 0.97 on every one of them and cancels none', () => {
+    for (const [head, body] of rules) {
+      expect(body, `${head} cancels the press under reduced motion`).not.toMatch(
+        /transform:\s*none/
+      );
+      expect(body, `${head} leaves no press state under reduced motion`).toMatch(/scale\(0\.97\)/);
+    }
+  });
+});
+
+describe('reduced motion drops the press transition, never the press (home.css)', () => {
+  const css = readFileSync('src/home.css', 'utf8');
+  const block = cssBlock(css, '@media (prefers-reduced-motion: reduce)');
+  // The three pressables in the hero: the CTA button, the "see the whole
+  // screen" link, and each job row.
+  const PRESSABLES = [
+    '.home-v3 .hv3-hero-cta .cta-btn',
+    '.home-v3 .hv3-hero-more',
+    '.home-v3 .hv3-job',
+  ];
+  const bodyOf = (text, head) => {
+    const at = text.indexOf(`${head} {`);
+    if (at < 0) return null;
+    return text.slice(at).match(/\{([^{}]*)\}/)?.[1] ?? null;
+  };
+
+  it('restates each hero pressable without its transform transition', () => {
+    expect(block, 'home.css has no reduced-motion block').not.toBe('');
+    for (const sel of PRESSABLES) {
+      const body = bodyOf(stripComments(block), sel);
+      expect(body, `${sel} is never restated, so it still eases its press`).toBeTruthy();
+      expect(body, `${sel} still transitions transform under reduced motion`).not.toMatch(
+        /\btransform\b/
+      );
+    }
+  });
+
+  it('leaves the 0.97 press state standing, and takes it from none of them', () => {
+    for (const sel of PRESSABLES) {
+      expect(cssBlock(css, `${sel}:active {`), `${sel} has lost its press state`).toMatch(
+        /scale\(0\.97\)/
+      );
+    }
+    for (const [head, body] of activeRulesIn(block)) {
+      expect(body, `${head} cancels the press under reduced motion`).not.toMatch(
+        /transform:\s*none/
+      );
+    }
+  });
+});

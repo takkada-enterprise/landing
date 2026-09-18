@@ -579,4 +579,22 @@
       filter: none;
     }
   }
+
+  /* The three pressables in the hero. Each keeps its 0.97 press STATE — those
+     rules are above and outside this block — and loses the transform
+     TRANSITION, so the press snaps instead of easing: feedback with no motion
+     to track. Everything else in each list stays, because a colour, a
+     background or a shadow settling is not motion. Same ruling as the hero
+     hotspots, the sheets and the journey strip in journey.css. */
+  .home-v3 .hv3-hero-cta .cta-btn {
+    transition: box-shadow var(--dur-fast) var(--ease-out),
+      background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  }
+  .home-v3 .hv3-hero-more {
+    transition: opacity 200ms var(--ease-out), color 160ms var(--ease-out);
+  }
+  .home-v3 .hv3-job {
+    transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
+      color 160ms var(--ease-out);
+  }
 }
