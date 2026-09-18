@@ -8,6 +8,12 @@
 //   2. Home still carries its hero preload — failing on ZERO preloads
 //      catches the opposite drift, where the hero constant/src diverge and
 //      the stripper eats the LCP preload.
+//
+// Since the 2026-09-18 revamp the home hero is the playable phone's base
+// screen, a responsive <img>, so React renders its preload with imagesrcset
+// and no href. The substring test below still finds HERO_IMAGE because it
+// greps the whole raw tag. HERO_IMAGE itself lives in stripImagePreloads
+// .mjs and is the one place to edit when the LCP image changes.
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

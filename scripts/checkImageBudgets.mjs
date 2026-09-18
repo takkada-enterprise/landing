@@ -1,12 +1,18 @@
 // checkImageBudgets — fail the build when a critical image grows past the size
 // its position on the critical path can afford.
 //
-// The hero is the LCP element on the homepage and roughly 70% of LCP is spent
-// simply downloading it. It has been re-encoded from the in-repo PNG source
-// with a modern encoder (see HERO below), and the point of this guard is that
-// a future re-export from a design tool cannot quietly put the bytes back.
+// A page's hero is its LCP element and roughly 70% of LCP is spent simply
+// downloading it, so every hero on the critical path gets a budget here. The
+// point of this guard is that a future re-export from a design tool cannot
+// quietly put the bytes back.
 //
-// Regenerate the hero from its PNG source with:
+// Since the 2026-09-18 revamp the HOMEPAGE hero is the playable phone, which
+// serves public/assets/screens/home-720.webp (its row is further down). That
+// one is regenerated with the rest of the screen set:
+//   node scripts/exportScreens.mjs
+//
+// The older screenshot heroes are re-encoded by hand from their in-repo PNG
+// source, e.g.:
 //   cwebp -q 75 -m 6 -alpha_q 100 -sharp_yuv \
 //     public/assets/screenshots/home-screen-framed.png \
 //     -o public/assets/screenshots/home-screen-framed.webp
@@ -22,7 +28,14 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 export const BUDGETS = [
   // path, max bytes, why
-  ['public/assets/screenshots/home-screen-framed.webp', 56_000, 'homepage LCP element'],
+  // Was the homepage hero until the 2026-09-18 revamp. It is still the LCP
+  // element on two feature pages and still cited in schema:screenshot, so the
+  // file stays and keeps its budget; only its job changed.
+  [
+    'public/assets/screenshots/home-screen-framed.webp',
+    56_000,
+    'LCP element on /tally-on-mobile and /tally-on-mobile-without-remote-access',
+  ],
   // Re-encoded 2026-08-08 from the PNG source at q68 (83,320 -> 53,584 bytes):
   //   cwebp -q 68 -m 6 -alpha_q 100 -sharp_yuv \
   //     public/assets/screenshots/field-visit-photo-mockup.png \
