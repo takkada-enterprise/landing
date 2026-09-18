@@ -60,7 +60,7 @@ Values are sampled from the app mockups. Before coding, confirm each against the
    | Send | 1:31 PM, retailer's phone | making challans & invoices | WHATSAPP ✓✓ | Auto invoice dispatch, Custom invoice template, Statement sharing |
    | Remind | Day 28, 10:00 AM | Reminder payment | REMINDED | Auto reminders, UPI collection, Payment behaviour |
    | Recover | Day 30, no reply yet | followup log, then Recovery dashboard team logging (phone cycles the two) | AI CALLED · WILL PAY, then PAID | **AI calling**, Follow-up log, Promise to pay, Recovery dashboard, Team recovery |
-   | Tally | Day 29, 9 PM | Settlements + **salesman summary paper** | IN TALLY ✓ | Auto reconciliation, Settlements, 20+ reports, Sales analytics |
+   | Tally | Day 31, 9 PM (paid that afternoon) | Settlements + **salesman summary paper** | IN TALLY ✓ | Auto reconciliation, Settlements, 20+ reports, Sales analytics |
 
    - The slip is HTML, not an image: party, place, four item lines, total, a status line that changes per stop. Stamps land with a scale 1.5 → 1 "thunk" (260ms) and lift off again when scrolling back up. Transitions, not keyframes, so they reverse cleanly.
    - The numbering is a true sequence, which is why stops are ordered and timed.
