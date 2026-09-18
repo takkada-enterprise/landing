@@ -36,6 +36,15 @@ function hashTargetFrom(href) {
   return href;
 }
 
+// A whole page sliding past is the largest motion the site makes, and it is the
+// one thing prefers-reduced-motion is most often set to stop. matchMedia is
+// guarded twice over: the SSG render has no window at all, and jsdom has a
+// window without matchMedia unless a test stubs one in.
+function prefersReducedMotion() {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 function useScrollToHash() {
   const location = useLocation();
   useEffect(() => {
@@ -44,7 +53,10 @@ function useScrollToHash() {
       const id = location.hash.slice(1);
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.scrollIntoView({
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+          block: 'start',
+        });
         return;
       }
     }
@@ -70,7 +82,13 @@ function NavHashLink({ href, children, onClick, className }) {
     if (onClick) onClick();
     if (location.pathname === '/') {
       const el = document.getElementById(hash.slice(1));
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // The same jump as useScrollToHash, reached by clicking a nav anchor
+      // while already on the homepage, so it answers the same preference.
+      if (el)
+        el.scrollIntoView({
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+          block: 'start',
+        });
       window.history.replaceState(null, '', `/${hash}`);
     } else {
       navigate(`/${hash}`);

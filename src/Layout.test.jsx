@@ -657,3 +657,95 @@ describe('mobile menu overlay', () => {
     expect(document.body.classList.contains('lock-scroll')).toBe(false);
   });
 });
+
+// The bar is fixed and transparent until the page scrolls, and .blog-index-hero
+// and .blog-post-header are both navy — but Layout never lets the transparent
+// state happen there: forceLightNav puts the `scrolled` class on the bar for
+// every /blog route at scroll 0. That is what protects the blog, not the
+// nav-on-navy :has() list in styles.css, and it is worth pinning: drop
+// forceLightNav and the header becomes dark ink on dark navy on 170 posts.
+describe('the nav over the navy blog heroes', () => {
+  const renderAt = (at) =>
+    render(
+      <MemoryRouter initialEntries={[at]}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+            <Route path="blog" element={<div />} />
+            <Route path="blog/:slug" element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    ).container;
+
+  const navAt = (at) => renderAt(at).querySelector('.site-nav');
+
+  it('starts a blog index and a blog post in the opaque light state, unscrolled', () => {
+    expect(window.scrollY).toBe(0);
+    for (const route of ['/blog', '/blog/tally-on-mobile']) {
+      expect(
+        navAt(route).classList.contains('scrolled'),
+        `${route} renders the bar transparent over its navy hero`
+      ).toBe(true);
+    }
+  });
+
+  // The other half of the pin: the class is not simply always on, or the
+  // assertion above would hold however the nav behaved.
+  it('leaves the homepage bar transparent at the top, as the hero expects', () => {
+    expect(navAt('/').classList.contains('scrolled')).toBe(false);
+  });
+});
+
+// A hash jump moves the whole page, which is the largest motion the site makes.
+describe('hash scrolling answers the motion preference', () => {
+  const scrollIntoView = vi.fn();
+  const realScrollIntoView = Element.prototype.scrollIntoView;
+  const realMatchMedia = window.matchMedia;
+
+  beforeEach(() => {
+    scrollIntoView.mockClear();
+    Element.prototype.scrollIntoView = scrollIntoView;
+  });
+  afterEach(() => {
+    Element.prototype.scrollIntoView = realScrollIntoView;
+    window.matchMedia = realMatchMedia;
+  });
+
+  const renderAtHash = () =>
+    render(
+      <MemoryRouter initialEntries={['/#pricing']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div id="pricing">prices</div>} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+
+  it('glides to the anchor by default', () => {
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+
+  it('cuts straight there when the visitor asked for less motion', () => {
+    window.matchMedia = vi.fn((query) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query,
+      addListener() {},
+      removeListener() {},
+      addEventListener() {},
+      removeEventListener() {},
+    }));
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
+  });
+
+  // SSG renders with no window and jsdom can be handed no matchMedia at all;
+  // neither may throw on the way to the anchor.
+  it('still scrolls when matchMedia is missing entirely', () => {
+    delete window.matchMedia;
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+});

@@ -423,11 +423,21 @@ const INSIDE_THE_PANELS = [
   '.mobile-nav-links',
 ];
 
-// Every page whose hero is navy at its first pixel, by the class its own root
-// carries. The bar is fixed and transparent until it scrolls, so each of these
-// needs the on-navy colours or the header is dark ink on dark navy on arrival:
-// .home-v3 is the homepage, .feature-hero the 26 feature pages, and
-// .features-hub-hero the /features hub.
+// The pages that go navy at their first pixel AND meet the bar in its
+// transparent state: .home-v3 is the homepage, .feature-hero the 26 feature
+// pages, .features-hub-hero the /features hub. The bar is fixed and
+// transparent until the page scrolls, so each of these needs the on-navy
+// colours or the header is dark ink on dark navy on arrival.
+//
+// What this list is NOT: it is not derived from the stylesheet, so it cannot
+// notice a navy page on its own. It is hand-kept, and every check below is
+// only as wide as it is. The blog's two navy surfaces (.blog-index-hero,
+// .blog-post-header) are deliberately absent for a different reason: Layout
+// sets forceLightNav on /blog, which puts the `scrolled` class on the bar at
+// scroll 0, so the transparent state never happens there and there is nothing
+// for a :has() rule to fix. That protection is pinned in Layout.test.jsx
+// ("the nav over the navy blog heroes"), not here — if it is ever removed, the
+// blog needs adding to this list and to the :has() block in styles.css.
 const NAVY_AT_THE_TOP = ['.home-v3', '.feature-hero', '.features-hub-hero'];
 
 describe('the nav over the navy hero', () => {
@@ -443,8 +453,11 @@ describe('the nav over the navy hero', () => {
 
   // The homepage got these rules when it went navy and the other two did not,
   // which left the wordmark at 2.9:1 and the nav links at 2.7:1 over #0F1F3D on
-  // 27 pages. A fourth navy page must not be able to repeat that silently.
-  it('covers every page that is navy at its first pixel', () => {
+  // 27 pages. This keeps the three that are listed covered and equal; a FOURTH
+  // navy page is not caught here, because nothing derives this list from the
+  // stylesheets — adding the page to NAVY_AT_THE_TOP is a hand step, and the
+  // comment above says where the blog's own protection lives instead.
+  it('covers every page listed as navy at its first pixel', () => {
     for (const root of NAVY_AT_THE_TOP) {
       expect(
         onNavy.some((sel) => sel.includes(`:has(${root})`)),
