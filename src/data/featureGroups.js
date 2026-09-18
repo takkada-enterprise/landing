@@ -334,7 +334,8 @@ function checkPagesCache(pages) {
   }
 }
 
-export function groupFeaturePages(pages) {
+// Module-private: featureSections() below is what the hub and the nav read.
+function groupFeaturePages(pages) {
   checkPagesCache(pages);
   if (cachedGrouped) return cachedGrouped;
 

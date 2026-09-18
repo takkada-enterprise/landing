@@ -205,34 +205,6 @@
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
       "origin": "WebP export at 720w of \"Van Loading.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van loading: drops in route order, Van is loaded."
     },
-    "f9f66931b1f6ae17e4e779b8f345626fe2ee590d73ece0883dc70472d6e11631": {
-      "path": "public/assets/screens/invoice-sent-360.webp",
-      "kind": "appScreenshot",
-      "sha256": "f9f66931b1f6ae17e4e779b8f345626fe2ee590d73ece0883dc70472d6e11631",
-      "companyId": 143,
-      "captureRecord": "latest mockup/making challans & invoices.png (operator mockup set)",
-      "capturedAt": "2026-09-18",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/dispatch/van",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"making challans & invoices.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
-    },
-    "b66a1637bf894ff2fbf46c65858a66bca096e5c2004543f5a652af2ae34fcdb6": {
-      "path": "public/assets/screens/invoice-sent-720.webp",
-      "kind": "appScreenshot",
-      "sha256": "b66a1637bf894ff2fbf46c65858a66bca096e5c2004543f5a652af2ae34fcdb6",
-      "companyId": 143,
-      "captureRecord": "latest mockup/making challans & invoices.png (operator mockup set)",
-      "capturedAt": "2026-09-18",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/dispatch/van",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"making challans & invoices.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
-    },
     "17a439263e478adc304261e836fbdb0ade72c354afd2335c517f549bb2276781": {
       "path": "public/assets/screens/reminders-360.webp",
       "kind": "appScreenshot",

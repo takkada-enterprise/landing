@@ -317,7 +317,11 @@
   color: var(--color-text-secondary);
 }
 
-/* ═══════════ Story sections: the signature rail ═══════════ */
+/* ═══════════ Story section headings ═══════════ */
+/* The shared heading block — overline, serif title, intro, footnote — that a
+   story section opens with. The 4-step rail these were written for is gone
+   (see the note at the top of this file); the differentiator band is what
+   carries them today, and the invoice story in journey.css has its own. */
 .home-v3 .hv3-story-head {
   max-width: 720px;
   margin-bottom: 64px;
@@ -352,7 +356,9 @@
 
 /* ═══════════ Proof strip (2026-08-06 conversion pass) ═══════════ */
 /* One white plate: the customer's voice beside the confirmed scale figure.
-   Sits between the tour and Story 2, so proof lands before pricing. */
+   Sits directly under the hero, before the invoice story, so the first thing
+   after the phone is somebody else saying it works — and so proof lands well
+   before pricing. */
 .home-v3 .hv3-proof { padding: 24px 0 104px; }
 
 .home-v3 .hv3-proof-card {
@@ -427,9 +433,10 @@
 }
 
 /* ═══════════ Differentiator band (2026-08-06 conversion pass) ═══════════ */
-/* Each row is one plate split in two: where the common pattern stops
-   (muted), where Takkada carries it (white, sage tag). Competitors are
-   never named — differentiators.test.js enforces it. */
+/* Each row is one plate split in two: where the common pattern stops (the
+   muted half, on the variant surface), and where Takkada carries it (the
+   plate's own white, its tag in the primary blue). Competitors are never
+   named — differentiators.test.js enforces it. */
 .home-v3 .hv3-diff { padding: 104px 0; }
 
 .home-v3 .hv3-diff-rows {

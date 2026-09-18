@@ -31,12 +31,6 @@
     "alt": "Van loading screen with drops in route order"
   },
   {
-    "slug": "invoice-sent",
-    "source": "making challans & invoices.png",
-    "shows": "Van keyed back, with Make invoices and Make challans",
-    "alt": "Challans and invoices being made for a van that has been keyed back"
-  },
-  {
     "slug": "reminders",
     "source": "reminder logs.png",
     "shows": "Collect, Reminders tab: Last reminded, each party with Sent or Failed and when",

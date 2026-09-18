@@ -355,7 +355,7 @@
   color: var(--stamp-red);
 }
 .home-v3 .slip-stamp--ink {
-  color: #1d2433;
+  color: var(--stamp-ink);
 }
 .home-v3 .slip-stamp--lg {
   font-size: 22px;

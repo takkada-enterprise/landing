@@ -7,13 +7,15 @@ import {
 } from './stripImagePreloads.mjs';
 
 const hero = `<link rel="preload" as="image" href="${HERO_IMAGE}">`;
-// What React 19 actually emits for the playable phone's base <img>, which
-// carries src + srcSet + sizes + fetchPriority: no href, a camelCased
-// imageSrcSet, and a camelCased fetchPriority. Captured from
-// renderToStaticMarkup rather than hand-written, because both the missing
-// href and the casing are the things that break a naive guard.
+// What React 19 emits for the playable phone's base <img>, which carries
+// src + srcSet + sizes + fetchPriority: no href, a camelCased imageSrcSet, and
+// a camelCased fetchPriority. The srcSet and the sizes are the real ones —
+// screens.js builds that candidate pair for every phone, and SIZES in
+// PlayablePhone.jsx is '(max-width: 700px) 70vw, 340px' — because a fixture
+// that drifts from the tag it stands for stops proving anything about it. The
+// missing href and the casing are what break a naive guard.
 const responsiveHero =
-  '<link rel="preload" as="image" imageSrcSet="/assets/screens/home-360.webp 360w, /assets/screens/home-720.webp 720w" imageSizes="(max-width: 600px) 90vw, 360px" fetchPriority="high"/>';
+  '<link rel="preload" as="image" imageSrcSet="/assets/screens/home-360.webp 360w, /assets/screens/home-720.webp 720w" imageSizes="(max-width: 700px) 70vw, 340px" fetchPriority="high"/>';
 const blanket = '<link rel="preload" as="image" href="/assets/screenshots/settlement.webp">';
 const logo = '<link rel="preload" as="image" href="/assets/screenshots/takkada-logo.png">';
 const blogHero =

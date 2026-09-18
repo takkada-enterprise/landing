@@ -41,10 +41,6 @@ export const SCREENS = {
     'Invoice summary with e-invoice generation switched on before the invoice is created'
   ),
   'van-loading': phone('van-loading', 'Van loading screen with drops in route order'),
-  'invoice-sent': phone(
-    'invoice-sent',
-    'Challans and invoices being made for a van that has been keyed back'
-  ),
   reminders: phone(
     'reminders',
     "Reminders tab listing each party's last WhatsApp reminder as sent or failed"

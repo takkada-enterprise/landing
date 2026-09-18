@@ -18,9 +18,11 @@
 // Every `screens` entry has been opened: a stop never claims something its own
 // screenshot contradicts, and the invoice is created exactly once in the story,
 // at Bill. So the two screens that show an invoice being made (`review-invoices`
-// and `einvoice-eway`) both sit at Bill and nowhere else, and `invoice-sent` (a
-// van marked "Keyed back", offering "Make invoices" and "Make challans") is left
-// out of the story altogether: by Load the seven invoices already carry an IRN.
+// and `einvoice-eway`) both sit at Bill and nowhere else. A third capture of a
+// van being keyed back, offering "Make invoices" and "Make challans", was
+// registered for a while and never used: by Load the seven invoices already
+// carry an IRN, so it contradicted this stop. It was removed from the registry
+// on 2026-09-19 rather than left lying in public/.
 //
 // Send has no app screen because no capture of a delivered invoice exists. It
 // carries `message` instead, which Task 7 draws as an illustrative WhatsApp
@@ -163,7 +165,7 @@ export const STOPS = [
   {
     id: 'recover',
     label: 'Recover',
-    when: 'Day 30 · No reply yet',
+    when: 'Day 30 · 11:00 AM',
     headline: 'No reply to the reminder, so Takkada makes the call.',
     body: "An AI call in the party's own language asks for the payment and logs what they said. AI calling is charged on connected minutes. Your team's own follow-ups sit in the same log, and the recovery board shows who recovered what.",
     screens: ['followup-log', 'recovery-team'],
