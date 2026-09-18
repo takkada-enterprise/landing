@@ -21,50 +21,36 @@
 /**
  * @typedef {object} FeatureGroup
  * @property {string} id     stable key, also the section's DOM id
+ * @property {string} [stop] the journey stop this group is, a `STOPS` id
  * @property {string} title  group heading
  * @property {string} intro  one line under the heading
  * @property {string[]} slugs  feature page slugs, in display order
  */
 
+// ── Grouped by the invoice's journey (2026-09-18) ──
+//
+// The nine themes here used to be names invented for the directory alone:
+// "Getting paid", "Entries without typing", "Billing, stock and godowns". They
+// were honest, but they were a second taxonomy sitting beside the one the
+// homepage tells, so a visitor who arrived having just followed one invoice
+// through seven stops landed on a page that re-sorted the same product into
+// words he had not seen. The first seven groups are now those stops, in that
+// order, carrying `stop` so the hub can show each one's stamp and Task 10 can
+// draw the strip on the feature pages themselves.
+//
+// The two groups after them have no stop on purpose. Comparing Takkada with
+// Biz Analyst, or checking it was built for pharma, is not a moment in the
+// invoice's life; it is the reading somebody does before any of this starts.
+// Forcing them onto the story would have been the taxonomy problem again, in
+// the other direction.
+
 /** @type {FeatureGroup[]} */
 export const FEATURE_GROUPS = [
   {
-    id: 'getting-paid',
-    title: 'Getting paid',
-    intro: 'Links, reminders and statements that go out without you asking anyone.',
-    slugs: [
-      'payment-collection-tally',
-      'payment-reminder-tally',
-      'send-payment-reminders-automatically',
-      'share-ledger-statement-whatsapp',
-    ],
-  },
-  {
-    id: 'who-owes-you',
-    title: 'Knowing who owes you',
-    intro: 'The number you check before breakfast, and the list standing behind it.',
-    slugs: ['outstanding-receivables-on-mobile', 'debtor-ageing-report-on-phone'],
-  },
-  {
-    id: 'tally-on-your-phone',
-    title: 'Tally on your phone',
-    intro: 'Your books readable from wherever you happen to be standing.',
-    slugs: [
-      'tally-on-mobile',
-      'tally-on-mobile-without-remote-access',
-      'tally-reports-on-mobile',
-      'multi-company-tally-reports',
-    ],
-  },
-  {
-    // The id is the section's DOM anchor and stays put; the title moved.
-    // "Your team in the market" covered three pages about the salesman's day
-    // and then fought its own intro once the customer ordering link joined,
-    // because the retailer sending his own order is nobody's team. What all
-    // four pages share is where the order comes from, so that is the heading.
-    id: 'team-in-the-market',
-    title: 'Orders from the market',
-    intro: 'Every way an order reaches your books from outside the office, whether your salesman brings it in or the retailer sends it himself.',
+    id: 'order',
+    stop: 'order',
+    title: 'Taking the order',
+    intro: "What your salesman does at the retailer's counter, and what you see of it.",
     slugs: [
       'salesman-app-tally',
       'sales-order-on-mobile',
@@ -73,27 +59,61 @@ export const FEATURE_GROUPS = [
     ],
   },
   {
-    id: 'gst-paperwork',
-    title: 'GST paperwork',
-    intro: 'The documents that hold up a loading, raised from where the goods are.',
-    slugs: ['e-invoice-from-phone', 'e-way-bill-from-phone'],
-  },
-  {
-    id: 'billing-stock-godowns',
-    title: 'Billing, stock and godowns',
-    intro: 'Vouchers and stock movement, raised at the counter instead of the desk.',
+    id: 'bill',
+    stop: 'bill',
+    title: 'Making the bill',
+    intro: 'Invoices, e-invoice, e-way bill and entries that fill themselves in.',
     slugs: [
-      'custom-invoice-template-tally',
+      'e-invoice-from-phone',
+      'e-way-bill-from-phone',
       'credit-note-from-phone',
-      'delivery-challan-from-mobile',
-      'godown-wise-stock-on-mobile',
+      'import-purchase-from-pdf',
+      'bank-statement-import-tally',
     ],
   },
   {
-    id: 'entries-without-typing',
-    title: 'Entries without typing',
-    intro: 'Paperwork that arrives as a PDF, a photo or a bank file, entered for you.',
-    slugs: ['import-purchase-from-pdf', 'bank-statement-import-tally'],
+    id: 'load',
+    stop: 'load',
+    title: 'Loading and stock',
+    intro: 'Godowns, challans and what is actually on the shelf.',
+    slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile'],
+  },
+  {
+    id: 'send',
+    stop: 'send',
+    title: 'Sending it to the customer',
+    intro: 'The invoice and the statement reach WhatsApp without anyone pressing send.',
+    slugs: ['custom-invoice-template-tally', 'share-ledger-statement-whatsapp'],
+  },
+  {
+    id: 'remind',
+    stop: 'remind',
+    title: 'Reminding and collecting',
+    intro: 'Reminders on your schedule, with a pay link in every one.',
+    slugs: [
+      'payment-reminder-tally',
+      'send-payment-reminders-automatically',
+      'payment-collection-tally',
+    ],
+  },
+  {
+    id: 'recover',
+    stop: 'recover',
+    title: 'Recovering what is overdue',
+    intro: 'Who owes you, for how long, and who in your team is chasing it.',
+    slugs: ['outstanding-receivables-on-mobile', 'debtor-ageing-report-on-phone'],
+  },
+  {
+    id: 'tally',
+    stop: 'tally',
+    title: 'Back in Tally',
+    intro: 'Receipts matched, reports on your phone, nothing typed twice.',
+    slugs: [
+      'tally-on-mobile',
+      'tally-on-mobile-without-remote-access',
+      'tally-reports-on-mobile',
+      'multi-company-tally-reports',
+    ],
   },
   {
     id: 'weighing-options',
@@ -112,6 +132,42 @@ export const FEATURE_GROUPS = [
     ],
   },
 ];
+
+/**
+ * The seven group ids the journey regroup retired, each pointed at the group
+ * that took the bulk of its pages.
+ *
+ * Every one of these has been a linkable `#anchor` on /features since the hub
+ * shipped, and some are inside blog posts that are already published, so they
+ * cannot simply stop existing: an id that no longer resolves does not 404, it
+ * silently scrolls to the top of the page, which reads as the link being wrong
+ * about the whole site. The hub renders each of these as a zero-height anchor
+ * inside its target group, so an old link lands on the section that swallowed
+ * what it used to point at.
+ *
+ * `billing-stock-godowns` is the one split three ways (the invoice format went
+ * to Send, the credit note to Bill, the godown and challan pages to Load); it
+ * points at Load because that is where most of it went and what its own name
+ * led with after "Billing".
+ *
+ * Nothing may be deleted from this map. Adding to it is what a future regroup
+ * does with the ids it retires.
+ * @type {Record<string, string>}
+ */
+export const RETIRED_GROUP_ANCHORS = {
+  'team-in-the-market': 'order',
+  'gst-paperwork': 'bill',
+  'entries-without-typing': 'bill',
+  'billing-stock-godowns': 'load',
+  'getting-paid': 'remind',
+  'who-owes-you': 'recover',
+  'tally-on-your-phone': 'tally',
+};
+
+/** The retired ids that point at `groupId`, in the map's own order. */
+export function retiredAnchorsFor(groupId) {
+  return Object.keys(RETIRED_GROUP_ANCHORS).filter((id) => RETIRED_GROUP_ANCHORS[id] === groupId);
+}
 
 /**
  * The directory line for each page, keyed by slug. Kept beside the grouping so
@@ -308,10 +364,13 @@ export function secondaryFeatureGroups(pages) {
 
 /**
  * Group ids that no longer head a rendered section because every one of their
- * pages was promoted to the lead tier. "GST paperwork" is the first: both its
- * pages lead. Their ids are still anchor targets that have been linkable since
- * the hub shipped, so the hub re-attaches them to the lead section rather than
- * letting them 404 into the top of the page.
+ * pages was promoted to the lead tier. Their ids are still anchor targets that
+ * have been linkable since the hub shipped, so the hub re-attaches them to the
+ * lead section rather than letting them scroll to the top of the page.
+ *
+ * Empty since the journey regroup (2026-09-18): every stop group keeps at least
+ * one page outside the lead tier. It was exactly `['gst-paperwork']` before,
+ * and the machinery stays because the next promotion can drain a group again.
  */
 export function drainedGroupIds(pages) {
   checkPagesCache(pages);

@@ -572,8 +572,12 @@ describe('hub tiers partition the feature pages', () => {
       ...secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id),
     ]);
     expect([...rendered, ...drained].sort()).toEqual(FEATURE_GROUPS.map((g) => g.id).sort());
-    // Today that is exactly gst-paperwork: both its pages lead.
-    expect(drained).toEqual(['gst-paperwork']);
+    // Nothing is drained since the journey regroup (2026-09-18): every one of
+    // the seven stop groups keeps at least one page outside the lead tier. It
+    // was exactly ['gst-paperwork'] before, when both of that group's pages led.
+    // The retired ids that regroup created are a separate mechanism —
+    // RETIRED_GROUP_ANCHORS — and features-hub.test.jsx keeps those landing.
+    expect(drained).toEqual([]);
   });
 
   it('carries a directory line for every page, whichever tier it lands in', () => {

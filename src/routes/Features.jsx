@@ -9,9 +9,12 @@ import {
   FEATURE_BLURBS,
   drainedGroupIds,
   leadFeaturePages,
+  retiredAnchorsFor,
   secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../data/featureGroups';
+import { STOPS } from '../data/journey';
+import { screen } from '../data/screens';
 import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/schema';
 
 // The /features hub. Until this page existed the feature landing pages hung off
@@ -33,6 +36,13 @@ import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/sch
 // place it carries an image; everything below it reuses .tally-card and plain
 // links.
 //
+// Grouped by the invoice's journey (2026-09-18). The themes the compact index
+// reads out are now the seven stops of the homepage's story, in that order,
+// each under the stamp its slip carries, so somebody who arrives from the
+// homepage finds the same seven words rather than a second taxonomy. The seven
+// ids that regroup retired are still linkable: RETIRED_GROUP_ANCHORS maps each
+// one onto the group that took its pages and the index renders it there.
+//
 // Still no motion of its own beyond the card hover .tally-card already carries.
 //
 // `features-hub-card` is a BUILD CONTRACT, not styling: scripts/
@@ -42,6 +52,46 @@ import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/sch
 // that is not a feature page may carry it.
 
 const WA_CONTEXT = 'features-hub';
+
+// The mark that ties a directory heading back to the homepage's story: the
+// stamp that stop's slip carries, and the screen it opens with. Same ink, same
+// tilt, same wording as the slips on the homepage, because the point is that a
+// visitor who has just read the story recognises where he is rather than
+// reading a second name for it.
+//
+// A stop may have no screen — Send has none, because no capture of a delivered
+// invoice exists — so the image is conditional and the stamp is not. Reading
+// screens[0] unconditionally took the whole hub down with it.
+//
+// Both are decoration. The heading beside them already says what the section
+// is, so the stamp is hidden from assistive tech and the screen carries an
+// empty alt rather than describing a thumbnail nobody can read.
+function StopMark({ stopId }) {
+  const stop = STOPS.find((s) => s.id === stopId);
+  if (!stop) return null;
+  const shot = stop.screens.length > 0 ? screen(stop.screens[0]) : null;
+
+  return (
+    <div className="features-hub-stop" aria-hidden="true">
+      {shot && (
+        <img
+          className="features-hub-stop-shot"
+          src={shot.src}
+          srcSet={shot.srcSet}
+          sizes="56px"
+          width={shot.width}
+          height={shot.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+      <span className={`features-hub-stamp features-hub-stamp--${stop.stamp.tone}`}>
+        {stop.stamp.text}
+      </span>
+    </div>
+  );
+}
 
 const seo = {
   title: 'All Features for Distributors on Tally | Takkada',
@@ -115,9 +165,11 @@ function Features() {
       </section>
 
       {/* ── Lead tier ──
-          The only images on the page. Group ids drained by the promotion are
-          re-homed here so anchors that have been linkable since the hub shipped
-          still land somewhere sensible. */}
+          The page's large images; the index below carries thumbnails a tenth
+          the size. Group ids drained by the promotion are re-homed here so
+          anchors that have been linkable since the hub shipped still land
+          somewhere sensible. Empty today, and kept because the next promotion
+          can drain a group again. */}
       <section className="features-hub-lead" id="lead-features">
         <div className="container">
           {drained.map((id) => (
@@ -201,13 +253,29 @@ function Features() {
 
       {/* ── Compact index ──
           Everything not already above, title-only. Quiet on purpose: this is
-          the part you scan for a name you already have in mind. */}
+          the part you scan for a name you already have in mind.
+
+          Since the journey regroup these headings are the seven stops of the
+          homepage's story, in the order the invoice passes through them, each
+          under its stamp and a thumbnail of the screen it opens with. The tier
+          itself keeps its shape: the links stay names and nothing else, which
+          is what makes this the part you can scan. */}
       <section className="features-hub-index" id="all-features">
         <div className="container">
-          <h2 className="features-hub-index-title">Everything else, by theme</h2>
+          <h2 className="features-hub-index-title">Everything else, in the order it happens</h2>
           <div className="features-hub-index-grid">
             {index.map((group) => (
               <div key={group.id} className="features-hub-index-group" id={group.id}>
+                {/* Retired group ids, re-homed onto the section that swallowed
+                    their pages, so a link written before the regroup lands on
+                    the right heading instead of the top of the page. */}
+                {retiredAnchorsFor(group.id).map((id) => (
+                  <span key={id} id={id} className="features-hub-anchor" aria-hidden="true" />
+                ))}
+                {/* Sibling of the heading rather than wrapped with it: on a
+                    phone the two swap places, and a wrapper would put the
+                    reorder out of the flex container's reach. */}
+                {group.stop && <StopMark stopId={group.stop} />}
                 <h3 className="features-hub-index-heading">{group.title}</h3>
                 <ul className="features-hub-index-list">
                   {group.pages.map((page) => (

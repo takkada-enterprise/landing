@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -15,10 +17,13 @@ import {
   FEATURE_BLURBS,
   FEATURE_GROUPS,
   LEAD_FEATURE_SLUGS,
+  RETIRED_GROUP_ANCHORS,
   leadFeaturePages,
   secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../../data/featureGroups';
+import { STOPS } from '../../data/journey';
+import { screen } from '../../data/screens';
 import { routeMetadata } from '../../data/siteMetadata';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
@@ -268,5 +273,152 @@ describe('hub tiers render', () => {
       .map((img) => img.getAttribute('src'))
       .filter((src) => !budgeted.has(src));
     expect(unbudgeted).toEqual([]);
+  });
+});
+
+// ── Grouped by the invoice's journey (2026-09-18) ──
+//
+// The hub's themes used to be nine names invented for the directory alone
+// ("Getting paid", "Entries without typing"). The homepage now tells one story
+// in seven stops, and a visitor who arrives from it should find the same seven
+// words in the same order here, so the grouping is the story rather than a
+// second taxonomy beside it. These cases are what stops the two drifting.
+describe('the hub is grouped by the invoice journey', () => {
+  const stopGroups = () => FEATURE_GROUPS.filter((g) => g.stop);
+  const stopOf = (group) => STOPS.find((s) => s.id === group.stop);
+  const marker = (container, group) =>
+    container.querySelector(`[id="${group.id}"] .features-hub-stop`);
+
+  it('leads with one group per journey stop, in journey order', () => {
+    expect(stopGroups().map((g) => g.stop)).toEqual(STOPS.map((s) => s.id));
+    // The stop groups come first, so the directory reads front to back in the
+    // order the invoice actually moves.
+    expect(FEATURE_GROUPS.slice(0, STOPS.length).map((g) => g.id)).toEqual(
+      STOPS.map((s) => s.id)
+    );
+  });
+
+  it('names each stop group after the stop it belongs to', () => {
+    for (const group of stopGroups()) {
+      expect(group.id, 'the DOM anchor is the stop id').toBe(group.stop);
+      expect(stopOf(group), group.stop).toBeDefined();
+      expect(group.title.length).toBeGreaterThan(0);
+      expect(group.intro.length).toBeGreaterThan(0);
+    }
+  });
+
+  // Renders against today's journey data rather than a fixture, because the
+  // failure this guards against is a stop whose data the hub cannot survive:
+  // Send carries no screen at all, and reading screens[0] off it threw.
+  it('renders every stop group with its stamp, on the live journey data', () => {
+    const { container } = renderHub();
+    for (const group of stopGroups()) {
+      const stop = stopOf(group);
+      const el = marker(container, group);
+      expect(el, `#${group.id} must carry its stop marker`).not.toBeNull();
+      const stamp = el.querySelector('.features-hub-stamp');
+      expect(stamp, group.id).not.toBeNull();
+      expect(stamp.textContent).toBe(stop.stamp.text);
+      expect(stamp.className).toContain(`features-hub-stamp--${stop.stamp.tone}`);
+      // Decoration: the stamp repeats the heading beside it in fewer words.
+      expect(el.getAttribute('aria-hidden')).toBe('true');
+    }
+  });
+
+  it('shows the stamp alone for a stop that has no screen', () => {
+    const screenless = STOPS.filter((s) => s.screens.length === 0);
+    expect(screenless.map((s) => s.id), 'Send has no capture of a delivered invoice').toContain(
+      'send'
+    );
+
+    const { container } = renderHub();
+    for (const stop of screenless) {
+      const group = FEATURE_GROUPS.find((g) => g.stop === stop.id);
+      const el = marker(container, group);
+      expect(el.querySelector('.features-hub-stamp').textContent).toBe(stop.stamp.text);
+      expect(el.querySelector('img'), `${stop.id} has no screen to show`).toBeNull();
+    }
+  });
+
+  it('shows the stop screen as decoration where there is one', () => {
+    const { container } = renderHub();
+    for (const group of stopGroups().filter((g) => stopOf(g).screens.length > 0)) {
+      const img = marker(container, group).querySelector('img');
+      expect(img, group.id).not.toBeNull();
+      expect(img.getAttribute('src')).toBe(screen(stopOf(group).screens[0]).src);
+      // The heading names the group; a screenshot read out again is noise.
+      expect(img.getAttribute('alt')).toBe('');
+      expect(img.getAttribute('loading')).toBe('lazy');
+    }
+  });
+});
+
+// ── The seven retired group ids (2026-09-18) ──
+//
+// Every one of them has been a linkable #anchor since the hub shipped and some
+// are inside published blog posts, so a regroup that renames the sections may
+// not quietly turn them into a scroll to the top of the page.
+describe('retired group anchors', () => {
+  it('maps every retired id onto a group the hub still renders', () => {
+    const current = new Set(FEATURE_GROUPS.map((g) => g.id));
+    for (const [retired, target] of Object.entries(RETIRED_GROUP_ANCHORS)) {
+      expect(current.has(retired), `${retired} is retired, so it may not also be current`).toBe(
+        false
+      );
+      expect(current.has(target), `${retired} points at ${target}, which is not a group`).toBe(
+        true
+      );
+    }
+  });
+
+  it('resolves every retired id to exactly one element on the page', () => {
+    const { container } = renderHub();
+    for (const retired of Object.keys(RETIRED_GROUP_ANCHORS)) {
+      expect(
+        container.querySelectorAll(`[id="${retired}"]`),
+        `#${retired} must exist exactly once on the hub`
+      ).toHaveLength(1);
+    }
+  });
+
+  // The anchor is only worth keeping if it lands on the section that swallowed
+  // the old group's pages, not merely somewhere on the page.
+  it('lands each retired id inside the group it was mapped to', () => {
+    const { container } = renderHub();
+    for (const [retired, target] of Object.entries(RETIRED_GROUP_ANCHORS)) {
+      const anchor = container.querySelector(`[id="${retired}"]`);
+      expect(anchor.closest(`[id="${target}"]`), `#${retired} must sit inside #${target}`).not.toBeNull();
+    }
+  });
+
+  // The real links, not the ones we remember writing. Anything in the source or
+  // the published content that points at /features#<id> has to land.
+  it('resolves every /features#<id> linked from src/ or content/', () => {
+    // Vitest runs from the project root, which is where src/ and content/ sit.
+    const root = process.cwd();
+    const TEXT = new Set(['.js', '.jsx', '.ts', '.tsx', '.md', '.mdx', '.json', '.css', '.html']);
+
+    const files = [];
+    const walk = (dir) => {
+      for (const entry of readdirSync(dir)) {
+        if (entry === 'node_modules' || entry.startsWith('.')) continue;
+        const path = join(dir, entry);
+        if (statSync(path).isDirectory()) walk(path);
+        else if (TEXT.has(path.slice(path.lastIndexOf('.')))) files.push(path);
+      }
+    };
+    walk(resolve(root, 'src'));
+    walk(resolve(root, 'content'));
+
+    const linked = new Map();
+    for (const file of files) {
+      for (const [, id] of readFileSync(file, 'utf-8').matchAll(/\/features\/?#([a-z0-9-]+)/g)) {
+        if (!linked.has(id)) linked.set(id, file.slice(root.length));
+      }
+    }
+
+    const { container } = renderHub();
+    const dead = [...linked].filter(([id]) => container.querySelectorAll(`[id="${id}"]`).length !== 1);
+    expect(dead.map(([id, file]) => `${file} links /features#${id}`)).toEqual([]);
   });
 });
