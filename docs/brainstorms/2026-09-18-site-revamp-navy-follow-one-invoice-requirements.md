@@ -21,21 +21,24 @@ The app moved to a navy and blue look. The site is still sage green with a Fraun
 
 ## Design tokens (replace `:root` in `src/styles.css`, then re-sync landing `CLAUDE.md` §6 and §7)
 
-Values are sampled from the app mockups. Before coding, confirm each against the app's theme file in the `takkada` repo and use the app's exact hex where they differ.
+Values are the app's own **Marine** palette, read from `takkada` `origin/stage:lib/theme/color_palettes.dart` on 2026-09-18 (Tally blue primary, deep navy hero band, marigold strictly as an accent dot). The site uses these hexes exactly.
 
-| Role | Token | Value |
+| Role | Token | Value (Marine name) |
 |---|---|---|
-| Brand navy | `--color-primary` | `#14284B` |
-| Deep navy (hero, footer, story band) | `--color-primary-dark`, `--color-ink`, `--color-dark` | `#0A1730` |
-| Action blue (buttons, links on light) | `--color-primary-light` | `#0B6AA8` |
-| Sky (accent on dark, emphasis words) | `--color-accent` | `#8CCBF2` |
-| Icon-container / wash | `--color-sage-bg` renamed `--color-wash` | `#DDEFFA` |
-| Amber (time labels, hot dots, active stop) | `--color-highlight` | `#F2A33A` |
-| Page background | `--color-bg` | `#F6F9FC` |
-| Text / secondary / muted | | `#0E1B2E` / `#5B6B80` / `#94A1B2` |
-| Border / hairline | | `#E3EAF2` / `#EDF1F6` |
-| Paper (slip and sheets only) | `--color-paper` | `#FBF9F2` |
-| Stamp inks (slip only) | | blue `#1F5FBF`, green `#0E8A5F`, red `#C2372F` |
+| Action blue: buttons, links, icons | `--color-primary` | `#006EA6` (seed) |
+| Navy band | `--color-navy` | `#1E3A6B` (primaryContainerDark) |
+| Deepest navy: hero, story band, footer | `--color-primary-dark`, `--color-ink`, `--color-dark` | `#0F1F3D` (gradientDarkTop) |
+| Hero gradient | | `#0F1F3D` → `#1E3A6B`, lifting to `#2B5290` |
+| Secondary cyan-blue | `--color-primary-light` | `#149EC2` |
+| Sky, emphasis words on dark | `--color-accent` | `#8FB4C7` lightened to `#9CCBEA` for AA on navy |
+| Wash, icon containers | `--color-wash` | `#DCF2FB` (primaryContainer) |
+| Marigold: hot dots, time labels, active stop. Never on buttons | `--color-highlight` | `#FCAF1B` (accentDot) |
+| Page background / surface variant | `--color-bg` / `--color-surface` | `#F7FAFC` / `#EEF5FA` |
+| Text / secondary / muted | | `#0E1C2A` / `#44687D` / `#8FB4C7` |
+| Border / chip | | `#D4E6F0` / `#EAF3F9` |
+| Success / warning / danger | | `#059669` / `#D97706` / `#DC2626` (unchanged, same as app) |
+| Paper, slip and sheets only | `--color-paper` | `#FBF9F2` |
+| Stamp inks, slip only | | blue `#1F5FBF`, green `#0E8A5F`, red `#C2372F` |
 
 - Old sage token names that components still reference are kept as aliases pointing at the new values for one release, then deleted. No sage hex survives anywhere.
 - Shadows change tint from green-ink to navy `rgba(10,23,48,…)`.
