@@ -92,6 +92,16 @@ Navy header band with the feature's real screen from the new mockups, breadcrumb
 - Duplicate files in the mockup folder (`-1` suffixes) are ignored.
 - One screen-to-feature map in `src/data/` so hero hotspots, stations and feature pages share one source.
 
+## Content source: capability files (whole site)
+
+Ronak's direction (2026-09-18): every feature on the site is described from the product's real spec, the way `PaySaathi/docs/manuals/document-import-capabilities.md` does it. That file is the model: each capability is a table row read from the code, with a status of **Live**, **Stage only** or **Built, switched off**.
+
+- Each feature family gets one capabilities file in `PaySaathi/docs/manuals/<family>-capabilities.md`, written from the code on `origin/stage` and checked against `origin/main`, same status labels. Existing sources to start from: `document-import-capabilities.md`, `loading-sheet-manual.md`, `stock-control-manual.md`, `autoparts-billing-manual.md`, and the 21 live guides in `content/guide/`.
+- Site copy (homepage stops, hero screens, hub, feature pages, FAQ, schema) may only state **Live** rows. Stage-only and switched-off rows never reach the site. AI calling is the one exception already cleared by Ronak, with "charged on connected minutes".
+- Each feature page gains a "What it can do" section generated from the Live rows, so the page is specific (file types, limits, entry points, what gets written to Tally) instead of general.
+- Example the homepage must carry, from the spec: at the Bill stop, "make invoices for many orders in one go, each with its e-invoice and e-way bill" (the Review invoices / Create 7 invoices screen).
+- This is a second track that runs beside the design track. Design ships with today's copy where a capabilities file is not ready; pages are upgraded family by family as files land. The feature-by-feature gap map (which families have a file, a guide, a page, a screenshot) is appended below once research finishes.
+
 ## Claims and copy
 
 - Remove "₹17Cr+ collected monthly" everywhere it renders: homepage proof strip, CountUp test, schema, blog CTAs, `llms.txt` generator, OG cards. Update landing `CLAUDE.md` §5 and §11.4 so the only public scale figure is "100+ businesses". Add a build guard that fails on the phrase returning.
