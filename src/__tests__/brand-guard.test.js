@@ -44,4 +44,25 @@ describe('Marine brand', () => {
     expect(declared.length).toBeGreaterThan(1);
     expect(declared.filter((d) => !d.endsWith('#0F1F3D'))).toEqual([]);
   });
+
+  // The swap kept the token NAMES but moved their luminance: --color-accent
+  // went from mid-sage to pale blue (white on it is 1.73:1) and
+  // --color-primary-light from mid-sage to #149EC2 (3.13:1 with white). These
+  // two call sites paint white text on exactly those, so they cannot go back.
+  it('keeps white labels off the pale end of the Marine ramp', () => {
+    const styles = readFileSync(join(src, 'styles.css'), 'utf8');
+    const tag = styles.match(/\.feature-new-tag\s*\{[^}]*\}/)[0];
+    expect(tag).toMatch(/color:\s*#fff/i);
+    expect(tag, '.feature-new-tag is white text on a pale chip').not.toMatch(
+      /background:\s*var\(--color-accent\)/
+    );
+
+    const premium = readFileSync(join(src, 'premium.css'), 'utf8');
+    for (const ramp of ['--grad-primary', '--grad-text']) {
+      const decl = premium.match(new RegExp(`${ramp}:[^;]*;`))[0];
+      expect(decl, `${ramp} carries white or gradient-filled text`).not.toMatch(
+        /--color-primary-light|#149EC2/i
+      );
+    }
+  });
 });

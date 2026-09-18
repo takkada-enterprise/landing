@@ -57,7 +57,8 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--color-primary-light);
+  /* 12px bold: needs 4.5:1, and --color-primary-light is 3.13:1 on white. */
+  color: var(--color-primary);
   margin: 0 0 10px;
 }
 
@@ -148,12 +149,13 @@
   align-items: center;
   gap: 8px;
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   margin-bottom: 24px;
 }
 
 .guide-breadcrumb a {
-  color: var(--color-primary-light);
+  /* 14px link text: --color-primary-light is 3.13:1 on white, primary is 5.55:1. */
+  color: var(--color-primary);
   text-decoration: none;
 }
 

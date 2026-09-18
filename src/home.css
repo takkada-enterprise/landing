@@ -127,7 +127,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 /* Hero phone on the ink plate, floating proof chips beside it */
@@ -329,7 +329,7 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
 
 .home-v3 .hv3-story-footnote {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   margin: 12px 0 0;
 }
 
@@ -675,7 +675,7 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
 
 .home-v3 .hv3-proof-role {
   font-size: 13.5px;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 /* The two figures stack beside the quote, separated by a hairline. */
@@ -748,7 +748,7 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   margin-bottom: 10px;
 }
 
