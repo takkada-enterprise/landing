@@ -3,6 +3,7 @@ import { cleanup, render, screen as ui, within, act } from '@testing-library/rea
 import { MemoryRouter } from 'react-router-dom';
 import FollowOneInvoice from '../FollowOneInvoice';
 import { STOPS, INVOICE } from '../../data/journey';
+import { screen as screenAsset } from '../../data/screens';
 
 // vite.config.js leaves vitest globals off, so RTL never registers its own
 // afterEach — without this every render stacks up in the same document and the
@@ -36,13 +37,30 @@ const mount = () =>
   );
 
 describe('FollowOneInvoice', () => {
-  it('renders seven stations in order, each with a headline and a screen', () => {
+  // The smoke assertion on its own would pass on any seven pictures at all, so
+  // each station is also held to the exact screens its own data names.
+  it('renders seven stations in order, each with its headline and its own screens', () => {
     mount();
     const stations = ui.getAllByRole('article');
     expect(stations).toHaveLength(7);
     stations.forEach((el, i) => {
       expect(within(el).getByRole('heading', { level: 3 })).toHaveTextContent(STOPS[i].headline);
       expect(within(el).getAllByRole('img').length).toBeGreaterThan(0);
+
+      for (const slug of STOPS[i].screens) {
+        const asset = screenAsset(slug);
+        const img = within(el).getByAltText(asset.alt);
+        expect(img.tagName, `${STOPS[i].id}/${slug}`).toBe('IMG');
+        expect(img).toHaveAttribute('src', asset.src);
+      }
+      if (STOPS[i].sheet) {
+        const asset = screenAsset(STOPS[i].sheet);
+        // The sheet's picture appears twice: tucked behind the phone, and again
+        // inside the dialog that enlarges it.
+        const imgs = within(el).getAllByAltText(asset.alt);
+        expect(imgs.length, STOPS[i].id).toBe(2);
+        for (const img of imgs) expect(img).toHaveAttribute('src', asset.src);
+      }
     });
   });
 
@@ -61,6 +79,30 @@ describe('FollowOneInvoice', () => {
     expect(ui.getByTestId('slip-status')).toHaveTextContent(STOPS[5].status);
     arrive(stations[1]);
     expect(ui.getByText('PAID')).not.toHaveClass('is-on');
+  });
+
+  // The pinned mobile bar has room for exactly one stamp and shows this one, so
+  // "exactly one" is a layout guarantee, not a detail.
+  it('marks exactly one stamp current, and it follows the reader both ways', () => {
+    const { container } = mount();
+    const current = () => container.querySelectorAll('.slip-stamp.is-current');
+    expect(current()).toHaveLength(1);
+    expect(current()[0]).toHaveTextContent(STOPS[0].stamp.text);
+
+    const stations = ui.getAllByRole('article');
+    arrive(stations[5]);
+    expect(current()).toHaveLength(1);
+    expect(current()[0]).toHaveTextContent(STOPS[5].stamp.text);
+
+    arrive(stations[1]);
+    expect(current()).toHaveLength(1);
+    expect(current()[0]).toHaveTextContent(STOPS[1].stamp.text);
+  });
+
+  it('carries the full invoice number, which is all the pinned mobile bar shows', () => {
+    mount();
+    expect(ui.getByText(INVOICE.number)).toBeInTheDocument();
+    expect(ui.getByText(INVOICE.short)).toBeInTheDocument();
   });
 
   it('marks only the unpressed stamps aria-hidden', () => {

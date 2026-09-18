@@ -18,9 +18,14 @@ export default function InvoiceSlip({ activeIndex }) {
   return (
     <div className="slip-rail">
       <div className="slip tabular-nums" role="group" aria-label={`Invoice ${INVOICE.number}`}>
+        {/* Two spellings of the same number, one shown at a time by CSS. The
+            full paper shows the short form, because the eye has the rest of the
+            slip for context; the pinned mobile bar is all the reader gets, so it
+            carries the whole number. */}
         <div className="slip-head">
           <span>TAX INVOICE</span>
-          <span>{INVOICE.short}</span>
+          <span className="slip-no slip-no--short">{INVOICE.short}</span>
+          <span className="slip-no slip-no--full">{INVOICE.number}</span>
         </div>
         <div className="slip-party">{INVOICE.party}</div>
         <div className="slip-place">{INVOICE.place}</div>
@@ -48,6 +53,10 @@ export default function InvoiceSlip({ activeIndex }) {
               `slip-stamp--${s.stamp.tone}`,
               s.stamp.size === 'lg' ? 'slip-stamp--lg' : '',
               i <= activeIndex ? 'is-on' : '',
+              // Exactly one stamp is the current one. The pinned mobile bar has
+              // room for a single stamp and shows this one; on the full paper
+              // the class is inert, because there every landed stamp stays.
+              i === activeIndex ? 'is-current' : '',
             ]
               .filter(Boolean)
               .join(' ')}

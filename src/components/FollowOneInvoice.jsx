@@ -111,7 +111,11 @@ export default function FollowOneInvoice() {
                         className={`foi-phone foi-phone--${n}`}
                         src={s.src}
                         srcSet={s.srcSet}
-                        sizes="(max-width: 700px) 60vw, 250px"
+                        // The rendered width, exactly: .foi-phone is 250px on
+                        // the two-column layout and 220px once the section
+                        // stacks at 900px. Both are flex: none, so neither can
+                        // be shrunk out from under this claim.
+                        sizes="(max-width: 900px) 220px, 250px"
                         width={s.width}
                         height={s.height}
                         alt={s.alt}

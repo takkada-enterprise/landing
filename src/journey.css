@@ -222,13 +222,36 @@
   gap: 26px;
 }
 /* The torn top and bottom edge is a mask, not an image, so the paper stays crisp
-   at every DPR and the stamps can be laid straight over it. */
+   at every DPR and the stamps can be laid straight over it.
+
+   THE SLIP'S TYPE RAMP, which every stamp offset below is measured against.
+   The slip is 340px wide (the grid's first column) and the line-height is the
+   unitless 1.7 in the font shorthand, so each block's height is its own
+   font-size x 1.7. Measured from the border box's top edge:
+
+     26.0        padding-top
+     26.0-47.3   .slip-head          12.5 x 1.7 = 21.25
+     57.3-80.1   .slip-party         19 x 1.2 = 22.8, after margin-top 10
+     80.1-101.3  .slip-place         21.25
+     113.3-114.8 hr                  1.5px rule, margin 12 above and below
+    126.8-211.8  4 x .slip-line      4 x 21.25 = 85
+    223.8-225.3  hr
+    237.3-262.8  .slip-total         15 x 1.7 = 25.5   <- the amount lives here
+    274.8-294.8  .slip-status        margin-top 12, min-height 20
+    294.8-410.8  THE STAMP AREA      padding-bottom 116
+
+   The 116px of bottom padding is not decoration: it is where PAID, REMINDED and
+   IN TALLY land. Seven stamps do not fit on 325px of paper without sitting on
+   the total, and the fix for that is more paper, never smaller stamps -- a
+   shrunken rubber stamp stops reading as a rubber stamp. Slip height 294.8 +
+   116 = 410.8px. A two-line status pushes the bottom edge down, which is why
+   every stamp in the stamp area is anchored with `bottom`. */
 .home-v3 .slip {
   position: relative;
   background: var(--color-paper);
   color: #1d2433;
   font: 400 12.5px/1.7 var(--font-mono);
-  padding: 26px 24px 30px;
+  padding: 26px 24px 116px;
   transform: rotate(-1.6deg);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
   -webkit-mask:
@@ -243,6 +266,12 @@
   justify-content: space-between;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+/* On the full paper the number can be short: the party, the place, the lines and
+   the total are all right there. The mobile bar swaps in the full number, since
+   there it is the only identification the reader gets. */
+.home-v3 .slip-no--full {
+  display: none;
 }
 .home-v3 .slip-party {
   font: 800 19px/1.2 var(--font-sans);
@@ -323,44 +352,83 @@
   padding: 6px 16px;
   border-width: 3.5px;
 }
-/* Each stamp has its own spot and its own angle on the paper, so seven of them
-   read as seven separate hits rather than a stack. */
+/* Each stamp has its own spot and its own angle, so seven of them read as seven
+   separate hits rather than a stack.
+
+   HOW THESE SEVEN OFFSETS WERE DERIVED. A stamp's unrotated box is
+   font-size (line-height 1) + 2 x padding + 2 x border tall, and its text width
+   + 2 x padding + 2 x border wide. Text width is estimated at 0.68em a cap or
+   digit, 0.30em a space, plus the 0.08em letter-spacing on every character:
+
+     ORDER #118    11px  9 glyphs + 1 space -> 79 + 25 = 104 x 26
+     IRN + E-WAY   13px  10 glyphs + 3 spaces -> 114 + 25 = 139 x 28 (call 145)
+     ON VAN 2      13px  6 glyphs + 2 spaces -> 69 + 25 =  94 x 28
+     WHATSAPP      13px  10 glyphs + 1 space -> 104 + 25 = 129 x 28 (call 135)
+     REMINDED      11px  8 glyphs           ->  67 + 25 =  92 x 26
+     PAID (lg)     22px  4 glyphs           ->  67 + 39 = 106 x 41
+     IN TALLY      11px  8 glyphs + 2 spaces ->  75 + 25 = 100 x 26
+
+   Rotation grows the box: for w x h at angle t the axis-aligned bounds are
+   w|cos t| + h|sin t| wide and w|sin t| + h|cos t| tall, about the centre. A
+   106px-wide stamp at 10deg gains 18px of height, which is exactly what made
+   the first layout collide. Applying that to each box gives:
+
+     stamp        rotation   x range        y range
+     ORDER        -8deg      222.7 - 329.3   44.9 -  85.1
+     IRN + E-WAY  +5deg       17.1 - 163.9  111.8 - 152.2
+     ON VAN 2     -4deg      225.1 - 320.9  156.8 - 191.2
+     WHATSAPP     +7deg       12.8 - 150.2  183.9 - 228.1
+     REMINDED     -3deg       19.4 - 112.7  304.6 - 335.4
+     PAID         -10deg     205.3 - 316.7  317.1 - 375.9
+     IN TALLY     +3deg       33.4 - 134.7  366.4 - 397.6
+
+   No two of those boxes intersect. None touches the total row (y 237.3-262.8,
+   whose amount runs x 208-316) or the status line (y 274.8-294.8). All of them
+   sit inside 0-340 x 0-410.8. The party name (x 24-200) is clear of ORDER,
+   whose left edge is 222.7.
+
+   The four upper stamps are anchored with `top` because the blocks they relate
+   to are anchored to the top; the three in the stamp area are anchored with
+   `bottom` so a status line that wraps to two lines moves them down with the
+   paper instead of into it. */
 .home-v3 .slip-stamp--order {
   --r: -8deg;
-  top: 50px;
-  right: 16px;
+  top: 52px;
+  right: 12px;
   font-size: 11px;
 }
 .home-v3 .slip-stamp--bill {
   --r: 5deg;
-  top: 100px;
-  right: 18px;
+  top: 118px;
+  left: 18px;
 }
 .home-v3 .slip-stamp--load {
   --r: -4deg;
-  top: 150px;
-  left: 120px;
+  top: 160px;
+  right: 20px;
 }
 .home-v3 .slip-stamp--send {
   --r: 7deg;
-  top: 196px;
-  right: 22px;
+  top: 192px;
+  left: 14px;
 }
 .home-v3 .slip-stamp--remind {
   --r: -3deg;
-  top: 236px;
-  left: 26px;
+  bottom: 78px;
+  left: 20px;
   font-size: 11px;
 }
+/* The climax: the biggest stamp, the only red one, low and hard over at
+   -10deg, in the clear paper under the total it just settled. */
 .home-v3 .slip-stamp--recover {
   --r: -10deg;
-  bottom: 54px;
-  left: 22px;
+  bottom: 44px;
+  right: 26px;
 }
 .home-v3 .slip-stamp--tally {
   --r: 3deg;
-  bottom: 18px;
-  right: 16px;
+  bottom: 16px;
+  left: 34px;
   font-size: 11px;
 }
 
@@ -538,10 +606,20 @@
   outline-offset: 4px;
 }
 
+/* The sheet has to fit the viewport it opens in, not just the width of it. At
+   the 1100px cap the salesman sheet (720x440) stands 672px tall, which is taller
+   than the usable area of a 1366x768 laptop, and with overflow hidden the bottom
+   of it was simply gone. Both caps are on the image as well as the box, because
+   a percentage max-height against a parent that only has a max-height is not
+   reliably resolvable -- the image carries absolute caps and the dialog
+   shrink-wraps whatever the image settles at, so the whole sheet is always on
+   screen and Close stays in the visible box. */
 .home-v3 .sheet-dialog {
   border: 0;
   padding: 0;
   max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  max-height: 88dvh;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -573,8 +651,12 @@
 }
 .home-v3 .sheet-dialog img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  max-height: 88dvh;
+  object-fit: contain;
 }
 .home-v3 .sheet-close {
   position: absolute;
@@ -701,16 +783,45 @@
 }
 
 @media (max-width: 900px) {
+  /* The pinned bar's height is a constant the stations have to scroll clear of,
+     so it is written down once here and used in both places.
+
+       10.0        .slip-rail padding-top
+       10.0        .slip padding-top
+       21.3        .slip-head        12.5 x 1.7, one line (flex, never wraps)
+       25.5        .slip-total       15 x 1.7, label ellipsised if it must be
+       12.0        .slip-status margin-top
+       17.0        .slip-status      10 x 1.7, nowrap, so exactly one line
+       37.0        .slip padding-bottom = the stamp slot: 21px stamp,
+                                          10px below it, 6px above it
+       10.0        .slip-rail padding-bottom
+      ------
+      142.8  ->  --foi-bar-h: 143px
+
+     Everything in that column is fixed or clamped to one line and the stamp is
+     out of flow, so the bar is the same height at all seven stops. It used to
+     grow ~28px the moment PAID landed, which shoved the page under the reader's
+     thumb mid-scroll.
+
+     The stamp gets its own row rather than sharing the status line's: at 11px
+     the widest of the seven ("IRN + E-WAY", 10 glyphs and 3 spaces) is
+     10 x 7.48 + 3 x 3.3 + 13 x 0.88 + 20 = 116px, and a lane that wide would
+     leave the 42-character status under 30 characters of room and ellipsise it
+     at every stop. The status is the live region; it gets the full width. */
+  .home-v3 .foi {
+    --foi-nav-h: 56px;
+    --foi-bar-h: 143px;
+  }
   .home-v3 .foi-grid {
     grid-template-columns: 1fr;
     gap: 0;
     padding: 0 16px;
   }
-  /* On a phone the slip becomes a thin ticker under the header: the paper, the
-     total and the one big stamp, nothing else. */
+  /* On a phone the slip collapses to a pinned bar: the full invoice number, the
+     total, the current status, and the stamp for the stop the reader is at. */
   .home-v3 .slip-rail {
     position: sticky;
-    top: 56px;
+    top: var(--foi-nav-h);
     z-index: 5;
     height: auto;
     padding: 10px 0;
@@ -718,7 +829,7 @@
   }
   .home-v3 .slip {
     transform: none;
-    padding: 10px 14px;
+    padding: 10px 14px 37px;
     box-shadow: none;
     -webkit-mask: none;
     mask: none;
@@ -727,24 +838,56 @@
   .home-v3 .slip hr,
   .home-v3 .slip-line:not(.slip-total),
   .home-v3 .slip-place,
-  .home-v3 .slip-stamp:not(.slip-stamp--lg) {
+  .home-v3 .slip-party,
+  .home-v3 .slip-no--short {
     display: none;
   }
-  .home-v3 .slip-stamp--lg {
-    position: static;
-    display: inline-block;
-    font-size: 12px;
+  .home-v3 .slip-no--full {
+    display: inline;
+  }
+  /* One line, always: the longest status is 42 characters, which fits the 260px
+     of 10px mono a 320px phone gives it, and the nowrap makes that a guarantee
+     rather than an estimate on anything narrower. */
+  .home-v3 .slip-status {
+    font-size: 10px;
+    min-height: 0;
+    height: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* All seven stamps stay in the DOM, stacked in one fixed slot in the paper's
+     bottom-left and out of flow, so swapping the current one is a pure opacity
+     crossfade with nothing to reflow and no height to change. The .is-on group
+     is repeated because it out-specifies a bare .slip-stamp and would otherwise
+     light every stamp the reader has already passed. */
+  .home-v3 .slip-stamp,
+  .home-v3 .slip-stamp.is-on {
+    position: absolute;
+    top: auto;
+    right: auto;
+    left: 14px;
+    bottom: 10px;
+    font-size: 11px;
     padding: 3px 8px;
     border-width: 2px;
-    margin-top: 6px;
+    opacity: 0;
+    transform: none;
+    transition: opacity 180ms var(--ease-out);
+  }
+  .home-v3 .slip-stamp.is-current,
+  .home-v3 .slip-stamp.is-on.is-current {
+    opacity: 0.88;
   }
   /* Nothing dims on a phone: a station fills the screen on its own, so the dim
-     would only read as a broken page. */
+     would only read as a broken page. The scroll margin clears the nav and the
+     pinned bar, so a jump to #stop-bill does not land under them. */
   .home-v3 .foi-station {
     grid-template-columns: 1fr;
     min-height: auto;
     padding: 56px 0;
     opacity: 1;
+    scroll-margin-top: calc(var(--foi-nav-h) + var(--foi-bar-h) + 12px);
   }
   .home-v3 .foi-station h3 {
     font-size: 28px;
@@ -758,22 +901,32 @@
   .home-v3 .foi-callchip {
     display: none;
   }
+  /* flex: none on both, so the widths the `sizes` attribute promises are the
+     widths that render. The numbers are picked to fit the narrowest phone the
+     site supports: at a 320px viewport the visual is 288px wide, and
+     0.34 x 288 - 0.12 x 288 + 220 = 283px. */
+  .home-v3 .foi-phone {
+    flex: none;
+    width: 220px;
+  }
   .home-v3 .sheet,
   .home-v3 .foi-visual.has-second.has-sheet .sheet {
     position: relative;
     left: 0;
     bottom: 0;
-    width: 46%;
+    flex: none;
+    width: 34%;
     margin-right: -12%;
   }
 }
 
 /* Reduced motion keeps the fades — they are what carry the change of state — and
-   drops every transform transition the reader did not ask for: the stamps appear
-   at their resting angle, the phones and the sheets do not move on scroll or
-   hover, the dialog only fades, and the stations stop dimming. The 0.97 press
-   nudge stays on all four pressables: it is touch response under the reader's own
-   finger, not motion the page inflicts on them. */
+   drops every transform TRANSITION: the stamps appear at their resting angle,
+   the phones and the sheets do not move on scroll or hover, the dialog only
+   fades, and the stations stop dimming. The three pressables keep their 0.97
+   press STATE — a control that does not answer the finger reads as broken — but
+   it snaps rather than eases, so there is no motion to track. The background-
+   colour fades stay: a colour change is not motion. */
 @media (prefers-reduced-motion: reduce) {
   .home-v3 .slip-stamp,
   .home-v3 .slip-stamp.is-on {
@@ -793,6 +946,11 @@
   .home-v3 .sheet,
   .home-v3 .sheet:hover {
     transform: rotate(-5deg);
+    transition: none;
+  }
+  .home-v3 .foi-pill,
+  .home-v3 .sheet-close {
+    transition: background-color 160ms var(--ease-out);
   }
   .home-v3 .sheet-dialog[open] {
     transform: none;

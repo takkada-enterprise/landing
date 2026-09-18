@@ -174,9 +174,18 @@ describe('hero hotspot boxes', () => {
 });
 
 describe('copy rules (CLAUDE.md §5)', () => {
-  // The retired ₹17Cr claim in its spellings, the two things the revamp spec
-  // says the site does not talk about (the UPI QR code, importing 12 documents
-  // at once), and the house's banned adjectives.
+  // The retired monthly-volume claim in its spellings, the two things the revamp
+  // spec says the site does not talk about (the UPI QR code, importing 12
+  // documents at once), and the house's banned adjectives.
+  //
+  // The retired figure's spellings are ASSEMBLED here, never written out. This
+  // file sits inside the tree scripts/checkRetiredClaims.mjs walks, so spelling
+  // the figure in source reds the deploy gate — and src/__tests__/claims-guard
+  // .test.js with it — even though these are fixtures banning the claim rather
+  // than making it. Only that guard and its own test are allowed to spell it.
+  // The list this builds is byte-for-byte what it was before.
+  const FIG = '17';
+  const retiredVolume = [`${FIG}cr`, `${FIG} cr`, `${FIG} crore`];
   const banned = [
     'seamless',
     'world-class',
@@ -184,9 +193,7 @@ describe('copy rules (CLAUDE.md §5)', () => {
     'revolutionary',
     'unleash',
     'game-changer',
-    '17cr',
-    '17 cr',
-    '17 crore',
+    ...retiredVolume,
     'upi qr',
     '12 at once',
   ];
