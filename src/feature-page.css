@@ -355,28 +355,36 @@
   margin-top: 64px;
 }
 
+/* ── The header and its stop mark (2026-09-18, re-laid round 2) ──
+ * Two columns: the prose at its 620px measure on the left, and, for the seven
+ * headings that are a stop of the homepage's story, that stop's stamp and the
+ * screen it opens with pushed to the right edge — the same right edge the card
+ * grid below runs to, because both are children of the same section.
+ *
+ * In flow, not absolute. The mark was absolute over a hand-reserved 96px, and
+ * an 84px-wide phone export is 174px tall, so it painted over the first row of
+ * cards; the height it needs is the image's own and the grid row takes it. A
+ * header with no mark simply leaves the second column empty, so nothing here
+ * has to ask whether a mark is present and no `:has()` decides a layout. */
 .features-hub-group-header {
-  max-width: 620px;
+  display: grid;
+  grid-template-columns: minmax(0, 620px) 1fr;
+  align-items: start;
+  column-gap: 32px;
   margin-bottom: 24px;
 }
 
-/* ── The stop mark (2026-09-18) ──
- * Seven of these nine headings are a stop of the homepage's story, so each one
- * carries that stop's stamp and the screen it opens with, out to the right of
- * the reading column. Only a header that has one makes room for one: the two
- * groups outside the journey keep the plain 620px measure they always had.
- * The prose column stays 620px either way; the extra width is the mark's. */
-.features-hub-group-header:has(.features-hub-stop) {
-  position: relative;
-  max-width: 860px;
-  min-height: 96px;
-  padding-right: 240px;
+/* Both pinned to column one, or a header with no mark would set its intro
+ * beside its title instead of under it. */
+.features-hub-group-title,
+.features-hub-group-intro {
+  grid-column: 1;
 }
 
 .features-hub-stop {
-  position: absolute;
-  right: 0;
-  top: -10px;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -387,6 +395,16 @@
   height: auto;
   border-radius: 8px;
   filter: drop-shadow(0 12px 20px rgba(14, 28, 42, 0.18));
+}
+
+/* The hub's own section grid. The shared `.tally-grid` is `auto-fit`, which
+ * collapses the empty tracks, so a section holding a single card stretched that
+ * card across the whole container and it stopped reading as a card at all.
+ * `auto-fill` keeps the tracks, so one card is exactly as wide as a card in a
+ * three-card row. Scoped to the hub: every other page that uses .tally-grid
+ * fills its rows and wants the stretch. */
+.features-hub-group .tally-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
 }
 
 /* Same ink, weight and tilt as the slip stamps on the homepage, so the two
@@ -492,13 +510,10 @@
   /* On a phone the thumbnail is the first thing to go: at this width it is a
    * smudge, and it pushes the heading's own words down the screen. The stamp
    * stays, on its own line under the title and above the intro, because the
-   * stamp is what says which stop of the story this is and it costs one line. */
-  .features-hub-group-header:has(.features-hub-stop) {
-    display: flex;
-    flex-direction: column;
-    max-width: none;
-    min-height: 0;
-    padding-right: 0;
+   * stamp is what says which stop of the story this is and it costs one line.
+   * One column, and `order` does the swap — the same grid, re-flowed. */
+  .features-hub-group-header {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .features-hub-group-title {
@@ -506,8 +521,10 @@
   }
 
   .features-hub-stop {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
     order: 1;
-    position: static;
     margin: 10px 0 4px;
   }
 

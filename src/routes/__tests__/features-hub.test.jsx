@@ -486,3 +486,89 @@ describe('retired group anchors', () => {
     expect(dead.map(([id, file]) => `${file} links /features#${id}`)).toEqual([]);
   });
 });
+
+// ── What jsdom cannot see (2026-09-18, review round 2) ──
+//
+// The hub's header and section grid are laid out by CSS that a jsdom render
+// reports nothing about: every box is 0x0 here, so a mark painting over the
+// cards, or a lone card stretched across the container, passes every DOM
+// assertion in this file. Three flaws shipped that way in one commit. These
+// read the stylesheet as text and pin the structural facts that make the
+// layout right, which is the part a test can actually hold.
+describe('hub layout rules (read off the stylesheet)', () => {
+  // Innermost rules, with the at-rule they sit inside. Comments are stripped
+  // first so a brace inside one cannot desynchronise the depth count.
+  const cssRules = (css) => {
+    const out = [];
+    const stack = [];
+    let buf = '';
+    for (const ch of css.replace(/\/\*[\s\S]*?\*\//g, '')) {
+      if (ch === '{') {
+        stack.push(buf.trim().replace(/\s+/g, ' '));
+        buf = '';
+      } else if (ch === '}') {
+        const prelude = stack.pop();
+        if (prelude && !prelude.startsWith('@')) {
+          out.push({ selector: prelude, body: buf, at: stack.find((p) => p.startsWith('@')) ?? null });
+        }
+        buf = '';
+      } else {
+        buf += ch;
+      }
+    }
+    return out;
+  };
+
+  const read = (file) => readFileSync(resolve(process.cwd(), 'src', file), 'utf-8');
+  const hub = cssRules(read('feature-page.css'));
+  const shared = cssRules(read('styles.css'));
+  const selects = (rule, selector) =>
+    rule.selector.split(',').some((s) => s.trim() === selector);
+
+  it('parses the stylesheet, so the cases below cannot pass on nothing', () => {
+    expect(hub.length).toBeGreaterThan(50);
+    expect(hub.some((r) => selects(r, '.features-hub-group-header'))).toBe(true);
+  });
+
+  // The mark was absolutely positioned inside a header that reserved a height
+  // by hand, and 44px of the screenshot painted over the first row of cards.
+  // Worse, the only `position: relative` sat in a `:has()` rule, so on a browser
+  // without `:has()` all seven marks escaped to the top-right of the document.
+  // In flow, in a grid column of its own, neither is reachable.
+  it('keeps the stop mark in flow, in a header that is a grid', () => {
+    const stopRules = hub.filter((r) => selects(r, '.features-hub-stop'));
+    expect(stopRules.length).toBeGreaterThan(0);
+    for (const rule of stopRules) {
+      expect(rule.body, `.features-hub-stop inside ${rule.at ?? 'no at-rule'}`).not.toMatch(
+        /position:\s*absolute/
+      );
+    }
+
+    const header = hub.find((r) => selects(r, '.features-hub-group-header') && !r.at);
+    expect(header, 'the header needs an unconditional rule').toBeDefined();
+    expect(header.body).toMatch(/display:\s*grid/);
+  });
+
+  it('never depends on :has() for the layout of a section, header or mark', () => {
+    const layout = hub.filter((r) => /features-hub-(group|stop|stamp)/.test(r.selector));
+    expect(layout.length).toBeGreaterThan(5);
+    expect(layout.filter((r) => r.selector.includes(':has(')).map((r) => r.selector)).toEqual([]);
+  });
+
+  // .tally-grid is auto-fit, which collapses the empty tracks: a section with
+  // one card stretched that card across the whole container. The hub scopes its
+  // own track sizing; the shared grid is what every other page still wants.
+  it('sizes the hub section grid so a lone card stays card-sized', () => {
+    const scoped = hub.find(
+      (r) => r.selector.includes('features-hub-group') && r.selector.includes('tally-grid')
+    );
+    expect(scoped, 'the hub must scope its own section grid').toBeDefined();
+    expect(scoped.body).toMatch(/grid-template-columns:[^;]*auto-fill/);
+
+    const tallyGrid = shared.find((r) => selects(r, '.tally-grid') && !r.at);
+    expect(tallyGrid, 'the shared grid must still exist').toBeDefined();
+    expect(tallyGrid.body, 'the shared .tally-grid is not the hub\'s to change').toMatch(
+      /auto-fit/
+    );
+  });
+});
