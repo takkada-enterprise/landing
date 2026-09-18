@@ -1,0 +1,151 @@
+/* journey.css — playable phone, invoice slip, paper sheets, follow-one-invoice.
+   Every rule head is prefixed .home-v3 (home-v3.test.jsx enforces this for
+   home styles) except .journey-strip, which renders on feature pages.
+
+   Motion contract for this file: only transform, opacity and filter are
+   animated, easing is always var(--ease-out), and nothing enters from scale(0).
+   Anything that can reverse mid-flight is a transition; the one @keyframes
+   animation here is the hint-dot ping, which is constant ambient motion that
+   never reverses. Marigold (--color-highlight) is a dot and a focus ring, never
+   a fill. */
+
+/* ---------- Playable phone (hero) ---------- */
+
+.home-v3 .pphone {
+  position: relative;
+  width: min(340px, 70vw);
+  aspect-ratio: 966 / 2000;
+  margin-inline: auto;
+  filter: drop-shadow(0 40px 70px rgba(5, 12, 28, 0.6));
+}
+.home-v3 .pphone-base,
+.home-v3 .pphone-screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The opened screen grows out of the tapped tile: transform-origin is that
+   hotspot's centre, set inline by the component. */
+.home-v3 .pphone-screen {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 260ms var(--ease-out), transform 320ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.home-v3 .pphone-hot {
+  position: absolute;
+  border: 0;
+  border-radius: 14px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+.home-v3 .pphone-hot:active {
+  transform: scale(0.97);
+}
+.home-v3 .pphone-hot:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* The hint dot is two circles in one place: ::after is the solid marigold dot
+   and never moves; ::before is the ring that pings. The ping animates transform
+   and opacity only — a box-shadow ping repaints the layer every frame. */
+.home-v3 .pphone-hot::after,
+.home-v3 .pphone-hot::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-highlight);
+}
+.home-v3 .pphone-hot::before {
+  opacity: 0;
+  animation: pphone-ping 2.2s var(--ease-out) infinite;
+}
+.home-v3 .pphone-hot:nth-of-type(2n)::before {
+  animation-delay: 0.7s;
+}
+.home-v3 .pphone-hot:nth-of-type(3n)::before {
+  animation-delay: 1.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .pphone-hot:hover {
+    background-color: rgba(0, 110, 166, 0.12);
+  }
+  .home-v3 .pphone-back:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+}
+
+.home-v3 .pphone-back {
+  position: absolute;
+  left: 50%;
+  bottom: -58px;
+  translate: -50% 0;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: 600 14px var(--font-sans);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms var(--ease-out), transform 160ms var(--ease-out),
+    background-color 160ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+.home-v3 .pphone-back:active {
+  transform: scale(0.97);
+}
+.home-v3 .pphone-back:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+@keyframes pphone-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion keeps the fades — they carry the change of screen — and drops
+   every transform and the ping. */
+@media (prefers-reduced-motion: reduce) {
+  .home-v3 .pphone-hot::before {
+    animation: none;
+  }
+  .home-v3 .pphone-hot:active,
+  .home-v3 .pphone-back:active {
+    transform: none;
+  }
+  .home-v3 .pphone-screen {
+    transform: none;
+    transition: opacity 200ms var(--ease-out);
+
+    @starting-style {
+      opacity: 0;
+      transform: none;
+    }
+  }
+}
