@@ -176,3 +176,631 @@
     }
   }
 }
+
+/* ---------- Follow one invoice (home) ---------- */
+
+/* Nothing in this section plays on a timer. Every piece of motion below is a
+   transition keyed to the station the reader has scrolled into, so scrolling
+   back up takes the story apart in the same order it was built — and a stamp
+   caught halfway down reverses from where it is instead of jumping. */
+
+.home-v3 .foi {
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 96px 0 40px;
+}
+.home-v3 .foi-intro {
+  max-width: 1160px;
+  margin: 0 auto 24px;
+  padding: 0 32px;
+}
+.home-v3 .foi-intro .section-label {
+  color: var(--color-accent);
+}
+.home-v3 .foi-intro .section-title {
+  color: #fff;
+  max-width: 720px;
+}
+.home-v3 .foi-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 70px;
+}
+
+/* ---- The pinned slip ---- */
+
+.home-v3 .slip-rail {
+  position: sticky;
+  top: 84px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+/* The torn top and bottom edge is a mask, not an image, so the paper stays crisp
+   at every DPR and the stamps can be laid straight over it. */
+.home-v3 .slip {
+  position: relative;
+  background: var(--color-paper);
+  color: #1d2433;
+  font: 400 12.5px/1.7 var(--font-mono);
+  padding: 26px 24px 30px;
+  transform: rotate(-1.6deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  -webkit-mask:
+    radial-gradient(circle 6px at 8px 0, transparent 98%, #000) -8px 0 / 16px 51% repeat-x,
+    radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) -8px 100% / 16px 51% repeat-x;
+  mask:
+    radial-gradient(circle 6px at 8px 0, transparent 98%, #000) -8px 0 / 16px 51% repeat-x,
+    radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) -8px 100% / 16px 51% repeat-x;
+}
+.home-v3 .slip-head {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.home-v3 .slip-party {
+  font: 800 19px/1.2 var(--font-sans);
+  letter-spacing: -0.015em;
+  margin-top: 10px;
+}
+.home-v3 .slip-place {
+  opacity: 0.6;
+}
+.home-v3 .slip hr {
+  border: 0;
+  border-top: 1.5px dashed rgba(29, 36, 51, 0.25);
+  margin: 12px 0;
+}
+.home-v3 .slip-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.home-v3 .slip-line span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-v3 .slip-total {
+  font-weight: 600;
+  font-size: 15px;
+}
+/* min-height holds the line open so the slip does not resize under a longer
+   status and shove the stamps off their marks. */
+.home-v3 .slip-status {
+  margin-top: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  opacity: 0.65;
+  min-height: 20px;
+}
+
+/* The thunk. A stamp lands from scale(1.5) over 260ms; it lifts off faster than
+   it lands (160ms transform, 120ms opacity), because paper releasing a stamp is
+   a lighter event than a stamp hitting paper. Both directions are transitions on
+   one class — never keyframes — so the motion is reversible mid-flight. */
+.home-v3 .slip-stamp {
+  position: absolute;
+  font: 800 13px/1 var(--font-sans);
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border: 2.5px solid currentColor;
+  border-radius: 6px;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transform: scale(1.5) rotate(var(--r));
+  transition:
+    opacity 120ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+.home-v3 .slip-stamp.is-on {
+  opacity: 0.88;
+  transform: scale(1) rotate(var(--r));
+  transition:
+    opacity 180ms var(--ease-out),
+    transform 260ms var(--ease-out);
+}
+.home-v3 .slip-stamp--blue {
+  color: var(--stamp-blue);
+}
+.home-v3 .slip-stamp--green {
+  color: var(--stamp-green);
+}
+.home-v3 .slip-stamp--red {
+  color: var(--stamp-red);
+}
+.home-v3 .slip-stamp--ink {
+  color: #1d2433;
+}
+.home-v3 .slip-stamp--lg {
+  font-size: 22px;
+  padding: 6px 16px;
+  border-width: 3.5px;
+}
+/* Each stamp has its own spot and its own angle on the paper, so seven of them
+   read as seven separate hits rather than a stack. */
+.home-v3 .slip-stamp--order {
+  --r: -8deg;
+  top: 50px;
+  right: 16px;
+  font-size: 11px;
+}
+.home-v3 .slip-stamp--bill {
+  --r: 5deg;
+  top: 100px;
+  right: 18px;
+}
+.home-v3 .slip-stamp--load {
+  --r: -4deg;
+  top: 150px;
+  left: 120px;
+}
+.home-v3 .slip-stamp--send {
+  --r: 7deg;
+  top: 196px;
+  right: 22px;
+}
+.home-v3 .slip-stamp--remind {
+  --r: -3deg;
+  top: 236px;
+  left: 26px;
+  font-size: 11px;
+}
+.home-v3 .slip-stamp--recover {
+  --r: -10deg;
+  bottom: 54px;
+  left: 22px;
+}
+.home-v3 .slip-stamp--tally {
+  --r: 3deg;
+  bottom: 18px;
+  right: 16px;
+  font-size: 11px;
+}
+
+.home-v3 .slip-stops {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin: 0;
+  font: 400 11.5px var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+/* The rail brightens by opacity, not by colour, so the only properties animated
+   anywhere in this section stay transform, opacity and filter. The marigold on
+   the stop the reader is at is a straight swap, not a fade. */
+.home-v3 .slip-stops li {
+  opacity: 0.35;
+  transition: opacity 220ms var(--ease-out);
+}
+.home-v3 .slip-stops li.is-done {
+  opacity: 0.7;
+}
+.home-v3 .slip-stops li.is-on {
+  opacity: 1;
+  color: var(--color-highlight);
+}
+
+/* ---- The stations ---- */
+
+.home-v3 .foi-station {
+  min-height: 84vh;
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 48px;
+  align-items: center;
+  opacity: 0.28;
+  transition: opacity 320ms var(--ease-out);
+}
+.home-v3 .foi-station.is-on {
+  opacity: 1;
+}
+.home-v3 .foi-when {
+  font: 400 13px var(--font-mono);
+  letter-spacing: 0.05em;
+  color: var(--color-highlight);
+  text-transform: uppercase;
+}
+.home-v3 .foi-station h3 {
+  font: 800 38px/1.08 var(--font-sans);
+  letter-spacing: -0.03em;
+  margin: 12px 0 14px;
+}
+.home-v3 .foi-station p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16.5px;
+  line-height: 1.6;
+  max-width: 430px;
+}
+.home-v3 .foi-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.home-v3 .foi-pill {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .foi-pill:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+}
+.home-v3 .foi-pill:active {
+  transform: scale(0.97);
+}
+.home-v3 .foi-pill:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* isolation makes the visual its own stacking context, so the tucked sheet and
+   the second phone sit behind the front phone but never behind the section's
+   navy. A negative z-index would do exactly that the moment a station reaches
+   opacity 1 and stops being a stacking context of its own — the sheet would
+   disappear precisely when the reader arrived at it. */
+.home-v3 .foi-visual {
+  position: relative;
+  isolation: isolate;
+}
+.home-v3 .foi-phone {
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5));
+  transform: translateY(18px);
+  transition: transform 320ms var(--ease-out);
+}
+.home-v3 .foi-station.is-on .foi-phone {
+  transform: none;
+}
+.home-v3 .foi-phone--1 {
+  position: absolute;
+  left: -120px;
+  top: 60px;
+  width: 200px;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* ---- The printed sheets ---- */
+
+.home-v3 .sheet {
+  position: absolute;
+  left: -170px;
+  bottom: -10px;
+  width: 300px;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  z-index: 1;
+  background: #fff;
+  transform: rotate(-5deg);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  transition: transform 160ms var(--ease-out);
+}
+/* No stop carries both a second phone and a sheet today. If one ever does, the
+   sheet drops further down and further left rather than landing exactly under
+   the tucked phone. */
+.home-v3 .foi-visual.has-second.has-sheet .sheet {
+  left: -250px;
+  bottom: -84px;
+}
+.home-v3 .sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.home-v3 .sheet-caption {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1d2433;
+  background: var(--color-highlight);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+/* Hover before active: they set the same property at the same specificity, so
+   the later rule wins and a press while hovering has to be the later rule. */
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .sheet:hover {
+    transform: rotate(-3deg) translateY(-6px);
+  }
+}
+.home-v3 .sheet:active {
+  transform: rotate(-5deg) scale(0.97);
+}
+.home-v3 .sheet:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 4px;
+}
+
+.home-v3 .sheet-dialog {
+  border: 0;
+  padding: 0;
+  max-width: min(1100px, 92vw);
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+/* The enlarged sheet is a modal, and modals are not origin-aware: it stays
+   centred and fades up from scale(0.96) — close enough to read as the same
+   sheet — never from scale(0), which reads as a zoom out of nowhere. Entry only,
+   via @starting-style; there is nothing to say on the way out. */
+.home-v3 .sheet-dialog[open] {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+.home-v3 .sheet-dialog[open]::backdrop {
+  background: rgba(5, 12, 28, 0.7);
+  opacity: 1;
+  transition: opacity 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+.home-v3 .sheet-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.home-v3 .sheet-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--color-primary-dark);
+  color: #fff;
+  font: 600 14px var(--font-sans);
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .sheet-close:hover {
+    background-color: #1b3a6b;
+  }
+}
+.home-v3 .sheet-close:active {
+  transform: scale(0.97);
+}
+.home-v3 .sheet-close:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 3px;
+}
+
+/* ---- The Send stop's message ---- */
+
+/* A picture of the WhatsApp message the retailer gets, drawn in HTML because no
+   capture of a delivered invoice exists. It is the Send stop's screen, so unlike
+   the call chip it stays on at mobile width. Nothing in it is pressable, so
+   nothing in it has a hover or a press state. */
+.home-v3 .wam {
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  display: grid;
+  gap: 6px;
+}
+.home-v3 .wam-from {
+  font: 600 11px var(--font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.home-v3 .wam-bubble {
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 14px 14px 14px 4px;
+  padding: 12px 14px 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.home-v3 .wam-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f4f8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 9px;
+}
+.home-v3 .wam-file-kind {
+  flex: none;
+  font: 700 10px var(--font-sans);
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--color-danger);
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+.home-v3 .wam-file-name {
+  font: 500 11.5px var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-v3 .wam-line {
+  margin: 0 0 6px;
+}
+.home-v3 .wam-cta {
+  display: block;
+  text-align: center;
+  font: 600 13px var(--font-sans);
+  color: var(--color-primary-dark);
+  border-top: 1px solid rgba(15, 31, 61, 0.12);
+  margin: 8px -14px 0;
+  padding: 9px 14px 0;
+}
+.home-v3 .wam-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: rgba(29, 36, 51, 0.5);
+}
+.home-v3 .wam-ticks {
+  color: #34b7f1;
+  font-size: 12px;
+}
+
+.home-v3 .foi-callchip {
+  position: absolute;
+  right: -24px;
+  top: 90px;
+  z-index: 3;
+  display: grid;
+  gap: 2px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  font-size: 12.5px;
+}
+.home-v3 .foi-callchip strong {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .home-v3 .foi-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 16px;
+  }
+  /* On a phone the slip becomes a thin ticker under the header: the paper, the
+     total and the one big stamp, nothing else. */
+  .home-v3 .slip-rail {
+    position: sticky;
+    top: 56px;
+    z-index: 5;
+    height: auto;
+    padding: 10px 0;
+    background: var(--color-primary-dark);
+  }
+  .home-v3 .slip {
+    transform: none;
+    padding: 10px 14px;
+    box-shadow: none;
+    -webkit-mask: none;
+    mask: none;
+    border-radius: 10px;
+  }
+  .home-v3 .slip hr,
+  .home-v3 .slip-line:not(.slip-total),
+  .home-v3 .slip-place,
+  .home-v3 .slip-stamp:not(.slip-stamp--lg) {
+    display: none;
+  }
+  .home-v3 .slip-stamp--lg {
+    position: static;
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-width: 2px;
+    margin-top: 6px;
+  }
+  /* Nothing dims on a phone: a station fills the screen on its own, so the dim
+     would only read as a broken page. */
+  .home-v3 .foi-station {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 56px 0;
+    opacity: 1;
+  }
+  .home-v3 .foi-station h3 {
+    font-size: 28px;
+  }
+  .home-v3 .foi-visual {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+  }
+  .home-v3 .foi-phone--1,
+  .home-v3 .foi-callchip {
+    display: none;
+  }
+  .home-v3 .sheet,
+  .home-v3 .foi-visual.has-second.has-sheet .sheet {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 46%;
+    margin-right: -12%;
+  }
+}
+
+/* Reduced motion keeps the fades — they are what carry the change of state — and
+   drops every transform transition the reader did not ask for: the stamps appear
+   at their resting angle, the phones and the sheets do not move on scroll or
+   hover, the dialog only fades, and the stations stop dimming. The 0.97 press
+   nudge stays on all four pressables: it is touch response under the reader's own
+   finger, not motion the page inflicts on them. */
+@media (prefers-reduced-motion: reduce) {
+  .home-v3 .slip-stamp,
+  .home-v3 .slip-stamp.is-on {
+    transform: rotate(var(--r));
+    transition: opacity 200ms var(--ease-out);
+  }
+  .home-v3 .foi-station,
+  .home-v3 .foi-station.is-on {
+    opacity: 1;
+    transition: none;
+  }
+  .home-v3 .foi-phone,
+  .home-v3 .foi-station.is-on .foi-phone {
+    transform: none;
+    transition: none;
+  }
+  .home-v3 .sheet,
+  .home-v3 .sheet:hover {
+    transform: rotate(-5deg);
+  }
+  .home-v3 .sheet-dialog[open] {
+    transform: none;
+    transition: opacity 200ms var(--ease-out);
+
+    @starting-style {
+      transform: none;
+      opacity: 0;
+    }
+  }
+}
