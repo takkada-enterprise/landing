@@ -17,7 +17,17 @@ const inr = (n) =>
 export default function InvoiceSlip({ activeIndex }) {
   return (
     <div className="slip-rail">
-      <div className="slip tabular-nums" role="group" aria-label={`Invoice ${INVOICE.number}`}>
+      {/* data-not-a-price: every rupee figure below is one retailer's invoice,
+          an illustration of what the app carries — never anything Takkada
+          charges for. checkRateCardDrift strips this subtree before it looks
+          for prices, so the slip cannot be read as a rate that has drifted
+          from the partner rate card. Keep the attribute on this root only. */}
+      <div
+        className="slip tabular-nums"
+        role="group"
+        aria-label={`Invoice ${INVOICE.number}`}
+        data-not-a-price
+      >
         {/* Two spellings of the same number, one shown at a time by CSS. The
             full paper shows the short form, because the eye has the rest of the
             slip for context; the pinned mobile bar is all the reader gets, so it

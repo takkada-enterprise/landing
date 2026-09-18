@@ -25,7 +25,10 @@ function WhatsAppMessage({ message, time }) {
     `WhatsApp message from ${message.from}: ${message.lines.join(' ')} ` +
     `Attached: ${message.attachment}. ${message.cta}. Delivered.`;
   return (
-    <div className="wam" role="img" aria-label={label}>
+    // data-not-a-price for the same reason the slip carries it: the amount in
+    // this message is the retailer's own invoice total, not a rate Takkada
+    // charges. checkRateCardDrift strips this card before it hunts for prices.
+    <div className="wam" role="img" aria-label={label} data-not-a-price>
       <div className="wam-from">{message.from}</div>
       <div className="wam-bubble">
         <div className="wam-file">

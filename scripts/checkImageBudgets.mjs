@@ -79,6 +79,11 @@ export const BUDGETS = [
   ['public/assets/screens/review-invoices-720.webp', 66_000, 'heaviest export; on the journey and the hub'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
+  // The body face, and the heaviest font on the critical path by a wide margin:
+  // one file answers all five weights (400–800) because it is a variable
+  // subset, so a re-vendor that widens the unicode-range or loses the
+  // subsetting shows up here first. 27,272 bytes today.
+  ['public/assets/fonts/plus-jakarta-sans-latin.woff2', 30_000, 'body face: every page, weights 400-800'],
   ['public/assets/fonts/plus-jakarta-sans-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
   // IBM Plex Mono ships static cuts rather than one variable file, so each
   // weight is its own download and each one is budgeted on its own.
