@@ -7,7 +7,7 @@ import { describe, it, expect } from 'vitest';
 import { STOPS, INVOICE, liveFeatures } from '../journey';
 import { HOTSPOTS, JOBS, HERO_HOME } from '../heroHotspots';
 import { SCREENS } from '../screens';
-import { FEATURE_PAGES, getFeaturePage } from '../featurePages';
+import { FEATURE_PAGES, featurePagePath } from '../featurePages';
 
 /** Every string reachable from a data export, so a copy rule can be swept. */
 function strings(value, path = '') {
@@ -82,10 +82,52 @@ describe('journey data', () => {
   });
 
   it('sends every hotspot to a feature page that exists', () => {
-    for (const h of HOTSPOTS) {
-      expect(h.href, h.key).toMatch(/^\//);
-      expect(getFeaturePage(h.href.slice(1)), h.href).toBeDefined();
+    const paths = new Set(FEATURE_PAGES.map(featurePagePath));
+    for (const h of HOTSPOTS) expect(paths.has(h.href), `${h.key} -> ${h.href}`).toBe(true);
+  });
+
+  it('gives every stop something to show: a screen, or the message illustration', () => {
+    for (const s of STOPS) {
+      expect(s.screens.length + (s.message ? 1 : 0), s.id).toBeGreaterThan(0);
     }
+  });
+
+  it('shows the Send stop as a WhatsApp message, because no app capture of one exists', () => {
+    const send = STOPS.find((s) => s.id === 'send');
+    expect(send.screens).toEqual([]);
+    const text = `${send.message.from} ${send.message.lines.join(' ')} ${send.message.cta}`;
+    expect(text).toContain(INVOICE.number);
+    expect(text).toContain('1,86,420.16');
+    expect(send.message.attachment).toMatch(/\.pdf$/);
+  });
+
+  it('creates the invoice once, at the Bill stop, and nowhere else in the story', () => {
+    // Alt text is what somebody saw when they opened the screenshot, so it is
+    // the honest test of which screens show an invoice being made.
+    const makesInvoice = (slug) =>
+      /creating .*invoices?|invoices? (is|are|being) (created|made)|before the invoice is created/i.test(
+        SCREENS[slug].alt
+      );
+    const bill = STOPS.find((s) => s.id === 'bill');
+    expect(bill.screens.some(makesInvoice), 'the Bill stop must show the invoice being made').toBe(
+      true
+    );
+    for (const s of STOPS) {
+      if (s.id === 'bill') continue;
+      for (const slug of s.screens) {
+        expect(makesInvoice(slug), `${s.id} shows ${slug}, which makes the invoice again`).toBe(
+          false
+        );
+      }
+    }
+  });
+
+  it('keeps the party genuinely overdue by the time the reminder goes out', () => {
+    const remind = STOPS.find((s) => s.id === 'remind');
+    const terms = Number.parseInt(INVOICE.place.match(/(\d+) day terms/)[1], 10);
+    const day = Number.parseInt(remind.when.match(/Day (\d+)/)[1], 10);
+    expect(terms).toBeGreaterThan(0);
+    expect(terms, `${INVOICE.place} vs ${remind.when}`).toBeLessThan(day);
   });
 });
 
@@ -119,6 +161,9 @@ describe('hero hotspot boxes', () => {
 });
 
 describe('copy rules (CLAUDE.md §5)', () => {
+  // The retired ₹17Cr claim in its spellings, the two things the revamp spec
+  // says the site does not talk about (the UPI QR code, importing 12 documents
+  // at once), and the house's banned adjectives.
   const banned = [
     'seamless',
     'world-class',
@@ -127,16 +172,24 @@ describe('copy rules (CLAUDE.md §5)', () => {
     'unleash',
     'game-changer',
     '17cr',
+    '17 cr',
+    '17 crore',
+    'upi qr',
+    '12 at once',
   ];
-  const all = [
-    ...strings(STOPS, 'STOPS'),
-    ...strings(HOTSPOTS, 'HOTSPOTS'),
-    ...strings(JOBS, 'JOBS'),
-    ...strings(HERO_HOME, 'HERO_HOME'),
-    ...strings(INVOICE, 'INVOICE'),
-  ];
+  const exports = {
+    STOPS,
+    HOTSPOTS,
+    JOBS,
+    HERO_HOME,
+    INVOICE,
+  };
+  const all = Object.entries(exports).flatMap(([name, value]) => strings(value, name));
 
-  it('has something to scan', () => {
+  it('scans every export, so emptying one cannot make the sweep vacuous', () => {
+    for (const [name, value] of Object.entries(exports)) {
+      expect(strings(value, name).length, name).toBeGreaterThan(0);
+    }
     expect(all.length).toBeGreaterThan(100);
   });
 

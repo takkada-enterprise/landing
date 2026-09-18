@@ -6,21 +6,50 @@
 // at render time by liveFeatures(), never rendered as a dead link. New pages
 // arrive with Plan 2 (capabilities files) and light up their pill on their own.
 //
-// Every `screens` entry is a slug in src/data/screens.js, and each one has been
-// opened: a stop never claims something its own screenshot contradicts. That is
-// why `invoice-sent` (a van marked "Keyed back", offering "Make invoices" and
-// "Make challans") sits at the Load stop rather than the Send stop, and why the
-// invoice summary with "Send invoice via WhatsApp" switched on carries Send.
+// Shape of a stop:
+//   { id, label, when, headline, body,
+//     screens: string[],        // slugs in src/data/screens.js. MAY BE EMPTY.
+//     sheet: string|null,       // a printed sheet, also a screens.js slug
+//     stamp: { text, tone: 'blue'|'ink'|'green'|'red', size?: 'lg' },
+//     status, features: [{ label, slug }],
+//     message?: { from, lines: string[], attachment, cta },  // Send only
+//     note?: string }
+//
+// Every `screens` entry has been opened: a stop never claims something its own
+// screenshot contradicts, and the invoice is created exactly once in the story,
+// at Bill. So the two screens that show an invoice being made (`review-invoices`
+// and `einvoice-eway`) both sit at Bill and nowhere else, and `invoice-sent` (a
+// van marked "Keyed back", offering "Make invoices" and "Make challans") is left
+// out of the story altogether: by Load the seven invoices already carry an IRN.
+//
+// Send has no app screen because no capture of a delivered invoice exists. It
+// carries `message` instead, which Task 7 draws as an illustrative WhatsApp
+// message. Its text is built from the slip below, so the paper, the phone and
+// the message cannot drift apart. A renderer must handle `screens: []`.
 //
 // The slip numbers are the ones on the Review invoices screenshot (INV/26-27/
 // 0032 for Annapurna Kirana, ₹1,86,420.16), so the paper and the phone in the
 // same section agree down to the paisa. The test pins the addition.
+//
+// TERM_DAYS is load-bearing, not decoration: it has to be shorter than the day
+// the Remind stop fires on, or the party the story chases is not yet overdue and
+// "Overdue parties get a WhatsApp reminder" is a lie. At 21 days, Day 28 is the
+// +7 step of the Smart Reminders schedule shown at that stop, and the Day 30
+// call is a real chase. The test pins terms < remind day.
+const TERM_DAYS = 21;
+
+/** Rupees the way the slip prints them: ₹1,86,420.16, lakh grouping, two paise. */
+const inr = (n) =>
+  `₹${new Intl.NumberFormat('en-IN', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(n)}`;
 
 export const INVOICE = {
   number: 'INV/26-27/0032',
   short: '0032',
   party: 'Annapurna Kirana',
-  place: 'Dibrugarh · 30 day terms',
+  place: `Dibrugarh · ${TERM_DAYS} day terms`,
   lines: [
     { label: 'Groundnut Oil 15L × 36', amount: 73407.6 },
     { label: 'Sugar 50kg Bag × 29', amount: 63549.16 },
@@ -55,7 +84,7 @@ export const STOPS = [
     headline:
       'Seven orders become seven invoices in one go, each with its e-invoice and e-way bill.',
     body: 'Review the lot on one screen and create them together. The IRN and e-way bill number are written back against the same voucher in Tally.',
-    screens: ['review-invoices'],
+    screens: ['review-invoices', 'einvoice-eway'],
     sheet: null,
     stamp: { text: 'IRN + E-WAY ✓', tone: 'blue' },
     status: 'BILLED · IRN AND E-WAY GENERATED',
@@ -71,8 +100,8 @@ export const STOPS = [
     label: 'Load',
     when: '1:30 PM · At the godown',
     headline: 'The van is loaded from a printed sheet, godown by godown.',
-    body: 'Tick the orders, pick the van, and print the loading sheet. What actually went is keyed back before the challans and invoices are made.',
-    screens: ['van-loading', 'invoice-sent'],
+    body: 'Tick the orders, pick the van, and print the loading sheet. What actually went is keyed back against each drop.',
+    screens: ['van-loading'],
     sheet: 'sheet-loading',
     stamp: { text: 'ON VAN 2', tone: 'ink' },
     status: 'LOADED ON VAN 2',
@@ -85,10 +114,20 @@ export const STOPS = [
   {
     id: 'send',
     label: 'Send',
-    when: '1:31 PM · On its way to the retailer',
+    when: "1:31 PM · On the retailer's phone",
     headline: 'The invoice reaches the customer on WhatsApp the second you save it.',
     body: 'The PDF, the amount and a pay link go out in one message. Nobody in your office presses send.',
-    screens: ['einvoice-eway'],
+    screens: [],
+    message: {
+      from: 'Shreeji Distributors',
+      lines: [
+        `${INVOICE.party}, your bill ${INVOICE.number} is attached.`,
+        `Amount ${inr(INVOICE.total)}. Payable in ${TERM_DAYS} days.`,
+        'Thank you for the order.',
+      ],
+      attachment: 'INV-26-27-0032.pdf',
+      cta: 'Pay now',
+    },
     sheet: null,
     stamp: { text: 'WHATSAPP ✓✓', tone: 'green' },
     status: 'DELIVERED ON WHATSAPP',

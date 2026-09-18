@@ -21,6 +21,14 @@
 // leaderboard is a month-to-date board against target, the Settlements tab
 // never says UPI (it filters by mode of payment), and the party list colours
 // overdue red and the rest blue. The copy says exactly that.
+//
+// Second copy rule: a hotspot and a journey stop can cover the same feature, but
+// the hero and the story render on the same page, so they may not use the same
+// sentences. The Reminders hotspot therefore describes what its screen shows
+// (who was reminded, sent or failed, and when) while the Remind stop keeps the
+// promise ("the reminder goes out, you don't make the call"). The Dispatch
+// hotspot stops at the challans for the same reason the Load stop does: in the
+// story the invoices were already made, with their IRN, back at Bill.
 export const HERO_HOME = {
   overline: 'Tap any tile on the phone',
   headline: 'Your Tally, in your pocket. Go on, use it.',
@@ -53,8 +61,8 @@ export const HOTSPOTS = [
     box: tile(2, 0),
     href: '/send-payment-reminders-automatically',
     overline: 'Collect · Reminders',
-    headline: "The reminder goes out. You don't make the call.",
-    body: 'Overdue parties get a WhatsApp reminder with the amount and a pay link, on the schedule you set.',
+    headline: 'Who was reminded, and who the reminder missed.',
+    body: "Each party's last WhatsApp reminder, marked sent or failed, with the time it went out.",
   },
   {
     key: 'stock',
@@ -93,8 +101,8 @@ export const HOTSPOTS = [
     box: tile(0, 2),
     href: '/delivery-challan-from-mobile',
     overline: 'Dispatch · Van loading',
-    headline: 'Load the van from a sheet, then bill the whole beat.',
-    body: 'Tick the orders, pick the van, print the loading sheet, and make the challans and invoices together.',
+    headline: 'Load the van from a sheet, drop by drop.',
+    body: 'Tick the orders, pick the van, print the loading sheet, and make the delivery challans together.',
   },
   {
     key: 'parties',
