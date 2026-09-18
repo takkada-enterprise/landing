@@ -47,7 +47,11 @@ export const SCREENS = {
   ),
   reminders: phone(
     'reminders',
-    'Smart Reminders settings with the follow-up schedule and repeat cadence'
+    "Reminders tab listing each party's last WhatsApp reminder as sent or failed"
+  ),
+  'reminder-schedule': phone(
+    'reminder-schedule',
+    'Smart Reminders settings: three days before due, on the due date, then three, seven and fourteen days after'
   ),
   'followup-log': phone('followup-log', 'Follow-up log with call outcome and promise to pay'),
   'recovery-team': phone(
@@ -66,7 +70,7 @@ export const SCREENS = {
   ),
   'salesman-summary': phone(
     'salesman-summary',
-    'Field visit outcomes per team member with orders booked and overdue outstanding'
+    'Team leaderboard ranking salesmen by amount billed against target, with commission earned'
   ),
   'sales-analytics': phone('sales-analytics', 'Sales analytics with monthly trend'),
   'sheet-loading': sheet(

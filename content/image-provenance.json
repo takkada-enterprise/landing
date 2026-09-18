@@ -261,8 +261,36 @@
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
       "origin": "WebP export at 720w of \"making challans & invoices.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Van keyed back, with Make invoices and Make challans."
     },
-    "9b635c2db2f5036e939b248bf4a58326de405f7cdf59eff31d7ae50df7d20e7a": {
+    "17a439263e478adc304261e836fbdb0ade72c354afd2335c517f549bb2276781": {
       "path": "public/assets/screens/reminders-360.webp",
+      "kind": "appScreenshot",
+      "sha256": "17a439263e478adc304261e836fbdb0ade72c354afd2335c517f549bb2276781",
+      "companyId": 143,
+      "captureRecord": "latest mockup/reminder logs.png (operator mockup set)",
+      "capturedAt": "2026-09-18",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/collect/reminders",
+      "reviewed": true,
+      "reviewedOn": "2026-09-18",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
+      "origin": "WebP export at 360w of \"reminder logs.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
+    },
+    "3f244a6723bdb11edeab3f452553d849f6e09098185d96d8a1e0d4fe3645ebde": {
+      "path": "public/assets/screens/reminders-720.webp",
+      "kind": "appScreenshot",
+      "sha256": "3f244a6723bdb11edeab3f452553d849f6e09098185d96d8a1e0d4fe3645ebde",
+      "companyId": 143,
+      "captureRecord": "latest mockup/reminder logs.png (operator mockup set)",
+      "capturedAt": "2026-09-18",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/collect/reminders",
+      "reviewed": true,
+      "reviewedOn": "2026-09-18",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
+      "origin": "WebP export at 720w of \"reminder logs.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Collect, Reminders tab: Last reminded, each party with Sent or Failed and when."
+    },
+    "9b635c2db2f5036e939b248bf4a58326de405f7cdf59eff31d7ae50df7d20e7a": {
+      "path": "public/assets/screens/reminder-schedule-360.webp",
       "kind": "appScreenshot",
       "sha256": "9b635c2db2f5036e939b248bf4a58326de405f7cdf59eff31d7ae50df7d20e7a",
       "companyId": 143,
@@ -273,10 +301,10 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: reminder schedule and repeat cadence."
+      "origin": "WebP export at 360w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
     },
     "0eb715eeb8a2e9e908fc0b1071df7f28cfcbb5b7c1b4e31651ac4e874cec5d7d": {
-      "path": "public/assets/screens/reminders-720.webp",
+      "path": "public/assets/screens/reminder-schedule-720.webp",
       "kind": "appScreenshot",
       "sha256": "0eb715eeb8a2e9e908fc0b1071df7f28cfcbb5b7c1b4e31651ac4e874cec5d7d",
       "companyId": 143,
@@ -287,7 +315,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: reminder schedule and repeat cadence."
+      "origin": "WebP export at 720w of \"Reminder payment.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating."
     },
     "b4d545f48e5d5d61a9e90a8aaa883ca46159d75a1e10c7949d2ff7c665a76814": {
       "path": "public/assets/screens/followup-log-360.webp",
@@ -457,33 +485,33 @@
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
       "origin": "WebP export at 720w of \"Godown Wise stock.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Add Items with a godown on every line and the stock available in that godown."
     },
-    "61afedf8de3b6b9b0c08c601ac0fac1534daf38de4df81f8953d0561fa3c7a24": {
+    "e22e5e117a6885544c2d58cea579c33d64f582162f86621dba667e1b83617f4e": {
       "path": "public/assets/screens/salesman-summary-360.webp",
       "kind": "appScreenshot",
-      "sha256": "61afedf8de3b6b9b0c08c601ac0fac1534daf38de4df81f8953d0561fa3c7a24",
+      "sha256": "e22e5e117a6885544c2d58cea579c33d64f582162f86621dba667e1b83617f4e",
       "companyId": 143,
-      "captureRecord": "latest mockup/Sales Man summary.png (operator mockup set)",
+      "captureRecord": "latest mockup/Team sales module -target of sales man.png (operator mockup set)",
       "capturedAt": "2026-09-18",
       "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/team/field-visits/outcomes",
+      "route": "/team/leaderboard",
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 360w of \"Sales Man summary.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Field Visits, Outcomes tab: visits and what came of them per team member."
+      "origin": "WebP export at 360w of \"Team sales module -target of sales man.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
     },
-    "12690507a0acdee8f07a439a724f8441e60749b6d3d7405f2807344673fe07d9": {
+    "e0b830f584b78d96326262c6e3004b0cb94d49a1e7770647acc70974fd2079e7": {
       "path": "public/assets/screens/salesman-summary-720.webp",
       "kind": "appScreenshot",
-      "sha256": "12690507a0acdee8f07a439a724f8441e60749b6d3d7405f2807344673fe07d9",
+      "sha256": "e0b830f584b78d96326262c6e3004b0cb94d49a1e7770647acc70974fd2079e7",
       "companyId": 143,
-      "captureRecord": "latest mockup/Sales Man summary.png (operator mockup set)",
+      "captureRecord": "latest mockup/Team sales module -target of sales man.png (operator mockup set)",
       "capturedAt": "2026-09-18",
       "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/team/field-visits/outcomes",
+      "route": "/team/leaderboard",
       "reviewed": true,
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"Sales Man summary.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Field Visits, Outcomes tab: visits and what came of them per team member."
+      "origin": "WebP export at 720w of \"Team sales module -target of sales man.png\" in public/assets/screenshots/latest mockup/, written by scripts/exportScreens.mjs. Shows: Team leaderboard: invoices and amount billed against each salesman's target, with commission."
     },
     "42da8e800a32c071cc95b1d3afc8c3139e7a4f6fc618973e1bead4f3da408e91": {
       "path": "public/assets/screens/sales-analytics-360.webp",

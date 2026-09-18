@@ -37,9 +37,15 @@
   },
   {
     "slug": "reminders",
+    "source": "reminder logs.png",
+    "shows": "Collect, Reminders tab: Last reminded, each party with Sent or Failed and when",
+    "alt": "Reminders tab listing each party's last WhatsApp reminder as sent or failed"
+  },
+  {
+    "slug": "reminder-schedule",
     "source": "Reminder payment.png",
-    "shows": "Smart Reminders settings: reminder schedule and repeat cadence",
-    "alt": "Smart Reminders settings with the follow-up schedule and repeat cadence"
+    "shows": "Smart Reminders settings: 3 days before due, on the due date, then +3, +7 and +14 days, repeating",
+    "alt": "Smart Reminders settings: three days before due, on the due date, then three, seven and fourteen days after"
   },
   {
     "slug": "followup-log",
@@ -79,9 +85,9 @@
   },
   {
     "slug": "salesman-summary",
-    "source": "Sales Man summary.png",
-    "shows": "Field Visits, Outcomes tab: visits and what came of them per team member",
-    "alt": "Field visit outcomes per team member with orders booked and overdue outstanding"
+    "source": "Team sales module -target of sales man.png",
+    "shows": "Team leaderboard: invoices and amount billed against each salesman's target, with commission",
+    "alt": "Team leaderboard ranking salesmen by amount billed against target, with commission earned"
   },
   {
     "slug": "sales-analytics",
