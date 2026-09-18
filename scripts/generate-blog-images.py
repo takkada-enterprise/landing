@@ -13,9 +13,9 @@ already carries the logo), so scrolling the blog index put the literal word
 "TAKKADA" in the same top-left spot on every one of ~90 identical-looking
 cards. This version drops the wordmark, URL and tagline, keeps only the
 title (still needed so a shared link unfurls with a headline on WhatsApp/
-Twitter with no surrounding page), renders it in the site's real Fraunces /
-Plus Jakarta Sans faces (converted from the woff2s under public/assets/fonts
-to scripts/fonts/*.ttf so Pillow can bake them), and gives each category its
+Twitter with no surrounding page), renders it in the site's real Plus Jakarta
+Sans face (converted from the woff2s under public/assets/fonts to
+scripts/fonts/*.ttf so Pillow can bake them), and gives each category its
 own low-alpha line-icon + accent tint so the ~15 categories read as a family
 with variation instead of one repeated slide.
 """
@@ -40,15 +40,15 @@ def hex_to_rgb(h):
 W, H = 1200, 630
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-FRAUNCES_TTF = os.path.join(SCRIPT_DIR, "fonts", "Fraunces.ttf")
 JAKARTA_TTF = os.path.join(SCRIPT_DIR, "fonts", "PlusJakartaSans.ttf")
 
-def get_font_display(size, weight=480):
-    """Fraunces (the site's heading serif), variable opsz+weight axes."""
-    font = ImageFont.truetype(FRAUNCES_TTF, size)
-    opsz = max(9, min(144, size))
+def get_font_display(size, weight=800):
+    """Plus Jakarta Sans at display weight. The site retired its display serif
+    in the 2026-09-18 revamp: headings now carry weight rather than a second
+    family, so a card title is the same face at 800."""
+    font = ImageFont.truetype(JAKARTA_TTF, size)
     try:
-        font.set_variation_by_axes([opsz, weight])
+        font.set_variation_by_axes([weight])
     except Exception:
         pass
     return font
@@ -290,11 +290,11 @@ def generate_image(slug, title, category, tagline, output_dir):
     tag_h = draw_tag(draw, category.upper(), 64, y_cursor, font_tag, tint)
     y_cursor += tag_h + 32
 
-    # Title, in the site's real display serif
-    font_title = get_font_display(56, weight=460)
+    # Title, at the site's display weight (800, same as a hero heading)
+    font_title = get_font_display(56, weight=800)
     lines = wrap_text(draw, title, font_title, W - 160)
     if len(lines) > 2:
-        font_title = get_font_display(44, weight=460)
+        font_title = get_font_display(44, weight=800)
         lines = wrap_text(draw, title, font_title, W - 160)
 
     for line in lines[:3]:

@@ -56,8 +56,15 @@ export const BUDGETS = [
   ['public/assets/screenshots/order-link-buyer-mockup.webp', 50_000, 'LCP element on /order-booking-app-tally'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
-  ['public/assets/fonts/fraunces-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
   ['public/assets/fonts/plus-jakarta-sans-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
+  // IBM Plex Mono ships static cuts rather than one variable file, so each
+  // weight is its own download and each one is budgeted on its own.
+  ['public/assets/fonts/ibm-plex-mono-400-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
+  ['public/assets/fonts/ibm-plex-mono-500-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
+  ['public/assets/fonts/ibm-plex-mono-600-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],
+  ['public/assets/fonts/ibm-plex-mono-400-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
+  ['public/assets/fonts/ibm-plex-mono-500-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
+  ['public/assets/fonts/ibm-plex-mono-600-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
 ];
 
 export function overBudget(entries, sizeOf) {

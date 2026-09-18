@@ -5,15 +5,14 @@
    to read as an expensive, modern product site without touching markup.
    Rules of the road:
    - Marine palette stays. Only depth, light, and rhythm are added.
-   - One tasteful type addition: Fraunces display serif for headings.
+   - One type family: Plus Jakarta Sans carries headings on weight alone.
    - Motion is transform/opacity only (GPU-cheap), opt-in, reduced-motion safe.
    - Every effect must survive a low-powered Android. No filters in scroll loops.
    ═══════════════════════════════════════════════════ */
 
 :root {
-  --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
-  /* Headings switch to the display serif; body/UI stays Plus Jakarta Sans. */
-  --font-serif: var(--font-display);
+  /* No type re-point here. --font-serif and --font-mono are defined once in
+     styles.css :root; this layer adds depth and rhythm, never a family. */
 
   /* Brand gradients (premium, Marine-only) */
   /* Both ramps stop at --color-primary rather than --color-primary-light:
@@ -221,9 +220,9 @@ html.js .reveal.is-visible { transform: translateY(0) scale(1); }
 /* ═══════════════════════════════════════════════════
    POSTER VOLUME overlay (2026-07-21)
    ───────────────────────────────────────────────────
-   Turns the sage/Fraunces system up to poster scale: headline owns the first
+   Turns the type and colour system up to poster scale: headline owns the first
    viewport, the phone floats on a deep-ink glow plate, proof numbers go
-   cinematic, ink bands anchor the rhythm. Same palette, same two families.
+   cinematic, ink bands anchor the rhythm. Same palette, same families.
    See docs/brainstorms/2026-07-21-landing-design-overhaul-requirements.md.
    ═══════════════════════════════════════════════════ */
 

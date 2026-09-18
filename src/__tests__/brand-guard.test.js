@@ -20,6 +20,15 @@ describe('Marine brand', () => {
     expect(hits).toEqual([]);
   });
 
+  // The revamp retires the display serif: Plus Jakarta Sans carries every
+  // heading (800 hero, 700 section) and IBM Plex Mono is the one utility face.
+  // The walk covers .js/.jsx too, so a stale comment naming the old family is
+  // caught as well — that is deliberate, it is how the last re-point survived.
+  it('ships no Fraunces anywhere', () => {
+    const hits = cssFiles(src).filter((f) => /Fraunces/i.test(readFileSync(f, 'utf8')));
+    expect(hits).toEqual([]);
+  });
+
   it('defines the Marine tokens on :root', () => {
     const css = readFileSync(join(src, 'styles.css'), 'utf8');
     for (const [name, hex] of [

@@ -6,8 +6,9 @@
    selectors — other routes must render byte-identical.
 
    Design plan (frontend-design doctrine):
-   - Same two families (Fraunces display / Plus Jakarta Sans), same sage
-     paper system. "New" comes from composition and scale, not new paint.
+   - Same type system (Plus Jakarta Sans for display and body, IBM Plex Mono
+     as the one utility face), same paper system. "New" comes from composition
+     and scale, not new paint.
    - Signature element: the order-to-cash TOUR — the eight real stations of
      order → cash as a numbered list threaded by a miniature dashed road,
      beside one phone that shows the active station's screen. The whole
