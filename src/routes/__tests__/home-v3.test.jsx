@@ -35,11 +35,15 @@ function renderHome() {
   );
 }
 
+// The stack renders a hidden sizer per variant before the live block, so a
+// query for the copy has to say which one it means.
+const liveCopy = (container) => container.querySelector('.hv3-hero-swap');
+
 const jobButton = (container, key) =>
   [...container.querySelectorAll('.hv3-hero-jobs .hv3-job')][JOBS.findIndex((j) => j.key === key)];
 
 describe('Home v3 structure (AE1)', () => {
-  it('tells the page story through headings alone: the phone, then one invoice, stop by stop', () => {
+  it('tells the page story through headings alone: the phone, then the invoice', () => {
     const { container } = renderHome();
     const h1s = [...container.querySelectorAll('h1')];
     // The server render is the home state, so a crawler and a no-JS visitor
@@ -86,9 +90,10 @@ describe('the hero swaps its copy with the phone', () => {
     const { container } = renderHome();
     // At rest the overline is the positioning line, not the hotspot's own: the
     // page has to say who it is for before it says what to tap.
-    expect(container.querySelector('.hero-overline').textContent).toBe(heroContent.overline);
-    expect(container.querySelector('.hero-subtitle').textContent).toBe(HERO_HOME.body);
-    expect(container.querySelector('.hv3-hero-more')).toBeNull();
+    const copy = liveCopy(container);
+    expect(copy.querySelector('.hero-overline').textContent).toBe(heroContent.overline);
+    expect(copy.querySelector('.hero-subtitle').textContent).toBe(HERO_HOME.body);
+    expect(container.querySelector('a.hv3-hero-more')).toBeNull();
     for (const button of container.querySelectorAll('.hv3-job')) {
       expect(button.getAttribute('aria-pressed')).toBe('false');
     }
@@ -98,9 +103,10 @@ describe('the hero swaps its copy with the phone', () => {
     const { container } = renderHome();
     fireEvent.click(jobButton(container, 'stock'));
     const stock = HOTSPOTS.find((h) => h.key === 'stock');
-    expect(container.querySelector('.hero-overline').textContent).toBe(stock.overline);
+    const copy = liveCopy(container);
+    expect(copy.querySelector('.hero-overline').textContent).toBe(stock.overline);
     expect(container.querySelector('h1').textContent).toBe(stock.headline);
-    expect(container.querySelector('.hero-subtitle').textContent).toBe(stock.body);
+    expect(copy.querySelector('.hero-subtitle').textContent).toBe(stock.body);
     expect(jobButton(container, 'stock').getAttribute('aria-pressed')).toBe('true');
     // The page never grows a second h1 as the copy swaps.
     expect(container.querySelectorAll('h1')).toHaveLength(1);
@@ -109,7 +115,7 @@ describe('the hero swaps its copy with the phone', () => {
   it('follows the open job through to its feature page', () => {
     const { container } = renderHome();
     fireEvent.click(jobButton(container, 'reminders'));
-    const link = container.querySelector('.hv3-hero-more');
+    const link = container.querySelector('a.hv3-hero-more');
     expect(link).toBeTruthy();
     expect(link.getAttribute('href')).toBe(
       HOTSPOTS.find((h) => h.key === 'reminders').href
@@ -302,33 +308,92 @@ describe('the homepage stylesheets stay scoped to the homepage', () => {
   });
 });
 
-// The hero copy block changes height with every swap (2 vs 3 headline lines is
-// ~55px), and the grid centres the column, so without a reservation the CTA row,
-// the promise line and — on a stacked layout — the whole page below the hero
-// move while the copy is still fading. The reservation is what makes the swap a
-// crossfade rather than a reflow, at BOTH breakpoints: it was zeroed under
-// 1000px once already.
-describe('the hero reserves the height its copy swaps through', () => {
-  const css = readFileSync('src/home.css', 'utf8');
+// The copy block changes height with every swap (2 vs 3 headline lines is
+// ~55px) and the grid centres the column, so without something holding the
+// height the CTA row, the promise line and — stacked — the whole page below the
+// hero move while the copy is still fading. A min-height cannot do it: the
+// headline scales on 4.2vw inside a column that scales with the viewport, so one
+// figure is right at one width and wrong everywhere else. Every variant shares
+// one grid cell instead, which is exact at every width by construction.
+describe('the hero holds its height with a sizer stack', () => {
+  const VARIANTS = [HERO_HOME, ...HOTSPOTS];
 
-  it('reserves it on the swapping block itself, at desktop and under 1000px', () => {
-    const desktop = /\.home-v3 \.hv3-hero-swap \{[^}]*min-height:/.test(css);
-    expect(desktop, 'no min-height on .hv3-hero-swap at desktop width').toBe(true);
-
-    const narrow = cssBlock(css, '@media (max-width: 1000px)');
-    expect(narrow).not.toBe('');
-    expect(
-      /\.home-v3 \.hv3-hero-swap \{[^}]*min-height:/.test(narrow),
-      'the ≤1000px query does not reserve the swap block height'
-    ).toBe(true);
+  it('renders one inert sizer per copy variant', () => {
+    const { container } = renderHome();
+    const sizers = [...container.querySelectorAll('.hv3-hero-swap-stack .hv3-hero-sizer')];
+    expect(sizers).toHaveLength(VARIANTS.length);
+    for (const sizer of sizers) {
+      expect(sizer.getAttribute('aria-hidden')).toBe('true');
+      expect(sizer.hasAttribute('data-nosnippet')).toBe(true);
+      expect(
+        sizer.querySelectorAll('h1, h2, h3, h4, h5, h6'),
+        'a sizer carries a heading, which would duplicate the page outline'
+      ).toHaveLength(0);
+    }
   });
 
-  it('never re-centres the copy: the reservation is filled from the top', () => {
-    // A flex/grid column that centres its content would move the CTA row up as
-    // the copy shortens, which is the jump the reservation exists to stop.
-    const copy = /\.home-v3 \.hv3-hero-copy \{([^}]*)\}/.exec(css);
-    expect(copy, 'no rule behind .hv3-hero-copy').toBeTruthy();
-    expect(copy[1]).toMatch(/justify-content:\s*flex-start/);
+  // The server HTML for / must carry exactly one <h1>, and it must be the real
+  // headline: the sizers are a layout device, never a second outline.
+  it('leaves exactly one h1 on the page, the live one', () => {
+    const { container, queryAllByRole } = renderHome();
+    const headings = queryAllByRole('heading', { level: 1 });
+    expect(headings).toHaveLength(1);
+    expect(headings[0].textContent).toBe(HERO_HOME.headline);
+    expect(container.querySelectorAll('h1')).toHaveLength(1);
+    expect(container.querySelector('h1').closest('.hv3-hero-sizer')).toBeNull();
+  });
+
+  // Built from the data, so a hotspot added later cannot be left out of the
+  // measurement and reintroduce the jump on its own screen.
+  it('measures every variant the hero can show', () => {
+    const { container } = renderHome();
+    const sizerText = [...container.querySelectorAll('.hv3-hero-sizer')]
+      .map((s) => s.textContent)
+      .join(' | ');
+    for (const variant of VARIANTS) {
+      expect(sizerText, `${variant.headline} is not measured`).toContain(variant.headline);
+      expect(sizerText, `the body for "${variant.headline}" is not measured`).toContain(
+        variant.body
+      );
+    }
+  });
+
+  it('gives the link its own cell, so the CTA row is one size open or closed', () => {
+    const { container } = renderHome();
+    const slot = container.querySelector('.hv3-hero-cta .hv3-hero-more-slot');
+    expect(slot).toBeTruthy();
+    const twin = slot.querySelector('.hv3-hero-sizer');
+    expect(twin, 'nothing holds the link slot open before the first tap').toBeTruthy();
+    expect(twin.getAttribute('aria-hidden')).toBe('true');
+    // Only the hidden twin at rest; the real link joins it in the same cell.
+    expect(slot.querySelectorAll('a')).toHaveLength(0);
+    fireEvent.click(jobButton(container, 'stock'));
+    expect(slot.querySelectorAll('a')).toHaveLength(1);
+  });
+
+  describe('home.css', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    // Each assertion is scoped to its own rule block, so one rule cannot satisfy
+    // another's expectation.
+    const rule = (head) => cssBlock(css, `${head} {`);
+
+    it('stacks the variants in one grid cell', () => {
+      expect(rule('.home-v3 .hv3-hero-swap-stack')).toMatch(/display:\s*grid/);
+      expect(rule('.home-v3 .hv3-hero-sizer')).toMatch(/grid-area:\s*1\s*\/\s*1/);
+      expect(rule('.home-v3 .hv3-hero-swap')).toMatch(/grid-area:\s*1\s*\/\s*1/);
+    });
+
+    it('keeps the sizers laid out but unpainted', () => {
+      expect(rule('.home-v3 .hv3-hero-sizer')).toMatch(/visibility:\s*hidden/);
+    });
+
+    it('reserves no guessed height anywhere on the swap block', () => {
+      const guessed = [...css.matchAll(/\.hv3-hero-swap\b[^{]*\{[^}]*min-height/g)];
+      expect(
+        guessed.map((m) => m[0].split('\n')[0]),
+        'a min-height is back on the swap block; the stack measures it instead'
+      ).toEqual([]);
+    });
   });
 });
 
@@ -336,6 +401,14 @@ describe('the hero reserves the height its copy swaps through', () => {
 // selected through :has(.home-v3). That selector is specific enough (0-4-2) to
 // beat the panel's own rules, so it must never reach INSIDE the white features
 // panel or the white mobile overlay: white on white is an invisible menu.
+const INSIDE_THE_PANELS = [
+  '.nav-features-panel',
+  '.nav-features-list',
+  '.nav-features-all',
+  '.mobile-overlay',
+  '.mobile-nav-links',
+];
+
 describe('the nav over the navy hero', () => {
   const heads = cssHeads(readFileSync('src/styles.css', 'utf8'));
   const onNavy = heads
@@ -349,7 +422,7 @@ describe('the nav over the navy hero', () => {
 
   it('never reaches into the features panel or the mobile overlay', () => {
     for (const sel of onNavy) {
-      for (const inside of ['.nav-features-panel', '.nav-features-list', '.nav-features-all', '.mobile-overlay', '.mobile-nav-links']) {
+      for (const inside of INSIDE_THE_PANELS) {
         expect(sel.includes(inside), `${sel} reaches into ${inside}`).toBe(false);
       }
     }

@@ -38,6 +38,20 @@ import {
   differentiators,
 } from '../data/siteContent';
 
+// Every copy the hero can show: the home state plus one per hotspot. Derived
+// from the data, so a new hotspot cannot be left out of the sizer stack that
+// holds the hero's height steady. The home variant carries the page's own
+// overline, which is what the live block shows at rest.
+const HERO_COPY_VARIANTS = [
+  { key: 'home', ...HERO_HOME, overline: heroContent.overline },
+  ...HOTSPOTS.map((h) => ({
+    key: h.key,
+    overline: h.overline,
+    headline: h.headline,
+    body: h.body,
+  })),
+];
+
 const tallyIconMap = {
   refresh: RefreshCw,
   shield: Shield,
@@ -103,28 +117,60 @@ function Home({ seo = HOME_SEO }) {
       <section className="hv3-hero" id="product">
         <div className="hv3-hero-grid">
           <div className="hv3-hero-copy">
-            {/* Keyed on the open hotspot so React remounts the block and
-                @starting-style can fire: this is the blur crossfade between one
-                screen's copy and the next. No aria-live here — the phone
-                announces "Showing <label>" from its own region, and a second
-                one would read the whole headline over the top of it. */}
-            <div
-              className={`hv3-hero-swap${swapped.current ? ' is-swapped' : ''}`}
-              key={hot?.key ?? 'home'}
-            >
-              <span className="section-label hero-overline">
-                {hot ? hot.overline : heroContent.overline}
-              </span>
-              <h1 className="hero-title">{copy.headline}</h1>
-              <p className="hero-subtitle">{copy.body}</p>
+            {/* Every copy variant is rendered into ONE grid cell, so the cell is
+                exactly as tall as the tallest of them at the current width and
+                type scale — no reserved height to guess, and nothing moves when
+                the copy swaps. The sizers are inert in every sense: hidden from
+                paint, from the pointer, from assistive tech and from snippets,
+                and their headline is a div, so the page still has exactly one
+                <h1> and it is the live one. They render on the server too, so
+                the cell is the right size before hydration. */}
+            <div className="hv3-hero-swap-stack">
+              {HERO_COPY_VARIANTS.map((variant) => (
+                <div
+                  key={variant.key}
+                  className="hv3-hero-sizer"
+                  aria-hidden="true"
+                  data-nosnippet
+                >
+                  <span className="section-label hero-overline">{variant.overline}</span>
+                  <div className="hero-title">{variant.headline}</div>
+                  <p className="hero-subtitle">{variant.body}</p>
+                </div>
+              ))}
+              {/* Keyed on the open hotspot so React remounts the block and
+                  @starting-style can fire: this is the blur crossfade between
+                  one screen's copy and the next. No aria-live here — the phone
+                  announces "Showing <label>" from its own region, and a second
+                  one would read the whole headline over the top of it. */}
+              <div
+                className={`hv3-hero-swap${swapped.current ? ' is-swapped' : ''}`}
+                key={hot?.key ?? 'home'}
+              >
+                <span className="section-label hero-overline">
+                  {hot ? hot.overline : heroContent.overline}
+                </span>
+                <h1 className="hero-title">{copy.headline}</h1>
+                <p className="hero-subtitle">{copy.body}</p>
+              </div>
             </div>
             <div className="hv3-hero-cta">
               <DemoTryCTA context="home-hero" />
-              {hot && (
-                <Link className="hv3-hero-more" to={hot.href}>
-                  See how it works <span aria-hidden="true">→</span>
-                </Link>
-              )}
+              {/* The link exists only while a screen is open, so its slot holds
+                  its own size the same way: one cell, a hidden twin under the
+                  real link. Without it the row would grow a line on a narrow
+                  screen the first time a tile was tapped, and the promise below
+                  would drop with it. */}
+              <span className="hv3-hero-more-slot">
+                <span className="hv3-hero-more hv3-hero-sizer" aria-hidden="true" data-nosnippet>
+                  See how it works →
+                </span>
+                {hot && (
+                  <Link className="hv3-hero-more" to={hot.href}>
+                    See how it works <span aria-hidden="true">→</span>
+                  </Link>
+                )}
+              </span>
             </div>
             <p className="hv3-hero-promise">{heroContent.promise}</p>
           </div>

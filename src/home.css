@@ -77,37 +77,32 @@
   max-width: 400px;
 }
 
-/* The copy column packs from the top, so the space the reservation below leaves
-   over sits UNDER the copy. Centring it here would pull the CTA row up as the
-   headline shortens, which is the movement the reservation exists to stop (the
-   grid still centres the three columns against each other). */
-.home-v3 .hv3-hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+/* The sizer stack: every copy variant in ONE grid cell, so the cell measures
+   the tallest of them at the current width and type scale. That is what keeps
+   the CTA row and everything under it still while the copy swaps — a fixed
+   min-height cannot, because the headline scales on 4.2vw in a column that
+   scales with the viewport, so any figure is wrong at every width but one. */
+.home-v3 .hv3-hero-swap-stack {
+  display: grid;
+}
+
+/* The copies that only hold the cell open. Hidden from paint, from the pointer,
+   from selection, from assistive tech (aria-hidden in Home.jsx) and from
+   snippets — but still laid out, which is the whole point. */
+.home-v3 .hv3-hero-sizer {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* The copy block is one element so the three lines cross-fade together rather
    than racing each other. It is keyed in Home.jsx, so every swap mounts a fresh
-   node.
-
-   min-height reserves the tallest copy in the set, so the swap is a crossfade
-   and not a reflow. Arithmetic at this breakpoint (worst case is the NARROW end
-   of the range, 1024px, where the column is tightest and the type has not yet
-   shrunk):
-     column   = (1024 - 64 padding - 340 phone - 96 gaps) / 2  = 262px
-     overline = 13px mono in the .section-label box (6px padding, 18px margin)
-                                                              ≈  48px
-     headline = 4.2vw = 43px, line-height 1.04 → 44.7px/line.
-                ~12 chars/line at 262px; the longest of HERO_HOME + HOTPSOTS is
-                "See what each salesman sold and collected this month." (52) → 5 lines
-                                                              ≈ 224px + 32px margins
-     body     = 17px/1.6 = 27.2px/line, ~32 chars/line; the longest body (the
-                Import hotspot, 145 chars) → 5 lines          ≈ 136px
-     total    ≈ 440px ≈ 27.5em → 28em, which leaves ~40px spare at 1240px+.
-   Re-measure in the browser if the hero type scale moves. */
+   node. It shares the cell with the sizers and sits at its top, so shorter copy
+   leaves the spare height below it instead of re-centring. */
 .home-v3 .hv3-hero-swap {
-  min-height: 28em;
+  grid-area: 1 / 1;
+  align-self: start;
   opacity: 1;
   filter: blur(0);
 }
@@ -136,6 +131,16 @@
 
 .home-v3 .hv3-hero-cta .cta-btn:active {
   transform: scale(0.97);
+}
+
+/* One cell holding the link and its hidden twin, so the row is the same size
+   before the first tap as after it. */
+.home-v3 .hv3-hero-more-slot {
+  display: grid;
+}
+
+.home-v3 .hv3-hero-more-slot > * {
+  grid-area: 1 / 1;
 }
 
 /* Mounted only while a screen is open, so it arrives on a fade of its own. */
@@ -259,20 +264,6 @@
   }
   .home-v3 .hv3-hero .hero-subtitle {
     margin-inline: auto;
-  }
-  /* Re-reserved, never zeroed: stacked, everything below the hero moves when
-     the copy block changes height. Arithmetic at the worst case (a 360px phone,
-     where the column is narrowest and the type is at its clamp floor):
-       column   = 360 - 32 padding                              = 328px
-       overline = 13px mono in the .section-label box          ≈  48px
-       headline = 36px (clamp floor), line-height 1.04 → 37.4px/line.
-                  ~18 chars/line; the longest headline (52 chars) → 3 lines
-                                                                ≈ 112px + 32px margins
-       body     = 17px/1.6 = 27.2px/line, ~40 chars/line; the longest body
-                  (145 chars) → 4 lines                         ≈ 109px
-       total    ≈ 301px ≈ 18.8em → 19em. */
-  .home-v3 .hv3-hero-swap {
-    min-height: 19em;
   }
   .home-v3 .hv3-hero-cta {
     justify-content: center;
