@@ -43,7 +43,14 @@ import {
 // holds the hero's height steady. The home variant carries the page's own
 // overline, which is what the live block shows at rest.
 const HERO_COPY_VARIANTS = [
-  { key: 'home', ...HERO_HOME, overline: heroContent.overline },
+  // The resting variant takes its overline from the page (HERO_HOME carries no
+  // overline of its own), exactly as the live block does below.
+  {
+    key: 'home',
+    overline: heroContent.overline,
+    headline: HERO_HOME.headline,
+    body: HERO_HOME.body,
+  },
   ...HOTSPOTS.map((h) => ({
     key: h.key,
     overline: h.overline,

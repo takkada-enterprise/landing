@@ -268,6 +268,16 @@
   .home-v3 .hv3-hero-cta {
     justify-content: center;
   }
+  /* The link's slot takes a line of its own here. It reserves the link's WIDTH
+     as well as its height, and on a centred row that hidden ~150px would push
+     the one button the visitor can see off the centre line the headline,
+     subtitle and promise all share. Two lines in both states: the button centred
+     on the first, the link centred on the second when a screen is open. The
+     second line is one link tall, so nothing moves when it arrives. */
+  .home-v3 .hv3-hero-more-slot {
+    flex-basis: 100%;
+    justify-items: center;
+  }
   .home-v3 .hv3-hero-grid > .pphone {
     order: -1;
   }

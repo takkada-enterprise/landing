@@ -387,6 +387,19 @@ describe('the hero holds its height with a sizer stack', () => {
       expect(rule('.home-v3 .hv3-hero-sizer')).toMatch(/visibility:\s*hidden/);
     });
 
+    // The twin reserves width as well as height. On the stacked layout the CTA
+    // row is centred, so a ~150px hidden item beside the button pushes the one
+    // thing the visitor can see off the centre line the headline, subtitle and
+    // promise all share. The slot takes a line of its own there instead.
+    it('gives the link slot its own line once the hero stacks', () => {
+      const narrow = cssBlock(css, '@media (max-width: 1000px)');
+      expect(narrow).not.toBe('');
+      expect(
+        /\.home-v3 \.hv3-hero-more-slot \{[^}]*flex-basis:\s*100%/.test(narrow),
+        'the hidden twin still sits beside the button on a centred row'
+      ).toBe(true);
+    });
+
     it('reserves no guessed height anywhere on the swap block', () => {
       const guessed = [...css.matchAll(/\.hv3-hero-swap\b[^{]*\{[^}]*min-height/g)];
       expect(

@@ -29,8 +29,11 @@
 // promise ("the reminder goes out, you don't make the call"). The Dispatch
 // hotspot stops at the challans for the same reason the Load stop does: in the
 // story the invoices were already made, with their IRN, back at Bill.
+// The hero's resting copy: `{ headline, body }`, and deliberately no overline.
+// A hotspot brings its own ("Stock · Godown wise"), but at rest the overline is
+// the page's positioning line, heroContent.overline in src/data/siteContent.js —
+// the page says who it is for before it says what to tap. One owner per string.
 export const HERO_HOME = {
-  overline: 'Tap any tile on the phone',
   headline: 'Your Tally, in your pocket. Go on, use it.',
   body: 'This is the real home screen. Tap a tile with a yellow dot and the app opens that screen, the way it will on your phone.',
 };
