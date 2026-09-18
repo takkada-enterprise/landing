@@ -48,7 +48,11 @@ export default function PaperSheet({ slug, caption }) {
             below a 1196px viewport (1100 / 0.92), 1100px above it. The 88dvh
             height cap can make it narrower still on a short window, which a
             sizes attribute cannot express — over-claiming there only means the
-            browser picks the larger source, which is the safe way to be wrong. */}
+            browser picks the larger source, which is the safe way to be wrong.
+            Lazy like the tucked copy, and for a stronger reason: a closed
+            dialog is display:none, so without this the 1440w candidate of both
+            sheets (62 KB) downloaded on every homepage load, for two dialogs
+            almost nobody opens. */}
         <img
           src={s.src}
           srcSet={s.srcSet}
@@ -56,6 +60,8 @@ export default function PaperSheet({ slug, caption }) {
           width={s.width}
           height={s.height}
           alt={s.alt}
+          loading="lazy"
+          decoding="async"
         />
         <form method="dialog">
           <button className="sheet-close">Close</button>

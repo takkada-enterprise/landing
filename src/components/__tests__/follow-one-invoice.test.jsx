@@ -147,6 +147,28 @@ describe('FollowOneInvoice', () => {
     expect(ui.getByRole('button', { name: /team sales sheet/i })).toBeInTheDocument();
   });
 
+  // Both copies of a sheet — the one tucked behind the phone and the enlarged
+  // one inside its <dialog> — must be lazy. The dialog's copy is the expensive
+  // one: a closed dialog is display:none, so an eager <img> there pulled the
+  // 1440w candidate of both sheets (62 KB) on every homepage load for a dialog
+  // nobody had opened.
+  it('loads every copy of both printed sheets lazily, dialog included', () => {
+    mount();
+    const sheets = STOPS.filter((s) => s.sheet).map((s) => s.sheet);
+    expect(sheets.length, 'no stop carries a sheet; this check is vacuous').toBe(2);
+
+    for (const slug of sheets) {
+      const copies = ui.getAllByAltText(screenAsset(slug).alt);
+      expect(copies, `${slug} is not drawn twice`).toHaveLength(2);
+      for (const img of copies) {
+        expect(img.getAttribute('loading'), `${slug} copy is eager`).toBe('lazy');
+        expect(img.getAttribute('decoding'), `${slug} copy decodes on the main thread`).toBe(
+          'async'
+        );
+      }
+    }
+  });
+
   it('prints the slip total with paise and tabular figures', () => {
     mount();
     const total = ui.getByText('₹1,86,420.16');
