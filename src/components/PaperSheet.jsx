@@ -25,7 +25,10 @@ export default function PaperSheet({ slug, caption }) {
         <img
           src={s.src}
           srcSet={s.srcSet}
-          sizes="300px"
+          // 300px tucked beside the phone; once the section stacks at 900px the
+          // sheet is 34% of a column that is the viewport less a 32px gutter,
+          // which is a shade under 33vw.
+          sizes="(max-width: 900px) 33vw, 300px"
           width={s.width}
           height={s.height}
           alt={s.alt}
@@ -41,7 +44,19 @@ export default function PaperSheet({ slug, caption }) {
           if (e.target === dialog.current) dialog.current.close();
         }}
       >
-        <img src={s.src} srcSet={s.srcSet} sizes="90vw" width={s.width} height={s.height} alt={s.alt} />
+        {/* The real cap is min(1100px, 92vw): 92vw is the smaller of the two
+            below a 1196px viewport (1100 / 0.92), 1100px above it. The 88dvh
+            height cap can make it narrower still on a short window, which a
+            sizes attribute cannot express — over-claiming there only means the
+            browser picks the larger source, which is the safe way to be wrong. */}
+        <img
+          src={s.src}
+          srcSet={s.srcSet}
+          sizes="(min-width: 1196px) 1100px, 92vw"
+          width={s.width}
+          height={s.height}
+          alt={s.alt}
+        />
         <form method="dialog">
           <button className="sheet-close">Close</button>
         </form>

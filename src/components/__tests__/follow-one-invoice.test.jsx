@@ -105,10 +105,25 @@ describe('FollowOneInvoice', () => {
     expect(ui.getByText(INVOICE.short)).toBeInTheDocument();
   });
 
-  it('marks only the unpressed stamps aria-hidden', () => {
-    mount();
-    expect(ui.getByText('ORDER #118')).not.toHaveAttribute('aria-hidden');
-    expect(ui.getByText('PAID')).toHaveAttribute('aria-hidden', 'true');
+  // The stamps are decoration at every width: on the pinned mobile bar only one
+  // of the seven is even visible, so an assistive reader that was given the
+  // landed ones would hear six stamps for a bar showing one. The live status
+  // line is the slip's accessible account of itself, and it is enough.
+  it('hides every stamp from assistive tech and lets the live status speak instead', () => {
+    const { container } = mount();
+    const stations = ui.getAllByRole('article');
+
+    for (const at of [0, 5, 1, 6]) {
+      if (at > 0) arrive(stations[at]);
+      const stamps = container.querySelectorAll('.slip-stamp');
+      expect(stamps).toHaveLength(STOPS.length);
+      for (const stamp of stamps) {
+        expect(stamp, stamp.textContent).toHaveAttribute('aria-hidden', 'true');
+      }
+      const status = ui.getByTestId('slip-status');
+      expect(status).toHaveTextContent(STOPS[at].status);
+      expect(status).toHaveAttribute('aria-live', 'polite');
+    }
   });
 
   it('ignores an observed node it does not track', () => {

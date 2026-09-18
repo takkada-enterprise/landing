@@ -111,11 +111,13 @@ export default function FollowOneInvoice() {
                         className={`foi-phone foi-phone--${n}`}
                         src={s.src}
                         srcSet={s.srcSet}
-                        // The rendered width, exactly: .foi-phone is 250px on
-                        // the two-column layout and 220px once the section
-                        // stacks at 900px. Both are flex: none, so neither can
-                        // be shrunk out from under this claim.
-                        sizes="(max-width: 900px) 220px, 250px"
+                        // The rendered width, exactly. The front phone is 250px
+                        // on the two-column layout and 220px once the section
+                        // stacks at 900px; both are flex: none, so neither can
+                        // be shrunk out from under the claim. The tucked second
+                        // phone is 200px and is display: none below 900px, so
+                        // one number is the whole truth for it.
+                        sizes={n === 0 ? '(max-width: 900px) 220px, 250px' : '200px'}
                         width={s.width}
                         height={s.height}
                         alt={s.alt}

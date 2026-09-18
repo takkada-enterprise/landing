@@ -784,46 +784,57 @@
 
 @media (max-width: 900px) {
   /* The pinned bar's height is a constant the stations have to scroll clear of,
-     so it is written down once here and used in both places.
+     so it is written down once here and used in both places. Every row that is
+     still in the bar, top to bottom, with nothing left out:
 
        10.0        .slip-rail padding-top
        10.0        .slip padding-top
-       21.3        .slip-head        12.5 x 1.7, one line (flex, never wraps)
-       25.5        .slip-total       15 x 1.7, label ellipsised if it must be
+       21.3   NUMBER ROW   .slip-head, 12.5 x 1.7 — a flex row, never wraps
        12.0        .slip-status margin-top
-       17.0        .slip-status      10 x 1.7, nowrap, so exactly one line
-       37.0        .slip padding-bottom = the stamp slot: 21px stamp,
-                                          10px below it, 6px above it
+       17.0   STATUS ROW   .slip-status, 10 x 1.7 = 17, nowrap, one line
+       37.0   STAMP ROW    .slip padding-bottom: 21px stamp, 10px below it,
+                           6px above it — the stamp itself is out of flow
        10.0        .slip-rail padding-bottom
       ------
-      142.8  ->  --foi-bar-h: 143px
+      117.3  ->  --foi-bar-h: 118px
 
-     Everything in that column is fixed or clamped to one line and the stamp is
-     out of flow, so the bar is the same height at all seven stops. It used to
-     grow ~28px the moment PAID landed, which shoved the page under the reader's
-     thumb mid-scroll.
+     Nothing else contributes. .slip-party, .slip-place, the rules, every
+     .slip-line INCLUDING the total, and .slip-stops are all display: none in
+     this query, and with .slip-stops gone the rail is down to one flex item so
+     its 26px gap adds nothing (and is zeroed anyway). That gap and the stop rail
+     are what made the first number, 143px, understate the bar by ~41px and land
+     scroll-margin-top short.
 
-     The stamp gets its own row rather than sharing the status line's: at 11px
-     the widest of the seven ("IRN + E-WAY", 10 glyphs and 3 spaces) is
-     10 x 7.48 + 3 x 3.3 + 13 x 0.88 + 20 = 116px, and a lane that wide would
-     leave the 42-character status under 30 characters of room and ellipsise it
-     at every stop. The status is the live region; it gets the full width. */
+     Every row is fixed or clamped to one line and the stamp is out of flow, so
+     the bar is the same height at all seven stops. It used to grow ~28px the
+     moment PAID landed, which shoved the page under the reader's thumb.
+
+     Nothing overflows horizontally at 320px either, where the bar has 260px of
+     content: the number row is 25 characters of 12.5px mono at 0.04em, so
+     25 x (7.5 + 0.5) = 200px; the status row is 252px (see below); the stamp is
+     at most 116px starting 14px in. */
   .home-v3 .foi {
     --foi-nav-h: 56px;
-    --foi-bar-h: 143px;
+    --foi-bar-h: 118px;
   }
   .home-v3 .foi-grid {
     grid-template-columns: 1fr;
     gap: 0;
     padding: 0 16px;
   }
-  /* On a phone the slip collapses to a pinned bar: the full invoice number, the
-     total, the current status, and the stamp for the stop the reader is at. */
+  /* On a phone the slip collapses to a pinned bar carrying three things and
+     nothing else: the invoice number, the current status, and the stamp for the
+     stop the reader is at. The stop rail and the total row are hidden here —
+     the rail's seven labels are the stations themselves, and the total is on the
+     paper the moment the reader opens it. With .slip-stops gone the rail has one
+     flex item left, so its 26px gap cannot contribute; `gap: 0` says so out
+     loud rather than relying on that. */
   .home-v3 .slip-rail {
     position: sticky;
     top: var(--foi-nav-h);
     z-index: 5;
     height: auto;
+    gap: 0;
     padding: 10px 0;
     background: var(--color-primary-dark);
   }
@@ -836,20 +847,24 @@
     border-radius: 10px;
   }
   .home-v3 .slip hr,
-  .home-v3 .slip-line:not(.slip-total),
+  .home-v3 .slip-line,
   .home-v3 .slip-place,
   .home-v3 .slip-party,
+  .home-v3 .slip-stops,
   .home-v3 .slip-no--short {
     display: none;
   }
   .home-v3 .slip-no--full {
     display: inline;
   }
-  /* One line, always: the longest status is 42 characters, which fits the 260px
-     of 10px mono a 320px phone gives it, and the nowrap makes that a guarantee
-     rather than an estimate on anything narrower. */
+  /* One line, always. The longest status is 42 characters; at 10px IBM Plex Mono
+     (advance exactly 0.6em) with the letter-spacing dropped that is 42 x 6 =
+     252px, against the 260px a 320px phone leaves after the grid's 16px gutters
+     and the slip's 14px padding. The nowrap and the ellipsis are the floor below
+     that, so the bar's height is a guarantee and not an estimate. */
   .home-v3 .slip-status {
     font-size: 10px;
+    letter-spacing: 0;
     min-height: 0;
     height: 17px;
     white-space: nowrap;
@@ -860,7 +875,14 @@
      bottom-left and out of flow, so swapping the current one is a pure opacity
      crossfade with nothing to reflow and no height to change. The .is-on group
      is repeated because it out-specifies a bare .slip-stamp and would otherwise
-     light every stamp the reader has already passed. */
+     light every stamp the reader has already passed.
+
+     The stamp gets a row of its own rather than sharing the status line's: at
+     11px the widest of the seven ("IRN + E-WAY", 10 glyphs and 3 spaces) is
+     10 x 7.48 + 3 x 3.3 + 13 x 0.88 + 20 = 116px, and a lane that wide would
+     leave the 42-character status under 30 characters and ellipsise it at every
+     stop. The status is the live region and the only accessible account of the
+     slip's state, so it gets the full width. */
   .home-v3 .slip-stamp,
   .home-v3 .slip-stamp.is-on {
     position: absolute;
@@ -947,6 +969,14 @@
   .home-v3 .sheet:hover {
     transform: rotate(-5deg);
     transition: none;
+  }
+  /* :active must come after :hover here for the same reason it does in the
+     normal path — they set the same property at the same specificity, so the
+     later rule wins, and a mouse press matches both. Neutralising the hover lift
+     without re-stating the press would have quietly taken the press away from
+     every pointer device under reduced motion. */
+  .home-v3 .sheet:active {
+    transform: rotate(-5deg) scale(0.97);
   }
   .home-v3 .foi-pill,
   .home-v3 .sheet-close {

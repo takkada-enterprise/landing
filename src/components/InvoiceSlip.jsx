@@ -60,10 +60,12 @@ export default function InvoiceSlip({ activeIndex }) {
             ]
               .filter(Boolean)
               .join(' ')}
-            // Only the stamps that have not landed yet are hidden. Writing
-            // aria-hidden="false" on the pressed ones would be a lie the
-            // accessibility tree has to carry.
-            aria-hidden={i > activeIndex ? 'true' : undefined}
+            // Always hidden, at every width. A stamp is decoration: on the
+            // pinned mobile bar only one of the seven is even drawn, so handing
+            // an assistive reader the landed ones would announce six stamps for
+            // a bar showing one. The aria-live status line below is the slip's
+            // accessible account of itself, and it changes at every stop.
+            aria-hidden="true"
           >
             {s.stamp.text}
           </span>
