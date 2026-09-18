@@ -54,6 +54,10 @@ export const BUDGETS = [
   // Encoded 2026-08-11 from the operator-supplied mockup at q68 (42,970
   // bytes), same recipe as the field-visit entry above.
   ['public/assets/screenshots/order-link-buyer-mockup.webp', 50_000, 'LCP element on /order-booking-app-tally'],
+  // The revamped homepage's LCP element is the phone in the hero, which serves
+  // the 720w export of this screen. Exported by scripts/exportScreens.mjs at
+  // q80 (50,544 bytes); drop that row's quality if a re-export pushes it over.
+  ['public/assets/screens/home-720.webp', 64_000, 'homepage LCP element (playable phone)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   ['public/assets/fonts/plus-jakarta-sans-latin-ext.woff2', 6_000, 'subset to U+20B9 only'],

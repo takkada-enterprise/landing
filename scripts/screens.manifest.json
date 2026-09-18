@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "home",
+    "source": "homepage.png",
+    "shows": "Home: payable, receivable, quick action tiles",
+    "alt": "Takkada home screen showing total receivable and quick action tiles"
+  },
+  {
+    "slug": "pending-orders",
+    "source": "Pending order.png",
+    "shows": "Pending Orders by party with Make Invoice",
+    "alt": "Pending orders listed by party with a Make Invoice action"
+  },
+  {
+    "slug": "review-invoices",
+    "source": "Team Sales.png",
+    "shows": "Review invoices, Create 7 invoices",
+    "alt": "Review screen creating seven invoices in one go"
+  },
+  {
+    "slug": "einvoice-eway",
+    "source": "Auto einv and eway.png",
+    "shows": "Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice",
+    "alt": "Invoice summary with e-invoice generation switched on before the invoice is created"
+  },
+  {
+    "slug": "van-loading",
+    "source": "Van Loading.png",
+    "shows": "Van loading: drops in route order, Van is loaded",
+    "alt": "Van loading screen with drops in route order"
+  },
+  {
+    "slug": "invoice-sent",
+    "source": "making challans & invoices.png",
+    "shows": "Van keyed back, with Make invoices and Make challans",
+    "alt": "Challans and invoices being made for a van that has been keyed back"
+  },
+  {
+    "slug": "reminders",
+    "source": "Reminder payment.png",
+    "shows": "Smart Reminders settings: reminder schedule and repeat cadence",
+    "alt": "Smart Reminders settings with the follow-up schedule and repeat cadence"
+  },
+  {
+    "slug": "followup-log",
+    "source": "followup log -revery dashbaord.png",
+    "shows": "Log follow-up with promise to pay",
+    "alt": "Follow-up log with call outcome and promise to pay"
+  },
+  {
+    "slug": "recovery-team",
+    "source": "Recovery dashboard team logging.png",
+    "shows": "Recovery, Team tab",
+    "alt": "Recovery board showing amount recovered per team member"
+  },
+  {
+    "slug": "settlements",
+    "source": "Settlements.png",
+    "shows": "Collect, Settlements tab",
+    "alt": "Payment settlements listed by party as pending or settled"
+  },
+  {
+    "slug": "party-list",
+    "source": "Party list color coded due overdue.png",
+    "shows": "Parties colour coded by due and overdue",
+    "alt": "Party list colour coded by due and overdue"
+  },
+  {
+    "slug": "document-import",
+    "source": "DOCUMENT import.png",
+    "shows": "Imports list: bills, bank statements and orders queued for review",
+    "alt": "Imports list with supplier bills and bank statements queued for review"
+  },
+  {
+    "slug": "godown-stock",
+    "source": "Godown Wise stock.png",
+    "shows": "Add Items with a godown on every line and the stock available in that godown",
+    "alt": "Adding items with a godown picked per line and the stock available in that godown"
+  },
+  {
+    "slug": "salesman-summary",
+    "source": "Sales Man summary.png",
+    "shows": "Field Visits, Outcomes tab: visits and what came of them per team member",
+    "alt": "Field visit outcomes per team member with orders booked and overdue outstanding"
+  },
+  {
+    "slug": "sales-analytics",
+    "source": "Sales Anlaytics.png",
+    "shows": "Sales analytics",
+    "alt": "Sales analytics with monthly trend"
+  },
+  {
+    "slug": "sheet-loading",
+    "source": "Picking List.png",
+    "shows": "Printed loading sheet",
+    "alt": "Printed loading sheet with load list by item",
+    "sheet": true
+  },
+  {
+    "slug": "sheet-salesman",
+    "source": "salesman wise summary report.png",
+    "shows": "Team Sales export",
+    "alt": "Exported team sales sheet by member",
+    "sheet": true
+  }
+]

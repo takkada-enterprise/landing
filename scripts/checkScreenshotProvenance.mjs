@@ -80,7 +80,7 @@ const IMAGE_EXT = /\.(webp|png|jpe?g|svg|gif|avif)$/i;
 // Directories whose contents are application screenshots by construction. A
 // class rule may not cover them: that is the hole through which a screenshot
 // would otherwise be waved through as "an illustration".
-const SCREENSHOT_DIRECTORIES = ['/assets/screenshots/', '/assets/guide/'];
+const SCREENSHOT_DIRECTORIES = ['/assets/screenshots/', '/assets/guide/', '/assets/screens/'];
 
 // Surfaces where the site presents an image AS a picture of the application.
 // A non-appScreenshot classification on one of these is a lie about the artwork,
@@ -837,21 +837,31 @@ function readBytesFrom(root) {
   };
 }
 
-/** Files sitting in the published screenshot library that nothing has classified. */
+/**
+ * Files sitting in a published screenshot library that nothing has classified.
+ *
+ * Both libraries are swept, not just the original one: `public/assets/screens/`
+ * is written by scripts/exportScreens.mjs and is just as fetchable by URL, so a
+ * file that lands there without a record is the same hole.
+ */
 function unclassifiedLibraryFiles(root, manifest) {
-  const dir = resolve(root, 'public/assets/screenshots');
-  if (!existsSync(dir)) return [];
   const known = new Set(
     [
       ...Object.values(manifest.images ?? {}),
       ...Object.values(manifest.unprovenAllowlist ?? {}),
     ].map((record) => canonicalManifestPath(record.path))
   );
-  return readdirSync(dir)
-    .filter((f) => IMAGE_EXT.test(f))
-    .map((f) => `/assets/screenshots/${f}`)
-    .filter((p) => !known.has(p))
-    .sort();
+  const found = [];
+  for (const library of ['/assets/screenshots/', '/assets/screens/']) {
+    const dir = resolve(root, `public${library}`);
+    if (!existsSync(dir)) continue;
+    for (const file of readdirSync(dir)) {
+      if (!IMAGE_EXT.test(file)) continue;
+      const path = `${library}${file}`;
+      if (!known.has(path)) found.push(path);
+    }
+  }
+  return found.sort();
 }
 
 async function main() {
@@ -898,7 +908,7 @@ async function main() {
   const library = unclassifiedLibraryFiles(repoRoot, manifest);
   if (library.length) {
     console.log(
-      `\n  ${library.length} file(s) sit in public/assets/screenshots/ with no classification.`
+      `\n  ${library.length} file(s) sit in the published screenshot libraries with no classification.`
     );
     console.log('  Nothing links them, but everything under public/ is fetchable by URL.');
     for (const path of library) console.log(`    - ${path}`);

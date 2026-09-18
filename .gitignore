@@ -32,3 +32,8 @@ __pycache__/
 
 # Git worktrees checked out under this repo path
 .worktrees/
+
+# The operator's app mockups, ~70 MB of 1-2 MB PNGs. scripts/exportScreens.mjs
+# reads them and commits only the WebP exports under public/assets/screens/, so
+# the originals have to be copied in locally before that script can run.
+public/assets/screenshots/latest mockup/
