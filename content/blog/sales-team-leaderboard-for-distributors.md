@@ -101,7 +101,7 @@ The screen also runs on the phone. He can read it after dinner. Station Road sta
 
 A spreadsheet next to Tally is how two brothers start an argument about ₹2,80,000. One exported Monday. One typed Wednesday. Team Sales reads the live sales register on the basis he picked, for the period he pays on. That is the whole defence of the ranking.
 
-The ₹8,00,000, ₹9,20,000 and ₹6,40,000 in this article are the worked example on one Guwahati book. The only public scale figure behind Takkada is 100+ businesses, platform-wide.
+The ₹8,00,000, ₹9,20,000 and ₹6,40,000 in this article are the worked example on one Guwahati book.
 
 ## Frequently Asked Questions
 

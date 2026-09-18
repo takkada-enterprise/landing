@@ -83,7 +83,7 @@ A map of the city, a sequenced walk, a scheduler that tells him which shop is ne
 
 Beats, Dispatch and Team Sales also work on the web. The owner can set Station Road at the desktop. Visit capture stays on the phone. Manoj on GS Road cannot check in from a browser. An office clerk with web access should not be able to stamp Gupta Stores.
 
-The ₹42,000 and the five road names in this article are the worked example on one Guwahati book. The only public scale figure behind Takkada is 100+ businesses, platform-wide.
+The ₹42,000 and the five road names in this article are the worked example on one Guwahati book.
 
 ## Frequently Asked Questions
 

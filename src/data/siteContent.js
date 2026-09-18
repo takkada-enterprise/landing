@@ -53,7 +53,7 @@ export const heroContent = {
     'Invoices reach customers on WhatsApp the moment they post in Tally. UPI money lands and matches itself back into your books. Your salesmen book orders from the market.',
   // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
   // rupee volume was retired on 2026-09-18 (operator direction) and
-  // src/__tests__/claims-guard.test.js keeps it out.
+  // scripts/checkRetiredClaims.mjs keeps it out of the build.
   stats: [{ value: 100, prefix: '', suffix: '+', label: 'Businesses' }],
 };
 

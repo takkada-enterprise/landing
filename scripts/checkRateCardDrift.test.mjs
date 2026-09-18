@@ -50,7 +50,7 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
   });
 
   it('sees through React comment splits and spaces — the prerendered shape', () => {
-    // dist HTML really contains "₹<!-- -->12<!-- -->crore" for an article figure.
+    // Prerendered React can split a rupee figure as "₹<!-- -->9,999<!-- -->".
     expect(extractFigures('<span>₹<!-- -->9,999<!-- --> typed</span>')).toEqual([9999]);
     expect(extractFigures('<h2>₹ 9,999 per year</h2>')).toEqual([9999]);
   });

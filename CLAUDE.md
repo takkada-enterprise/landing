@@ -74,7 +74,7 @@ Don't:
 - No cheap shots at competitors or the customer's current workflow
 - No AI/roadmap promises that aren't shipped
 - End sections with statements, not questions
-- No vanity numbers. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+ stat down to it. Beyond that one confirmed figure, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor. `src/__tests__/claims-guard.test.js` keeps the retired figure out.
+- No vanity numbers. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+ stat down to it. Beyond that one confirmed figure, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor. `scripts/checkRetiredClaims.mjs` runs in the `build` chain and keeps the retired figure out; `src/__tests__/claims-guard.test.js` exercises it.
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 

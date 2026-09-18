@@ -85,7 +85,7 @@ By night the owner already knows how the day went. Visits and orders per salesma
 
 He used to call five people. "Kitna hua aaj?" The evening call asking everyone what they did stops being necessary. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. A distributor field sales daily routine on this book ends on the same Tally sales the office already trusts.
 
-The ₹42,000, ₹8,00,000 and ₹8,400 in this article are the worked example on one Guwahati book. The only public scale figure behind Takkada is 100+ businesses, platform-wide.
+The ₹42,000, ₹8,00,000 and ₹8,400 in this article are the worked example on one Guwahati book.
 
 ## Frequently Asked Questions
 

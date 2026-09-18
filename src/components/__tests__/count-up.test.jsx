@@ -52,12 +52,14 @@ describe('CountUp', () => {
     expect(screen.getByText('100+')).toBeInTheDocument();
   });
 
-  it('keeps the final value under prefers-reduced-motion even when observed', () => {
+  it('keeps the final value, prefix and suffix under prefers-reduced-motion even when observed', () => {
     mockMatchMedia(true);
     const io = mockIntersectionObserver();
-    const { container } = render(<CountUp value={100} prefix="" suffix="+" />);
+    // A non-empty prefix is the case the default renders past, so it stays
+    // covered here with a figure the site does not publish.
+    const { container } = render(<CountUp value={100} prefix="₹" suffix=" saved" />);
     io.intersectAll();
-    expect(container.textContent).toBe('100+');
+    expect(container.textContent).toBe('₹100 saved');
   });
 
   it('never shows less than 70% of the final value on any animation frame', async () => {

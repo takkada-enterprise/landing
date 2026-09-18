@@ -97,7 +97,7 @@ By 8 PM the five vans are in. The owner used to call each man. "Kitna hua aaj?" 
 
 The screen also runs on the phone. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. Commission stays on orders or invoices. The ₹8,400 Gupta sent at 3 PM sits on the dealer.
 
-The ₹8,00,000 and ₹6,40,000 in this article are the worked example on one Guwahati book. The only public scale figure behind Takkada is 100+ businesses, platform-wide.
+The ₹8,00,000 and ₹6,40,000 in this article are the worked example on one Guwahati book.
 
 ## Frequently Asked Questions
 
