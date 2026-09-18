@@ -75,15 +75,49 @@
   font-size: 17px;
   line-height: 1.6;
   max-width: 400px;
-  min-height: 82px;
+}
+
+/* The copy column packs from the top, so the space the reservation below leaves
+   over sits UNDER the copy. Centring it here would pull the CTA row up as the
+   headline shortens, which is the movement the reservation exists to stop (the
+   grid still centres the three columns against each other). */
+.home-v3 .hv3-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* The copy block is one element so the three lines cross-fade together rather
    than racing each other. It is keyed in Home.jsx, so every swap mounts a fresh
-   node and @starting-style runs. */
+   node.
+
+   min-height reserves the tallest copy in the set, so the swap is a crossfade
+   and not a reflow. Arithmetic at this breakpoint (worst case is the NARROW end
+   of the range, 1024px, where the column is tightest and the type has not yet
+   shrunk):
+     column   = (1024 - 64 padding - 340 phone - 96 gaps) / 2  = 262px
+     overline = 13px mono in the .section-label box (6px padding, 18px margin)
+                                                              ≈  48px
+     headline = 4.2vw = 43px, line-height 1.04 → 44.7px/line.
+                ~12 chars/line at 262px; the longest of HERO_HOME + HOTPSOTS is
+                "See what each salesman sold and collected this month." (52) → 5 lines
+                                                              ≈ 224px + 32px margins
+     body     = 17px/1.6 = 27.2px/line, ~32 chars/line; the longest body (the
+                Import hotspot, 145 chars) → 5 lines          ≈ 136px
+     total    ≈ 440px ≈ 27.5em → 28em, which leaves ~40px spare at 1240px+.
+   Re-measure in the browser if the hero type scale moves. */
 .home-v3 .hv3-hero-swap {
+  min-height: 28em;
   opacity: 1;
   filter: blur(0);
+}
+
+/* Only a swap crossfades. @starting-style fires on an element's FIRST style
+   resolution, so declaring this on .hv3-hero-swap itself would fade the H1 — the
+   page's LCP text — in from transparent and blurred on every cold load. The
+   class arrives only on a remount caused by a hotspot change (Home.jsx), never
+   on the server render or the first client paint. */
+.home-v3 .hv3-hero-swap.is-swapped {
   transition: opacity 200ms var(--ease-out), filter 200ms var(--ease-out);
 
   @starting-style {
@@ -168,14 +202,18 @@
   color: #fff;
   font: 600 15px var(--font-sans);
   cursor: pointer;
+  /* colour is in the list because .is-on flips it: without it the label stayed
+     navy on a still-navy button for the whole 160ms, which reads as the label
+     disappearing and coming back. */
   transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
-    transform 160ms var(--ease-out);
+    color 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
 
 .home-v3 .hv3-job small {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
   font-size: 12.5px;
+  transition: color 160ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -221,7 +259,20 @@
   }
   .home-v3 .hv3-hero .hero-subtitle {
     margin-inline: auto;
-    min-height: 0;
+  }
+  /* Re-reserved, never zeroed: stacked, everything below the hero moves when
+     the copy block changes height. Arithmetic at the worst case (a 360px phone,
+     where the column is narrowest and the type is at its clamp floor):
+       column   = 360 - 32 padding                              = 328px
+       overline = 13px mono in the .section-label box          ≈  48px
+       headline = 36px (clamp floor), line-height 1.04 → 37.4px/line.
+                  ~18 chars/line; the longest headline (52 chars) → 3 lines
+                                                                ≈ 112px + 32px margins
+       body     = 17px/1.6 = 27.2px/line, ~40 chars/line; the longest body
+                  (145 chars) → 4 lines                         ≈ 109px
+       total    ≈ 301px ≈ 18.8em → 19em. */
+  .home-v3 .hv3-hero-swap {
+    min-height: 19em;
   }
   .home-v3 .hv3-hero-cta {
     justify-content: center;
@@ -515,8 +566,10 @@
 @media (prefers-reduced-motion: reduce) {
   /* The hero copy still changes with the phone — a swap that cut instantly
      would be harder to follow, not calmer — so the fade stays and only the
-     blur goes. Blur is the part that reads as motion. */
-  .home-v3 .hv3-hero-swap {
+     blur goes. Blur is the part that reads as motion. Still the swap-only
+     class: first paint must show the finished headline under every motion
+     preference. */
+  .home-v3 .hv3-hero-swap.is-swapped {
     filter: none;
     transition: opacity 200ms var(--ease-out);
 

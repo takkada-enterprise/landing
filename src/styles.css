@@ -357,18 +357,32 @@ html.js .animated-heading .letter {
    reuse in this file, and the header renders in Layout.jsx outside .home-v3, so
    the page is matched by the class its own root carries. Only the unscrolled
    state is touched: `.scrolled` paints its own paper panel and must keep the
-   colours above unchanged. */
-body:has(.home-v3) .site-nav:not(.scrolled) .nav-links a,
-body:has(.home-v3) .site-nav:not(.scrolled) .nav-connector-link,
-body:has(.home-v3) .site-nav:not(.scrolled) .nav-features-toggle,
-body:has(.home-v3) .site-nav:not(.scrolled) .mobile-menu-btn {
+   colours above unchanged.
+
+   TOP-LEVEL ITEMS ONLY, and every one of them by a child combinator. These
+   selectors carry `:has()` plus three classes, which outranks the panel's own
+   `.nav-links .nav-features-panel a` — so a descendant `a` here would paint the
+   white features panel's rows white on white. The panel and everything in the
+   mobile overlay keep the colours above. home-v3.test.jsx pins both halves. */
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-links > a,
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-link,
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-toggle,
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* The hamburger is over the navy only while the menu is CLOSED. Open, the same
+   button is the close control on the white overlay, and Layout.jsx marks that
+   state on the header itself (`site-nav … menu-open`). */
+body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn {
   color: rgba(255, 255, 255, 0.82);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  body:has(.home-v3) .site-nav:not(.scrolled) .nav-links a:hover,
-  body:has(.home-v3) .site-nav:not(.scrolled) .nav-connector-link:hover,
-  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features:hover .nav-features-toggle {
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-links > a:hover,
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-link:hover,
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link:hover,
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features:hover > .nav-features-toggle {
     color: #fff;
   }
 }

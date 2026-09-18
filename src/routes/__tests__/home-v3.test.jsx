@@ -21,9 +21,13 @@ afterEach(cleanup);
 // DemoTryCTA calls usePhoneModal(), which throws by design outside a
 // provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
 // so this render goes red at either flag value without the wrapper.
+// The v7 flags are opted into here so the router stops printing its two future
+// warnings on every render: a test file's output has to be readable.
+const ROUTER_FUTURE = { v7_startTransition: true, v7_relativeSplatPath: true };
+
 function renderHome() {
   return render(
-    <MemoryRouter>
+    <MemoryRouter future={ROUTER_FUTURE}>
       <PhoneModalProvider>
         <Home />
       </PhoneModalProvider>
@@ -121,6 +125,22 @@ describe('the hero swaps its copy with the phone', () => {
     expect(container.querySelector('h1').textContent).toBe(HERO_HOME.headline);
   });
 
+  // @starting-style fires on an element's FIRST style resolution, so a crossfade
+  // declared unconditionally paints the H1 — the page's LCP text — transparent
+  // and blurred on every cold load. The enter transition is therefore carried by
+  // a class the first render does not have.
+  it('crossfades on a swap and never on first paint', () => {
+    const { container } = renderHome();
+    expect(container.querySelector('.hv3-hero-swap').className).not.toContain('is-swapped');
+
+    fireEvent.click(jobButton(container, 'dispatch'));
+    expect(container.querySelector('.hv3-hero-swap').className).toContain('is-swapped');
+
+    // Closing is a swap too: home copy arrives the same way a hotspot's does.
+    fireEvent.click(jobButton(container, 'dispatch'));
+    expect(container.querySelector('.hv3-hero-swap').className).toContain('is-swapped');
+  });
+
   // The headline is keyed on the open hotspot, so React remounts it on every
   // swap. A live region there would announce the whole headline again on top of
   // the phone's own "Showing <label>", so the hero keeps exactly one.
@@ -202,18 +222,50 @@ describe('home copy claims', () => {
   });
 });
 
+// Selector heads, whole groups. A group written over several lines is joined
+// first: reading only the line that carries the "{" would let an unscoped
+// selector ride above a scoped one and never be checked. At-rules and keyframe
+// stops are skipped by shape, so nested @media/@starting-style/@keyframes need
+// no un-nesting.
+const cssHeads = (css) => {
+  const heads = [];
+  let buffer = '';
+  for (const raw of css.replace(/\/\*[\s\S]*?\*\//g, '').split('\n')) {
+    const line = raw.trim();
+    if (line.endsWith('{')) {
+      const head = `${buffer} ${line.slice(0, -1)}`.trim();
+      buffer = '';
+      if (head.startsWith('@')) continue;
+      if (/^(from|to|\d+%)(\s*,\s*(from|to|\d+%))*$/.test(head)) continue;
+      heads.push(head);
+    } else if (line.endsWith(',')) {
+      // A continuation line of a multi-line selector group.
+      buffer = `${buffer} ${line}`.trim();
+    } else {
+      buffer = '';
+    }
+  }
+  return heads;
+};
+
+// The balanced body of the block whose head is `header`, so a nested rule can
+// be asserted inside one media query rather than anywhere in the file.
+const cssBlock = (css, header) => {
+  const start = css.indexOf(header);
+  if (start < 0) return '';
+  let depth = 0;
+  for (let i = css.indexOf('{', start); i < css.length; i += 1) {
+    if (css[i] === '{') depth += 1;
+    if (css[i] === '}') {
+      depth -= 1;
+      if (depth === 0) return css.slice(start, i);
+    }
+  }
+  return '';
+};
+
 describe('the homepage stylesheets stay scoped to the homepage', () => {
-  // Selector heads: lines ending in "{" that are not at-rules or keyframe
-  // stops. Nesting puts both inside a rule body, so both are skipped by shape
-  // rather than by un-nesting the CSS.
-  const headsOf = (css) =>
-    css
-      .replace(/\/\*[\s\S]*?\*\//g, '')
-      .split('\n')
-      .map((l) => l.trim())
-      .filter((l) => l.endsWith('{') && !l.startsWith('@'))
-      .map((l) => l.slice(0, -1).trim())
-      .filter((sel) => !/^(from|to|\d+%)(\s*,\s*(from|to|\d+%))*$/.test(sel));
+  const headsOf = cssHeads;
 
   it('prefixes every home.css rule head with .home-v3 (or html.js/.no-js .home-v3)', () => {
     // Vitest runs with cwd at the repo root.
@@ -247,5 +299,81 @@ describe('the homepage stylesheets stay scoped to the homepage', () => {
       }
     }
     expect(css.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(/:root/);
+  });
+});
+
+// The hero copy block changes height with every swap (2 vs 3 headline lines is
+// ~55px), and the grid centres the column, so without a reservation the CTA row,
+// the promise line and — on a stacked layout — the whole page below the hero
+// move while the copy is still fading. The reservation is what makes the swap a
+// crossfade rather than a reflow, at BOTH breakpoints: it was zeroed under
+// 1000px once already.
+describe('the hero reserves the height its copy swaps through', () => {
+  const css = readFileSync('src/home.css', 'utf8');
+
+  it('reserves it on the swapping block itself, at desktop and under 1000px', () => {
+    const desktop = /\.home-v3 \.hv3-hero-swap \{[^}]*min-height:/.test(css);
+    expect(desktop, 'no min-height on .hv3-hero-swap at desktop width').toBe(true);
+
+    const narrow = cssBlock(css, '@media (max-width: 1000px)');
+    expect(narrow).not.toBe('');
+    expect(
+      /\.home-v3 \.hv3-hero-swap \{[^}]*min-height:/.test(narrow),
+      'the ≤1000px query does not reserve the swap block height'
+    ).toBe(true);
+  });
+
+  it('never re-centres the copy: the reservation is filled from the top', () => {
+    // A flex/grid column that centres its content would move the CTA row up as
+    // the copy shortens, which is the jump the reservation exists to stop.
+    const copy = /\.home-v3 \.hv3-hero-copy \{([^}]*)\}/.exec(css);
+    expect(copy, 'no rule behind .hv3-hero-copy').toBeTruthy();
+    expect(copy[1]).toMatch(/justify-content:\s*flex-start/);
+  });
+});
+
+// The nav renders in Layout.jsx, outside .home-v3, so the on-navy colours are
+// selected through :has(.home-v3). That selector is specific enough (0-4-2) to
+// beat the panel's own rules, so it must never reach INSIDE the white features
+// panel or the white mobile overlay: white on white is an invisible menu.
+describe('the nav over the navy hero', () => {
+  const heads = cssHeads(readFileSync('src/styles.css', 'utf8'));
+  const onNavy = heads
+    .flatMap((head) => head.split(','))
+    .map((sel) => sel.trim())
+    .filter((sel) => sel.includes(':has(.home-v3)'));
+
+  it('has rules at all, so the checks below cannot pass vacuously', () => {
+    expect(onNavy.length).toBeGreaterThan(0);
+  });
+
+  it('never reaches into the features panel or the mobile overlay', () => {
+    for (const sel of onNavy) {
+      for (const inside of ['.nav-features-panel', '.nav-features-list', '.nav-features-all', '.mobile-overlay', '.mobile-nav-links']) {
+        expect(sel.includes(inside), `${sel} reaches into ${inside}`).toBe(false);
+      }
+    }
+  });
+
+  it('colours only top-level links, reached by a child combinator', () => {
+    for (const sel of onNavy) {
+      const parts = sel.split(/\s+/);
+      const last = parts[parts.length - 1];
+      if (!/^a([:.[]|$)/.test(last)) continue;
+      expect(
+        parts[parts.length - 2],
+        `${sel} colours every descendant <a>, panel rows included`
+      ).toBe('>');
+    }
+  });
+
+  it('leaves the hamburger alone once the menu is open over a white overlay', () => {
+    const hamburger = onNavy.filter((sel) => sel.includes('.mobile-menu-btn'));
+    expect(hamburger.length).toBeGreaterThan(0);
+    for (const sel of hamburger) {
+      expect(sel, `${sel} keeps the close button white on the white overlay`).toContain(
+        ':not(.menu-open)'
+      );
+    }
   });
 });

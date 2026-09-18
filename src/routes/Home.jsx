@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -70,6 +70,17 @@ function Home({ seo = HOME_SEO }) {
   // beside it is read straight off the same object, so the two cannot drift.
   const [hot, setHot] = useState(null);
   const copy = hot ?? HERO_HOME;
+  // False on the server render and on the first client paint, true from the
+  // first swap onward. It gates the copy block's enter transition, because
+  // @starting-style fires on an element's FIRST style resolution and would
+  // otherwise fade the H1 — the page's LCP text — in from blurred transparency
+  // on every cold load. A ref, not state: it must not schedule a render of its
+  // own, and the render that follows setHot reads the value set beside it.
+  const swapped = useRef(false);
+  const swapTo = (next) => {
+    swapped.current = true;
+    setHot(next);
+  };
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
   // Which plan column the narrow-viewport table shows. Desktop ignores it.
@@ -97,7 +108,10 @@ function Home({ seo = HOME_SEO }) {
                 screen's copy and the next. No aria-live here — the phone
                 announces "Showing <label>" from its own region, and a second
                 one would read the whole headline over the top of it. */}
-            <div className="hv3-hero-swap" key={hot?.key ?? 'home'}>
+            <div
+              className={`hv3-hero-swap${swapped.current ? ' is-swapped' : ''}`}
+              key={hot?.key ?? 'home'}
+            >
               <span className="section-label hero-overline">
                 {hot ? hot.overline : heroContent.overline}
               </span>
@@ -105,7 +119,7 @@ function Home({ seo = HOME_SEO }) {
               <p className="hero-subtitle">{copy.body}</p>
             </div>
             <div className="hv3-hero-cta">
-              <DemoTryCTA context="hero" />
+              <DemoTryCTA context="home-hero" />
               {hot && (
                 <Link className="hv3-hero-more" to={hot.href}>
                   See how it works <span aria-hidden="true">→</span>
@@ -114,7 +128,7 @@ function Home({ seo = HOME_SEO }) {
             </div>
             <p className="hv3-hero-promise">{heroContent.promise}</p>
           </div>
-          <PlayablePhone activeKey={hot?.key ?? null} onChange={setHot} />
+          <PlayablePhone activeKey={hot?.key ?? null} onChange={swapTo} />
           {/* Outside the phone by design: the phone owns its hotspots and its
               Back pill, and another button inside that layer would sit in the
               same stack as the screens. Pressing the open job closes it, so
@@ -128,7 +142,7 @@ function Home({ seo = HOME_SEO }) {
                 className={`hv3-job${hot?.key === j.key ? ' is-on' : ''}`}
                 aria-pressed={hot?.key === j.key}
                 onClick={() =>
-                  setHot(hot?.key === j.key ? null : HOTSPOTS.find((h) => h.key === j.key))
+                  swapTo(hot?.key === j.key ? null : HOTSPOTS.find((h) => h.key === j.key))
                 }
               >
                 {j.label}

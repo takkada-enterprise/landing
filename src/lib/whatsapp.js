@@ -10,8 +10,10 @@ export const WHATSAPP_MESSAGES = {
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
   header:
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
-  'home-hero':
-    'Hi, I run a distribution business on Tally. I saw takkada.com and want to see how it works.',
+  // 'home-hero' retired 2026-09-18 with the hero's WhatsApp button. The hero's
+  // only CTA is now DemoTryCTA, which keeps `home-hero` as its ANALYTICS context
+  // (the event series is continuous) but never reads this map: its kill-switch
+  // branch hard-codes the 'demo' context below.
   features:
     'Hi, I am looking at the features on takkada.com and want a walkthrough.',
   // The /features hub, kept separate from the homepage section above so the
