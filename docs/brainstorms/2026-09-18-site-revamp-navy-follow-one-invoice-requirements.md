@@ -15,7 +15,7 @@ The app moved to a navy and blue look. The site is still sage green with a Fraun
 2. **Dark hero.** Navy hero that continues the app's own header, light sections lower down.
 3. **Scope.** Real redesign for Homepage, Features hub, and the feature-page template. Blog, partners, comparison, company and legal pages get the new tokens and type only.
 4. **Hero = playable phone.** The real home screen with tappable tiles. Tapping opens the real screen for that feature and swaps the headline beside it.
-5. **Story = "Follow one invoice".** One invoice slip stays pinned while the visitor scrolls six stops. It gets rubber-stamped at each stop. Features hang off stops as links to their feature pages.
+5. **Story = "Follow one invoice".** One invoice slip stays pinned while the visitor scrolls seven stops. It gets rubber-stamped at each stop. Features hang off stops as links to their feature pages.
 6. **Printed sheets appear as paper.** The loading sheet / picking list shows at the Load stop. The salesman summary export shows at the last stop. Both sit tilted behind the phone and enlarge on tap.
 7. **The "₹17Cr+ collected monthly" claim is removed from the whole site.** "100+ businesses" stays.
 
@@ -50,7 +50,7 @@ Values are sampled from the app mockups. Before coding, confirm each against the
    - Hotspots are real `<button>`s with labels and visible focus. Initial H1 and copy are server-rendered for SEO; swapped copy is enhancement only.
    - Mobile: phone on top, job buttons become a horizontal chip row under it.
 2. **Proof strip.** "100+ businesses" and named-place depth signals. No rupee-volume claim.
-3. **Follow one invoice (deep navy band).** Pinned slip on the left, six stations on the right.
+3. **Follow one invoice (deep navy band).** Pinned slip on the left, seven stations on the right.
 
    | Stop | Time label | Screen | Stamp | Feature links |
    |---|---|---|---|---|
@@ -58,7 +58,8 @@ Values are sampled from the app mockups. Before coding, confirm each against the
    | Bill | 11:05 AM, office | Auto einv and eway | IRN + E-WAY ✓ | Mobile invoicing, E-invoice, E-way bill, Maker checker, Import from PDF |
    | Load | 1:30 PM, godown | Van Loading + **loading sheet paper** | ON VAN 2 | Van loading, Picking list, Godown wise stock, Beat selection |
    | Send | 1:31 PM, retailer's phone | making challans & invoices | WHATSAPP ✓✓ | Auto invoice dispatch, Custom invoice template, Statement sharing |
-   | Collect | Day 28 | Reminder payment | PAID | Auto reminders, UPI collection, Recovery dashboard, Payment behaviour |
+   | Remind | Day 28, 10:00 AM | Reminder payment | REMINDED | Auto reminders, UPI collection, Payment behaviour |
+   | Recover | Day 30, no reply yet | followup log, then Recovery dashboard team logging (phone cycles the two) | AI CALLED · WILL PAY, then PAID | **AI calling**, Follow-up log, Promise to pay, Recovery dashboard, Team recovery |
    | Tally | Day 29, 9 PM | Settlements + **salesman summary paper** | IN TALLY ✓ | Auto reconciliation, Settlements, 20+ reports, Sales analytics |
 
    - The slip is HTML, not an image: party, place, four item lines, total, a status line that changes per stop. Stamps land with a scale 1.5 → 1 "thunk" (260ms) and lift off again when scrolling back up. Transitions, not keyframes, so they reverse cleanly.
@@ -70,9 +71,16 @@ Values are sampled from the app mockups. Before coding, confirm each against the
 
 Removed from the homepage: the "And The Rest" capability grid, the alternating story sections, the AI import section as a standalone band (it lives at the Bill stop).
 
+### AI calling (new feature, Recover stop)
+
+- Story beat: the WhatsApp reminder went unanswered, so Takkada calls the party in their own language, records what they said ("will pay by 22 Sep"), and the promise shows on the recovery board. The salesman's own calls are logged on the same screen.
+- Visuals: the two real recovery screenshots (follow-up log with "Already tried" history and promise-to-pay, and the Recovery Team tab with Recovered, Dealers worked, Promises kept). A small HTML call chip sits beside the phone: "AI call · 1m 42s · Will pay by 22 Sep". The chip is illustrative and must match how the real call outcome is logged; confirm with Ronak before build.
+- Claims: AI calling is developed (Ronak, 2026-09-11) and may be written in the present tense. Every mention carries "charged on connected minutes" so nobody reads it as bundled into a plan. No per-minute price on the homepage unless Ronak says so.
+- It also gets a hero job button ("Recover") and its own feature page if one does not exist yet (one new page is in scope; copy from Ronak's facts only).
+
 ## Features hub
 
-Grouped by the same six stops instead of the current groups. Each group header shows its stamp and one screen. `src/data/featureGroups.js` is the single place the grouping lives; the homepage stations and the hub both read from it.
+Grouped by the same seven stops instead of the current groups. Each group header shows its stamp and one screen. `src/data/featureGroups.js` is the single place the grouping lives; the homepage stations and the hub both read from it.
 
 ## Feature-page template
 
