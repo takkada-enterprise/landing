@@ -9,103 +9,237 @@
    - Same type system (Plus Jakarta Sans for display and body, IBM Plex Mono
      as the one utility face), same paper system. "New" comes from composition
      and scale, not new paint.
-   - Signature element: the order-to-cash TOUR — the eight real stations of
-     order → cash as a numbered list threaded by a miniature dashed road,
-     beside one phone that shows the active station's screen. The whole
-     journey fits one screen (2026-08-04 operator direction: compact and
-     premium over a long scroll). Numbering is earned: the stations are the
-     real time-order. Story 2 keeps the horizontal 4-step rail.
-   - Motion inventory (§11.5 — every entry has a teaching reason, and all of
-     it dies under prefers-reduced-motion):
-     1. Hero entrance stagger: the page introduces itself in reading order.
-        One-time, transform/opacity only.
-     2. Story-step reveal (.reveal, shared IntersectionObserver): sections
-        appear in the order the day happens.
-     3. Tour advance: the phone crossfades to the active station and its
-        body copy expands — the order moving station to station is exactly
-        what the product does to it. Auto-advance is JS-gated on
-        prefers-reduced-motion (Home.jsx) and stops on first click.
+   - Signature element (2026-09-18 revamp): the hero is a PLAYABLE PHONE on a
+     navy band, and the page's one story is "Follow one invoice". Both live in
+     src/journey.css; this file styles the hero shell around the phone and the
+     bands the revamp kept (proof, differentiators, Tally, and the ported
+     pricing/trust/FAQ sections). The order-to-cash tour, the second story's
+     4-step rail, the AI band and the capability grid were deleted with the
+     markup they styled.
+   - Motion inventory (§11.5 — every entry has a teaching reason):
+     1. Hero copy crossfade: the words swap with the screen they describe.
+        Opacity and blur only, 200ms, and the blur drops under reduced motion.
+     2. Section reveal (.reveal, shared IntersectionObserver): sections appear
+        in the order the day happens.
+     3. Press feedback on every pressable: scale 0.97 at 160ms.
    ═══════════════════════════════════════════════════ */
 
-/* ── Scoped additive tokens ── */
-.home-v3 {
-  --hv3-rail: rgba(0, 110, 166, 0.18);
-  --hv3-step-num-size: 15px;
-}
-
-/* ═══════════ Hero: split editorial ═══════════ */
+/* ═══════════ Hero: the playable phone on navy ═══════════
+   Motion inventory for this block (CLAUDE.md §11.5). Everything here is a
+   transition on opacity/filter/transform only, ≤ 320ms, on --ease-out, so a
+   second tap mid-flight retargets instead of queueing:
+   - Copy crossfade: the overline, headline and body are one block keyed on the
+     open hotspot, so React remounts it and @starting-style plays it in from a
+     2px blur. It teaches that the words belong to the screen beside them. No
+     transform: the copy must not appear to move, only to change.
+   - "See how it works" fades in when a screen opens, because it only has
+     somewhere to go once there is an open screen to go deeper into.
+   - Press feedback on every pressable (scale 0.97, 160ms).
+   Under prefers-reduced-motion the blur goes and the opacity fade stays. */
 .home-v3 .hv3-hero {
-  position: relative;
-  padding: 148px 0 84px;
-  overflow: hidden;
-}
-
-.home-v3 .hv3-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
   background:
-    radial-gradient(46% 40% at 86% 8%, rgba(0, 110, 166, 0.22) 0%, rgba(0, 110, 166, 0) 60%),
-    radial-gradient(42% 38% at 4% 0%, rgba(220, 242, 251, 0.55) 0%, rgba(220, 242, 251, 0) 55%);
+    radial-gradient(620px 520px at 50% 58%, var(--color-navy-lift) 0%, transparent 70%),
+    linear-gradient(180deg, var(--color-primary-dark), var(--color-navy));
+  color: #fff;
+  padding: 56px 0 96px;
 }
 
 .home-v3 .hv3-hero-grid {
-  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  grid-template-columns: 1fr 340px 1fr;
+  gap: 48px;
   align-items: center;
-  gap: 56px;
+  min-height: min(760px, calc(100vh - 80px));
 }
 
-.home-v3 .hv3-hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.home-v3 .hv3-hero .hero-overline {
+  font: 400 13px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
-.home-v3 .hv3-hero-lead {
-  display: block;
-  font-size: clamp(20px, 2.3vw, 27px);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.3;
-  color: var(--color-text);
-  margin-bottom: 12px;
-}
-
-.home-v3 .hv3-hero-accent {
-  display: block;
-  font-size: clamp(46px, 6.4vw, 84px);
-  line-height: 1;
+.home-v3 .hv3-hero .hero-title {
+  font-size: clamp(36px, 4.2vw, 52px);
+  line-height: 1.04;
   letter-spacing: -0.035em;
-  /* The accent is clip-text (premium.css): at line-height 1 the painted
-     box ends at the baseline row and the "g" descender renders unpainted
-     on phones. Pad the box under the descender, pull the margin back so
-     layout is unchanged. */
-  padding-bottom: 0.14em;
-  margin-bottom: -0.14em;
+  color: #fff;
+  margin: 16px 0;
 }
 
-.home-v3 .hv3-hero-sub {
-  max-width: 540px;
-  font-size: 19px;
+.home-v3 .hv3-hero .hero-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 17px;
   line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin: 22px 0 30px;
+  max-width: 400px;
+  min-height: 82px;
 }
 
-.home-v3 .hv3-hero-ctas {
+/* The copy block is one element so the three lines cross-fade together rather
+   than racing each other. It is keyed in Home.jsx, so every swap mounts a fresh
+   node and @starting-style runs. */
+.home-v3 .hv3-hero-swap {
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity 200ms var(--ease-out), filter 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+.home-v3 .hv3-hero-cta {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 38px;
+  gap: 18px;
+  margin-top: 24px;
+  flex-wrap: wrap;
 }
 
-.home-v3 .hv3-hero-stats {
+.home-v3 .hv3-hero-cta .cta-btn:active {
+  transform: scale(0.97);
+}
+
+/* Mounted only while a screen is open, so it arrives on a fade of its own. */
+.home-v3 .hv3-hero-more {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 200ms var(--ease-out), color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.home-v3 .hv3-hero-more:active {
+  transform: scale(0.97);
+}
+
+.home-v3 .hv3-hero-more:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-hero-more:hover {
+    color: #fff;
+  }
+}
+
+.home-v3 .hv3-hero-promise {
+  margin-top: 28px;
+  font: 400 13px var(--font-mono);
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.home-v3 .hv3-hero-jobs {
+  display: grid;
+  gap: 8px;
+}
+
+.home-v3 .hv3-hero-jobs-label {
+  font: 400 12px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 6px;
+}
+
+.home-v3 .hv3-job {
   display: flex;
-  gap: 44px;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  text-align: left;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font: 600 15px var(--font-sans);
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
+.home-v3 .hv3-job small {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  font-size: 12.5px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-job:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+}
+
+.home-v3 .hv3-job:active {
+  transform: scale(0.97);
+}
+
+.home-v3 .hv3-job:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* The open job inverts rather than filling with marigold: marigold is the hint
+   dot on the phone and never a button fill. */
+.home-v3 .hv3-job.is-on {
+  background: #fff;
+  color: var(--color-navy);
+  border-color: #fff;
+}
+
+.home-v3 .hv3-job.is-on small {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1000px) {
+  /* Stacked, the grid is taller than its min-height, so its first row starts at
+     the top of the hero instead of centring clear of the fixed nav — and the
+     first row here is the phone. This is that clearance. */
+  .home-v3 .hv3-hero {
+    padding-top: 96px;
+  }
+  .home-v3 .hv3-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+    padding: 0 16px;
+  }
+  .home-v3 .hv3-hero .hero-subtitle {
+    margin-inline: auto;
+    min-height: 0;
+  }
+  .home-v3 .hv3-hero-cta {
+    justify-content: center;
+  }
+  .home-v3 .hv3-hero-grid > .pphone {
+    order: -1;
+  }
+  .home-v3 .hv3-hero-jobs {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-top: 40px;
+  }
+  .home-v3 .hv3-hero-jobs-label,
+  .home-v3 .hv3-job small {
+    display: none;
+  }
 }
 
 .home-v3 .hv3-stat-value {
@@ -131,92 +265,7 @@
   color: var(--color-text-secondary);
 }
 
-/* Hero phone on the ink plate, floating proof chips beside it */
-.home-v3 .hv3-hero-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 20px;
-  background: var(--grad-ink);
-  border-radius: 40px;
-  box-shadow: var(--shadow-xl);
-}
-
-.home-v3 .hv3-hero-visual::before {
-  content: "";
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 110, 166, 0.4) 0%, rgba(0, 110, 166, 0) 70%);
-}
-
-.home-v3 .hv3-hero-phone {
-  position: relative;
-  width: 268px;
-  z-index: 1;
-}
-
-/* The hero capture is operator-framed (transparent corners), so no CSS
-   rounding — the contour shadow follows the baked frame. */
-.home-v3 .hv3-hero-phone img {
-  width: 100%;
-  display: block;
-  filter: drop-shadow(0 40px 72px rgba(0, 0, 0, 0.5));
-}
-
-/* Floating chips: the two moments the product is for. Positioned, not
-   animated (the hero already has its entrance; chips staying still keeps
-   the phone the lead). */
-.home-v3 .hv3-hero-chip {
-  position: absolute;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text);
-  white-space: nowrap;
-}
-
-.home-v3 .hv3-hero-chip svg { color: var(--color-primary-light); flex-shrink: 0; }
-/* Chips hang off the right-top and left-bottom so neither covers the
-   business name at the mockup's top-left (framed hero, 2026-08-04). */
-.home-v3 .hv3-hero-chip--1 { top: 12%; right: 3%; }
-.home-v3 .hv3-hero-chip--2 { bottom: 14%; left: 4%; }
-
-/* Hero entrance stagger (motion reason 1) */
-html.js .home-v3 .hv3-hero-copy > *,
-html.js .home-v3 .hv3-hero-visual {
-  animation: hv3Rise 0.6s var(--ease-out) both;
-}
-html.js .home-v3 .hv3-hero-copy > :nth-child(2) { animation-delay: 0.05s; }
-html.js .home-v3 .hv3-hero-copy > :nth-child(3) { animation-delay: 0.11s; }
-html.js .home-v3 .hv3-hero-copy > :nth-child(4) { animation-delay: 0.17s; }
-html.js .home-v3 .hv3-hero-copy > :nth-child(5) { animation-delay: 0.23s; }
-html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
-
-@keyframes hv3Rise {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ═══════════ Story sections: the signature rail ═══════════ */
-.home-v3 .hv3-story {
-  padding: 104px 0;
-}
-
-/* Story 2 sits on the container tint so the two days read as two scenes */
-.home-v3 .hv3-story--alt {
-  background: linear-gradient(180deg, rgba(220, 242, 251, 0.35) 0%, rgba(220, 242, 251, 0.12) 100%);
-}
-
 .home-v3 .hv3-story-head {
   max-width: 720px;
   margin-bottom: 64px;
@@ -243,390 +292,10 @@ html.js .home-v3 .hv3-hero-visual { animation-delay: 0.16s; }
   margin: 0;
 }
 
-/* The rail: numbered steps on one connector line. Column count comes from
-   the component (--hv3-steps) so the geometry survives a 3- or 5-step story. */
-.home-v3 .hv3-rail {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(var(--hv3-steps, 4), minmax(0, 1fr));
-  gap: 28px;
-}
-
-.home-v3 .hv3-step {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Connector: each step draws the line to its successor, so the line always
-   starts and ends at a number instead of overshooting the rail. */
-.home-v3 .hv3-step:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: 17px;
-  left: 44px;
-  right: -28px;
-  height: 2px;
-  background: var(--hv3-rail);
-}
-
-.home-v3 .hv3-step-num {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: var(--hv3-step-num-size);
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.home-v3 .hv3-story--alt .hv3-step-num { background: var(--color-primary-dark); }
-
-/* Every step screenshot is an operator-framed mockup with the device frame
-   baked in (transparent corners), so the contour drop-shadow follows the
-   frame. The drawn-bezel fallback for bare captures died 2026-08-04 when
-   the last bare capture was replaced. */
-.home-v3 .hv3-step-phone {
-  position: relative;
-  width: min(210px, 100%);
-  margin: 0 auto 20px;
-}
-
-.home-v3 .hv3-step-phone img {
-  width: 100%;
-  display: block;
-  filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32));
-}
-
-.home-v3 .hv3-step-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  color: var(--color-text);
-  margin: 0 0 8px;
-}
-
-.home-v3 .hv3-step-body {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.home-v3 .hv3-story-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
-  margin-top: 56px;
-}
-
 .home-v3 .hv3-story-footnote {
   font-size: 14px;
   color: var(--color-text-secondary);
   margin: 12px 0 0;
-}
-
-/* ═══════════ The order-to-cash tour (signature centerpiece) ═══════════ */
-/* The whole journey in one screen: numbered station list beside one phone
-   that crossfades between screens. Mobile-first: the phone sticks to the
-   top while the list scrolls under it; from 900px they sit side by side. */
-.home-v3 .hv3-tour {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 28px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.home-v3 .hv3-tour-phone {
-  /* Full-width opaque plate on mobile so list rows scrolling under the
-     sticky phone disappear behind it; the soft gradient is the bottom edge. */
-  position: sticky;
-  top: 56px;
-  z-index: 2;
-  width: 100%;
-  height: 348px;
-  background: linear-gradient(180deg, var(--color-bg) 90%, rgba(247, 250, 252, 0) 100%);
-}
-
-.home-v3 .hv3-tour-phone img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 316px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0;
-  /* Opacity alone left two whole screens legible at once mid-fade, which
-     reads as two phones overlapping. The 2px blur bridge blends them into one
-     screen changing (same recipe as .ftour-phone img). The drop-shadow is held
-     identical in both states so only the blur interpolates. */
-  transition:
-    opacity 0.45s var(--ease-out),
-    filter 0.45s var(--ease-out);
-  filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32)) blur(2px);
-}
-
-.home-v3 .hv3-tour-phone img.is-active {
-  opacity: 1;
-  filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32)) blur(0px);
-}
-
-.home-v3 .hv3-tour-list {
-  position: relative;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* The road, in miniature: a dashed line threading the numbers. */
-.home-v3 .hv3-tour-list::before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  left: 16px;
-  width: 2px;
-  background: repeating-linear-gradient(
-    180deg,
-    var(--hv3-rail) 0 8px,
-    transparent 8px 16px
-  );
-}
-
-.home-v3 .hv3-tour-step {
-  position: relative;
-  border-bottom: 0.5px solid var(--color-hairline, var(--color-border-light));
-}
-
-.home-v3 .hv3-tour-step:last-child {
-  border-bottom: none;
-}
-
-.home-v3 .hv3-tour-step button {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  padding: 13px 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-}
-
-.home-v3 .hv3-tour-num {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-bg);
-  border: 2px solid var(--hv3-rail);
-  color: var(--color-primary);
-  font-size: 13px;
-  font-weight: 700;
-  transition:
-    background var(--dur) var(--ease-out),
-    color var(--dur) var(--ease-out),
-    border-color var(--dur) var(--ease-out);
-}
-
-.home-v3 .hv3-tour-step.is-active .hv3-tour-num {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-
-.home-v3 .hv3-tour-step-title {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--color-text-secondary);
-  transition: color var(--dur) var(--ease-out);
-}
-
-.home-v3 .hv3-tour-step.is-active .hv3-tour-step-title {
-  color: var(--color-text);
-  font-weight: 700;
-}
-
-/* Body copy expands under the active title (grid-rows trick keeps the
-   collapse smooth without hard-coded heights). */
-.home-v3 .hv3-tour-step-reveal {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s var(--ease-out);
-}
-
-.home-v3 .hv3-tour-step.is-active .hv3-tour-step-reveal {
-  grid-template-rows: 1fr;
-}
-
-.home-v3 .hv3-tour-step-body {
-  overflow: hidden;
-  min-height: 0;
-  margin: 0 0 0 48px;
-  padding-bottom: 0;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-out);
-}
-
-.home-v3 .hv3-tour-step.is-active .hv3-tour-step-body {
-  padding-bottom: 14px;
-  opacity: 1;
-}
-
-/* Clickability affordance: rows brighten on hover, and while the tour is
-   auto-advancing the active row carries a thin countdown bar that fills
-   over the 4.5s interval (duration mirrors RoadSection's 4500ms). The bar
-   disappears once the visitor clicks, because nothing will change on its
-   own after that. */
-@media (hover: hover) and (pointer: fine) {
-  .home-v3 .hv3-tour-step button:hover .hv3-tour-step-title {
-    color: var(--color-text);
-  }
-
-  .home-v3 .hv3-tour-step button:hover .hv3-tour-num {
-    border-color: var(--color-primary);
-  }
-}
-
-/* Press feedback on the station rows: the tap reads before the phone
-   changes screens. Feedback, not motion — stays on under reduced motion. */
-.home-v3 .hv3-tour-step button {
-  transition: transform var(--dur-press) var(--ease-out);
-}
-
-.home-v3 .hv3-tour-step button:active {
-  transform: scale(0.99);
-}
-
-.home-v3 .hv3-tour-progress {
-  position: absolute;
-  bottom: -1px;
-  left: 48px;
-  right: 0;
-  height: 2px;
-  overflow: hidden;
-  display: none;
-}
-
-.home-v3 .hv3-tour-progress::after {
-  content: "";
-  display: block;
-  height: 100%;
-  background: var(--color-primary-light);
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress {
-  display: block;
-}
-
-html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::after {
-  animation: hv3Countdown 4.5s linear both;
-}
-
-/* On hover the interval pauses and restarts in full, so the bar resets
-   with it instead of resuming out of sync. */
-.home-v3 .hv3-tour--paused .hv3-tour-step.is-active .hv3-tour-progress::after {
-  animation: none;
-}
-
-@keyframes hv3Countdown {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-/* Phone widths: the scroll drives the tour (Home.jsx observer), so every
-   body stays visible for stable row heights, and the countdown — which
-   belongs to the desktop timer — never shows. */
-@media (max-width: 899px) {
-  .home-v3 .hv3-tour-step button {
-    padding: 16px 0 4px;
-  }
-
-  .home-v3 .hv3-tour-step-reveal {
-    grid-template-rows: 1fr;
-  }
-
-  .home-v3 .hv3-tour-step-body {
-    padding-bottom: 16px;
-    opacity: 1;
-  }
-
-  .home-v3 .hv3-tour-progress {
-    display: none !important;
-  }
-}
-
-.home-v3 .hv3-story-foot--road {
-  justify-content: center;
-  margin-top: 48px;
-}
-
-.home-v3 .hv3-story-footnote--road {
-  text-align: center;
-}
-
-@media (min-width: 900px) {
-  .home-v3 .hv3-tour {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    column-gap: 96px;
-    align-items: center;
-  }
-
-  .home-v3 .hv3-tour-list {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .home-v3 .hv3-tour-phone {
-    grid-column: 2;
-    grid-row: 1;
-    position: relative;
-    top: 0;
-    width: min(290px, 100%);
-    height: auto;
-    aspect-ratio: 0.483;
-    margin: 0 auto;
-    background: none;
-  }
-
-  .home-v3 .hv3-tour-phone img {
-    inset: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    height: 100%;
-  }
-
-  .home-v3 .hv3-tour-step button {
-    padding: 15px 0;
-  }
-
-  .home-v3 .hv3-tour-step-title {
-    font-size: 17px;
-  }
 }
 
 /* ═══════════ Proof strip (2026-08-06 conversion pass) ═══════════ */
@@ -763,119 +432,6 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
   .home-v3 .hv3-diff-cell { padding: 20px 22px; }
 }
 
-/* ═══════════ AI showcase band ═══════════ */
-.home-v3 .hv3-ai {
-  padding: 104px 0;
-  background: linear-gradient(180deg, rgba(220, 242, 251, 0.35) 0%, rgba(220, 242, 251, 0.12) 100%);
-}
-
-.home-v3 .hv3-ai-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-}
-
-.home-v3 .hv3-ai-card {
-  padding: 26px;
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.home-v3 .hv3-ai-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-
-.home-v3 .hv3-ai-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 11px;
-  border-radius: var(--radius-full);
-  background: var(--color-sage-bg);
-  color: var(--color-primary);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.home-v3 .hv3-ai-card-title {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.35;
-  color: var(--color-text);
-  margin: 0 0 8px;
-}
-
-.home-v3 .hv3-ai-card-body {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-/* ═══════════ Feature grid ═══════════ */
-.home-v3 .hv3-grid-section { padding: 104px 0; }
-
-.home-v3 .hv3-grid {
-  display: grid;
-  /* Three columns on desktop rather than four: nine tiles fill 3x3 exactly,
-     and the wider card stops every second description wrapping to four lines.
-     min(300px, 100%) rather than a bare 300px so a 320px phone cannot push
-     the track wider than its container and give the page a sideways scroll. */
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 16px;
-}
-
-.home-v3 .hv3-grid-card {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 20px;
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .home-v3 .hv3-grid-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-}
-
-.home-v3 .hv3-grid-icon {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  background: var(--color-sage-bg);
-  color: var(--color-primary);
-}
-
-.home-v3 .hv3-grid-title {
-  font-size: 15.5px;
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0 0 4px;
-}
-
-.home-v3 .hv3-grid-desc {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
 /* ═══════════ Compressed Tally trust band ═══════════ */
 .home-v3 .hv3-tally { padding: 104px 0; background: var(--grad-ink); }
 
@@ -949,59 +505,24 @@ html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::af
 }
 
 /* ═══════════ Responsive ═══════════ */
-@media (max-width: 1023px) {
-  .home-v3 .hv3-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
-  .home-v3 .hv3-step:not(:last-child)::before { display: none; }
-}
-
 @media (max-width: 767px) {
-  .home-v3 .hv3-hero { padding: 118px 0 56px; }
-  .home-v3 .hv3-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-v3 .hv3-hero-sub { font-size: 17px; }
-  .home-v3 .hv3-hero-ctas { width: 100%; flex-direction: column; align-items: stretch; }
-  .home-v3 .hv3-hero-ctas .cta-btn { justify-content: center; }
-  .home-v3 .hv3-hero-stats { gap: 28px; }
-  .home-v3 .hv3-hero-visual { padding: 34px 14px; border-radius: 28px; }
-  .home-v3 .hv3-hero-phone { width: 216px; }
-  .home-v3 .hv3-hero-chip { font-size: 12px; padding: 8px 11px; }
-  .home-v3 .hv3-hero-chip--1 { top: 6%; right: 2%; }
-  .home-v3 .hv3-hero-chip--2 { bottom: 8%; left: 2%; }
-
-  .home-v3 .hv3-story,
-  .home-v3 .hv3-ai,
-  .home-v3 .hv3-grid-section,
   .home-v3 .hv3-tally { padding: 72px 0; }
   .home-v3 .hv3-story-head { margin-bottom: 44px; }
-  .home-v3 .hv3-rail { grid-template-columns: 1fr; gap: 36px; }
-  .home-v3 .hv3-step { flex-direction: row; gap: 16px; align-items: flex-start; }
-  .home-v3 .hv3-step-num { flex-shrink: 0; margin-bottom: 0; }
-  .home-v3 .hv3-step-content { flex: 1; }
-  .home-v3 .hv3-step-phone { width: min(180px, 60%); margin: 14px 0 0; }
   .home-v3 .hv3-tally-points { grid-template-columns: 1fr; }
 }
 
 /* ═══════════ Reduced motion: everything above goes still ═══════════ */
 @media (prefers-reduced-motion: reduce) {
-  html.js .home-v3 .hv3-hero-copy > *,
-  html.js .home-v3 .hv3-hero-visual {
-    animation: none !important;
+  /* The hero copy still changes with the phone — a swap that cut instantly
+     would be harder to follow, not calmer — so the fade stays and only the
+     blur goes. Blur is the part that reads as motion. */
+  .home-v3 .hv3-hero-swap {
+    filter: none;
+    transition: opacity 200ms var(--ease-out);
+
+    @starting-style {
+      opacity: 0;
+      filter: none;
+    }
   }
-  /* The tour switches instantly: no crossfade, no expand animation.
-     (Auto-advance is already JS-gated on the same media query.) */
-  .home-v3 .hv3-tour-phone img,
-  .home-v3 .hv3-tour-num,
-  .home-v3 .hv3-tour-step-title,
-  .home-v3 .hv3-tour-step-reveal,
-  .home-v3 .hv3-tour-step-body { transition: none; }
-  /* With no transition the blur would simply be the resting state of every
-     inactive screen, which is a permanently soft phone, not a still one. */
-  .home-v3 .hv3-tour-phone img {
-    filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32));
-  }
-  /* No auto-advance under reduced motion, so no countdown either. */
-  html.js .home-v3 .hv3-tour--auto .hv3-tour-step.is-active .hv3-tour-progress::after {
-    animation: none;
-  }
-  .home-v3 .hv3-grid-card { transition: none; }
-  .home-v3 .hv3-grid-card:hover { transform: none; }
 }

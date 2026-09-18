@@ -1,39 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
-  Bell,
-  Building,
-  Camera,
   Check,
-  ClipboardList,
-  Clock,
   Download,
-  FileCheck,
-  FileText,
-  IndianRupee,
-  Link2,
-  MessageCircle,
   MonitorCheck,
   RefreshCw,
-  Share2,
   Shield,
   ShieldCheck,
-  Sparkles,
   BadgeCheck,
   Database,
-  Truck,
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
-import CountUp from '../components/CountUp';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
+import PlayablePhone from '../components/PlayablePhone';
+import FollowOneInvoice from '../components/FollowOneInvoice';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
+import { HOTSPOTS, JOBS, HERO_HOME } from '../data/heroHotspots';
 import {
   appLinks,
   pricing,
@@ -42,42 +30,13 @@ import {
   planPriceRange,
   formatInr,
   heroContent,
-  storyOrderToCash,
-  storyTeamSales,
-  aiImport,
-  featureGridV3,
   tallyTrust,
   homeFaqItems,
   testimonials,
   trustSection,
-  demoEntryLive,
   proofStrip,
   differentiators,
 } from '../data/siteContent';
-
-const gridIconMap = {
-  fileText: FileText,
-  fileCheck: FileCheck,
-  bell: Bell,
-  shield: Shield,
-  clock: Clock,
-  truck: Truck,
-  building: Building,
-  chart: BarChart3,
-  share: Share2,
-  link: Link2,
-};
-
-// Exported for home-v3.test.jsx. The lookup below falls back to a tick, so an
-// unmapped key renders a plausible wrong icon rather than an obvious hole;
-// the test needs the key list to catch that.
-export const GRID_ICON_KEYS = Object.keys(gridIconMap);
-
-const aiIconMap = {
-  camera: Camera,
-  clipboard: ClipboardList,
-  building: Building,
-};
 
 const tallyIconMap = {
   refresh: RefreshCw,
@@ -105,246 +64,12 @@ const HOME_SEO = {
   path: '/',
 };
 
-// One story section = header + numbered step rail + a WhatsApp CTA.
-// A step renders its phone only when a screenshot exists, so a story keeps
-// working while a capture is pending (story 2 step 3 is text-only today).
-function StorySection({ story, alt = false, ctaContext }) {
-  return (
-    <section className={`hv3-story${alt ? ' hv3-story--alt' : ''}`} id={story.id}>
-      <div className="container">
-        <div className="hv3-story-head reveal">
-          <span className="section-label">{story.overline}</span>
-          <h2 className="hv3-story-title">{story.heading}</h2>
-          <p className="hv3-story-intro">{story.intro}</p>
-        </div>
-        {/* Column count follows the data so a future 3- or 5-step story
-            keeps its connector geometry. */}
-        <div className="hv3-rail" style={{ '--hv3-steps': story.steps.length }}>
-          {story.steps.map((step, i) => (
-            <div key={step.title} className="hv3-step reveal">
-              <span className="hv3-step-num tabular-nums" aria-hidden="true">{i + 1}</span>
-              <div className="hv3-step-content">
-                {step.screenshot && (
-                  <div className="hv3-step-phone">
-                    <img
-                      src={step.screenshot}
-                      alt={step.screenshotAlt || ''}
-                      width={step.screenshotWidth}
-                      height={step.screenshotHeight}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                )}
-                <h3 className="hv3-step-title">{step.title}</h3>
-                <p className="hv3-step-body">{step.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* WhatsAppCTA renders nothing under the site-wide kill switch
-            (empty whatsappNumber), so the calendar link keeps the story
-            from ending in a dead end (§11.6). */}
-        <div className="hv3-story-foot reveal">
-          <WhatsAppCTA context={ctaContext} variant={alt ? 'primary' : 'outline'}>
-            {story.ctaLine}
-          </WhatsAppCTA>
-          <CalendarCTA context={ctaContext} variant="link" />
-        </div>
-        {story.footnote && <p className="hv3-story-footnote reveal">{story.footnote}</p>}
-      </div>
-    </section>
-  );
-}
-
-// The signature centerpiece (2026-08-04): the order-to-cash tour. The whole
-// journey fits one screen: a numbered station list on the left, one phone on
-// the right that crossfades between screens. Auto-advances every few seconds
-// so the full journey shows itself; a click takes over and stops the tour
-// (motion reasons in home.css header). On phones the device sticks to the
-// top while the list scrolls under it.
-function RoadSection({ story, ctaContext }) {
-  const [active, setActive] = useState(0);
-  const [userDrove, setUserDrove] = useState(false);
-  const [paused, setPaused] = useState(false);
-  // The tour used to start its clock at page load, several screens above the
-  // fold, so by the time a reader scrolled down to it the story was already
-  // mid-way through at whichever station the timer happened to be on. It now
-  // waits until it is actually being looked at (2026-08-12).
-  // Starts false on both sides of the render, never `typeof
-  // IntersectionObserver === 'undefined'`: that expression is true in Node and
-  // false in the browser, and the resulting hydration mismatch left the
-  // markup carrying the server's class list while state said otherwise, so
-  // the section rendered as awake while the timer was asleep.
-  const [inView, setInView] = useState(false);
-  const listRef = useRef(null);
-  const tourRef = useRef(null);
-  const lastScrollAt = useRef(0);
-
-  // Scrolling means the reader is moving through the page, not dwelling on a
-  // station, so it releases the hover pause and suppresses the mousemove that
-  // caused it. Chrome fires mousemove while the page scrolls under a
-  // stationary cursor, so without this the tour re-paused on every scroll and
-  // only ever released when the reader physically moved the pointer off the
-  // section. Measured in a real browser on 2026-08-13: the tour was paused for
-  // all but 3 seconds of a 13-second read, and never got the 4.5s of clear air
-  // it needs to advance even once.
-  useEffect(() => {
-    const onScroll = () => {
-      lastScrollAt.current = Date.now();
-      setPaused((prev) => (prev ? false : prev));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const node = tourRef.current;
-    if (!node) return undefined;
-    // No observer (old browsers, jsdom): fall back to today's behavior and
-    // let the timer run, rather than silently killing the tour.
-    if (typeof IntersectionObserver === 'undefined') {
-      setInView(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      // "Any part of the tour is crossing the middle band of the viewport",
-      // NOT "35% of the tour is on screen" (2026-08-13). A ratio threshold is
-      // unsatisfiable whenever the section is tall relative to the window:
-      // 35% of a 650px tour is 228px, but the section grows past 2000px as it
-      // reflows on a narrow or zoomed window, and then no amount of scrolling
-      // ever reaches the threshold and the tour stays switched off for good.
-      // A margin band cannot fail that way, whatever the section's height, and
-      // it is the geometry the mobile station observer below already uses.
-      { rootMargin: '-25% 0px -25% 0px', threshold: 0 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  // Desktop only: the timed tour. On phones the scroll drives the stations
-  // (below), so a timer would fight the reader's thumb.
-  useEffect(() => {
-    if (userDrove || paused || !inView) return undefined;
-    if (!window.matchMedia?.('(min-width: 900px)').matches) return undefined;
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const timer = setInterval(
-      () => setActive((current) => (current + 1) % story.stations.length),
-      4500
-    );
-    return () => clearInterval(timer);
-  }, [userDrove, paused, inView, story.stations.length]);
-
-  // Mobile: the station scrolled under the sticky phone becomes active, so
-  // the phone changes screens as the reader moves down the list.
-  useEffect(() => {
-    if (window.matchMedia?.('(min-width: 900px)').matches) return undefined;
-    const steps = [...(listRef.current?.querySelectorAll('.hv3-tour-step') ?? [])];
-    if (!steps.length || typeof IntersectionObserver === 'undefined') return undefined;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(steps.indexOf(entry.target));
-        }
-      },
-      // A band just under the sticky phone: the row crossing it is active.
-      { rootMargin: '-45% 0px -45% 0px' }
-    );
-    steps.forEach((step) => observer.observe(step));
-    return () => observer.disconnect();
-  }, [story.stations.length]);
-
-  return (
-    <section className="hv3-story hv3-story--road" id={story.id}>
-      <div className="container">
-        <div className="hv3-story-head reveal">
-          <span className="section-label">{story.overline}</span>
-          <h2 className="hv3-story-title">{story.heading}</h2>
-          <p className="hv3-story-intro">{story.intro}</p>
-        </div>
-        {/* The reveal class lives on its own wrapper: the inner div's class
-            list changes with state, and a React re-render would strip the
-            is-visible flag the scroll observer adds to the same element. */}
-        <div className="reveal">
-        <div
-          ref={tourRef}
-          /* --paused carries "not in view" as well as hover. It is what stops
-             the countdown bar, and a bar filling off-screen would greet the
-             arriving reader half-drawn against a timer that just started. */
-          className={`hv3-tour${!userDrove ? ' hv3-tour--auto' : ''}${paused || !inView ? ' hv3-tour--paused' : ''}`}
-          /* Pause on the pointer MOVING over the tour, and only when that
-             movement is the reader's own rather than the page scrolling
-             underneath them. Both halves are load-bearing (2026-08-13):
-             mouseenter alone fires when the section slides under a resting
-             cursor, and mousemove alone still fires on every scroll, because
-             Chrome re-targets the pointer as the page moves. Either one on its
-             own leaves the tour permanently paused for a trackpad reader whose
-             cursor sits mid-screen, which is where the section arrives.
-
-             Touch fires these on tap and never mouseleave, which would pause
-             the tour permanently — so only a real hovering pointer pauses it. */
-          onMouseMove={() => {
-            if (paused) return;
-            if (Date.now() - lastScrollAt.current < 250) return;
-            if (window.matchMedia?.('(hover: hover)').matches) setPaused(true);
-          }}
-          onMouseLeave={() => setPaused(false)}
-        >
-          <div className="hv3-tour-phone">
-            {story.stations.map((station, i) => (
-              <img
-                key={station.title}
-                src={station.screenshot}
-                alt={station.screenshotAlt}
-                className={i === active ? 'is-active' : undefined}
-                aria-hidden={i !== active}
-                loading={i === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-              />
-            ))}
-          </div>
-          <ol className="hv3-tour-list" ref={listRef}>
-            {story.stations.map((station, i) => (
-              <li
-                key={station.title}
-                className={`hv3-tour-step${i === active ? ' is-active' : ''}`}
-              >
-                <button
-                  type="button"
-                  aria-expanded={i === active}
-                  aria-controls={`hv3-tour-body-${i}`}
-                  onClick={() => {
-                    setActive(i);
-                    setUserDrove(true);
-                  }}
-                >
-                  <span className="hv3-tour-num tabular-nums" aria-hidden="true">{i + 1}</span>
-                  <span className="hv3-tour-step-title">{station.title}</span>
-                </button>
-                <div className="hv3-tour-step-reveal" id={`hv3-tour-body-${i}`}>
-                  <p className="hv3-tour-step-body">{station.body}</p>
-                </div>
-                {/* Fills over the auto-advance interval so the row visibly
-                    counts down to the next station (duration mirrors the
-                    4500ms interval above). */}
-                <span className="hv3-tour-progress" aria-hidden="true" />
-              </li>
-            ))}
-          </ol>
-        </div>
-        </div>
-        <div className="hv3-story-foot hv3-story-foot--road reveal">
-          <WhatsAppCTA context={ctaContext}>{story.ctaLine}</WhatsAppCTA>
-          <CalendarCTA context={ctaContext} variant="link" />
-        </div>
-        {story.footnote && <p className="hv3-story-footnote hv3-story-footnote--road reveal">{story.footnote}</p>}
-      </div>
-    </section>
-  );
-}
-
 function Home({ seo = HOME_SEO }) {
+  // Which hotspot the visitor has open, or null for the home screen. The whole
+  // hotspot object, not its key: the phone hands it over on a tap and the copy
+  // beside it is read straight off the same object, so the two cannot drift.
+  const [hot, setHot] = useState(null);
+  const copy = hot ?? HERO_HOME;
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
   // Which plan column the narrow-viewport table shows. Desktop ignores it.
@@ -360,71 +85,64 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 
-      {/* ── Hero: split editorial — promise left, product right ── */}
+      {/* ── Hero: the playable phone in the middle, its copy on the left and
+             the jobs it does on the right. The server render is the home state
+             (hot starts null), so a crawler and a no-JS visitor both get the
+             real headline and a phone that simply shows the home screen. ── */}
       <section className="hv3-hero" id="product">
-        <div className="container">
-          <div className="hv3-hero-grid">
-            <div className="hv3-hero-copy">
-              <span className="section-label hero-overline">{heroContent.overline}</span>
-              <h1 className="hero-title">
-                <span className="hv3-hero-lead">{heroContent.titleLead}</span>{' '}
-                <span className="hero-title-accent hv3-hero-accent">{heroContent.titleAccent}</span>
-              </h1>
-              <p className="hv3-hero-sub">{heroContent.subtitle}</p>
-              <div className="hv3-hero-ctas">
-                {demoEntryLive ? (
-                  <>
-                    <DemoTryCTA context="home-hero" />
-                    <WhatsAppCTA context="home-hero" variant="secondary" />
-                  </>
-                ) : (
-                  <>
-                    <WhatsAppCTA context="home-hero" />
-                    <CalendarCTA context="home-hero" />
-                  </>
-                )}
-              </div>
-              <div className="hv3-hero-stats">
-                {heroContent.stats.map((s) => (
-                  <div key={s.label} className="hv3-stat">
-                    <span className="hv3-stat-value tabular-nums">
-                      <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
-                    </span>
-                    <span className="hv3-stat-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hv3-hero-visual">
-              <div className="hv3-hero-phone">
-                <img
-                  src="/assets/screenshots/home-screen-framed.webp"
-                  alt="Takkada home screen showing receivables dashboard"
-                  width={800}
-                  height={1624}
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              <span className="hv3-hero-chip hv3-hero-chip--1" aria-hidden="true">
-                <MessageCircle size={15} /> Invoice sent on WhatsApp
+        <div className="hv3-hero-grid">
+          <div className="hv3-hero-copy">
+            {/* Keyed on the open hotspot so React remounts the block and
+                @starting-style can fire: this is the blur crossfade between one
+                screen's copy and the next. No aria-live here — the phone
+                announces "Showing <label>" from its own region, and a second
+                one would read the whole headline over the top of it. */}
+            <div className="hv3-hero-swap" key={hot?.key ?? 'home'}>
+              <span className="section-label hero-overline">
+                {hot ? hot.overline : heroContent.overline}
               </span>
-              <span className="hv3-hero-chip hv3-hero-chip--2" aria-hidden="true">
-                <IndianRupee size={15} /> Payment matched in Tally
-              </span>
+              <h1 className="hero-title">{copy.headline}</h1>
+              <p className="hero-subtitle">{copy.body}</p>
             </div>
+            <div className="hv3-hero-cta">
+              <DemoTryCTA context="hero" />
+              {hot && (
+                <Link className="hv3-hero-more" to={hot.href}>
+                  See how it works <span aria-hidden="true">→</span>
+                </Link>
+              )}
+            </div>
+            <p className="hv3-hero-promise">{heroContent.promise}</p>
+          </div>
+          <PlayablePhone activeKey={hot?.key ?? null} onChange={setHot} />
+          {/* Outside the phone by design: the phone owns its hotspots and its
+              Back pill, and another button inside that layer would sit in the
+              same stack as the screens. Pressing the open job closes it, so
+              each button is a real toggle rather than a one-way switch. */}
+          <div className="hv3-hero-jobs" role="group" aria-label="Pick a job to see its screen">
+            <span className="hv3-hero-jobs-label">Or pick a job</span>
+            {JOBS.map((j) => (
+              <button
+                key={j.key}
+                type="button"
+                className={`hv3-job${hot?.key === j.key ? ' is-on' : ''}`}
+                aria-pressed={hot?.key === j.key}
+                onClick={() =>
+                  setHot(hot?.key === j.key ? null : HOTSPOTS.find((h) => h.key === j.key))
+                }
+              >
+                {j.label}
+                <small>{j.hint}</small>
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Story 1: the order-to-cash road (the signature centerpiece) ── */}
-      <RoadSection story={storyOrderToCash} ctaContext="story-order-to-cash" />
-
       {/* ── Proof strip: the customer's voice + the confirmed scale figure,
-             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The
-             stat renders static here — the hero already counted it up,
-             and a second count would be decoration without a reason. ── */}
+             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The stat
+             renders static: the hero is a phone to play with now, not a wall of
+             figures, and this is the page's only place for the number. ── */}
       <section className="hv3-proof" id={proofStrip.id}>
         <div className="container">
           <div className="hv3-proof-card reveal">
@@ -451,64 +169,11 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── Story 2: Team Sales / the field day ── */}
-      <StorySection story={storyTeamSales} alt ctaContext="story-team-sales" />
-
-      {/* ── AI showcase: the three places the AI does the typing ── */}
-      <section className="hv3-ai" id={aiImport.id}>
-        <div className="container">
-          <div className="hv3-story-head reveal">
-            <span className="section-label">{aiImport.overline}</span>
-            <h2 className="hv3-story-title">{aiImport.heading}</h2>
-            <p className="hv3-story-intro">{aiImport.intro}</p>
-          </div>
-          <div className="hv3-ai-cards reveal">
-            {aiImport.cards.map((card) => {
-              const Icon = aiIconMap[card.icon] || Camera;
-              return (
-                <div key={card.title} className="hv3-ai-card">
-                  <div className="hv3-ai-card-top">
-                    <div className="hv3-grid-icon">
-                      <Icon size={20} />
-                    </div>
-                    <span className="hv3-ai-chip">
-                      <Sparkles size={12} /> AI reads it
-                    </span>
-                  </div>
-                  <h3 className="hv3-ai-card-title">{card.title}</h3>
-                  <p className="hv3-ai-card-body">{card.body}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Everything else: the compact grid ── */}
-      <section className="hv3-grid-section" id="features">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">And The Rest</span>
-            <h2 className="section-title">Every capability you will actually use</h2>
-          </div>
-          <div className="hv3-grid">
-            {featureGridV3.map((f) => {
-              const Icon = gridIconMap[f.icon] || Check;
-              return (
-                <div key={f.id} className="hv3-grid-card" id={f.id}>
-                  <div className="hv3-grid-icon">
-                    <Icon size={20} />
-                  </div>
-                  <div>
-                    <h3 className="hv3-grid-title">{f.title}</h3>
-                    <p className="hv3-grid-desc">{f.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* ── The one story: follow one invoice from the counter to Tally. It
+             replaces the two story sections, the AI band and the capability
+             grid (2026-09-18): one invoice, seven true stops, and the feature
+             pages hanging off the stop each of them belongs to. ── */}
+      <FollowOneInvoice />
 
       {/* ── Compressed Tally trust band ── */}
       <section className="hv3-tally" id="tally">

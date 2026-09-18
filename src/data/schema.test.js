@@ -16,13 +16,11 @@ import {
   pricing,
   testimonials,
   heroContent,
-  storyOrderToCash,
-  aiImport,
-  storyTeamSales,
-  featureGridV3,
   tallyTrust,
   homeFaqItems,
 } from './siteContent';
+import { HERO_HOME, HOTSPOTS } from './heroHotspots';
+import { STOPS } from './journey';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -160,6 +158,21 @@ describe('pricing matrix', () => {
     }
   });
 
+  // Every string the homepage renders from data. The two story objects, the AI
+  // band and the capability grid were retired on 2026-09-18 and their copy now
+  // comes from the hero hotspots and the journey stops, so those replace them
+  // here. `pricing` joins the set because it renders on this same page and
+  // carries the own-number add-on line the guard below must keep honest.
+  const HOME_COPY = {
+    heroContent,
+    HERO_HOME,
+    HOTSPOTS,
+    STOPS,
+    tallyTrust,
+    homeFaqItems,
+    pricing,
+  };
+
   it('claims nothing unclaimable in the Home v3 copy', () => {
     // Claims discipline for the 2026-08-03 homepage rebuild. Verified against
     // prod company_feature_entitlements on 2026-08-03; re-verify on publish day.
@@ -167,15 +180,7 @@ describe('pricing matrix', () => {
     //   say "share credit notes in a tap", never "auto" anything.
     // - Reminders from the distributor's own WhatsApp number are built with
     //   ZERO enabled customers: only "early access" wording is allowed.
-    const v3Copy = JSON.stringify({
-      heroContent,
-      storyOrderToCash,
-      storyTeamSales,
-      aiImport,
-      featureGridV3,
-      tallyTrust,
-      homeFaqItems,
-    });
+    const v3Copy = JSON.stringify(HOME_COPY);
 
     expect(v3Copy).not.toMatch(/auto[- ]?(send|dispatch)\w*[^.]{0,60}credit note/i);
     expect(v3Copy).not.toMatch(/credit note[^.]{0,60}automatic/i);
@@ -198,15 +203,7 @@ describe('pricing matrix', () => {
   });
 
   it('keeps banned superlatives out of the Home v3 copy', () => {
-    const v3Copy = JSON.stringify({
-      heroContent,
-      storyOrderToCash,
-      storyTeamSales,
-      aiImport,
-      featureGridV3,
-      tallyTrust,
-      homeFaqItems,
-    }).toLowerCase();
+    const v3Copy = JSON.stringify(HOME_COPY).toLowerCase();
     for (const token of [
       'seamless',
       'world-class',

@@ -10,16 +10,10 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
-import Home, { GRID_ICON_KEYS } from '../Home';
-import {
-  navLinks,
-  footerColumns,
-  demoEntryLive,
-  storyOrderToCash,
-  storyTeamSales,
-  featureGridV3,
-} from '../../data/siteContent';
-import { whatsappHref, WHATSAPP_MESSAGES } from '../../lib/whatsapp';
+import Home from '../Home';
+import { navLinks, footerColumns, demoEntryLive, heroContent } from '../../data/siteContent';
+import { HERO_HOME, HOTSPOTS, JOBS } from '../../data/heroHotspots';
+import { STOPS } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -37,156 +31,113 @@ function renderHome() {
   );
 }
 
+const jobButton = (container, key) =>
+  [...container.querySelectorAll('.hv3-hero-jobs .hv3-job')][JOBS.findIndex((j) => j.key === key)];
+
 describe('Home v3 structure (AE1)', () => {
-  it('tells the page story through headings alone: promise, collections, team sales, grid', () => {
+  it('tells the page story through headings alone: the phone, then one invoice, stop by stop', () => {
     const { container } = renderHome();
-    const headings = [...container.querySelectorAll('h1, h2')].map((h) => h.textContent);
-    const all = headings.join(' | ');
-    expect(all).toContain('Get paid without chasing.');
-    expect(all).toContain(storyOrderToCash.heading);
-    expect(all).toContain(storyTeamSales.heading);
-    expect(all).toContain('Every capability you will actually use');
+    const h1s = [...container.querySelectorAll('h1')];
+    // The server render is the home state, so a crawler and a no-JS visitor
+    // both get the real headline rather than an empty shell.
+    expect(h1s.map((h) => h.textContent)).toEqual([HERO_HOME.headline]);
+
+    const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
+    expect(h2s).toContain('From the order at the counter to the receipt in Tally.');
+
+    const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
+    for (const stop of STOPS) {
+      expect(h3s, `no heading for the ${stop.id} stop`).toContain(stop.headline);
+    }
   });
 
-  it('renders the order-to-cash tour: every station numbered in order, each with its mockup', () => {
+  it('renders the one story as seven stops inside #digital-collection', () => {
     const { container } = renderHome();
-    const steps = [...container.querySelectorAll('#digital-collection .hv3-tour-step')];
-    expect(steps).toHaveLength(storyOrderToCash.stations.length);
-    steps.forEach((step, i) => {
-      expect(step.querySelector('.hv3-tour-num')?.textContent).toBe(String(i + 1));
-      expect(step.querySelector('.hv3-tour-step-title')?.textContent).toBe(
-        storyOrderToCash.stations[i].title
-      );
-    });
-    const imgs = [...container.querySelectorAll('#digital-collection .hv3-tour-phone img')];
-    expect(imgs.map((img) => img.getAttribute('src'))).toEqual(
-      storyOrderToCash.stations.map((s) => s.screenshot)
-    );
-    for (const img of imgs) expect(img.getAttribute('alt')).toBeTruthy();
-    // Station 1 leads the tour on load.
-    expect(steps[0].className).toContain('is-active');
+    const stops = [...container.querySelectorAll('#digital-collection article')];
+    expect(stops).toHaveLength(STOPS.length);
+    expect(stops.map((s) => s.id)).toEqual(STOPS.map((s) => `stop-${s.id}`));
   });
 
-  // The road auto-advanced from page load, several screens above where it
-  // sits, so a reader arriving at it found the story already mid-way through
-  // (2026-08-12). It now waits until it is in view. Both halves are asserted
-  // because the first attempt got this wrong in a way nothing caught: the
-  // initial state was `typeof IntersectionObserver === 'undefined'`, which is
-  // true in the prerender and false in the browser, and the hydration mismatch
-  // left the markup saying "awake" while the timer stayed asleep.
-  describe('the order-to-cash road wakes on scroll', () => {
-    const tourClass = (container) =>
-      container.querySelector('#digital-collection .hv3-tour').className;
-
-    it('renders asleep until the observer says the reader has arrived', () => {
-      // Several components on this page observe something, so the stub has to
-      // satisfy the whole interface, not just the calls RoadSection makes.
-      const observe = vi.fn();
-      class ObserverStub {
-        constructor(callback) {
-          this.callback = callback;
-        }
-        observe = observe;
-        unobserve = vi.fn();
-        disconnect = vi.fn();
-        takeRecords = () => [];
-      }
-      vi.stubGlobal('IntersectionObserver', ObserverStub);
-      // Handing jsdom an observer wakes CountUp's effect too, and that one
-      // calls window.matchMedia unguarded. jsdom does not implement it, so a
-      // browser-shaped stub stands in.
-      vi.stubGlobal('matchMedia', () => ({
-        matches: false,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-      }));
-      const { container } = renderHome();
-      // Observed, and nothing reported in view yet, so the timer is gated.
-      expect(observe).toHaveBeenCalled();
-      expect(tourClass(container)).toContain('hv3-tour--paused');
-      vi.unstubAllGlobals();
-    });
-
-    // Scrolling the tour under a resting cursor fires mouseenter, so pausing
-    // on mouseenter froze the tour the moment it woke and held it there until
-    // the reader moved the mouse off the section (2026-08-13). It reads as a
-    // dead section, and on a trackpad it is the common case, not the edge one.
-    it('does not pause when the section arrives under a still cursor', () => {
-      vi.stubGlobal('matchMedia', () => ({ matches: true }));
-      const { container } = renderHome();
-      const tour = container.querySelector('#digital-collection .hv3-tour');
-      fireEvent.mouseEnter(tour);
-      expect(tourClass(container)).not.toContain('hv3-tour--paused');
-      // A pointer that actually moves over it is a reader, so that still pauses.
-      fireEvent.mouseMove(tour);
-      expect(tourClass(container)).toContain('hv3-tour--paused');
-      fireEvent.mouseLeave(tour);
-      expect(tourClass(container)).not.toContain('hv3-tour--paused');
-      vi.unstubAllGlobals();
-    });
-
-    // Chrome re-targets the pointer as the page moves, so a scroll fires
-    // mousemove even when the reader's hand never left the trackpad. Measured
-    // in a real browser 2026-08-13: the tour was paused for all but 3 seconds
-    // of a 13-second read and never got the 4.5s of clear air it needs to
-    // advance once. Scrolling means moving through the page, not dwelling.
-    it('ignores the mousemove a scroll generates, and unpauses on scroll', () => {
-      vi.stubGlobal('matchMedia', () => ({ matches: true }));
-      const { container } = renderHome();
-      const tour = container.querySelector('#digital-collection .hv3-tour');
-
-      // A real hover pauses it.
-      fireEvent.mouseMove(tour);
-      expect(tourClass(container)).toContain('hv3-tour--paused');
-
-      // Scrolling releases that pause without the pointer going anywhere.
-      fireEvent.scroll(window);
-      expect(tourClass(container)).not.toContain('hv3-tour--paused');
-
-      // And the mousemove the scroll itself generates must not re-pause it.
-      fireEvent.mouseMove(tour);
-      expect(tourClass(container)).not.toContain('hv3-tour--paused');
-      vi.unstubAllGlobals();
-    });
-
-    it('falls back to running immediately where there is no observer', () => {
-      vi.stubGlobal('IntersectionObserver', undefined);
-      const { container } = renderHome();
-      // Old browsers and jsdom keep the pre-2026-08-12 behavior rather than
-      // getting a tour that can never start.
-      expect(tourClass(container)).not.toContain('hv3-tour--paused');
-      vi.unstubAllGlobals();
-    });
+  // The capability grid that used to carry #features is gone; the anchor moved
+  // to the station list so the id it left behind still lands on the story.
+  it('keeps the #features anchor on the journey station list', () => {
+    const { container } = renderHome();
+    const features = container.querySelector('[id="features"]');
+    expect(features).toBeTruthy();
+    expect(features.className).toContain('foi-stations');
   });
 
-  it('orders the sections hero → story 1 → story 2 → grid → tally → pricing', () => {
+  it('orders the sections hero → proof → journey → tally → pricing', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
-    const order = ['product', 'digital-collection', 'team-sales', 'features', 'tally', 'pricing'];
+    const order = ['product', 'testimonial', 'digital-collection', 'tally', 'pricing'];
     const positions = order.map((id) => ids.indexOf(id));
     expect(positions.every((p) => p >= 0), `missing section among ${order}`).toBe(true);
     expect([...positions].sort((a, b) => a - b)).toEqual(positions);
   });
+});
 
-  it('renders a WhatsApp CTA inside each story section', () => {
+describe('the hero swaps its copy with the phone', () => {
+  it('starts on the home copy, with no "see how it works" link to follow yet', () => {
     const { container } = renderHome();
-    for (const id of ['digital-collection', 'team-sales']) {
-      const links = container.querySelectorAll(`#${id} a[href^="https://wa.me/"]`);
-      expect(links.length, `no WhatsApp CTA inside #${id}`).toBeGreaterThanOrEqual(1);
+    // At rest the overline is the positioning line, not the hotspot's own: the
+    // page has to say who it is for before it says what to tap.
+    expect(container.querySelector('.hero-overline').textContent).toBe(heroContent.overline);
+    expect(container.querySelector('.hero-subtitle').textContent).toBe(HERO_HOME.body);
+    expect(container.querySelector('.hv3-hero-more')).toBeNull();
+    for (const button of container.querySelectorAll('.hv3-job')) {
+      expect(button.getAttribute('aria-pressed')).toBe('false');
     }
   });
 
-  it('renders story 2 safely with its screenshots pending (null screenshot path)', () => {
+  it('swaps overline, headline and body to the job the visitor picked', () => {
     const { container } = renderHome();
-    const expectedImgs = storyTeamSales.steps.filter((s) => s.screenshot).length;
-    expect(container.querySelectorAll('#team-sales .hv3-step-phone img')).toHaveLength(
-      expectedImgs
+    fireEvent.click(jobButton(container, 'stock'));
+    const stock = HOTSPOTS.find((h) => h.key === 'stock');
+    expect(container.querySelector('.hero-overline').textContent).toBe(stock.overline);
+    expect(container.querySelector('h1').textContent).toBe(stock.headline);
+    expect(container.querySelector('.hero-subtitle').textContent).toBe(stock.body);
+    expect(jobButton(container, 'stock').getAttribute('aria-pressed')).toBe('true');
+    // The page never grows a second h1 as the copy swaps.
+    expect(container.querySelectorAll('h1')).toHaveLength(1);
+  });
+
+  it('follows the open job through to its feature page', () => {
+    const { container } = renderHome();
+    fireEvent.click(jobButton(container, 'reminders'));
+    const link = container.querySelector('.hv3-hero-more');
+    expect(link).toBeTruthy();
+    expect(link.getAttribute('href')).toBe(
+      HOTSPOTS.find((h) => h.key === 'reminders').href
     );
-    expect(container.querySelectorAll('#team-sales .hv3-step-title')).toHaveLength(
-      storyTeamSales.steps.length
-    );
+  });
+
+  it('closes on a second press of the job that is already open', () => {
+    const { container } = renderHome();
+    fireEvent.click(jobButton(container, 'team'));
+    expect(jobButton(container, 'team').getAttribute('aria-pressed')).toBe('true');
+    fireEvent.click(jobButton(container, 'team'));
+    expect(jobButton(container, 'team').getAttribute('aria-pressed')).toBe('false');
+    expect(container.querySelector('h1').textContent).toBe(HERO_HOME.headline);
+  });
+
+  // The headline is keyed on the open hotspot, so React remounts it on every
+  // swap. A live region there would announce the whole headline again on top of
+  // the phone's own "Showing <label>", so the hero keeps exactly one.
+  it('leaves the announcing to the phone, with one live region in the hero', () => {
+    const { container } = renderHome();
+    const hero = container.querySelector('#product');
+    expect(container.querySelector('h1').hasAttribute('aria-live')).toBe(false);
+    expect(hero.querySelectorAll('[aria-live]')).toHaveLength(1);
+  });
+
+  // The job buttons drive the phone from outside it: PlayablePhone's own
+  // buttons are the hotspots and the Back pill, and nothing else may sit in
+  // that layer.
+  it('keeps the job buttons outside the phone', () => {
+    const { container } = renderHome();
+    expect(container.querySelectorAll('.pphone .hv3-job')).toHaveLength(0);
+    expect(container.querySelectorAll('.hv3-hero-jobs .hv3-job')).toHaveLength(JOBS.length);
   });
 });
 
@@ -233,23 +184,14 @@ describe('demo-entry gate', () => {
   });
 });
 
-describe('story WhatsApp contexts', () => {
-  it('has a dedicated non-empty prefill for each story context', () => {
-    for (const context of ['story-order-to-cash', 'story-team-sales']) {
-      expect(WHATSAPP_MESSAGES[context], `missing prefill for ${context}`).toBeTruthy();
-      const href = whatsappHref(context);
-      expect(href).toContain('https://wa.me/');
-      expect(href).toContain(encodeURIComponent(WHATSAPP_MESSAGES[context]).slice(0, 20));
-    }
-  });
-
+describe('home copy claims', () => {
   it('claims nothing unclaimable in the rendered page text', () => {
     const { container } = renderHome();
     const text = container.textContent;
     // Own-number reminders: zero enabled customers — only "early access".
-    // Non-empty: the story-1 footnote deliberately carries this mention, so a
-    // vacuously green guard means the guard itself broke. (The wider reworded-
-    // copy net lives at the data layer in schema.test.js.)
+    // Non-empty: the pricing add-on line deliberately carries this mention, so
+    // a vacuously green guard means the guard itself broke. (The wider
+    // reworded-copy net lives at the data layer in schema.test.js.)
     const mentions = text.match(/[^.]*own WhatsApp[^.]*/gi) ?? [];
     expect(mentions.length).toBeGreaterThan(0);
     for (const mention of mentions) {
@@ -260,19 +202,23 @@ describe('story WhatsApp contexts', () => {
   });
 });
 
-describe('home.css stays scoped to the homepage', () => {
-  it('prefixes every rule head with .home-v3 (or html.js/.no-js .home-v3)', () => {
-    // Vitest runs with cwd at the repo root.
-    const css = readFileSync('src/home.css', 'utf8');
-    const noComments = css.replace(/\/\*[\s\S]*?\*\//g, '');
-    // Selector heads: lines ending in "{" that are not @-rules or keyframe
-    // stops. Every one must target .home-v3.
-    const heads = noComments
+describe('the homepage stylesheets stay scoped to the homepage', () => {
+  // Selector heads: lines ending in "{" that are not at-rules or keyframe
+  // stops. Nesting puts both inside a rule body, so both are skipped by shape
+  // rather than by un-nesting the CSS.
+  const headsOf = (css) =>
+    css
+      .replace(/\/\*[\s\S]*?\*\//g, '')
       .split('\n')
       .map((l) => l.trim())
       .filter((l) => l.endsWith('{') && !l.startsWith('@'))
       .map((l) => l.slice(0, -1).trim())
       .filter((sel) => !/^(from|to|\d+%)(\s*,\s*(from|to|\d+%))*$/.test(sel));
+
+  it('prefixes every home.css rule head with .home-v3 (or html.js/.no-js .home-v3)', () => {
+    // Vitest runs with cwd at the repo root.
+    const css = readFileSync('src/home.css', 'utf8');
+    const heads = headsOf(css);
     expect(heads.length).toBeGreaterThan(0);
     for (const head of heads) {
       for (const sel of head.split(',')) {
@@ -282,51 +228,24 @@ describe('home.css stays scoped to the homepage', () => {
         ).toBe(true);
       }
     }
-    expect(noComments).not.toMatch(/:root/);
-  });
-});
-
-// The feature grid is a wall of capability claims with no links, so nothing
-// downstream fails when one goes wrong. These are the guards that do.
-describe('home feature grid', () => {
-  it('resolves every tile icon, rather than falling back to a tick', () => {
-    // gridIconMap in Home.jsx falls back to `Check`, so an unmapped key does
-    // not render an empty box that somebody would notice. It renders a
-    // plausible wrong icon. Counting rendered tick icons is how that surfaces.
-    const { container } = renderHome();
-    const cards = container.querySelectorAll('.hv3-grid-card');
-    expect(cards).toHaveLength(featureGridV3.length);
-    for (const card of cards) {
-      expect(
-        card.querySelector('.hv3-grid-icon svg'),
-        `${card.id} rendered no icon`
-      ).toBeTruthy();
-    }
-    const keys = new Set(featureGridV3.map((f) => f.icon));
-    for (const key of keys) {
-      expect(GRID_ICON_KEYS, `featureGridV3 uses an unmapped icon key "${key}"`).toContain(key);
-    }
+    expect(css.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(/:root/);
   });
 
-  it('renders each tile title exactly once', () => {
-    const { container } = renderHome();
-    for (const tile of featureGridV3) {
-      const card = container.querySelector(`#${tile.id}`);
-      expect(card, `no tile rendered for ${tile.id}`).toBeTruthy();
-      expect(card.textContent).toContain(tile.title);
+  // journey.css carries the homepage's hero phone and story, and will also
+  // carry the journey strip that renders on feature pages — so a head there
+  // may target .home-v3 or .journey-strip, and nothing else.
+  it('prefixes every journey.css rule head with .home-v3 or .journey-strip', () => {
+    const css = readFileSync('src/journey.css', 'utf8');
+    const heads = headsOf(css);
+    expect(heads.length).toBeGreaterThan(0);
+    for (const head of heads) {
+      for (const sel of head.split(',')) {
+        expect(
+          /^(html\.(js|no-js)\s+)?(\.home-v3\s|\.journey-strip\b)/.test(sel.trim()),
+          `unscoped selector in journey.css: "${sel.trim()}"`
+        ).toBe(true);
+      }
     }
-  });
-
-  it('keeps adoption numbers off the grid, for every tile and not just the new one', () => {
-    // The array's own comment says "capability claims only; adoption numbers
-    // stay off this list". This is that sentence, enforced.
-    for (const tile of featureGridV3) {
-      const copy = `${tile.title} ${tile.description}`;
-      expect(
-        copy,
-        `${tile.id} carries an adoption claim`
-      ).not.toMatch(/\b\d[\d,]*\+?\s*(businesses|companies|customers|distributors|users)\b/i);
-      expect(copy).not.toMatch(/\b(trusted by|used by|join)\b/i);
-    }
+    expect(css.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(/:root/);
   });
 });

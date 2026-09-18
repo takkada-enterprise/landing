@@ -350,6 +350,29 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
+/* ── The nav over the homepage's navy hero (2026-09-18 revamp) ──
+   The bar is transparent until it scrolls, and from the revamp the homepage is
+   deep navy from its first pixel, so the paper-state colours above are dark ink
+   on dark navy at the top of that one page. There is no on-dark nav variant to
+   reuse in this file, and the header renders in Layout.jsx outside .home-v3, so
+   the page is matched by the class its own root carries. Only the unscrolled
+   state is touched: `.scrolled` paints its own paper panel and must keep the
+   colours above unchanged. */
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-links a,
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-connector-link,
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-features-toggle,
+body:has(.home-v3) .site-nav:not(.scrolled) .mobile-menu-btn {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-links a:hover,
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-connector-link:hover,
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features:hover .nav-features-toggle {
+    color: #fff;
+  }
+}
+
 /* ── Features disclosure (desktop nav) ──
    A link and a chevron, not one merged button: the link keeps the hub in the
    top menu on every page, the chevron owns the panel. The desktop nav starts at

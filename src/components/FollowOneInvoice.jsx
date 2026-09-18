@@ -65,7 +65,10 @@ export default function FollowOneInvoice() {
       </div>
       <div className="foi-grid">
         <InvoiceSlip activeIndex={active} />
-        <div className="foi-stations">
+        {/* #features is the anchor the retired capability grid used to carry;
+            it lives on the station list now so the id still lands on the page
+            that answers "what does it do". */}
+        <div className="foi-stations" id="features">
           {STOPS.map((stop, i) => {
             const visual = [
               'foi-visual',

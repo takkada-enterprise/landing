@@ -41,10 +41,10 @@ export const WHATSAPP_MESSAGES = {
   demo: 'Hi, I tried the demo company on takkada.com. I want to set this up for my own business.',
   'sticky-bar':
     'Hi, I am reading takkada.com on my phone and want to know more about Takkada.',
-  'story-order-to-cash':
-    'Hi, I saw the order-to-cash road on takkada.com. I want to see how the invoice-to-UPI loop works for my business.',
-  'story-team-sales':
-    'Hi, I run a sales team in the field. I want to see how Takkada handles salesman check-ins and orders.',
+  // 'story-order-to-cash' and 'story-team-sales' retired 2026-09-18 with the two
+  // homepage story sections. The one story that replaced them (FollowOneInvoice)
+  // ends in feature-page links, not a WhatsApp CTA, so it registers no context
+  // of its own; a context nothing renders is a message that can never arrive.
   // Feature landing pages register their own context from their content entry,
   // so a new page arrives in the funnel already triaged instead of falling back
   // to the default message.
