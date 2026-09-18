@@ -51,12 +51,10 @@ export const heroContent = {
   titleAccent: 'Get paid without chasing.',
   subtitle:
     'Invoices reach customers on WhatsApp the moment they post in Tally. UPI money lands and matches itself back into your books. Your salesmen book orders from the market.',
-  // The two founder-confirmed public figures (CLAUDE.md \u00A75); numeric parts
-  // split out so the hero can count them up on load.
-  stats: [
-    { value: 100, prefix: '', suffix: '+', label: 'Businesses' },
-    { value: 17, prefix: '\u20B9', suffix: 'Cr+', label: 'Collected monthly' },
-  ],
+  // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
+  // rupee volume was retired on 2026-09-18 (operator direction) and
+  // scripts/checkRetiredClaims.mjs keeps it out of the build.
+  stats: [{ value: 100, prefix: '', suffix: '+', label: 'Businesses' }],
 };
 
 // Story 1: the order-to-cash road (2026-08-04 roadmap redesign). One
