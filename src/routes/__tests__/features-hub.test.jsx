@@ -19,7 +19,6 @@ import {
   LEAD_FEATURE_SLUGS,
   RETIRED_GROUP_ANCHORS,
   leadFeaturePages,
-  secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../../data/featureGroups';
 import { STOPS } from '../../data/journey';
@@ -189,19 +188,19 @@ describe('hub tiers render', () => {
     ...container.querySelectorAll(`a.features-hub-card--${modifier}`),
   ];
 
-  it('splits the cards across the three tiers in the proportions the data gives', () => {
+  it('splits the cards across the two tiers in the proportions the data gives', () => {
     const { container } = renderHub();
     const sectionCount = sectionFeatureGroups(FEATURE_PAGES).reduce(
       (n, g) => n + g.pages.length,
       0
     );
-    const indexCount = secondaryFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
 
     expect(inTier(container, 'lead')).toHaveLength(LEAD_FEATURE_SLUGS.length);
     expect(inTier(container, 'text')).toHaveLength(sectionCount);
-    expect(inTier(container, 'index')).toHaveLength(indexCount);
-    // And the three together are the whole set — no card outside a tier.
+    // And the two together are the whole set — no card outside a tier, and no
+    // page linked twice, which is what the sections' lead subtraction buys.
     expect(cardLinks(container)).toHaveLength(FEATURE_PAGES.length);
+    expect(inTier(container, 'index'), 'the compact index tier is gone').toHaveLength(0);
   });
 
   it('leads with the approved features in the approved order', () => {
@@ -231,17 +230,16 @@ describe('hub tiers render', () => {
     }
   });
 
-  it('keeps the compact index title-only, so it stays scannable', () => {
+  it('gives every section card a title and its directory line', () => {
     const { container } = renderHub();
-    for (const link of inTier(container, 'index')) {
-      expect(link.querySelector('img')).toBeNull();
-      expect(link.querySelector('p')).toBeNull();
+    for (const link of inTier(container, 'text')) {
+      expect(link.querySelector('h3').textContent.length).toBeGreaterThan(0);
+      expect(link.querySelector('p').textContent.length).toBeGreaterThan(0);
     }
   });
 
-  // Every group id has been a linkable #anchor since the hub shipped. Both GST
-  // pages are lead cards now, so that group heads nothing — its id has to be
-  // re-homed onto the tier that swallowed it rather than quietly disappear.
+  // Every group id has been a linkable #anchor since the hub shipped, and the
+  // sections are where they all live now.
   it('resolves every group id to exactly one element on the page', () => {
     const { container } = renderHub();
     for (const group of FEATURE_GROUPS) {
@@ -298,6 +296,24 @@ describe('the hub is grouped by the invoice journey', () => {
     );
   });
 
+  // The homepage names three or four feature pages at each stop. If the hub
+  // files one of those pages under a different stop, the strip Task 10 draws on
+  // that page ("you are at Bill") contradicts the pill that sent the reader
+  // there. One slug, two stops, and the story stops being one story.
+  it('groups every page a stop links to under that same stop', () => {
+    const groupOf = new Map(FEATURE_GROUPS.flatMap((g) => g.slugs.map((slug) => [slug, g])));
+    const known = new Set(FEATURE_PAGES.map((p) => p.slug));
+
+    const contradictions = STOPS.flatMap((stop) =>
+      stop.features
+        .filter((f) => known.has(f.slug))
+        .map((f) => ({ slug: f.slug, pill: stop.id, group: groupOf.get(f.slug)?.stop }))
+        .filter((row) => row.group !== row.pill)
+        .map((row) => `${row.slug}: ${row.pill} pill, grouped under ${row.group}`)
+    );
+    expect(contradictions).toEqual([]);
+  });
+
   it('names each stop group after the stop it belongs to', () => {
     for (const group of stopGroups()) {
       expect(group.id, 'the DOM anchor is the stop id').toBe(group.stop);
@@ -305,6 +321,29 @@ describe('the hub is grouped by the invoice journey', () => {
       expect(group.title.length).toBeGreaterThan(0);
       expect(group.intro.length).toBeGreaterThan(0);
     }
+  });
+
+  // The seven stops are the page's main body, not a footnote under it: each one
+  // is a full section carrying the heading, the intro written for it and its
+  // stamp. They were the small tier for one commit and the owner ruled against
+  // it, because a directory whose spine is the story cannot render the story in
+  // the quiet type and the two groups outside the story in the loud type.
+  it('renders each stop as a full section with its title, intro and stamp', () => {
+    const { container } = renderHub();
+    for (const group of stopGroups()) {
+      const header = container.querySelector(`[id="${group.id}"] .features-hub-group-header`);
+      expect(header, `#${group.id} must head a full section`).not.toBeNull();
+      expect(header.querySelector('.features-hub-group-title').textContent).toBe(group.title);
+      expect(header.querySelector('.features-hub-group-intro').textContent).toBe(group.intro);
+      expect(header.querySelector('.features-hub-stop'), group.id).not.toBeNull();
+    }
+  });
+
+  it('keeps the spine complete and in journey order down the page', () => {
+    const { container } = renderHub();
+    const rendered = [...container.querySelectorAll('.features-hub-group')].map((el) => el.id);
+    // The stops lead, in order, and nothing is missing from the middle.
+    expect(rendered.slice(0, STOPS.length)).toEqual(STOPS.map((s) => s.id));
   });
 
   // Renders against today's journey data rather than a fixture, because the
@@ -393,10 +432,23 @@ describe('retired group anchors', () => {
 
   // The real links, not the ones we remember writing. Anything in the source or
   // the published content that points at /features#<id> has to land.
+  //
+  // TAKE THIS AS A TRIP-WIRE, NOT AS EVIDENCE. Every real /features# link lives
+  // outside the repo — published blog posts, other people's pages — which is
+  // exactly why the retired ids above are kept; nothing in src/ or content/
+  // writes one today. The three cases above it are what prove the anchors
+  // resolve. What this adds is the day somebody does write one.
+  //
+  // The two guards below stop it passing on an empty walk or a matcher that
+  // has quietly stopped matching. The sample string is itself inside src/, so
+  // the sweep picks its two ids back up and the whole path — walk, match,
+  // resolve against the rendered page — runs on real input rather than on
+  // nothing at all.
   it('resolves every /features#<id> linked from src/ or content/', () => {
     // Vitest runs from the project root, which is where src/ and content/ sit.
     const root = process.cwd();
     const TEXT = new Set(['.js', '.jsx', '.ts', '.tsx', '.md', '.mdx', '.json', '.css', '.html']);
+    const HASH = /\/features\/?#([a-z0-9-]+)/g;
 
     const files = [];
     const walk = (dir) => {
@@ -410,15 +462,27 @@ describe('retired group anchors', () => {
     walk(resolve(root, 'src'));
     walk(resolve(root, 'content'));
 
+    // Guard one: the walk really read the tree. A typo in a path, or a cwd that
+    // is not the project root, would otherwise make this pass on zero files.
+    expect(files.length, 'the sweep walked no files').toBeGreaterThan(200);
+    // Guard two: the matcher still matches. Both spellings the site uses.
+    const sample = 'a href="/features#getting-paid" and href="/features/#who-owes-you"';
+    expect([...sample.matchAll(HASH)].map(([, id]) => id)).toEqual([
+      'getting-paid',
+      'who-owes-you',
+    ]);
+
     const linked = new Map();
     for (const file of files) {
-      for (const [, id] of readFileSync(file, 'utf-8').matchAll(/\/features\/?#([a-z0-9-]+)/g)) {
+      for (const [, id] of readFileSync(file, 'utf-8').matchAll(HASH)) {
         if (!linked.has(id)) linked.set(id, file.slice(root.length));
       }
     }
 
     const { container } = renderHub();
-    const dead = [...linked].filter(([id]) => container.querySelectorAll(`[id="${id}"]`).length !== 1);
+    const dead = [...linked].filter(
+      ([id]) => container.querySelectorAll(`[id="${id}"]`).length !== 1
+    );
     expect(dead.map(([id, file]) => `${file} links /features#${id}`)).toEqual([]);
   });
 });

@@ -360,6 +360,71 @@
   margin-bottom: 24px;
 }
 
+/* ── The stop mark (2026-09-18) ──
+ * Seven of these nine headings are a stop of the homepage's story, so each one
+ * carries that stop's stamp and the screen it opens with, out to the right of
+ * the reading column. Only a header that has one makes room for one: the two
+ * groups outside the journey keep the plain 620px measure they always had.
+ * The prose column stays 620px either way; the extra width is the mark's. */
+.features-hub-group-header:has(.features-hub-stop) {
+  position: relative;
+  max-width: 860px;
+  min-height: 96px;
+  padding-right: 240px;
+}
+
+.features-hub-stop {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.features-hub-stop-shot {
+  width: 84px;
+  height: auto;
+  border-radius: 8px;
+  filter: drop-shadow(0 12px 20px rgba(14, 28, 42, 0.18));
+}
+
+/* Same ink, weight and tilt as the slip stamps on the homepage, so the two
+ * pages read as one site rather than two that happen to share a palette. */
+.features-hub-stamp {
+  font: 800 11px/1 var(--font-sans);
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+.features-hub-stamp--blue {
+  color: var(--stamp-blue);
+}
+
+.features-hub-stamp--green {
+  color: var(--stamp-green);
+}
+
+.features-hub-stamp--red {
+  color: var(--stamp-red);
+}
+
+.features-hub-stamp--ink {
+  color: var(--stamp-ink);
+}
+
+/* A stop with every page already in the lead grid. Nothing is in this state
+ * today; it exists so the spine cannot go missing a vertebra. */
+.features-hub-group-empty {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
 .features-hub-group-title {
   font-family: var(--font-serif);
   font-size: clamp(22px, 2.4vw, 28px);
@@ -396,142 +461,6 @@
   color: var(--color-primary);
 }
 
-/* Compact index ──
- * Names, nothing else. This is the tier you read when you already know what
- * you are looking for, so it is set as a list and stays out of the way of the
- * two above it. */
-.features-hub-index {
-  padding: 84px 0 96px;
-}
-
-.features-hub-index-title {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 2.4vw, 28px);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-  margin-bottom: 32px;
-}
-
-.features-hub-index-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 36px 32px;
-}
-
-.features-hub-index-heading {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 12px;
-}
-
-/* ── The stop mark (2026-09-18) ──
- * Each of the seven headings here is one stop of the homepage's story, so it
- * carries that stop's stamp and the screen it opens with. Both are decoration
- * and both are hidden from assistive tech in the markup; the heading beside
- * them is what carries the meaning.
- *
- * The height is reserved off the thumbnail's real aspect (every phone export is
- * 360x746, see src/data/screens.js) rather than guessed, so the seven headings
- * sit on one line across the grid and Send, which has no screen, does not leave
- * a short column. Nothing here animates: a directory is scanned, not performed. */
-.features-hub-index-group {
-  --stop-shot: 56px;
-}
-
-.features-hub-stop {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  min-height: calc(var(--stop-shot) * 746 / 360);
-  margin-bottom: 12px;
-}
-
-.features-hub-stop-shot {
-  width: var(--stop-shot);
-  height: auto;
-  border-radius: 7px;
-  filter: drop-shadow(0 10px 18px rgba(14, 28, 42, 0.16));
-}
-
-/* Same ink, weight and tilt as the slip stamps on the homepage, so the two
- * pages read as one site rather than two that happen to share a palette. */
-.features-hub-stamp {
-  font: 800 11px/1 var(--font-sans);
-  letter-spacing: 0.08em;
-  padding: 4px 8px;
-  border: 2px solid currentColor;
-  border-radius: 5px;
-  transform: rotate(-5deg);
-  white-space: nowrap;
-}
-
-.features-hub-stamp--blue {
-  color: var(--stamp-blue);
-}
-
-.features-hub-stamp--green {
-  color: var(--stamp-green);
-}
-
-.features-hub-stamp--red {
-  color: var(--stamp-red);
-}
-
-.features-hub-stamp--ink {
-  color: var(--color-text);
-}
-
-.features-hub-index-list li + li {
-  border-top: 1px solid var(--color-hairline);
-}
-
-.features-hub-card--index {
-  display: block;
-  padding: 9px 0;
-  font-size: 15px;
-  line-height: 1.45;
-  color: var(--color-text);
-  transition: color var(--dur-fast) var(--ease-out);
-}
-
-.features-hub-card--index:hover {
-  color: var(--color-primary);
-}
-
-/* On a phone the thumbnail is the first thing to go: at 56px it is a smudge,
- * and it pushes the name you came to scan down the screen. The stamp stays,
- * moved under the heading, because the stamp is the thing that says which stop
- * of the story this is and it costs one line. */
-@media (max-width: 700px) {
-  .features-hub-index-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .features-hub-index-heading {
-    order: 1;
-    margin-bottom: 8px;
-  }
-
-  .features-hub-stop {
-    order: 2;
-    min-height: 0;
-    margin: 0 0 12px;
-  }
-
-  .features-hub-stop-shot {
-    display: none;
-  }
-
-  .features-hub-index-list {
-    order: 3;
-  }
-}
-
 @media (max-width: 767px) {
   .features-hub-group + .features-hub-group {
     margin-top: 48px;
@@ -560,8 +489,34 @@
     gap: 14px;
   }
 
-  .features-hub-index {
-    padding: 56px 0 64px;
+  /* On a phone the thumbnail is the first thing to go: at this width it is a
+   * smudge, and it pushes the heading's own words down the screen. The stamp
+   * stays, on its own line under the title and above the intro, because the
+   * stamp is what says which stop of the story this is and it costs one line. */
+  .features-hub-group-header:has(.features-hub-stop) {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    min-height: 0;
+    padding-right: 0;
+  }
+
+  .features-hub-group-title {
+    order: 0;
+  }
+
+  .features-hub-stop {
+    order: 1;
+    position: static;
+    margin: 10px 0 4px;
+  }
+
+  .features-hub-group-intro {
+    order: 2;
+  }
+
+  .features-hub-stop-shot {
+    display: none;
   }
 }
 

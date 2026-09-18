@@ -71,10 +71,13 @@
   --color-danger: #DC2626;
   --color-warning: #D97706;
 
-  /* Stamp inks: invoice slip only */
+  /* Stamp inks: invoice slip only. The fourth is the plain black-ink stamp; it
+   * is its own token rather than --color-text because a stamp pad is not body
+   * copy, and the homepage and the features hub have to hit the same ink. */
   --stamp-blue: #1F5FBF;
   --stamp-green: #0E8A5F;
   --stamp-red: #C2372F;
+  --stamp-ink: #1D2433;
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* "serif" token retained for backward compatibility, but it now resolves to the
@@ -150,8 +153,7 @@
 :root .blog-post-body h3,
 :root .blog-related-heading,
 :root .blog-related-title,
-:root .features-hub-group-title,
-:root .features-hub-index-title {
+:root .features-hub-group-title {
   font-weight: var(--weight-display);
 }
 

@@ -15,9 +15,7 @@ import {
   FEATURE_GROUPS,
   LEAD_FEATURE_SLUGS,
   SECTION_GROUP_IDS,
-  drainedGroupIds,
   leadFeaturePages,
-  secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
@@ -520,17 +518,16 @@ describe('feature page data contract', () => {
   });
 });
 
-// The hub renders three tiers now: a lead grid, two labelled sections, and a
-// compact index of the rest. Only the lead slugs and the section ids are
-// written down; the index is what is left over. These assertions are the reason
-// that subtraction is safe to rely on, and they run against the data rather
-// than a rendered page so they stay true of the header panel and the footer
-// column, which read the same exports.
+// The hub renders two tiers: a lead grid, then a labelled section per group.
+// Only the lead slugs are written down; every section is the rest of its group
+// after those are subtracted. These assertions are the reason that subtraction
+// is safe to rely on, and they run against the data rather than a rendered page
+// so they stay true of the header panel and the footer column, which read the
+// same exports.
 describe('hub tiers partition the feature pages', () => {
   const slugsOf = (pages) => pages.map((p) => p.slug);
   const lead = () => slugsOf(leadFeaturePages(FEATURE_PAGES));
   const sections = () => sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
-  const index = () => secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
 
   it('names distinct lead slugs that are all real pages', () => {
     const known = new Set(FEATURE_PAGES.map((p) => p.slug));
@@ -541,43 +538,35 @@ describe('hub tiers partition the feature pages', () => {
     expect(lead()).toEqual(LEAD_FEATURE_SLUGS);
   });
 
-  it('covers every feature page exactly once across the three tiers', () => {
-    const all = [...lead(), ...sections(), ...index()];
+  it('covers every feature page exactly once across the two tiers', () => {
+    const all = [...lead(), ...sections()];
     expect(new Set(all).size, 'a page appears in more than one tier').toBe(all.length);
     expect(all.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
   });
 
-  it('keeps the two comparison and trade groups out of the compact index', () => {
+  // The seven stops are the page's spine, so a stop group survives the lead
+  // subtraction even with nothing left; only a group outside the journey is
+  // dropped when it is empty. Every group is a section since the compact index
+  // went (2026-09-18), so today nothing is dropped at all.
+  it('renders every group as a section, in journey order', () => {
     expect(sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id)).toEqual(SECTION_GROUP_IDS);
-    expect(secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id)).not.toContain(
-      SECTION_GROUP_IDS[0]
-    );
+    expect(SECTION_GROUP_IDS).toEqual(FEATURE_GROUPS.map((g) => g.id));
   });
 
-  it('renders no empty heading in the compact index', () => {
-    for (const group of secondaryFeatureGroups(FEATURE_PAGES)) {
+  it('keeps a stop section even when the lead tier takes all of its pages', () => {
+    const stops = new Set(FEATURE_GROUPS.filter((g) => g.stop).map((g) => g.id));
+    const rendered = sectionFeatureGroups(FEATURE_PAGES);
+    expect([...stops].filter((id) => !rendered.some((g) => g.id === id))).toEqual([]);
+    // And no section outside the journey heads nothing.
+    for (const group of rendered.filter((g) => !g.stop)) {
       expect(group.pages.length, group.id).toBeGreaterThan(0);
-      expect(group.title).toBeTruthy();
     }
   });
 
-  // Every group id has been a linkable #anchor on the hub since it shipped.
-  // A group whose pages all got promoted to the lead tier stops heading a
-  // section, so its id has to be re-homed rather than dropped; the hub does
-  // that, and features-hub.test.jsx checks the DOM side.
-  it('accounts for the id of every group the lead tier drained', () => {
-    const drained = drainedGroupIds(FEATURE_PAGES);
-    const rendered = new Set([
-      ...sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id),
-      ...secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id),
-    ]);
-    expect([...rendered, ...drained].sort()).toEqual(FEATURE_GROUPS.map((g) => g.id).sort());
-    // Nothing is drained since the journey regroup (2026-09-18): every one of
-    // the seven stop groups keeps at least one page outside the lead tier. It
-    // was exactly ['gst-paperwork'] before, when both of that group's pages led.
-    // The retired ids that regroup created are a separate mechanism —
-    // RETIRED_GROUP_ANCHORS — and features-hub.test.jsx keeps those landing.
-    expect(drained).toEqual([]);
+  it('leaves no section duplicating a lead card', () => {
+    const leadSlugs = new Set(LEAD_FEATURE_SLUGS);
+    const repeated = sections().filter((slug) => leadSlugs.has(slug));
+    expect(repeated).toEqual([]);
   });
 
   it('carries a directory line for every page, whichever tier it lands in', () => {
@@ -624,7 +613,6 @@ describe('feature page registration is automatic', () => {
     const reachable = new Set([
       ...leadFeaturePages(FEATURE_PAGES).map((p) => p.slug),
       ...sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
-      ...secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
       ...footerSlugs,
     ]);
     expect(FEATURE_PAGES.filter((p) => !reachable.has(p.slug)).map((p) => p.slug)).toEqual([]);

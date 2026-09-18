@@ -36,8 +36,7 @@
 .company-article h1,
 .blog-post-title,
 .blog-index-title,
-.features-hub-group-title,
-.features-hub-index-title {
+.features-hub-group-title {
   font-optical-sizing: auto;
   text-wrap: balance;
   letter-spacing: -0.025em;

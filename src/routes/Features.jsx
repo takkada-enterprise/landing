@@ -7,10 +7,8 @@ import CalendarCTA from '../components/CalendarCTA';
 import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
 import {
   FEATURE_BLURBS,
-  drainedGroupIds,
   leadFeaturePages,
   retiredAnchorsFor,
-  secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../data/featureGroups';
 import { STOPS } from '../data/journey';
@@ -27,21 +25,21 @@ import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/sch
 // moment it is added. Tiers and the directory lines come from
 // src/data/featureGroups.js.
 //
-// Three tiers, not nine equal groups (2026-08-11). Nine headings over
-// twenty-seven identical text cards is a wall of grey to anyone who does not
-// already know the name of the thing they want, so the page now opens with the
-// features distributors actually arrive for, shown with the screen they will be
-// looking at, and lets the rest settle into a compact index underneath. The
-// lead card is the one new pattern on the page (craft rule 10) and the only
-// place it carries an image; everything below it reuses .tally-card and plain
-// links.
+// A lead tier, then a section per group (2026-08-11, re-cut 2026-09-18). Nine
+// headings over twenty-seven identical text cards is a wall of grey to anyone
+// who does not already know the name of the thing they want, so the page opens
+// with the features distributors actually arrive for, shown with the screen
+// they will be looking at. The lead card is the one new pattern on the page
+// (craft rule 10); everything below it reuses .tally-card. Every section
+// subtracts the lead slugs, so no page is linked twice.
 //
-// Grouped by the invoice's journey (2026-09-18). The themes the compact index
-// reads out are now the seven stops of the homepage's story, in that order,
-// each under the stamp its slip carries, so somebody who arrives from the
-// homepage finds the same seven words rather than a second taxonomy. The seven
-// ids that regroup retired are still linkable: RETIRED_GROUP_ANCHORS maps each
-// one onto the group that took its pages and the index renders it there.
+// Grouped by the invoice's journey (2026-09-18). The sections below the lead
+// grid are the seven stops of the homepage's story, in that order, each under
+// the stamp its slip carries and the screen it opens with, then the two groups
+// that are not moments in that story. A visitor arriving from the homepage
+// finds the same seven words rather than a second taxonomy. The ids that
+// regroup retired are still linkable: RETIRED_GROUP_ANCHORS maps each one onto
+// the section that took its pages, which renders it as a zero-height anchor.
 //
 // Still no motion of its own beyond the card hover .tally-card already carries.
 //
@@ -63,9 +61,9 @@ const WA_CONTEXT = 'features-hub';
 // invoice exists — so the image is conditional and the stamp is not. Reading
 // screens[0] unconditionally took the whole hub down with it.
 //
-// Both are decoration. The heading beside them already says what the section
-// is, so the stamp is hidden from assistive tech and the screen carries an
-// empty alt rather than describing a thumbnail nobody can read.
+// Both are decoration. The heading and intro beside them already say what the
+// section is, so the stamp is hidden from assistive tech and the screen carries
+// an empty alt rather than describing a thumbnail nobody can read.
 function StopMark({ stopId }) {
   const stop = STOPS.find((s) => s.id === stopId);
   if (!stop) return null;
@@ -73,12 +71,15 @@ function StopMark({ stopId }) {
 
   return (
     <div className="features-hub-stop" aria-hidden="true">
+      <span className={`features-hub-stamp features-hub-stamp--${stop.stamp.tone}`}>
+        {stop.stamp.text}
+      </span>
       {shot && (
         <img
           className="features-hub-stop-shot"
           src={shot.src}
           srcSet={shot.srcSet}
-          sizes="56px"
+          sizes="84px"
           width={shot.width}
           height={shot.height}
           alt=""
@@ -86,9 +87,6 @@ function StopMark({ stopId }) {
           decoding="async"
         />
       )}
-      <span className={`features-hub-stamp features-hub-stamp--${stop.stamp.tone}`}>
-        {stop.stamp.text}
-      </span>
     </div>
   );
 }
@@ -128,8 +126,6 @@ const hubSchema = () =>
 function Features() {
   const lead = leadFeaturePages(FEATURE_PAGES);
   const sections = sectionFeatureGroups(FEATURE_PAGES);
-  const index = secondaryFeatureGroups(FEATURE_PAGES);
-  const drained = drainedGroupIds(FEATURE_PAGES);
 
   return (
     <>
@@ -165,16 +161,10 @@ function Features() {
       </section>
 
       {/* ── Lead tier ──
-          The page's large images; the index below carries thumbnails a tenth
-          the size. Group ids drained by the promotion are re-homed here so
-          anchors that have been linkable since the hub shipped still land
-          somewhere sensible. Empty today, and kept because the next promotion
-          can drain a group again. */}
+          The page's large images. Every page here is subtracted from the
+          section it belongs to below, so no feature is linked twice. */}
       <section className="features-hub-lead" id="lead-features">
         <div className="container">
-          {drained.map((id) => (
-            <span key={id} id={id} className="features-hub-anchor" aria-hidden="true" />
-          ))}
           <div className="features-hub-lead-grid">
             {lead.map((page, i) => (
               <Link
@@ -219,79 +209,54 @@ function Features() {
         </div>
       </section>
 
-      {/* ── Labelled sections ──
-          Comparisons and trade pages. A visitor reaches these in a different
-          frame of mind from someone shopping for a capability, so they keep
-          their own headings instead of dissolving into the index below. */}
+      {/* ── The sections ──
+          Seven stops of the invoice's journey in the order it passes through
+          them, then the two groups that are not moments in that journey:
+          comparing Takkada with another app, and checking it was built for your
+          line of trade. Each header carries the group's own intro and, for a
+          stop, the stamp and screen that tie it to the homepage. */}
       <section className="tally-section features-hub-sections">
         <div className="container">
           {sections.map((group) => (
             <div key={group.id} className="features-hub-group" id={group.id}>
+              {/* Retired ids, re-homed onto the section that swallowed what they
+                  used to point at, so a link written before the regroup lands on
+                  the right heading instead of the top of the page. */}
+              {retiredAnchorsFor(group.id).map((id) => (
+                <span key={id} id={id} className="features-hub-anchor" aria-hidden="true" />
+              ))}
               <div className="features-hub-group-header">
                 <h2 className="features-hub-group-title">{group.title}</h2>
                 <p className="features-hub-group-intro">{group.intro}</p>
+                {group.stop && <StopMark stopId={group.stop} />}
               </div>
-              <div className="tally-grid">
-                {group.pages.map((page) => (
-                  <Link
-                    key={page.slug}
-                    to={featurePagePath(page)}
-                    className="tally-card features-hub-card features-hub-card--text"
-                  >
-                    <h3>{page.llms.title}</h3>
-                    <p className="tabular-nums">{page.blurb}</p>
-                    <span className="features-hub-card-cue">
-                      Read the page <ArrowRight size={15} />
-                    </span>
-                  </Link>
-                ))}
-              </div>
+              {group.pages.length > 0 ? (
+                <div className="tally-grid">
+                  {group.pages.map((page) => (
+                    <Link
+                      key={page.slug}
+                      to={featurePagePath(page)}
+                      className="tally-card features-hub-card features-hub-card--text"
+                    >
+                      <h3>{page.llms.title}</h3>
+                      <p className="tabular-nums">{page.blurb}</p>
+                      <span className="features-hub-card-cue">
+                        Read the page <ArrowRight size={15} />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                /* A stop whose every page is a lead card at the top. It keeps
+                   its header so the seven-stop spine stays whole, and says where
+                   its pages went rather than heading nothing. No stop is in this
+                   state today; the next lead promotion can put one there. */
+                <p className="features-hub-group-empty">
+                  Everything at this stop is in the cards at the top of the page.
+                </p>
+              )}
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ── Compact index ──
-          Everything not already above, title-only. Quiet on purpose: this is
-          the part you scan for a name you already have in mind.
-
-          Since the journey regroup these headings are the seven stops of the
-          homepage's story, in the order the invoice passes through them, each
-          under its stamp and a thumbnail of the screen it opens with. The tier
-          itself keeps its shape: the links stay names and nothing else, which
-          is what makes this the part you can scan. */}
-      <section className="features-hub-index" id="all-features">
-        <div className="container">
-          <h2 className="features-hub-index-title">Everything else, in the order it happens</h2>
-          <div className="features-hub-index-grid">
-            {index.map((group) => (
-              <div key={group.id} className="features-hub-index-group" id={group.id}>
-                {/* Retired group ids, re-homed onto the section that swallowed
-                    their pages, so a link written before the regroup lands on
-                    the right heading instead of the top of the page. */}
-                {retiredAnchorsFor(group.id).map((id) => (
-                  <span key={id} id={id} className="features-hub-anchor" aria-hidden="true" />
-                ))}
-                {/* Sibling of the heading rather than wrapped with it: on a
-                    phone the two swap places, and a wrapper would put the
-                    reorder out of the flex container's reach. */}
-                {group.stop && <StopMark stopId={group.stop} />}
-                <h3 className="features-hub-index-heading">{group.title}</h3>
-                <ul className="features-hub-index-list">
-                  {group.pages.map((page) => (
-                    <li key={page.slug}>
-                      <Link
-                        to={featurePagePath(page)}
-                        className="features-hub-card features-hub-card--index"
-                      >
-                        {page.llms.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

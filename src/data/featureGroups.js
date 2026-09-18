@@ -18,6 +18,8 @@
 // thing the page covers rather than repeating the SEO sentence (CLAUDE.md
 // craft rules 1 and 3).
 
+import { STOPS } from './journey.js';
+
 /**
  * @typedef {object} FeatureGroup
  * @property {string} id     stable key, also the section's DOM id
@@ -51,12 +53,7 @@ export const FEATURE_GROUPS = [
     stop: 'order',
     title: 'Taking the order',
     intro: "What your salesman does at the retailer's counter, and what you see of it.",
-    slugs: [
-      'salesman-app-tally',
-      'sales-order-on-mobile',
-      'handwritten-order-to-tally',
-      'order-booking-app-tally',
-    ],
+    slugs: ['salesman-app-tally', 'sales-order-on-mobile', 'order-booking-app-tally'],
   },
   {
     id: 'bill',
@@ -68,6 +65,11 @@ export const FEATURE_GROUPS = [
       'e-way-bill-from-phone',
       'credit-note-from-phone',
       'import-purchase-from-pdf',
+      // The Bill stop's own pill points here, and a page may not sit under a
+      // different stop from the pill that sends readers to it. Reading it as an
+      // order ("a photograph of the order book") was defensible; disagreeing
+      // with the homepage was not.
+      'handwritten-order-to-tally',
       'bank-statement-import-tally',
     ],
   },
@@ -90,18 +92,21 @@ export const FEATURE_GROUPS = [
     stop: 'remind',
     title: 'Reminding and collecting',
     intro: 'Reminders on your schedule, with a pay link in every one.',
-    slugs: [
-      'payment-reminder-tally',
-      'send-payment-reminders-automatically',
-      'payment-collection-tally',
-    ],
+    slugs: ['payment-reminder-tally', 'send-payment-reminders-automatically'],
   },
   {
     id: 'recover',
     stop: 'recover',
     title: 'Recovering what is overdue',
     intro: 'Who owes you, for how long, and who in your team is chasing it.',
-    slugs: ['outstanding-receivables-on-mobile', 'debtor-ageing-report-on-phone'],
+    // The UPI link belongs to the stop whose pill names it. The Recover stop is
+    // where the money actually arrives, which is also where somebody looking
+    // for "how do they pay me" is standing.
+    slugs: [
+      'outstanding-receivables-on-mobile',
+      'debtor-ageing-report-on-phone',
+      'payment-collection-tally',
+    ],
   },
   {
     id: 'tally',
@@ -134,8 +139,8 @@ export const FEATURE_GROUPS = [
 ];
 
 /**
- * The seven group ids the journey regroup retired, each pointed at the group
- * that took the bulk of its pages.
+ * The ids the journey regroup retired, each pointed at the group that took the
+ * bulk of what it used to hold.
  *
  * Every one of these has been a linkable `#anchor` on /features since the hub
  * shipped, and some are inside blog posts that are already published, so they
@@ -155,6 +160,10 @@ export const FEATURE_GROUPS = [
  * @type {Record<string, string>}
  */
 export const RETIRED_GROUP_ANCHORS = {
+  // Not a group: the compact index's own section id, retired with the tier.
+  // Its heading read "Everything else", and everything else is now the story
+  // itself, so it lands at the first stop.
+  'all-features': 'order',
   'team-in-the-market': 'order',
   'gst-paperwork': 'bill',
   'entries-without-typing': 'bill',
@@ -231,18 +240,22 @@ export const FEATURE_BLURBS = {
     'Dealer receivables stretched from sowing right through to after the crop is sold.',
 };
 
-// ── Hub tiers (2026-08-11) ──
+// ── Hub tiers (2026-08-11, re-cut 2026-09-18) ──
 //
 // The hub used to render nine equal groups of equal text cards, which is a wall
 // of uniform grey to anyone who does not already know what they are looking
-// for. It now opens with a lead tier, then two labelled sections, then a
-// compact index of everything else.
+// for. It opened with a lead tier, then two labelled sections, then a compact
+// index of everything else.
 //
-// The tiers are derived, not listed. Only the lead slugs and the two section
-// ids are written down; every other page falls into the index by
-// subtraction. A twenty-eighth page therefore joins the hub on the strength of
-// its FEATURE_GROUPS entry alone, exactly as before, and nobody has to
-// remember a second list. That property is what the partition invariants in
+// Two tiers now: the lead grid, then a labelled section per group. The compact
+// index went with the journey regroup — it had been holding the seven stops,
+// which is the page's spine rendered in the quietest type on the page, and once
+// the stops moved up there was nothing left in it.
+//
+// The tiers are still derived, not listed. Only the lead slugs are written down
+// and every section subtracts them, so a twenty-eighth page joins the hub on the
+// strength of its FEATURE_GROUPS entry alone and nobody has to remember a second
+// list. That property is what the partition invariants in
 // src/data/__tests__/feature-pages.test.js exist to keep.
 
 /**
@@ -271,14 +284,26 @@ export const LEAD_FEATURE_SLUGS = [
 ];
 
 /**
- * Groups that render as their own labelled section on the hub instead of as
- * rows of the compact index. Both hold pages a visitor arrives at in a
- * different frame of mind — comparing products, or checking the thing was
- * built for their line of trade — so burying them in an alphabet of feature
- * names would lose them.
+ * Groups that render as their own labelled section on the hub. Every group
+ * does, since the compact index was removed (2026-09-18).
+ *
+ * The hub used to end in a compact index: a grid of small uppercase headings
+ * over name-only links, for the reader who already knows what he wants. When
+ * the grouping became the journey, that tier was holding the seven stops, which
+ * put the page's spine in the quiet type and left the two groups that are not
+ * part of the story as the only loud sections on the page. The owner ruled the
+ * stops into the main body, and with the stops out of it the index had nothing
+ * left to hold, so it went rather than shipping as an empty heading.
+ *
+ * Derived from STOPS so the seven stay in journey order and a new stop cannot
+ * be added to the story without appearing here.
  * @type {string[]}
  */
-export const SECTION_GROUP_IDS = ['weighing-options', 'built-for-your-trade'];
+export const SECTION_GROUP_IDS = [
+  ...STOPS.map((stop) => stop.id),
+  'weighing-options',
+  'built-for-your-trade',
+];
 
 const withBlurb = (page) => ({
   ...page,
@@ -299,8 +324,6 @@ let lastPagesRef = null;
 let cachedGrouped = null;
 let cachedLead = null;
 let cachedSections = null;
-let cachedSecondary = null;
-let cachedDrained = null;
 
 function checkPagesCache(pages) {
   if (pages !== lastPagesRef) {
@@ -308,8 +331,6 @@ function checkPagesCache(pages) {
     cachedGrouped = null;
     cachedLead = null;
     cachedSections = null;
-    cachedSecondary = null;
-    cachedDrained = null;
   }
 }
 
@@ -335,50 +356,26 @@ export function leadFeaturePages(pages) {
   return cachedLead;
 }
 
-/** The groups that render as their own labelled section, in FEATURE_GROUPS order. */
+/**
+ * The sections of the hub, in FEATURE_GROUPS order, each minus the pages the
+ * lead tier already shows. The subtraction is what keeps "exactly one card per
+ * feature page" true now that every group is a section: nine of the twenty-seven
+ * pages are lead cards at the top, and a section repeating them would be the
+ * same link twice on one page.
+ *
+ * A stop group emptied by that subtraction still comes back. The seven stops are
+ * the page's spine and a missing one reads as a hole in the story, so it renders
+ * its header and says where its pages went; only a group outside the journey is
+ * dropped when it has nothing left. No stop is empty today.
+ */
 export function sectionFeatureGroups(pages) {
   checkPagesCache(pages);
   if (cachedSections) return cachedSections;
 
-  cachedSections = groupFeaturePages(pages).filter((group) => SECTION_GROUP_IDS.includes(group.id));
-  return cachedSections;
-}
-
-/**
- * The compact index: every group that is not a section, minus the pages already
- * shown in the lead tier. A group left with nothing is dropped rather than
- * rendered as an empty heading — see drainedGroupIds for what happens to its
- * DOM anchor.
- */
-export function secondaryFeatureGroups(pages) {
-  checkPagesCache(pages);
-  if (cachedSecondary) return cachedSecondary;
-
   const lead = new Set(LEAD_FEATURE_SLUGS);
-  cachedSecondary = groupFeaturePages(pages)
-    .filter((group) => !SECTION_GROUP_IDS.includes(group.id))
+  cachedSections = groupFeaturePages(pages)
+    .filter((group) => SECTION_GROUP_IDS.includes(group.id))
     .map((group) => ({ ...group, pages: group.pages.filter((page) => !lead.has(page.slug)) }))
-    .filter((group) => group.pages.length > 0);
-  return cachedSecondary;
-}
-
-/**
- * Group ids that no longer head a rendered section because every one of their
- * pages was promoted to the lead tier. Their ids are still anchor targets that
- * have been linkable since the hub shipped, so the hub re-attaches them to the
- * lead section rather than letting them scroll to the top of the page.
- *
- * Empty since the journey regroup (2026-09-18): every stop group keeps at least
- * one page outside the lead tier. It was exactly `['gst-paperwork']` before,
- * and the machinery stays because the next promotion can drain a group again.
- */
-export function drainedGroupIds(pages) {
-  checkPagesCache(pages);
-  if (cachedDrained) return cachedDrained;
-
-  const surviving = new Set(secondaryFeatureGroups(pages).map((group) => group.id));
-  cachedDrained = FEATURE_GROUPS.filter(
-    (group) => !SECTION_GROUP_IDS.includes(group.id) && !surviving.has(group.id)
-  ).map((group) => group.id);
-  return cachedDrained;
+    .filter((group) => group.stop || group.pages.length > 0);
+  return cachedSections;
 }
