@@ -1,0 +1,158 @@
+// "Follow one invoice": the one story the homepage tells. The stops are a true
+// sequence (an invoice really does pass through them in this order), which is
+// why they are ordered and timed. JSX-free: tests and scripts load it in Node.
+//
+// Feature slugs point at existing feature pages. A slug with no page is dropped
+// at render time by liveFeatures(), never rendered as a dead link. New pages
+// arrive with Plan 2 (capabilities files) and light up their pill on their own.
+//
+// Every `screens` entry is a slug in src/data/screens.js, and each one has been
+// opened: a stop never claims something its own screenshot contradicts. That is
+// why `invoice-sent` (a van marked "Keyed back", offering "Make invoices" and
+// "Make challans") sits at the Load stop rather than the Send stop, and why the
+// invoice summary with "Send invoice via WhatsApp" switched on carries Send.
+//
+// The slip numbers are the ones on the Review invoices screenshot (INV/26-27/
+// 0032 for Annapurna Kirana, ₹1,86,420.16), so the paper and the phone in the
+// same section agree down to the paisa. The test pins the addition.
+
+export const INVOICE = {
+  number: 'INV/26-27/0032',
+  short: '0032',
+  party: 'Annapurna Kirana',
+  place: 'Dibrugarh · 30 day terms',
+  lines: [
+    { label: 'Groundnut Oil 15L × 36', amount: 73407.6 },
+    { label: 'Sugar 50kg Bag × 29', amount: 63549.16 },
+    { label: 'Besan 25kg Bag × 28', amount: 34515.6 },
+    { label: '+ 4 more items', amount: 14947.8 },
+  ],
+  total: 186420.16,
+};
+
+export const STOPS = [
+  {
+    id: 'order',
+    label: 'Order',
+    when: "10:40 AM · At the retailer's counter",
+    headline: 'Your salesman takes the order on his phone.',
+    body: 'He sees only his own parties, live stock and the right price level. The order is in your pending list before he has left the shop.',
+    screens: ['pending-orders'],
+    sheet: null,
+    stamp: { text: 'ORDER #118', tone: 'blue' },
+    status: 'ORDER TAKEN AT THE SHOP',
+    features: [
+      { label: 'Salesman app', slug: 'salesman-app-tally' },
+      { label: 'Order booking', slug: 'order-booking-app-tally' },
+      { label: 'Visit tracking', slug: 'salesman-visit-tracking-photo-proof' },
+      { label: 'Restrict what he sees', slug: 'restrict-salesman-access-tally' },
+    ],
+  },
+  {
+    id: 'bill',
+    label: 'Bill',
+    when: '11:05 AM · In the office',
+    headline:
+      'Seven orders become seven invoices in one go, each with its e-invoice and e-way bill.',
+    body: 'Review the lot on one screen and create them together. The IRN and e-way bill number are written back against the same voucher in Tally.',
+    screens: ['review-invoices'],
+    sheet: null,
+    stamp: { text: 'IRN + E-WAY ✓', tone: 'blue' },
+    status: 'BILLED · IRN AND E-WAY GENERATED',
+    features: [
+      { label: 'E-invoice from the phone', slug: 'e-invoice-from-phone' },
+      { label: 'E-way bill from the phone', slug: 'e-way-bill-from-phone' },
+      { label: 'Import a bill from PDF', slug: 'import-purchase-from-pdf' },
+      { label: 'Handwritten order to Tally', slug: 'handwritten-order-to-tally' },
+    ],
+  },
+  {
+    id: 'load',
+    label: 'Load',
+    when: '1:30 PM · At the godown',
+    headline: 'The van is loaded from a printed sheet, godown by godown.',
+    body: 'Tick the orders, pick the van, and print the loading sheet. What actually went is keyed back before the challans and invoices are made.',
+    screens: ['van-loading', 'invoice-sent'],
+    sheet: 'sheet-loading',
+    stamp: { text: 'ON VAN 2', tone: 'ink' },
+    status: 'LOADED ON VAN 2',
+    features: [
+      { label: 'Godown wise stock', slug: 'godown-wise-stock-on-mobile' },
+      { label: 'Delivery challan', slug: 'delivery-challan-from-mobile' },
+      { label: 'Godown on the invoice', slug: 'godown-on-sales-invoice-delivery-challan' },
+    ],
+  },
+  {
+    id: 'send',
+    label: 'Send',
+    when: '1:31 PM · On its way to the retailer',
+    headline: 'The invoice reaches the customer on WhatsApp the second you save it.',
+    body: 'The PDF, the amount and a pay link go out in one message. Nobody in your office presses send.',
+    screens: ['einvoice-eway'],
+    sheet: null,
+    stamp: { text: 'WHATSAPP ✓✓', tone: 'green' },
+    status: 'DELIVERED ON WHATSAPP',
+    features: [
+      { label: 'Auto invoice dispatch', slug: 'auto-invoice-dispatch-tally' },
+      { label: 'Your invoice format', slug: 'custom-invoice-template-tally' },
+      { label: 'Share a ledger statement', slug: 'share-ledger-statement-whatsapp' },
+    ],
+  },
+  {
+    id: 'remind',
+    label: 'Remind',
+    when: 'Day 28 · 10:00 AM',
+    headline: "The reminder goes out. You don't make the call.",
+    body: 'Overdue parties get a WhatsApp reminder with the amount and a pay link, on the schedule you set.',
+    screens: ['reminders', 'reminder-schedule'],
+    sheet: null,
+    stamp: { text: 'REMINDED', tone: 'ink' },
+    status: 'REMINDED ON DAY 28',
+    features: [
+      { label: 'Automatic reminders', slug: 'send-payment-reminders-automatically' },
+      { label: 'Reminder schedule', slug: 'scheduled-payment-reminders-tally' },
+      { label: 'UPI collection, zero MDR', slug: 'nil-mdr-upi-collection-on-tally-invoices' },
+    ],
+  },
+  {
+    id: 'recover',
+    label: 'Recover',
+    when: 'Day 30 · No reply yet',
+    headline: 'No reply to the reminder, so Takkada makes the call.',
+    body: "An AI call in the party's own language asks for the payment and logs what they said. AI calling is charged on connected minutes. Your team's own follow-ups sit in the same log, and the recovery board shows who recovered what.",
+    screens: ['followup-log', 'recovery-team'],
+    sheet: null,
+    stamp: { text: 'PAID', tone: 'red', size: 'lg' },
+    status: 'PROMISED ON THE CALL · PAID BY UPI',
+    features: [
+      { label: 'Outstanding by age', slug: 'debtor-ageing-report-on-phone' },
+      { label: 'Receivables on mobile', slug: 'outstanding-receivables-on-mobile' },
+      { label: 'Payment collection', slug: 'payment-collection-tally' },
+    ],
+  },
+  {
+    id: 'tally',
+    label: 'Tally',
+    when: 'Day 31 · 9:00 PM',
+    headline: 'The receipt is already in Tally. The 9 PM reconciliation is gone.',
+    body: "The payment settles against the right invoice and shows in tonight's reports. Export the day's salesman sheet and share it as it is.",
+    screens: ['settlements'],
+    sheet: 'sheet-salesman',
+    stamp: { text: 'IN TALLY ✓', tone: 'green' },
+    status: 'RECEIPT POSTED IN TALLY · NOTHING RE-TYPED',
+    features: [
+      {
+        label: 'Split one payment across invoices',
+        slug: 'how-to-split-upi-payment-across-tally-invoices',
+      },
+      { label: 'Tally reports on mobile', slug: 'tally-reports-on-mobile' },
+      { label: 'Daily sales report', slug: 'daily-sales-report-tally-mobile' },
+    ],
+  },
+];
+
+/** The pills of `stop` that have a real page in `pages`, in the stop's order. */
+export function liveFeatures(stop, pages) {
+  const known = new Set(pages.map((p) => p.slug));
+  return stop.features.filter((f) => known.has(f.slug));
+}
