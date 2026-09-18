@@ -74,7 +74,7 @@ Don't:
 - No cheap shots at competitors or the customer's current workflow
 - No AI/roadmap promises that aren't shipped
 - End sections with statements, not questions
-- No vanity numbers. The public scale figures are: **100+ businesses and ₹17Cr+ collected monthly — platform-wide figures, founder-confirmed 2026-07-06**. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+/₹17Cr stats down to it. Beyond these two confirmed figures, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor.
+- No vanity numbers. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+ stat down to it. Beyond that one confirmed figure, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor. `src/__tests__/claims-guard.test.js` keeps the retired figure out.
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
@@ -192,7 +192,7 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 
 3. **Every claim must be a specific behavior, not a superlative.** "Fast", "seamless", "enterprise-grade", "world-class" are banned. Replace with: "invoice reaches the customer in under 10 seconds of save", "₹1,00,000 across three invoices auto-splits", "works in 2G-zone villages where Tally can't load." Specificity is the signature of someone who has actually seen the problem.
 
-4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. Our confirmed public figures are 100+ businesses on the platform and ₹17Cr+ collected monthly (see §5); beyond those, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
+4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return (see §5). Beyond that figure, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
 
 5. **Motion serves meaning or it doesn't exist.** No decorative animations. If a button, card, or transition moves, the motion must reflect what the product actually does. A reconciliation card matching and snapping into place, an invoice PDF sliding toward a WhatsApp bubble. Motion that doesn't teach is deleted. Default state: no motion. Opt-in per-component with a reason documented in the component file header.
 

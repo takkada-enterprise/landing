@@ -55,9 +55,9 @@ describe('CountUp', () => {
   it('keeps the final value under prefers-reduced-motion even when observed', () => {
     mockMatchMedia(true);
     const io = mockIntersectionObserver();
-    const { container } = render(<CountUp value={17} prefix="₹" suffix="Cr+" />);
+    const { container } = render(<CountUp value={100} prefix="" suffix="+" />);
     io.intersectAll();
-    expect(container.textContent).toBe('₹17Cr+');
+    expect(container.textContent).toBe('100+');
   });
 
   it('never shows less than 70% of the final value on any animation frame', async () => {

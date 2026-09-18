@@ -5,7 +5,7 @@ meta_title: "Sales Team Leaderboard for Distributors"
 meta_description: "A sales team leaderboard for distributors ranks salesmen from Tally sales on Orders or Invoices, for Month, Quarter or Year. Receipts do not change the rank."
 primary_keyword: "sales team leaderboard distributor"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Field Sales"
 excerpt: "Tuesday night in Guwahati. Team Sales ranks five names from Tally. Raju's August orders sit at ₹9,20,000, invoices at ₹6,40,000. Gupta Stores paid ₹8,400. That receipt does not move his rank."
@@ -101,7 +101,7 @@ The screen also runs on the phone. He can read it after dinner. Station Road sta
 
 A spreadsheet next to Tally is how two brothers start an argument about ₹2,80,000. One exported Monday. One typed Wednesday. Team Sales reads the live sales register on the basis he picked, for the period he pays on. That is the whole defence of the ranking.
 
-The ₹8,00,000, ₹9,20,000 and ₹6,40,000 in this article are the worked example on one Guwahati book. The only public scale figures behind Takkada are 100+ businesses and ₹17Cr+ collected monthly, platform-wide.
+The ₹8,00,000, ₹9,20,000 and ₹6,40,000 in this article are the worked example on one Guwahati book. The only public scale figure behind Takkada is 100+ businesses, platform-wide.
 
 ## Frequently Asked Questions
 

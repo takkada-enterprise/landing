@@ -5,7 +5,7 @@ meta_title: "Promise to Pay Tracking for Distributors"
 meta_description: "Promise to pay tracking records amount and date against the party. Proven missed only after that date with no Tally receipt, allowing for sync lag."
 primary_keyword: "promise to pay tracking"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Collections"
 excerpt: "Monday 7 PM the chemist names ₹45,000 for Tuesday. Promise to pay tracking puts that amount and date on the party. Wednesday morning it is proven missed only if Tuesday has passed and Tally still has no receipt, with allowance for sync lag."
@@ -87,7 +87,7 @@ If the receipt has landed, the chemist is off that line. If it has not, the owne
 
 The brief can also name promises proven missed, follow-ups due today, receipts awaiting confirmation, top overdue parties, or All clear. Sharing that card is manual: text through the phone's share sheet, WhatsApp, email, anywhere the phone can send text. The accountant can see the same chemist line without a second export. Nobody should expect the brief to leave the phone on its own.
 
-Reminders are still the company-wide cadence, separate from promises. A WhatsApp on the due-date schedule can carry a UPI payment link once payment collection is active, after KYC. When collection is on, UPI collections run at 0% MDR, with no transaction cap and no monthly fee. Across the platform that is 100+ businesses and ₹17Cr+ collected monthly. The promise on the log is still the human sentence. The reminder is the scheduled nudge. They can run on the same Tuesday. They are not the same object.
+Reminders are still the company-wide cadence, separate from promises. A WhatsApp on the due-date schedule can carry a UPI payment link once payment collection is active, after KYC. When collection is on, UPI collections run at 0% MDR, with no transaction cap and no monthly fee. Across the platform that is 100+ businesses. The promise on the log is still the human sentence. The reminder is the scheduled nudge. They can run on the same Tuesday. They are not the same object.
 
 On that Tuesday the ageing report still shows ₹18 lakh overdue. Promise to pay tracking also shows the ₹45,000 that was supposed to move today. Tally keeps the bills. The owner keeps the dated sentence.
 
