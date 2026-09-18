@@ -11,12 +11,14 @@
 
 /* ---------- Playable phone (hero) ---------- */
 
+/* 720 / 1491 is the home screen asset itself, which is the box the hotspot
+   percentages in heroHotspots.js were measured in, so the boxes land on their
+   tiles at every width. */
 .home-v3 .pphone {
   position: relative;
   width: min(340px, 70vw);
-  aspect-ratio: 966 / 2000;
+  aspect-ratio: 720 / 1491;
   margin-inline: auto;
-  filter: drop-shadow(0 40px 70px rgba(5, 12, 28, 0.6));
 }
 .home-v3 .pphone-base,
 .home-v3 .pphone-screen {
@@ -24,6 +26,14 @@
   inset: 0;
   width: 100%;
   height: 100%;
+}
+/* The shadow belongs to the phone silhouette, so it lives on the base image and
+   not on the wrapper: an ancestor filter would smudge the Back pill (which sits
+   outside the phone) and force a re-raster of the whole hero on every frame of
+   the nine hint-dot pings. The opened screen sits exactly over the base, so it
+   needs no shadow of its own. */
+.home-v3 .pphone-base {
+  filter: drop-shadow(0 40px 70px rgba(5, 12, 28, 0.6));
 }
 
 /* The opened screen grows out of the tapped tile: transform-origin is that
@@ -37,6 +47,15 @@
     opacity: 0;
     transform: scale(0.96);
   }
+}
+
+/* Leaving: opacity only, faster than the enter, and no transform — the screen
+   does not re-animate the scale it arrived with on its way out. A transition
+   (not a keyframe) so tapping a tile mid-exit retargets instead of queueing. */
+.home-v3 .pphone-screen.is-leaving {
+  opacity: 0;
+  transform: none;
+  transition: opacity 140ms var(--ease-out);
 }
 
 .home-v3 .pphone-hot {
@@ -69,15 +88,12 @@
   border-radius: 50%;
   background-color: var(--color-highlight);
 }
+/* --ping-delay is set per hotspot in PlayablePhone.jsx, so the stagger belongs
+   to the tile rather than to its position among its siblings. */
 .home-v3 .pphone-hot::before {
   opacity: 0;
   animation: pphone-ping 2.2s var(--ease-out) infinite;
-}
-.home-v3 .pphone-hot:nth-of-type(2n)::before {
-  animation-delay: 0.7s;
-}
-.home-v3 .pphone-hot:nth-of-type(3n)::before {
-  animation-delay: 1.3s;
+  animation-delay: var(--ping-delay, 0s);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -111,6 +127,12 @@
 }
 .home-v3 .pphone-back:active {
   transform: scale(0.97);
+}
+/* The pill leaves with the screen it belonged to, on the same 140ms fade. */
+.home-v3 .pphone-back.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms var(--ease-out);
 }
 .home-v3 .pphone-back:focus-visible {
   outline: 3px solid var(--color-highlight);

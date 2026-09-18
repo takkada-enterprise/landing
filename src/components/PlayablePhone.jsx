@@ -8,20 +8,34 @@
 //    the last click: the parent's job buttons open a hotspot without touching
 //    this component, and a remembered origin would grow the screen out of the
 //    wrong tile.
+//  - Screens overlap rather than cut. Going straight from one screen to another
+//    (the parent's job buttons do that) keeps the old screen mounted UNDERNEATH
+//    the new one until the new one has finished arriving, so the home screen
+//    never flashes through the gap and the change reads as "A became B", not
+//    "A, home, B". Going back fades the screen out over 140ms on opacity alone
+//    — an exit is faster than an enter, and it does not re-animate the scale it
+//    just arrived with. Both are transitions, not keyframes, so tapping a tile
+//    mid-exit retargets instead of queueing.
 //  - The marigold hint dot is the only ambient motion on the page: a ring that
 //    pings outward on transform and opacity alone (never box-shadow, which the
 //    browser cannot animate cheaply), because a still screenshot does not tell
 //    anybody it is tappable. It stops under prefers-reduced-motion.
-//  - Everything else is a transition, so it can reverse mid-flight: the press
-//    scale on the tiles, the Back button's fade.
 //
 // Controlled by design: the parent owns which hotspot is open so the hero copy
-// and the job buttons stay in step with the phone.
-import { useEffect, useRef } from 'react';
+// and the job buttons stay in step with the phone. The outgoing screen below is
+// presentation state only — it never changes what `activeKey`/`onChange` mean.
+import { useEffect, useRef, useState } from 'react';
 import { HOTSPOTS } from '../data/heroHotspots';
 import { screen } from '../data/screens';
 
 const SIZES = '(max-width: 700px) 70vw, 340px';
+// Fallbacks for the `transitionend` that clears an outgoing screen: a tab in
+// the background, a dropped event or reduced motion must never strand a layer
+// on top of the phone. Each is its CSS duration plus slack.
+const ENTER_FALLBACK_MS = 350;
+const EXIT_FALLBACK_MS = 220;
+
+const hotspotFor = (key) => HOTSPOTS.find((h) => h.key === key) ?? null;
 
 export default function PlayablePhone({ activeKey, onChange }) {
   const backRef = useRef(null);
@@ -31,12 +45,34 @@ export default function PlayablePhone({ activeKey, onChange }) {
   // open or a job button outside opens one.
   const pendingFocus = useRef(null);
 
+  // The screen on its way out: `under` means a new screen is arriving on top of
+  // it, `leaving` means nothing is replacing it and it fades away. Derived
+  // during render (React's "adjust state when a prop changes" pattern) because
+  // an effect would run after the browser had already painted a frame with the
+  // old screen gone — which is the flash this exists to remove.
+  const [seenKey, setSeenKey] = useState(activeKey);
+  const [outgoing, setOutgoing] = useState(null);
+  if (seenKey !== activeKey) {
+    const left = hotspotFor(seenKey);
+    setSeenKey(activeKey);
+    setOutgoing(left ? { slug: left.screen, mode: activeKey ? 'under' : 'leaving' } : null);
+  }
+
   const home = screen('home');
-  const active = HOTSPOTS.find((h) => h.key === activeKey) ?? null;
+  const active = hotspotFor(activeKey);
   const opened = active ? screen(active.screen) : null;
   const transformOrigin = active
     ? `calc(${active.box.left} + ${active.box.width} / 2) calc(${active.box.top} + ${active.box.height} / 2)`
     : undefined;
+
+  // Layers are keyed by slug so React keeps the outgoing image's own DOM node
+  // (no re-entry animation on it) and mounts the incoming one fresh, which is
+  // what makes @starting-style fire for the arriving screen.
+  const layers = [];
+  if (outgoing && outgoing.slug !== opened?.slug) {
+    layers.push({ ...screen(outgoing.slug), state: outgoing.mode });
+  }
+  if (opened) layers.push({ ...opened, state: 'current' });
 
   useEffect(() => {
     const pending = pendingFocus.current;
@@ -45,6 +81,21 @@ export default function PlayablePhone({ activeKey, onChange }) {
     if (pending.to === 'back' && activeKey === pending.key) backRef.current?.focus();
     if (pending.to === 'hotspot' && !activeKey) hotRefs.current.get(pending.key)?.focus();
   }, [activeKey]);
+
+  useEffect(() => {
+    if (!outgoing) return undefined;
+    const timer = setTimeout(
+      () => setOutgoing(null),
+      outgoing.mode === 'under' ? ENTER_FALLBACK_MS : EXIT_FALLBACK_MS
+    );
+    return () => clearTimeout(timer);
+  }, [outgoing]);
+
+  // The arriving screen tells us when it has finished arriving; the leaving one
+  // tells us when it has finished leaving. Either way the outgoing layer goes.
+  function clearOutgoing(event) {
+    if (event.propertyName === 'opacity') setOutgoing(null);
+  }
 
   function open(hotspot) {
     pendingFocus.current = { to: 'back', key: hotspot.key };
@@ -60,12 +111,15 @@ export default function PlayablePhone({ activeKey, onChange }) {
   // came from inside it -- the event has to bubble up from the Back button.
   function handleKeyDown(event) {
     if (event.key !== 'Escape' || !active) return;
+    // Deliberate: the phone has consumed this Escape, so an outer handler (the
+    // page's own dismiss, or whatever Task 8 wraps the hero in) must not also
+    // close something the visitor never opened.
     event.stopPropagation();
     close();
   }
 
   return (
-    <div className={`pphone${active ? ' is-open' : ''}`} onKeyDown={handleKeyDown}>
+    <div className="pphone" onKeyDown={handleKeyDown}>
       <img
         className="pphone-base"
         src={home.src}
@@ -77,26 +131,36 @@ export default function PlayablePhone({ activeKey, onChange }) {
         fetchPriority="high"
         decoding="async"
       />
-      {opened && (
-        <img
-          key={opened.slug}
-          className="pphone-screen"
-          src={opened.src}
-          srcSet={opened.srcSet}
-          sizes={SIZES}
-          width={opened.width}
-          height={opened.height}
-          alt={opened.alt}
-          style={{ transformOrigin }}
-        />
-      )}
+      {layers.map((layer) => {
+        const isCurrent = layer.state === 'current';
+        return (
+          <img
+            key={layer.slug}
+            className={`pphone-screen${layer.state === 'leaving' ? ' is-leaving' : ''}`}
+            src={layer.src}
+            srcSet={layer.srcSet}
+            sizes={SIZES}
+            width={layer.width}
+            height={layer.height}
+            // Only the screen the visitor is actually looking at is announced;
+            // a screen on its way out is decoration.
+            alt={isCurrent ? layer.alt : ''}
+            aria-hidden={isCurrent ? undefined : 'true'}
+            style={isCurrent ? { transformOrigin } : undefined}
+            onTransitionEnd={clearOutgoing}
+          />
+        );
+      })}
       {!active &&
-        HOTSPOTS.map((hotspot) => (
+        HOTSPOTS.map((hotspot, i) => (
           <button
             key={hotspot.key}
             type="button"
             className="pphone-hot"
-            style={hotspot.box}
+            // The ping delay belongs to the hotspot, not to its position among
+            // its siblings: an nth-of-type stagger reshuffles the moment
+            // anything else inside the phone becomes a button.
+            style={{ ...hotspot.box, '--ping-delay': `${(i % 3) * 0.7}s` }}
             aria-label={`Open ${hotspot.label}`}
             ref={(node) => {
               if (node) hotRefs.current.set(hotspot.key, node);
@@ -107,9 +171,18 @@ export default function PlayablePhone({ activeKey, onChange }) {
         ))}
       {active && (
         <button type="button" className="pphone-back" ref={backRef} onClick={close}>
-          ← Back to home screen
+          <span aria-hidden="true">←</span> Back to home screen
         </button>
       )}
+      {/* The pill leaves with the screen it belonged to instead of vanishing. */}
+      {!active && outgoing?.mode === 'leaving' && (
+        <button type="button" className="pphone-back is-leaving" tabIndex={-1} aria-hidden="true">
+          <span aria-hidden="true">←</span> Back to home screen
+        </button>
+      )}
+      <p className="sr-only" aria-live="polite">
+        {active ? `Showing ${active.label}` : ''}
+      </p>
     </div>
   );
 }
