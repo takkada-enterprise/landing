@@ -51,11 +51,16 @@
 
 /* Leaving: opacity only, faster than the enter, and no transform — the screen
    does not re-animate the scale it arrived with on its way out. A transition
-   (not a keyframe) so tapping a tile mid-exit retargets instead of queueing. */
+   (not a keyframe) so tapping a tile mid-exit retargets instead of queueing.
+   It dissolves ABOVE the tiles it is revealing: underneath them, nine marigold
+   dots would punch through a screenshot that is still nearly opaque. The tiles
+   are tappable through it from the first frame. */
 .home-v3 .pphone-screen.is-leaving {
   opacity: 0;
   transform: none;
   transition: opacity 140ms var(--ease-out);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .home-v3 .pphone-hot {

@@ -36,6 +36,9 @@ const ENTER_FALLBACK_MS = 350;
 const EXIT_FALLBACK_MS = 220;
 
 const hotspotFor = (key) => HOTSPOTS.find((h) => h.key === key) ?? null;
+// The centre of the tile, which is where its screen grows out of.
+const originOf = (hotspot) =>
+  `calc(${hotspot.box.left} + ${hotspot.box.width} / 2) calc(${hotspot.box.top} + ${hotspot.box.height} / 2)`;
 
 export default function PlayablePhone({ activeKey, onChange }) {
   const backRef = useRef(null);
@@ -55,24 +58,33 @@ export default function PlayablePhone({ activeKey, onChange }) {
   if (seenKey !== activeKey) {
     const left = hotspotFor(seenKey);
     setSeenKey(activeKey);
-    setOutgoing(left ? { slug: left.screen, mode: activeKey ? 'under' : 'leaving' } : null);
+    setOutgoing(
+      left
+        ? { slug: left.screen, mode: activeKey ? 'under' : 'leaving', origin: originOf(left) }
+        : null
+    );
   }
 
   const home = screen('home');
   const active = hotspotFor(activeKey);
   const opened = active ? screen(active.screen) : null;
-  const transformOrigin = active
-    ? `calc(${active.box.left} + ${active.box.width} / 2) calc(${active.box.top} + ${active.box.height} / 2)`
-    : undefined;
 
   // Layers are keyed by slug so React keeps the outgoing image's own DOM node
   // (no re-entry animation on it) and mounts the incoming one fresh, which is
-  // what makes @starting-style fire for the arriving screen.
+  // what makes @starting-style fire for the arriving screen. The outgoing layer
+  // keeps its own origin: switching screens while its 320ms grow is still
+  // running must not snap it back to the middle of the phone mid-flight.
   const layers = [];
   if (outgoing && outgoing.slug !== opened?.slug) {
-    layers.push({ ...screen(outgoing.slug), state: outgoing.mode });
+    layers.push({ ...screen(outgoing.slug), state: outgoing.mode, origin: outgoing.origin });
   }
-  if (opened) layers.push({ ...opened, state: 'current' });
+  if (opened) layers.push({ ...opened, state: 'current', origin: originOf(active) });
+  const hasUnder = layers.some((layer) => layer.state === 'under');
+  // The pill belongs to the screen: it leaves with a Back exit rather than
+  // vanishing, so it is one element in one slot whose class changes. Two slots
+  // would mount a second node already carrying .is-leaving, whose start and end
+  // are both opacity 0 -- nothing to transition, so it would cut.
+  const leavingBack = !active && outgoing?.mode === 'leaving';
 
   useEffect(() => {
     const pending = pendingFocus.current;
@@ -91,10 +103,14 @@ export default function PlayablePhone({ activeKey, onChange }) {
     return () => clearTimeout(timer);
   }, [outgoing]);
 
-  // The arriving screen tells us when it has finished arriving; the leaving one
-  // tells us when it has finished leaving. Either way the outgoing layer goes.
+  // Only the layer whose transition ending MEANS "done" may clear the outgoing
+  // one: the arriving screen when something is waiting underneath it, or the
+  // leaving screen on a Back exit. Hung on every layer instead, a switch made
+  // during A's own 260ms enter would clear the moment A's enter finished, and
+  // the home screen would show through B's half-faded alpha.
   function clearOutgoing(event) {
-    if (event.propertyName === 'opacity') setOutgoing(null);
+    if (event.propertyName !== 'opacity' || event.target !== event.currentTarget) return;
+    setOutgoing(null);
   }
 
   function open(hotspot) {
@@ -133,6 +149,7 @@ export default function PlayablePhone({ activeKey, onChange }) {
       />
       {layers.map((layer) => {
         const isCurrent = layer.state === 'current';
+        const decides = layer.state === 'leaving' || (isCurrent && hasUnder);
         return (
           <img
             key={layer.slug}
@@ -146,8 +163,8 @@ export default function PlayablePhone({ activeKey, onChange }) {
             // a screen on its way out is decoration.
             alt={isCurrent ? layer.alt : ''}
             aria-hidden={isCurrent ? undefined : 'true'}
-            style={isCurrent ? { transformOrigin } : undefined}
-            onTransitionEnd={clearOutgoing}
+            style={{ transformOrigin: layer.origin }}
+            onTransitionEnd={decides ? clearOutgoing : undefined}
           />
         );
       })}
@@ -157,9 +174,9 @@ export default function PlayablePhone({ activeKey, onChange }) {
             key={hotspot.key}
             type="button"
             className="pphone-hot"
-            // The ping delay belongs to the hotspot, not to its position among
-            // its siblings: an nth-of-type stagger reshuffles the moment
-            // anything else inside the phone becomes a button.
+            // The ping delay comes from the hotspot's own index in HOTSPOTS, so
+            // it travels with the tile. An nth-of-type stagger would reshuffle
+            // the moment anything else inside the phone became a button.
             style={{ ...hotspot.box, '--ping-delay': `${(i % 3) * 0.7}s` }}
             aria-label={`Open ${hotspot.label}`}
             ref={(node) => {
@@ -169,14 +186,15 @@ export default function PlayablePhone({ activeKey, onChange }) {
             onClick={() => open(hotspot)}
           />
         ))}
-      {active && (
-        <button type="button" className="pphone-back" ref={backRef} onClick={close}>
-          <span aria-hidden="true">←</span> Back to home screen
-        </button>
-      )}
-      {/* The pill leaves with the screen it belonged to instead of vanishing. */}
-      {!active && outgoing?.mode === 'leaving' && (
-        <button type="button" className="pphone-back is-leaving" tabIndex={-1} aria-hidden="true">
+      {(active || leavingBack) && (
+        <button
+          type="button"
+          className={`pphone-back${active ? '' : ' is-leaving'}`}
+          ref={active ? backRef : null}
+          onClick={active ? close : undefined}
+          tabIndex={active ? undefined : -1}
+          aria-hidden={active ? undefined : 'true'}
+        >
           <span aria-hidden="true">←</span> Back to home screen
         </button>
       )}

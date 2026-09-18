@@ -87,11 +87,59 @@ describe('PlayablePhone', () => {
     // Only the screen in front is announced.
     expect(first).toHaveAttribute('aria-hidden', 'true');
     expect(first.getAttribute('alt')).toBe('');
+    // It keeps its own origin while it waits: a switch made during its own
+    // 320ms grow must not snap it to the middle of the phone mid-flight.
+    const stock = HOTSPOTS.find((h) => h.key === 'stock');
+    expect(first.getAttribute('style')).toContain(`${stock.box.left} + ${stock.box.width} / 2`);
 
     // The fallback clears it even though jsdom never fires transitionend.
     act(() => vi.advanceTimersByTime(400));
     expect(first).not.toBeInTheDocument();
     expect(second).toBeInTheDocument();
+  });
+
+  // jsdom runs no transitions, so what is pinned here is the structure that
+  // makes the real ones work.
+  it('lets only the arriving screen decide when the one underneath goes', () => {
+    vi.useFakeTimers();
+    const { rerender } = render(<PlayablePhone activeKey="stock" onChange={() => {}} />);
+    const under = ui.getByAltText(/godown/);
+    rerender(<PlayablePhone activeKey="parties" onChange={() => {}} />);
+    const current = ui.getByAltText(/Party list/);
+
+    // The under layer's OWN enter transition finishing means nothing: switching
+    // screens inside that 260ms would otherwise drop it and let the home screen
+    // show through the arriving screen's half-faded alpha.
+    fireEvent.transitionEnd(under, { propertyName: 'opacity' });
+    expect(under).toBeInTheDocument();
+
+    // The arriving screen finishing is what "done" means.
+    fireEvent.transitionEnd(current, { propertyName: 'opacity' });
+    expect(under).not.toBeInTheDocument();
+    expect(current).toBeInTheDocument();
+  });
+
+  it('fades the same Back pill node out instead of swapping in a new one', () => {
+    vi.useFakeTimers();
+    render(<Harness />);
+    fireEvent.click(ui.getByRole('button', { name: 'Open Stock' }));
+    const pill = ui.getByRole('button', { name: 'Back to home screen' });
+
+    fireEvent.click(pill);
+    // Same DOM node, now carrying the leaving class: a second node mounted with
+    // .is-leaving already on it starts and ends at opacity 0, so it would cut
+    // rather than fade -- and re-opening mid-exit could not retarget it.
+    const leaving = document.querySelector('.pphone-back.is-leaving');
+    expect(leaving).toBe(pill);
+
+    // The tiles underneath are usable while it dissolves.
+    const hotspots = ui.getAllByRole('button', { name: /^Open / });
+    expect(hotspots).toHaveLength(9);
+    hotspots.forEach((b) => expect(b).toBeEnabled());
+    const screenImg = document.querySelector('.pphone-screen.is-leaving');
+    expect(screenImg).not.toBeNull();
+    act(() => vi.advanceTimersByTime(300));
+    expect(document.querySelector('.pphone-back.is-leaving')).toBeNull();
   });
 
   it('fades the screen and the Back pill out on close rather than cutting them', () => {
