@@ -125,9 +125,26 @@ export function localFileName(block, subset, weight = '') {
   return `${slug}${weight ? `-${weight}` : ''}-${subset}.woff2`;
 }
 
-/** The declared weight of a block, slugified ('400', or '400-800' for a range). */
+/**
+ * The declared weight of a block, slugified ('400', or '400-800' for a range).
+ *
+ * Only ever called when a family+subset resolves to more than one remote file
+ * and the weight therefore HAS to go in the local filename. So it throws rather
+ * than returning '': an empty weight would hand localFileName the un-suffixed
+ * name — the very name the suffix exists to avoid — and the script would
+ * overwrite one cut with another and print a success line.
+ */
 export function weightOf(block) {
-  return ((block.match(/font-weight:\s*([^;]+);/) || [])[1] || '').trim().replace(/\s+/g, '-');
+  const weight = ((block.match(/font-weight:\s*([^;]+);/) || [])[1] || '').trim().replace(/\s+/g, '-');
+  if (!weight) {
+    throw new Error(
+      'vendorFonts: this family serves a different file per weight for one subset, so the ' +
+        'weight has to go in the local filename — but the @font-face below declares no ' +
+        'parsable font-weight, and the un-suffixed name would silently overwrite another ' +
+        `cut:\n${block}`
+    );
+  }
+  return weight;
 }
 
 export function srcUrlOf(block) {
@@ -171,10 +188,20 @@ export function buildCss(blocks) {
   for (const { subset, block } of kept) {
     const url = srcUrlOf(block);
     if (!url) continue;
-    const base = localFileName(block, subset);
-    const fileName =
-      urlsPerName.get(base).size > 1 ? localFileName(block, subset, weightOf(block)) : base;
-    downloads.set(url, fileName);
+
+    // One remote file gets exactly one local name, whichever weight block
+    // reaches it first. Google does collapse SOME weights of a family onto one
+    // file and not others, and naming each block independently would emit a
+    // src for a file the download loop below is never told to fetch — a 404
+    // that nothing in the build can see, because the CSS is well-formed and
+    // every OTHER file does exist.
+    let fileName = downloads.get(url);
+    if (!fileName) {
+      const base = localFileName(block, subset);
+      fileName =
+        urlsPerName.get(base).size > 1 ? localFileName(block, subset, weightOf(block)) : base;
+      downloads.set(url, fileName);
+    }
     let out = rewriteBlock(block, fileName);
     const narrowed = SUBSET_TO_CODEPOINTS[subset];
     if (narrowed) {

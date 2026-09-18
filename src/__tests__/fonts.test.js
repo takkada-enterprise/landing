@@ -25,6 +25,16 @@ describe('self-hosted webfonts', () => {
     }
   });
 
+  // The positive case above is satisfied by a fonts.css that ALSO declares a
+  // third family — which is how an extra face gets onto the critical path
+  // without anyone deciding to put it there. The type system is two families;
+  // a third one has to fail here, not get noticed in a waterfall later.
+  it('declares no family beyond the two the site ships', () => {
+    const declared = [...fontsCss.matchAll(/font-family:\s*'([^']+)'/g)].map((m) => m[1]);
+    expect(declared.length).toBeGreaterThan(0);
+    expect([...new Set(declared)].sort()).toEqual([...REQUIRED_FAMILIES].sort());
+  });
+
   it('ships a real woff2 file behind every src', () => {
     const srcs = [...fontsCss.matchAll(/url\((\/assets\/fonts\/[^)]+\.woff2)\)/g)].map((m) => m[1]);
     expect(srcs.length).toBeGreaterThan(0);
