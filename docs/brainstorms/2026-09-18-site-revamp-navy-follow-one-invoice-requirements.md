@@ -126,3 +126,25 @@ Branch `feat/site-revamp-navy` in worktree `~/.claude/fleet/worktrees/landing__s
 ## Out of scope
 
 Redesign of blog, partners, comparison, ICP and legal pages. New copy for feature-page bodies. Pricing changes. Video. The "A day at your shop" idea (kept as a possible future campaign page).
+
+## Appendix: feature gap map (research 2026-09-18)
+
+Paths are under `/Users/ronak/Desktop/PaySaathi/`. "Capabilities file" means a code-verified `docs/manuals/*-capabilities.md`. Only document import has one today; every other family needs one written before its page copy is upgraded.
+
+| Family (stop) | Best existing sources | Site page today | Needed |
+|---|---|---|---|
+| Bulk invoices from orders + e-inv/e-way (Bill) | `docs/plans/2026-09-01-003-fix-dispatch-bulk-invoice-…-plan.md`, `docs/brainstorms/2026-07-24-pending-order-addon-requirements.md`, e-way plans `2026-09-05-005`, `2026-09-08-002` | e-invoice and e-way pages only | Capabilities file, **new page** "many invoices in one go" |
+| Van loading, beats, picking list, load grid (Load) | `docs/manuals/loading-sheet-manual.md`, `docs/brainstorms/2026-09-06-dispatch-one-van-page-requirements.md`, `2026-08-28-dispatch-load-lifecycle…`, `2026-08-11-beat-dispatch-load-sheet…`, guide `dispatch.md` | none (nearest: delivery challan) | Capabilities file, **new page** |
+| Godown-wise stock and item selection (Load) | `docs/manuals/stock-control-manual.md`, `docs/plans/2026-09-08-003-feat-godown-wise-stock-in-cart-and-block-plan.md`, `docs/brainstorms/2026-07-25-godown-register…` | 7 pages | Capabilities file, refresh |
+| Document and bank statement import (Bill) | `docs/manuals/document-import-capabilities.md`, `docs/sales/takkada-document-import-brief.html` | 5 pages; none for sales-invoice or purchase-order import | Refresh from the file; bulk import (12 at once) is **switched off**, keep off the site |
+| Maker-checker approvals (Bill) | `docs/brainstorms/2026-08-31-maker-checker-voucher-approval-requirements.md`, `docs/plans/2026-09-08-005-…` | none | Capabilities file, **new page** |
+| Recovery dashboard, follow-up log, promise to pay, team recovery, payment behaviour (Recover) | `docs/brainstorms/2026-08-23-recovery-owner-view…`, `2026-08-25-recovery-team-board-table…`, `docs/plans/2026-08-17-001-…daily-brief…`, `docs/marketing/report-explainers/01-collections.md` | none for the dashboard | Capabilities file, **new page**. Owner view was stage-only for one client when written: verify Live first |
+| AI calling (Recover) | none in the tree; facts come from Ronak | none | Ronak supplies the facts; **new page**; "charged on connected minutes" |
+| Reminders, statements, settlements, UPI (Remind) | `docs/brainstorms/2026-08-24-smart-reminders-custom-cadence…`, `2026-08-21-bills-receivable-party-page-ageing-pdf…`, guides `whatsapp-reminders.md` | 11 pages; none for reminder logs or settlements | Capabilities file, refresh. UPI **QR** is not built: keep off the site |
+| Team: targets, commission, field visits, salesman summary export (Order, Tally) | `docs/brainstorms/2026-07-07-team-sales-module…`, `2026-07-27-field-visit-tracking…`, `docs/plans/2026-09-06-004-feat-team-sales-daily-weekly-export-plan.md` | 6 pages; none for targets, commission or the export | Capabilities file, **new page** |
+| Reports and analytics (Tally) | `docs/marketing/report-explainers/` (7 files), `docs/brainstorms/2026-08-03-sales-analytics…`, `docs/plans/2026-09-14-001-feat-sales-purchase-by-item-reports-plan.md` | 9 pages; none for analytics, item-wise or Total FY | Capabilities file, **new page** for analytics |
+| Invoice settings, template, notifications | `docs/plans/2026-09-05-015-feat-invoice-settings-defaults-and-locks-plan.md`, `docs/brainstorms/2026-08-12-push-notification-system…` | template pages only | Capabilities file, fold into existing pages |
+
+Add-on wording the site must keep: Pending Orders, Team Sales (beat dispatch and load sheet ship inside it), Field Visits and Sales Analytics (Reports +) are paid add-ons or upper-plan features. Sales by Item, Purchases by Item and the ageing PDF are free.
+
+Plans and brainstorms say what was intended. A capabilities file is only true once each row is read from the code on `origin/stage` and checked against `origin/main`.
