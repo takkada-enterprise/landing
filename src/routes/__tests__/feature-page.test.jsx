@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -12,6 +13,8 @@ import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
 import { routeMetadata } from '../../data/siteMetadata';
 import { routes } from '../index';
 import { pricing, planPricing } from '../../data/siteContent';
+import { FEATURE_GROUPS } from '../../data/featureGroups';
+import { STOPS } from '../../data/journey';
 
 afterEach(cleanup);
 
@@ -190,5 +193,67 @@ describe('the router picks feature pages up without a per-page edit', () => {
     for (const page of FEATURE_PAGES) {
       expect(children).toContain(featurePagePath(page));
     }
+  });
+});
+
+// The journey strip is mounted here rather than inside the hero data so that a
+// page joining a stop needs no page edit at all — the grouping already knows.
+// These pin the mount point and the silence, per page, so a regrouping that
+// drops a stop shows up as a failing page and not as a quietly missing strip.
+describe('every feature page shows where it sits in the invoice journey', () => {
+  const stopOf = (slug) => FEATURE_GROUPS.find((g) => g.slugs.includes(slug))?.stop;
+
+  it.each(CASES)('%s marks its own stop, or carries no strip at all', (_slug, page) => {
+    const { container } = renderPage(page);
+    const copy = container.querySelector('.feature-hero .icp-hero-content');
+    const strip = container.querySelector('.feature-hero .journey-strip');
+    const stop = stopOf(page.slug);
+
+    if (!stop) {
+      expect(strip).toBeNull();
+      return;
+    }
+    expect(strip).not.toBeNull();
+    // Last child of the copy column: it closes the hero, under the CTAs.
+    expect(copy.lastElementChild).toBe(strip);
+    const marked = [...strip.querySelectorAll('li[aria-current="step"]')];
+    expect(marked).toHaveLength(1);
+    expect(marked[0].textContent).toBe(STOPS.find((s) => s.id === stop).label);
+    expect(strip.querySelector('li[aria-current="step"] a').getAttribute('href')).toBe(
+      `/#stop-${stop}`
+    );
+  });
+
+  it('draws a strip on at least one page, so the assertions above are not vacuous', () => {
+    const withStop = FEATURE_PAGES.filter((p) => stopOf(p.slug));
+    expect(withStop.length).toBeGreaterThan(0);
+  });
+});
+
+// Two things about the navy hero cannot be seen from the DOM, and both of them
+// were nearly shipped wrong, so they are pinned against the stylesheet itself.
+describe('the navy hero stays on the two heroes it is for', () => {
+  const css = readFileSync('src/feature-page.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  const heads = [...css.matchAll(/([^{}]+)\{/g)]
+    .map((m) => m[1].trim())
+    .filter((h) => !h.startsWith('@'))
+    .flatMap((h) => h.split(',').map((s) => s.trim()))
+    .filter(Boolean);
+
+  // `hero icp-hero` is also worn by the ICP pages, /partners, /demo and the
+  // comparison page. A head that reaches .icp-hero turns all of those navy too.
+  it('never colours a hero through .icp-hero', () => {
+    const leaking = heads.filter(
+      (h) => /\.icp-hero\b/.test(h) && !/\.feature-hero\b|\.features-hub-hero\b/.test(h)
+    );
+    expect(leaking).toEqual([]);
+  });
+
+  // A blanket `.feature-hero p` is the rule that washes out the answer block —
+  // a pale card standing on the navy whose ink has to stay dark. Same for any
+  // future light-surface child of the hero.
+  it('never washes every paragraph in the hero out to white', () => {
+    const blanket = heads.filter((h) => /^\.(feature-hero|features-hub-hero)[^,]*\sp$/.test(h));
+    expect(blanket).toEqual([]);
   });
 });

@@ -32,6 +32,7 @@ import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
 import FAQItem from './FAQItem';
+import JourneyStrip from './JourneyStrip';
 import { pricing, planPricing } from '../data/siteContent';
 import {
   softwareApplicationSchema,
@@ -170,6 +171,10 @@ function FeaturePage({ page }) {
                 <WhatsAppCTA context={page.waContext} />
                 <CalendarCTA context={page.waContext} />
               </div>
+              {/* Closes the hero with the one thing the page cannot say about
+                  itself: where it sits in the invoice's life. Renders nothing
+                  for a page that is not one of the seven stops. */}
+              <JourneyStrip slug={page.slug} />
             </div>
             {page.hero && (
               <div className="feature-hero-shot">

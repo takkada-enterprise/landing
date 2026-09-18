@@ -992,3 +992,102 @@
     }
   }
 }
+
+/* ── The journey strip (src/components/JourneyStrip.jsx) ──
+ *
+ * Seven stops at the foot of a feature page's hero, the page's own stop marked.
+ * It lives here rather than in feature-page.css because it is the same seven
+ * stations the homepage story above is made of, and the two have to move
+ * together; what lives in feature-page.css is only the colour it takes on the
+ * navy hero.
+ *
+ * So everything below is layout, type and motion — surface-agnostic on purpose.
+ * The links take `color: inherit`, so dropping the strip onto a light surface
+ * one day gives dark pills rather than an unreadable one, and the one colour
+ * stated here is the marigold dot, which is the site's mark for "you are at
+ * this stop" and reads on either ground.
+ *
+ * Motion: a press and a hover, nothing on arrival. This is navigation and it is
+ * on every feature page, so an entrance animation would be a thing the reader
+ * sits through once per page for no information. */
+.journey-strip {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.journey-strip-label {
+  font: 400 12px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.journey-strip ol {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* inline-flex, not block: the current stop's dot is a ::before, and a flex row
+   is what centres a 6px circle against a 13px cap-height without magic
+   numbers. The transparent border is always present so the marked stop changes
+   only its colour and never the pill's size. */
+.journey-strip a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: 600 13px var(--font-sans);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 160ms var(--ease-out),
+    border-color 160ms var(--ease-out),
+    color 160ms var(--ease-out);
+}
+
+.journey-strip a:active {
+  transform: scale(0.97);
+}
+
+.journey-strip a:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+.journey-strip li[aria-current='step'] a {
+  font-weight: 700;
+}
+
+/* Marigold marks the active stop, the same way it does on the homepage story.
+   It is a dot, never a fill: the accent colour is never a button. */
+.journey-strip li[aria-current='step'] a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-highlight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Colour still moves — it carries no motion. The scale does not. */
+  .journey-strip a {
+    transition:
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out),
+      color 160ms var(--ease-out);
+  }
+
+  .journey-strip a:active {
+    transform: none;
+  }
+}

@@ -758,3 +758,180 @@
     filter: drop-shadow(0 24px 40px rgba(10, 23, 48, 0.32));
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+ * Navy hero — feature pages and the features hub (2026-09-18)
+ *
+ * A visitor who followed one invoice through seven stops on the homepage used
+ * to land on a feature page that was a different colour, a different shape and
+ * told him nothing about where he had arrived. The hero now opens on the same
+ * navy the story band and the footer already use, and closes with the journey
+ * strip, so the story and its detail pages read as one surface.
+ *
+ * LEAK FENCE. Every head below starts with `.feature-hero` or
+ * `.features-hub-hero`, never `.icp-hero`. `hero icp-hero` is also worn by the
+ * four ICP pages, /partners, /demo and /tally-vs-biz-analyst, and those stay
+ * light; only FeaturePage.jsx adds `feature-hero` and only Features.jsx adds
+ * `features-hub-hero`.
+ *
+ * CONTRAST. Measured against the worst ground these rules can produce: the
+ * pale end of the gradient (--color-navy #1E3A6B) with the accent glow at its
+ * peak, i.e. #284675. The deep end only ever raises the ratio.
+ *   h1                    #fff                        9.5:1
+ *   subtitle              rgba(255,255,255,0.74)      6.0:1
+ *   breadcrumb link       --color-accent              5.5:1
+ *   breadcrumb current    rgba(255,255,255,0.80)      6.7:1
+ *   overline              --color-accent              5.5:1
+ *   primary CTA           --color-navy on #fff       11.2:1
+ *   secondary CTA         #fff, ghost                 9.5:1
+ *   strip label           rgba(255,255,255,0.70)      5.6:1
+ *   strip link            rgba(255,255,255,0.84)      7.2:1
+ *   current stop          --color-navy on #fff       11.2:1
+ *
+ * The answer block is deliberately NOT restated: it is a pale card standing on
+ * the navy and it keeps its own ink (#0F1F3D on #DCF2FB, 14.1:1). That is the
+ * reason nothing here colours `.feature-hero p` wholesale — a blanket rule
+ * would wash out every light-surface child in the hero, now and later. The
+ * washed colour is applied to the subtitle by name.
+ * ══════════════════════════════════════════════════════════════════════════ */
+
+.feature-hero,
+.features-hub-hero {
+  background: linear-gradient(180deg, var(--color-primary-dark), var(--color-navy));
+  color: #fff;
+}
+
+/* The shared hero backdrop is a pale wash plate sized for #F7FAFC; over navy it
+   lifts the ground exactly where the breadcrumb and the overline sit, which is
+   what took the accent below 4.5:1. Replaced with one faint accent glow on the
+   image side. */
+.feature-hero::before,
+.features-hub-hero::before {
+  background: radial-gradient(
+    60% 50% at 82% 16%,
+    rgba(156, 203, 234, 0.08) 0%,
+    rgba(156, 203, 234, 0) 62%
+  );
+}
+
+.feature-hero .icp-breadcrumb,
+.features-hub-hero .icp-breadcrumb {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.feature-hero .icp-breadcrumb a,
+.features-hub-hero .icp-breadcrumb a {
+  color: var(--color-accent);
+}
+
+.feature-hero .icp-breadcrumb-sep,
+.features-hub-hero .icp-breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* The overline's pill is a pale chip with a blurred white fill (premium.css).
+   On navy a pale chip is a hole, and the accent on it measures 3.5:1. It drops
+   the chip and sets flush with the h1 instead. */
+.feature-hero .section-label,
+.features-hub-hero .section-label {
+  background: transparent;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  backdrop-filter: none;
+  color: var(--color-accent);
+}
+
+.feature-hero .hero-title,
+.features-hub-hero .hero-title {
+  color: #fff;
+}
+
+.feature-hero .hero-subtitle,
+.features-hub-hero .hero-subtitle {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+/* The mockup's own shadow is navy ink at 0.22 on a pale page — invisible here.
+   drop-shadow, not box-shadow: the artwork is a device on transparency. */
+.feature-hero .feature-hero-shot img {
+  filter: drop-shadow(0 30px 50px rgba(5, 12, 28, 0.55));
+}
+
+/* ── CTAs on navy ──
+ * Primary inverts to white-on-navy. Secondary cannot stay a white chip beside
+ * it or the two buttons become the same button, so it goes ghost: the pair
+ * keeps its hierarchy and the ghost's border still clears 3:1 (4.1:1). */
+.feature-hero .cta-btn--primary {
+  background: #fff;
+  color: var(--color-navy);
+  box-shadow: 0 10px 26px rgba(5, 12, 28, 0.38);
+}
+
+.feature-hero .cta-btn--secondary {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+}
+
+/* ── The journey strip, on navy ──
+ * journey.css owns its layout and its motion; only the colour is here, because
+ * only the colour knows what it is standing on. */
+.feature-hero .journey-strip-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-hero .journey-strip a {
+  color: rgba(255, 255, 255, 0.84);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* The stop this page is. White fill and navy ink, with the marigold dot
+   journey.css draws in front of it — marigold marks, it never fills. */
+.feature-hero .journey-strip li[aria-current='step'] a {
+  background: #fff;
+  color: var(--color-navy);
+  border-color: #fff;
+}
+
+/* Hover lifts only for a real pointer: a tap otherwise pins :hover and the
+   state sticks after the finger has gone. */
+@media (hover: hover) and (pointer: fine) {
+  .feature-hero .cta-btn--primary:hover {
+    background: #fff;
+    color: var(--color-primary-dark);
+    box-shadow: 0 16px 34px rgba(5, 12, 28, 0.46);
+  }
+
+  .feature-hero .cta-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
+  }
+
+  .feature-hero .journey-strip a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.34);
+    color: #fff;
+  }
+
+  /* Without this the marked stop would take the wash and the white text and
+     disappear into its own pill. */
+  .feature-hero .journey-strip li[aria-current='step'] a:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--color-primary-dark);
+  }
+}
+
+/* AFTER the hover block on purpose. A mouse press matches :hover and :active at
+   once, and the hover rules above are the same specificity as styles.css's
+   shared `.cta-btn:active`, so without this the press would be swallowed by the
+   lift. Press feedback stays on under reduced motion — it is an answer to the
+   finger, not decoration. */
+.feature-hero .cta-btn:active {
+  transform: scale(0.97);
+  transition-duration: 160ms;
+}
