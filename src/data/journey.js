@@ -24,8 +24,15 @@
 //
 // Send has no app screen because no capture of a delivered invoice exists. It
 // carries `message` instead, which Task 7 draws as an illustrative WhatsApp
-// message. Its text is built from the slip below, so the paper, the phone and
-// the message cannot drift apart. A renderer must handle `screens: []`.
+// message. Its text and its attachment name are built from the slip below, so
+// the paper, the phone and the message cannot drift apart. A renderer must
+// handle `screens: []`.
+//
+// Send is also the one stop that must not tie itself to the clock. The invoice
+// is created at Bill, 11:05 AM, on the screen whose "Send invoice via WhatsApp"
+// toggle is on; the message at 1:31 PM is the dispatch, not the save. So the
+// claim there is that nobody presses send, never that it goes out the second
+// you save. The test keeps that phrasing out of every stop after Bill.
 //
 // The slip numbers are the ones on the Review invoices screenshot (INV/26-27/
 // 0032 for Annapurna Kirana, ₹1,86,420.16), so the paper and the phone in the
@@ -115,8 +122,8 @@ export const STOPS = [
     id: 'send',
     label: 'Send',
     when: "1:31 PM · On the retailer's phone",
-    headline: 'The invoice reaches the customer on WhatsApp the second you save it.',
-    body: 'The PDF, the amount and a pay link go out in one message. Nobody in your office presses send.',
+    headline: 'The invoice reaches the customer on WhatsApp without anyone pressing send.',
+    body: 'The PDF, the amount and a pay link go out in one message, on their own.',
     screens: [],
     message: {
       from: 'Shreeji Distributors',
@@ -125,7 +132,7 @@ export const STOPS = [
         `Amount ${inr(INVOICE.total)}. Payable in ${TERM_DAYS} days.`,
         'Thank you for the order.',
       ],
-      attachment: 'INV-26-27-0032.pdf',
+      attachment: `${INVOICE.number.replace(/\//g, '-')}.pdf`,
       cta: 'Pay now',
     },
     sheet: null,

@@ -98,7 +98,20 @@ describe('journey data', () => {
     const text = `${send.message.from} ${send.message.lines.join(' ')} ${send.message.cta}`;
     expect(text).toContain(INVOICE.number);
     expect(text).toContain('1,86,420.16');
-    expect(send.message.attachment).toMatch(/\.pdf$/);
+    expect(send.message.attachment).toBe('INV-26-27-0032.pdf');
+    expect(send.message.attachment, 'a slash is not a filename').not.toContain('/');
+  });
+
+  it('never claims the message goes out the second you save, after Bill has saved it', () => {
+    // The invoice is created once, at Bill, 11:05 AM. Every later stop happens
+    // hours afterwards, so a save-time claim there is a lie about the clock.
+    const after = STOPS.slice(STOPS.findIndex((s) => s.id === 'bill') + 1);
+    expect(after.length).toBeGreaterThan(0);
+    for (const s of after) {
+      expect(`${s.headline} ${s.body}`, s.id).not.toMatch(
+        /the second you save|the moment you save|as soon as you save/i
+      );
+    }
   });
 
   it('creates the invoice once, at the Bill stop, and nowhere else in the story', () => {
