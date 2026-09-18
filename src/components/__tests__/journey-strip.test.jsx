@@ -32,6 +32,21 @@ describe('JourneyStrip', () => {
     expect(marked[0].textContent).toBe('Remind');
   });
 
+  // The li is what the CSS hooks, but a screen-reader user tabs the seven
+  // ANCHORS. With the mark on the li alone, focus lands on "Remind" and nothing
+  // says it is the stop this page is at — the one thing the strip exists to
+  // say. It goes on both, and stays on the li.
+  it('marks the current stop on the link a keyboard user actually focuses', () => {
+    const { container } = renderStrip(inStop);
+    const marked = [...container.querySelectorAll('a[aria-current="step"]')];
+    expect(marked).toHaveLength(1);
+    expect(marked[0].textContent).toBe('Remind');
+    expect(marked[0].closest('li')).toHaveAttribute('aria-current', 'step');
+    // Every other link says nothing.
+    const links = [...container.querySelectorAll('a')];
+    expect(links.filter((a) => a.hasAttribute('aria-current'))).toHaveLength(1);
+  });
+
   // The strip is navigation, so it has to read as navigation: a labelled nav
   // wrapping an ordered list, because the seven stops are a sequence.
   it('is a labelled nav around an ordered list of the seven stops in order', () => {

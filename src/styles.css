@@ -352,31 +352,49 @@ html.js .animated-heading .letter {
   color: var(--color-text);
 }
 
-/* ── The nav over the homepage's navy hero (2026-09-18 revamp) ──
-   The bar is transparent until it scrolls, and from the revamp the homepage is
-   deep navy from its first pixel, so the paper-state colours above are dark ink
-   on dark navy at the top of that one page. There is no on-dark nav variant to
-   reuse in this file, and the header renders in Layout.jsx outside .home-v3, so
-   the page is matched by the class its own root carries. Only the unscrolled
-   state is touched: `.scrolled` paints its own paper panel and must keep the
-   colours above unchanged.
+/* ── The nav over a navy hero (2026-09-18 revamp) ──
+   The bar is transparent until it scrolls, and three pages are now deep navy
+   from their first pixel, so the paper-state colours above are dark ink on dark
+   navy at the top of each of them. There is no on-dark nav variant to reuse in
+   this file, and the header renders in Layout.jsx outside every page's own
+   root, so each page is matched by the class that root carries: `.home-v3` is
+   the homepage, `.feature-hero` the feature landing pages, `.features-hub-hero`
+   the /features hub. Only the unscrolled state is touched: `.scrolled` paints
+   its own paper panel and must keep the colours above unchanged.
+
+   The three scopes are written out rather than folded into `:has(a, b, c)`
+   because the guard test reads these selectors by whitespace to prove they use
+   a child combinator, and a comma inside the `:has()` would break that read.
 
    TOP-LEVEL ITEMS ONLY, and every one of them by a child combinator. These
    selectors carry `:has()` plus three classes, which outranks the panel's own
    `.nav-links .nav-features-panel a` — so a descendant `a` here would paint the
    white features panel's rows white on white. The panel and everything in the
-   mobile overlay keep the colours above. home-v3.test.jsx pins both halves. */
+   mobile overlay keep the colours above. home-v3.test.jsx pins both halves, and
+   pins that a page which goes navy without coming here fails.
+
+   THE WORDMARK IS AN IMAGE and none of this reaches it — see .nav-logo-img. */
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-links > a,
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-link,
 body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-toggle,
-body:has(.home-v3) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link {
+body:has(.home-v3) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link,
+body:has(.feature-hero) .site-nav:not(.scrolled) .nav-links > a,
+body:has(.feature-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-link,
+body:has(.feature-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-toggle,
+body:has(.feature-hero) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link,
+body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-links > a,
+body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-link,
+body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-toggle,
+body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link {
   color: rgba(255, 255, 255, 0.82);
 }
 
 /* The hamburger is over the navy only while the menu is CLOSED. Open, the same
    button is the close control on the white overlay, and Layout.jsx marks that
    state on the header itself (`site-nav … menu-open`). */
-body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn {
+body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn,
+body:has(.feature-hero) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn,
+body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn {
   color: rgba(255, 255, 255, 0.82);
 }
 
@@ -384,7 +402,15 @@ body:has(.home-v3) .site-nav:not(.scrolled):not(.menu-open) .mobile-menu-btn {
   body:has(.home-v3) .site-nav:not(.scrolled) .nav-links > a:hover,
   body:has(.home-v3) .site-nav:not(.scrolled) .nav-features > .nav-features-link:hover,
   body:has(.home-v3) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link:hover,
-  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features:hover > .nav-features-toggle {
+  body:has(.home-v3) .site-nav:not(.scrolled) .nav-features:hover > .nav-features-toggle,
+  body:has(.feature-hero) .site-nav:not(.scrolled) .nav-links > a:hover,
+  body:has(.feature-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-link:hover,
+  body:has(.feature-hero) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link:hover,
+  body:has(.feature-hero) .site-nav:not(.scrolled) .nav-features:hover > .nav-features-toggle,
+  body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-links > a:hover,
+  body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-features > .nav-features-link:hover,
+  body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-actions > .nav-connector-link:hover,
+  body:has(.features-hub-hero) .site-nav:not(.scrolled) .nav-features:hover > .nav-features-toggle {
     color: #fff;
   }
 }

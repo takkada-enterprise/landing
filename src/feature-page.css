@@ -791,6 +791,17 @@
  * light; only FeaturePage.jsx adds `feature-hero` and only Features.jsx adds
  * `features-hub-hero`.
  *
+ * WHICH RULES NAME WHICH HERO. The hub's hero holds four things — breadcrumb,
+ * overline, h1, subtitle — and nothing else: no CTA row, no mockup, no journey
+ * strip (the hub IS the seven stops, laid out below the fold). So those four
+ * are the rules that name both heroes, and the CTA, image and strip rules are
+ * `.feature-hero`-only by design, not by omission. Give the hub a CTA one day
+ * and its rule comes here.
+ *
+ * The site header is fixed, transparent until it scrolls, and renders outside
+ * both of these — its on-navy colours live in styles.css beside the homepage's,
+ * selected by `body:has(.feature-hero)` / `body:has(.features-hub-hero)`.
+ *
  * CONTRAST. Measured against the worst ground these rules can produce: the
  * pale end of the gradient (--color-navy #1E3A6B) with the accent glow at its
  * peak, i.e. #284675. The deep end only ever raises the ratio.
@@ -878,10 +889,28 @@
 /* ── CTAs on navy ──
  * Primary inverts to white-on-navy. Secondary cannot stay a white chip beside
  * it or the two buttons become the same button, so it goes ghost: the pair
- * keeps its hierarchy and the ghost's border still clears 3:1 (4.1:1). */
+ * keeps its hierarchy and the ghost's border still clears 3:1 (4.1:1).
+ *
+ * Both carry the same 1.5px border. The ghost needs one; the primary's is
+ * white on white and invisible, and exists only so the two buttons are the
+ * same height — a borderless primary sat 3px shorter than the ghost beside it.
+ *
+ * Both also share one 160ms colour transition. The shared .cta-btn transition
+ * moves `background` but not `color`, and these two invert both on hover. */
+.feature-hero .cta-btn--primary,
+.feature-hero .cta-btn--secondary {
+  transition:
+    background-color 160ms var(--ease-out),
+    border-color 160ms var(--ease-out),
+    color 160ms var(--ease-out),
+    box-shadow 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
 .feature-hero .cta-btn--primary {
   background: #fff;
   color: var(--color-navy);
+  border: 1.5px solid #fff;
   box-shadow: 0 10px 26px rgba(5, 12, 28, 0.38);
 }
 
@@ -915,9 +944,13 @@
 /* Hover lifts only for a real pointer: a tap otherwise pins :hover and the
    state sticks after the finger has gone. */
 @media (hover: hover) and (pointer: fine) {
+  /* A white button on white cannot signal hover with a deeper shadow — the
+     sheen is invisible against the fill. It tints to the palest wash instead
+     (navy ink on it, 9.7:1; the chip still reads against the hero at 8.2:1). */
   .feature-hero .cta-btn--primary:hover {
-    background: #fff;
-    color: var(--color-primary-dark);
+    background: var(--color-wash);
+    border-color: var(--color-wash);
+    color: var(--color-navy);
     box-shadow: 0 16px 34px rgba(5, 12, 28, 0.46);
   }
 
@@ -950,5 +983,5 @@
    finger, not decoration. */
 .feature-hero .cta-btn:active {
   transform: scale(0.97);
-  transition-duration: 160ms;
+  transition-duration: var(--dur-press);
 }

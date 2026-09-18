@@ -410,10 +410,11 @@ describe('the hero holds its height with a sizer stack', () => {
   });
 });
 
-// The nav renders in Layout.jsx, outside .home-v3, so the on-navy colours are
-// selected through :has(.home-v3). That selector is specific enough (0-4-2) to
-// beat the panel's own rules, so it must never reach INSIDE the white features
-// panel or the white mobile overlay: white on white is an invisible menu.
+// The nav renders in Layout.jsx, outside the page's own root, so the on-navy
+// colours are selected through :has(). That selector is specific enough (0-4-2)
+// to beat the panel's own rules, so it must never reach INSIDE the white
+// features panel or the white mobile overlay: white on white is an invisible
+// menu.
 const INSIDE_THE_PANELS = [
   '.nav-features-panel',
   '.nav-features-list',
@@ -422,15 +423,50 @@ const INSIDE_THE_PANELS = [
   '.mobile-nav-links',
 ];
 
+// Every page whose hero is navy at its first pixel, by the class its own root
+// carries. The bar is fixed and transparent until it scrolls, so each of these
+// needs the on-navy colours or the header is dark ink on dark navy on arrival:
+// .home-v3 is the homepage, .feature-hero the 26 feature pages, and
+// .features-hub-hero the /features hub.
+const NAVY_AT_THE_TOP = ['.home-v3', '.feature-hero', '.features-hub-hero'];
+
 describe('the nav over the navy hero', () => {
   const heads = cssHeads(readFileSync('src/styles.css', 'utf8'));
   const onNavy = heads
     .flatMap((head) => head.split(','))
     .map((sel) => sel.trim())
-    .filter((sel) => sel.includes(':has(.home-v3)'));
+    .filter((sel) => NAVY_AT_THE_TOP.some((root) => sel.includes(`:has(${root})`)));
 
   it('has rules at all, so the checks below cannot pass vacuously', () => {
     expect(onNavy.length).toBeGreaterThan(0);
+  });
+
+  // The homepage got these rules when it went navy and the other two did not,
+  // which left the wordmark at 2.9:1 and the nav links at 2.7:1 over #0F1F3D on
+  // 27 pages. A fourth navy page must not be able to repeat that silently.
+  it('covers every page that is navy at its first pixel', () => {
+    for (const root of NAVY_AT_THE_TOP) {
+      expect(
+        onNavy.some((sel) => sel.includes(`:has(${root})`)),
+        `no nav-on-navy rule for ${root}: the header is dark ink on navy there`
+      ).toBe(true);
+    }
+  });
+
+  // Each root must carry the whole set, not just the easy one. A page that gets
+  // the links but not the hamburger is still broken on a phone.
+  it('gives every navy page the same set of nav items', () => {
+    const itemsFor = (root) =>
+      onNavy
+        .filter((sel) => sel.includes(`:has(${root})`))
+        .map((sel) => sel.replace(`:has(${root})`, ':has(ROOT)'))
+        .sort();
+    const [first, ...rest] = NAVY_AT_THE_TOP;
+    for (const root of rest) {
+      expect(itemsFor(root), `${root} is missing nav items ${first} has`).toEqual(
+        itemsFor(first)
+      );
+    }
   });
 
   it('never reaches into the features panel or the mobile overlay', () => {

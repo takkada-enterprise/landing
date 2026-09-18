@@ -231,29 +231,100 @@ describe('every feature page shows where it sits in the invoice journey', () => 
 });
 
 // Two things about the navy hero cannot be seen from the DOM, and both of them
-// were nearly shipped wrong, so they are pinned against the stylesheet itself.
-describe('the navy hero stays on the two heroes it is for', () => {
-  const css = readFileSync('src/feature-page.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
-  const heads = [...css.matchAll(/([^{}]+)\{/g)]
-    .map((m) => m[1].trim())
-    .filter((h) => !h.startsWith('@'))
-    .flatMap((h) => h.split(',').map((s) => s.trim()))
-    .filter(Boolean);
+// were nearly shipped wrong, so they are pinned against the stylesheets.
+//
+// Against ALL of them, not just feature-page.css: the cascade does not care
+// which file a rule was typed into, and styles.css, premium.css and journey.css
+// all carry hero rules already. A leak introduced in any file the app loads has
+// to fail here, or this guard only protects the one place the mistake was not
+// going to be made.
 
-  // `hero icp-hero` is also worn by the ICP pages, /partners, /demo and the
-  // comparison page. A head that reaches .icp-hero turns all of those navy too.
-  it('never colours a hero through .icp-hero', () => {
-    const leaking = heads.filter(
-      (h) => /\.icp-hero\b/.test(h) && !/\.feature-hero\b|\.features-hub-hero\b/.test(h)
+// Every stylesheet src/main.jsx imports, in its import order.
+const APP_STYLESHEETS = [
+  'src/fonts.css',
+  'src/styles.css',
+  'src/premium.css',
+  'src/home.css',
+  'src/journey.css',
+  'src/feature-page.css',
+  'src/guide.css',
+];
+
+const NAVY_SCOPE = /\.feature-hero\b|\.features-hub-hero\b/;
+
+// A declaration that puts a dark ground down, or light ink on one. This is what
+// makes the check a check on *going navy* rather than on naming .icp-hero —
+// .icp-hero-title and friends are ordinary layout and must stay legal.
+const GOES_NAVY =
+  /(?:background(?:-color|-image)?\s*:[^;]*(?:--color-primary-dark|--color-navy|--color-dark\b|#0f1f3d|#1e3a6b))|(?:[^-]color\s*:\s*(?:#fff\b|#ffffff\b|white\b|rgba\(\s*255\s*,\s*255\s*,\s*255|var\(\s*--color-text-light))/i;
+
+/** Innermost rules as [head, body]; at-rule wrappers are skipped, comments gone. */
+function rulesOf(css) {
+  const bare = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  return [...bare.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+    .map((m) => [m[1].trim(), m[2]])
+    .filter(([head]) => head && !head.startsWith('@'))
+    .flatMap(([head, body]) =>
+      head
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((sel) => [sel, body])
     );
-    expect(leaking).toEqual([]);
+}
+
+/** Heads that turn an .icp-hero page navy without naming one of the two heroes. */
+function navyLeaks(css) {
+  return rulesOf(css)
+    .filter(([sel, body]) => /\.icp-hero\b/.test(sel) && !NAVY_SCOPE.test(sel) && GOES_NAVY.test(body))
+    .map(([sel]) => sel);
+}
+
+/** Heads colouring EVERY paragraph in a navy hero, light cards included. */
+function blanketHeroParagraphs(css) {
+  return rulesOf(css)
+    .filter(([sel, body]) => NAVY_SCOPE.test(sel) && /\sp$/.test(sel) && /[^-]color\s*:/.test(body))
+    .map(([sel]) => sel);
+}
+
+describe('the navy hero stays on the two heroes it is for', () => {
+  const sheets = APP_STYLESHEETS.map((path) => [path, readFileSync(path, 'utf8')]);
+
+  // `hero icp-hero` is also worn by the four ICP pages, /partners, /demo and
+  // the comparison page. A rule that grounds .icp-hero in navy takes all of
+  // them with it.
+  it.each(sheets)('never grounds an .icp-hero page in navy — %s', (_path, css) => {
+    expect(navyLeaks(css)).toEqual([]);
   });
 
   // A blanket `.feature-hero p` is the rule that washes out the answer block —
   // a pale card standing on the navy whose ink has to stay dark. Same for any
-  // future light-surface child of the hero.
-  it('never washes every paragraph in the hero out to white', () => {
-    const blanket = heads.filter((h) => /^\.(feature-hero|features-hub-hero)[^,]*\sp$/.test(h));
-    expect(blanket).toEqual([]);
+  // future light-surface child of either hero.
+  it.each(sheets)('never washes every paragraph in a navy hero — %s', (_path, css) => {
+    expect(blanketHeroParagraphs(css)).toEqual([]);
+  });
+
+  // Both detectors, against a stylesheet written to break them. A fixture
+  // rather than the real files, so proving the guard bites never means editing
+  // a stylesheet the dev server is serving.
+  it('catches both mistakes, and leaves ordinary .icp-hero layout alone', () => {
+    const fixture = `
+      /* a comment mentioning .icp-hero { background: var(--color-navy) } */
+      .icp-hero { background: linear-gradient(180deg, var(--color-primary-dark), var(--color-navy)); }
+      .hero.icp-hero .hero-title { color: #fff; }
+      .feature-hero p { color: rgba(255, 255, 255, 0.74); }
+      @media (min-width: 900px) {
+        .features-hub-hero .container p { color: #ffffff; }
+      }
+      .icp-hero-title { font-size: clamp(26px, 3.6vw, 44px); }
+      .icp-hero .container { display: block; }
+      .feature-hero .hero-subtitle { color: rgba(255, 255, 255, 0.74); }
+      .feature-hero .feature-answer { color: var(--color-on-container); }
+    `;
+    expect(navyLeaks(fixture)).toEqual(['.icp-hero', '.hero.icp-hero .hero-title']);
+    expect(blanketHeroParagraphs(fixture)).toEqual([
+      '.feature-hero p',
+      '.features-hub-hero .container p',
+    ]);
   });
 });

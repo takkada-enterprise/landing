@@ -33,11 +33,19 @@ export default function JourneyStrip({ slug }) {
     <nav className="journey-strip" aria-label="Where this sits in an invoice's journey">
       <span className="journey-strip-label">One invoice, seven stops</span>
       <ol>
-        {STOPS.map((s) => (
-          <li key={s.id} aria-current={s.id === group.stop ? 'step' : undefined}>
-            <Link to={`/#stop-${s.id}`}>{s.label}</Link>
-          </li>
-        ))}
+        {STOPS.map((s) => {
+          // On BOTH the li and the a on purpose. The li is what the CSS hooks,
+          // but the anchor is what a keyboard user focuses, and on the li alone
+          // the mark is never announced to the person who most needs it.
+          const current = s.id === group.stop ? 'step' : undefined;
+          return (
+            <li key={s.id} aria-current={current}>
+              <Link to={`/#stop-${s.id}`} aria-current={current}>
+                {s.label}
+              </Link>
+            </li>
+          );
+        })}
       </ol>
     </nav>
   );
