@@ -90,6 +90,10 @@
   color: var(--color-navy);
   border: 1.5px solid #fff;
   box-shadow: 0 10px 30px rgba(5, 12, 28, 0.35);
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .home-v3 .hv3-hero .cta-btn--primary::before,
@@ -108,7 +112,7 @@
   margin-top: 28px;
   font: 400 13px var(--font-mono);
   letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
   text-transform: uppercase;
 }
 
@@ -121,7 +125,7 @@
   font: 400 12px var(--font-mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.72);
   margin-bottom: 6px;
 }
 
@@ -144,7 +148,7 @@
 }
 
 .home-v3 .hv3-job small {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 500;
   font-size: 12.5px;
   transition: color 160ms var(--ease-out);
@@ -482,12 +486,12 @@
   /* The two pressables in the hero. Each keeps its 0.97 press STATE — those
      rules are above and outside this block — and loses the transform
      TRANSITION, so the press snaps instead of easing: feedback with no motion
-     to track. Everything else in each list stays, because a colour, a
-     background or a shadow settling is not motion. Same ruling as the hero
-     hotspots, the sheets and the journey strip in journey.css. */
-  .home-v3 .hv3-hero-cta .cta-btn {
-    transition: box-shadow var(--dur-fast) var(--ease-out),
-      background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+     to track. The colour-state transitions stay because they are not motion.
+     Same ruling as the hero hotspots, sheets and journey strip. */
+  .home-v3 .hv3-hero .cta-btn--primary {
+    transition: background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+      color 160ms cubic-bezier(0.23, 1, 0.32, 1);
   }
   .home-v3 .hv3-job {
     transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),

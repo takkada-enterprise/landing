@@ -114,6 +114,49 @@ describe('the hero links directly to feature pages', () => {
     expect(heads.some((head) => head.includes('hv3-hero-sizer'))).toBe(false);
     expect(heads.some((head) => head.includes('is-swapped'))).toBe(false);
   });
+
+  it('gives the hero CTA a scoped 160ms transition without animating its shadow', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    const cta = cssBlock(css, '.home-v3 .hv3-hero .cta-btn--primary {');
+    const transition = cta.match(/transition:\s*([^;]+);/)?.[1] ?? '';
+    for (const property of ['transform', 'background-color', 'border-color']) {
+      expect(transition, `${property} is absent or not 160ms`).toMatch(
+        new RegExp(`${property}\\s+160ms`)
+      );
+    }
+    expect(transition, 'color is absent or not 160ms').toMatch(/(?:^|,\s*)color\s+160ms/);
+    expect(transition).not.toMatch(/box-shadow/);
+
+    const reduced = cssBlock(css, '@media (prefers-reduced-motion: reduce)');
+    const reducedCta = cssBlock(reduced, '.home-v3 .hv3-hero .cta-btn--primary {');
+    const reducedTransition = reducedCta.match(/transition:\s*([^;]+);/)?.[1] ?? '';
+    expect(reducedTransition).not.toMatch(/transform|box-shadow/);
+    for (const property of ['background-color', 'border-color']) {
+      expect(reducedTransition, `${property} is absent or not 160ms under reduced motion`).toMatch(
+        new RegExp(`${property}\\s+160ms`)
+      );
+    }
+    expect(reducedTransition, 'color is absent or not 160ms under reduced motion').toMatch(
+      /(?:^|,\s*)color\s+160ms/
+    );
+    expect(cssBlock(css, '.home-v3 .hv3-hero-cta .cta-btn:active {')).toMatch(
+      /transform:\s*scale\(0\.97\)/
+    );
+  });
+
+  it('keeps every visitor-readable hero navigation label at white alpha 0.72 or higher', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    const selectors = [
+      '.home-v3 .hv3-hero-promise',
+      '.home-v3 .hv3-hero-jobs-label',
+      '.home-v3 .hv3-job small',
+    ];
+    for (const selector of selectors) {
+      const block = cssBlock(css, `${selector} {`);
+      const alpha = Number(block.match(/color:\s*rgba\(255,\s*255,\s*255,\s*([\d.]+)\)/)?.[1]);
+      expect(alpha, `${selector} is below the readable-on-navy floor`).toBeGreaterThanOrEqual(0.72);
+    }
+  });
 });
 
 describe('anchor contract (no dead anchors, CLAUDE.md §11.6)', () => {
@@ -459,7 +502,7 @@ describe('reduced motion drops the press transition, never the press (home.css)'
   const block = cssBlock(css, '@media (prefers-reduced-motion: reduce)');
   // The two pressables in the hero: the CTA button and each job row.
   const PRESSABLES = [
-    '.home-v3 .hv3-hero-cta .cta-btn',
+    '.home-v3 .hv3-hero .cta-btn--primary',
     '.home-v3 .hv3-job',
   ];
   const bodyOf = (text, head) => {
@@ -480,11 +523,13 @@ describe('reduced motion drops the press transition, never the press (home.css)'
   });
 
   it('leaves the 0.97 press state standing, and takes it from none of them', () => {
-    for (const sel of PRESSABLES) {
-      expect(cssBlock(css, `${sel}:active {`), `${sel} has lost its press state`).toMatch(
-        /scale\(0\.97\)/
-      );
-    }
+    expect(
+      cssBlock(css, '.home-v3 .hv3-hero-cta .cta-btn:active {'),
+      'the hero CTA has lost its press state'
+    ).toMatch(/scale\(0\.97\)/);
+    expect(cssBlock(css, '.home-v3 .hv3-job:active {'), 'the job link has lost its press state').toMatch(
+      /scale\(0\.97\)/
+    );
     for (const [head, body] of activeRulesIn(block)) {
       expect(body, `${head} cancels the press under reduced motion`).not.toMatch(
         /transform:\s*none/
