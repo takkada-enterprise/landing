@@ -180,16 +180,18 @@ describe('FollowOneInvoice', () => {
     }
   });
 
-  it('advertises the rendered 230px desktop width for each tucked paper sheet', () => {
+  it('keeps the paper sheet CSS width and every desktop image hint at 230px', () => {
     mount();
+    const desktopWidth = '230px';
     const sheets = STOPS.filter((s) => s.sheet).map((s) => s.sheet);
+    expect(block('.home-v3 .sheet')).toContain(`width: ${desktopWidth}`);
 
     for (const slug of sheets) {
       const tucked = ui
         .getAllByAltText(screenAsset(slug).alt)
         .find((img) => img.closest('button.sheet'));
       expect(tucked, `${slug} has no tucked sheet image`).toBeDefined();
-      expect(tucked).toHaveAttribute('sizes', '(max-width: 900px) 33vw, 230px');
+      expect(tucked).toHaveAttribute('sizes', `(max-width: 900px) 33vw, ${desktopWidth}`);
     }
   });
 
