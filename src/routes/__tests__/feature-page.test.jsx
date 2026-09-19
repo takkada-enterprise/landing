@@ -9,7 +9,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import FeaturePage from '../../components/FeaturePage';
-import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
+import { FEATURE_PAGES, featurePagePath, heroShot } from '../../data/featurePages';
 import { routeMetadata } from '../../data/siteMetadata';
 import { routes } from '../index';
 import { pricing, planPricing } from '../../data/siteContent';
@@ -58,10 +58,11 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
     const { container } = renderPage(page);
     const img = container.querySelector('.feature-hero-shot img');
     expect(img).not.toBeNull();
-    expect(img.getAttribute('src')).toBe(page.hero.image);
-    expect(img.getAttribute('alt')).toBe(page.hero.alt);
-    expect(img.getAttribute('width')).toBe(String(page.hero.width));
-    expect(img.getAttribute('height')).toBe(String(page.hero.height));
+    const shot = heroShot(page);
+    expect(img.getAttribute('src')).toBe(shot.src);
+    expect(img.getAttribute('alt')).toBe(shot.alt);
+    expect(img.getAttribute('width')).toBe(String(shot.width));
+    expect(img.getAttribute('height')).toBe(String(shot.height));
     // The LCP element must not be lazy, and must ask for priority.
     expect(img.getAttribute('loading')).toBeNull();
     expect(img.getAttribute('fetchpriority')).toBe('high');

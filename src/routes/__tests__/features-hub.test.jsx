@@ -12,7 +12,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Features from '../Features';
-import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
+import { FEATURE_PAGES, featurePagePath, heroShot } from '../../data/featurePages';
 import {
   FEATURE_BLURBS,
   FEATURE_GROUPS,
@@ -233,10 +233,11 @@ describe('hub tiers render', () => {
       // box included. A second asset mapping is the thing this avoids.
       const img = card.querySelector('img');
       expect(img, page.slug).not.toBeNull();
-      expect(img.getAttribute('src')).toBe(page.hero.image);
-      expect(img.getAttribute('alt')).toBe(page.hero.alt);
-      expect(Number(img.getAttribute('width'))).toBe(page.hero.width);
-      expect(Number(img.getAttribute('height'))).toBe(page.hero.height);
+      const shot = heroShot(page);
+      expect(img.getAttribute('src')).toBe(shot.src);
+      expect(img.getAttribute('alt')).toBe(shot.alt);
+      expect(Number(img.getAttribute('width'))).toBe(shot.width);
+      expect(Number(img.getAttribute('height'))).toBe(shot.height);
     }
   });
 

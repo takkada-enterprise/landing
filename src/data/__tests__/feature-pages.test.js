@@ -9,7 +9,9 @@ import {
   featureRouteMetadata,
   featurePagePath,
   getFeaturePage,
+  heroShot,
 } from '../featurePages';
+import { screen } from '../screens';
 import {
   FEATURE_BLURBS,
   FEATURE_GROUPS,
@@ -80,16 +82,18 @@ describe('feature page data contract', () => {
     '%s: the hero mockup exists, is sized, and stays inside its byte budget',
     (_slug, page) => {
       expect(page.hero).toBeDefined();
-      const abs = resolve(repoRoot, `public${page.hero.image}`);
+      // Whichever shape the hero is in - its own file, or a registry screen.
+      const shot = heroShot(page);
+      const abs = resolve(repoRoot, `public${shot.src}`);
       expect(existsSync(abs)).toBe(true);
-      expect(page.hero.width).toBeGreaterThan(0);
-      expect(page.hero.height).toBeGreaterThan(0);
-      expect(page.hero.alt.length).toBeGreaterThan(0);
+      expect(shot.width).toBeGreaterThan(0);
+      expect(shot.height).toBeGreaterThan(0);
+      expect(shot.alt.length).toBeGreaterThan(0);
       // The hero is the LCP element on these pages. Every hero image must be
       // budgeted in checkImageBudgets.mjs, or a re-export can silently put the
       // bytes back and nothing fails the build.
-      const budgeted = BUDGETS.find(([p]) => p === `public${page.hero.image}`);
-      expect(budgeted).toBeDefined();
+      const budgeted = BUDGETS.find(([p]) => p === `public${shot.src}`);
+      expect(budgeted, `public${shot.src} has no byte budget`).toBeDefined();
       expect(statSync(abs).size).toBeLessThanOrEqual(budgeted[1]);
     }
   );
@@ -129,7 +133,7 @@ describe('feature page data contract', () => {
   // before 2026-08-12 the sweeps below scanned only hero + walkthrough, so a
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
-    page.hero.image,
+    heroShot(page).src,
     ...(page.walkthrough?.map((s) => s.image) ?? []),
     ...(page.tour?.stations?.map((s) => s.screenshot) ?? []),
   ];
@@ -262,7 +266,7 @@ describe('feature page data contract', () => {
     return existsSync(full) && statSync(full).isFile() ? readFileSync(full) : null;
   };
   const pageReferences = (page) => [
-    { path: page.hero.image, surface: 'featurePage:hero', origin: `${page.slug} hero` },
+    { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
     ...(page.walkthrough ?? []).map((step, i) => ({
       path: step.image,
       surface: 'featurePage:walkthrough',
@@ -665,7 +669,7 @@ describe('feature page registration is automatic', () => {
       const html = readFileSync(built, 'utf-8');
       const preloads = findImagePreloads(html);
       expect(preloads).toHaveLength(1);
-      expect(preloads[0]).toContain(page.hero.image);
+      expect(preloads[0]).toContain(heroShot(page).src);
     }
   );
 
@@ -673,6 +677,51 @@ describe('feature page registration is automatic', () => {
     const llms = readFileSync(resolve(repoRoot, 'public/llms.txt'), 'utf-8');
     for (const page of FEATURE_PAGES) {
       expect(llms).toContain(`https://takkada.com/${page.slug}/`);
+    }
+  });
+});
+
+// D12: every feature page was still wearing one of six generic mockups, and the
+// picture rarely matched what the page was about. A page now names a screen out
+// of the registry instead of a file path, so the alt text, the two widths and
+// the provenance record all travel with it.
+describe('feature page heroes come from the screen registry', () => {
+  const withScreen = FEATURE_PAGES.filter((p) => p.hero?.screen);
+
+  // A screen showing a phone number, a real person's name beside a number, or a
+  // GSTIN is not published. These two were reviewed and rejected on 2026-09-19;
+  // they stay registered because the journey still uses nothing from them, and
+  // they stay out of every feature page until Ronak's re-captures land.
+  const BLOCKED = ['einvoice-eway', 'van-loading'];
+
+  it('names a registered slug wherever hero.screen is set', () => {
+    for (const page of withScreen) {
+      expect(() => screen(page.hero.screen), `${page.slug} names an unknown screen`).not.toThrow();
+    }
+  });
+
+  it('puts a real screen on at least 20 of the 27 pages', () => {
+    expect(
+      withScreen.length,
+      `only ${withScreen.length} of ${FEATURE_PAGES.length} pages carry a registry screen`
+    ).toBeGreaterThanOrEqual(20);
+  });
+
+  it('publishes none of the screens rejected for a phone number', () => {
+    const offenders = withScreen
+      .filter((p) => BLOCKED.includes(p.hero.screen))
+      .map((p) => `${p.slug} -> ${p.hero.screen}`);
+    expect(offenders, 'a blocked capture reached a feature page').toEqual([]);
+  });
+
+  it('resolves both hero shapes through one helper', () => {
+    for (const page of FEATURE_PAGES) {
+      const shot = heroShot(page);
+      expect(shot, `${page.slug} has no hero shot`).toBeTruthy();
+      expect(shot.src, `${page.slug} hero has no src`).toBeTruthy();
+      expect(shot.alt, `${page.slug} hero has no alt`).toBeTruthy();
+      expect(shot.width, `${page.slug} hero has no width`).toBeTruthy();
+      expect(shot.height, `${page.slug} hero has no height`).toBeTruthy();
     }
   });
 });

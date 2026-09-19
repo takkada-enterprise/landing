@@ -42,7 +42,7 @@ import {
   articlePageSchema,
   SITE_URL,
 } from '../data/schema';
-import { featurePagePath } from '../data/featurePages';
+import { featurePagePath, heroShot } from '../data/featurePages';
 
 // The feature-landing-page template. One entry in src/data/featurePages.js is
 // one page; this renders it. Built as a second template beside ICPTemplate
@@ -122,6 +122,9 @@ function FeaturePage({ page }) {
   const [faqIndex, setFaqIndex] = useState(-1);
 
   const path = featurePagePath(page);
+  // Resolved once: the hero image, the LCP preload and the Article schema image
+  // all have to be the same picture.
+  const shot = heroShot(page);
   const faqItems = page.faqs.map((f) => ({ question: f.q, answer: f.a }));
   const trail = [
     { name: 'Home', url: `${SITE_URL}/` },
@@ -146,7 +149,7 @@ function FeaturePage({ page }) {
             image:
               page.walkthrough?.[0]?.image ??
               page.tour?.stations?.[0]?.screenshot ??
-              page.hero?.image,
+              shot?.src,
             datePublished: page.datePublished,
             dateModified: page.updated,
             author: page.author,
@@ -178,7 +181,7 @@ function FeaturePage({ page }) {
                   for a page that is not one of the seven stops. */}
               <JourneyStrip slug={page.slug} />
             </div>
-            {page.hero && (
+            {shot && (
               <div className="feature-hero-shot">
                 {/* LCP element on desktop. Eager and high priority, never lazy.
                     Do not hand-write a <link rel=preload> for it: vite-react-ssg
@@ -187,10 +190,12 @@ function FeaturePage({ page }) {
                     it here is what earns the preload; adding a second one by
                     hand is what breaks checkImagePreloads. */}
                 <img
-                  src={page.hero.image}
-                  alt={page.hero.alt}
-                  width={page.hero.width}
-                  height={page.hero.height}
+                  src={shot.src}
+                  srcSet={shot.srcSet}
+                  sizes="(max-width: 767px) 70vw, 300px"
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
                   fetchPriority="high"
                   decoding="async"
                 />

@@ -20,10 +20,36 @@ const SETS = {
   home: [['home-top', '/']],
   story: STOPS.map((id) => [`story-${id}`, `/#stop-${id}`]),
   hub: [['hub-top', '/features'], ['hub-sections', '/features#order'], ['hub-mid', '/features#send']],
+  // Every feature page, because each one now carries its own screen and the
+  // only way to know the right one landed is to look at all 27.
   feature: [
-    ['feature-reminders', '/send-payment-reminders-automatically'],
-    ['feature-einvoice', '/e-invoice-from-phone'],
-    ['feature-offjourney', '/biz-analyst-alternative'],
+    ['feature-salesman-app-tally', '/salesman-app-tally'],
+    ['feature-payment-collection-tally', '/payment-collection-tally'],
+    ['feature-payment-reminder-tally', '/payment-reminder-tally'],
+    ['feature-e-invoice-from-phone', '/e-invoice-from-phone'],
+    ['feature-e-way-bill-from-phone', '/e-way-bill-from-phone'],
+    ['feature-tally-reports-on-mobile', '/tally-reports-on-mobile'],
+    ['feature-import-purchase-from-pdf', '/import-purchase-from-pdf'],
+    ['feature-tally-on-mobile', '/tally-on-mobile'],
+    ['feature-outstanding-receivables-on-mobile', '/outstanding-receivables-on-mobile'],
+    ['feature-share-ledger-statement-whatsapp', '/share-ledger-statement-whatsapp'],
+    ['feature-debtor-ageing-report-on-phone', '/debtor-ageing-report-on-phone'],
+    ['feature-tally-on-mobile-without-remote-access', '/tally-on-mobile-without-remote-access'],
+    ['feature-send-payment-reminders-automatically', '/send-payment-reminders-automatically'],
+    ['feature-bank-statement-import-tally', '/bank-statement-import-tally'],
+    ['feature-godown-wise-stock-on-mobile', '/godown-wise-stock-on-mobile'],
+    ['feature-multi-company-tally-reports', '/multi-company-tally-reports'],
+    ['feature-sales-order-on-mobile', '/sales-order-on-mobile'],
+    ['feature-delivery-challan-from-mobile', '/delivery-challan-from-mobile'],
+    ['feature-credit-note-from-phone', '/credit-note-from-phone'],
+    ['feature-custom-invoice-template-tally', '/custom-invoice-template-tally'],
+    ['feature-handwritten-order-to-tally', '/handwritten-order-to-tally'],
+    ['feature-order-booking-app-tally', '/order-booking-app-tally'],
+    ['feature-biz-analyst-alternative', '/biz-analyst-alternative'],
+    ['feature-livekeeping-alternative', '/livekeeping-alternative'],
+    ['feature-tally-app-for-fmcg-distributors', '/tally-app-for-fmcg-distributors'],
+    ['feature-tally-app-for-pharma-distributors', '/tally-app-for-pharma-distributors'],
+    ['feature-tally-app-for-agri-input-distributors', '/tally-app-for-agri-input-distributors'],
   ],
   sheets: [
     ['sheet-loading', '/?sheet=sheet-loading#stop-load'],
@@ -142,6 +168,18 @@ async function shoot(port, name, path, w, h) {
       ])`,
       awaitPromise: true,
     });
+    // decode() means the bitmap is ready, NOT that the compositor has rastered
+    // the layer it goes in. captureScreenshot({fromSurface:true}) reads the
+    // surface, so without this a hero image that decoded a frame too late came
+    // out as bare background - and did it deterministically, which is what made
+    // it look like a page bug. Two frames past the decode, then a settle.
+    await client.send('Runtime.evaluate', {
+      expression: `new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      )`,
+      awaitPromise: true,
+    });
+    await sleep(400);
     const { data } = await client.send('Page.captureScreenshot', {
       format: 'png', fromSurface: true, captureBeyondViewport: false,
     });

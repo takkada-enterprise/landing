@@ -64,6 +64,7 @@
 // The extension is load-bearing. siteMetadata.js and the sitemap / llms.txt
 // generators load this module through Node ESM, which does not resolve
 // extensionless specifiers.
+import { screen } from './screens.js';
 import { SECOND_BATCH } from './featurePagesSecondBatch.js';
 import { ALTERNATIVES } from './featurePagesAlternatives.js';
 import { PERSONAS } from './featurePagesPersonas.js';
@@ -106,12 +107,7 @@ const FIRST_BATCH = [
     // fetch priority and its bytes are pinned in scripts/checkImageBudgets.mjs.
     // A real Guwahati storefront with the coordinates and timestamp on it does
     // more for trust than any diagram of the feature (CLAUDE.md craft rule 4).
-    hero: {
-      image: '/assets/screenshots/field-visit-photo-mockup.webp',
-      alt: 'Takkada visit proof: a geo-tagged, time-stamped photo of a retailer shopfront in Guwahati',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'field-visits' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-12',
@@ -305,12 +301,7 @@ const FIRST_BATCH = [
         'UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.',
     },
     footerLabel: 'Payment collection',
-    hero: {
-      image: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
-      alt: 'An invoice PDF and a pay-now link delivered to a customer on WhatsApp',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'settlements' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -463,12 +454,7 @@ const FIRST_BATCH = [
         'Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
     },
     footerLabel: 'Payment reminders',
-    hero: {
-      image: '/assets/screenshots/payment-reminders.webp',
-      alt: 'Smart Reminders settings in Takkada with the schedule, due days and payment link availability',
-      width: 820,
-      height: 1698,
-    },
+    hero: { screen: 'reminders' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -947,12 +933,7 @@ const FIRST_BATCH = [
     // twenty reports look like an empty product. The sales register carries
     // real volume and no identifying name, so it leads instead and the summary
     // screen becomes the first walk-through step.
-    hero: {
-      image: '/assets/screenshots/monthly-sales.webp',
-      alt: 'Sale invoices register grouped by month, with the total and invoice count for each',
-      width: 904,
-      height: 1874,
-    },
+    hero: { screen: 'total-fy' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1105,12 +1086,7 @@ const FIRST_BATCH = [
         'Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.',
     },
     footerLabel: 'Import purchase from PDF',
-    hero: {
-      image: '/assets/screenshots/add-items-mockup.webp',
-      alt: 'Voucher item lines with quantity, rate and GST shown for checking before the entry is saved',
-      width: 600,
-      height: 1242,
-    },
+    hero: { screen: 'document-import' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1270,12 +1246,7 @@ const FIRST_BATCH = [
         'What a distributor can actually do with Tally from a phone: read live outstanding and over twenty reports, raise invoices and other vouchers in the existing numbering series, dispatch them on WhatsApp, collect by UPI at 0% MDR, and have every entry write back into the same Tally company.',
     },
     footerLabel: 'Tally on mobile',
-    hero: {
-      image: '/assets/screenshots/home-screen-framed.webp',
-      alt: 'The Takkada home screen on a phone, showing the business registers at a glance',
-      width: 800,
-      height: 1624,
-    },
+    hero: { screen: 'home' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1443,6 +1414,23 @@ export const featureRouteMetadata = FEATURE_PAGES.map((page) => ({
   changefreq: 'monthly',
   priority: page.priority,
 }));
+
+// One hero, two shapes. A page written before the screen registry carries its
+// own `{ image, alt, width, height }`; a page pointed at a real app screen
+// carries `{ screen: '<slug>' }` and everything else - both widths, the alt
+// text somebody wrote after opening the PNG, the provenance record - travels
+// with the registry entry. Every reader goes through here, because the schema
+// image, the feature-page LCP img and the hub's lead cards each used to reach
+// into `hero.image` on their own and would each have gone blank on the new
+// shape.
+export function heroShot(page) {
+  if (!page?.hero) return null;
+  if (page.hero.screen) return screen(page.hero.screen);
+  // Normalised to the registry's own shape - `src`, not `image` - so callers
+  // never branch. A legacy hero has one width, hence no srcSet.
+  const { image, alt, width, height } = page.hero;
+  return { src: image, srcSet: undefined, alt, width, height };
+}
 
 // Consumed by the footer "Features" column in src/data/siteContent.js.
 export const featureFooterLinks = FEATURE_PAGES.map((page) => ({

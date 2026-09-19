@@ -5,7 +5,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import BackHome from '../components/BackHome';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
-import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
+import { FEATURE_PAGES, featurePagePath, heroShot } from '../data/featurePages';
 import {
   FEATURE_BLURBS,
   leadFeaturePages,
@@ -65,6 +65,25 @@ const WA_CONTEXT = 'features-hub';
 // Both are decoration. The heading and intro beside them already say what the
 // section is, so the stamp is hidden from assistive tech and the screen carries
 // an empty alt rather than describing a thumbnail nobody can read.
+// One resolve of the page's hero, whichever shape it is in, so the card never
+// reaches into `hero.image` on a page that now names a registry screen.
+function LeadShot({ page, loading, fetchPriority }) {
+  const shot = heroShot(page);
+  if (!shot) return null;
+  return (
+    <img
+      src={shot.src}
+      srcSet={shot.srcSet}
+      alt={shot.alt}
+      width={shot.width}
+      height={shot.height}
+      loading={loading}
+      fetchPriority={fetchPriority}
+      decoding="async"
+    />
+  );
+}
+
 function StopMark({ stopId }) {
   const stop = STOPS.find((s) => s.id === stopId);
   if (!stop) return null;
@@ -180,14 +199,10 @@ function Features() {
                       keep in step. The first card becomes the LCP element once
                       the intro shortens; the rest wait until they are scrolled
                       to. */}
-                  <img
-                    src={page.hero.image}
-                    alt={page.hero.alt}
-                    width={page.hero.width}
-                    height={page.hero.height}
+                  <LeadShot
+                    page={page}
                     loading={i === 0 ? 'eager' : 'lazy'}
                     fetchPriority={i === 0 ? 'high' : undefined}
-                    decoding="async"
                   />
                 </div>
                 <div className="features-hub-lead-body">
