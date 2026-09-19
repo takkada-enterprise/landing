@@ -180,6 +180,19 @@ describe('FollowOneInvoice', () => {
     }
   });
 
+  it('advertises the rendered 230px desktop width for each tucked paper sheet', () => {
+    mount();
+    const sheets = STOPS.filter((s) => s.sheet).map((s) => s.sheet);
+
+    for (const slug of sheets) {
+      const tucked = ui
+        .getAllByAltText(screenAsset(slug).alt)
+        .find((img) => img.closest('button.sheet'));
+      expect(tucked, `${slug} has no tucked sheet image`).toBeDefined();
+      expect(tucked).toHaveAttribute('sizes', '(max-width: 900px) 33vw, 230px');
+    }
+  });
+
   it('prints the slip total with paise and tabular figures', () => {
     mount();
     const total = ui.getByText('₹1,86,420.16');

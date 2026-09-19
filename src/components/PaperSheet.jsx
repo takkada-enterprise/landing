@@ -25,10 +25,10 @@ export default function PaperSheet({ slug, caption }) {
         <img
           src={s.src}
           srcSet={s.srcSet}
-          // 300px tucked beside the phone; once the section stacks at 900px the
+          // 230px tucked beside the phone; once the section stacks at 900px the
           // sheet is 34% of a column that is the viewport less a 32px gutter,
           // which is a shade under 33vw.
-          sizes="(max-width: 900px) 33vw, 300px"
+          sizes="(max-width: 900px) 33vw, 230px"
           width={s.width}
           height={s.height}
           alt={s.alt}
