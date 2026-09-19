@@ -36,11 +36,11 @@ export const SCREENS = {
     'Pending orders listed by party with a Make Invoice action'
   ),
   'review-invoices': phone('review-invoices', 'Review screen creating seven invoices in one go'),
-  'einvoice-eway': phone(
-    'einvoice-eway',
-    'Invoice summary with e-invoice generation switched on before the invoice is created'
-  ),
-  'van-loading': phone('van-loading', 'Van loading screen with drops in route order'),
+  // einvoice-eway and van-loading were here until 2026-09-20. Both printed a
+  // real number on a public page: "Invoice will be sent to 9573440784", and
+  // "ronak / 919435977777". Deleted, not just unreferenced, because public/ is
+  // copied into dist verbatim and an unreferenced file there is still a URL.
+  // src/data/__tests__/journey.test.js holds the tombstone.
   reminders: phone(
     'reminders',
     "Reminders tab listing each party's last WhatsApp reminder as sent or failed"

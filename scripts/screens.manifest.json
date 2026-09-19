@@ -19,18 +19,6 @@
     "q": 66
   },
   {
-    "slug": "einvoice-eway",
-    "source": "Auto einv and eway.png",
-    "shows": "Invoice Summary with the Generate E-Invoice and WhatsApp toggles before Create Invoice",
-    "alt": "Invoice summary with e-invoice generation switched on before the invoice is created"
-  },
-  {
-    "slug": "van-loading",
-    "source": "Van Loading.png",
-    "shows": "Van loading: drops in route order, Van is loaded",
-    "alt": "Van loading screen with drops in route order"
-  },
-  {
     "slug": "reminders",
     "source": "reminder logs.png",
     "shows": "Collect, Reminders tab: Last reminded, each party with Sent or Failed and when",

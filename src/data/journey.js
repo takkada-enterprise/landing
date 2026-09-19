@@ -17,12 +17,21 @@
 //
 // Every `screens` entry has been opened: a stop never claims something its own
 // screenshot contradicts, and the invoice is created exactly once in the story,
-// at Bill. So the two screens that show an invoice being made (`review-invoices`
-// and `einvoice-eway`) both sit at Bill and nowhere else. A third capture of a
-// van being keyed back, offering "Make invoices" and "Make challans", was
-// registered for a while and never used: by Load the seven invoices already
-// carry an IRN, so it contradicted this stop. It was removed from the registry
-// on 2026-09-19 rather than left lying in public/.
+// at Bill, on `review-invoices`. A third capture of a van being keyed back,
+// offering "Make invoices" and "Make challans", was registered for a while and
+// never used: by Load the seven invoices already carry an IRN, so it
+// contradicted this stop. It was removed from the registry on 2026-09-19
+// rather than left lying in public/.
+//
+// Two more went the same way on 2026-09-20, and for a harder reason than
+// contradiction. `einvoice-eway` printed "Invoice will be sent to 9573440784"
+// under its WhatsApp toggle, and `van-loading` printed "ronak / 919435977777"
+// in its header: a real number, and a real name beside a real number. Both were
+// on the homepage, on the live branch, behind the front phone where a reader
+// would not look but a screenshot would. Nothing publishable replaces the
+// e-invoice toggle yet, so Bill shows one screen; Load takes `dispatch-beats`,
+// which is the same moment with nobody's number on it. src/data/__tests__/
+// journey.test.js pins the rule so a re-capture cannot walk back in unreviewed.
 //
 // Send has no app screen because no capture of a delivered invoice exists. It
 // carries `message` instead, which Task 7 draws as an illustrative WhatsApp
@@ -93,7 +102,7 @@ export const STOPS = [
     headline:
       'Seven orders become seven invoices in one go, each with its e-invoice and e-way bill.',
     body: 'Review the lot on one screen and create them together. The IRN and e-way bill number are written back against the same voucher in Tally.',
-    screens: ['review-invoices', 'einvoice-eway'],
+    screens: ['review-invoices'],
     sheet: null,
     stamp: { text: 'IRN + E-WAY ✓', tone: 'blue' },
     status: 'BILLED · IRN AND E-WAY GENERATED',
@@ -110,7 +119,7 @@ export const STOPS = [
     when: '1:30 PM · At the godown',
     headline: 'The van is loaded from a printed sheet, godown by godown.',
     body: 'Tick the orders, pick the van, and print the loading sheet. What actually went is keyed back against each drop.',
-    screens: ['van-loading'],
+    screens: ['dispatch-beats'],
     sheet: 'sheet-loading',
     stamp: { text: 'ON VAN 2', tone: 'ink' },
     status: 'LOADED ON VAN 2',

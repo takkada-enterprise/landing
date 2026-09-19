@@ -8,6 +8,10 @@ import { STOPS, INVOICE, liveFeatures } from '../journey';
 import { HOTSPOTS, JOBS, HERO_HOME } from '../heroHotspots';
 import { SCREENS } from '../screens';
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
+import { readFileSync, readdirSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { SCREENS, screen } from '../screens';
 
 /** Every string reachable from a data export, so a copy rule can be swept. */
 function strings(value, path = '') {
@@ -220,6 +224,45 @@ describe('copy rules (CLAUDE.md §5)', () => {
     for (const [path, text] of all) {
       for (const word of banned) {
         expect(text.toLowerCase(), `${path}: ${text}`).not.toContain(word);
+      }
+    }
+  });
+});
+
+// Two captures were published on the homepage for two days with a real number
+// printed on them: `einvoice-eway` said "Invoice will be sent to 9573440784"
+// under its WhatsApp toggle, and `van-loading` said "ronak / 919435977777" in
+// its header. Both sat behind the front phone, where a reader would not look
+// and a screenshot would.
+//
+// The rule they broke was already written down in the plan's constraints, and
+// nothing enforced it, so they shipped. This does. It is a tombstone by slug:
+// a re-capture that clears the number is welcome, but it arrives under a new
+// slug and gets looked at, rather than inheriting a reviewed name.
+describe('captures rejected for showing a real number stay out (2026-09-20)', () => {
+  const REJECTED = ['einvoice-eway', 'van-loading'];
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+
+  it.each(REJECTED)('%s is not in the screen registry', (slug) => {
+    expect(Object.keys(SCREENS)).not.toContain(slug);
+  });
+
+  it.each(REJECTED)('%s is not in the export manifest', (slug) => {
+    const manifest = JSON.parse(readFileSync(resolve(root, 'scripts/screens.manifest.json'), 'utf8'));
+    expect(manifest.map((r) => r.slug)).not.toContain(slug);
+  });
+
+  // public/ is copied into dist verbatim, so a file nothing references is
+  // still a URL anybody can fetch. Unreferencing it is not removing it.
+  it.each(REJECTED)('%s has no exported file left under public/', (slug) => {
+    const dir = resolve(root, 'public/assets/screens');
+    expect(readdirSync(dir).filter((f) => f.startsWith(`${slug}-`))).toEqual([]);
+  });
+
+  it('leaves every stop still naming screens that resolve', () => {
+    for (const stop of STOPS) {
+      for (const slug of stop.screens) {
+        expect(() => screen(slug), `${stop.id} names ${slug}`).not.toThrow();
       }
     }
   });
