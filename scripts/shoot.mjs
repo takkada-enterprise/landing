@@ -25,8 +25,12 @@ const SETS = {
     ['feature-einvoice', '/e-invoice-from-phone'],
     ['feature-offjourney', '/biz-analyst-alternative'],
   ],
+  sheets: [
+    ['sheet-loading', '/?sheet=sheet-loading#stop-load'],
+    ['sheet-salesman', '/?sheet=sheet-salesman#stop-tally'],
+  ],
 };
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature];
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);

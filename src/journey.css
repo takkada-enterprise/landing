@@ -489,13 +489,21 @@
    shrink-wraps whatever the image settles at, so the whole sheet is always on
    screen and Close stays in the visible box. */
 .home-v3 .sheet-dialog {
-  border: 0;
-  padding: 0;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
   max-width: min(1100px, 92vw);
   max-height: 88vh;
   max-height: 88dvh;
-  background: #fff;
+  /* A 48px strip above the image so Close has white to sit in. Without it the
+     pill lands on the sheet itself at narrow widths, where 92vw makes the
+     sheet small - the same "Close over the content" defect D6 reported. */
+  padding: 48px 0 0;
+  border: 0;
   border-radius: 12px;
+  background: #fff;
   overflow: hidden;
 }
 /* The enlarged sheet is a modal, and modals are not origin-aware: it stays
@@ -528,14 +536,14 @@
   width: auto;
   height: auto;
   max-width: min(1100px, 92vw);
-  max-height: 88vh;
-  max-height: 88dvh;
+  max-height: calc(88vh - 48px);
+  max-height: calc(88dvh - 48px);
   object-fit: contain;
 }
 .home-v3 .sheet-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   padding: 8px 16px;
   border-radius: 999px;
   border: 0;

@@ -238,6 +238,17 @@ describe('FollowOneInvoice', () => {
     expect(block('.home-v3 .sheet')).not.toMatch(/left:\s*-/);
   });
 
+  it('centres the sheet dialog itself instead of relying on the reset-away UA margin', () => {
+    const d = block('.home-v3 .sheet-dialog');
+    expect(d).toMatch(/margin:\s*auto/);
+    expect(d).toMatch(/inset:\s*0/);
+  });
+
+  it('keeps Close off the sheet by reserving a strip above the image', () => {
+    expect(block('.home-v3 .sheet-dialog')).toMatch(/padding:\s*48px 0 0/);
+    expect(block('.home-v3 .sheet-close')).toMatch(/top:\s*10px/);
+  });
+
   it('gives the message card its own dark text', () => {
     expect(block('.home-v3 .wam-bubble')).toMatch(/color:\s*var\(--color-text\)/);
     expect(block('.home-v3 .wam-bubble p, .home-v3 .wam-bubble span')).toMatch(

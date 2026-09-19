@@ -8,12 +8,19 @@
 // only fades up from scale(0.96), never from scale(0), which would read as a
 // zoom out of nowhere. Entry only, via @starting-style; there is nothing to say
 // on the way out.
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { screen } from '../data/screens';
 
 export default function PaperSheet({ slug, caption }) {
   const dialog = useRef(null);
   const s = screen(slug);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('sheet') === slug) {
+      dialog.current?.showModal();
+    }
+  }, [slug]);
+
   return (
     <>
       <button
