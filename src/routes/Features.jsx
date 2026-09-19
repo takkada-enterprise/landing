@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Seo from '../components/Seo';
 import Breadcrumb from '../components/Breadcrumb';
+import BackHome from '../components/BackHome';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
@@ -146,6 +147,7 @@ function Features() {
       <section className="hero icp-hero features-hub-hero" id="hero">
         <div className="container">
           <div className="hero-content icp-hero-content">
+            <BackHome />
             <Breadcrumb trail={trail} />
             <span className="section-label hero-overline">EVERYTHING TAKKADA DOES</span>
             <h1 className="hero-title icp-hero-title">

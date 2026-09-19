@@ -829,6 +829,31 @@
   color: #fff;
 }
 
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 8px 14px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font: 600 14px var(--font-sans);
+  text-decoration: none;
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
+.back-home:active {
+  transform: scale(0.97);
+}
+
+.back-home:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
 /* The shared hero backdrop is a pale wash plate sized for #F7FAFC; over navy it
    lifts the ground exactly where the breadcrumb and the overline sit, which is
    what took the accent below 4.5:1. Replaced with one faint accent glow on the
@@ -944,6 +969,10 @@
 /* Hover lifts only for a real pointer: a tap otherwise pins :hover and the
    state sticks after the finger has gone. */
 @media (hover: hover) and (pointer: fine) {
+  .back-home:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
   /* A white button on white cannot signal hover with a deeper shadow — the
      sheen is invisible against the fill. It tints to the palest wash instead
      (navy ink on it, 9.7:1; the chip still reads against the hero at 8.2:1). */
@@ -984,4 +1013,10 @@
 .feature-hero .cta-btn:active {
   transform: scale(0.97);
   transition-duration: var(--dur-press);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-home {
+    transition: background-color 160ms var(--ease-out);
+  }
 }

@@ -53,6 +53,16 @@ const head = () => document.head;
 const cardLinks = (container) => [...container.querySelectorAll('a.features-hub-card')];
 
 describe('/features hub', () => {
+  it('starts the navy hero copy with a Home link', () => {
+    const { container } = renderHub();
+    const copy = container.querySelector('.features-hub-hero .icp-hero-content');
+    const home = copy.firstElementChild;
+
+    expect(home).toHaveClass('back-home');
+    expect(home).toHaveAccessibleName('Home');
+    expect(home.getAttribute('href')).toBe('/');
+  });
+
   it('renders exactly one card per FEATURE_PAGES entry', () => {
     const { container } = renderHub();
     const hrefs = cardLinks(container).map((a) => a.getAttribute('href'));

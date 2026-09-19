@@ -31,6 +31,7 @@ import FeatureTour from './FeatureTour';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
+import BackHome from './BackHome';
 import FAQItem from './FAQItem';
 import JourneyStrip from './JourneyStrip';
 import { pricing, planPricing } from '../data/siteContent';
@@ -162,6 +163,7 @@ function FeaturePage({ page }) {
         <div className="container">
           <div className="feature-hero-grid">
             <div className="hero-content icp-hero-content">
+              <BackHome />
               <Breadcrumb trail={trail} />
               <span className="section-label hero-overline">{page.overline}</span>
               <h1 className="hero-title icp-hero-title">{page.headline}</h1>

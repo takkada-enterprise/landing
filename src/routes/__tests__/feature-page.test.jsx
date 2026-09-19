@@ -37,6 +37,16 @@ const byType = (schemas, type) => schemas.find((s) => s['@type'] === type);
 const CASES = FEATURE_PAGES.map((page) => [page.slug, page]);
 
 describe.each(CASES)('%s renders the whole template', (_slug, page) => {
+  it('starts the navy hero copy with a Home link', () => {
+    const { container } = renderPage(page);
+    const copy = container.querySelector('.feature-hero .icp-hero-content');
+    const home = copy.firstElementChild;
+
+    expect(home).toHaveClass('back-home');
+    expect(home).toHaveAccessibleName('Home');
+    expect(home.getAttribute('href')).toBe('/');
+  });
+
   it('puts the exact search phrase in the only h1', () => {
     const { container } = renderPage(page);
     const h1s = container.querySelectorAll('h1');
