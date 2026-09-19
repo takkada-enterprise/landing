@@ -38,7 +38,7 @@ export const PERSONAS = [
       'Your beat covers more kirana counters in a day than most businesses invoice in a month. Every one of them is a small bill, a small payment, and a line in a ledger somebody has to key in tonight.',
     // 55 words.
     answer:
-      'A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a two-hundred-line data-entry job. Receipts post themselves into Tally against the right bill.',
+      'A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a data-entry job. Sales by item show which lines are moving and what each one earns.',
     waContext: 'feature-tally-app-for-fmcg-distributors',
     waMessage:
       'Hi, we are an FMCG distributor and our beat covers a couple of hundred kirana shops. Can you show me how Takkada handles orders and collections at that volume?',
@@ -198,7 +198,7 @@ export const PERSONAS = [
       'You work on a few points of margin and wait two months for the chemist to pay. Anything that takes a percentage out of the payment, or an hour out of your evening, is coming straight off that margin.',
     // 54 words.
     answer:
-      'A Tally app for pharma distributors has to protect the margin, not just show it. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on the credit terms you set.',
+      'A Tally app for pharma distributors has to protect the margin. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on your credit terms, and an order a team member raises can wait for your approval.',
     waContext: 'feature-tally-app-for-pharma-distributors',
     waMessage:
       'Hi, we distribute pharma and our chemist receivables run 60 to 75 days. Can you show me how Takkada handles reminders, collection and the GST side from the phone?',

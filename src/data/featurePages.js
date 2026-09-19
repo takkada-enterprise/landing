@@ -1070,7 +1070,7 @@ const FIRST_BATCH = [
       'The supplier bills arrive as PDFs and photos. Somebody sits down at seven in the evening and types them in, one line at a time.',
     // 48 words.
     answer:
-      'To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate, GST and the supplier are matched against your existing masters. You check the draft on screen, and it posts as a purchase voucher.',
+      'To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.',
     waContext: 'feature-import-purchase-from-pdf',
     waMessage:
       'Hi, I want to stop typing supplier purchase bills into Tally by hand. Can you show me how the PDF and photo import works?',

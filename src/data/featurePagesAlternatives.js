@@ -53,7 +53,7 @@ export const ALTERNATIVES = [
     // real Biz Analyst strengths inside the citation-eligible passage rather
     // than burying them further down.
     answer:
-      'Takkada is the Biz Analyst alternative distributors pick when collection, not reporting, is the bottleneck. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a UPI link on every invoice at zero MDR, posts the receipt into Tally by itself, and cancels an e-invoice from the phone.',
+      'Takkada is the Biz Analyst alternative distributors pick when collection, not reporting, is the bottleneck. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a zero-MDR UPI link on every invoice, posts the receipt into Tally itself, and names the customers who have quietly stopped ordering.',
     waContext: 'feature-biz-analyst-alternative',
     waMessage:
       'Hi, I am on Biz Analyst right now and the collection side is the gap. Can you show me how Takkada handles UPI collection and reconciliation back into Tally?',

@@ -210,7 +210,7 @@ export const SECOND_BATCH = [
     subheadline:
       'The retailer says his books show something else. Until he has your statement in his hand, that argument runs for another week.',
     answer:
-      'Takkada lets you share a ledger statement on WhatsApp for any party and any period, generated from your Tally. Pick the party, pick the dates, and the PDF goes out from your phone with a payment link attached. The retailer can check every entry against his own book and settle from the same message.',
+      'Takkada lets you share a ledger statement on WhatsApp for any party and any period, generated from your Tally. Pick the party and the dates, choose the full account or only the bills awaiting payment, and the PDF goes from your phone with a payment link. The retailer checks every entry and settles from the same message.',
     waContext: 'feature-share-ledger-statement-whatsapp',
     waMessage:
       'Hi, I want to send party ledger statements from my Tally on WhatsApp for any date range. Can you show me how Takkada does it?',
@@ -862,7 +862,7 @@ export const SECOND_BATCH = [
     subheadline:
       'Forty credits landed this week. Somebody has to work out which retailer sent each one and which bills it clears, and that somebody is usually you at nine at night.',
     answer:
-      'Bank statement import takes the file your bank already gives you and turns each credit into a Tally entry. Takkada reads the narration and the UTR, suggests the party and the invoices the amount settles, and you approve before anything posts. The evening spent matching credits to bills stops being manual.',
+      'Bank statement import takes the file your bank already gives you and turns each credit into a Tally entry. Takkada reads the narration and the account the money came from, suggests the party and the open bills it settles, and says why. You approve before anything posts, so nobody spends the evening matching credits to bills.',
     waContext: 'feature-bank-statement-import-tally',
     waMessage:
       'Hi, I want to import my bank statement and get the credits posted into Tally against the right parties and invoices. Can you show me how Takkada does it?',
@@ -1515,7 +1515,7 @@ export const SECOND_BATCH = [
     subheadline:
       'The goods are loaded and the driver is waiting. The paperwork is on a desktop three kilometres away, and so is the person who can raise it.',
     answer:
-      'A delivery challan from mobile is raised at the loading point and written into your Tally as a voucher. The godown the goods left from is recorded on it, and a full dispatch round can be raised in bulk rather than one at a time. It converts to an invoice without being rewritten.',
+      'A delivery challan from mobile is raised at the loading point and written into your Tally as a voucher. The godown the goods left from is recorded on it, and a whole beat’s orders can be picked together and loaded onto one van rather than handled one at a time. It converts to an invoice without being rewritten.',
     waContext: 'feature-delivery-challan-from-mobile',
     waMessage:
       'Hi, I want to raise delivery challans from the phone at the loading point, including in bulk, going into Tally. Can you show me how Takkada does it?',
@@ -2012,7 +2012,7 @@ export const SECOND_BATCH = [
     subheadline:
       'The order book comes back at seven in the evening with thirty pages in it. Somebody types every line, and the mistakes only surface when the goods reach the wrong shop.',
     answer:
-      'A handwritten order to Tally starts with a photograph of the page. The items, quantities and rates are read off it and laid out as voucher lines for you to check, and only what you approve is written into your books. The order book in the salesman’s bag stops needing a typing session.',
+      'A handwritten order to Tally starts with a photograph of the page. The items and quantities are read off it exactly as written, and rates come from the page where it has them and from your own rates where it does not. Only what you approve is written into your books.',
     waContext: 'feature-handwritten-order-to-tally',
     waMessage:
       'Hi, my team writes orders on paper and someone types them into Tally every night. Can you show me how Takkada turns a photo of the order into an entry?',
@@ -2219,7 +2219,16 @@ export const SECOND_BATCH = [
     // so it is budgeted in scripts/checkImageBudgets.mjs and rendered eagerly.
     // It carries the state the others do not: quantities entered and a running
     // total, which is the moment the page is actually about.
-    hero: { screen: 'party-selection' },
+    hero: {
+      // Not a registry screen: this page is about the link the RETAILER opens,
+      // and there is no capture of that in mockups/. The Select Party screen is
+      // the distributor's side of billing, which is a different thing, so the
+      // page keeps the buyer-link mockup until Ronak re-captures.
+      image: '/assets/screenshots/order-link-buyer-mockup.webp',
+      alt: 'A distributor\u2019s ordering link open on a phone, showing priced items, quantity steppers and a running order total before GST',
+      width: 600,
+      height: 1245,
+    },
     author: 'founder',
     datePublished: '2026-08-11',
     updated: '2026-08-11',
