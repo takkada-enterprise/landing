@@ -69,6 +69,47 @@ export const SCREENS = {
     'Team leaderboard ranking salesmen by amount billed against target, with commission earned'
   ),
   'sales-analytics': phone('sales-analytics', 'Sales analytics with monthly trend'),
+  'field-visits': phone(
+    'field-visits',
+    'Field visits feed listing each dealer call with who went, how long they stayed and the outcome'
+  ),
+  'receivables-report': phone(
+    'receivables-report',
+    "A party's receivables broken into ageing buckets with its open bills and a Share PDF action"
+  ),
+  // The filename says "Customer Analytics"; the screen is "Went Quiet".
+  'customer-analytics': phone(
+    'customer-analytics',
+    'Customers who quietly stopped ordering, with the value at risk and how long each has been silent'
+  ),
+  'payment-behaviour': phone(
+    'payment-behaviour',
+    'Payment behaviour showing what was collected this financial year and how many days each customer takes'
+  ),
+  'maker-checker': phone(
+    'maker-checker',
+    "A team member's sales order waiting for review, with approve, send back and decline"
+  ),
+  'party-selection': phone(
+    'party-selection',
+    'Selecting a party while billing, each one showing its due amount and last invoice date'
+  ),
+  'total-fy': phone(
+    'total-fy',
+    "Reports screen with this financial year's total for each voucher type"
+  ),
+  'sales-by-item': phone(
+    'sales-by-item',
+    'Sales by item for a month with quantity, amount, average price and spread'
+  ),
+  'dispatch-beats': phone(
+    'dispatch-beats',
+    'Dispatch orders grouped by delivery beat, ready to add to a van'
+  ),
+  'statement-settings': phone(
+    'statement-settings',
+    'Statement options: a full ledger account or only pending bills, with item lines included'
+  ),
   'sheet-loading': sheet(
     'sheet-loading',
     'Printed loading sheet with load list by item',

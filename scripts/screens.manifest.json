@@ -103,5 +103,65 @@
     "shows": "Team Sales export",
     "alt": "Exported team sales sheet by member",
     "sheet": true
+  },
+  {
+    "slug": "field-visits",
+    "source": "Field visit tracking.png",
+    "shows": "Field Visits, Feed tab: each dealer visit with who went, how long at the dealer and what came of it",
+    "alt": "Field visits feed listing each dealer call with who went, how long they stayed and the outcome"
+  },
+  {
+    "slug": "receivables-report",
+    "source": "Bills Recievables Report.png",
+    "shows": "One party's receivables: total, ageing buckets 31-60, 61-90 and 90+, open bills, Share PDF and Send on WhatsApp",
+    "alt": "A party's receivables broken into ageing buckets with its open bills and a Share PDF action"
+  },
+  {
+    "slug": "customer-analytics",
+    "source": "Customer Analytics.png",
+    "shows": "Went Quiet: customers who stopped ordering, value at risk, filtered by how long they have been silent",
+    "alt": "Customers who quietly stopped ordering, with the value at risk and how long each has been silent"
+  },
+  {
+    "slug": "payment-behaviour",
+    "source": "Payment Behavior report.png",
+    "shows": "Collections, Payment behaviour tab: collected this financial year, counts by days taken, collection days by customer",
+    "alt": "Payment behaviour showing what was collected this financial year and how many days each customer takes"
+  },
+  {
+    "slug": "maker-checker",
+    "source": "Maker Checker approval feature.png",
+    "shows": "Review request: a team member's sales order waiting, with the party's dues, the item lines, and Approve, Send back or Decline",
+    "alt": "A team member's sales order waiting for review, with approve, send back and decline"
+  },
+  {
+    "slug": "party-selection",
+    "source": "Party Selection.png",
+    "shows": "Select Party while billing: each party with its due amount and last invoice date, sorted by name",
+    "alt": "Selecting a party while billing, each one showing its due amount and last invoice date"
+  },
+  {
+    "slug": "total-fy",
+    "source": "Total FY.png",
+    "shows": "Reports: this financial year's total per voucher type - sales, orders, purchase, payments, receipts, notes, journal, contra",
+    "alt": "Reports screen with this financial year's total for each voucher type"
+  },
+  {
+    "slug": "sales-by-item",
+    "source": "Item wise sale report.png",
+    "shows": "Sales by Item for a month: quantity sold, amount, average price and, where purchase is known, the spread",
+    "alt": "Sales by item for a month with quantity, amount, average price and spread"
+  },
+  {
+    "slug": "dispatch-beats",
+    "source": "dispatch beat selection.png",
+    "shows": "Dispatch, Orders tab: documents to load grouped by beat, with Add to van",
+    "alt": "Dispatch orders grouped by delivery beat, ready to add to a van"
+  },
+  {
+    "slug": "statement-settings",
+    "source": "Statement setting.png",
+    "shows": "Statements: ledger account or pending bills only, and whether item lines and narration are included",
+    "alt": "Statement options: a full ledger account or only pending bills, with item lines included"
   }
 ]

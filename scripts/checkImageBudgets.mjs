@@ -77,6 +77,51 @@ export const BUDGETS = [
   // sets "q": 66 for this slug alone (80 gave 74,152 bytes, 74 gave 66,498);
   // at 66 it is 62,570 and the text is still crisp.
   ['public/assets/screens/review-invoices-720.webp', 66_000, 'heaviest export; on the journey and the hub'],
+  // Feature-page heroes, since 2026-09-19. The hero is the LCP element on a
+  // feature page and it now serves a registry screen, so each one is budgeted
+  // by the file it actually serves. 360w is what a phone fetches and 720w is
+  // the 2x candidate the desktop hero picks at sizes="300px"; both are on the
+  // critical path of at least one page. The exports sit at 16-26 KB (360w) and
+  // 40-52 KB (720w) at q80; 32_000 / 60_000 leaves room for a re-capture of the
+  // same screen but not for a quality regression.
+  ['public/assets/screens/field-visits-360.webp', 32_000, 'feature-page hero (field-visits)'],
+  ['public/assets/screens/field-visits-720.webp', 60_000, 'feature-page hero (field-visits)'],
+  ['public/assets/screens/settlements-360.webp', 32_000, 'feature-page hero (settlements)'],
+  ['public/assets/screens/settlements-720.webp', 60_000, 'feature-page hero (settlements)'],
+  ['public/assets/screens/reminders-360.webp', 32_000, 'feature-page hero (reminders)'],
+  ['public/assets/screens/reminders-720.webp', 60_000, 'feature-page hero (reminders)'],
+  ['public/assets/screens/total-fy-360.webp', 32_000, 'feature-page hero (total-fy)'],
+  ['public/assets/screens/total-fy-720.webp', 60_000, 'feature-page hero (total-fy)'],
+  ['public/assets/screens/document-import-360.webp', 32_000, 'feature-page hero (document-import)'],
+  ['public/assets/screens/document-import-720.webp', 60_000, 'feature-page hero (document-import)'],
+  ['public/assets/screens/home-360.webp', 32_000, 'feature-page hero (home)'],
+  ['public/assets/screens/party-list-360.webp', 32_000, 'feature-page hero (party-list)'],
+  ['public/assets/screens/party-list-720.webp', 60_000, 'feature-page hero (party-list)'],
+  ['public/assets/screens/statement-settings-360.webp', 32_000, 'feature-page hero (statement-settings)'],
+  ['public/assets/screens/statement-settings-720.webp', 60_000, 'feature-page hero (statement-settings)'],
+  ['public/assets/screens/receivables-report-360.webp', 32_000, 'feature-page hero (receivables-report)'],
+  ['public/assets/screens/receivables-report-720.webp', 60_000, 'feature-page hero (receivables-report)'],
+  ['public/assets/screens/reminder-schedule-360.webp', 32_000, 'feature-page hero (reminder-schedule)'],
+  ['public/assets/screens/reminder-schedule-720.webp', 60_000, 'feature-page hero (reminder-schedule)'],
+  ['public/assets/screens/godown-stock-360.webp', 32_000, 'feature-page hero (godown-stock)'],
+  ['public/assets/screens/godown-stock-720.webp', 60_000, 'feature-page hero (godown-stock)'],
+  ['public/assets/screens/pending-orders-360.webp', 32_000, 'feature-page hero (pending-orders)'],
+  // The densest of the phone screens after review-invoices: a list of order
+  // lines, one rupee figure per row. 60,754 bytes at q80, so it gets its own
+  // ceiling rather than a quality drop that would smudge the figures.
+  ['public/assets/screens/pending-orders-720.webp', 64_000, 'feature-page hero (pending-orders)'],
+  ['public/assets/screens/dispatch-beats-360.webp', 32_000, 'feature-page hero (dispatch-beats)'],
+  ['public/assets/screens/dispatch-beats-720.webp', 60_000, 'feature-page hero (dispatch-beats)'],
+  ['public/assets/screens/party-selection-360.webp', 32_000, 'feature-page hero (party-selection)'],
+  ['public/assets/screens/party-selection-720.webp', 60_000, 'feature-page hero (party-selection)'],
+  ['public/assets/screens/customer-analytics-360.webp', 32_000, 'feature-page hero (customer-analytics)'],
+  ['public/assets/screens/customer-analytics-720.webp', 60_000, 'feature-page hero (customer-analytics)'],
+  ['public/assets/screens/payment-behaviour-360.webp', 32_000, 'feature-page hero (payment-behaviour)'],
+  ['public/assets/screens/payment-behaviour-720.webp', 60_000, 'feature-page hero (payment-behaviour)'],
+  ['public/assets/screens/sales-by-item-360.webp', 32_000, 'feature-page hero (sales-by-item)'],
+  ['public/assets/screens/sales-by-item-720.webp', 60_000, 'feature-page hero (sales-by-item)'],
+  ['public/assets/screens/maker-checker-360.webp', 32_000, 'feature-page hero (maker-checker)'],
+  ['public/assets/screens/maker-checker-720.webp', 60_000, 'feature-page hero (maker-checker)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:
