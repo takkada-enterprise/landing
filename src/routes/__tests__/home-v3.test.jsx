@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -534,6 +534,43 @@ describe('reduced motion drops the press transition, never the press (home.css)'
       expect(body, `${head} cancels the press under reduced motion`).not.toMatch(
         /transform:\s*none/
       );
+    }
+  });
+});
+
+// D7: over the navy story bands the translucent scrolled bar turned washed
+// grey and its links dropped below contrast. The bar has to be opaque enough
+// that what is behind it stops mattering.
+//
+// Every stylesheet, not just the first one found: `.site-nav.scrolled` is
+// declared twice at the same specificity (styles.css and premium.css), and
+// premium.css loads last, so raising only one of them changes nothing on
+// screen while a single-file test goes green.
+describe('the scrolled nav is opaque over navy (D7)', () => {
+  const SHEETS = readdirSync('src').filter((f) => f.endsWith('.css'));
+
+  const scrolledBackgrounds = (css) => {
+    const out = [];
+    const clean = stripComments(css);
+    for (let at = clean.indexOf('.site-nav.scrolled {'); at >= 0; at = clean.indexOf('.site-nav.scrolled {', at + 1)) {
+      const body = clean.slice(at).match(/\{([^{}]*)\}/)?.[1] ?? '';
+      const background = body.match(/background:\s*([^;]+);/)?.[1]?.trim();
+      if (background) out.push(background);
+    }
+    return out;
+  };
+
+  const found = SHEETS.flatMap((f) => scrolledBackgrounds(readFileSync(`src/${f}`, 'utf8')).map((b) => [f, b]));
+
+  it('finds the rule at all', () => {
+    expect(found.length, 'no stylesheet paints .site-nav.scrolled').toBeGreaterThan(0);
+  });
+
+  it.each(found)('paints %s at alpha >= 0.94, or solid (%s)', (file, background) => {
+    const alpha = background.match(/rgba\([^)]*,\s*([\d.]+)\s*\)/)?.[1];
+    // A hex or a token is solid by construction; only rgba() can be see-through.
+    if (alpha !== undefined) {
+      expect(Number(alpha), `${file} paints the scrolled bar at ${alpha}, navy reads through`).toBeGreaterThanOrEqual(0.94);
     }
   });
 });

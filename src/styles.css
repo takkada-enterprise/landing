@@ -300,10 +300,15 @@ html.js .animated-heading .letter {
 }
 
 .site-nav.scrolled {
-  background: rgba(247, 250, 252, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--color-border);
+  /* Near-solid, not frosted: at 0.92 the navy story bands read through and
+     turned the bar washed grey with low-contrast links (D7). The blur and the
+     saturate are what is left of the frost. */
+  background: rgba(247, 250, 252, 0.96);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  box-shadow:
+    0 1px 0 var(--color-border),
+    0 8px 24px rgba(10, 23, 48, 0.08);
   padding: 10px 0;
 }
 
