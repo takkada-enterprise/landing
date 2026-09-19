@@ -1,5 +1,5 @@
-// The playable phone in the hero: the real home screen with tappable areas over
-// the tiles a visitor would tap first. JSX-free so tests and scripts load it.
+// The playable phone in the hero: the real home screen with linked areas over
+// the tiles a visitor would tap first. A hotspot is { key, label, box, href }.
 //
 // The boxes are percentages of the whole home screen asset (public/assets/
 // screens/home-720.webp, 720 x 1491 including the phone frame), so they survive
@@ -17,25 +17,9 @@
 // Sync and Notices are deliberately not hotspots: there is no screenshot behind
 // them, and a dot that opens nothing is worse than no dot.
 //
-// Copy rule: every headline here is true of the screen it opens. The Team
-// leaderboard is a month-to-date board against target, the Settlements tab
-// never says UPI (it filters by mode of payment), and the party list colours
-// overdue red and the rest blue. The copy says exactly that.
-//
-// Second copy rule: a hotspot and a journey stop can cover the same feature, but
-// the hero and the story render on the same page, so they may not use the same
-// sentences. The Reminders hotspot therefore describes what its screen shows
-// (who was reminded, sent or failed, and when) while the Remind stop keeps the
-// promise ("the reminder goes out, you don't make the call"). The Dispatch
-// hotspot stops at the challans for the same reason the Load stop does: in the
-// story the invoices were already made, with their IRN, back at Bill.
-// The hero's resting copy: `{ headline, body }`, and deliberately no overline.
-// A hotspot brings its own ("Stock · Godown wise"), but at rest the overline is
-// the page's positioning line, heroContent.overline in src/data/siteContent.js —
-// the page says who it is for before it says what to tap. One owner per string.
 export const HERO_HOME = {
-  headline: 'Your Tally, in your pocket. Go on, use it.',
-  body: 'This is the real home screen. Tap a tile with a yellow dot and the app opens that screen, the way it will on your phone.',
+  headline: 'Your Tally, in your pocket.',
+  body: 'This is the real home screen. Tap any tile with a yellow dot to see how that part works, then come back here.',
 };
 
 const tile = (col, row) => ({
@@ -50,92 +34,56 @@ export const HOTSPOTS = [
   {
     key: 'import',
     label: 'Import',
-    screen: 'document-import',
     box: tile(1, 0),
     href: '/import-purchase-from-pdf',
-    overline: 'Bill · Import',
-    headline: 'Photo of a bill in. Invoice out.',
-    body: "Share a supplier PDF or a photo from WhatsApp. Takkada reads the party, items and tax, checks the bill's own maths, and you approve it into Tally.",
   },
   {
     key: 'reminders',
     label: 'Reminders',
-    screen: 'reminders',
     box: tile(2, 0),
     href: '/send-payment-reminders-automatically',
-    overline: 'Collect · Reminders',
-    headline: 'Who was reminded, and who the reminder missed.',
-    body: "Each party's last WhatsApp reminder, marked sent or failed, with the time it went out.",
   },
   {
     key: 'stock',
     label: 'Stock',
-    screen: 'godown-stock',
     box: tile(0, 1),
     href: '/godown-wise-stock-on-mobile',
-    overline: 'Stock · Godown wise',
-    headline: 'Know what is in which godown before you promise it.',
-    body: "Live stock from Tally, split by godown, so nobody books what you don't have.",
   },
   {
     key: 'team',
     label: 'Team',
-    screen: 'salesman-summary',
     box: tile(1, 1),
     href: '/salesman-app-tally',
-    overline: 'Team · Salesmen',
-    headline: 'See what each salesman sold and collected this month.',
-    body: 'Each salesman sees only his own parties. You see all of them, side by side.',
   },
   {
     key: 'pending',
     label: 'Pending',
-    screen: 'pending-orders',
     box: tile(2, 1),
     href: '/order-booking-app-tally',
-    overline: 'Sell · Pending orders',
-    headline: 'Orders taken at the counter, waiting to be billed.',
-    body: 'Every pending order by party, with one tap to make the invoice.',
   },
   {
     key: 'dispatch',
     label: 'Dispatch',
-    screen: 'van-loading',
     box: tile(0, 2),
     href: '/delivery-challan-from-mobile',
-    overline: 'Dispatch · Van loading',
-    headline: 'Load the van from a sheet, drop by drop.',
-    body: 'Tick the orders, pick the van, print the loading sheet, and make the delivery challans together.',
   },
   {
     key: 'parties',
     label: 'Parties',
-    screen: 'party-list',
     box: nav('24%'),
     href: '/outstanding-receivables-on-mobile',
-    overline: 'Parties',
-    headline: 'Red is overdue. Blue is due but not late.',
-    body: 'Every party colour coded, so you know who to chase without opening a ledger.',
   },
   {
     key: 'collect',
     label: 'Collect',
-    screen: 'settlements',
     box: nav('60%'),
     href: '/payment-collection-tally',
-    overline: 'Collect · Settlements',
-    headline: 'Money in, matched to the right invoice.',
-    body: 'Each payment settles to your bank and lands in Tally against the correct bill.',
   },
   {
     key: 'reports',
     label: 'Reports',
-    screen: 'sales-analytics',
     box: nav('78%'),
     href: '/tally-reports-on-mobile',
-    overline: 'Reports',
-    headline: '20+ reports, without walking to the Tally PC.',
-    body: 'Sales, purchases, items and parties, for any period, on your phone.',
   },
 ];
 

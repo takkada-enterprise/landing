@@ -20,50 +20,20 @@
   aspect-ratio: 720 / 1491;
   margin-inline: auto;
 }
-.home-v3 .pphone-base,
-.home-v3 .pphone-screen {
+.home-v3 .pphone-base {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
-/* The shadow belongs to the phone silhouette, so it lives on the base image and
-   not on the wrapper: an ancestor filter would smudge the Back pill (which sits
-   outside the phone) and force a re-raster of the whole hero on every frame of
-   the nine hint-dot pings. The opened screen sits exactly over the base, so it
-   needs no shadow of its own. */
+/* The shadow belongs to the phone silhouette, so it lives on the base image;
+   an ancestor filter would force a re-raster on every hint-dot ping. */
 .home-v3 .pphone-base {
   filter: drop-shadow(0 40px 70px rgba(5, 12, 28, 0.6));
 }
 
-/* The opened screen grows out of the tapped tile: transform-origin is that
-   hotspot's centre, set inline by the component. */
-.home-v3 .pphone-screen {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 260ms var(--ease-out), transform 320ms var(--ease-out);
-
-  @starting-style {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-}
-
-/* Leaving: opacity only, faster than the enter, and no transform — the screen
-   does not re-animate the scale it arrived with on its way out. A transition
-   (not a keyframe) so tapping a tile mid-exit retargets instead of queueing.
-   It dissolves ABOVE the tiles it is revealing: underneath them, nine marigold
-   dots would punch through a screenshot that is still nearly opaque. The tiles
-   are tappable through it from the first frame. */
-.home-v3 .pphone-screen.is-leaving {
-  opacity: 0;
-  transform: none;
-  transition: opacity 140ms var(--ease-out);
-  z-index: 2;
-  pointer-events: none;
-}
-
 .home-v3 .pphone-hot {
+  display: block;
   position: absolute;
   border: 0;
   border-radius: 14px;
@@ -105,43 +75,6 @@
   .home-v3 .pphone-hot:hover {
     background-color: rgba(0, 110, 166, 0.12);
   }
-  .home-v3 .pphone-back:hover {
-    background-color: rgba(255, 255, 255, 0.16);
-  }
-}
-
-.home-v3 .pphone-back {
-  position: absolute;
-  left: 50%;
-  bottom: -58px;
-  translate: -50% 0;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font: 600 14px var(--font-sans);
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 200ms var(--ease-out), transform 160ms var(--ease-out),
-    background-color 160ms var(--ease-out);
-
-  @starting-style {
-    opacity: 0;
-  }
-}
-.home-v3 .pphone-back:active {
-  transform: scale(0.97);
-}
-/* The pill leaves with the screen it belonged to, on the same 140ms fade. */
-.home-v3 .pphone-back.is-leaving {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 140ms var(--ease-out);
-}
-.home-v3 .pphone-back:focus-visible {
-  outline: 3px solid var(--color-highlight);
-  outline-offset: 2px;
 }
 
 @keyframes pphone-ping {
@@ -156,12 +89,8 @@
   }
 }
 
-/* Reduced motion keeps the fades — they carry the change of screen — drops the
-   ping and every transform TRANSITION, and keeps the 0.97 press STATE, which
-   then snaps. A control that does not answer the finger reads as broken, and a
-   press that arrives instantly is feedback without motion to track. Same ruling
-   as .sheet:active further down; the background-colour fades stay, because a
-   colour change is not motion. */
+/* Reduced motion drops the ping and transform transition, while the 0.97 press
+   state snaps. The background-colour fade stays because it is not motion. */
 @media (prefers-reduced-motion: reduce) {
   .home-v3 .pphone-hot::before {
     animation: none;
@@ -169,21 +98,8 @@
   .home-v3 .pphone-hot {
     transition: background-color 160ms var(--ease-out);
   }
-  .home-v3 .pphone-back {
-    transition: opacity 200ms var(--ease-out), background-color 160ms var(--ease-out);
-  }
-  .home-v3 .pphone-hot:active,
-  .home-v3 .pphone-back:active {
+  .home-v3 .pphone-hot:active {
     transform: scale(0.97);
-  }
-  .home-v3 .pphone-screen {
-    transform: none;
-    transition: opacity 200ms var(--ease-out);
-
-    @starting-style {
-      opacity: 0;
-      transform: none;
-    }
   }
 }
 

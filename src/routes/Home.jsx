@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -38,27 +38,6 @@ import {
   differentiators,
 } from '../data/siteContent';
 
-// Every copy the hero can show: the home state plus one per hotspot. Derived
-// from the data, so a new hotspot cannot be left out of the sizer stack that
-// holds the hero's height steady. The home variant carries the page's own
-// overline, which is what the live block shows at rest.
-const HERO_COPY_VARIANTS = [
-  // The resting variant takes its overline from the page (HERO_HOME carries no
-  // overline of its own), exactly as the live block does below.
-  {
-    key: 'home',
-    overline: heroContent.overline,
-    headline: HERO_HOME.headline,
-    body: HERO_HOME.body,
-  },
-  ...HOTSPOTS.map((h) => ({
-    key: h.key,
-    overline: h.overline,
-    headline: h.headline,
-    body: h.body,
-  })),
-];
-
 const tallyIconMap = {
   refresh: RefreshCw,
   shield: Shield,
@@ -86,22 +65,6 @@ const HOME_SEO = {
 };
 
 function Home({ seo = HOME_SEO }) {
-  // Which hotspot the visitor has open, or null for the home screen. The whole
-  // hotspot object, not its key: the phone hands it over on a tap and the copy
-  // beside it is read straight off the same object, so the two cannot drift.
-  const [hot, setHot] = useState(null);
-  const copy = hot ?? HERO_HOME;
-  // False on the server render and on the first client paint, true from the
-  // first swap onward. It gates the copy block's enter transition, because
-  // @starting-style fires on an element's FIRST style resolution and would
-  // otherwise fade the H1 — the page's LCP text — in from blurred transparency
-  // on every cold load. A ref, not state: it must not schedule a render of its
-  // own, and the render that follows setHot reads the value set beside it.
-  const swapped = useRef(false);
-  const swapTo = (next) => {
-    swapped.current = true;
-    setHot(next);
-  };
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
   // Which plan column the narrow-viewport table shows. Desktop ignores it.
@@ -117,92 +80,31 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
       />
 
-      {/* ── Hero: the playable phone in the middle, its copy on the left and
-             the jobs it does on the right. The server render is the home state
-             (hot starts null), so a crawler and a no-JS visitor both get the
-             real headline and a phone that simply shows the home screen. ── */}
+      {/* ── Hero: the real home screen in the middle, static copy on the left
+             and direct feature-page links on every marked tile and job. ── */}
       <section className="hv3-hero" id="product">
         <div className="hv3-hero-grid">
           <div className="hv3-hero-copy">
-            {/* Every copy variant is rendered into ONE grid cell, so the cell is
-                exactly as tall as the tallest of them at the current width and
-                type scale — no reserved height to guess, and nothing moves when
-                the copy swaps. The sizers are inert in every sense: hidden from
-                paint, from the pointer, from assistive tech and from snippets,
-                and their headline is a div, so the page still has exactly one
-                <h1> and it is the live one. They render on the server too, so
-                the cell is the right size before hydration. */}
-            <div className="hv3-hero-swap-stack">
-              {HERO_COPY_VARIANTS.map((variant) => (
-                <div
-                  key={variant.key}
-                  className="hv3-hero-sizer"
-                  aria-hidden="true"
-                  data-nosnippet
-                >
-                  <span className="section-label hero-overline">{variant.overline}</span>
-                  <div className="hero-title">{variant.headline}</div>
-                  <p className="hero-subtitle">{variant.body}</p>
-                </div>
-              ))}
-              {/* Keyed on the open hotspot so React remounts the block and
-                  @starting-style can fire: this is the blur crossfade between
-                  one screen's copy and the next. No aria-live here — the phone
-                  announces "Showing <label>" from its own region, and a second
-                  one would read the whole headline over the top of it. */}
-              <div
-                className={`hv3-hero-swap${swapped.current ? ' is-swapped' : ''}`}
-                key={hot?.key ?? 'home'}
-              >
-                <span className="section-label hero-overline">
-                  {hot ? hot.overline : heroContent.overline}
-                </span>
-                <h1 className="hero-title">{copy.headline}</h1>
-                <p className="hero-subtitle">{copy.body}</p>
-              </div>
-            </div>
+            <span className="hv3-hero-overline">{heroContent.overline}</span>
+            <h1 className="hero-title">{HERO_HOME.headline}</h1>
+            <p className="hero-subtitle">{HERO_HOME.body}</p>
             <div className="hv3-hero-cta">
               <DemoTryCTA context="home-hero" />
-              {/* The link exists only while a screen is open, so its slot holds
-                  its own size the same way: one cell, a hidden twin under the
-                  real link. Without it the row would grow a line on a narrow
-                  screen the first time a tile was tapped, and the promise below
-                  would drop with it. */}
-              <span className="hv3-hero-more-slot">
-                <span className="hv3-hero-more hv3-hero-sizer" aria-hidden="true" data-nosnippet>
-                  See how it works →
-                </span>
-                {hot && (
-                  <Link className="hv3-hero-more" to={hot.href}>
-                    See how it works <span aria-hidden="true">→</span>
-                  </Link>
-                )}
-              </span>
             </div>
             <p className="hv3-hero-promise">{heroContent.promise}</p>
           </div>
-          <PlayablePhone activeKey={hot?.key ?? null} onChange={swapTo} />
-          {/* Outside the phone by design: the phone owns its hotspots and its
-              Back pill, and another button inside that layer would sit in the
-              same stack as the screens. Pressing the open job closes it, so
-              each button is a real toggle rather than a one-way switch. */}
-          <div className="hv3-hero-jobs" role="group" aria-label="Pick a job to see its screen">
+          <PlayablePhone />
+          <nav className="hv3-hero-jobs" aria-label="Go to a feature">
             <span className="hv3-hero-jobs-label">Or pick a job</span>
-            {JOBS.map((j) => (
-              <button
-                key={j.key}
-                type="button"
-                className={`hv3-job${hot?.key === j.key ? ' is-on' : ''}`}
-                aria-pressed={hot?.key === j.key}
-                onClick={() =>
-                  swapTo(hot?.key === j.key ? null : HOTSPOTS.find((h) => h.key === j.key))
-                }
-              >
-                {j.label}
-                <small>{j.hint}</small>
-              </button>
-            ))}
-          </div>
+            {JOBS.map((j) => {
+              const h = HOTSPOTS.find((x) => x.key === j.key);
+              return (
+                <Link key={j.key} to={h.href} className="hv3-job">
+                  {j.label}<small>{j.hint}</small>
+                </Link>
+              );
+            })}
+          </nav>
         </div>
       </section>
 

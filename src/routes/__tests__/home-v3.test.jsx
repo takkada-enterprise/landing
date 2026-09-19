@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // Render Head children inline so JSON-LD can be asserted synchronously,
@@ -11,7 +11,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { navLinks, footerColumns, demoEntryLive, heroContent } from '../../data/siteContent';
+import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS } from '../../data/heroHotspots';
 import { STOPS } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
@@ -34,13 +34,6 @@ function renderHome() {
     </MemoryRouter>
   );
 }
-
-// The stack renders a hidden sizer per variant before the live block, so a
-// query for the copy has to say which one it means.
-const liveCopy = (container) => container.querySelector('.hv3-hero-swap');
-
-const jobButton = (container, key) =>
-  [...container.querySelectorAll('.hv3-hero-jobs .hv3-job')][JOBS.findIndex((j) => j.key === key)];
 
 describe('Home v3 structure (AE1)', () => {
   it('tells the page story through headings alone: the phone, then the invoice', () => {
@@ -85,85 +78,41 @@ describe('Home v3 structure (AE1)', () => {
   });
 });
 
-describe('the hero swaps its copy with the phone', () => {
-  it('starts on the home copy, with no "see how it works" link to follow yet', () => {
+describe('the hero links directly to feature pages', () => {
+  it('renders exactly one h1 with the resting headline', () => {
     const { container } = renderHome();
-    // At rest the overline is the positioning line, not the hotspot's own: the
-    // page has to say who it is for before it says what to tap.
-    const copy = liveCopy(container);
-    expect(copy.querySelector('.hero-overline').textContent).toBe(heroContent.overline);
-    expect(copy.querySelector('.hero-subtitle').textContent).toBe(HERO_HOME.body);
-    expect(container.querySelector('a.hv3-hero-more')).toBeNull();
-    for (const button of container.querySelectorAll('.hv3-job')) {
-      expect(button.getAttribute('aria-pressed')).toBe('false');
+    const headings = container.querySelectorAll('h1');
+    expect(headings).toHaveLength(1);
+    expect(headings[0].textContent).toBe(HERO_HOME.headline);
+  });
+
+  it('renders every job as a link to its hotspot feature page', () => {
+    const { container } = renderHome();
+    const nav = container.querySelector('nav[aria-label="Go to a feature"]');
+    expect(nav).toBeTruthy();
+    const links = [...nav.querySelectorAll('a.hv3-job')];
+    expect(links).toHaveLength(JOBS.length);
+    for (const [index, job] of JOBS.entries()) {
+      expect(links[index].getAttribute('href')).toBe(
+        HOTSPOTS.find((hotspot) => hotspot.key === job.key).href
+      );
     }
   });
 
-  it('swaps overline, headline and body to the job the visitor picked', () => {
+  it('keeps the overline out of the pale premium chip style', () => {
     const { container } = renderHome();
-    fireEvent.click(jobButton(container, 'stock'));
-    const stock = HOTSPOTS.find((h) => h.key === 'stock');
-    const copy = liveCopy(container);
-    expect(copy.querySelector('.hero-overline').textContent).toBe(stock.overline);
-    expect(container.querySelector('h1').textContent).toBe(stock.headline);
-    expect(copy.querySelector('.hero-subtitle').textContent).toBe(stock.body);
-    expect(jobButton(container, 'stock').getAttribute('aria-pressed')).toBe('true');
-    // The page never grows a second h1 as the copy swaps.
-    expect(container.querySelectorAll('h1')).toHaveLength(1);
+    const overline = container.querySelector('.hv3-hero-overline');
+    expect(overline).toBeTruthy();
+    expect(overline.classList.contains('hero-overline')).toBe(false);
   });
 
-  it('follows the open job through to its feature page', () => {
-    const { container } = renderHome();
-    fireEvent.click(jobButton(container, 'reminders'));
-    const link = container.querySelector('a.hv3-hero-more');
-    expect(link).toBeTruthy();
-    expect(link.getAttribute('href')).toBe(
-      HOTSPOTS.find((h) => h.key === 'reminders').href
-    );
-  });
-
-  it('closes on a second press of the job that is already open', () => {
-    const { container } = renderHome();
-    fireEvent.click(jobButton(container, 'team'));
-    expect(jobButton(container, 'team').getAttribute('aria-pressed')).toBe('true');
-    fireEvent.click(jobButton(container, 'team'));
-    expect(jobButton(container, 'team').getAttribute('aria-pressed')).toBe('false');
-    expect(container.querySelector('h1').textContent).toBe(HERO_HOME.headline);
-  });
-
-  // @starting-style fires on an element's FIRST style resolution, so a crossfade
-  // declared unconditionally paints the H1 — the page's LCP text — transparent
-  // and blurred on every cold load. The enter transition is therefore carried by
-  // a class the first render does not have.
-  it('crossfades on a swap and never on first paint', () => {
-    const { container } = renderHome();
-    expect(container.querySelector('.hv3-hero-swap').className).not.toContain('is-swapped');
-
-    fireEvent.click(jobButton(container, 'dispatch'));
-    expect(container.querySelector('.hv3-hero-swap').className).toContain('is-swapped');
-
-    // Closing is a swap too: home copy arrives the same way a hotspot's does.
-    fireEvent.click(jobButton(container, 'dispatch'));
-    expect(container.querySelector('.hv3-hero-swap').className).toContain('is-swapped');
-  });
-
-  // The headline is keyed on the open hotspot, so React remounts it on every
-  // swap. A live region there would announce the whole headline again on top of
-  // the phone's own "Showing <label>", so the hero keeps exactly one.
-  it('leaves the announcing to the phone, with one live region in the hero', () => {
-    const { container } = renderHome();
-    const hero = container.querySelector('#product');
-    expect(container.querySelector('h1').hasAttribute('aria-live')).toBe(false);
-    expect(hero.querySelectorAll('[aria-live]')).toHaveLength(1);
-  });
-
-  // The job buttons drive the phone from outside it: PlayablePhone's own
-  // buttons are the hotspots and the Back pill, and nothing else may sit in
-  // that layer.
-  it('keeps the job buttons outside the phone', () => {
-    const { container } = renderHome();
-    expect(container.querySelectorAll('.pphone .hv3-job')).toHaveLength(0);
-    expect(container.querySelectorAll('.hv3-hero-jobs .hv3-job')).toHaveLength(JOBS.length);
+  it('uses a white hero CTA and contains no retired swap selectors', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    const cta = cssBlock(css, '.home-v3 .hv3-hero .cta-btn--primary {');
+    expect(cta).toMatch(/background:\s*#fff\b/i);
+    const heads = cssHeads(css);
+    expect(heads.some((head) => head.includes('hv3-hero-sizer'))).toBe(false);
+    expect(heads.some((head) => head.includes('is-swapped'))).toBe(false);
   });
 });
 
@@ -305,108 +254,6 @@ describe('the homepage stylesheets stay scoped to the homepage', () => {
       }
     }
     expect(css.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(/:root/);
-  });
-});
-
-// The copy block changes height with every swap (2 vs 3 headline lines is
-// ~55px) and the grid centres the column, so without something holding the
-// height the CTA row, the promise line and — stacked — the whole page below the
-// hero move while the copy is still fading. A min-height cannot do it: the
-// headline scales on 4.2vw inside a column that scales with the viewport, so one
-// figure is right at one width and wrong everywhere else. Every variant shares
-// one grid cell instead, which is exact at every width by construction.
-describe('the hero holds its height with a sizer stack', () => {
-  const VARIANTS = [HERO_HOME, ...HOTSPOTS];
-
-  it('renders one inert sizer per copy variant', () => {
-    const { container } = renderHome();
-    const sizers = [...container.querySelectorAll('.hv3-hero-swap-stack .hv3-hero-sizer')];
-    expect(sizers).toHaveLength(VARIANTS.length);
-    for (const sizer of sizers) {
-      expect(sizer.getAttribute('aria-hidden')).toBe('true');
-      expect(sizer.hasAttribute('data-nosnippet')).toBe(true);
-      expect(
-        sizer.querySelectorAll('h1, h2, h3, h4, h5, h6'),
-        'a sizer carries a heading, which would duplicate the page outline'
-      ).toHaveLength(0);
-    }
-  });
-
-  // The server HTML for / must carry exactly one <h1>, and it must be the real
-  // headline: the sizers are a layout device, never a second outline.
-  it('leaves exactly one h1 on the page, the live one', () => {
-    const { container, queryAllByRole } = renderHome();
-    const headings = queryAllByRole('heading', { level: 1 });
-    expect(headings).toHaveLength(1);
-    expect(headings[0].textContent).toBe(HERO_HOME.headline);
-    expect(container.querySelectorAll('h1')).toHaveLength(1);
-    expect(container.querySelector('h1').closest('.hv3-hero-sizer')).toBeNull();
-  });
-
-  // Built from the data, so a hotspot added later cannot be left out of the
-  // measurement and reintroduce the jump on its own screen.
-  it('measures every variant the hero can show', () => {
-    const { container } = renderHome();
-    const sizerText = [...container.querySelectorAll('.hv3-hero-sizer')]
-      .map((s) => s.textContent)
-      .join(' | ');
-    for (const variant of VARIANTS) {
-      expect(sizerText, `${variant.headline} is not measured`).toContain(variant.headline);
-      expect(sizerText, `the body for "${variant.headline}" is not measured`).toContain(
-        variant.body
-      );
-    }
-  });
-
-  it('gives the link its own cell, so the CTA row is one size open or closed', () => {
-    const { container } = renderHome();
-    const slot = container.querySelector('.hv3-hero-cta .hv3-hero-more-slot');
-    expect(slot).toBeTruthy();
-    const twin = slot.querySelector('.hv3-hero-sizer');
-    expect(twin, 'nothing holds the link slot open before the first tap').toBeTruthy();
-    expect(twin.getAttribute('aria-hidden')).toBe('true');
-    // Only the hidden twin at rest; the real link joins it in the same cell.
-    expect(slot.querySelectorAll('a')).toHaveLength(0);
-    fireEvent.click(jobButton(container, 'stock'));
-    expect(slot.querySelectorAll('a')).toHaveLength(1);
-  });
-
-  describe('home.css', () => {
-    const css = readFileSync('src/home.css', 'utf8');
-    // Each assertion is scoped to its own rule block, so one rule cannot satisfy
-    // another's expectation.
-    const rule = (head) => cssBlock(css, `${head} {`);
-
-    it('stacks the variants in one grid cell', () => {
-      expect(rule('.home-v3 .hv3-hero-swap-stack')).toMatch(/display:\s*grid/);
-      expect(rule('.home-v3 .hv3-hero-sizer')).toMatch(/grid-area:\s*1\s*\/\s*1/);
-      expect(rule('.home-v3 .hv3-hero-swap')).toMatch(/grid-area:\s*1\s*\/\s*1/);
-    });
-
-    it('keeps the sizers laid out but unpainted', () => {
-      expect(rule('.home-v3 .hv3-hero-sizer')).toMatch(/visibility:\s*hidden/);
-    });
-
-    // The twin reserves width as well as height. On the stacked layout the CTA
-    // row is centred, so a ~150px hidden item beside the button pushes the one
-    // thing the visitor can see off the centre line the headline, subtitle and
-    // promise all share. The slot takes a line of its own there instead.
-    it('gives the link slot its own line once the hero stacks', () => {
-      const narrow = cssBlock(css, '@media (max-width: 1000px)');
-      expect(narrow).not.toBe('');
-      expect(
-        /\.home-v3 \.hv3-hero-more-slot \{[^}]*flex-basis:\s*100%/.test(narrow),
-        'the hidden twin still sits beside the button on a centred row'
-      ).toBe(true);
-    });
-
-    it('reserves no guessed height anywhere on the swap block', () => {
-      const guessed = [...css.matchAll(/\.hv3-hero-swap\b[^{]*\{[^}]*min-height/g)];
-      expect(
-        guessed.map((m) => m[0].split('\n')[0]),
-        'a min-height is back on the swap block; the stack measures it instead'
-      ).toEqual([]);
-    });
   });
 });
 
@@ -610,11 +457,9 @@ describe('reduced motion drops the press transition, never the press (journey.cs
 describe('reduced motion drops the press transition, never the press (home.css)', () => {
   const css = readFileSync('src/home.css', 'utf8');
   const block = cssBlock(css, '@media (prefers-reduced-motion: reduce)');
-  // The three pressables in the hero: the CTA button, the "see the whole
-  // screen" link, and each job row.
+  // The two pressables in the hero: the CTA button and each job row.
   const PRESSABLES = [
     '.home-v3 .hv3-hero-cta .cta-btn',
-    '.home-v3 .hv3-hero-more',
     '.home-v3 .hv3-job',
   ];
   const bodyOf = (text, head) => {

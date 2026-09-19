@@ -49,7 +49,6 @@ describe('journey data', () => {
         expect(SCREENS[slug], slug).toBeDefined();
       }
     }
-    for (const h of HOTSPOTS) expect(SCREENS[h.screen], h.screen).toBeDefined();
   });
 
   it('drops a feature pill whose page does not exist, so no pill is a dead link', () => {

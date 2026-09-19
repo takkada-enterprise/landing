@@ -17,25 +17,13 @@
      4-step rail, the AI band and the capability grid were deleted with the
      markup they styled.
    - Motion inventory (§11.5 — every entry has a teaching reason):
-     1. Hero copy crossfade: the words swap with the screen they describe.
-        Opacity and blur only, 200ms, and the blur drops under reduced motion.
-     2. Section reveal (.reveal, shared IntersectionObserver): sections appear
+     1. Section reveal (.reveal, shared IntersectionObserver): sections appear
         in the order the day happens.
-     3. Press feedback on every pressable: scale 0.97 at 160ms.
+     2. Press feedback on every pressable: scale 0.97 at 160ms.
    ═══════════════════════════════════════════════════ */
 
 /* ═══════════ Hero: the playable phone on navy ═══════════
-   Motion inventory for this block (CLAUDE.md §11.5). Everything here is a
-   transition on opacity/filter/transform only, ≤ 320ms, on --ease-out, so a
-   second tap mid-flight retargets instead of queueing:
-   - Copy crossfade: the overline, headline and body are one block keyed on the
-     open hotspot, so React remounts it and @starting-style plays it in from a
-     2px blur. It teaches that the words belong to the screen beside them. No
-     transform: the copy must not appear to move, only to change.
-   - "See how it works" fades in when a screen opens, because it only has
-     somewhere to go once there is an open screen to go deeper into.
-   - Press feedback on every pressable (scale 0.97, 160ms).
-   Under prefers-reduced-motion the blur goes and the opacity fade stays. */
+   The hero stays still except for press feedback on its links and buttons. */
 .home-v3 .hv3-hero {
   background:
     radial-gradient(620px 520px at 50% 58%, var(--color-navy-lift) 0%, transparent 70%),
@@ -55,11 +43,18 @@
   min-height: min(760px, calc(100vh - 80px));
 }
 
-.home-v3 .hv3-hero .hero-overline {
+.home-v3 .hv3-hero-overline {
+  display: block;
   font: 400 13px var(--font-mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-accent);
+  background: none;
+  padding: 0;
+}
+
+.home-v3 .hv3-hero-copy {
+  align-self: center;
 }
 
 .home-v3 .hv3-hero .hero-title {
@@ -75,50 +70,7 @@
   font-size: 17px;
   line-height: 1.6;
   max-width: 400px;
-}
-
-/* The sizer stack: every copy variant in ONE grid cell, so the cell measures
-   the tallest of them at the current width and type scale. That is what keeps
-   the CTA row and everything under it still while the copy swaps — a fixed
-   min-height cannot, because the headline scales on 4.2vw in a column that
-   scales with the viewport, so any figure is wrong at every width but one. */
-.home-v3 .hv3-hero-swap-stack {
-  display: grid;
-}
-
-/* The copies that only hold the cell open. Hidden from paint, from the pointer,
-   from selection, from assistive tech (aria-hidden in Home.jsx) and from
-   snippets — but still laid out, which is the whole point. */
-.home-v3 .hv3-hero-sizer {
-  grid-area: 1 / 1;
-  visibility: hidden;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* The copy block is one element so the three lines cross-fade together rather
-   than racing each other. It is keyed in Home.jsx, so every swap mounts a fresh
-   node. It shares the cell with the sizers and sits at its top, so shorter copy
-   leaves the spare height below it instead of re-centring. */
-.home-v3 .hv3-hero-swap {
-  grid-area: 1 / 1;
-  align-self: start;
-  opacity: 1;
-  filter: blur(0);
-}
-
-/* Only a swap crossfades. @starting-style fires on an element's FIRST style
-   resolution, so declaring this on .hv3-hero-swap itself would fade the H1 — the
-   page's LCP text — in from transparent and blurred on every cold load. The
-   class arrives only on a remount caused by a hotspot change (Home.jsx), never
-   on the server render or the first client paint. */
-.home-v3 .hv3-hero-swap.is-swapped {
-  transition: opacity 200ms var(--ease-out), filter 200ms var(--ease-out);
-
-  @starting-style {
-    opacity: 0;
-    filter: blur(2px);
-  }
+  min-height: 0;
 }
 
 .home-v3 .hv3-hero-cta {
@@ -133,43 +85,22 @@
   transform: scale(0.97);
 }
 
-/* One cell holding the link and its hidden twin, so the row is the same size
-   before the first tap as after it. */
-.home-v3 .hv3-hero-more-slot {
-  display: grid;
+.home-v3 .hv3-hero .cta-btn--primary {
+  background: #fff;
+  color: var(--color-navy);
+  border: 1.5px solid #fff;
+  box-shadow: 0 10px 30px rgba(5, 12, 28, 0.35);
 }
 
-.home-v3 .hv3-hero-more-slot > * {
-  grid-area: 1 / 1;
-}
-
-/* Mounted only while a screen is open, so it arrives on a fade of its own. */
-.home-v3 .hv3-hero-more {
-  color: var(--color-accent);
-  font-weight: 700;
-  text-decoration: none;
-  opacity: 1;
-  transition: opacity 200ms var(--ease-out), color 160ms var(--ease-out),
-    transform 160ms var(--ease-out);
-
-  @starting-style {
-    opacity: 0;
-  }
-}
-
-.home-v3 .hv3-hero-more:active {
-  transform: scale(0.97);
-}
-
-.home-v3 .hv3-hero-more:focus-visible {
-  outline: 3px solid var(--color-highlight);
-  outline-offset: 3px;
-  border-radius: 6px;
+.home-v3 .hv3-hero .cta-btn--primary::before,
+.home-v3 .hv3-hero .cta-btn--primary::after {
+  display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .home-v3 .hv3-hero-more:hover {
-    color: #fff;
+  .home-v3 .hv3-hero .cta-btn--primary:hover {
+    background: var(--color-wash);
+    color: var(--color-navy);
   }
 }
 
@@ -207,9 +138,7 @@
   color: #fff;
   font: 600 15px var(--font-sans);
   cursor: pointer;
-  /* colour is in the list because .is-on flips it: without it the label stayed
-     navy on a still-navy button for the whole 160ms, which reads as the label
-     disappearing and coming back. */
+  text-decoration: none;
   transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
     color 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
@@ -237,18 +166,6 @@
   outline-offset: 2px;
 }
 
-/* The open job inverts rather than filling with marigold: marigold is the hint
-   dot on the phone and never a button fill. */
-.home-v3 .hv3-job.is-on {
-  background: #fff;
-  color: var(--color-navy);
-  border-color: #fff;
-}
-
-.home-v3 .hv3-job.is-on small {
-  color: var(--color-text-secondary);
-}
-
 @media (max-width: 1000px) {
   /* Stacked, the grid is taller than its min-height, so its first row starts at
      the top of the hero instead of centring clear of the fixed nav — and the
@@ -267,16 +184,6 @@
   }
   .home-v3 .hv3-hero-cta {
     justify-content: center;
-  }
-  /* The link's slot takes a line of its own here. It reserves the link's WIDTH
-     as well as its height, and on a centred row that hidden ~150px would push
-     the one button the visitor can see off the centre line the headline,
-     subtitle and promise all share. Two lines in both states: the button centred
-     on the first, the link centred on the second when a screen is open. The
-     second line is one link tall, so nothing moves when it arrives. */
-  .home-v3 .hv3-hero-more-slot {
-    flex-basis: 100%;
-    justify-items: center;
   }
   .home-v3 .hv3-hero-grid > .pphone {
     order: -1;
@@ -572,22 +479,7 @@
 
 /* ═══════════ Reduced motion: everything above goes still ═══════════ */
 @media (prefers-reduced-motion: reduce) {
-  /* The hero copy still changes with the phone — a swap that cut instantly
-     would be harder to follow, not calmer — so the fade stays and only the
-     blur goes. Blur is the part that reads as motion. Still the swap-only
-     class: first paint must show the finished headline under every motion
-     preference. */
-  .home-v3 .hv3-hero-swap.is-swapped {
-    filter: none;
-    transition: opacity 200ms var(--ease-out);
-
-    @starting-style {
-      opacity: 0;
-      filter: none;
-    }
-  }
-
-  /* The three pressables in the hero. Each keeps its 0.97 press STATE — those
+  /* The two pressables in the hero. Each keeps its 0.97 press STATE — those
      rules are above and outside this block — and loses the transform
      TRANSITION, so the press snaps instead of easing: feedback with no motion
      to track. Everything else in each list stays, because a colour, a
@@ -596,9 +488,6 @@
   .home-v3 .hv3-hero-cta .cta-btn {
     transition: box-shadow var(--dur-fast) var(--ease-out),
       background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-  }
-  .home-v3 .hv3-hero-more {
-    transition: opacity 200ms var(--ease-out), color 160ms var(--ease-out);
   }
   .home-v3 .hv3-job {
     transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
