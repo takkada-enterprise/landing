@@ -1,9 +1,20 @@
 import { describe, it, expect, afterEach, beforeEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { cleanup, render, screen as ui, within, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import FollowOneInvoice from '../FollowOneInvoice';
 import { STOPS, INVOICE } from '../../data/journey';
 import { screen as screenAsset } from '../../data/screens';
+
+const css = readFileSync(resolve(__dirname, '../../journey.css'), 'utf8').replace(
+  /\/\*[\s\S]*?\*\//g,
+  ''
+);
+const block = (head) => {
+  const i = css.indexOf(`${head} {`);
+  return i < 0 ? '' : css.slice(i, css.indexOf('}', i));
+};
 
 // vite.config.js leaves vitest globals off, so RTL never registers its own
 // afterEach — without this every render stacks up in the same document and the
@@ -195,5 +206,27 @@ describe('FollowOneInvoice', () => {
     const send = STOPS.findIndex((s) => s.id === 'send');
     const station = ui.getAllByRole('article')[send];
     expect(station.querySelectorAll('.foi-phone')).toHaveLength(0);
+  });
+
+  it('keeps every stamp in a stamp zone below the status line, not over the items', () => {
+    mount();
+    const zone = document.querySelector('.slip-stamps');
+    expect(zone).not.toBeNull();
+    expect(zone.querySelectorAll('.slip-stamp')).toHaveLength(7);
+    const status = ui.getByTestId('slip-status');
+    expect(status.compareDocumentPosition(zone) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(block('.home-v3 .slip-stamp')).not.toMatch(/position:\s*absolute/);
+  });
+
+  it('keeps the tucked phone and the sheet inside the visual column', () => {
+    expect(block('.home-v3 .foi-phone--1')).not.toMatch(/left:\s*-/);
+    expect(block('.home-v3 .sheet')).not.toMatch(/left:\s*-/);
+  });
+
+  it('gives the message card its own dark text', () => {
+    expect(block('.home-v3 .wam-bubble')).toMatch(/color:\s*var\(--color-text\)/);
+    expect(block('.home-v3 .wam-bubble p, .home-v3 .wam-bubble span')).toMatch(
+      /color:\s*inherit/
+    );
   });
 });

@@ -132,8 +132,8 @@
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 70px;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 56px;
 }
 
 /* ---- The pinned slip ---- */
@@ -148,36 +148,14 @@
   gap: 26px;
 }
 /* The torn top and bottom edge is a mask, not an image, so the paper stays crisp
-   at every DPR and the stamps can be laid straight over it.
-
-   THE SLIP'S TYPE RAMP, which every stamp offset below is measured against.
-   The slip is 340px wide (the grid's first column) and the line-height is the
-   unitless 1.7 in the font shorthand, so each block's height is its own
-   font-size x 1.7. Measured from the border box's top edge:
-
-     26.0        padding-top
-     26.0-47.3   .slip-head          12.5 x 1.7 = 21.25
-     57.3-80.1   .slip-party         19 x 1.2 = 22.8, after margin-top 10
-     80.1-101.3  .slip-place         21.25
-     113.3-114.8 hr                  1.5px rule, margin 12 above and below
-    126.8-211.8  4 x .slip-line      4 x 21.25 = 85
-    223.8-225.3  hr
-    237.3-262.8  .slip-total         15 x 1.7 = 25.5   <- the amount lives here
-    274.8-294.8  .slip-status        margin-top 12, min-height 20
-    294.8-410.8  THE STAMP AREA      padding-bottom 116
-
-   The 116px of bottom padding is not decoration: it is where PAID, REMINDED and
-   IN TALLY land. Seven stamps do not fit on 325px of paper without sitting on
-   the total, and the fix for that is more paper, never smaller stamps -- a
-   shrunken rubber stamp stops reading as a rubber stamp. Slip height 294.8 +
-   116 = 410.8px. A two-line status pushes the bottom edge down, which is why
-   every stamp in the stamp area is anchored with `bottom`. */
+   at every DPR. The stamp zone is in flow after the status; every stamp keeps
+   its slot at opacity zero, so changing state never changes the paper's height. */
 .home-v3 .slip {
   position: relative;
   background: var(--color-paper);
   color: #1d2433;
   font: 400 12.5px/1.7 var(--font-mono);
-  padding: 26px 24px 116px;
+  padding: 26px 24px 28px;
   transform: rotate(-1.6deg);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
   -webkit-mask:
@@ -236,27 +214,37 @@
   min-height: 20px;
 }
 
+.home-v3 .slip-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(29, 36, 51, 0.25);
+}
+
 /* The thunk. A stamp lands from scale(1.5) over 260ms; it lifts off faster than
    it lands (160ms transform, 120ms opacity), because paper releasing a stamp is
    a lighter event than a stamp hitting paper. Both directions are transitions on
    one class — never keyframes — so the motion is reversible mid-flight. */
 .home-v3 .slip-stamp {
-  position: absolute;
-  font: 800 13px/1 var(--font-sans);
+  position: static;
+  font: 800 12px/1 var(--font-sans);
   letter-spacing: 0.08em;
-  padding: 5px 10px;
+  padding: 5px 9px;
   border: 2.5px solid currentColor;
   border-radius: 6px;
   mix-blend-mode: multiply;
   opacity: 0;
-  transform: scale(1.5) rotate(var(--r));
+  transform: scale(1.5) rotate(var(--r, 0deg));
   transition:
     opacity 120ms var(--ease-out),
     transform 160ms var(--ease-out);
 }
 .home-v3 .slip-stamp.is-on {
-  opacity: 0.88;
-  transform: scale(1) rotate(var(--r));
+  opacity: 0.9;
+  transform: scale(1) rotate(var(--r, 0deg));
   transition:
     opacity 180ms var(--ease-out),
     transform 260ms var(--ease-out);
@@ -274,88 +262,30 @@
   color: var(--stamp-ink);
 }
 .home-v3 .slip-stamp--lg {
-  font-size: 22px;
-  padding: 6px 16px;
-  border-width: 3.5px;
+  font-size: 18px;
+  padding: 6px 14px;
+  border-width: 3px;
 }
-/* Each stamp has its own spot and its own angle, so seven of them read as seven
-   separate hits rather than a stack.
-
-   HOW THESE SEVEN OFFSETS WERE DERIVED. A stamp's unrotated box is
-   font-size (line-height 1) + 2 x padding + 2 x border tall, and its text width
-   + 2 x padding + 2 x border wide. Text width is estimated at 0.68em a cap or
-   digit, 0.30em a space, plus the 0.08em letter-spacing on every character:
-
-     ORDER #118    11px  9 glyphs + 1 space -> 79 + 25 = 104 x 26
-     IRN + E-WAY   13px  10 glyphs + 3 spaces -> 114 + 25 = 139 x 28 (call 145)
-     ON VAN 2      13px  6 glyphs + 2 spaces -> 69 + 25 =  94 x 28
-     WHATSAPP      13px  10 glyphs + 1 space -> 104 + 25 = 129 x 28 (call 135)
-     REMINDED      11px  8 glyphs           ->  67 + 25 =  92 x 26
-     PAID (lg)     22px  4 glyphs           ->  67 + 39 = 106 x 41
-     IN TALLY      11px  8 glyphs + 2 spaces ->  75 + 25 = 100 x 26
-
-   Rotation grows the box: for w x h at angle t the axis-aligned bounds are
-   w|cos t| + h|sin t| wide and w|sin t| + h|cos t| tall, about the centre. A
-   106px-wide stamp at 10deg gains 18px of height, which is exactly what made
-   the first layout collide. Applying that to each box gives:
-
-     stamp        rotation   x range        y range
-     ORDER        -8deg      222.7 - 329.3   44.9 -  85.1
-     IRN + E-WAY  +5deg       17.1 - 163.9  111.8 - 152.2
-     ON VAN 2     -4deg      225.1 - 320.9  156.8 - 191.2
-     WHATSAPP     +7deg       12.8 - 150.2  183.9 - 228.1
-     REMINDED     -3deg       19.4 - 112.7  304.6 - 335.4
-     PAID         -10deg     205.3 - 316.7  317.1 - 375.9
-     IN TALLY     +3deg       33.4 - 134.7  366.4 - 397.6
-
-   No two of those boxes intersect. None touches the total row (y 237.3-262.8,
-   whose amount runs x 208-316) or the status line (y 274.8-294.8). All of them
-   sit inside 0-340 x 0-410.8. The party name (x 24-200) is clear of ORDER,
-   whose left edge is 222.7.
-
-   The four upper stamps are anchored with `top` because the blocks they relate
-   to are anchored to the top; the three in the stamp area are anchored with
-   `bottom` so a status line that wraps to two lines moves them down with the
-   paper instead of into it. */
 .home-v3 .slip-stamp--order {
-  --r: -8deg;
-  top: 52px;
-  right: 12px;
-  font-size: 11px;
+  --r: -5deg;
 }
 .home-v3 .slip-stamp--bill {
-  --r: 5deg;
-  top: 118px;
-  left: 18px;
+  --r: 3deg;
 }
 .home-v3 .slip-stamp--load {
-  --r: -4deg;
-  top: 160px;
-  right: 20px;
+  --r: -3deg;
 }
 .home-v3 .slip-stamp--send {
-  --r: 7deg;
-  top: 192px;
-  left: 14px;
+  --r: 4deg;
 }
 .home-v3 .slip-stamp--remind {
-  --r: -3deg;
-  bottom: 78px;
-  left: 20px;
-  font-size: 11px;
+  --r: -2deg;
 }
-/* The climax: the biggest stamp, the only red one, low and hard over at
-   -10deg, in the clear paper under the total it just settled. */
 .home-v3 .slip-stamp--recover {
-  --r: -10deg;
-  bottom: 44px;
-  right: 26px;
+  --r: -8deg;
 }
 .home-v3 .slip-stamp--tally {
   --r: 3deg;
-  bottom: 16px;
-  left: 34px;
-  font-size: 11px;
 }
 
 .home-v3 .slip-stops {
@@ -389,11 +319,14 @@
 .home-v3 .foi-station {
   min-height: 84vh;
   display: grid;
-  grid-template-columns: 1fr 270px;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 40px;
   align-items: center;
   opacity: 0.28;
   transition: opacity 320ms var(--ease-out);
+}
+.home-v3 .foi-copy {
+  min-width: 0;
 }
 .home-v3 .foi-station.is-on {
   opacity: 1;
@@ -415,6 +348,7 @@
 }
 .home-v3 .foi-station h3 {
   font: 800 38px/1.08 var(--font-sans);
+  font-size: clamp(28px, 2.6vw, 38px);
   letter-spacing: -0.03em;
   margin: 12px 0 14px;
 }
@@ -464,11 +398,16 @@
 .home-v3 .foi-visual {
   position: relative;
   isolation: isolate;
+  width: 380px;
+  min-height: 520px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 .home-v3 .foi-phone {
   position: relative;
   z-index: 2;
-  width: 250px;
+  width: 236px;
   height: auto;
   filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5));
   transform: translateY(18px);
@@ -479,9 +418,9 @@
 }
 .home-v3 .foi-phone--1 {
   position: absolute;
-  left: -120px;
-  top: 60px;
-  width: 200px;
+  left: 0;
+  top: 56px;
+  width: 184px;
   z-index: 1;
   opacity: 0.9;
 }
@@ -490,24 +429,24 @@
 
 .home-v3 .sheet {
   position: absolute;
-  left: -170px;
-  bottom: -10px;
-  width: 300px;
+  left: 0;
+  bottom: 0;
+  width: 230px;
   padding: 0;
   border: 0;
   cursor: zoom-in;
   z-index: 1;
   background: #fff;
   transform: rotate(-5deg);
+  transform-origin: left top;
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
   transition: transform 160ms var(--ease-out);
 }
-/* No stop carries both a second phone and a sheet today. If one ever does, the
-   sheet drops further down and further left rather than landing exactly under
-   the tucked phone. */
+/* No stop carries both a second phone and a sheet today. Keep the combined
+   state explicitly contained if the story data ever introduces one. */
 .home-v3 .foi-visual.has-second.has-sheet .sheet {
-  left: -250px;
-  bottom: -84px;
+  left: 0;
+  bottom: 0;
 }
 .home-v3 .sheet img {
   display: block;
@@ -649,6 +588,9 @@
   font-size: 13.5px;
   line-height: 1.5;
 }
+.home-v3 .wam-bubble p, .home-v3 .wam-bubble span {
+  color: inherit;
+}
 .home-v3 .wam-file {
   display: flex;
   align-items: center;
@@ -658,7 +600,7 @@
   padding: 8px 10px;
   margin-bottom: 9px;
 }
-.home-v3 .wam-file-kind {
+.home-v3 .wam-bubble .wam-file-kind {
   flex: none;
   font: 700 10px var(--font-sans);
   letter-spacing: 0.06em;
@@ -676,7 +618,7 @@
 .home-v3 .wam-line {
   margin: 0 0 6px;
 }
-.home-v3 .wam-cta {
+.home-v3 .wam-bubble .wam-cta {
   display: block;
   text-align: center;
   font: 600 13px var(--font-sans);
@@ -685,7 +627,7 @@
   margin: 8px -14px 0;
   padding: 9px 14px 0;
 }
-.home-v3 .wam-meta {
+.home-v3 .wam-bubble .wam-meta {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -694,15 +636,16 @@
   font-size: 10.5px;
   color: rgba(29, 36, 51, 0.5);
 }
-.home-v3 .wam-ticks {
+.home-v3 .wam-bubble .wam-ticks {
   color: #34b7f1;
   font-size: 12px;
 }
 
 .home-v3 .foi-callchip {
   position: absolute;
-  right: -24px;
-  top: 90px;
+  right: 0;
+  top: auto;
+  bottom: 8px;
   z-index: 3;
   display: grid;
   gap: 2px;
@@ -717,6 +660,16 @@
   font-size: 14px;
 }
 
+@media (max-width: 1180px) and (min-width: 901px) {
+  .home-v3 .foi-station {
+    grid-template-columns: 1fr;
+  }
+  .home-v3 .foi-visual {
+    margin-top: 28px;
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 900px) {
   /* The pinned bar's height is a constant the stations have to scroll clear of,
      so it is written down once here and used in both places. Every row that is
@@ -727,8 +680,10 @@
        21.3   NUMBER ROW   .slip-head, 12.5 x 1.7 — a flex row, never wraps
        12.0        .slip-status margin-top
        17.0   STATUS ROW   .slip-status, 10 x 1.7 = 17, nowrap, one line
-       37.0   STAMP ROW    .slip padding-bottom: 21px stamp, 10px below it,
-                           6px above it — the stamp itself is out of flow
+        6.0        .slip-stamps margin-top
+       21.0   STAMP ROW    .slip-stamps fixed height; stamps are absolute only
+                           inside this dedicated, text-free row
+       10.0        .slip padding-bottom
        10.0        .slip-rail padding-bottom
       ------
       117.3  ->  --foi-bar-h: 118px
@@ -775,7 +730,7 @@
   }
   .home-v3 .slip {
     transform: none;
-    padding: 10px 14px 37px;
+    padding: 10px 14px;
     box-shadow: none;
     -webkit-mask: none;
     mask: none;
@@ -806,6 +761,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .home-v3 .slip-stamps {
+    border: 0;
+    margin: 6px 0 0;
+    padding: 0;
+    height: 21px;
+    position: relative;
+  }
   /* All seven stamps stay in the DOM, stacked in one fixed slot in the paper's
      bottom-left and out of flow, so swapping the current one is a pure opacity
      crossfade with nothing to reflow and no height to change. The .is-on group
@@ -821,10 +783,10 @@
   .home-v3 .slip-stamp,
   .home-v3 .slip-stamp.is-on {
     position: absolute;
-    top: auto;
+    top: 0;
     right: auto;
-    left: 14px;
-    bottom: 10px;
+    left: 0;
+    bottom: auto;
     font-size: 11px;
     padding: 3px 8px;
     border-width: 2px;
@@ -851,6 +813,8 @@
   }
   .home-v3 .foi-visual {
     margin-top: 28px;
+    width: 100%;
+    min-height: 0;
     display: flex;
     justify-content: center;
   }

@@ -6,8 +6,8 @@
 // stamp hitting paper — and lifts off faster than it lands when the reader
 // scrolls back. Both directions are *transitions* on one class, never keyframes,
 // so a stamp caught mid-landing reverses from wherever it is instead of jumping.
-// The stamps are absolutely positioned in a fixed-size slip, so the paper never
-// reflows as they arrive.
+// Every stamp owns a stable slot below the status line, so the paper never
+// reflows as they arrive and no stamp can cover the invoice text.
 import { INVOICE, STOPS } from '../data/journey';
 
 // The slip prints paise; formatInr rounds, so it is deliberately not used here.
@@ -54,32 +54,31 @@ export default function InvoiceSlip({ activeIndex }) {
         <div className="slip-status" data-testid="slip-status" aria-live="polite">
           {STOPS[activeIndex].status}
         </div>
-        {STOPS.map((s, i) => (
-          <span
-            key={s.id}
-            className={[
-              'slip-stamp',
-              `slip-stamp--${s.id}`,
-              `slip-stamp--${s.stamp.tone}`,
-              s.stamp.size === 'lg' ? 'slip-stamp--lg' : '',
-              i <= activeIndex ? 'is-on' : '',
-              // Exactly one stamp is the current one. The pinned mobile bar has
-              // room for a single stamp and shows this one; on the full paper
-              // the class is inert, because there every landed stamp stays.
-              i === activeIndex ? 'is-current' : '',
-            ]
-              .filter(Boolean)
-              .join(' ')}
-            // Always hidden, at every width. A stamp is decoration: on the
-            // pinned mobile bar only one of the seven is even drawn, so handing
-            // an assistive reader the landed ones would announce six stamps for
-            // a bar showing one. The aria-live status line below is the slip's
-            // accessible account of itself, and it changes at every stop.
-            aria-hidden="true"
-          >
-            {s.stamp.text}
-          </span>
-        ))}
+        <div className="slip-stamps" aria-hidden="true">
+          {STOPS.map((s, i) => (
+            <span
+              key={s.id}
+              className={[
+                'slip-stamp',
+                `slip-stamp--${s.id}`,
+                `slip-stamp--${s.stamp.tone}`,
+                s.stamp.size === 'lg' ? 'slip-stamp--lg' : '',
+                i <= activeIndex ? 'is-on' : '',
+                // Exactly one stamp is the current one. The pinned mobile bar
+                // has room for a single stamp and shows this one; on the full
+                // paper the class is inert, because every landed stamp stays.
+                i === activeIndex ? 'is-current' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              // Always hidden, at every width. The aria-live status line above
+              // is the slip's accessible account of the changing state.
+              aria-hidden="true"
+            >
+              {s.stamp.text}
+            </span>
+          ))}
+        </div>
       </div>
       <ol className="slip-stops">
         {STOPS.map((s, i) => (
