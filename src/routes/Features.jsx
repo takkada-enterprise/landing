@@ -80,7 +80,7 @@ function StopMark({ stopId }) {
           className="features-hub-stop-shot"
           src={shot.src}
           srcSet={shot.srcSet}
-          sizes="84px"
+          sizes="132px"
           width={shot.width}
           height={shot.height}
           alt=""
@@ -228,8 +228,12 @@ function Features() {
                 <span key={id} id={id} className="features-hub-anchor" aria-hidden="true" />
               ))}
               <div className="features-hub-group-header">
-                <h2 className="features-hub-group-title">{group.title}</h2>
-                <p className="features-hub-group-intro">{group.intro}</p>
+                {/* Title and intro are one cell, so the mark beside them cannot
+                    set the height of the gap between them. */}
+                <div className="features-hub-group-prose">
+                  <h2 className="features-hub-group-title">{group.title}</h2>
+                  <p className="features-hub-group-intro">{group.intro}</p>
+                </div>
                 {group.stop && <StopMark stopId={group.stop} />}
               </div>
               {group.pages.length > 0 ? (

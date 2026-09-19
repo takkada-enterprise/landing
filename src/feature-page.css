@@ -351,6 +351,14 @@
   scroll-margin-top: 96px;
 }
 
+/* The id from the data sits on this element, so this is what the browser
+ * scrolls to; .features-hub-anchor only carries the retired ids that redirect
+ * onto it. Both need the same clearance or /features#send lands with the
+ * section title tucked under the fixed nav (D11). */
+.features-hub-group {
+  scroll-margin-top: 110px;
+}
+
 .features-hub-group + .features-hub-group {
   margin-top: 64px;
 }
@@ -366,51 +374,72 @@
  * cards; the height it needs is the image's own and the grid row takes it. A
  * header with no mark simply leaves the second column empty, so nothing here
  * has to ask whether a mark is present and no `:has()` decides a layout. */
+/* Two cells, not four: the title and the intro are one item (.prose) and the
+ * mark is the other. They were separate grid items with the mark spanning both
+ * rows, and a 174px-tall screenshot then set the height of those two rows - so
+ * a 130px hole opened between the title and its own intro line. One cell each
+ * and the mark's height is its own business. */
 .features-hub-group-header {
   display: grid;
-  grid-template-columns: minmax(0, 620px) 1fr;
-  align-items: start;
-  column-gap: 32px;
+  grid-template-columns: minmax(0, 620px) auto;
+  align-items: center;
+  column-gap: 40px;
   margin-bottom: 24px;
 }
 
-/* Both pinned to column one, or a header with no mark would set its intro
- * beside its title instead of under it. */
-.features-hub-group-title,
-.features-hub-group-intro {
+.features-hub-group-prose {
   grid-column: 1;
+  min-width: 0;
 }
 
 .features-hub-stop {
   grid-column: 2;
-  grid-row: 1 / span 2;
   justify-self: end;
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: center;
+  gap: 18px;
 }
 
+/* 84px was a smudge in the far corner (D11). At 132px the screen is legible as
+ * a screen, and the stamp beside it grows to match.
+ *
+ * Cropped to its top, not shown whole: a 132px-wide phone export is 273px tall,
+ * and since the mark shares a row with a two-line header that is 200px of air
+ * above the cards. The top of a screen is the part that says which screen it
+ * is anyway. The mask fades the cut so it reads as a peek rather than a phone
+ * with its bottom sliced off. */
 .features-hub-stop-shot {
-  width: 84px;
-  height: auto;
+  width: 132px;
+  height: 168px;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 8px;
   filter: drop-shadow(0 12px 20px rgba(14, 28, 42, 0.18));
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
 
-/* The hub's own section grid. The shared `.tally-grid` is `auto-fit`, which
- * collapses the empty tracks, so a section holding a single card stretched that
- * card across the whole container and it stopped reading as a card at all.
- * `auto-fill` keeps the tracks, so one card is exactly as wide as a card in a
- * three-card row. Scoped to the hub: every other page that uses .tally-grid
- * fills its rows and wants the stretch. */
+/* The hub's own section grid. The shared `.tally-grid` is `auto-fit` with a
+ * `1fr` max, which both collapses the empty tracks and stretches what is left:
+ * a section holding a single card spread it across the whole container and it
+ * stopped reading as a card. Capping the track at 380px is what fixes that -
+ * with a cap, `auto-fit` cannot stretch, so a lone card and a card in a row of
+ * three are the same width, and `justify-content: start` packs the row against
+ * the left edge instead of centring the leftovers. Scoped to the hub: every
+ * other page that uses .tally-grid fills its rows and wants the stretch.
+ *
+ * 340px, not 380: with a fixed max, auto-fit counts how many MAX-width tracks
+ * fit, so 380 fitted only two of them in the 1080px container and left a third
+ * of the row empty. 340 x 3 plus two 20px gaps is 1060, which fits. */
 .features-hub-group .tally-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+  justify-content: start;
 }
 
 /* Same ink, weight and tilt as the slip stamps on the homepage, so the two
  * pages read as one site rather than two that happen to share a palette. */
 .features-hub-stamp {
-  font: 800 11px/1 var(--font-sans);
+  font: 800 13px/1 var(--font-sans);
   letter-spacing: 0.08em;
   padding: 4px 8px;
   border: 2px solid currentColor;
@@ -514,15 +543,26 @@
    * One column, and `order` does the swap — the same grid, re-flowed. */
   .features-hub-group-header {
     grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  /* The wrapper dissolves so its title and intro become grid items again and
+   * the stamp can sit between them, which is what `order` below arranges. */
+  .features-hub-group-prose {
+    display: contents;
   }
 
   .features-hub-group-title {
+    grid-column: 1;
     order: 0;
+  }
+
+  .features-hub-group-intro {
+    grid-column: 1;
   }
 
   .features-hub-stop {
     grid-column: 1;
-    grid-row: auto;
     justify-self: start;
     order: 1;
     margin: 10px 0 4px;

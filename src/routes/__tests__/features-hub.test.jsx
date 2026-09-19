@@ -565,20 +565,47 @@ describe('hub layout rules (read off the stylesheet)', () => {
     expect(layout.filter((r) => r.selector.includes(':has(')).map((r) => r.selector)).toEqual([]);
   });
 
-  // .tally-grid is auto-fit, which collapses the empty tracks: a section with
-  // one card stretched that card across the whole container. The hub scopes its
-  // own track sizing; the shared grid is what every other page still wants.
-  it('sizes the hub section grid so a lone card stays card-sized', () => {
+  // The shared .tally-grid is auto-fit with a 1fr max, which both collapses the
+  // empty tracks and stretches what is left: a section with one card stretched
+  // that card across the whole container. The hub scopes its own track sizing
+  // with a CAPPED max, so one card and three cards are the same width and the
+  // row starts at the left edge. The shared grid is what every other page wants.
+  it('sizes the hub section grid so every card is the same width, lone or not', () => {
     const scoped = hub.find(
       (r) => r.selector.includes('features-hub-group') && r.selector.includes('tally-grid')
     );
     expect(scoped, 'the hub must scope its own section grid').toBeDefined();
-    expect(scoped.body).toMatch(/grid-template-columns:[^;]*auto-fill/);
+    const columns = scoped.body.match(/grid-template-columns:\s*([^;]+);/)?.[1] ?? '';
+    expect(columns, 'the hub grid must cap its track, not stretch to 1fr').toMatch(
+      /minmax\(\s*\d+px\s*,\s*\d+px\s*\)/
+    );
+    expect(scoped.body, 'a capped track needs the row packed to the left').toMatch(
+      /justify-content:\s*start/
+    );
 
     const tallyGrid = shared.find((r) => selects(r, '.tally-grid') && !r.at);
     expect(tallyGrid, 'the shared grid must still exist').toBeDefined();
     expect(tallyGrid.body, 'the shared .tally-grid is not the hub\'s to change').toMatch(
       /auto-fit/
     );
+  });
+
+  // D11: the mark read as "a tiny phone in the far corner", and jumping to
+  // /features#send put the section title under the fixed nav.
+  it('gives the stop mark a screen big enough to see', () => {
+    const shot = hub.find((r) => selects(r, '.features-hub-stop-shot') && !r.at);
+    expect(shot, '.features-hub-stop-shot needs an unconditional rule').toBeDefined();
+    const width = Number(shot.body.match(/width:\s*(\d+)px/)?.[1]);
+    expect(width, `the stop screen is ${width}px wide, which reads as a smudge`).toBeGreaterThanOrEqual(120);
+  });
+
+  it('clears the fixed nav when a section is jumped to by id', () => {
+    // The id is on .features-hub-group itself (id={group.id}), so that is the
+    // element the browser scrolls to; .features-hub-anchor only covers the
+    // retired ids that redirect onto it.
+    const group = hub.find((r) => selects(r, '.features-hub-group') && !r.at);
+    expect(group, '.features-hub-group needs an unconditional rule').toBeDefined();
+    const margin = Number(group.body.match(/scroll-margin-top:\s*(\d+)px/)?.[1]);
+    expect(margin, 'a jumped-to section lands under the fixed nav').toBeGreaterThanOrEqual(96);
   });
 });
