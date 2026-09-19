@@ -20,6 +20,9 @@ Thumbs.db
 # Test results
 test-results/
 
+# Headless-Chrome screenshots from scripts/shoot.mjs
+/shots/
+
 # Artifacts
 .artifacts/
 .gstack/
