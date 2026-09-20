@@ -602,3 +602,26 @@ describe('the scrolled nav is opaque over navy (D7)', () => {
     }
   });
 });
+
+// Ronak, 2026-09-20 22:14: "Need space here", on a shot of the job chips sitting
+// in a bare navy field under the browser's scrollbar, the fourth chip cut at the
+// edge, and the white proof card starting flush against the navy.
+describe('the phone hero gives the job row room', () => {
+  const css = readFileSync('src/home.css', 'utf8');
+  const stacked = cssBlock(css, '@media (max-width: 1000px)');
+
+  it('hides the scrollbar and bleeds the row to the viewport edge', () => {
+    const jobs = cssBlock(stacked, '.home-v3 .hv3-hero-jobs {');
+    expect(jobs).toMatch(/scrollbar-width:\s*none/);
+    expect(jobs).toMatch(/margin:\s*48px -16px 0/);
+    expect(jobs).toMatch(/padding:\s*0 16px 8px/);
+    expect(stacked).toMatch(/\.hv3-hero-jobs::-webkit-scrollbar\s*\{\s*display:\s*none/);
+  });
+
+  it('keeps 64px of navy under the row and lifts the proof card 28px off it', () => {
+    expect(cssBlock(stacked, '.home-v3 .hv3-hero {')).toMatch(/padding:\s*96px 0 64px/);
+    // The first 767px block in home.css is the proof strip's.
+    const phone = cssBlock(css, '@media (max-width: 767px)');
+    expect(cssBlock(phone, '.home-v3 .hv3-proof {')).toMatch(/padding:\s*28px 0 72px/);
+  });
+});

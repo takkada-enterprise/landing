@@ -205,7 +205,9 @@
      the top of the hero instead of centring clear of the fixed nav — and the
      first row here is the phone. This is that clearance. */
   .home-v3 .hv3-hero {
-    padding-top: 96px;
+    /* 64 below, not 48: the job row is the last thing in the band on a phone
+       and sat on its bottom edge (Ronak, 2026-09-20: "Need space here"). */
+    padding: 96px 0 64px;
   }
   .home-v3 .hv3-hero-grid {
     grid-template-columns: 1fr;
@@ -226,8 +228,15 @@
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     overflow-x: auto;
-    padding-bottom: 8px;
-    margin-top: 40px;
+    /* Bleeds to the viewport edge, so a chip cut at the edge reads as "more
+       this way" instead of as a layout fault, and the browser's scrollbar
+       stays off it: Android painted a grey bar under the row. */
+    margin: 48px -16px 0;
+    padding: 0 16px 8px;
+    scrollbar-width: none;
+  }
+  .home-v3 .hv3-hero-jobs::-webkit-scrollbar {
+    display: none;
   }
   .home-v3 .hv3-hero-jobs-label,
   .home-v3 .hv3-job small {
@@ -357,7 +366,8 @@
 }
 
 @media (max-width: 767px) {
-  .home-v3 .hv3-proof { padding: 0 0 72px; }
+  /* 28px off the navy: the card used to start on the band's bottom edge. */
+  .home-v3 .hv3-proof { padding: 28px 0 72px; }
   .home-v3 .hv3-proof-card {
     grid-template-columns: 1fr;
     gap: 28px;

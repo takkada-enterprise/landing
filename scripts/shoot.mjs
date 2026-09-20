@@ -102,6 +102,17 @@ SETS.round2 = [
   // moving waveform are the whole point of it.
   ['round2-listen-playing', '/ai-collection-calls#listen', { click: '.call-player-play' }],
 ];
+// The states the 2026-09-21 phone fixes are of: the job row and the proof
+// card's junction, the story intro, the phone menu, the connector band. Each is
+// below the fold or behind a tap, so no hash lands on it; `scrollTo` puts the
+// element at the top of the viewport after the page has settled.
+SETS.mobile = [
+  ['mobile-jobs', '/', { scrollTo: '.hv3-hero-jobs' }],
+  ['mobile-story-intro', '/', { scrollTo: '.foi-intro' }],
+  ['mobile-menu', '/', { click: '.mobile-menu-btn' }],
+  ['mobile-tally', '/#tally'],
+  ['mobile-about', '/about-us', { scrollTo: '.footer-bottom' }],
+];
 SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.menu, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
@@ -262,6 +273,24 @@ async function shoot(port, name, path, w, h, opts = {}) {
       });
       if (opened.result.value === 'stuck') throw new Error(`${opts.click} never opened on ${url}`);
       await sleep(400);
+    }
+    if (opts.scrollTo) {
+      const found = await client.send('Runtime.evaluate', {
+        expression: `new Promise((resolve) => {
+          let attempts = 0;
+          const scroll = () => {
+            const el = document.querySelector(${JSON.stringify(opts.scrollTo)});
+            if (el) { el.scrollIntoView({ behavior: 'instant', block: 'start' }); resolve(true); }
+            else if (attempts++ < 100) setTimeout(scroll, 50);
+            else resolve(false);
+          };
+          scroll();
+        })`,
+        awaitPromise: true,
+        returnByValue: true,
+      });
+      if (!found.result.value) throw new Error(`${opts.scrollTo} never appeared on ${url}`);
+      await sleep(500);
     }
     await client.send('Runtime.evaluate', {
       expression: `Promise.race([
