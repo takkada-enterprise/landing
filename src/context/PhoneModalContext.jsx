@@ -3,9 +3,9 @@ import { createContext, useCallback, useContext, useMemo, useState } from 'react
 const PhoneModalContext = createContext(null);
 
 const DEFAULT_OPTIONS = Object.freeze({
-  title: 'Book a Demo',
-  subtitle: "Enter your phone number and we'll set up a personalized walkthrough.",
-  submitLabel: 'Continue to Book',
+  title: 'Book a call',
+  subtitle: 'Enter your number and pick a 15-minute slot. We call you on it.',
+  submitLabel: 'Pick a time',
   // Where submitting sends the visitor: 'calendar' (the booking page) or
   // 'demo' (straight into the app with the number pre-filled). Declared here
   // rather than only in PhoneModal's defaults because openWith() spreads over

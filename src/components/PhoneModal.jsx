@@ -34,9 +34,9 @@ function clearTimer(timerRef) {
 function PhoneModal({
   isOpen,
   onClose,
-  title = 'Book a Demo',
-  subtitle = "Enter your phone number and we'll set up a personalized walkthrough.",
-  submitLabel = 'Continue to Book',
+  title = 'Book a call',
+  subtitle = 'Enter your number and pick a 15-minute slot. We call you on it.',
+  submitLabel = 'Pick a time',
   // 'calendar' opens the Notion booking page in a new tab. 'demo' navigates
   // this tab straight into the app's demo entry screen with the number
   // pre-filled. Injected through openWith() so there is one modal, not two.

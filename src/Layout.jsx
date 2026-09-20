@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
-import { ArrowRight, ChevronDown, Download, Menu, Plug, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Download, Menu, PhoneCall, Plug, Smartphone, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';
 import WhatsAppCTA from './components/WhatsAppCTA';
 import DemoTryCTA from './components/DemoTryCTA';
@@ -17,7 +17,7 @@ const FEATURES_PANEL_ID = 'nav-features-panel';
 
 // Hover has to be forgiving in both directions. Opening on the first pixel of
 // contact makes the panel flash at anyone sweeping the pointer across the nav
-// on their way to Book a Demo; closing on the first pixel of exit makes the
+// on their way to Book a call; closing on the first pixel of exit makes the
 // diagonal from "Features" down to the panel impossible to walk.
 const OPEN_INTENT_MS = 130;
 const CLOSE_DELAY_MS = 240;
@@ -233,7 +233,7 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOp
         {/* Still two pills. The demo takes the slot the calendar held, because
             the calendar and the live demo read as the same offer when they sit
             side by side and only one of them converts without spending the
-            founder's morning. "Book a Demo" keeps the hero, the pricing
+            founder's morning. "Book a call" keeps the hero, the pricing
             section, the footer and the mobile menu.
 
             The branch is on the flag here rather than on DemoTryCTA's own
@@ -262,7 +262,7 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOp
           {demoEntryLive ? (
             <DemoTryCTA context="header" variant="secondary" />
           ) : (
-            <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a Demo</CTAButton>
+            <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a call</CTAButton>
           )}
           <WhatsAppCTA context="header" />
         </div>
@@ -341,25 +341,27 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
         {/* The phone is the surface the OTP handoff was built for, so the demo
             goes first. Guarded by the flag for the same reason as the header:
             DemoTryCTA's fallback is a WhatsApp button and the menu already has
-            one. Unlike the header, the menu keeps "Book a Demo" — there is
-            vertical room, and two labels a full row apart do not read as the
-            same offer the way two adjacent pills do. */}
+            one. Three actions, three chromes, an icon each, and "demo" appears
+            once: the two white pills read as "same thing" to Ronak on
+            2026-09-20, and they were not. */}
         {demoEntryLive && (
           <DemoTryCTA
             context="mobile-menu"
             variant="secondary"
             fullWidth
             onClick={() => setMenuOpen(false)}
-          />
+          >
+            <Smartphone size={18} aria-hidden="true" /> Try the demo
+          </DemoTryCTA>
         )}
         <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
         <CTAButton
-          variant="secondary"
+          variant="outline"
           type="button"
           fullWidth
           onClick={() => { setMenuOpen(false); setOpen(true); }}
         >
-          Book a Demo
+          <PhoneCall size={18} aria-hidden="true" /> Book a call
         </CTAButton>
       </nav>
     </div>
