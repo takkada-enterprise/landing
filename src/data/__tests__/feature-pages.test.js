@@ -770,3 +770,39 @@ describe('feature page heroes come from the screen registry', () => {
     }
   });
 });
+
+// The in-detail cards (2026-09-20) are the one place a feature page describes
+// behaviour at length, so they carry the same discipline as the manual they
+// come from: a real guide to link to, no em-dashes, and the 40-word ceiling
+// per point so a card stays a list and not an essay.
+describe('in-detail cards', () => {
+  const detailed = FEATURE_PAGES.filter((p) => p.detail);
+  it('exist on the three import pages', () => {
+    expect(detailed.map((p) => p.slug).sort()).toEqual(
+      [
+        'bank-statement-import-tally',
+        'handwritten-order-to-tally',
+        'import-purchase-from-pdf',
+      ].sort()
+    );
+  });
+  it.each(detailed.map((p) => [p.slug, p]))(
+    '%s: detail section names a guide that exists',
+    (_slug, page) => {
+      expect(existsSync(resolve(repoRoot, `content/guide/${page.detail.guide.slug}.md`))).toBe(
+        true
+      );
+      expect(page.detail.groups.length).toBeGreaterThanOrEqual(3);
+      for (const group of page.detail.groups) {
+        expect(group.points.length).toBeGreaterThan(0);
+        for (const point of group.points) {
+          expect(point, `${page.slug}: "${point.slice(0, 40)}"`).not.toMatch(/\u2014/);
+          expect(
+            point.split(/\s+/).length,
+            `${page.slug}: "${point.slice(0, 40)}"`
+          ).toBeLessThanOrEqual(48);
+        }
+      }
+    }
+  );
+});

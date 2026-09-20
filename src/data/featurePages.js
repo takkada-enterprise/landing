@@ -1029,6 +1029,87 @@ const FIRST_BATCH = [
     datePublished: '2026-08-08',
     updated: '2026-08-08',
     walkthroughHeading: 'A supplier bill, without the typing',
+    detail: {
+      overline: 'IN DETAIL',
+      heading: 'What the import actually does',
+      intro:
+        'Everything below is what the app does today, read from the working build. Nothing here is a roadmap.',
+      groups: [
+        {
+          title: 'What you can send in',
+          points: [
+            'A supplier bill as a PDF or a photo. A bill you issued. A customer order, even a handwritten one. A purchase order you placed. A bank statement.',
+            'Invoices and orders: PDF, JPG or PNG up to 5 MB. A big photo is shrunk on the phone before it goes up, so it still gets through.',
+            'Bank statements: CSV, XLS or XLSX up to 10 MB.',
+          ],
+        },
+        {
+          title: 'How it gets into the app',
+          points: [
+            'The Import tile on Home, or the import option on any register. Take a photo, pick one from the gallery, or choose a file.',
+            'Share a file straight into the app from WhatsApp, Files or Gallery. If you belong to more than one company, it asks which one.',
+            'Imports keeps one history for every kind, so a bill you started on the road can be reopened at the desk.',
+          ],
+        },
+        {
+          title: 'It works out what the document is',
+          points: [
+            'Before anything is saved, a short AI step names the document: purchase invoice, sales invoice, sales order, purchase order or bank statement.',
+            'It knows your company name and GSTIN. If the bill was issued under your own GSTIN it is a sale, which is proof rather than a guess. A supplier bill is never mistaken for your sale.',
+            'Under 70% confidence it keeps your choice or asks "What is this?". A wrong guess can be corrected on the spot.',
+            'Permissions are checked again on the detected kind, so nobody imports a purchase by sending it in as an order.',
+          ],
+        },
+        {
+          title: 'What it reads off a supplier bill',
+          points: [
+            'The supplier: name, GSTIN, address, state and pincode. The header: invoice number, invoice date, due date, place of supply, taxable total, CGST, SGST, IGST, grand total, invoice-level discount and TDS.',
+            'Each line: description, HSN or SAC, quantity, unit, rate, GST rate, line amount and serial numbers. MRP only when it is printed, never worked out from the rate.',
+            'Discount, round-off, sub-total and total rows are skipped. Several invoices in one PDF, and cancelled invoices, are flagged instead of merged.',
+            'A scanned PDF the AI cannot read falls back to a basic text reader, and a banner on the review screen says so.',
+          ],
+        },
+        {
+          title: 'It checks the bill against its own maths',
+          points: [
+            'A printed bill states more numbers than it needs. The app works the whole bill out three ways, from the printed line amounts, from the rate before tax and from the rate including tax, and keeps the one that lands on the bill\'s own printed grand total.',
+            'The printed amount wins every tie, so a bill that imported correctly before cannot change.',
+            'A printed IGST always wins. A CGST and SGST split between two different states is treated as a misread and the GSTIN states decide.',
+            'When the lines print no GST rate but add up to the taxable total, the header tax is shared across the lines by value.',
+            'If nothing matches the printed total, a banner says so on review instead of posting a quiet difference.',
+          ],
+        },
+        {
+          title: 'Matched to your Tally, then checked by you',
+          points: [
+            'The supplier is suggested from your ledgers, or created in one tap from the name on the bill. The same supplier and bill number a second time is flagged as a duplicate.',
+            'Each line is matched to your stock items. Map "SAREE" to an item once and the next bill that says "SAREE" is matched on its own.',
+            'Edit item details on any line: HSN, quantity, unit, rate and GST rate, with the amount after GST updating as you type. Units are limited to the ones your Tally has.',
+            'The Continue button always says why it is blocked: "Map 3 more items to continue", or a quantity the bill never stated, which is never quietly set to 1. A part-percent GST slab is refused rather than rounded.',
+            'You can add a line the AI missed. It posts as a purchase voucher only after you approve the draft.',
+          ],
+        },
+        {
+          title: 'Kept safe when things go wrong',
+          points: [
+            'Every attempt of every kind sits in the Imports history, and a document can be reopened to carry on.',
+            'The original file is kept for 14 days so the numbers can be checked against the picture later.',
+            'A job stuck for 15 minutes is marked failed, and Try again reads into the same slot, even with a retaken photo, so one bill never becomes two entries.',
+            'The same file for the same company is not read twice. Results are never shared between companies.',
+            'Up to 15 documents per company per hour. Past that, the app asks you to wait a few minutes.',
+          ],
+        },
+        {
+          title: 'Who can use it',
+          points: [
+            'The company needs Document Import switched on. Bank statement import has its own switch and comes with the Import Automation add-on.',
+            'A member needs create permission on the register the document becomes: purchase invoice, sales order, sales invoice or purchase order.',
+            'Kinds a member cannot import are hidden from the chooser, so nobody is told no after uploading.',
+          ],
+        },
+      ],
+      guide: { slug: 'import-documents', label: 'Read the step-by-step guide to importing a document' },
+    },
     walkthrough: [
       {
         icon: 'Camera',

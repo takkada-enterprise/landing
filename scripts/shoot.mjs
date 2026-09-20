@@ -63,7 +63,11 @@ SETS.walk = SETS.feature.map(([name, path]) => [
   name.replace(/^feature-/, 'walk-'),
   `${path}${path === '/salesman-app-tally' ? '#tour' : '#walkthrough'}`,
 ]);
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.sheets];
+// The in-detail cards on the three import pages (2026-09-20).
+SETS.detail = ['import-purchase-from-pdf', 'bank-statement-import-tally', 'handwritten-order-to-tally'].map(
+  (slug) => [`detail-${slug}`, `/${slug}#detail`]
+);
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);

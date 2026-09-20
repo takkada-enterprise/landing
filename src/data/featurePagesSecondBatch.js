@@ -826,6 +826,56 @@ export const SECOND_BATCH = [
     datePublished: '2026-08-08',
     updated: '2026-08-08',
     walkthroughHeading: 'From a bank file to a closed ledger',
+    detail: {
+      overline: 'IN DETAIL',
+      heading: 'What the bank statement import actually does',
+      intro:
+        'Everything below is what the app does today, read from the working build. Nothing here is a roadmap.',
+      groups: [
+        {
+          title: 'The file your bank gives you',
+          points: [
+            'CSV, XLS or XLSX up to 10 MB, read by a spreadsheet reader rather than AI, so a statement is never misread.',
+            'Most Indian bank layouts are known by their own column names, "Withdrawal Amt.", "Txn Date", "Particulars" and many more, with a keyword fallback for the rest.',
+            'Password-protected statements open after you type the password, old .xls and modern .xlsx alike.',
+            'Date order is worked out for you, or forced to day-first or month-first. A single line\'s date can be corrected afterwards.',
+          ],
+        },
+        {
+          title: 'Each line is sorted before you see it',
+          points: [
+            'Your bank ledger is found from the account number on the statement.',
+            'Every line is sorted as a receipt, a payment, a contra, a loan, or something to enter by hand. Cash words such as ATM and self withdrawal default to contra.',
+            'The other party is suggested from a pick you made before for that payer or narration, from a remembered account-number tail, or when the narration names exactly one party. The reason is shown next to Confirm.',
+            'A weak suggestion waits for your tap. An exact account-number match is ready to post.',
+          ],
+        },
+        {
+          title: 'What you can change on a line',
+          points: [
+            'The voucher type, the narration, and the party.',
+            'Mark a line not applicable and it stays hidden on future statements from the same bank. Split a loan EMI into its parts.',
+            'A receipt can settle specific open bills. Clearing that choice puts it back On Account, and over-allocation is blocked when posting.',
+          ],
+        },
+        {
+          title: 'Nothing posts twice',
+          points: [
+            'An exact re-import of the same statement is blocked at posting, with a "Post anyway" if you mean it.',
+            'Only then are the receipts, payments and contras written into your Tally against the right party.',
+            'Every attempt sits in the Imports history and can be reopened to carry on.',
+          ],
+        },
+        {
+          title: 'Who can use it',
+          points: [
+            'Bank statement import has its own switch and comes with the Import Automation add-on. It was switched on for every company that existed on 14 July 2026.',
+            'A member needs create permission on receipts, payments or contras.',
+          ],
+        },
+      ],
+      guide: { slug: 'import-documents', label: 'Read the step-by-step guide to importing a document' },
+    },
     walkthrough: [
       {
         icon: 'FileCheck2',
@@ -1874,6 +1924,49 @@ export const SECOND_BATCH = [
     datePublished: '2026-08-08',
     updated: '2026-08-08',
     walkthroughHeading: 'From the page to the voucher',
+    detail: {
+      overline: 'IN DETAIL',
+      heading: 'What it does with a handwritten page',
+      intro:
+        'Everything below is what the app does today, read from the working build. Nothing here is a roadmap.',
+      groups: [
+        {
+          title: 'Reading the page',
+          points: [
+            'A photo or a PDF of the order book, up to 5 MB. A big photo is shrunk on the phone before it goes up.',
+            'Read by AI with a prompt built for handwriting. "Colgate 20f" becomes the item Colgate, quantity 20, unit f.',
+            'Item names are copied exactly as written, including 1¼", ½, abbreviations and spelling, because the exact text is what matches your item list.',
+            'The customer name, order number, order date and any notes are kept: "urgent", a delivery instruction, a phone number.',
+          ],
+        },
+        {
+          title: 'What it refuses to guess',
+          points: [
+            'A quantity written as "10-12" or a price as "120-125" is kept as text and you are asked for one number. It never picks one end.',
+            'No prices on the page is normal. Blank rates are filled later from your own rates.',
+            'Duplicate lines stay separate for you to resolve. Crossed-out lines and totals are left out.',
+            'If the AI stops early or loops, the app asks once more, then asks you to retake the photo rather than show half a list.',
+          ],
+        },
+        {
+          title: 'Matched to your Tally, then checked by you',
+          points: [
+            'The customer is suggested from your ledgers, or created in one tap from the name on the page.',
+            'Each line is matched to your stock items, and the mapping is remembered for the next page that uses the same words.',
+            'Edit item details on any line: quantity, unit, rate and GST rate. The Continue button says what is still missing.',
+            'It posts as a sales order only after you approve the draft, with the pending quantity tracked until it ships.',
+          ],
+        },
+        {
+          title: 'Who can use it',
+          points: [
+            'The company needs Document Import switched on, and the member needs create permission on sales orders.',
+            'Every attempt sits in the Imports history and can be reopened to carry on.',
+          ],
+        },
+      ],
+      guide: { slug: 'import-documents', label: 'Read the step-by-step guide to importing a document' },
+    },
     walkthrough: [
       {
         icon: 'Camera',

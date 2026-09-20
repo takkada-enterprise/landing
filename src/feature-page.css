@@ -127,6 +127,72 @@
   color: var(--color-text-secondary);
 }
 
+/* ── In detail ──
+ * A grid of topic cards, each a short list. Same card vocabulary as the hub
+ * (.tally-card), wider tracks because a list needs the room a blurb does not. */
+.feature-detail-intro {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.feature-detail-grid {
+  /* Six tracks, a card spans 2, like .feature-steps: 3 up on desktop, and the
+   * remainder of the last row widens instead of leaving one orphan card
+   * (7 topics: the last spans the row; 5: the last two share it; 4: 2×2). */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-top: 40px;
+}
+
+.feature-detail-card {
+  grid-column: span 2;
+}
+
+.feature-detail-card:last-child:nth-child(3n + 1) {
+  grid-column: span 6;
+}
+
+.feature-detail-card:nth-last-child(2):nth-child(3n + 1),
+.feature-detail-card:last-child:nth-child(3n + 2),
+.feature-detail-card:first-child:nth-last-child(4),
+.feature-detail-card:first-child:nth-last-child(4) ~ .feature-detail-card {
+  grid-column: span 3;
+}
+
+.feature-detail-card ul {
+  margin: 0;
+  padding-left: 18px;
+  /* styles.css resets every ul to list-style: none; these are real lists. */
+  list-style: disc;
+}
+
+.feature-detail-card li {
+  margin: 6px 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.feature-detail-card li::marker {
+  color: var(--color-primary);
+}
+
+.feature-detail-more {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.feature-detail-more a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── Comparison table with sentences in the cells ──
  * The base .comparison-table is built for tick marks: centred, nowrap, narrow.
  * These overrides let the cells carry a real clause, which is what makes the
@@ -263,6 +329,19 @@
   .feature-steps[data-steps='5'] .feature-step:nth-child(n + 4) {
     grid-column: span 3;
   }
+
+  /* Two columns here, so the fifth card of a 5-step page takes the row. */
+  .feature-steps[data-steps='5'] .feature-step:nth-child(5) {
+    grid-column: span 6;
+  }
+
+  .feature-detail-grid .feature-detail-card {
+    grid-column: span 3;
+  }
+
+  .feature-detail-grid .feature-detail-card:last-child:nth-child(odd) {
+    grid-column: span 6;
+  }
 }
 
 @media (max-width: 767px) {
@@ -278,6 +357,15 @@
   .feature-steps .feature-step,
   .feature-steps[data-steps='4'] .feature-step,
   .feature-steps[data-steps='5'] .feature-step:nth-child(n + 4) {
+    grid-column: span 6;
+  }
+
+  .feature-detail-grid .feature-detail-card,
+  .feature-detail-grid .feature-detail-card:nth-last-child(2):nth-child(3n + 1),
+  .feature-detail-grid .feature-detail-card:last-child:nth-child(3n + 2),
+  .feature-detail-grid .feature-detail-card:first-child:nth-last-child(4),
+  .feature-detail-grid .feature-detail-card:first-child:nth-last-child(4) ~ .feature-detail-card,
+  .feature-detail-grid .feature-detail-card:last-child:nth-child(odd) {
     grid-column: span 6;
   }
 

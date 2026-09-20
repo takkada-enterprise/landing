@@ -359,6 +359,30 @@ describe('the navy hero stays on the two heroes it is for', () => {
   });
 });
 
+describe('in-detail section', () => {
+  it.each(FEATURE_PAGES.filter((p) => p.detail).map((p) => [p.slug, p]))(
+    '%s: renders one card per topic and links the full guide',
+    (_slug, page) => {
+      const { container } = renderPage(page);
+      const section = container.querySelector('#detail');
+      expect(section).not.toBeNull();
+      const cards = section.querySelectorAll('.feature-detail-card');
+      expect(cards).toHaveLength(page.detail.groups.length);
+      page.detail.groups.forEach((group, i) => {
+        expect(cards[i].querySelector('h3').textContent).toBe(group.title);
+        expect(cards[i].querySelectorAll('li')).toHaveLength(group.points.length);
+      });
+      const link = section.querySelector('.feature-detail-more a');
+      expect(link.getAttribute('href')).toBe(`/guide/${page.detail.guide.slug}`);
+    }
+  );
+  it('a page without detail data renders no detail section', () => {
+    const page = FEATURE_PAGES.find((p) => !p.detail);
+    const { container } = renderPage(page);
+    expect(container.querySelector('#detail')).toBeNull();
+  });
+});
+
 describe('walkthrough card CSS', () => {
   const css = readFileSync(resolve(__dirname, '../../feature-page.css'), 'utf8').replace(
     /\/\*[\s\S]*?\*\//g,
@@ -372,6 +396,11 @@ describe('walkthrough card CSS', () => {
     expect(block('.feature-step-shot')).toMatch(/height:\s*\d+px/);
     expect(block('.feature-step-shot')).toMatch(/overflow:\s*hidden/);
     expect(block('.feature-step-shot')).not.toMatch(/max-height/);
+  });
+  it('the in-detail grid widens the remainder of its last row instead of orphaning a card', () => {
+    expect(block('.feature-detail-grid')).toMatch(/repeat\(6, minmax\(0, 1fr\)\)/);
+    expect(css).toMatch(/\.feature-detail-card:last-child:nth-child\(3n \+ 1\) \{\s*grid-column: span 6;/);
+    expect(block('.feature-detail-card ul')).toMatch(/list-style: disc/);
   });
   it('4-step pages fill two rows and 5-step pages widen the last two cards', () => {
     expect(css).toMatch(

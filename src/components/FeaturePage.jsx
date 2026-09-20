@@ -255,6 +255,40 @@ function FeaturePage({ page }) {
           Motion reasons live in FeatureTour.jsx's header. ── */}
       {page.tour && <FeatureTour tour={page.tour} />}
 
+      {/* ── In detail. Only on pages whose data carries a `detail` block: a
+          feature with a lot of behaviour worth naming (document import first,
+          2026-09-20) gets a card per topic, each a short list of what the app
+          does today, and a link to the full how-to guide. Every line comes
+          from a source marked Live; nothing Stage-only is described here. ── */}
+      {page.detail && (
+        <section className="tally-section feature-detail" id="detail">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.detail.overline}</span>
+              <h2 className="section-title">{page.detail.heading}</h2>
+              {page.detail.intro && <p className="feature-detail-intro">{page.detail.intro}</p>}
+            </div>
+            <div className="tally-grid feature-detail-grid">
+              {page.detail.groups.map((group) => (
+                <article key={group.title} className="tally-card feature-detail-card">
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+            {page.detail.guide && (
+              <p className="feature-detail-more">
+                <Link to={`/guide/${page.detail.guide.slug}`}>{page.detail.guide.label}</Link>
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ── Comparison table. Real <table>, competitors unnamed. ── */}
       <section className="comparison-section feature-comparison" id="comparison">
         <div className="container">
