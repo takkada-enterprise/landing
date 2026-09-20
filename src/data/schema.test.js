@@ -20,7 +20,7 @@ import {
   homeFaqItems,
 } from './siteContent';
 import { HERO_HOME, HOTSPOTS } from './heroHotspots';
-import { STOPS } from './journey';
+import { STOPS, STORY } from './journey';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -168,6 +168,7 @@ describe('pricing matrix', () => {
     HERO_HOME,
     HOTSPOTS,
     STOPS,
+    STORY,
     tallyTrust,
     homeFaqItems,
     pricing,

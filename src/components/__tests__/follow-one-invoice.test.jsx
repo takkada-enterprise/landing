@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { cleanup, render, screen as ui, within, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import FollowOneInvoice from '../FollowOneInvoice';
-import { STOPS, INVOICE } from '../../data/journey';
+import { STOPS, STORY, INVOICE } from '../../data/journey';
 import { screen as screenAsset } from '../../data/screens';
 
 const css = readFileSync(resolve(__dirname, '../../journey.css'), 'utf8').replace(
@@ -73,6 +73,34 @@ describe('FollowOneInvoice', () => {
         for (const img of imgs) expect(img).toHaveAttribute('src', asset.src);
       }
     });
+  });
+
+  // Ronak, 2026-09-20 22:15, on his phone: "Need better heading so that I
+  // understand what to expect going down, journey or something". The title
+  // named the two ends and nothing said "stops". On desktop the slip's stop
+  // rail carried that; below 900px the rail is hidden, so each station now
+  // says where it is in the walk.
+  it('tells the reader it is a walk: a lead under the title and a stop counter on every station', () => {
+    const { container } = mount();
+    expect(container.querySelector('#foi-title').textContent).toBe(STORY.title);
+    expect(STORY.title).toMatch(/seven stops/i);
+    expect(container.querySelector('.foi-intro .foi-lead').textContent).toBe(STORY.lead);
+    const counters = [...container.querySelectorAll('.foi-station .foi-stop-index')].map(
+      (el) => el.textContent
+    );
+    expect(counters).toEqual(STOPS.map((_, i) => `Stop ${i + 1} of ${STOPS.length}`));
+  });
+
+  it('styles the counter in the accent blue so the time label stays the one marigold', () => {
+    expect(block('.home-v3 .foi-stop-index')).toMatch(/color:\s*var\(--color-accent\)/);
+    expect(block('.home-v3 .foi-when')).toMatch(/color:\s*var\(--color-highlight\)/);
+  });
+
+  it('opens with 64px of navy on a phone, not 96', () => {
+    const phone = css.slice(css.indexOf('@media (max-width: 900px)'));
+    expect(block('.home-v3 .foi'), 'desktop padding unchanged').toMatch(/padding:\s*96px 0 40px/);
+    const i = phone.indexOf('.home-v3 .foi {');
+    expect(phone.slice(i, phone.indexOf('}', i))).toMatch(/padding-top:\s*64px/);
   });
 
   it('starts with only the first stamp pressed', () => {

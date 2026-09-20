@@ -13,7 +13,7 @@ vi.mock('vite-react-ssg', () => ({
 import Home from '../Home';
 import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
-import { STOPS } from '../../data/journey';
+import { STOPS, STORY } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -44,7 +44,7 @@ describe('Home v3 structure (AE1)', () => {
     expect(h1s.map((h) => h.textContent)).toEqual([HERO_HOME.headline]);
 
     const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
-    expect(h2s).toContain('From the order at the counter to the receipt in Tally.');
+    expect(h2s).toContain(STORY.title);
 
     const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
     for (const stop of STOPS) {

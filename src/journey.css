@@ -127,6 +127,13 @@
   color: #fff;
   max-width: 720px;
 }
+.home-v3 .foi-lead {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 12px 0 0;
+}
 .home-v3 .foi-grid {
   max-width: 1160px;
   margin: 0 auto;
@@ -339,6 +346,17 @@
    as .is-on, so source order is what decides. */
 .home-v3 .foi-station:focus-within {
   opacity: 1;
+}
+/* "Stop 1 of 7": where the reader is in the walk. On desktop the slip's stop
+   rail says the same thing; below 900px that rail is hidden and this is what
+   remains. Accent blue, so the marigold time label under it stays the one
+   marigold on the station. */
+.home-v3 .foi-stop-index {
+  font: 500 12px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 6px;
 }
 .home-v3 .foi-when {
   font: 400 13px var(--font-mono);
@@ -714,6 +732,9 @@
   .home-v3 .foi {
     --foi-nav-h: 56px;
     --foi-bar-h: 118px;
+    /* 96px of empty navy above the eyebrow was a screen's worth of nothing on
+       a phone (Ronak's 2026-09-20 shot of this section). */
+    padding-top: 64px;
   }
   .home-v3 .foi-grid {
     grid-template-columns: 1fr;

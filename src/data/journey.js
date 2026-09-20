@@ -77,6 +77,17 @@ export const INVOICE = {
   total: 186420.16,
 };
 
+// The section's own heading. It says out loud that what follows is a walk
+// through stops: below 900px the slip's stop rail is hidden, so on a phone the
+// title was the only thing left to say so, and it did not (Ronak, 2026-09-20:
+// "so that I understand what to expect going down"). "One invoice, seven stops"
+// is the phrase the feature pages' journey strip already uses.
+export const STORY = {
+  label: 'Follow one invoice',
+  title: 'One invoice, seven stops: from the order at the counter to the receipt in Tally.',
+  lead: 'Scroll down and follow it. The slip is stamped at every stop, and each stop links to the feature behind it.',
+};
+
 export const STOPS = [
   {
     id: 'order',
