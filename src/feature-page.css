@@ -162,6 +162,66 @@
   height: auto;
 }
 
+/* ── Report gallery ──
+ * Small phones, four across, then three, then two. The item count is a
+ * multiple of twelve (test) so every one of those row widths fills. Same
+ * surface-tinted band as the walkthrough card, for the same reason: on the
+ * wash a white band reads as a chopped phone. */
+.feature-gallery-intro {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.feature-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.feature-gallery-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-gallery-shot {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0;
+  background: var(--color-surface);
+}
+
+.feature-gallery-shot img {
+  display: block;
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(10, 23, 48, 0.14));
+}
+
+.feature-gallery-card h3 {
+  margin: 14px 18px 4px;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-display);
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.feature-gallery-card p {
+  margin: 0 18px 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
 /* ── In detail ──
  * A grid of topic cards, each a short list. Same card vocabulary as the hub
  * (.tally-card), wider tracks because a list needs the room a blurb does not. */
@@ -354,6 +414,10 @@
 @media (max-width: 900px) {
   /* The mockup drops below the copy and shrinks. It stays eager: it is still
    * the largest thing in view on a phone. */
+  .feature-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .feature-hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -385,6 +449,15 @@
 }
 
 @media (max-width: 767px) {
+  .feature-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .feature-gallery-shot img {
+    width: 120px;
+  }
+
   .feature-answer {
     padding: 18px 20px;
     font-size: 16px;

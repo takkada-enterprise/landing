@@ -417,6 +417,38 @@ describe('in-detail section', () => {
   });
 });
 
+describe('report gallery', () => {
+  it.each(FEATURE_PAGES.filter((p) => p.gallery).map((p) => [p.slug, p]))(
+    '%s: renders one card per item, lazy, between the story and the comparison',
+    (_slug, page) => {
+      const { container } = renderPage(page);
+      const section = container.querySelector('#gallery');
+      expect(section).not.toBeNull();
+      const cards = section.querySelectorAll('.feature-gallery-card');
+      expect(cards).toHaveLength(page.gallery.items.length);
+      page.gallery.items.forEach((item, i) => {
+        const shot = screen(item.screen);
+        const img = cards[i].querySelector('.feature-gallery-shot img');
+        expect(img.getAttribute('src')).toBe(shot.src);
+        expect(img.getAttribute('srcset')).toBe(shot.srcSet);
+        expect(img.getAttribute('alt')).toBe(shot.alt);
+        expect(img.getAttribute('width')).toBe(String(shot.width));
+        expect(img.getAttribute('height')).toBe(String(shot.height));
+        expect(img.getAttribute('loading')).toBe('lazy');
+        expect(cards[i].querySelector('h3').textContent).toBe(item.title);
+        expect(cards[i].querySelector('p').textContent).toBe(item.body);
+      });
+      const story = container.querySelector('#walkthrough') ?? container.querySelector('#tour');
+      expect(story.compareDocumentPosition(section) & 4).toBeTruthy();
+      expect(section.compareDocumentPosition(container.querySelector('#comparison')) & 4).toBeTruthy();
+    }
+  );
+  it('a page without gallery data renders no gallery section', () => {
+    const page = FEATURE_PAGES.find((p) => !p.gallery);
+    expect(renderPage(page).container.querySelector('#gallery')).toBeNull();
+  });
+});
+
 describe('walkthrough card CSS', () => {
   const css = readFileSync(resolve(__dirname, '../../feature-page.css'), 'utf8').replace(
     /\/\*[\s\S]*?\*\//g,

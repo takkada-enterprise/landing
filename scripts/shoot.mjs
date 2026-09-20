@@ -72,7 +72,9 @@ SETS.sheet = [
   ['sheet-salesman-app-tally', '/salesman-app-tally#sheet'],
   ['sheet-delivery-challan-from-mobile', '/delivery-challan-from-mobile#sheet'],
 ];
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.sheets];
+// The reports page's gallery of every registered report screen (2026-09-20).
+SETS.gallery = [['gallery-tally-reports-on-mobile', '/tally-reports-on-mobile#gallery']];
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);

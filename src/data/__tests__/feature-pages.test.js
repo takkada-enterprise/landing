@@ -167,6 +167,7 @@ describe('feature page data contract', () => {
     ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
     ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
     ...(page.sheet ? [screen(page.sheet.screen).src] : []),
+    ...(page.gallery?.items?.map((g) => screen(g.screen).src) ?? []),
   ];
 
   it.each(FEATURE_PAGES.filter((p) => p.tour).map((p) => [p.slug, p]))(
@@ -317,6 +318,11 @@ describe('feature page data contract', () => {
     ...(page.sheet
       ? [{ path: screen(page.sheet.screen).src, surface: 'featurePage:sheet', origin: `${page.slug} sheet` }]
       : []),
+    ...(page.gallery?.items ?? []).map((item, i) => ({
+      path: screen(item.screen).src,
+      surface: 'featurePage:gallery',
+      origin: `${page.slug} gallery item ${i + 1}`,
+    })),
   ];
   const provenanceErrors = (references) =>
     checkReferences({ references, manifest: provenance, readBytes: readImageBytes }).errors;
@@ -806,4 +812,26 @@ describe('in-detail cards', () => {
       }
     }
   );
+});
+
+// The report gallery (2026-09-20): Ronak wants every report there is a
+// screenshot of named on /tally-reports-on-mobile. Twelve small phones, one
+// line each. Twelve because the grid is 4, 3 or 2 across by viewport and 12
+// fills every one of those, so no row is left with an orphan.
+describe('report gallery', () => {
+  const withGallery = FEATURE_PAGES.filter((p) => p.gallery);
+  it('is on the reports page and nowhere else', () => {
+    expect(withGallery.map((p) => p.slug)).toEqual(['tally-reports-on-mobile']);
+  });
+  it.each(withGallery.map((p) => [p.slug, p]))('%s: twelve registered screens, one line each', (_slug, page) => {
+    const { items } = page.gallery;
+    expect(items.length % 12).toBe(0);
+    expect(new Set(items.map((i) => i.screen)).size).toBe(items.length);
+    for (const item of items) {
+      expect(SCREENS, item.screen).toHaveProperty(item.screen);
+      expect(item.title.split(/\s+/).length, item.title).toBeLessThanOrEqual(4);
+      expect(item.body.split(/\s+/).length, item.title).toBeLessThanOrEqual(18);
+      expect(item.body, item.title).toMatch(/\.$/);
+    }
+  });
 });

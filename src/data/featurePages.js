@@ -926,6 +926,27 @@ const FIRST_BATCH = [
         screen: 'report-export',
       },
     ],
+    // Every report there is a screenshot of (Ronak, 2026-09-20). Twelve, in
+    // the order an owner meets them: sales, purchases, collections, stock, out.
+    gallery: {
+      overline: 'THE REPORTS',
+      heading: 'Every report on the phone, one screen each',
+      intro: 'These are the registers as they open on a phone, from the demo company. Tap any figure in the app and it opens into the vouchers behind it.',
+      items: [
+        { screen: 'total-fy', title: 'This financial year', body: 'Sales, receipts, purchase, payments, credit and debit notes, one figure each.' },
+        { screen: 'sales-analytics', title: 'Sales analytics', body: 'The monthly trend for the year and how much of it sits with your top customers.' },
+        { screen: 'sales-by-item', title: 'Sales by item', body: 'Quantity, amount, average price and the spread against purchase, by month, quarter or year.' },
+        { screen: 'customer-analytics', title: 'Went quiet', body: 'Customers who stopped ordering, the value at risk, and how long each has been silent.' },
+        { screen: 'purchase-analytics', title: 'Purchase analytics', body: 'The monthly purchase trend and how concentrated your spend is across suppliers.' },
+        { screen: 'purchases-by-item', title: 'Purchases by item', body: 'Quantity bought, amount, average cost and the spread against your selling price.' },
+        { screen: 'receivables-report', title: "A party's receivables", body: 'Total due in ageing buckets, the open bills, and Share PDF or Send on WhatsApp.' },
+        { screen: 'collections-outstanding', title: 'Outstanding by party', body: "Every party's dues by age, with the collector assigned to each." },
+        { screen: 'payment-behaviour', title: 'Payment behaviour', body: 'What was collected this year and how many days each customer takes to pay.' },
+        { screen: 'godown-list', title: 'Stock by godown', body: 'Item count, value and quantity per godown, as on any date.' },
+        { screen: 'godown-items', title: "One godown's items", body: "Each item in a godown with its quantity and value at today's rate." },
+        { screen: 'report-export', title: 'Any report, out', body: 'Excel or PDF from the report itself, onto WhatsApp or email.' },
+      ],
+    },
     comparison: {
       heading: 'What you can actually read on the phone',
       othersLabel: 'Other Tally mobile apps',

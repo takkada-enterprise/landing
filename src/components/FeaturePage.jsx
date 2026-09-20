@@ -256,6 +256,45 @@ function FeaturePage({ page }) {
           Motion reasons live in FeatureTour.jsx's header. ── */}
       {page.tour && <FeatureTour tour={page.tour} />}
 
+      {/* ── Report gallery, only on pages whose data carries one: the reports
+          page first (2026-09-20). Every report there is a screenshot of, as a
+          small phone with a title and one line, so a reader sees the registers
+          rather than reading a list of their names. ── */}
+      {page.gallery && (
+        <section className="tally-section feature-gallery" id="gallery">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.gallery.overline}</span>
+              <h2 className="section-title">{page.gallery.heading}</h2>
+              {page.gallery.intro && <p className="feature-gallery-intro">{page.gallery.intro}</p>}
+            </div>
+            <div className="feature-gallery-grid">
+              {page.gallery.items.map((item) => {
+                const shot = screen(item.screen);
+                return (
+                  <article key={item.screen} className="feature-gallery-card">
+                    <div className="feature-gallery-shot">
+                      <img
+                        src={shot.src}
+                        srcSet={shot.srcSet}
+                        sizes="150px"
+                        alt={shot.alt}
+                        width={shot.width}
+                        height={shot.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── An exported sheet, only on pages whose data carries one: the
           Team Sales export first (2026-09-20). Shown whole, not tucked and
           rotated like the homepage's PaperSheet, because here it is the
