@@ -132,9 +132,7 @@ const FIRST_BATCH = [
           title: 'Nine in the morning, he opens his beat',
           body:
             'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each. He opens the app and today’s shops are already listed for him.',
-          screenshot: '/assets/screenshots/beats-mockup.webp',
-          screenshotAlt:
-            'Beats screen in Takkada listing named routes, each with its salesman and dealer count',
+          screen: 'beats',
         },
         {
           title: 'He checks in, and the visit proves itself',
@@ -925,7 +923,7 @@ const FIRST_BATCH = [
         title: 'Any report, to anyone, as PDF or Excel',
         body:
           'Send the register to your CA or the ledger to a retailer straight from the report. The month-end routine of exporting from the office machine and mailing it stops being a task.',
-        screen: 'payment-behaviour',
+        screen: 'report-export',
       },
     ],
     comparison: {
@@ -1126,21 +1124,21 @@ const FIRST_BATCH = [
         title: 'Send it the bill however it arrived',
         body:
           'A PDF from the supplier, or a photo of the paper copy taken at the godown. Both go in the same way, which matters because half of them still come as paper.',
-        screen: 'document-import',
+        screen: 'import-picker',
       },
       {
         icon: 'ListChecks',
         title: 'The lines are matched to your own masters',
         body:
           'Items are matched to the stock items you already have, the supplier to the ledger you already use, and unit differences between his case and your piece are reconciled rather than creating a duplicate master.',
-        screen: 'review-invoices',
+        screen: 'import-item-match',
       },
       {
         icon: 'ShieldCheck',
         title: 'Nothing posts until a person says so',
         body:
           'The draft is shown line by line with what it read and what it matched. You correct anything that looks wrong and approve it, so a misread rate never reaches your books quietly.',
-        screen: 'maker-checker',
+        screen: 'purchase-review',
       },
       {
         icon: 'BarChart3',

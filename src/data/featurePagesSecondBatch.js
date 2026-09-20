@@ -544,10 +544,7 @@ export const SECOND_BATCH = [
         title: 'Nobody is handed your desktop',
         body:
           'Remote tools give whoever holds the credentials your entire machine. Here each person gets an account with rights set per register, and the ledgers and stock groups they can see are set by you.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions',
       },
       {
         icon: 'Send',
@@ -889,14 +886,14 @@ export const SECOND_BATCH = [
         title: 'Each credit is read, not guessed at',
         body:
           'The narration and the UTR are used to work out who sent the money. A credit with a reference in it is matched on that reference rather than on the amount alone.',
-        screen: 'party-detail',
+        screen: 'bank-statement-review',
       },
       {
         icon: 'CheckCheck',
         title: 'The bills it clears are proposed for you',
         body:
           'One payment covering three invoices is split across them rather than sitting on account. You see the proposed allocation before it becomes an entry.',
-        screen: 'receivables-report',
+        screen: 'bank-statement-resolve',
       },
       {
         icon: 'ShieldCheck',
@@ -1017,7 +1014,7 @@ export const SECOND_BATCH = [
         'Stock read per location from Tally on a phone: item balances godown by godown, stock transfers between them written back as vouchers, the godown carried on invoices and delivery challans, and per-user limits on which warehouses a member can see.',
     },
     footerLabel: 'Godown wise stock',
-    hero: { screen: 'godown-stock' },
+    hero: { screen: 'godown-list' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1028,7 +1025,7 @@ export const SECOND_BATCH = [
         title: 'Stock read location by location',
         body:
           'Item balances per godown rather than one company total. The question of whether the branch can serve an order stops needing a phone call to answer.',
-        screen: 'godown-stock',
+        screen: 'godown-items',
       },
       {
         icon: 'Truck',
@@ -1042,17 +1039,14 @@ export const SECOND_BATCH = [
         title: 'The godown travels with the document',
         body:
           'Invoices and delivery challans carry the location the goods actually left from, which is what keeps the stock in the books matching the stock on the floor.',
-        screen: 'van-loading',
+        screen: 'godown-stock',
       },
       {
         icon: 'Lock',
         title: 'Each person sees their own warehouse',
         body:
           'Stock group and location visibility is set per member, independently of ledger access. Your branch staff work their own stock without the rest of the network being open to them.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions-scope',
       },
       {
         icon: 'BarChart3',
@@ -1205,10 +1199,7 @@ export const SECOND_BATCH = [
         title: 'Access set per company',
         body:
           'A person who works in one firm sees only that firm. Your accountant can hold several while a branch manager holds one, without anybody sharing a login.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions',
       },
     ],
     comparison: {
@@ -1617,7 +1608,7 @@ export const SECOND_BATCH = [
         'Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.',
     },
     footerLabel: 'Credit and debit notes',
-    hero: { screen: 'invoice-summary' },
+    hero: { screen: 'credit-note' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1635,14 +1626,14 @@ export const SECOND_BATCH = [
         title: 'Item lines, with the tax worked out',
         body:
           'Quantities and rates are entered the way they were on the invoice and the GST follows them, so a return does not become a tax question at filing time.',
-        screen: 'godown-stock',
+        screen: 'credit-note',
       },
       {
         icon: 'FileCheck2',
         title: 'It lands in Tally as a voucher',
         body:
           'The note is written into your books against the same party, so the receivable moves the day the adjustment was agreed rather than whenever someone gets to the desktop.',
-        screen: 'total-fy',
+        screen: 'credit-note-register',
       },
       {
         icon: 'Wallet',
@@ -1656,10 +1647,7 @@ export const SECOND_BATCH = [
         title: 'Not everyone should be able to raise one',
         body:
           'A credit note reduces what you are owed, so create rights for it are set per person like any other register. Your salesman can book orders without being able to write off a bill.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings controlling what each user can see and do',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions-registers',
       },
     ],
     comparison: {
@@ -1973,14 +1961,14 @@ export const SECOND_BATCH = [
         title: 'Photograph the page',
         body:
           'The order book as it is, written in the market. No format to follow and nothing for the salesman to fill in twice.',
-        screen: 'document-import',
+        screen: 'import-picker',
       },
       {
         icon: 'ListChecks',
         title: 'The lines come back as a draft',
         body:
           'Items, quantities and rates are read off the page and matched against your item masters, so what you are checking is a voucher rather than a picture.',
-        screen: 'review-invoices',
+        screen: 'import-item-match',
       },
       {
         icon: 'ShieldCheck',
@@ -2138,16 +2126,7 @@ export const SECOND_BATCH = [
     // so it is budgeted in scripts/checkImageBudgets.mjs and rendered eagerly.
     // It carries the state the others do not: quantities entered and a running
     // total, which is the moment the page is actually about.
-    hero: {
-      // Not a registry screen: this page is about the link the RETAILER opens,
-      // and there is no capture of that in mockups/. The Select Party screen is
-      // the distributor's side of billing, which is a different thing, so the
-      // page keeps the buyer-link mockup until Ronak re-captures.
-      image: '/assets/screenshots/order-link-buyer-mockup.webp',
-      alt: 'A distributor\u2019s ordering link open on a phone, showing priced items, quantity steppers and a running order total before GST',
-      width: 600,
-      height: 1245,
-    },
+    hero: { screen: 'order-link-settings' },
     author: 'founder',
     datePublished: '2026-08-11',
     updated: '2026-08-11',
@@ -2160,10 +2139,7 @@ export const SECOND_BATCH = [
           'He opens it and your catalogue is already there, at the rates you decided. He finds an item by typing a few letters and sets the quantity in the unit you actually sell in. Nothing to download, no account to make, no password for him to forget and ring you about.',
         // Header reads "Ordering for <party>", which is the evidence behind
         // the personal-link claim in the comparison table.
-        image: '/assets/screenshots/order-link-catalog-mockup.webp',
-        alt: 'Ordering link opened for a named retailer, showing the item list with a price and an Add button against each item',
-        width: 600,
-        height: 1243,
+        screen: 'order-link-settings',
       },
       {
         icon: 'ListChecks',

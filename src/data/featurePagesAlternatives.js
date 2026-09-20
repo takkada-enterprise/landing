@@ -104,10 +104,7 @@ export const ALTERNATIVES = [
         title: 'Your salesman sees his parties, not your books',
         body:
           'Access is set per person, down to the warehouse his stock movements may touch. He sees his own retailers, his own targets and his own collections. Your margins and your other territories stay out of his phone.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings limiting a team member to his own parties and stock',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions-scope',
       },
       {
         icon: 'Activity',
@@ -286,7 +283,7 @@ export const ALTERNATIVES = [
         title: 'The purchase side comes in from a photo',
         body:
           'Photograph the supplier bill or drop the PDF in, and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way. It is the data-entry hour nobody wants at the end of the day.',
-        screen: 'document-import',
+        screen: 'import-detect',
       },
     ],
     comparison: {

@@ -194,5 +194,102 @@
     "source": "Partywise collection report.png",
     "shows": "Collections, Outstanding tab: total overdue, 90+ slab, ageing legend, per-party buckets with the assigned collector",
     "alt": "Collections outstanding by ageing slab, party by party, with who is collecting"
+  },
+  {
+    "slug": "beats",
+    "source": "beat Selection.png",
+    "shows": "Beats: Satellite, Navrangpura, Maninagar and Bapunagar routes, each with its salesman and dealer count",
+    "alt": "Beats listing each route with its salesman and dealer count"
+  },
+  {
+    "slug": "credit-note",
+    "source": "Credit note.png",
+    "shows": "Credit Note CN/26-27/003 for Om Sai Traders: amount, Unapplied, date, taxable amount, narration Goods returned by customer, items, Share",
+    "alt": "A credit note against a party with its amount, taxable value, narration and items"
+  },
+  {
+    "slug": "credit-note-register",
+    "source": "Credit note register.png",
+    "shows": "Credit Notes register: total synced, search, This Month or Monthly, September, August and July totals, New Credit Note",
+    "alt": "The credit notes register by month with a New Credit Note button"
+  },
+  {
+    "slug": "purchase-review",
+    "source": "Details Match.png",
+    "shows": "Review Purchase Voucher: supplier, supplier invoice number and date, purchase ledger, voucher number and date, payment due terms, purchase items with HSN, Save Purchase Voucher",
+    "alt": "Reviewing an imported purchase voucher before it is saved"
+  },
+  {
+    "slug": "godown-items",
+    "source": "Godown Ledger.png",
+    "shows": "Naroda Warehouse: the items in this godown with quantity and value at today's rate, as on a date",
+    "alt": "One godown's items with quantity and value"
+  },
+  {
+    "slug": "godown-list",
+    "source": "Godown.png",
+    "shows": "Godown stock: Main Store, Naroda Warehouse and Shop Counter with item count, value and quantity, as on a date, export",
+    "alt": "Stock by godown with item count, value and quantity"
+  },
+  {
+    "slug": "import-picker",
+    "source": "homepage + button.png",
+    "shows": "Create sheet: voucher tiles and Import a document: Scan with camera, Choose a photo, Choose a PDF",
+    "alt": "The create sheet with Import a document: scan with camera, choose a photo or a PDF"
+  },
+  {
+    "slug": "import-detect",
+    "source": "Import.png",
+    "shows": "New document: what we read, a purchase invoice from the supplier with invoice number, date, total and line items, Yes continue or No it's something else",
+    "alt": "The app says what kind of document it read and asks you to confirm"
+  },
+  {
+    "slug": "import-item-match",
+    "source": "Item Match.png",
+    "shows": "Map Line Items: a supplier line with HSN, quantity, UOM, rate, GST and amount mapped to a stock item, remembered from a past invoice, Add line, Continue to review",
+    "alt": "Mapping an imported line to your own stock item, remembered for next time"
+  },
+  {
+    "slug": "member-permissions",
+    "source": "Member Permissions 9435977777.png",
+    "shows": "Member Permissions for one member: Admin with a placeholder number, Can approve vouchers, Full access, Sales or View only, Customise",
+    "alt": "A member's permissions: the approver switch and the access level"
+  },
+  {
+    "slug": "member-permissions-registers",
+    "source": "Member Permission 2.png",
+    "shows": "Member Permissions, Registers: one level per register, None, View, Create and edit or Full for sales invoices, purchase invoices, purchase orders and receipts",
+    "alt": "Per-register permission levels for one member"
+  },
+  {
+    "slug": "member-permissions-scope",
+    "source": "Member Permission 3.png",
+    "shows": "Member Permissions: Reports and Smart Reminders switches, Parties all or only some, groups, stock group scope",
+    "alt": "Which parties, groups and stock groups one member may see"
+  },
+  {
+    "slug": "order-link-settings",
+    "source": "Order Link.png",
+    "shows": "Order link settings: public business name, merchant WhatsApp number (placeholder), prices customers see, show items that are out of stock",
+    "alt": "Order link settings: business name, WhatsApp number and which prices customers see",
+    "q": 66
+  },
+  {
+    "slug": "report-export",
+    "source": "Report export sheet.png",
+    "shows": "Collections, Payment behaviour with the export sheet open: Export to Excel, Export to PDF",
+    "alt": "Exporting a report to Excel or PDF from the phone"
+  },
+  {
+    "slug": "bank-statement-review",
+    "source": "Bank Statement Match.png",
+    "shows": "Review Bank Statement: the xlsx file, 38 lines ready for review, the bank ledger picked from the account number, lines marked Receipt with date and amount",
+    "alt": "A bank statement read into the app, each line marked as a receipt"
+  },
+  {
+    "slug": "bank-statement-resolve",
+    "source": "Resolve lines om sai traders.png",
+    "shows": "Resolve Bank Statement: 0 of 37 resolved, each line marked Payment or Receipt and needs review, Resolve, Allocate to bills, Not applicable, Post resolved lines; the party name in one narration replaced by a placeholder",
+    "alt": "Resolving bank statement lines: pick the party, allocate to bills, then post"
   }
 ]

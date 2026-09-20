@@ -138,6 +138,70 @@ export const SCREENS = {
     'collections-outstanding',
     'Collections outstanding by ageing slab, party by party, with who is collecting'
   ),
+  'beats': phone(
+    'beats',
+    'Beats listing each route with its salesman and dealer count'
+  ),
+  'credit-note': phone(
+    'credit-note',
+    'A credit note against a party with its amount, taxable value, narration and items'
+  ),
+  'credit-note-register': phone(
+    'credit-note-register',
+    'The credit notes register by month with a New Credit Note button'
+  ),
+  'purchase-review': phone(
+    'purchase-review',
+    'Reviewing an imported purchase voucher before it is saved'
+  ),
+  'godown-items': phone(
+    'godown-items',
+    "One godown's items with quantity and value"
+  ),
+  'godown-list': phone(
+    'godown-list',
+    'Stock by godown with item count, value and quantity'
+  ),
+  'import-picker': phone(
+    'import-picker',
+    'The create sheet with Import a document: scan with camera, choose a photo or a PDF'
+  ),
+  'import-detect': phone(
+    'import-detect',
+    'The app says what kind of document it read and asks you to confirm'
+  ),
+  'import-item-match': phone(
+    'import-item-match',
+    'Mapping an imported line to your own stock item, remembered for next time'
+  ),
+  'member-permissions': phone(
+    'member-permissions',
+    "A member's permissions: the approver switch and the access level"
+  ),
+  'member-permissions-registers': phone(
+    'member-permissions-registers',
+    'Per-register permission levels for one member'
+  ),
+  'member-permissions-scope': phone(
+    'member-permissions-scope',
+    'Which parties, groups and stock groups one member may see'
+  ),
+  'order-link-settings': phone(
+    'order-link-settings',
+    'Order link settings: business name, WhatsApp number and which prices customers see'
+  ),
+  'report-export': phone(
+    'report-export',
+    'Exporting a report to Excel or PDF from the phone'
+  ),
+  'bank-statement-review': phone(
+    'bank-statement-review',
+    'A bank statement read into the app, each line marked as a receipt'
+  ),
+  'bank-statement-resolve': phone(
+    'bank-statement-resolve',
+    'Resolving bank statement lines: pick the party, allocate to bills, then post'
+  ),
   'sheet-loading': sheet('sheet-loading', 'Printed loading sheet with load list by item', 720, 335),
   'sheet-salesman': sheet('sheet-salesman', 'Exported team sales sheet by member', 720, 440),
 };

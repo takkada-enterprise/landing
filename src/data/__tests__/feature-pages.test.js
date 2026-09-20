@@ -134,13 +134,13 @@ describe('feature page data contract', () => {
 
   // The placeholder set is closed: only the screens Ronak is still shooting
   // may keep the old shape. Anything else must come through the registry.
+  // 2026-09-20 evening: rbac, beats and the order-link catalogue left it
+  // (member-permissions*, beats, order-link-settings). The WhatsApp chat stays
+  // on the old image by Ronak's choice.
   const PLACEHOLDER_IMAGES = new Set([
     '/assets/screenshots/whatsapp-dispatch-mockup.webp',
-    '/assets/screenshots/rbac.webp',
-    '/assets/screenshots/beats-mockup.webp',
     '/assets/screenshots/field-visit-photo-mockup.webp',
     '/assets/screenshots/add-items-mockup.webp',
-    '/assets/screenshots/order-link-catalog-mockup.webp',
     '/assets/screenshots/order-link-cart-mockup.webp',
     '/assets/screenshots/order-link-confirm-mockup.webp',
     '/assets/screenshots/order-link-sent-mockup.webp',

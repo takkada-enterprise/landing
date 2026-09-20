@@ -244,7 +244,7 @@ export const PERSONAS = [
         title: 'The purchase side comes in from the bill itself',
         body:
           'Photograph the supplier invoice or drop the PDF in and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way, which is the hour at the end of the day nobody wants.',
-        screen: 'document-import',
+        screen: 'import-detect',
       },
     ],
     comparison: {
@@ -375,7 +375,7 @@ export const PERSONAS = [
         title: 'The season settlement is a credit note, not an argument',
         body:
           'Scheme and quantity discounts are worked out and raised as credit notes from the app, written back into Tally against the dealer. The conversation at the end of the season starts from the same number on both sides.',
-        screen: 'total-fy',
+        screen: 'credit-note',
 
       },
       {
