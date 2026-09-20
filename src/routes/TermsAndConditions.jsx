@@ -8,7 +8,7 @@ function TermsAndConditions() {
     <CompanyPageLayout>
       <Seo
         title="Terms and Conditions. Takkada by Pay Saathi"
-        description="Terms of use for Takkada, the mobile Tally companion by Pay Saathi Innovations LLP. Services, responsibilities, payments, and Tally integration."
+        description={`Terms of use for Takkada, the mobile Tally companion by ${contactInfo.company}. Services, responsibilities, payments, and Tally integration.`}
         path="/terms-and-conditions"
         schemas={[
           breadcrumbSchema([
@@ -21,7 +21,7 @@ function TermsAndConditions() {
         <h1>Terms &amp; Conditions</h1>
         <p className="company-meta tabular-nums">Last Updated: August 4, 2025 &bull; {contactInfo.company}</p>
         <p className="company-lead">
-          These Terms and Conditions govern your use of Takkada, a product of Pay Saathi Innovations LLP. By using our platform, you agree to these terms.
+          These Terms and Conditions govern your use of Takkada, a product of {contactInfo.company}. By using our platform, you agree to these terms.
         </p>
 
         <h2>1. Services Offered</h2>

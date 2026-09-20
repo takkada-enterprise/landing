@@ -9,7 +9,7 @@ function AboutUs() {
     <CompanyPageLayout>
       <Seo
         title="About Takkada. Built for Indian distributors on Tally"
-        description="Takkada is built by Pay Saathi Innovations LLP in Guwahati. We help Indian distributors and wholesalers collect receivables without chasing."
+        description={`Takkada is built by ${contactInfo.company} in Guwahati. We help Indian distributors and wholesalers collect receivables without chasing.`}
         path="/about-us"
         schemas={[
           breadcrumbSchema([
@@ -21,7 +21,7 @@ function AboutUs() {
       <article className="company-article">
         <h1>About Takkada</h1>
         <p className="company-lead">
-          Takkada is a business automation platform built by <strong>Pay Saathi Innovations LLP</strong> for Indian distributors, wholesalers, and manufacturers who run their business on Tally.
+          Takkada is a business automation platform built by <strong>{contactInfo.company}</strong> for Indian distributors, wholesalers, and manufacturers who run their business on Tally.
         </p>
 
         <h2>Our Mission</h2>

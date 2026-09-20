@@ -21,7 +21,7 @@ function PrivacyPolicy() {
         <h1>Privacy Policy</h1>
         <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; {contactInfo.company}</p>
         <p className="company-lead">
-          Pay Saathi Innovations LLP is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
+          {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
         </p>
 
         <h2>1. Information We Collect</h2>

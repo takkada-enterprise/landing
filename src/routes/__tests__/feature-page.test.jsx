@@ -510,3 +510,16 @@ describe('call recording section', () => {
   });
 });
 
+// The homepage story already carries the ruling "nothing dims on a phone: a
+// station fills the screen on its own, so the dim would only read as a broken
+// page". The feature-page tour never got it: on /salesman-app-tally at 390 the
+// steps below the active one rendered at 40% and read as disabled copy
+// (2026-09-21 phone walk).
+describe('the feature tour does not dim its steps on a phone', () => {
+  it('restores full opacity on .ftour-step button below 900px', () => {
+    const css = readFileSync('src/feature-page.css', 'utf8');
+    const at = css.indexOf('@media (max-width: 899px)');
+    expect(at, 'no 899px block in feature-page.css').toBeGreaterThan(-1);
+    expect(css.slice(at)).toMatch(/\.ftour-step button\s*\{\s*opacity:\s*1;?\s*\}/);
+  });
+});

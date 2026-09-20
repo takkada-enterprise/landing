@@ -21,7 +21,7 @@ function RefundPolicy() {
         <h1>Refund &amp; Cancellation Policy</h1>
         <p className="company-meta tabular-nums">Effective: 2025 &bull; {contactInfo.company}</p>
         <p className="company-lead">
-          This refund policy outlines the rules and regulations for refunds for Takkada subscription services provided by Pay Saathi Innovations LLP.
+          This refund policy outlines the rules and regulations for refunds for Takkada subscription services provided by {contactInfo.company}.
         </p>
 
         <h2>Subscription Plans</h2>

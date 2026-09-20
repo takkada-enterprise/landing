@@ -471,7 +471,7 @@ function SiteFooter() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 {contactInfo.company}. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {contactInfo.company}. All rights reserved.</p>
           <p className="footer-site">{contactInfo.website}</p>
         </div>
       </div>

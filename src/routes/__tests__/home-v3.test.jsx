@@ -625,3 +625,14 @@ describe('the phone hero gives the job row room', () => {
     expect(cssBlock(phone, '.home-v3 .hv3-proof {')).toMatch(/padding:\s*28px 0 72px/);
   });
 });
+
+// Two headlines on one page said the same thing: the hero's "Your Tally, in
+// your pocket." and, six screens later, the connector band's "Your Tally. Now
+// on your phone." (2026-09-21 phone walk).
+describe('the connector band has its own headline', () => {
+  it('has no h2 that opens the way the hero does', () => {
+    const { container } = renderHome();
+    const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
+    expect(h2s.filter((t) => /^your tally[,.]/i.test(t))).toEqual([]);
+  });
+});

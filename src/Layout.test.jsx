@@ -27,7 +27,7 @@ vi.mock('./data/siteContent', async (importOriginal) => {
 
 import Layout from './Layout';
 import Home from './routes/Home';
-import { appLinks, navLinks } from './data/siteContent';
+import { appLinks, contactInfo, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
 
@@ -119,6 +119,13 @@ describe('brand logo assets', () => {
       const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
       expect(Math.abs(ratio - sourceRatio)).toBeLessThan(0.1);
     }
+  });
+  // The footer said "Pay Saathi Innovations LLP" and "© 2025"; the data-safety
+  // card two screens up said "Pay Saathi Innovation LLP" (2026-09-21 walk).
+  it('prints the current year and the one legal name in the footer', () => {
+    const footer = renderLayout().querySelector('.footer-bottom');
+    expect(footer.textContent).toContain(`© ${new Date().getFullYear()} ${contactInfo.company}.`);
+    expect(contactInfo.company).toBe('Pay Saathi Innovation LLP');
   });
 });
 

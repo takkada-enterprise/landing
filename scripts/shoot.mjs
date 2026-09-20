@@ -110,8 +110,11 @@ SETS.mobile = [
   ['mobile-jobs', '/', { scrollTo: '.hv3-hero-jobs' }],
   ['mobile-story-intro', '/', { scrollTo: '.foi-intro' }],
   ['mobile-menu', '/', { click: '.mobile-menu-btn' }],
+  ['mobile-book-call', '/', { click: '.mobile-menu-btn', then: '#mobile-menu .cta-btn--outline' }],
   ['mobile-tally', '/#tally'],
   ['mobile-about', '/about-us', { scrollTo: '.footer-bottom' }],
+  ['mobile-about-cta', '/about-us', { scrollTo: '.company-page-cta' }],
+  ['mobile-tour-steps', '/salesman-app-tally', { scrollTo: '.ftour-step:nth-of-type(2)' }],
 ];
 SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.menu, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 
@@ -273,6 +276,16 @@ async function shoot(port, name, path, w, h, opts = {}) {
       });
       if (opened.result.value === 'stuck') throw new Error(`${opts.click} never opened on ${url}`);
       await sleep(400);
+      // A second tap inside what the first one opened (a menu action that
+      // raises a modal). No aria to read back, so a plain click and a settle.
+      if (opts.then) {
+        const hit = await client.send('Runtime.evaluate', {
+          expression: `(() => { const el = document.querySelector(${JSON.stringify(opts.then)}); if (el) el.click(); return !!el; })()`,
+          returnByValue: true,
+        });
+        if (!hit.result.value) throw new Error(`${opts.then} not found on ${url}`);
+        await sleep(500);
+      }
     }
     if (opts.scrollTo) {
       const found = await client.send('Runtime.evaluate', {
