@@ -77,6 +77,32 @@
   min-height: 0;
 }
 
+/* The instruction is the hero's lead line (Ronak, 2026-09-20: at body weight
+   "most people will ignore" it). Its own row, heavier and larger than the body
+   under it, and a real marigold dot in front: the same --color-highlight as the
+   dots on the phone, so the words and the thing they point at share a colour.
+   A dot is inside the marigold rule (§6); it is still never a fill behind text. */
+.home-v3 .hv3-hero-tap {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.home-v3 .hv3-hero-tap-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-highlight);
+  box-shadow: 0 0 0 4px rgba(252, 175, 27, 0.22);
+  margin-right: 10px;
+  vertical-align: 1px;
+}
+
 .home-v3 .hv3-hero-cta {
   display: flex;
   align-items: center;

@@ -87,7 +87,13 @@ function Home({ seo = HOME_SEO }) {
           <div className="hv3-hero-copy">
             <span className="hv3-hero-overline">{heroContent.overline}</span>
             <h1 className="hero-title">{HERO_HOME.headline}</h1>
-            <p className="hero-subtitle">{HERO_HOME.body}</p>
+            <p className="hero-subtitle">
+              <strong className="hv3-hero-tap">
+                <span className="hv3-hero-tap-dot" aria-hidden="true" />
+                {HERO_HOME.tap}
+              </strong>{' '}
+              {HERO_HOME.body}
+            </p>
             <div className="hv3-hero-cta">
               <DemoTryCTA context="home-hero" />
             </div>

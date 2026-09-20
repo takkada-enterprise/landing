@@ -158,6 +158,35 @@ describe('the hero links directly to feature pages', () => {
   });
 });
 
+// Ronak, 2026-09-20 22:18, on his phone: "Highlight tap any tile, bold it
+// increase the size, otherwise most people will ignore". The instruction was
+// body copy at 17px / 72% white. It is now the lead line, and the dot in front
+// of it is the same marigold as the dots on the phone it points at.
+describe('the tap instruction is the hero lead', () => {
+  it('renders the instruction as a bold lead with a marigold dot, then the rest as body', () => {
+    const { container } = renderHome();
+    const sub = container.querySelector('.hv3-hero .hero-subtitle');
+    const lead = sub.querySelector('strong.hv3-hero-tap');
+    expect(lead).toBeTruthy();
+    expect(lead.textContent.trim()).toBe(HERO_HOME.tap);
+    expect(lead.querySelector('.hv3-hero-tap-dot[aria-hidden="true"]')).toBeTruthy();
+    expect(sub.textContent).toContain(HERO_HOME.body);
+    expect(HERO_HOME.body).not.toMatch(/tap any tile/i);
+  });
+
+  it('sets the lead at 20px / 700 in white, and paints the dot in the highlight token', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    const lead = cssBlock(css, '.home-v3 .hv3-hero-tap {');
+    expect(lead, 'no .hv3-hero-tap rule').not.toBe('');
+    expect(Number(lead.match(/font-size:\s*(\d+)px/)?.[1])).toBeGreaterThanOrEqual(20);
+    expect(Number(lead.match(/font-weight:\s*(\d+)/)?.[1])).toBeGreaterThanOrEqual(700);
+    expect(lead).toMatch(/color:\s*#fff\b/i);
+    const dot = cssBlock(css, '.home-v3 .hv3-hero-tap-dot {');
+    expect(dot).toMatch(/background:\s*var\(--color-highlight\)/);
+    expect(dot).toMatch(/border-radius:\s*50%/);
+  });
+});
+
 describe('anchor contract (no dead anchors, CLAUDE.md §11.6)', () => {
   it('gives every nav and footer hash link a matching element id on Home', () => {
     const { container } = renderHome();
