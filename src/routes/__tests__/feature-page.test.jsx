@@ -399,7 +399,12 @@ describe('in-detail section', () => {
       expect(cards).toHaveLength(page.detail.groups.length);
       page.detail.groups.forEach((group, i) => {
         expect(cards[i].querySelector('h3').textContent).toBe(group.title);
-        expect(cards[i].querySelectorAll('li')).toHaveLength(group.points.length);
+        const items = cards[i].querySelectorAll('li');
+        expect(items).toHaveLength(group.points.length);
+        group.points.forEach((point, j) => {
+          expect(items[j].querySelector('strong.feature-detail-lead').textContent).toBe(`${point.lead}.`);
+          expect(items[j].textContent).toBe(`${point.lead}. ${point.text}`);
+        });
       });
       const link = section.querySelector('.feature-detail-more a');
       expect(link.getAttribute('href')).toBe(`/guide/${page.detail.guide.slug}`);

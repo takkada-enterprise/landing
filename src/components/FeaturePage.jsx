@@ -288,7 +288,9 @@ function FeaturePage({ page }) {
           feature with a lot of behaviour worth naming (document import first,
           2026-09-20) gets a card per topic, each a short list of what the app
           does today, and a link to the full how-to guide. Every line comes
-          from a source marked Live; nothing Stage-only is described here. ── */}
+          from a source marked Live; nothing Stage-only is described here.
+          A point is a bold lead and one sentence (2026-09-20 evening), never
+          a paragraph. ── */}
       {page.detail && (
         <section className="tally-section feature-detail" id="detail">
           <div className="container">
@@ -303,7 +305,9 @@ function FeaturePage({ page }) {
                   <h3>{group.title}</h3>
                   <ul>
                     {group.points.map((point) => (
-                      <li key={point}>{point}</li>
+                      <li key={point.lead}>
+                        <strong className="feature-detail-lead">{point.lead}.</strong> {point.text}
+                      </li>
                     ))}
                   </ul>
                 </article>

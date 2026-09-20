@@ -776,35 +776,32 @@ describe('feature page heroes come from the screen registry', () => {
 });
 
 // The in-detail cards (2026-09-20) are the one place a feature page describes
-// behaviour at length, so they carry the same discipline as the manual they
-// come from: a real guide to link to, no em-dashes, and the 40-word ceiling
-// per point so a card stays a list and not an essay.
+// behaviour at length. Ronak's second read the same evening: they read as
+// essays. A point is now a bold lead of a few words and one plain sentence,
+// at most four to a card, so the eye lands on the pointer and the sentence is
+// the proof. Every point still comes from a Live row of the import manual.
 describe('in-detail cards', () => {
   const detailed = FEATURE_PAGES.filter((p) => p.detail);
   it('exist on the three import pages', () => {
     expect(detailed.map((p) => p.slug).sort()).toEqual(
-      [
-        'bank-statement-import-tally',
-        'handwritten-order-to-tally',
-        'import-purchase-from-pdf',
-      ].sort()
+      ['bank-statement-import-tally', 'handwritten-order-to-tally', 'import-purchase-from-pdf'].sort()
     );
   });
   it.each(detailed.map((p) => [p.slug, p]))(
-    '%s: detail section names a guide that exists',
+    '%s: detail section names a guide that exists and keeps every point short',
     (_slug, page) => {
-      expect(existsSync(resolve(repoRoot, `content/guide/${page.detail.guide.slug}.md`))).toBe(
-        true
-      );
+      expect(existsSync(resolve(repoRoot, `content/guide/${page.detail.guide.slug}.md`))).toBe(true);
       expect(page.detail.groups.length).toBeGreaterThanOrEqual(3);
       for (const group of page.detail.groups) {
-        expect(group.points.length).toBeGreaterThan(0);
+        expect(group.points.length, group.title).toBeGreaterThan(0);
+        expect(group.points.length, group.title).toBeLessThanOrEqual(4);
         for (const point of group.points) {
-          expect(point, `${page.slug}: "${point.slice(0, 40)}"`).not.toMatch(/\u2014/);
-          expect(
-            point.split(/\s+/).length,
-            `${page.slug}: "${point.slice(0, 40)}"`
-          ).toBeLessThanOrEqual(48);
+          const where = `${page.slug}: "${point.lead}"`;
+          expect(point.lead.split(/\s+/).length, where).toBeLessThanOrEqual(6);
+          expect(point.lead, where).not.toMatch(/[.:,;]$/);
+          expect(point.text.split(/\s+/).length, where).toBeLessThanOrEqual(28);
+          expect(point.text, where).toMatch(/\.$/);
+          expect(`${point.lead} ${point.text}`, where).not.toMatch(/—/);
         }
       }
     }
