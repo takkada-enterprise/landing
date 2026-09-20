@@ -194,6 +194,14 @@ export const SCREENS = {
     'report-export',
     'Exporting a report to Excel or PDF from the phone'
   ),
+  'purchase-analytics': phone(
+    'purchase-analytics',
+    "Purchase analytics with the monthly trend and each supplier's share of spend"
+  ),
+  'purchases-by-item': phone(
+    'purchases-by-item',
+    'Purchases by item with quantity, amount, average cost and the spread against the selling price'
+  ),
   'bank-statement-review': phone(
     'bank-statement-review',
     'A bank statement read into the app, each line marked as a receipt'

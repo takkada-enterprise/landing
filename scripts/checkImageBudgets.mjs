@@ -186,6 +186,10 @@ export const BUDGETS = [
   ['public/assets/screens/bank-statement-resolve-720.webp', 60_000, 'feature-page screen (bank-statement-resolve)'],
   ['public/assets/screens/sales-analytics-360.webp', 32_000, 'feature-page hero (tally-app-for-agri-input-distributors)'],
   ['public/assets/screens/sales-analytics-720.webp', 64_000, 'feature-page hero (tally-app-for-agri-input-distributors)'],
+  ['public/assets/screens/purchase-analytics-360.webp', 32_000, 'feature-page screen (purchase-analytics)'],
+  ['public/assets/screens/purchase-analytics-720.webp', 60_000, 'feature-page screen (purchase-analytics)'],
+  ['public/assets/screens/purchases-by-item-360.webp', 32_000, 'feature-page screen (purchases-by-item)'],
+  ['public/assets/screens/purchases-by-item-720.webp', 60_000, 'feature-page screen (purchases-by-item)'],
 ];
 
 export function overBudget(entries, sizeOf) {

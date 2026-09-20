@@ -291,5 +291,18 @@
     "source": "Resolve lines om sai traders.png",
     "shows": "Resolve Bank Statement: 0 of 37 resolved, each line marked Payment or Receipt and needs review, Resolve, Allocate to bills, Not applicable, Post resolved lines; the party name in one narration replaced by a placeholder",
     "alt": "Resolving bank statement lines: pick the party, allocate to bills, then post"
+    },
+  {
+    "slug": "purchase-analytics",
+    "source": "Purchase Analystics.png",
+    "shows": "Purchase Analytics for FY 2026-27: monthly purchase trend with the FY total, supplier concentration with an HHI score and each supplier's share of spend",
+    "alt": "Purchase analytics with the monthly trend and each supplier's share of spend",
+    "q": 66
+  },
+  {
+    "slug": "purchases-by-item",
+    "source": "Itemwise purchase report.png",
+    "shows": "Purchases by Item for Sep 2026, month, quarter or FY: per item the quantity purchased, amount, average price, sales average and spread, with new and change badges",
+    "alt": "Purchases by item with quantity, amount, average cost and the spread against the selling price"
   }
 ]
