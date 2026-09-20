@@ -5,7 +5,7 @@
 // tiles they claim. Nothing else in the build looks at any of that.
 import { describe, it, expect } from 'vitest';
 import { STOPS, INVOICE, liveFeatures } from '../journey';
-import { HOTSPOTS, JOBS, HERO_HOME } from '../heroHotspots';
+import { HOTSPOTS, JOBS, HERO_HOME, jobHref } from '../heroHotspots';
 import { SCREENS } from '../screens';
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -75,8 +75,29 @@ describe('journey data', () => {
     expect(`${recover.body} ${recover.note ?? ''}`).toMatch(/charged on connected minutes/);
   });
 
-  it('maps every hero job button to a hotspot', () => {
-    for (const j of JOBS) expect(HOTSPOTS.some((h) => h.key === j.key), j.key).toBe(true);
+  // A job either sits on a tile of the phone, in which case it goes wherever
+  // that tile goes, or it names something the home screen has no tile for
+  // (AI calling, 2026-09-20) and carries its own href. Either way it lands on
+  // a feature page, and a job and its tile can never disagree.
+  it('sends every hero job to a feature page that exists', () => {
+    const paths = new Set(FEATURE_PAGES.map(featurePagePath));
+    for (const job of JOBS) {
+      const href = jobHref(job);
+      expect(href, job.label).toBeTruthy();
+      expect(paths.has(href), `${job.label} -> ${href}`).toBe(true);
+      if (!job.href) expect(HOTSPOTS.some((h) => h.key === job.key), job.key).toBe(true);
+    }
+  });
+
+  it('offers the six jobs in the order Ronak asked for on 2026-09-20', () => {
+    expect(JOBS.map((job) => job.label)).toEqual([
+      'Team',
+      'Reminders',
+      'AI calls',
+      'Dispatch',
+      'Stock',
+      'Reports',
+    ]);
   });
 
   it('keeps the slip arithmetic honest', () => {

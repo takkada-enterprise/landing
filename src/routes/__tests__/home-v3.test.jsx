@@ -12,7 +12,7 @@ vi.mock('vite-react-ssg', () => ({
 
 import Home from '../Home';
 import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
-import { HERO_HOME, HOTSPOTS, JOBS } from '../../data/heroHotspots';
+import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
 import { STOPS } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
@@ -86,16 +86,15 @@ describe('the hero links directly to feature pages', () => {
     expect(headings[0].textContent).toBe(HERO_HOME.headline);
   });
 
-  it('renders every job as a link to its hotspot feature page', () => {
+  it('renders every job as a link to its feature page', () => {
     const { container } = renderHome();
     const nav = container.querySelector('nav[aria-label="Go to a feature"]');
     expect(nav).toBeTruthy();
     const links = [...nav.querySelectorAll('a.hv3-job')];
     expect(links).toHaveLength(JOBS.length);
     for (const [index, job] of JOBS.entries()) {
-      expect(links[index].getAttribute('href')).toBe(
-        HOTSPOTS.find((hotspot) => hotspot.key === job.key).href
-      );
+      expect(links[index].getAttribute('href')).toBe(jobHref(job));
+      expect(links[index].textContent).toContain(job.label);
     }
   });
 

@@ -87,11 +87,22 @@ export const HOTSPOTS = [
   },
 ];
 
+// The six jobs beside the phone (Ronak, 2026-09-20). Mostly a shortcut to a
+// tile, so a job and the tile above it can never point at different pages: the
+// `key` is the hotspot's and the href comes from it. A job for something the
+// home screen has no tile for carries its own `href` instead, which is how AI
+// calling gets in. Reminders and AI calls sit together and in that order,
+// because the second one is what you do when the first is ignored, but each
+// hint still reads on its own: a row that only makes sense next to its
+// neighbour is a row a screen reader reads without its antecedent.
 export const JOBS = [
-  { key: 'reminders', label: 'Collect', hint: 'Reminders with pay links' },
-  { key: 'import', label: 'Bill', hint: 'A bill photo becomes an invoice' },
+  { key: 'team', label: 'Team', hint: 'Salesman summary' },
+  { key: 'reminders', label: 'Reminders', hint: 'WhatsApp with a pay link' },
+  { label: 'AI calls', hint: 'For bills the reminder missed', href: '/ai-collection-calls' },
   { key: 'dispatch', label: 'Dispatch', hint: 'Load the van' },
   { key: 'stock', label: 'Stock', hint: 'Godown wise' },
-  { key: 'team', label: 'Team', hint: 'Salesman summary' },
   { key: 'reports', label: 'Reports', hint: 'Sales analytics' },
 ];
+
+/** Where a job goes: its own href, or the tile it shares a key with. */
+export const jobHref = (job) => job.href ?? HOTSPOTS.find((h) => h.key === job.key)?.href;

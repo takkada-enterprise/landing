@@ -21,7 +21,7 @@ import FollowOneInvoice from '../components/FollowOneInvoice';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
-import { HOTSPOTS, JOBS, HERO_HOME } from '../data/heroHotspots';
+import { JOBS, HERO_HOME, jobHref } from '../data/heroHotspots';
 import {
   appLinks,
   pricing,
@@ -96,14 +96,11 @@ function Home({ seo = HOME_SEO }) {
           <PlayablePhone />
           <nav className="hv3-hero-jobs" aria-label="Go to a feature">
             <span className="hv3-hero-jobs-label">Or pick a job</span>
-            {JOBS.map((j) => {
-              const h = HOTSPOTS.find((x) => x.key === j.key);
-              return (
-                <Link key={j.key} to={h.href} className="hv3-job">
-                  {j.label}<small>{j.hint}</small>
-                </Link>
-              );
-            })}
+            {JOBS.map((j) => (
+              <Link key={j.label} to={jobHref(j)} className="hv3-job">
+                {j.label}<small>{j.hint}</small>
+              </Link>
+            ))}
           </nav>
         </div>
       </section>
