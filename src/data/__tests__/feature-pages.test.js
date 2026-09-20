@@ -36,6 +36,18 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 // having if a new entry cannot ship broken, so the contract each entry has to
 // satisfy is asserted here rather than left to a reviewer's eye.
 
+// Pages that shipped ahead of the backend they describe. Kept as a record,
+// not a wish: it is the list to re-read when a claim on one of these pages
+// is questioned, because the page went live before its feature could be
+// switched on for a prod customer. Module scope since 2026-09-20, because the
+// round-two describe reads it too.
+const HELD_PAGES = {
+  'order-booking-app-tally':
+    'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
+  'ai-collection-calls':
+    'Built 2026-09-20 on Ronak\'s direction while AI calling was a plan (docs/plans/2026-09-20-004 at the monorepo root, nothing built, Angoor webhook unverified). Every capability sentence comes from the requirements doc, not the app. Before this page goes live: re-check each sentence against the shipped feature and replace walkthrough step 1 with a capture of the Call with AI confirm sheet.',
+};
+
 describe('feature page data contract', () => {
   it('ships at least one page', () => {
     expect(FEATURE_PAGES.length).toBeGreaterThan(0);
@@ -220,15 +232,6 @@ describe('feature page data contract', () => {
   // If you add one back: make the artwork ugly on purpose. A hazard-striped
   // slab reading PLACEHOLDER survives review; a tasteful grey box does not.
   const PLACEHOLDER_ASSETS = {};
-  // Pages that shipped ahead of the backend they describe. Kept as a record,
-  // not a wish: it is the list to re-read when a claim on one of these pages
-  // is questioned, because the page went live before its feature could be
-  // switched on for a prod customer.
-  const HELD_PAGES = {
-    'order-booking-app-tally':
-      'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
-  };
-
   it('every held page is a real page, so the gate list cannot rot', () => {
     const slugs = FEATURE_PAGES.map((p) => p.slug);
     for (const slug of Object.keys(HELD_PAGES)) {
@@ -842,6 +845,11 @@ describe('round-two pages', () => {
   it('ships the approvals page under the Order stop', () => {
     expect(getFeaturePage('voucher-approval-before-tally')).toBeDefined();
     expect(FEATURE_GROUPS.find((g) => g.id === 'order').slugs).toContain('voucher-approval-before-tally');
+  });
+  it('ships the AI calling page under the Recover stop, held until the feature exists', () => {
+    expect(getFeaturePage('ai-collection-calls')).toBeDefined();
+    expect(FEATURE_GROUPS.find((g) => g.id === 'recover').slugs).toContain('ai-collection-calls');
+    expect(HELD_PAGES).toHaveProperty('ai-collection-calls');
   });
 });
 

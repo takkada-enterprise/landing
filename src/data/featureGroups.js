@@ -111,6 +111,7 @@ export const FEATURE_GROUPS = [
       'outstanding-receivables-on-mobile',
       'debtor-ageing-report-on-phone',
       'payment-collection-tally',
+      'ai-collection-calls',
     ],
   },
   {
@@ -189,6 +190,8 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'ai-collection-calls':
+    'An AI call in the party\'s language for the bills WhatsApp did not move, logged on the recovery board.',
   'voucher-approval-before-tally':
     "A team member's invoice or order waits for your approval, line by line, before it reaches Tally.",
   'payment-collection-tally':

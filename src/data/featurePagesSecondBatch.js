@@ -2418,4 +2418,139 @@ export const SECOND_BATCH = [
     ],
     priority: 0.8,
   },
+  // ── AI collection calls, 2026-09-20 ── HELD (feature-pages.test.js
+  // HELD_PAGES): written from the requirements doc while the feature is a
+  // plan. Says what the homepage's Recover stop already says and no more.
+  // No rate is printed (the rupee guard) and the charge is on connected minutes.
+  {
+    slug: 'ai-collection-calls',
+    searchPhrase: 'AI collection calls',
+    overline: 'RECOVER',
+    headline: 'AI collection calls for the parties who ignore the reminder.',
+    subheadline:
+      'The WhatsApp went out at nine. Two days later the bill is still open, and somebody in your office has to pick up the phone and ask.',
+    answer:
+      "AI collection calls are how Takkada follows up the parties who did not answer the WhatsApp reminder. You pick the overdue parties and tap Call with AI. An agent calls each one in their language, asks for the payment, and logs what they said as a follow-up on the recovery board. Calling is charged on connected minutes.",
+    waContext: 'feature-ai-collection-calls',
+    waMessage:
+      'Hi, I want an AI call to follow up the parties who ignore my WhatsApp reminders, with what they said logged for my team. Can you show me how it works?',
+    seo: {
+      title: 'AI Collection Calls for Tally Receivables | Takkada',
+      description:
+        'AI collection calls for overdue parties: pick them from outstanding, the call asks in their language, and what they said is logged on the recovery board.',
+    },
+    llms: {
+      section: 'Features',
+      title: 'AI collection calls',
+      summary:
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up on the recovery board and the party's timeline; charged on connected minutes on top of the plan.",
+    },
+    footerLabel: 'AI collection calls',
+    hero: { screen: 'followup-log' },
+    author: 'founder',
+    datePublished: '2026-09-20',
+    updated: '2026-09-20',
+    walkthroughHeading: 'The call nobody in the office wants to make',
+    walkthrough: [
+      {
+        icon: 'Wallet',
+        title: 'Pick the parties to call',
+        body:
+          'Outstanding by party and by age, with the collector on each. Tick the overdue ones, or a whole ledger group, and tap Call with AI. The confirm sheet says how many and what is due.',
+        screen: 'collections-outstanding',
+      },
+      {
+        icon: 'MessageCircle',
+        title: 'What they said lands as a follow-up',
+        body:
+          "The call asks for the payment in the party's language. A promise with a date, a dispute, a callback request or an escalation is logged against the party like any other follow-up.",
+        screen: 'followup-log',
+      },
+      {
+        icon: 'Target',
+        title: 'The board counts it',
+        body:
+          "AI calls and your team's own calls sit in the same log, so the recovery board shows who recovered what and who is still waiting on a promise.",
+        screen: 'recovery-team',
+      },
+    ],
+    comparison: {
+      heading: 'What happens after the reminder is ignored',
+      othersLabel: 'Other Tally mobile apps',
+      rows: [
+        {
+          feature: 'Following up a party who ignored WhatsApp',
+          takkada: 'An AI call, logged as a follow-up',
+          others: 'Someone in the office dials',
+        },
+        {
+          feature: 'The language of the call',
+          takkada: "The party's own, set per company",
+          others: 'Whoever is free',
+        },
+        {
+          feature: 'What the call learns',
+          takkada: 'Promise date, dispute, callback or escalation',
+          others: 'A note, if anyone writes one',
+        },
+        {
+          feature: 'Where the outcome goes',
+          takkada: "The recovery board and the party's timeline",
+          others: 'A diary, or nowhere',
+        },
+        {
+          feature: 'How it is charged',
+          takkada: 'Per connected minute, shown before you confirm',
+          others: 'A salary, on top of everything else',
+        },
+      ],
+      disclaimer:
+        'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
+    },
+    planPointer: {
+      plan: 'Copilot',
+      note: 'AI calling is switched on per company on request and charged on connected minutes, on top of the plan.',
+    },
+    faqs: [
+      {
+        q: 'Who does the AI call?',
+        a: 'Only the parties you tick from the outstanding list, and only if the ledger has a phone number. A party who asked not to be called on an earlier call is listed as skipped rather than dialled again, and you see that before anything happens.',
+      },
+      {
+        q: 'What language does it speak?',
+        a: 'The language set for your company, Hindi by default, so a retailer in Ahmedabad and one in Indore hear the call the way your own collector would put it. The call names your business, the amount due and the bills behind it.',
+      },
+      {
+        q: 'What if the party disputes the amount or promises to pay?',
+        a: 'A promise is logged with the amount and the date and shows up in promise tracking. A dispute, or a request to speak to you, is pushed to the recovery owner for that party, so a person takes over exactly where the call left off.',
+      },
+      {
+        q: 'What does it cost?',
+        a: 'Calling is charged on connected minutes, on top of your plan, and the rate is shown on the confirm sheet before any call is placed. A call that does not connect costs nothing. The feature is switched on per company; ask us to enable it.',
+      },
+      {
+        q: 'Does it replace my collection team?',
+        a: "It takes the first call, the one nobody in the office wants to make, and writes down what was said. Your team's own follow-ups sit in the same log, and the board shows both, so the person chasing a party sees the whole conversation.",
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: 'customer-follow-up-log-for-collections',
+        title: 'Keep a Follow-up Log Against Every Outstanding Customer',
+      },
+      {
+        slug: 'collection-team-board-recovered-outstanding-speed',
+        title: 'Recovered, Outstanding, Speed: Reading a Collection Team Board',
+      },
+      {
+        slug: 'daily-collection-brief-for-distributor-owners',
+        title: 'The Morning Collection Brief: What to Look at Before the First Call',
+      },
+      {
+        slug: 'bakaya-kaise-vasool-kare-distributor',
+        title: 'Bakaya Kaise Vasool Kare: Distributor Collection Guide',
+      },
+    ],
+    priority: 0.8,
+  },
 ];

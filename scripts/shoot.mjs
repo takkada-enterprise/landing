@@ -51,6 +51,7 @@ const SETS = {
     ['feature-tally-app-for-pharma-distributors', '/tally-app-for-pharma-distributors'],
     ['feature-tally-app-for-agri-input-distributors', '/tally-app-for-agri-input-distributors'],
     ['feature-voucher-approval-before-tally', '/voucher-approval-before-tally'],
+    ['feature-ai-collection-calls', '/ai-collection-calls'],
   ],
   sheets: [
     ['sheet-loading', '/?sheet=sheet-loading#stop-load'],
@@ -81,6 +82,9 @@ SETS.round2 = [
   ['round2-voucher-approval-before-tally', '/voucher-approval-before-tally'],
   ['round2-walk-voucher-approval-before-tally', '/voucher-approval-before-tally#walkthrough'],
   ['round2-hub-order', '/features#order'],
+  ['round2-ai-collection-calls', '/ai-collection-calls'],
+  ['round2-walk-ai-collection-calls', '/ai-collection-calls#walkthrough'],
+  ['round2-hub-recover', '/features#recover'],
 ];
 SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 

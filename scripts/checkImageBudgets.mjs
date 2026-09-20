@@ -190,6 +190,8 @@ export const BUDGETS = [
   ['public/assets/screens/purchase-analytics-720.webp', 60_000, 'feature-page screen (purchase-analytics)'],
   ['public/assets/screens/purchases-by-item-360.webp', 32_000, 'feature-page screen (purchases-by-item)'],
   ['public/assets/screens/purchases-by-item-720.webp', 60_000, 'feature-page screen (purchases-by-item)'],
+  ['public/assets/screens/followup-log-360.webp', 32_000, 'feature-page hero (ai-collection-calls)'],
+  ['public/assets/screens/followup-log-720.webp', 60_000, 'feature-page hero (ai-collection-calls)'],
 ];
 
 export function overBudget(entries, sizeOf) {
