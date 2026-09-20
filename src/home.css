@@ -29,7 +29,11 @@
     radial-gradient(620px 520px at 50% 58%, var(--color-navy-lift) 0%, transparent 70%),
     linear-gradient(180deg, var(--color-primary-dark), var(--color-navy));
   color: #fff;
-  padding: 56px 0 96px;
+  /* .site-nav is fixed and ~80px tall, so it eats the top padding: 56px left
+   * the phone ~20px under the nav with ~120px of navy under it (Ronak, 16:01).
+   * 128 - 80 above and 48 below, plus the grid's centring slack on each side,
+   * gives the phone the same room top and bottom. */
+  padding: 128px 0 48px;
 }
 
 .home-v3 .hv3-hero-grid {
