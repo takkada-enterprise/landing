@@ -38,7 +38,7 @@ export const PERSONAS = [
       'Your beat covers more kirana counters in a day than most businesses invoice in a month. Every one of them is a small bill, a small payment, and a line in a ledger somebody has to key in tonight.',
     // 55 words.
     answer:
-      'A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a two-hundred-line data-entry job. Receipts post themselves into Tally against the right bill.',
+      'A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a data-entry job. Sales by item show which lines are moving and what each one earns.',
     waContext: 'feature-tally-app-for-fmcg-distributors',
     waMessage:
       'Hi, we are an FMCG distributor and our beat covers a couple of hundred kirana shops. Can you show me how Takkada handles orders and collections at that volume?',
@@ -54,12 +54,7 @@ export const PERSONAS = [
         'Takkada for FMCG distributors running high-volume, low-ticket beats on Tally: salesman check-in with geo-tagged photo proof, orders booked against live stock, invoices raised at the counter, UPI collection at zero MDR with no per-receipt fee, and receipts reconciled into Tally automatically. Built for the case where a hundred small payments a day is normal.',
     },
     footerLabel: 'FMCG distributors',
-    hero: {
-      image: '/assets/screenshots/party-ledger-mockup.webp',
-      alt: 'A retailer ledger on the phone showing the outstanding bills against one kirana counter',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'sales-by-item' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -80,10 +75,7 @@ export const PERSONAS = [
         title: 'The order is booked against stock that actually exists',
         body:
           'He sees live quantities as he takes the order, so the case of biscuits he promises is a case you can send. Pending quantities carry forward on their own, which is where a fast-moving line usually goes wrong.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Sales orders with pending quantities tracked against each retailer',
-        width: 600,
-        height: 1243,
+        screen: 'pending-orders',
       },
       {
         icon: 'Wallet',
@@ -100,10 +92,7 @@ export const PERSONAS = [
         title: 'Nobody keys in a hundred receipts at night',
         body:
           'Each payment posts into Tally against the bill it belongs to, including the ones that cover three invoices at once and the ones that arrive with no reference. The evening spent matching a bank statement to a ledger goes away.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Collections settling against the invoices they belong to through the day',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
 
       },
       {
@@ -111,10 +100,7 @@ export const PERSONAS = [
         title: 'Targets and beat coverage read themselves',
         body:
           'Per-salesman targets, achievement and collections sit in one screen, so the Monday review is a scroll instead of four phone calls. Access is set per person, so each man sees his own outlets and nothing else.',
-        image: '/assets/screenshots/sales-target-mockup.webp',
-        alt: 'Per-salesman targets and achievement for a field team',
-        width: 600,
-        height: 1243,
+        screen: 'salesman-summary',
       },
     ],
     comparison: {
@@ -203,7 +189,7 @@ export const PERSONAS = [
       'You work on a few points of margin and wait two months for the chemist to pay. Anything that takes a percentage out of the payment, or an hour out of your evening, is coming straight off that margin.',
     // 54 words.
     answer:
-      'A Tally app for pharma distributors has to protect the margin, not just show it. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on the credit terms you set.',
+      'A Tally app for pharma distributors has to protect the margin. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on your credit terms, and an order a team member raises can wait for your approval.',
     waContext: 'feature-tally-app-for-pharma-distributors',
     waMessage:
       'Hi, we distribute pharma and our chemist receivables run 60 to 75 days. Can you show me how Takkada handles reminders, collection and the GST side from the phone?',
@@ -219,12 +205,7 @@ export const PERSONAS = [
         'Takkada for pharma distributors on Tally, where margins are thin and chemist credit runs 60 to 90 days: e-invoice with IRN and e-way bill raised and cancelled from the phone, pre-due and post-due WhatsApp reminder schedules with per-party caps, ledger statements shared on demand, UPI collection at zero MDR, and receipts reconciled into Tally automatically.',
     },
     footerLabel: 'Pharma distributors',
-    hero: {
-      image: '/assets/screenshots/payment-reminders.webp',
-      alt: 'Scheduled payment reminders queued against outstanding bills on a phone',
-      width: 820,
-      height: 1698,
-    },
+    hero: { screen: 'maker-checker' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -235,50 +216,35 @@ export const PERSONAS = [
         title: 'The GST document is done before the box leaves',
         body:
           'Raise the invoice with its IRN and QR from the phone, and the e-way bill against the same voucher. If the order is called off an hour later, cancel the e-invoice or the e-way bill from the same screen with the reason code the portal asks for.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A GST invoice on the phone showing its IRN and e-way bill status against the voucher',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'CalendarClock',
         title: 'The chasing runs on a schedule, not on your memory',
         body:
           'Reminders go out before the due date and after it, on the terms you set per party, with a cap so a good chemist is never pestered. The ledger goes with the message, so the reply is about paying rather than about which bill you mean.',
-        image: '/assets/screenshots/payment-reminders.webp',
-        alt: 'Reminder schedules set per party with pre-due and post-due steps',
-        width: 820,
-        height: 1698,
+        screen: 'reminder-schedule',
       },
       {
         icon: 'Wallet',
         title: 'The payment does not cost you a slice of the margin',
         body:
           'Zero MDR on UPI collections, no transaction cap, no monthly fee. On a business running at a few points of margin, a percentage taken from every receipt is a share of the profit rather than a cost of doing business.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'UPI collections arriving against outstanding bills through the day',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
       {
         icon: 'BarChart3',
         title: 'You can see the ageing before it becomes a problem',
         body:
           'Debtor ageing on your own slabs, party by party, on the phone. On a sixty to ninety day cycle the bill that quietly crossed a hundred days is the one that turns into a fight, and it is visible here long before that.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'A party ledger showing outstanding bills and how long each has been open',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'BookOpen',
         title: 'The purchase side comes in from the bill itself',
         body:
           'Photograph the supplier invoice or drop the PDF in and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way, which is the hour at the end of the day nobody wants.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Purchase item lines built from a supplier bill and ready to check before saving',
-        width: 600,
-        height: 1242,
+        screen: 'import-detect',
       },
     ],
     comparison: {
@@ -384,12 +350,7 @@ export const PERSONAS = [
         'Takkada for fertiliser, seed and crop-protection distributors on Tally, whose dealer receivables run across a sowing-to-harvest cycle rather than a 30 or 60 day calendar: debtor ageing on custom slabs, scheme and discount credit notes raised from the phone, godown-wise stock across branches, reminders timed to the season, and UPI collection at zero MDR reconciled into Tally.',
     },
     footerLabel: 'Agri-input distributors',
-    hero: {
-      image: '/assets/screenshots/monthly-sales.webp',
-      alt: 'Sales and outstanding for a season read from the phone, month by month',
-      width: 904,
-      height: 1874,
-    },
+    hero: { screen: 'sales-analytics' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -400,30 +361,21 @@ export const PERSONAS = [
         title: 'The stock goes out before the season, from wherever it is lying',
         body:
           'Challans and invoices raised from the phone, against the godown the material is actually in. Branch and warehouse stock read separately, so the depot near the mandi is not confused with the main store when a dealer asks what you can send.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Delivery challans raised against a specific godown for dispatch to a dealer',
-        width: 600,
-        height: 1218,
+        screen: 'van-loading',
       },
       {
         icon: 'Clock',
         title: 'The ageing report speaks in seasons',
         body:
           'Set the slabs to the cycle you actually sell on instead of thirty, sixty and ninety days. A receivable that always had to wait for the harvest stops reading as overdue, and the one that has genuinely slipped past the crop stands out.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Outstanding bills against a dealer with how long each has been open',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'ListChecks',
         title: 'The season settlement is a credit note, not an argument',
         body:
           'Scheme and quantity discounts are worked out and raised as credit notes from the app, written back into Tally against the dealer. The conversation at the end of the season starts from the same number on both sides.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A credit note raised against a dealer and written back into Tally',
-        width: 600,
-        height: 1243,
+        screen: 'credit-note',
 
       },
       {
@@ -431,20 +383,14 @@ export const PERSONAS = [
         title: 'Reminders that arrive when the money exists',
         body:
           'Schedules are set per party, so a dealer waiting on the mandi is not chased every week from the day of dispatch. When the season turns, the reminder goes out with the ledger attached and the payment link on it.',
-        image: '/assets/screenshots/smart-reminders-mockup.webp',
-        alt: 'Reminder schedule set per party with the ledger attached to the message',
-        width: 391,
-        height: 790,
+        screen: 'reminder-schedule',
       },
       {
         icon: 'Wallet',
         title: 'The payment lands and books itself',
         body:
           'Zero MDR on UPI collections, no transaction cap, no monthly fee. The receipt posts into Tally against the right bills on its own, including a single large settlement clearing a season of invoices at once.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Collections arriving and settling against outstanding bills',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
     ],
     comparison: {

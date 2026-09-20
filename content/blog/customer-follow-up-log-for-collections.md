@@ -93,6 +93,8 @@ Tally remains the book of record. A log entry does not raise a receipt, does not
 
 Reminders are a different machine. The company-wide cadence can still send WhatsApp on the due-date schedule, and those reminders can carry a UPI payment link once payment collection is active, after KYC. The log is the human half: the call you made at 7 PM, the visit on Wednesday, the "no answer" on Saturday. Automation does not replace those. It also does not record them. That is why the log exists.
 
+The first call, the one nobody in the office wants to make, is the part that can be handed over: [AI collection calls](/ai-collection-calls/) ask the overdue party for the payment and write what they said back into this same log, so a promise or a dispute arrives as a line you can read on Tuesday morning.
+
 On a book of 180 parties, you will not log every courtesy hello. You log the chase against outstanding: the call that produced a date, the WhatsApp that produced silence, the visit that produced a dispute. Those are the lines the Tuesday brief can use. Everything else can stay in the chat.
 
 ## Frequently Asked Questions

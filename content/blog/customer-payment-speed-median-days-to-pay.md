@@ -5,7 +5,7 @@ meta_title: "Customer Payment Speed Report: Median Days"
 meta_description: "A customer payment speed report shows days to pay and median days per party in Habits, plus Speed as median days to collect on each salesman's Team card."
 primary_keyword: "customer payment speed report"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "Reports"
 excerpt: "Two parties can both sit at 62 days and be different jobs. A customer payment speed report is Habits in Reports+: days to pay and median days per customer, with Speed on each salesman's Team card."
@@ -89,7 +89,7 @@ DSO from 58 to 64 with Habits showing three big parties stretching, and Team Spe
 
 Reminders still run company-wide. Cadence does not change because one chemist's median is 64. You do not put him on a private clock. You put him on a log, with a promise, with an owner. Frequency stays the firm's. Behaviour stays the party's.
 
-When payment collection is active, after KYC, WhatsApp reminders can carry a UPI link, 0% MDR, no cap, no monthly fee, and the platform figure remains 100+ businesses and ₹17Cr+ collected monthly. Paying faster on UPI will improve median days only after those receipts sit in Tally. Habits reads the books, not the bank notification.
+When payment collection is active, after KYC, WhatsApp reminders can carry a UPI link, 0% MDR, no cap, no monthly fee, and the platform figure remains 100+ businesses. Paying faster on UPI will improve median days only after those receipts sit in Tally. Habits reads the books, not the bank notification.
 
 On that Tuesday the ageing report still shows two parties at 62 days. Habits shows which of them has always lived there. Team Speed shows whether the man collecting them is matching their clock or fighting it. Tally keeps the dates. The owner keeps the distinction.
 

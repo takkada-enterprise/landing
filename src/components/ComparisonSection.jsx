@@ -12,8 +12,8 @@ function CheckIcon() {
 function CrossIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-label="No" role="img">
-      <circle cx="10" cy="10" r="10" fill="#E8EAE8" />
-      <path d="M7 7L13 13M13 7L7 13" stroke="#9CA39D" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="10" cy="10" r="10" fill="#EEF5FA" />
+      <path d="M7 7L13 13M13 7L7 13" stroke="#8FB4C7" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }

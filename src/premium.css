@@ -1,29 +1,31 @@
 /* ═══════════════════════════════════════════════════
    TAKKADA — Premium overlay (2026-06-29)
    ───────────────────────────────────────────────────
-   Layered on top of styles.css. Elevates the existing Sage Paper system
+   Layered on top of styles.css. Elevates the existing Marine token system
    to read as an expensive, modern product site without touching markup.
    Rules of the road:
-   - Sage palette stays. Only depth, light, and rhythm are added.
-   - One tasteful type addition: Fraunces display serif for headings.
+   - Marine palette stays. Only depth, light, and rhythm are added.
+   - One type family: Plus Jakarta Sans carries headings on weight alone.
    - Motion is transform/opacity only (GPU-cheap), opt-in, reduced-motion safe.
    - Every effect must survive a low-powered Android. No filters in scroll loops.
    ═══════════════════════════════════════════════════ */
 
 :root {
-  --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
-  /* Headings switch to the display serif; body/UI stays Plus Jakarta Sans. */
-  --font-serif: var(--font-display);
+  /* No type re-point here. --font-serif and --font-mono are defined once in
+     styles.css :root; this layer adds depth and rhythm, never a family. */
 
-  /* Brand gradients (premium, sage-only) */
-  --grad-primary: linear-gradient(135deg, #4A7C59 0%, #344E41 55%, #1B3026 100%);
-  --grad-ink: linear-gradient(165deg, #1B3026 0%, #14241C 100%);
-  --grad-text: linear-gradient(110deg, #344E41 0%, #4A7C59 50%, #6B9E7A 100%);
+  /* Brand gradients (premium, Marine-only) */
+  /* Both ramps stop at --color-primary rather than --color-primary-light:
+     #149EC2 is only 3.13:1 with white, and these two carry the primary
+     button's white label and the gradient-filled stat text. */
+  --grad-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  --grad-ink: linear-gradient(165deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
+  --grad-text: linear-gradient(110deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
 
   /* Richer, warmer elevation than base */
-  --shadow-soft: 0 1px 1px rgba(20,36,28,0.04), 0 8px 24px -12px rgba(20,36,28,0.16);
-  --shadow-rise: 0 2px 2px rgba(20,36,28,0.04), 0 24px 48px -20px rgba(20,36,28,0.26);
-  --ring-sage: 0 0 0 1px rgba(52,78,65,0.10);
+  --shadow-soft: 0 1px 1px rgba(10, 23, 48, 0.04), 0 8px 24px -12px rgba(10, 23, 48, 0.16);
+  --shadow-rise: 0 2px 2px rgba(10, 23, 48, 0.04), 0 24px 48px -20px rgba(10, 23, 48, 0.26);
+  --ring-sage: 0 0 0 1px rgba(0, 110, 166, 0.10);
 }
 
 /* ── Display headings: optical sizing + balance ── */
@@ -34,8 +36,7 @@
 .company-article h1,
 .blog-post-title,
 .blog-index-title,
-.features-hub-group-title,
-.features-hub-index-title {
+.features-hub-group-title {
   font-optical-sizing: auto;
   text-wrap: balance;
   letter-spacing: -0.025em;
@@ -54,20 +55,24 @@
   color: var(--color-primary); /* fallback */
 }
 
-/* ── Page canvas: a barely-there sage aurora that grounds every route ── */
+/* ── Page canvas: a barely-there Marine aurora that grounds every route ── */
 body {
   background:
-    radial-gradient(120% 70% at 100% -10%, rgba(107,158,122,0.10) 0%, rgba(107,158,122,0) 55%),
-    radial-gradient(90% 60% at -10% 5%, rgba(218,229,214,0.40) 0%, rgba(218,229,214,0) 50%),
+    radial-gradient(120% 70% at 100% -10%, rgba(0, 110, 166, 0.10) 0%, rgba(0, 110, 166, 0) 55%),
+    radial-gradient(90% 60% at -10% 5%, rgba(220, 242, 251, 0.40) 0%, rgba(220, 242, 251, 0) 50%),
     var(--color-bg);
 }
 
 /* ── Navigation: glass that earns its keep ── */
+/* Near-solid, not glass. At 0.72 this bar sat over the navy story bands and
+   came out washed grey with links below contrast (D7). This rule loads after
+   the styles.css copy at the same specificity, so it is the one on screen -
+   both are raised together and the test walks every stylesheet. */
 .site-nav.scrolled {
-  background: rgba(250,250,247,0.72);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  box-shadow: 0 1px 0 rgba(20,36,28,0.06), 0 12px 30px -22px rgba(20,36,28,0.3);
+  background: rgba(247, 250, 252, 0.96);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 1px 0 rgba(10, 23, 48, 0.06), 0 12px 30px -22px rgba(10, 23, 48, 0.3);
 }
 
 /* With the mobile menu open the header is the top of one opaque surface, not
@@ -111,7 +116,7 @@ body {
 .cta-btn { position: relative; overflow: hidden; isolation: isolate; }
 .cta-btn--primary {
   background: var(--grad-primary);
-  box-shadow: 0 1px 1px rgba(20,36,28,0.2), 0 10px 24px -10px rgba(27,48,38,0.5);
+  box-shadow: 0 1px 1px rgba(10, 23, 48, 0.2), 0 10px 24px -10px rgba(15, 31, 61, 0.5);
 }
 .cta-btn--primary::before {
   content: "";
@@ -119,7 +124,7 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
 }
 @media (hover: hover) and (pointer: fine) {
-  .cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(20,36,28,0.2), 0 18px 36px -12px rgba(27,48,38,0.55); }
+  .cta-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 2px 2px rgba(10, 23, 48, 0.2), 0 18px 36px -12px rgba(15, 31, 61, 0.55); }
 }
 /* Press: cancel any hover lift and squeeze — the button visibly hears the
    tap. Last .cta-btn:active in the cascade, so this is the one that wins. */
@@ -143,11 +148,11 @@ body {
 .hero { padding-top: 140px; }
 .hero::before {
   background:
-    radial-gradient(50% 42% at 80% 14%, rgba(107,158,122,0.26) 0%, rgba(107,158,122,0) 60%),
-    radial-gradient(48% 40% at 10% 0%, rgba(218,229,214,0.6) 0%, rgba(218,229,214,0) 55%);
+    radial-gradient(50% 42% at 80% 14%, rgba(0, 110, 166, 0.26) 0%, rgba(0, 110, 166, 0) 60%),
+    radial-gradient(48% 40% at 10% 0%, rgba(220, 242, 251, 0.6) 0%, rgba(220, 242, 251, 0) 55%);
 }
 .hero-overline {
-  border: 1px solid rgba(52,78,65,0.14);
+  border: 1px solid rgba(0, 110, 166, 0.14);
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(6px);
 }
@@ -159,11 +164,11 @@ body {
   position: absolute;
   width: 360px; height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(107,158,122,0.30) 0%, rgba(107,158,122,0) 70%);
+  background: radial-gradient(circle, rgba(0, 110, 166, 0.30) 0%, rgba(0, 110, 166, 0) 70%);
   z-index: 1;
 }
-.hero-phone-frame img { filter: drop-shadow(0 40px 70px rgba(20,36,28,0.34)); border-radius: 36px; }
-.hero-pill { border: 1px solid rgba(20,36,28,0.05); box-shadow: var(--shadow-rise); }
+.hero-phone-frame img { filter: drop-shadow(0 40px 70px rgba(10, 23, 48, 0.34)); border-radius: 36px; }
+.hero-pill { border: 1px solid rgba(10, 23, 48, 0.05); box-shadow: var(--shadow-rise); }
 .hero-pill-icon { background: var(--grad-primary); }
 /* Gentle staggered drift so the halo breathes, but the phone stays the lead */
 .hero-pill { animation: pillDrift 9s var(--ease-soft) infinite; }
@@ -172,7 +177,7 @@ body {
 @keyframes pillDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 /* ── Section labels: refined chip ── */
-.section-label { border: 1px solid rgba(52,78,65,0.12); }
+.section-label { border: 1px solid rgba(0, 110, 166, 0.12); }
 
 /* ── Shared card lift (pain / tally / grid / how) ── */
 .pain-card, .tally-card, .grid-card, .how-card, .feature-grid-wrap .grid-card {
@@ -188,10 +193,10 @@ body {
 }
 
 /* ── Metrics: gradient numbers on ink ── */
-.metric-value { background: linear-gradient(110deg, #fff, #cfe4d4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-value { background: linear-gradient(110deg, #fff, var(--color-accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* ── Feature phones: lift on scroll-in ── */
-.feature-phone img { border-radius: 30px; box-shadow: 0 30px 60px -24px rgba(20,36,28,0.4); }
+.feature-phone img { border-radius: 30px; box-shadow: 0 30px 60px -24px rgba(10, 23, 48, 0.4); }
 
 /* ── Tally connector: a live pulse between the two nodes ── */
 .tally-arrow svg { animation: spinSlow 6s linear infinite; }
@@ -203,12 +208,12 @@ body {
    elevation now; the hero column inside it does the differentiating. */
 .rate-table { box-shadow: var(--shadow-rise); }
 
-/* ── Final CTA: deep ink with sage mesh ── */
+/* ── Final CTA: deep ink with a Marine mesh ── */
 .final-cta { background: var(--grad-ink); }
 .final-cta::before {
   background:
-    radial-gradient(50% 100% at 50% 110%, rgba(107,158,122,0.32) 0%, rgba(107,158,122,0) 62%),
-    radial-gradient(40% 60% at 12% 0%, rgba(74,124,89,0.18) 0%, rgba(74,124,89,0) 60%);
+    radial-gradient(50% 100% at 50% 110%, rgba(0, 110, 166, 0.32) 0%, rgba(0, 110, 166, 0) 62%),
+    radial-gradient(40% 60% at 12% 0%, rgba(20, 158, 194, 0.18) 0%, rgba(20, 158, 194, 0) 60%);
 }
 
 /* ── Reveal: add a hint of scale for depth ── */
@@ -218,9 +223,9 @@ html.js .reveal.is-visible { transform: translateY(0) scale(1); }
 /* ═══════════════════════════════════════════════════
    POSTER VOLUME overlay (2026-07-21)
    ───────────────────────────────────────────────────
-   Turns the sage/Fraunces system up to poster scale: headline owns the first
+   Turns the type and colour system up to poster scale: headline owns the first
    viewport, the phone floats on a deep-ink glow plate, proof numbers go
-   cinematic, ink bands anchor the rhythm. Same palette, same two families.
+   cinematic, ink bands anchor the rhythm. Same palette, same families.
    See docs/brainstorms/2026-07-21-landing-design-overhaul-requirements.md.
    ═══════════════════════════════════════════════════ */
 
@@ -283,7 +288,7 @@ html.js .reveal.is-visible { transform: translateY(0) scale(1); }
   padding-top: 0;
 }
 
-/* ── Ink plate: the phone glows out of a deep forest panel ── */
+/* ── Ink plate: the phone glows out of a deep navy panel ── */
 .hero--poster .hero-visual {
   width: 100%;
   max-width: 780px;
@@ -297,7 +302,7 @@ html.js .reveal.is-visible { transform: translateY(0) scale(1); }
 .hero--poster .hero-visual::before {
   width: 440px;
   height: 440px;
-  background: radial-gradient(circle, rgba(107,158,122,0.42) 0%, rgba(107,158,122,0) 70%);
+  background: radial-gradient(circle, rgba(0, 110, 166, 0.42) 0%, rgba(0, 110, 166, 0) 70%);
 }
 
 .hero--poster .hero-phone-frame { width: 312px; }
@@ -328,7 +333,7 @@ html.js .hero--poster .hero-visual { animation-delay: 0.18s; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Proof band: cinematic scale for the two confirmed figures ── */
+/* ── Proof band: cinematic scale for the confirmed scale figure ── */
 .metrics-bar { padding: 92px 0; }
 
 .metrics-grid { gap: 64px; }
@@ -386,7 +391,7 @@ html.js .hero--poster .hero-visual { animation-delay: 0.18s; }
     border-radius: 28px;
   }
   .hero--poster .hero-visual::before {
-    background: radial-gradient(circle, rgba(107,158,122,0.4) 0%, rgba(107,158,122,0) 70%);
+    background: radial-gradient(circle, rgba(0, 110, 166, 0.4) 0%, rgba(0, 110, 166, 0) 70%);
   }
   .hero--poster .hero-phone-frame { width: 232px; }
   .metrics-bar { padding: 64px 0; }

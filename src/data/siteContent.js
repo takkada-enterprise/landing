@@ -47,216 +47,18 @@ export const navLinks = [
 
 export const heroContent = {
   overline: 'For Indian distributors on Tally',
-  titleLead: 'Your Tally, on every phone in the business.',
-  titleAccent: 'Get paid without chasing.',
-  subtitle:
-    'Invoices reach customers on WhatsApp the moment they post in Tally. UPI money lands and matches itself back into your books. Your salesmen book orders from the market.',
-  // The two founder-confirmed public figures (CLAUDE.md \u00A75); numeric parts
-  // split out so the hero can count them up on load.
-  stats: [
-    { value: 100, prefix: '', suffix: '+', label: 'Businesses' },
-    { value: 17, prefix: '\u20B9', suffix: 'Cr+', label: 'Collected monthly' },
-  ],
+  // The H1 and body are owned by src/data/heroHotspots.js (HERO_HOME) because
+  // they swap as the visitor taps the phone. This object keeps what is static.
+  promise: 'Get paid without chasing.',
+  // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
+  // rupee volume was retired on 2026-09-18 (operator direction) and
+  // scripts/checkRetiredClaims.mjs keeps it out of the build.
+  stats: [{ value: 100, prefix: '', suffix: '+', label: 'Businesses' }],
 };
 
-// Story 1: the order-to-cash road (2026-08-04 roadmap redesign). One
-// continuous journey from the order landing to the payment matched in Tally.
-// Every station is a live feature; screenshots are operator-framed mockups.
-// The section keeps the #digital-collection anchor the nav/footer point at.
-export const storyOrderToCash = {
-  id: 'digital-collection',
-  overline: 'Order to Cash',
-  heading: 'The order goes out. The money finds its way back to Tally.',
-  intro:
-    'You know this road. The order sits on a pad, the challan is handwritten, the invoice waits for the evening, and the payment comes whenever it comes. Here is the same road with Takkada under it. Every station below is live in the product today.',
-  stations: [
-    {
-      title: 'The order is booked',
-      body:
-        'Your salesman books it in the market, or you take it at the counter. Live stock sits next to every item, so nobody promises what the godown does not have.',
-      screenshot: '/assets/screenshots/add-items-mockup.webp',
-      screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
-    },
-    {
-      title: 'Goods leave on a challan',
-      body:
-        'Raise the delivery challan from the phone as the truck loads. Stock moves now, billing follows when you are ready.',
-      screenshot: '/assets/screenshots/delivery-challans-mockup.webp',
-      screenshotAlt: 'Delivery challan register in Takkada with open challans by customer',
-    },
-    {
-      title: 'What could not ship stays pending',
-      body:
-        'Low stock cuts an item short, and the shortfall stays live on the order. When stock arrives, it becomes the next invoice in a tap.',
-      screenshot: '/assets/screenshots/pending-orders-mockup.webp',
-      screenshotAlt: 'Pending order items in Takkada, each with a Make Invoice action',
-    },
-    {
-      title: 'The invoice posts',
-      body:
-        'Items, GST, and your Tally number series, straight from the phone. Paid or pending shows right on top.',
-      screenshot: '/assets/screenshots/invoice-summary-mockup.webp',
-      screenshotAlt: 'Invoice in Takkada with item lines, GST, and share actions',
-    },
-    {
-      title: 'IRN and E-Way Bill clear from the same screen',
-      body:
-        'The e-invoice with QR and the e-way bill generate from the phone and write back into Tally against the same voucher.',
-      screenshot: '/assets/screenshots/einvoice-eway.webp',
-      screenshotAlt: 'Invoice in Takkada with E-Invoice and E-Way Bill actions',
-    },
-    {
-      title: 'The customer already has it on WhatsApp',
-      body:
-        'The PDF and a Pay now link reach the customer the moment the invoice posts. You do not type, copy, or attach anything.',
-      screenshot: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
-      screenshotAlt: 'WhatsApp chat with a Takkada invoice PDF and a Pay now link',
-    },
-    {
-      title: 'Reminders follow up so you do not have to',
-      body:
-        'Pre-due nudges and post-due follow-ups go out automatically on the schedule you set once. A switch sends the party’s ledger along, for the customer who wants the full account.',
-      screenshot: '/assets/screenshots/smart-reminders-mockup.webp',
-      screenshotAlt: 'Smart Reminders schedule settings in Takkada',
-    },
-    {
-      title: 'UPI money lands with zero charges',
-      body:
-        'UPI is fully pass-through. Card and netbanking MDR is borne by you. Customers pay the link, the money lands in your bank.',
-      screenshot: '/assets/screenshots/settlements-mockup.webp',
-      screenshotAlt: 'Takkada settlements list showing payments landing in the bank',
-    },
-    {
-      title: 'The payment matches itself in Tally',
-      body:
-        'Takkada matches the payment to the invoice and posts the accounting entry in Tally. The 9 PM reconciliation ritual disappears.',
-      screenshot: '/assets/screenshots/party-ledger-mockup.webp',
-      screenshotAlt: 'Party ledger in Takkada with sales, receipts, and the amount left to collect',
-    },
-  ],
-  ctaLine: 'See the whole road on a call with us.',
-  // Own-number sending is built but has zero enabled customers (2026-08-03).
-  // "Early access" is the operator-confirmed wording; never call it live.
-  footnote: 'Want reminders to go from your own WhatsApp Business number? Early access is open at ₹2,000 a year, ask us.',
-};
-
-// Story 2: the field sales day. Claims discipline: check-in/check-out and
-// geo-tagged photo stamps are live on prod (2026-08-03 verification); the
-// order/invoice basis toggle is live. Beats and the dispatch load sheet went
-// live on prod 2026-08-11 (both repos), so the load-by-beat step is a
-// capability claim, not a promise. Screenshots are operator-framed mockups
-// (2026-08-04 set, plus the 2026-08-12 beats/dispatch set). Step 3's shop
-// photo is an Unsplash-licensed
-// storefront (photo bAKYjjvAQIE, cropped to exclude faces, the real shop's
-// name, and brand logos) composited into the operator's geotagged template.
-export const storyTeamSales = {
-  id: 'team-sales',
-  overline: 'Team Sales',
-  heading: 'Your salesmen in the market. Their day on your phone.',
-  intro:
-    'A salesman visits eight shops before lunch. Until now you learned what happened at dinner, from memory. Now the trail writes itself as he walks.',
-  steps: [
-    {
-      title: 'He checks in at the shop',
-      body:
-        'One tap marks the visit with time and place. You see who is where without a single phone call.',
-      screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
-      screenshotWidth: 600,
-      screenshotHeight: 1242,
-      screenshotAlt: 'Field visit feed in Takkada showing salesmen checked in at dealers',
-    },
-    {
-      title: 'The visit proves itself',
-      body:
-        'Every visit carries a geo-tagged, time-stamped photo. No "shop band tha" stories, no fake visits.',
-      screenshot: '/assets/screenshots/field-visit-photo-mockup.webp',
-      screenshotWidth: 600,
-      screenshotHeight: 1243,
-      screenshotAlt: 'Geo-tagged, time-stamped field visit photo of a dealer shop in Takkada',
-    },
-    {
-      title: 'The van loads by beat',
-      body:
-        'Dealers sit in beats, the routes your market already runs on. Booked orders total into a load sheet per route, and the godown ticks off deliveries as the van empties.',
-      screenshot: '/assets/screenshots/dispatch-mockup.webp',
-      screenshotWidth: 600,
-      screenshotHeight: 1242,
-      screenshotAlt: 'Dispatch screen in Takkada totalling booked orders into a load per beat route',
-    },
-    {
-      title: 'You watch the day live',
-      body:
-        'Visits, orders, and collections per salesman, as they happen. Role-based access decides what each person can see and do.',
-      screenshot: '/assets/screenshots/field-visit-outcomes-mockup.webp',
-      screenshotWidth: 600,
-      screenshotHeight: 1243,
-      screenshotAlt: 'Field visit outcomes in Takkada: visits, payments received, and overdue per salesman',
-    },
-    {
-      title: 'Targets and commission settle themselves',
-      body:
-        'Monthly targets, live progress, and commission worked out per salesman. The month-end argument is over before it starts.',
-      screenshot: '/assets/screenshots/team-sales-hub-mockup.webp',
-      screenshotWidth: 600,
-      screenshotHeight: 1242,
-      screenshotAlt: 'Team Sales screen in Takkada: who is out today, and the leaderboard with targets and commission per salesman',
-    },
-  ],
-  ctaLine: 'Run a field team? Ask us about the salesman module.',
-};
-
-// The AI showcase band (2026-08-04, operator direction): the three places
-// the AI does the typing. All three verified live on prod — photo/PDF
-// purchase + sales-order import promoted 2026-07-26 (sf #273, takkada
-// #306); bank statement import live on 90 companies (2026-07-25 count).
-// The section carries the #pdf-import anchor the footer points at.
-export const aiImport = {
-  id: 'pdf-import',
-  overline: 'AI Inside',
-  heading: 'Photograph it. The entry types itself.',
-  intro:
-    'Three places where someone used to type line by line. Now the AI reads the paper, fills the entry, and waits for your approval before anything posts.',
-  cards: [
-    {
-      icon: 'camera',
-      title: 'Purchase bills, from a photo or PDF',
-      body:
-        'Click a photo of the supplier bill or drop the PDF. The AI reads the items, GST, and totals into a purchase voucher, matched to your own item names.',
-    },
-    {
-      icon: 'clipboard',
-      title: 'Sales orders, straight off paper',
-      body:
-        'A retailer’s handwritten order becomes a sales order the same way. Photograph it, check the lines, and it is ready to bill.',
-    },
-    {
-      icon: 'building',
-      title: 'Bank statements, matched to parties',
-      body:
-        'Import the statement and the AI matches receipts and payments to the right parties. The books stay current without an evening of entry.',
-    },
-  ],
-};
-
-// The compact grid for everything that is not a headline story. Capability
-// claims only; adoption numbers stay off this list. Pending Orders and bulk
-// challans are entitlement-gated add-ons ("available", not "everyone has it").
-// PDF/photo import and bank import moved up into the aiImport band.
-export const featureGridV3 = [
-  { id: 'e-invoicing', title: 'E-Invoice & E-Way Bill', description: 'IRN, QR, and e-way bills from the phone, written back into Tally.', icon: 'fileCheck' },
-  { id: 'smart-reminders', title: 'Smart Reminders', description: 'Pre-due and post-due WhatsApp follow-ups on your schedule.', icon: 'bell' },
-  { id: 'rbac', title: 'Role-Based Access', description: 'Decide what each salesman and accountant can see and do.', icon: 'shield' },
-  { id: 'pending-orders', title: 'Pending Orders', description: 'Take orders now, bill later, and watch what is still open.', icon: 'clock' },
-  // Entitlement-gated the same way Pending Orders is, so this is a capability
-  // claim and never an adoption one. Reuses the `share` icon key rather than
-  // adding a tenth: gridIconMap falls back to a tick, so an unmapped key would
-  // render a plausible-looking wrong icon instead of failing.
-  { id: 'order-link', title: 'Customer Order Link', description: 'Your retailers order from a link, and you approve each one into Tally.', icon: 'link' },
-  { id: 'bulk-challan', title: 'Bulk Delivery Challans', description: 'Raise a day of challans in one go, available on request.', icon: 'truck' },
-  { id: 'reports', title: '20+ Reports', description: 'Outstanding by age, customer analytics, the whole year at a glance.', icon: 'chart' },
-  { id: 'share-pdfs', title: 'Share Ledgers & PDFs', description: 'Ledgers, invoices, and credit notes reach any party in a tap.', icon: 'share' },
-  { id: 'vouchers', title: 'Vouchers From Anywhere', description: 'Sales, purchase, receipt, and payment entries from mobile or web.', icon: 'fileText' },
-];
+// The two story objects (order-to-cash, team sales), the AI band and the
+// capability grid were retired on 2026-09-18: the homepage tells one story now,
+// and it is built from src/data/journey.js (STOPS) by FollowOneInvoice.
 
 // Compressed Tally-trust block: the connector story in three specific
 // behaviors plus the download. The deep safety story lives in #data-safety.
@@ -661,8 +463,14 @@ const TALLY_CONNECTOR_URL =
 export const footerColumns = [
   {
     title: 'Product',
+    // Four of these pointed at homepage sections that the 2026-09-18 revamp
+    // removed (the AI band carried #pdf-import, the capability grid carried
+    // #smart-reminders, #e-invoicing and #rbac). A footer link to an id that is
+    // no longer rendered is a dead anchor (CLAUDE.md §11.6), so each now points
+    // at the feature page that covers the same ground. The two hashes that
+    // survive are the two sections the revamp kept.
     links: [
-      { label: 'Import from PDF', href: '#pdf-import' },
+      { label: 'Import from PDF', page: 'import-purchase-from-pdf' },
       { label: 'Tally Connector', href: '#tally' },
       // The installer itself, directly under the section that explains it.
       // Wording is deliberately different from the line above: two links a row
@@ -670,9 +478,12 @@ export const footerColumns = [
       // download, is the collision this label exists to avoid.
       { label: 'Download for Windows', href: TALLY_CONNECTOR_URL, download: true },
       { label: 'Payment Collection', href: '#digital-collection' },
-      { label: 'Smart Reminders', href: '#smart-reminders' },
-      { label: 'E-Invoicing', href: '#e-invoicing' },
-      { label: 'RBAC', href: '#rbac' },
+      { label: 'Smart Reminders', page: 'send-payment-reminders-automatically' },
+      { label: 'E-Invoicing', page: 'e-invoice-from-phone' },
+      // The salesman page is where role-based visibility is actually described
+      // ("each salesman sees only his own parties"), so the label says that
+      // rather than keeping an acronym over a page about the team.
+      { label: 'Role-based access', page: 'salesman-app-tally' },
     ],
   },
   {

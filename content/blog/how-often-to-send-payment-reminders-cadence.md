@@ -5,7 +5,7 @@ meta_title: "Payment Reminder Frequency: Presets and Custom"
 meta_description: "Payment reminder frequency is company-wide: every day, every 2 days, every 3 days default, or every 7, plus custom 1 day before due, on due, then every N days."
 primary_keyword: "payment reminder frequency"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-09-18"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati book that has slipped off 30-day terms does not need a different cadence per chemist. Payment reminder frequency is one company-wide setting: four presets, or custom 1 day before due, on due, then every N days."
@@ -78,7 +78,7 @@ To [send payment reminders automatically](/send-payment-reminders-automatically)
 
 WhatsApp reminders can carry a UPI payment link once payment collection is active, after KYC. They do not carry a link on every reminder by default. The frequency setting does not flip that on. Collection onboarding does.
 
-When collection is on, the rail is 0% MDR on UPI collections, no transaction cap, no monthly fee. Across the platform that is 100+ businesses and ₹17Cr+ collected monthly. The reminder still has to name the invoice and the amount. The link is the path, not the cadence.
+When collection is on, the rail is 0% MDR on UPI collections, no transaction cap, no monthly fee. Across the platform that is 100+ businesses. The reminder still has to name the invoice and the amount. The link is the path, not the cadence.
 
 Do not raise frequency because you turned collection on. Daily reminders with a pay link and daily reminders without one are both daily. The chemist will mute either. Tighten cadence when ageing demands it, not because the message got a button.
 

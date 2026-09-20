@@ -14,12 +14,12 @@ describe('WhatsAppCTA', () => {
   });
 
   it('renders a wa.me anchor with the configured number and encoded context message', () => {
-    render(<WhatsAppCTA context="home-hero" />);
+    render(<WhatsAppCTA context="pricing" />);
 
     const link = screen.getByRole('link', { name: /chat on whatsapp/i });
     expect(link).toHaveAttribute(
       'href',
-      `https://wa.me/${originalNumber}?text=${encodeURIComponent(WHATSAPP_MESSAGES['home-hero'])}`
+      `https://wa.me/${originalNumber}?text=${encodeURIComponent(WHATSAPP_MESSAGES.pricing)}`
     );
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
@@ -72,7 +72,7 @@ describe('WhatsAppCTA', () => {
     // Every surface keeps a calendar CTA beside the WhatsApp one, so the
     // disabled state must not add a duplicate booking button.
     appLinks.whatsappNumber = '';
-    const { container } = render(<WhatsAppCTA context="home-hero" />);
+    const { container } = render(<WhatsAppCTA context="pricing" />);
 
     expect(container).toBeEmptyDOMElement();
   });

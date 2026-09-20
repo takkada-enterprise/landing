@@ -53,7 +53,7 @@ export const ALTERNATIVES = [
     // real Biz Analyst strengths inside the citation-eligible passage rather
     // than burying them further down.
     answer:
-      'Takkada is the Biz Analyst alternative distributors pick when collection, not reporting, is the bottleneck. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a UPI link on every invoice at zero MDR, posts the receipt into Tally by itself, and cancels an e-invoice from the phone.',
+      'Takkada is the Biz Analyst alternative distributors pick when collection, not reporting, is the bottleneck. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a zero-MDR UPI link on every invoice, posts the receipt into Tally itself, and names the customers who have quietly stopped ordering.',
     waContext: 'feature-biz-analyst-alternative',
     waMessage:
       'Hi, I am on Biz Analyst right now and the collection side is the gap. Can you show me how Takkada handles UPI collection and reconciliation back into Tally?',
@@ -69,12 +69,7 @@ export const ALTERNATIVES = [
         'Takkada compared with Biz Analyst for Indian distributors on Tally. Both read Tally on mobile, create vouchers and send reminders. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone. Biz Analyst bills per device and is offline-capable, which Takkada is not.',
     },
     footerLabel: 'Biz Analyst alternative',
-    hero: {
-      image: '/assets/screenshots/settlements-mockup.webp',
-      alt: 'Collected payments settling against the invoices they belong to, each with its bank reference',
-      width: 391,
-      height: 790,
-    },
+    hero: { screen: 'customer-analytics' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -95,40 +90,28 @@ export const ALTERNATIVES = [
         title: 'The receipt posts itself against the right bill',
         body:
           'When the money lands, the receipt entry goes into Tally against that invoice on its own. Partial payments, one payment covering three bills, and payments with no reference all get matched. The nine o\'clock reconciliation stops being a job.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'A party ledger with the paid bill closed off against the receipt',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'FileCheck2',
         title: 'The compliance panic is handled from the phone',
         body:
           'Raise the IRN and the e-way bill at the counter, and when the buyer changes his mind an hour later, cancel the e-invoice or the e-way bill from the same screen with the reason code the portal wants. Cancellation is the part nobody else in the category has.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A GST invoice on the phone with its IRN and e-way bill status shown against the voucher',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'Lock',
         title: 'Your salesman sees his parties, not your books',
         body:
           'Access is set per person, down to the warehouse his stock movements may touch. He sees his own retailers, his own targets and his own collections. Your margins and your other territories stay out of his phone.',
-        image: '/assets/screenshots/rbac.webp',
-        alt: 'Role-based access settings limiting a team member to his own parties and stock',
-        width: 904,
-        height: 1874,
+        screen: 'member-permissions-scope',
       },
       {
         icon: 'Activity',
         title: 'Billing follows the business, not the handset',
         body:
           'Biz Analyst charges per mobile device per Tally licence, so a fourth salesman is a fourth subscription. Takkada prices by plan with extra users added on top, which is the cheaper shape once a field team exists and the more expensive one for a single owner.',
-        image: '/assets/screenshots/sales-target-mockup.webp',
-        alt: 'Per-salesman targets and achievement tracked for a field team',
-        width: 600,
-        height: 1243,
+        screen: 'salesman-summary',
       },
     ],
     comparison: {
@@ -258,12 +241,7 @@ export const ALTERNATIVES = [
         'Takkada compared with Livekeeping for Indian distributors on Tally. Both create vouchers from mobile and generate e-invoices and e-way bills. Livekeeping has no payment collection of any kind and sells compliance as a paid tier. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone.',
     },
     footerLabel: 'Livekeeping alternative',
-    hero: {
-      image: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
-      alt: 'An invoice reaching the retailer on WhatsApp with a UPI payment link on it',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'payment-behaviour' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -284,40 +262,28 @@ export const ALTERNATIVES = [
         title: 'He pays on UPI and it costs you zero MDR',
         body:
           'Any UPI app, any amount, no transaction cap and no monthly fee. On low-ticket distribution where a hundred retailers each pay a few thousand rupees, the percentage a gateway takes is the difference the collection has to earn back.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'UPI collections arriving against outstanding bills through the day',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
       {
         icon: 'CheckCheck',
         title: 'Tally gets the receipt without you typing it',
         body:
           'The receipt entry posts against the correct invoice on its own, including when one payment covers three bills or arrives with no reference at all. That is the work Livekeeping leaves on the desk, because it has no collection rail to reconcile from.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'A party ledger showing the bill closed off by the receipt written back into Tally',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'FileCheck2',
         title: 'The cancel button exists on this side',
         body:
           'Both apps raise the IRN and the e-way bill from the phone. When the buyer cancels the order or the truck never leaves, Takkada cancels the e-invoice or the e-way bill from the same screen, with the portal reason code, and writes the status back against the voucher.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A GST invoice showing its IRN and e-way bill status on the phone',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'BookOpen',
         title: 'The purchase side comes in from a photo',
         body:
           'Photograph the supplier bill or drop the PDF in, and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way. It is the data-entry hour nobody wants at the end of the day.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Item lines built from a supplier bill and ready to be checked before saving',
-        width: 600,
-        height: 1242,
+        screen: 'import-detect',
       },
     ],
     comparison: {

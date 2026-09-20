@@ -18,82 +18,113 @@
 // thing the page covers rather than repeating the SEO sentence (CLAUDE.md
 // craft rules 1 and 3).
 
+import { STOPS } from './journey.js';
+
 /**
  * @typedef {object} FeatureGroup
  * @property {string} id     stable key, also the section's DOM id
+ * @property {string} [stop] the journey stop this group is, a `STOPS` id
  * @property {string} title  group heading
  * @property {string} intro  one line under the heading
  * @property {string[]} slugs  feature page slugs, in display order
  */
 
+// ── Grouped by the invoice's journey (2026-09-18) ──
+//
+// The nine themes here used to be names invented for the directory alone:
+// "Getting paid", "Entries without typing", "Billing, stock and godowns". They
+// were honest, but they were a second taxonomy sitting beside the one the
+// homepage tells, so a visitor who arrived having just followed one invoice
+// through seven stops landed on a page that re-sorted the same product into
+// words he had not seen. The first seven groups are now those stops, in that
+// order, carrying `stop` so the hub can show each one's stamp and Task 10 can
+// draw the strip on the feature pages themselves.
+//
+// The two groups after them have no stop on purpose. Comparing Takkada with
+// Biz Analyst, or checking it was built for pharma, is not a moment in the
+// invoice's life; it is the reading somebody does before any of this starts.
+// Forcing them onto the story would have been the taxonomy problem again, in
+// the other direction.
+
 /** @type {FeatureGroup[]} */
 export const FEATURE_GROUPS = [
   {
-    id: 'getting-paid',
-    title: 'Getting paid',
-    intro: 'Links, reminders and statements that go out without you asking anyone.',
+    id: 'order',
+    stop: 'order',
+    title: 'Taking the order',
+    intro: "What your salesman does at the retailer's counter, and what you see of it.",
     slugs: [
-      'payment-collection-tally',
-      'payment-reminder-tally',
-      'send-payment-reminders-automatically',
-      'share-ledger-statement-whatsapp',
+      'salesman-app-tally',
+      'sales-order-on-mobile',
+      'voucher-approval-before-tally',
+      'order-booking-app-tally',
     ],
   },
   {
-    id: 'who-owes-you',
-    title: 'Knowing who owes you',
-    intro: 'The number you check before breakfast, and the list standing behind it.',
-    slugs: ['outstanding-receivables-on-mobile', 'debtor-ageing-report-on-phone'],
+    id: 'bill',
+    stop: 'bill',
+    title: 'Making the bill',
+    intro: 'Invoices, e-invoice, e-way bill and entries that fill themselves in.',
+    slugs: [
+      'e-invoice-from-phone',
+      'e-way-bill-from-phone',
+      'credit-note-from-phone',
+      'import-purchase-from-pdf',
+      // The Bill stop's own pill points here, and a page may not sit under a
+      // different stop from the pill that sends readers to it. Reading it as an
+      // order ("a photograph of the order book") was defensible; disagreeing
+      // with the homepage was not.
+      'handwritten-order-to-tally',
+      'bank-statement-import-tally',
+    ],
   },
   {
-    id: 'tally-on-your-phone',
-    title: 'Tally on your phone',
-    intro: 'Your books readable from wherever you happen to be standing.',
+    id: 'load',
+    stop: 'load',
+    title: 'Loading and stock',
+    intro: 'Godowns, challans and what is actually on the shelf.',
+    slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile'],
+  },
+  {
+    id: 'send',
+    stop: 'send',
+    title: 'Sending it to the customer',
+    intro: 'The invoice and the statement reach WhatsApp without anyone pressing send.',
+    slugs: ['custom-invoice-template-tally', 'share-ledger-statement-whatsapp'],
+  },
+  {
+    id: 'remind',
+    stop: 'remind',
+    title: 'Reminding and collecting',
+    intro: 'Reminders on your schedule, with a pay link in every one.',
+    slugs: ['payment-reminder-tally', 'send-payment-reminders-automatically'],
+  },
+  {
+    id: 'recover',
+    stop: 'recover',
+    title: 'Recovering what is overdue',
+    intro: 'Who owes you, for how long, and who in your team is chasing it.',
+    // The UPI link belongs to the stop whose pill names it. The Recover stop is
+    // where the money actually arrives, which is also where somebody looking
+    // for "how do they pay me" is standing.
+    slugs: [
+      'outstanding-receivables-on-mobile',
+      'debtor-ageing-report-on-phone',
+      'payment-collection-tally',
+      'ai-collection-calls',
+    ],
+  },
+  {
+    id: 'tally',
+    stop: 'tally',
+    title: 'Back in Tally',
+    intro: 'Receipts matched, reports on your phone, nothing typed twice.',
     slugs: [
       'tally-on-mobile',
       'tally-on-mobile-without-remote-access',
       'tally-reports-on-mobile',
       'multi-company-tally-reports',
     ],
-  },
-  {
-    // The id is the section's DOM anchor and stays put; the title moved.
-    // "Your team in the market" covered three pages about the salesman's day
-    // and then fought its own intro once the customer ordering link joined,
-    // because the retailer sending his own order is nobody's team. What all
-    // four pages share is where the order comes from, so that is the heading.
-    id: 'team-in-the-market',
-    title: 'Orders from the market',
-    intro: 'Every way an order reaches your books from outside the office, whether your salesman brings it in or the retailer sends it himself.',
-    slugs: [
-      'salesman-app-tally',
-      'sales-order-on-mobile',
-      'handwritten-order-to-tally',
-      'order-booking-app-tally',
-    ],
-  },
-  {
-    id: 'gst-paperwork',
-    title: 'GST paperwork',
-    intro: 'The documents that hold up a loading, raised from where the goods are.',
-    slugs: ['e-invoice-from-phone', 'e-way-bill-from-phone'],
-  },
-  {
-    id: 'billing-stock-godowns',
-    title: 'Billing, stock and godowns',
-    intro: 'Vouchers and stock movement, raised at the counter instead of the desk.',
-    slugs: [
-      'custom-invoice-template-tally',
-      'credit-note-from-phone',
-      'delivery-challan-from-mobile',
-      'godown-wise-stock-on-mobile',
-    ],
-  },
-  {
-    id: 'entries-without-typing',
-    title: 'Entries without typing',
-    intro: 'Paperwork that arrives as a PDF, a photo or a bank file, entered for you.',
-    slugs: ['import-purchase-from-pdf', 'bank-statement-import-tally'],
   },
   {
     id: 'weighing-options',
@@ -114,11 +145,55 @@ export const FEATURE_GROUPS = [
 ];
 
 /**
+ * The ids the journey regroup retired, each pointed at the group that took the
+ * bulk of what it used to hold.
+ *
+ * Every one of these has been a linkable `#anchor` on /features since the hub
+ * shipped, and some are inside blog posts that are already published, so they
+ * cannot simply stop existing: an id that no longer resolves does not 404, it
+ * silently scrolls to the top of the page, which reads as the link being wrong
+ * about the whole site. The hub renders each of these as a zero-height anchor
+ * inside its target group, so an old link lands on the section that swallowed
+ * what it used to point at.
+ *
+ * `billing-stock-godowns` is the one split three ways (the invoice format went
+ * to Send, the credit note to Bill, the godown and challan pages to Load); it
+ * points at Load because that is where most of it went and what its own name
+ * led with after "Billing".
+ *
+ * Nothing may be deleted from this map. Adding to it is what a future regroup
+ * does with the ids it retires.
+ * @type {Record<string, string>}
+ */
+export const RETIRED_GROUP_ANCHORS = {
+  // Not a group: the compact index's own section id, retired with the tier.
+  // Its heading read "Everything else", and everything else is now the story
+  // itself, so it lands at the first stop.
+  'all-features': 'order',
+  'team-in-the-market': 'order',
+  'gst-paperwork': 'bill',
+  'entries-without-typing': 'bill',
+  'billing-stock-godowns': 'load',
+  'getting-paid': 'remind',
+  'who-owes-you': 'recover',
+  'tally-on-your-phone': 'tally',
+};
+
+/** The retired ids that point at `groupId`, in the map's own order. */
+export function retiredAnchorsFor(groupId) {
+  return Object.keys(RETIRED_GROUP_ANCHORS).filter((id) => RETIRED_GROUP_ANCHORS[id] === groupId);
+}
+
+/**
  * The directory line for each page, keyed by slug. Kept beside the grouping so
  * both halves of the hub's copy are edited in one place.
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'ai-collection-calls':
+    'An AI call in the party\'s language for the bills WhatsApp did not move, logged on the recovery board.',
+  'voucher-approval-before-tally':
+    "A team member's invoice or order waits for your approval, line by line, before it reaches Tally.",
   'payment-collection-tally':
     'A UPI link on every invoice and inside every reminder, at 0% MDR on what lands.',
   'payment-reminder-tally':
@@ -175,18 +250,22 @@ export const FEATURE_BLURBS = {
     'Dealer receivables stretched from sowing right through to after the crop is sold.',
 };
 
-// ── Hub tiers (2026-08-11) ──
+// ── Hub tiers (2026-08-11, re-cut 2026-09-18) ──
 //
 // The hub used to render nine equal groups of equal text cards, which is a wall
 // of uniform grey to anyone who does not already know what they are looking
-// for. It now opens with a lead tier, then two labelled sections, then a
-// compact index of everything else.
+// for. It opened with a lead tier, then two labelled sections, then a compact
+// index of everything else.
 //
-// The tiers are derived, not listed. Only the lead slugs and the two section
-// ids are written down; every other page falls into the index by
-// subtraction. A twenty-eighth page therefore joins the hub on the strength of
-// its FEATURE_GROUPS entry alone, exactly as before, and nobody has to
-// remember a second list. That property is what the partition invariants in
+// Two tiers now: the lead grid, then a labelled section per group. The compact
+// index went with the journey regroup — it had been holding the seven stops,
+// which is the page's spine rendered in the quietest type on the page, and once
+// the stops moved up there was nothing left in it.
+//
+// The tiers are still derived, not listed. Only the lead slugs are written down
+// and every section subtracts them, so a twenty-eighth page joins the hub on the
+// strength of its FEATURE_GROUPS entry alone and nobody has to remember a second
+// list. That property is what the partition invariants in
 // src/data/__tests__/feature-pages.test.js exist to keep.
 
 /**
@@ -215,14 +294,26 @@ export const LEAD_FEATURE_SLUGS = [
 ];
 
 /**
- * Groups that render as their own labelled section on the hub instead of as
- * rows of the compact index. Both hold pages a visitor arrives at in a
- * different frame of mind — comparing products, or checking the thing was
- * built for their line of trade — so burying them in an alphabet of feature
- * names would lose them.
+ * Groups that render as their own labelled section on the hub. Every group
+ * does, since the compact index was removed (2026-09-18).
+ *
+ * The hub used to end in a compact index: a grid of small uppercase headings
+ * over name-only links, for the reader who already knows what he wants. When
+ * the grouping became the journey, that tier was holding the seven stops, which
+ * put the page's spine in the quiet type and left the two groups that are not
+ * part of the story as the only loud sections on the page. The owner ruled the
+ * stops into the main body, and with the stops out of it the index had nothing
+ * left to hold, so it went rather than shipping as an empty heading.
+ *
+ * Derived from STOPS so the seven stay in journey order and a new stop cannot
+ * be added to the story without appearing here.
  * @type {string[]}
  */
-export const SECTION_GROUP_IDS = ['weighing-options', 'built-for-your-trade'];
+export const SECTION_GROUP_IDS = [
+  ...STOPS.map((stop) => stop.id),
+  'weighing-options',
+  'built-for-your-trade',
+];
 
 const withBlurb = (page) => ({
   ...page,
@@ -243,8 +334,6 @@ let lastPagesRef = null;
 let cachedGrouped = null;
 let cachedLead = null;
 let cachedSections = null;
-let cachedSecondary = null;
-let cachedDrained = null;
 
 function checkPagesCache(pages) {
   if (pages !== lastPagesRef) {
@@ -252,12 +341,11 @@ function checkPagesCache(pages) {
     cachedGrouped = null;
     cachedLead = null;
     cachedSections = null;
-    cachedSecondary = null;
-    cachedDrained = null;
   }
 }
 
-export function groupFeaturePages(pages) {
+// Module-private: featureSections() below is what the hub and the nav read.
+function groupFeaturePages(pages) {
   checkPagesCache(pages);
   if (cachedGrouped) return cachedGrouped;
 
@@ -279,47 +367,46 @@ export function leadFeaturePages(pages) {
   return cachedLead;
 }
 
-/** The groups that render as their own labelled section, in FEATURE_GROUPS order. */
+/**
+ * "Biz Analyst alternative" and "Livekeeping alternative" are not things
+ * Takkada does, they are pages for somebody already shopping around. In a menu
+ * headed Features they read as two more features and they name a competitor in
+ * the nav of every page on the site. They stay on the hub, and in the sitemap,
+ * and one click away under "All features" (Ronak, 2026-09-20).
+ */
+const MENU_EXCLUDED_GROUP_IDS = ['weighing-options'];
+
+/**
+ * Every group with every page, in FEATURE_GROUPS order, minus the groups above
+ * — what the header's Features menu reads (Ronak, 2026-09-20: it listed nine
+ * and hid the other twenty behind "All features"). No lead-tier subtraction:
+ * the menu is a directory, and a directory that omits a feature is the bug
+ * being fixed.
+ */
+export function menuFeatureGroups(pages) {
+  return groupFeaturePages(pages).filter((group) => !MENU_EXCLUDED_GROUP_IDS.includes(group.id));
+}
+
+/**
+ * The sections of the hub, in FEATURE_GROUPS order, each minus the pages the
+ * lead tier already shows. The subtraction is what keeps "exactly one card per
+ * feature page" true now that every group is a section: nine of the twenty-seven
+ * pages are lead cards at the top, and a section repeating them would be the
+ * same link twice on one page.
+ *
+ * A stop group emptied by that subtraction still comes back. The seven stops are
+ * the page's spine and a missing one reads as a hole in the story, so it renders
+ * its header and says where its pages went; only a group outside the journey is
+ * dropped when it has nothing left. No stop is empty today.
+ */
 export function sectionFeatureGroups(pages) {
   checkPagesCache(pages);
   if (cachedSections) return cachedSections;
 
-  cachedSections = groupFeaturePages(pages).filter((group) => SECTION_GROUP_IDS.includes(group.id));
-  return cachedSections;
-}
-
-/**
- * The compact index: every group that is not a section, minus the pages already
- * shown in the lead tier. A group left with nothing is dropped rather than
- * rendered as an empty heading — see drainedGroupIds for what happens to its
- * DOM anchor.
- */
-export function secondaryFeatureGroups(pages) {
-  checkPagesCache(pages);
-  if (cachedSecondary) return cachedSecondary;
-
   const lead = new Set(LEAD_FEATURE_SLUGS);
-  cachedSecondary = groupFeaturePages(pages)
-    .filter((group) => !SECTION_GROUP_IDS.includes(group.id))
+  cachedSections = groupFeaturePages(pages)
+    .filter((group) => SECTION_GROUP_IDS.includes(group.id))
     .map((group) => ({ ...group, pages: group.pages.filter((page) => !lead.has(page.slug)) }))
-    .filter((group) => group.pages.length > 0);
-  return cachedSecondary;
-}
-
-/**
- * Group ids that no longer head a rendered section because every one of their
- * pages was promoted to the lead tier. "GST paperwork" is the first: both its
- * pages lead. Their ids are still anchor targets that have been linkable since
- * the hub shipped, so the hub re-attaches them to the lead section rather than
- * letting them 404 into the top of the page.
- */
-export function drainedGroupIds(pages) {
-  checkPagesCache(pages);
-  if (cachedDrained) return cachedDrained;
-
-  const surviving = new Set(secondaryFeatureGroups(pages).map((group) => group.id));
-  cachedDrained = FEATURE_GROUPS.filter(
-    (group) => !SECTION_GROUP_IDS.includes(group.id) && !surviving.has(group.id)
-  ).map((group) => group.id);
-  return cachedDrained;
+    .filter((group) => group.stop || group.pages.length > 0);
+  return cachedSections;
 }

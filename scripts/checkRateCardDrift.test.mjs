@@ -6,6 +6,7 @@ import {
   inspectData,
   inspectPage,
   snapshot,
+  stripNotAPrice,
 } from './checkRateCardDrift.mjs';
 import { pricing } from '../src/data/siteContent.js';
 
@@ -50,13 +51,13 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
   });
 
   it('sees through React comment splits and spaces — the prerendered shape', () => {
-    // dist HTML really contains "₹<!-- -->17<!-- -->Cr+" for the hero stat.
+    // Prerendered React can split a rupee figure as "₹<!-- -->9,999<!-- -->".
     expect(extractFigures('<span>₹<!-- -->9,999<!-- --> typed</span>')).toEqual([9999]);
     expect(extractFigures('<h2>₹ 9,999 per year</h2>')).toEqual([9999]);
   });
 
-  it('skips marketing scale figures (₹17Cr+, ₹2 lakh) — stats, not prices', () => {
-    expect(extractFigures('<span>₹<!-- -->17<!-- -->Cr+</span>')).toEqual([]);
+  it('skips scale figures (₹12 crore, ₹2 lakh), which are article figures rather than prices', () => {
+    expect(extractFigures('<span>₹<!-- -->12<!-- -->crore</span>')).toEqual([]);
     expect(extractFigures('<p>₹2 lakh collected and ₹8,500 charged</p>')).toEqual([8500]);
   });
 
@@ -97,5 +98,62 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('reports a page with zero rupee figures so the scan cannot go vacuous', () => {
     expect(inspectPage('<div id="root"></div>', allowed).total).toBe(0);
+  });
+});
+
+// The homepage story prints a retailer's own invoice — ₹1,86,420.16 on the
+// paper slip and again in the WhatsApp card — which is an illustration, not an
+// offer. It is exempted by marking the illustration in the markup rather than
+// by adding 186420 to the rate-card snapshot: the snapshot is the list of
+// things Takkada charges for, and a number that is not a price does not belong
+// in it at any price.
+describe('checkRateCardDrift — data-not-a-price illustrations', () => {
+  const allowed = allowedFigures(snapshot);
+  const SLIP =
+    '<div class="slip" data-not-a-price><div class="slip-line"><span>Item</span>' +
+    '<span>52,000.00</span></div><div class="slip-total"><span>TOTAL</span>' +
+    '<span>₹1,86,420.16</span></div></div>';
+
+  it('ignores a figure inside a marked element, nested tags and all', () => {
+    expect(inspectPage(`<main>${SLIP}<p>₹8,500</p></main>`, allowed)).toEqual({
+      total: 1,
+      unknown: [],
+    });
+  });
+
+  it('still fails on the very same figure outside a marked element', () => {
+    expect(inspectPage('<p>₹1,86,420.16</p>', allowed).unknown).toEqual([186420]);
+  });
+
+  // The attribute must not become a way to lose sight of a real price that
+  // happens to sit beside one, which is the only way this exemption could hide
+  // the drift the guard exists to catch.
+  it('keeps checking a real price that sits next to a marked block', () => {
+    const html = `<section>${SLIP}<p>Copilot is ₹9,999 a year</p></section>`;
+    expect(inspectPage(html, allowed).unknown).toEqual([9999]);
+  });
+
+  it('closes the marked element at ITS end, not at the first inner close tag', () => {
+    // A lazy `<div ...>...</div>` match would stop at the inner </div> and
+    // leave the total behind; a greedy one would eat the price after it.
+    const out = stripNotAPrice(`<div data-not-a-price><div>a</div>₹5</div><p>₹8,500</p>`);
+    expect(out).toBe('<p>₹8,500</p>');
+  });
+
+  it('strips nothing at all from a page that carries no marked element', () => {
+    const html = '<main><p>₹8,500</p></main>';
+    expect(stripNotAPrice(html)).toBe(html);
+  });
+
+  // A void or self-closed element carrying the attribute opens no subtree, so
+  // it must not swallow the rest of the page behind it.
+  it('drops a childless marked element without taking its siblings', () => {
+    expect(stripNotAPrice('<img data-not-a-price alt="₹99"/><p>₹8,500</p>')).toBe('<p>₹8,500</p>');
+  });
+
+  // The exemption cannot be allowed to empty a page: the zero-figures check is
+  // what stops this guard from passing by seeing nothing at all.
+  it('leaves a page of nothing but illustrations reading as vacuous', () => {
+    expect(inspectPage(SLIP, allowed).total).toBe(0);
   });
 });

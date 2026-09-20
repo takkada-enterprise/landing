@@ -9,15 +9,16 @@ import {
   featureRouteMetadata,
   featurePagePath,
   getFeaturePage,
+  heroShot,
+  stepShot,
 } from '../featurePages';
+import { screen, SCREENS } from '../screens';
 import {
   FEATURE_BLURBS,
   FEATURE_GROUPS,
   LEAD_FEATURE_SLUGS,
   SECTION_GROUP_IDS,
-  drainedGroupIds,
   leadFeaturePages,
-  secondaryFeatureGroups,
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
@@ -26,10 +27,7 @@ import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { findImagePreloads } from '../../../scripts/stripImagePreloads.mjs';
-import {
-  checkReferences,
-  loadManifest,
-} from '../../../scripts/checkScreenshotProvenance.mjs';
+import { checkReferences, loadManifest } from '../../../scripts/checkScreenshotProvenance.mjs';
 import { ICON_NAMES } from '../../components/FeaturePage';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -37,6 +35,18 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 // Content-side guards on the feature-page data. The page engine is only worth
 // having if a new entry cannot ship broken, so the contract each entry has to
 // satisfy is asserted here rather than left to a reviewer's eye.
+
+// Pages that shipped ahead of the backend they describe. Kept as a record,
+// not a wish: it is the list to re-read when a claim on one of these pages
+// is questioned, because the page went live before its feature could be
+// switched on for a prod customer. Module scope since 2026-09-20, because the
+// round-two describe reads it too.
+const HELD_PAGES = {
+  'order-booking-app-tally':
+    'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
+  'ai-collection-calls':
+    'Built 2026-09-20 on Ronak\'s direction while AI calling was a plan (docs/plans/2026-09-20-004 at the monorepo root, nothing built, Angoor webhook unverified). Every capability sentence comes from the requirements doc, not the app. Before this page goes live: re-check each sentence against the shipped feature and replace walkthrough step 1 with a capture of the Call with AI confirm sheet. The demo recording on the page has not been listened to by the author of this list: confirm it carries no customer and that it says what the section copy says it says.',
+};
 
 describe('feature page data contract', () => {
   it('ships at least one page', () => {
@@ -82,16 +92,18 @@ describe('feature page data contract', () => {
     '%s: the hero mockup exists, is sized, and stays inside its byte budget',
     (_slug, page) => {
       expect(page.hero).toBeDefined();
-      const abs = resolve(repoRoot, `public${page.hero.image}`);
+      // Whichever shape the hero is in - its own file, or a registry screen.
+      const shot = heroShot(page);
+      const abs = resolve(repoRoot, `public${shot.src}`);
       expect(existsSync(abs)).toBe(true);
-      expect(page.hero.width).toBeGreaterThan(0);
-      expect(page.hero.height).toBeGreaterThan(0);
-      expect(page.hero.alt.length).toBeGreaterThan(0);
+      expect(shot.width).toBeGreaterThan(0);
+      expect(shot.height).toBeGreaterThan(0);
+      expect(shot.alt.length).toBeGreaterThan(0);
       // The hero is the LCP element on these pages. Every hero image must be
       // budgeted in checkImageBudgets.mjs, or a re-export can silently put the
       // bytes back and nothing fails the build.
-      const budgeted = BUDGETS.find(([p]) => p === `public${page.hero.image}`);
-      expect(budgeted).toBeDefined();
+      const budgeted = BUDGETS.find(([p]) => p === `public${shot.src}`);
+      expect(budgeted, `public${shot.src} has no byte budget`).toBeDefined();
       expect(statSync(abs).size).toBeLessThanOrEqual(budgeted[1]);
     }
   );
@@ -112,28 +124,62 @@ describe('feature page data contract', () => {
     }
   );
 
+  // A step names its screen by registry slug (`screen`), or, until Ronak's
+  // remaining captures land (2026-09-20), still carries the old `image` shape
+  // as a placeholder. Either way it resolves to a real file with explicit
+  // dimensions, which is what keeps CLS at 0 on these pages.
   it.each(FEATURE_PAGES.filter((p) => p.walkthrough?.length).map((p) => [p.slug, p]))(
-    '%s: every walk-through step has a real screenshot with explicit dimensions',
+    '%s: every walk-through step resolves to a real screenshot with explicit dimensions',
     (_slug, page) => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
       for (const step of page.walkthrough) {
-        expect(existsSync(resolve(repoRoot, `public${step.image}`))).toBe(true);
-        expect(step.alt.length).toBeGreaterThan(0);
-        // Explicit width/height are what keep CLS at 0 on these pages.
-        expect(step.width).toBeGreaterThan(0);
-        expect(step.height).toBeGreaterThan(0);
+        const shot = stepShot(step);
+        expect(shot, `${page.slug} step "${step.title}" has no screen`).not.toBeNull();
+        if (step.screen) expect(SCREENS).toHaveProperty(step.screen);
+        expect(existsSync(resolve(repoRoot, `public${shot.src}`))).toBe(true);
+        expect(shot.alt.length).toBeGreaterThan(0);
+        expect(shot.width).toBeGreaterThan(0);
+        expect(shot.height).toBeGreaterThan(0);
       }
     }
   );
+
+  // The placeholder set is closed: only the screens Ronak is still shooting
+  // may keep the old shape. Anything else must come through the registry.
+  // 2026-09-20 evening: rbac, beats and the order-link catalogue left it
+  // (member-permissions*, beats, order-link-settings). The WhatsApp chat stays
+  // on the old image by Ronak's choice.
+  const PLACEHOLDER_IMAGES = new Set([
+    '/assets/screenshots/whatsapp-dispatch-mockup.webp',
+    '/assets/screenshots/field-visit-photo-mockup.webp',
+    '/assets/screenshots/add-items-mockup.webp',
+    '/assets/screenshots/order-link-cart-mockup.webp',
+    '/assets/screenshots/order-link-confirm-mockup.webp',
+    '/assets/screenshots/order-link-sent-mockup.webp',
+    '/assets/screenshots/order-link-inbox-mockup.webp',
+  ]);
+  it('only the screens still being captured are left on the old image shape', () => {
+    const legacy = [];
+    for (const page of FEATURE_PAGES) {
+      for (const s of page.walkthrough ?? [])
+        if (!s.screen) legacy.push(`${page.slug}: ${s.image}`);
+      for (const s of page.tour?.stations ?? [])
+        if (!s.screen) legacy.push(`${page.slug}: ${s.screenshot}`);
+    }
+    const offenders = legacy.filter((l) => !PLACEHOLDER_IMAGES.has(l.split(': ')[1]));
+    expect(offenders).toEqual([]);
+  });
 
   // Every image a reader can see on the page. Tour stations belong here as
   // much as walk-through steps do: they are full-bleed phone screens, and
   // before 2026-08-12 the sweeps below scanned only hero + walkthrough, so a
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
-    page.hero.image,
-    ...(page.walkthrough?.map((s) => s.image) ?? []),
-    ...(page.tour?.stations?.map((s) => s.screenshot) ?? []),
+    heroShot(page).src,
+    ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
+    ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
+    ...(page.sheet ? [screen(page.sheet.screen).src] : []),
+    ...(page.gallery?.items?.map((g) => screen(g.screen).src) ?? []),
   ];
 
   it.each(FEATURE_PAGES.filter((p) => p.tour).map((p) => [p.slug, p]))(
@@ -141,11 +187,12 @@ describe('feature page data contract', () => {
     (_slug, page) => {
       expect(page.tour.stations.length).toBeGreaterThan(0);
       for (const station of page.tour.stations) {
+        const shot = stepShot(station);
         expect(
-          existsSync(resolve(repoRoot, `public${station.screenshot}`)),
+          shot && existsSync(resolve(repoRoot, `public${shot.src}`)),
           `${page.slug} tour station "${station.title}" points at a missing file.`
         ).toBe(true);
-        expect(station.screenshotAlt.length).toBeGreaterThan(0);
+        expect(shot.alt.length).toBeGreaterThan(0);
         expect(station.title.length).toBeGreaterThan(0);
         expect(station.body.length).toBeGreaterThan(0);
       }
@@ -185,15 +232,6 @@ describe('feature page data contract', () => {
   // If you add one back: make the artwork ugly on purpose. A hazard-striped
   // slab reading PLACEHOLDER survives review; a tasteful grey box does not.
   const PLACEHOLDER_ASSETS = {};
-  // Pages that shipped ahead of the backend they describe. Kept as a record,
-  // not a wish: it is the list to re-read when a claim on one of these pages
-  // is questioned, because the page went live before its feature could be
-  // switched on for a prod customer.
-  const HELD_PAGES = {
-    'order-booking-app-tally':
-      'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
-  };
-
   it('every held page is a real page, so the gate list cannot rot', () => {
     const slugs = FEATURE_PAGES.map((p) => p.slug);
     for (const slug of Object.keys(HELD_PAGES)) {
@@ -205,7 +243,12 @@ describe('feature page data contract', () => {
     for (const page of FEATURE_PAGES) {
       const used = pageImages(page);
       const placeholders = used
-        .map((src) => src.split('/').pop().replace(/\.(webp|png|jpg)$/, ''))
+        .map((src) =>
+          src
+            .split('/')
+            .pop()
+            .replace(/\.(webp|png|jpg)$/, '')
+        )
         .filter((file) => file in PLACEHOLDER_ASSETS);
       if (placeholders.length === 0) continue;
       expect(
@@ -264,16 +307,24 @@ describe('feature page data contract', () => {
     return existsSync(full) && statSync(full).isFile() ? readFileSync(full) : null;
   };
   const pageReferences = (page) => [
-    { path: page.hero.image, surface: 'featurePage:hero', origin: `${page.slug} hero` },
+    { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
     ...(page.walkthrough ?? []).map((step, i) => ({
-      path: step.image,
+      path: stepShot(step).src,
       surface: 'featurePage:walkthrough',
       origin: `${page.slug} walk-through step ${i + 1}`,
     })),
     ...(page.tour?.stations ?? []).map((station) => ({
-      path: station.screenshot,
+      path: stepShot(station).src,
       surface: 'featurePage:tour',
       origin: `${page.slug} tour station "${station.title}"`,
+    })),
+    ...(page.sheet
+      ? [{ path: screen(page.sheet.screen).src, surface: 'featurePage:sheet', origin: `${page.slug} sheet` }]
+      : []),
+    ...(page.gallery?.items ?? []).map((item, i) => ({
+      path: screen(item.screen).src,
+      surface: 'featurePage:gallery',
+      origin: `${page.slug} gallery item ${i + 1}`,
     })),
   ];
   const provenanceErrors = (references) =>
@@ -296,7 +347,12 @@ describe('feature page data contract', () => {
       ([, record]) => record.knownSensitive
     );
     const stems = new Set(
-      sensitive.map(([, record]) => record.path.split('/').pop().replace(/\.\w+$/, ''))
+      sensitive.map(([, record]) =>
+        record.path
+          .split('/')
+          .pop()
+          .replace(/\.\w+$/, '')
+      )
     );
     expect([...stems].sort()).toEqual([
       'bankbook',
@@ -449,7 +505,8 @@ describe('feature page data contract', () => {
   // exist yet and why, and a flat ban made writing that truth impossible. So
   // the ban stays absolute everywhere a claim can live, and the FAQ is allowed
   // to discuss closure only while denying it and citing the advisory.
-  const CLOSURE = /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
+  const CLOSURE =
+    /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
 
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: never claims e-way bill closure on any selling surface',
@@ -477,9 +534,13 @@ describe('feature page data contract', () => {
         // answer that raises closure without it is either a claim or a vague
         // half-answer, and both are failures.
         expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toContain('abeyance');
-        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toMatch(/advisory no\. 668/);
+        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toMatch(
+          /advisory no\. 668/
+        );
         // And it must actually say no.
-        expect(answer, `${page.slug}: closure FAQ must deny, not claim`).toMatch(/\bno\b|\bnot\b|cannot/);
+        expect(answer, `${page.slug}: closure FAQ must deny, not claim`).toMatch(
+          /\bno\b|\bnot\b|cannot/
+        );
       }
     }
   );
@@ -520,17 +581,16 @@ describe('feature page data contract', () => {
   });
 });
 
-// The hub renders three tiers now: a lead grid, two labelled sections, and a
-// compact index of the rest. Only the lead slugs and the section ids are
-// written down; the index is what is left over. These assertions are the reason
-// that subtraction is safe to rely on, and they run against the data rather
-// than a rendered page so they stay true of the header panel and the footer
-// column, which read the same exports.
+// The hub renders two tiers: a lead grid, then a labelled section per group.
+// Only the lead slugs are written down; every section is the rest of its group
+// after those are subtracted. These assertions are the reason that subtraction
+// is safe to rely on, and they run against the data rather than a rendered page
+// so they stay true of the header panel and the footer column, which read the
+// same exports.
 describe('hub tiers partition the feature pages', () => {
   const slugsOf = (pages) => pages.map((p) => p.slug);
   const lead = () => slugsOf(leadFeaturePages(FEATURE_PAGES));
   const sections = () => sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
-  const index = () => secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => slugsOf(g.pages));
 
   it('names distinct lead slugs that are all real pages', () => {
     const known = new Set(FEATURE_PAGES.map((p) => p.slug));
@@ -541,39 +601,35 @@ describe('hub tiers partition the feature pages', () => {
     expect(lead()).toEqual(LEAD_FEATURE_SLUGS);
   });
 
-  it('covers every feature page exactly once across the three tiers', () => {
-    const all = [...lead(), ...sections(), ...index()];
+  it('covers every feature page exactly once across the two tiers', () => {
+    const all = [...lead(), ...sections()];
     expect(new Set(all).size, 'a page appears in more than one tier').toBe(all.length);
     expect(all.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
   });
 
-  it('keeps the two comparison and trade groups out of the compact index', () => {
+  // The seven stops are the page's spine, so a stop group survives the lead
+  // subtraction even with nothing left; only a group outside the journey is
+  // dropped when it is empty. Every group is a section since the compact index
+  // went (2026-09-18), so today nothing is dropped at all.
+  it('renders every group as a section, in journey order', () => {
     expect(sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id)).toEqual(SECTION_GROUP_IDS);
-    expect(secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id)).not.toContain(
-      SECTION_GROUP_IDS[0]
-    );
+    expect(SECTION_GROUP_IDS).toEqual(FEATURE_GROUPS.map((g) => g.id));
   });
 
-  it('renders no empty heading in the compact index', () => {
-    for (const group of secondaryFeatureGroups(FEATURE_PAGES)) {
+  it('keeps a stop section even when the lead tier takes all of its pages', () => {
+    const stops = new Set(FEATURE_GROUPS.filter((g) => g.stop).map((g) => g.id));
+    const rendered = sectionFeatureGroups(FEATURE_PAGES);
+    expect([...stops].filter((id) => !rendered.some((g) => g.id === id))).toEqual([]);
+    // And no section outside the journey heads nothing.
+    for (const group of rendered.filter((g) => !g.stop)) {
       expect(group.pages.length, group.id).toBeGreaterThan(0);
-      expect(group.title).toBeTruthy();
     }
   });
 
-  // Every group id has been a linkable #anchor on the hub since it shipped.
-  // A group whose pages all got promoted to the lead tier stops heading a
-  // section, so its id has to be re-homed rather than dropped; the hub does
-  // that, and features-hub.test.jsx checks the DOM side.
-  it('accounts for the id of every group the lead tier drained', () => {
-    const drained = drainedGroupIds(FEATURE_PAGES);
-    const rendered = new Set([
-      ...sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id),
-      ...secondaryFeatureGroups(FEATURE_PAGES).map((g) => g.id),
-    ]);
-    expect([...rendered, ...drained].sort()).toEqual(FEATURE_GROUPS.map((g) => g.id).sort());
-    // Today that is exactly gst-paperwork: both its pages lead.
-    expect(drained).toEqual(['gst-paperwork']);
+  it('leaves no section duplicating a lead card', () => {
+    const leadSlugs = new Set(LEAD_FEATURE_SLUGS);
+    const repeated = sections().filter((slug) => leadSlugs.has(slug));
+    expect(repeated).toEqual([]);
   });
 
   it('carries a directory line for every page, whichever tier it lands in', () => {
@@ -610,9 +666,7 @@ describe('feature page registration is automatic', () => {
   });
 
   it('still reaches every feature page from the hub and footer together', () => {
-    const footerSlugs = footerColumns
-      .find((c) => c.title === 'Features')
-      .links.map((l) => l.page);
+    const footerSlugs = footerColumns.find((c) => c.title === 'Features').links.map((l) => l.page);
     // The hub tiers cover FEATURE_PAGES exactly (asserted above), so the union
     // is the hub. Stated as a union anyway: if the hub's coverage is ever
     // narrowed, this names the page that lost its last crawlable link rather
@@ -620,7 +674,6 @@ describe('feature page registration is automatic', () => {
     const reachable = new Set([
       ...leadFeaturePages(FEATURE_PAGES).map((p) => p.slug),
       ...sectionFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
-      ...secondaryFeatureGroups(FEATURE_PAGES).flatMap((g) => g.pages.map((p) => p.slug)),
       ...footerSlugs,
     ]);
     expect(FEATURE_PAGES.filter((p) => !reachable.has(p.slug)).map((p) => p.slug)).toEqual([]);
@@ -673,7 +726,7 @@ describe('feature page registration is automatic', () => {
       const html = readFileSync(built, 'utf-8');
       const preloads = findImagePreloads(html);
       expect(preloads).toHaveLength(1);
-      expect(preloads[0]).toContain(page.hero.image);
+      expect(preloads[0]).toContain(heroShot(page).src);
     }
   );
 
@@ -684,3 +737,142 @@ describe('feature page registration is automatic', () => {
     }
   });
 });
+
+// D12: every feature page was still wearing one of six generic mockups, and the
+// picture rarely matched what the page was about. A page now names a screen out
+// of the registry instead of a file path, so the alt text, the two widths and
+// the provenance record all travel with it.
+describe('feature page heroes come from the screen registry', () => {
+  const withScreen = FEATURE_PAGES.filter((p) => p.hero?.screen);
+
+  // A screen showing a phone number, a real person's name beside a number, or a
+  // GSTIN is not published. `einvoice-eway` was rejected on 2026-09-19 for the
+  // party's number; its retouched successor is `invoice-summary-send`. The Van
+  // screen (`van-loading`, "ronak / 9194…") was cleared by Ronak on 2026-09-20:
+  // it is his own number and he chose to publish it as is.
+  const BLOCKED = ['einvoice-eway'];
+
+  it('names a registered slug wherever hero.screen is set', () => {
+    for (const page of withScreen) {
+      expect(() => screen(page.hero.screen), `${page.slug} names an unknown screen`).not.toThrow();
+    }
+  });
+
+  it('puts a real screen on at least 20 of the 27 pages', () => {
+    expect(
+      withScreen.length,
+      `only ${withScreen.length} of ${FEATURE_PAGES.length} pages carry a registry screen`
+    ).toBeGreaterThanOrEqual(20);
+  });
+
+  it('publishes none of the screens rejected for a phone number', () => {
+    const offenders = withScreen
+      .filter((p) => BLOCKED.includes(p.hero.screen))
+      .map((p) => `${p.slug} -> ${p.hero.screen}`);
+    expect(offenders, 'a blocked capture reached a feature page').toEqual([]);
+  });
+
+  it('resolves both hero shapes through one helper', () => {
+    for (const page of FEATURE_PAGES) {
+      const shot = heroShot(page);
+      expect(shot, `${page.slug} has no hero shot`).toBeTruthy();
+      expect(shot.src, `${page.slug} hero has no src`).toBeTruthy();
+      expect(shot.alt, `${page.slug} hero has no alt`).toBeTruthy();
+      expect(shot.width, `${page.slug} hero has no width`).toBeTruthy();
+      expect(shot.height, `${page.slug} hero has no height`).toBeTruthy();
+    }
+  });
+});
+
+// The in-detail cards (2026-09-20) are the one place a feature page describes
+// behaviour at length. Ronak's second read the same evening: they read as
+// essays. A point is now a bold lead of a few words and one plain sentence,
+// at most four to a card, so the eye lands on the pointer and the sentence is
+// the proof. Every point still comes from a Live row of the import manual.
+describe('in-detail cards', () => {
+  const detailed = FEATURE_PAGES.filter((p) => p.detail);
+  it('exist on the three import pages', () => {
+    expect(detailed.map((p) => p.slug).sort()).toEqual(
+      ['bank-statement-import-tally', 'handwritten-order-to-tally', 'import-purchase-from-pdf'].sort()
+    );
+  });
+  it.each(detailed.map((p) => [p.slug, p]))(
+    '%s: detail section names a guide that exists and keeps every point short',
+    (_slug, page) => {
+      expect(existsSync(resolve(repoRoot, `content/guide/${page.detail.guide.slug}.md`))).toBe(true);
+      expect(page.detail.groups.length).toBeGreaterThanOrEqual(3);
+      for (const group of page.detail.groups) {
+        expect(group.points.length, group.title).toBeGreaterThan(0);
+        expect(group.points.length, group.title).toBeLessThanOrEqual(4);
+        for (const point of group.points) {
+          const where = `${page.slug}: "${point.lead}"`;
+          expect(point.lead.split(/\s+/).length, where).toBeLessThanOrEqual(6);
+          expect(point.lead, where).not.toMatch(/[.:,;]$/);
+          expect(point.text.split(/\s+/).length, where).toBeLessThanOrEqual(28);
+          expect(point.text, where).toMatch(/\.$/);
+          expect(`${point.lead} ${point.text}`, where).not.toMatch(/—/);
+        }
+      }
+    }
+  );
+});
+
+// The report gallery (2026-09-20): Ronak wants every report there is a
+// screenshot of named on /tally-reports-on-mobile. Twelve small phones, one
+// line each. Twelve because the grid is 4, 3 or 2 across by viewport and 12
+// fills every one of those, so no row is left with an orphan.
+describe('report gallery', () => {
+  const withGallery = FEATURE_PAGES.filter((p) => p.gallery);
+  it('is on the reports page and nowhere else', () => {
+    expect(withGallery.map((p) => p.slug)).toEqual(['tally-reports-on-mobile']);
+  });
+  it.each(withGallery.map((p) => [p.slug, p]))('%s: twelve registered screens, one line each', (_slug, page) => {
+    const { items } = page.gallery;
+    expect(items.length % 12).toBe(0);
+    expect(new Set(items.map((i) => i.screen)).size).toBe(items.length);
+    for (const item of items) {
+      expect(SCREENS, item.screen).toHaveProperty(item.screen);
+      expect(item.title.split(/\s+/).length, item.title).toBeLessThanOrEqual(4);
+      expect(item.body.split(/\s+/).length, item.title).toBeLessThanOrEqual(18);
+      expect(item.body, item.title).toMatch(/\.$/);
+    }
+  });
+});
+
+// Round two, 2026-09-20: the two pages Ronak asked for. Pinned by slug so a
+// regroup cannot drop one without saying so.
+describe('round-two pages', () => {
+  it('ships the approvals page under the Order stop', () => {
+    expect(getFeaturePage('voucher-approval-before-tally')).toBeDefined();
+    expect(FEATURE_GROUPS.find((g) => g.id === 'order').slugs).toContain('voucher-approval-before-tally');
+  });
+  it('ships the AI calling page under the Recover stop, held until the feature exists', () => {
+    expect(getFeaturePage('ai-collection-calls')).toBeDefined();
+    expect(FEATURE_GROUPS.find((g) => g.id === 'recover').slugs).toContain('ai-collection-calls');
+    expect(HELD_PAGES).toHaveProperty('ai-collection-calls');
+  });
+});
+
+// The demo call (2026-09-20): Ronak wants the recording on the AI calling page.
+// It is the one thing on that page a reader can check for themselves, so it is
+// pinned to a file that exists rather than to a URL somebody meant to upload.
+describe('call recording', () => {
+  const withCall = FEATURE_PAGES.filter((p) => p.listen);
+  it('is on the AI calling page and nowhere else', () => {
+    expect(withCall.map((p) => p.slug)).toEqual(['ai-collection-calls']);
+  });
+  it.each(withCall.map((p) => [p.slug, p]))('%s: names a file that ships, with its own waveform', (_slug, page) => {
+    const { listen } = page;
+    expect(listen.src.startsWith('/assets/audio/')).toBe(true);
+    expect(existsSync(resolve(repoRoot, `public${listen.src}`))).toBe(true);
+    expect(listen.duration).toBeGreaterThan(0);
+    // Read off the file itself, so the bars are this call and not a decoration.
+    expect(listen.peaks.length).toBe(64);
+    for (const peak of listen.peaks) {
+      expect(peak).toBeGreaterThan(0);
+      expect(peak).toBeLessThanOrEqual(1);
+    }
+    expect(Math.max(...listen.peaks)).toBe(1);
+  });
+});
+

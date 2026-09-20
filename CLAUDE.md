@@ -74,7 +74,7 @@ Don't:
 - No cheap shots at competitors or the customer's current workflow
 - No AI/roadmap promises that aren't shipped
 - End sections with statements, not questions
-- No vanity numbers. The public scale figures are: **100+ businesses and ₹17Cr+ collected monthly — platform-wide figures, founder-confirmed 2026-07-06**. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+/₹17Cr stats down to it. Beyond these two confirmed figures, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor.
+- No vanity numbers. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return. "~20" refers to paying Takkada customers and does not constrain site copy; do not "correct" the 100+ stat down to it. Beyond that one confirmed figure, do not invent numbers ("trusted by thousands" stays banned). If a claim isn't true, it goes on the editing floor. `scripts/checkRetiredClaims.mjs` runs in the `build` chain and keeps the retired figure out; `src/__tests__/claims-guard.test.js` exercises it.
 
 Positioning guardrail: Tally is the neighbour, not the enemy. Takkada is built on top of Tally, not against it.
 
@@ -82,55 +82,65 @@ Lead-answer convention (blog posts): every `content/blog/*.md` post opens with a
 
 ## 6. Design tokens (the live source of truth is `src/styles.css` `:root`; this section mirrors it)
 
-The 2026-06-18 teardown defined one authoritative token layer in `src/styles.css` `:root`. These values match it exactly. If they ever diverge again, `:root` wins and this section must be re-synced. Typography is separate (section 7).
+The 2026-06-18 teardown defined one authoritative token layer in `src/styles.css` `:root`, and the 2026-09-18 revamp repainted it: the sage system is gone and the site now runs the app's **Marine** palette (`takkada/lib/theme/color_palettes.dart`). These values match `:root` exactly. If they ever diverge again, `:root` wins and this section must be re-synced. Typography is separate (section 7).
 
-Brand sage:
-- Primary sage: #344E41 (`--color-primary`)
-- Primary dark: #1B3026 (`--color-primary-dark`)
-- Secondary / primary-light: #4A7C59 (`--color-primary-light`)
-- Accent: #6B9E7A (`--color-accent`, `--color-sage`)
-- Label on dark / sage-light: #B8D4BE (`--color-sage-light`)
-- Sage wash: #E7F0E8 (`--color-sage-bg`)
-- Container tint: #DAE5D6 (`--color-container`)
-- On-container: #0D1F12 (`--color-on-container`)
-- Ink (darkest band, footer): #14241C (`--color-ink`, `--color-dark`)
+Brand marine:
+- Primary, Tally blue: #006EA6 (`--color-primary`). Buttons, links, icons
+- Navy: #1E3A6B (`--color-navy`); navy lift #2B5290 (`--color-navy-lift`)
+- Deepest navy: #0F1F3D (`--color-primary-dark`, `--color-ink`, `--color-dark`, `--color-dark-bg`, `--color-on-container`). The hero band, the story band, the footer
+- Primary light: #149EC2 (`--color-primary-light`, aliased by `--color-sage`)
+- Accent: #9CCBEA (`--color-accent`, `--color-sage-light`). Emphasis and labels on navy; it clears AA on #0F1F3D
+- Wash: #DCF2FB (`--color-wash`, aliased by `--color-sage-bg` and `--color-container`)
+- Marigold highlight: #FCAF1B (`--color-highlight`)
 
-Soft sage tints (sage-only; used for feature icon containers and pastel plates):
-- Mint #E8F0E8, Peach #DEEBDD, Rose #E4EFE4, Sky #DCE9E0, Sand #EDF2EA
-- These are all sage-family greens. The token names (`--tint-peach` etc.) are kept for backward compatibility, but the values are NOT warm pastels anymore. The 2026-06-18-second-pass aligned them to the app's single icon-container fill (#E8F0E8 softTint) because the warm peach/rose/sand pastels were a landing-only invention the app never used and made the site read as a different brand. Do not reintroduce warm tints.
+The old sage token **names** survive as aliases for one release so every existing rule restyles without edits. The old sage **hexes** are gone, and `src/__tests__/brand-guard.test.js` fails the suite if #344E41 or any of its family reappears anywhere under `src/`.
+
+Marigold rule: `--color-highlight` is the accent dot, the mono time label, the active-stop marker and the focus ring. It is never a button fill, a pill fill or a text background.
+
+Soft tints (feature icon containers and pastel plates), all pale blues now:
+- Mint #DCF2FB, Peach #EAF3F9, Rose #EEF5FA, Sky #DCF2FB, Sand #F7FAFC
+- The token names (`--tint-peach` etc.) are kept for backward compatibility, and the values are marine tints. The warm peach/rose/sand pastels were a landing-only invention the app never used; do not reintroduce them.
 
 Surfaces & text:
-- Background: #FAFAF7 · Surface: #FFFFFF · Surface variant: #F3F3EE
-- Text primary: #1A1C1A · secondary: #5F6B64 · muted: #9CA39D
-- Outline: #E5E5DF · Hairline: #EEEEEA
-- Success #059669 · Danger #DC2626 · Warning #D97706
+- Background: #F7FAFC · Surface: #EEF5FA (`--color-surface`, `--color-surface-variant`) · Surface alt: #EAF3F9 · White: #FFFFFF
+- Paper: #FBF9F2 (`--color-paper`), used only by the invoice slip and the printed sheets
+- Text primary: #0E1C2A · secondary: #44687D · muted: #8FB4C7 · on dark: #FFFFFF
+- **Readable body copy uses `--color-text-secondary`.** `--color-text-muted` sits at about 2.2:1 on the page background, so it is decoration (a caption, a disabled state) and never prose a visitor has to read
+- Border: #D4E6F0 (`--color-border`) · border light and hairline: #EAF3F9
+- Success #059669 · Danger #DC2626 · Warning #D97706 (unchanged, same as the app)
 
-Hero: layered sage-paper composition (dark sage device band over warm paper), not a flat gradient.
+Stamp inks, for the invoice slip and the features hub and nowhere else: `--stamp-blue` #1F5FBF, `--stamp-green` #0E8A5F, `--stamp-red` #C2372F, `--stamp-ink` #1D2433. The fourth is the plain black-ink stamp and carries its own token so the homepage and the hub hit the same ink.
+
+Hero: a deep navy (#0F1F3D) band carrying the playable phone (`src/components/PlayablePhone.jsx`), six job buttons, and copy that swaps with the screen. The features hub and every feature page carry the same navy hero, so the fixed nav flips to white text with a white logo silhouette over all three until it scrolls, via `body:has(.home-v3 | .feature-hero | .features-hub-hero) .site-nav:not(.scrolled)` in `src/styles.css`.
 
 Radii: sm 8 · md 12 · lg 16 · xl 20 · 2xl 28 · full 9999.
 
-Elevation (soft, warm sage-tinted, never 1px outlines): `--shadow-xs/sm/md/lg/xl` plus `--shadow-phone` for the device frames. Shadows carry a green-ink tint (`rgba(20,36,28,…)`), not neutral black.
+Elevation (soft, navy-tinted, layered, never 1px outlines): `--shadow-xs/sm/md/lg/xl` plus `--shadow-phone` for the device frames. Shadows carry a navy ink tint, `rgba(10, 23, 48, …)`, rather than neutral black.
 
-Motion tokens: `--ease-out` (cubic-bezier(0.16,1,0.3,1)), `--ease-soft`, durations `--dur-fast` 0.18s / `--dur` 0.28s / `--dur-slow` 0.5s / `--dur-reveal` 0.7s. All motion honors `prefers-reduced-motion`.
+Motion tokens: `--ease-out` (cubic-bezier(0.23, 1, 0.32, 1)), `--ease-soft` (cubic-bezier(0.4, 0, 0.2, 1)), durations `--dur-press` 0.14s / `--dur-fast` 0.18s / `--dur` 0.28s / `--dur-slow` 0.5s / `--dur-reveal` 0.55s. All motion honors `prefers-reduced-motion`. The rules governing how these get used are in §11.5.
+
+Layout: `--max-width` 1200px. `--scroll-y` is written on the documentElement by `src/hooks/useScrollFx.js` for scroll-driven reads.
 
 Component patterns:
-- Cards: 16px (`--radius-lg`) radius, soft layered shadow (not 1px outlines)
-- Row dividers inside cards: 0.5px hairline #EEEEEA
-- Icon containers: rounded squares, soft sage-tint fill (#E8F0E8), sage icon color
-- Overline labels: 11–13px, weight 700, 0.06–0.08em letter-spacing, uppercase, sage
-- Buttons: pill radius (`--radius-full`), weight 600; primary sage filled, secondary tonal, outline sage, dark (white-on-ink)
+- Cards: 16px (`--radius-lg`) radius, soft layered shadow, never a 1px outline
+- Row dividers inside cards: 0.5px hairline #EAF3F9
+- Icon containers: rounded squares, pale blue tint fill (`--tint-mint` #DCF2FB), primary-blue icon
+- Overline labels: 11–13px, weight 700, 0.06–0.08em letter-spacing, uppercase, primary blue (or `--color-sage-light` when they sit on navy)
+- Buttons: pill radius (`--radius-full`), weight 600; primary blue filled, secondary tonal, outline blue, dark (white on navy). Marigold is never a button
 
 ## 7. Typography rule
 
-The shipped site uses **two families**: Plus Jakarta Sans for body/UI (the exact font the Takkada Flutter app uses via `google_fonts`; see `takkada/lib/theme/design_tokens.dart`) and **Fraunces as the display serif for headings**, added deliberately by the 2026-06-29 premium overlay (`src/premium.css`, "One tasteful type addition"). `premium.css` imports after `styles.css` in `src/main.jsx` and re-points `--font-serif` at `--font-display: 'Fraunces', …`, so every `var(--font-serif)` heading rule renders Fraunces. The earlier "one family only / the Fraunces link is vestigial" note (2026-06-18 second pass) predates that overlay and is dead — the Fraunces `<link>` in `index.html` is load-bearing; removing it silently reverts every heading to Plus Jakarta Sans (this nearly shipped once, 2026-07-06).
+The shipped site uses **two families**, both self-hosted from our own origin. There is no Google Fonts `<link>` in `index.html` any more (it was render-blocking for 1.3s) and the faces are deliberately not preloaded (preloading them put 93KB in front of the LCP image and pushed live mobile LCP from 2.6–2.9s to 3.1–4.2s). The `@font-face` block lives in `src/fonts.css`, which is **generated** by `scripts/vendorFonts.mjs` and imported first in `src/main.jsx` so the faces are declared before any rule references them. Do not hand-edit `src/fonts.css`; regenerate it.
 
-- **Plus Jakarta Sans**, loaded from Google Fonts via the `<link>` in `index.html` (weights 400;500;600;700;800). Used for body and UI, exposed as `--font-sans`.
-- **Fraunces** (opsz, weights 500;600;700), same `<link>`. Used for headings via `--font-display`/`--font-serif` in `src/premium.css`.
-- **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), not from a serif face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
+- **Plus Jakarta Sans** (weights 400, 500, 600, 700, 800) carries everything: body, UI and every heading. It is the exact family the Takkada Flutter app uses via `google_fonts` (see `takkada/lib/theme/design_tokens.dart`). Exposed as `--font-sans`, and `--font-serif` is an alias that resolves to the same stack.
+- **IBM Plex Mono** (weights 400, 500, 600) is the one utility face, exposed as `--font-mono`. It is used only for the invoice slip, the mono time labels and the stop labels. If it stops resolving, those three silently reflow into a system monospace, which is why each cut is budgeted in `scripts/checkImageBudgets.mjs`.
+- **Headings** get their weight from the `:root`-prefixed "Display headings" block near the top of `src/styles.css` (hero/display `--weight-display-hero` 800, section/card headings `--weight-display` 700, soft quote/date 600), rather than from a display face. When you add a net-new heading class, add it to that block so it reads as a title rather than body weight.
 
-Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. The self-hosted Inter `.ttf` under `public/assets/fonts/` is now unreferenced; leave it or delete it, but do not wire it back in.
+**Fraunces is retired** (2026-09-18 revamp). `src/premium.css` no longer re-points `--font-serif`, and `src/__tests__/brand-guard.test.js` walks every `.css`, `.js` and `.jsx` file under `src/` and fails if the word "Fraunces" appears anywhere, comments included. Do not reintroduce it.
 
-Before writing any component, confirm the font stack by reading `index.html` (the Plus Jakarta Sans `<link>`) and the top of `src/styles.css` (the `--font-sans` / `--font-serif` tokens and the Display-headings block), then match it exactly.
+Do not introduce any other font family. No Inter, no DM Serif Display, no Hedvig Letters, no Bdo Grotesk. `public/assets/fonts/` holds only the two vendored families' `.woff2` subsets; the old unreferenced Inter `.ttf` is gone.
+
+Before writing any component, confirm the font stack by reading the top of `src/styles.css` (the `--font-sans` / `--font-serif` / `--font-mono` tokens and the Display-headings block) and `src/fonts.css`, then match it exactly. `src/__tests__/fonts.test.js` guards the loading strategy.
 
 Numbers use tabular lining figures. Add a utility class `.tabular-nums { font-feature-settings: "tnum" 1, "lnum" 1; }` if one doesn't exist, and apply it to every ₹ amount, percentage, and date on the site.
 
@@ -151,7 +161,8 @@ Current entry points and commands:
 - Single test: `npx vitest run src/lib/demoBooking.test.js` or `npx vitest -t "<test name>"`
 - Setup file for tests: `src/test/setup.js`
 - App entry: `src/main.jsx` mounts `src/App.jsx` into `index.html`
-- Content source of truth for the landing page: `src/data/siteContent.js`
+- Content source of truth for the landing page: `src/data/siteContent.js` (pricing, proof strip, differentiators, trust, FAQ). The 2026-09-18 revamp put the homepage's two signature pieces in their own files: the hero's hotspots and job buttons in `src/data/heroHotspots.js`, and the "Follow one invoice" story in `src/data/journey.js` (rendered by `src/components/FollowOneInvoice.jsx`, `InvoiceSlip.jsx`, `PaperSheet.jsx` with `src/hooks/useActiveStation.js`). The features hub groups its sections by the same seven stops through the `stop` field in `src/data/featureGroups.js`, and feature pages carry `src/components/JourneyStrip.jsx`
+- App screenshots: `src/data/screens.js` is the single registry of screen images used by the hero, the journey, the hub and feature pages. The files are exported by `node scripts/exportScreens.mjs` from the gitignored `mockups/` folder, `scripts/screens.manifest.json` records the check made against each source, and `content/image-provenance.json` (demo company 143) carries the provenance review that `scripts/checkScreenshotProvenance.mjs` enforces
 - Demo booking integration: `src/lib/demoBooking.js` + `src/config/demoBooking.js` (Supabase Edge Function; anon key and URL resolved from runtime globals, then `VITE_SUPABASE_*` env, then a production fallback)
 - Client-side company pages: `about-us`, `contact-us`, `privacy-policy`, `terms-and-conditions`, `refund-policy` are routed by path inspection in `App.jsx` (`VALID_PAGES` array + `popstate` handling). When adding pages under SSG, migrate routes out of this manual switch.
 
@@ -192,9 +203,20 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 
 3. **Every claim must be a specific behavior, not a superlative.** "Fast", "seamless", "enterprise-grade", "world-class" are banned. Replace with: "invoice reaches the customer in under 10 seconds of save", "₹1,00,000 across three invoices auto-splits", "works in 2G-zone villages where Tally can't load." Specificity is the signature of someone who has actually seen the problem.
 
-4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. Our confirmed public figures are 100+ businesses on the platform and ₹17Cr+ collected monthly (see §5); beyond those, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
+4. **Honest scale signals only.** Stripe uses a GDP counter because they process the world's GDP. The one public scale figure is **100+ businesses** (platform-wide, founder-confirmed 2026-07-06). The monthly rupee volume was retired on 2026-09-18 and must not return (see §5). Beyond that figure, our equivalent is naming the depth of understanding: one real scenario from a Dibrugarh wholesaler, one from a Guwahati FMCG distributor, one from a Barpeta family operation. Depth of domain knowledge is our trust signal. We do not say "thousands", "millions", or "trusted by India's biggest." We say true things that prove we've been in the room.
 
 5. **Motion serves meaning or it doesn't exist.** No decorative animations. If a button, card, or transition moves, the motion must reflect what the product actually does. A reconciliation card matching and snapping into place, an invoice PDF sliding toward a WhatsApp bubble. Motion that doesn't teach is deleted. Default state: no motion. Opt-in per-component with a reason documented in the component file header.
+
+   Motion contract (2026-09-18 revamp; the file-level statements of it are the headers of `src/home.css` and `src/journey.css`):
+   - Animate only `transform`, `opacity` and `filter`. Never write `transition: all` in new code; name the properties. The four legacy `transition: all` rules left in `src/styles.css` are debt to pay down, and they license nothing
+   - Easing is `var(--ease-out)` (cubic-bezier(0.23, 1, 0.32, 1)) unless a rule has a stated reason to differ
+   - UI transitions run at 320ms or under, and an exit is faster than the matching enter
+   - Press feedback is `scale(0.97)`
+   - Nothing enters from `scale(0)`. Start at 0.96 or above and carry the rest on opacity
+   - Anything that can reverse mid-flight is a **transition**, so a second tap retargets instead of queueing. That covers the stamps and the phone's screen swaps. The one permitted `@keyframes` on the new surfaces is the ambient hint-dot ping, which never reverses
+   - Hover effects sit behind `@media (hover: hover) and (pointer: fine)` so a touch device does not get stuck in a hover state
+   - Under `prefers-reduced-motion` the opacity fades stay and the transforms and blurs drop
+   - Modals stay centred rather than origin-aware. The playable phone is the exception: its screen opens from the tile the visitor tapped, because that is the thing being taught
 
 6. **Walk the store before committing.** Before any session ends, Claude Code navigates the rendered site end-to-end in `npm run preview` and reports: (a) is there a dead end anywhere. A CTA that leads nowhere, a broken internal link, a page with no clear next step? (b) does the tone shift anywhere. Does one page feel more corporate than its neighbour? (c) does a distributor reading this get confused at any point? Fix these before committing.
 

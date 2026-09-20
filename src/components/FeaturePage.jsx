@@ -28,10 +28,13 @@ import {
 } from 'lucide-react';
 import Seo from './Seo';
 import FeatureTour from './FeatureTour';
+import CallPlayer from './CallPlayer';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
+import BackHome from './BackHome';
 import FAQItem from './FAQItem';
+import JourneyStrip from './JourneyStrip';
 import { pricing, planPricing } from '../data/siteContent';
 import {
   softwareApplicationSchema,
@@ -40,7 +43,8 @@ import {
   articlePageSchema,
   SITE_URL,
 } from '../data/schema';
-import { featurePagePath } from '../data/featurePages';
+import { featurePagePath, heroShot, stepShot } from '../data/featurePages';
+import { screen } from '../data/screens';
 
 // The feature-landing-page template. One entry in src/data/featurePages.js is
 // one page; this renders it. Built as a second template beside ICPTemplate
@@ -120,6 +124,9 @@ function FeaturePage({ page }) {
   const [faqIndex, setFaqIndex] = useState(-1);
 
   const path = featurePagePath(page);
+  // Resolved once: the hero image, the LCP preload and the Article schema image
+  // all have to be the same picture.
+  const shot = heroShot(page);
   const faqItems = page.faqs.map((f) => ({ question: f.q, answer: f.a }));
   const trail = [
     { name: 'Home', url: `${SITE_URL}/` },
@@ -142,9 +149,9 @@ function FeaturePage({ page }) {
             // Without the fallback, a tour-only page emits Article with no
             // image at all.
             image:
-              page.walkthrough?.[0]?.image ??
-              page.tour?.stations?.[0]?.screenshot ??
-              page.hero?.image,
+              stepShot(page.walkthrough?.[0])?.src ??
+              stepShot(page.tour?.stations?.[0])?.src ??
+              shot?.src,
             datePublished: page.datePublished,
             dateModified: page.updated,
             author: page.author,
@@ -161,6 +168,7 @@ function FeaturePage({ page }) {
         <div className="container">
           <div className="feature-hero-grid">
             <div className="hero-content icp-hero-content">
+              <BackHome />
               <Breadcrumb trail={trail} />
               <span className="section-label hero-overline">{page.overline}</span>
               <h1 className="hero-title icp-hero-title">{page.headline}</h1>
@@ -170,8 +178,12 @@ function FeaturePage({ page }) {
                 <WhatsAppCTA context={page.waContext} />
                 <CalendarCTA context={page.waContext} />
               </div>
+              {/* Closes the hero with the one thing the page cannot say about
+                  itself: where it sits in the invoice's life. Renders nothing
+                  for a page that is not one of the seven stops. */}
+              <JourneyStrip slug={page.slug} />
             </div>
-            {page.hero && (
+            {shot && (
               <div className="feature-hero-shot">
                 {/* LCP element on desktop. Eager and high priority, never lazy.
                     Do not hand-write a <link rel=preload> for it: vite-react-ssg
@@ -180,10 +192,12 @@ function FeaturePage({ page }) {
                     it here is what earns the preload; adding a second one by
                     hand is what breaks checkImagePreloads. */}
                 <img
-                  src={page.hero.image}
-                  alt={page.hero.alt}
-                  width={page.hero.width}
-                  height={page.hero.height}
+                  src={shot.src}
+                  srcSet={shot.srcSet}
+                  sizes="(max-width: 767px) 70vw, 300px"
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
                   fetchPriority="high"
                   decoding="async"
                 />
@@ -193,49 +207,179 @@ function FeaturePage({ page }) {
         </div>
       </section>
 
+      {/* ── A recording of the thing the page describes, only on pages whose
+          data carries one: the AI collection call first (2026-09-20). Directly
+          under the hero (Ronak, 2026-09-20): on a page about a phone call the
+          call itself is the proof, and under the walkthrough it was four cards
+          past the fold where nobody would reach it. ── */}
+      {page.listen && (
+        <section className="tally-section feature-listen" id="listen">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.listen.overline}</span>
+              <h2 className="section-title">{page.listen.heading}</h2>
+              {page.listen.body && <p className="feature-listen-intro">{page.listen.body}</p>}
+            </div>
+            <CallPlayer listen={page.listen} />
+            {page.listen.caption && <p className="feature-listen-caption">{page.listen.caption}</p>}
+          </div>
+        </section>
+      )}
+
       {/* ── Walk-through, one real screenshot per step. Only on pages whose
           story is a grid. A page carrying a scroll tour instead tells the same
           day once, below, and rendering both narrated it twice. ── */}
       {page.walkthrough?.length > 0 && (
-      <section className="tally-section feature-walkthrough" id="walkthrough">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">{page.overline}</span>
-            <h2 className="section-title">{page.walkthroughHeading}</h2>
-          </div>
-          <div className="feature-steps">
-            {page.walkthrough.map((step) => {
-              const Icon = ICONS[step.icon];
-              return (
-                <article key={step.title} className="feature-step">
-                  <div className="feature-step-copy">
-                    <div className="tally-card-icon">{Icon && <Icon size={22} />}</div>
-                    <h3>{step.title}</h3>
-                    <p>{step.body}</p>
-                  </div>
-                  {step.image && (
-                    <div className="feature-step-shot">
-                      <img
-                        src={step.image}
-                        alt={step.alt}
-                        width={step.width}
-                        height={step.height}
-                        loading="lazy"
-                        decoding="async"
-                      />
+        <section className="tally-section feature-walkthrough" id="walkthrough">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.overline}</span>
+              <h2 className="section-title">{page.walkthroughHeading}</h2>
+            </div>
+            <div className="feature-steps" data-steps={page.walkthrough.length}>
+              {page.walkthrough.map((step) => {
+                const Icon = ICONS[step.icon];
+                const stepImg = stepShot(step);
+                return (
+                  <article key={step.title} className="feature-step">
+                    {/* Media band first and fixed-height (feature-page.css), so
+                      every phone in a row starts and is cut at the same y
+                      whatever the copy under it does. */}
+                    {stepImg && (
+                      <div className="feature-step-shot">
+                        <img
+                          src={stepImg.src}
+                          srcSet={stepImg.srcSet}
+                          sizes="208px"
+                          alt={stepImg.alt}
+                          width={stepImg.width}
+                          height={stepImg.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
+                    <div className="feature-step-copy">
+                      <div className="tally-card-icon">{Icon && <Icon size={22} />}</div>
+                      <h3>{step.title}</h3>
+                      <p>{step.body}</p>
                     </div>
-                  )}
-                </article>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       )}
 
       {/* ── Scroll-driven order tour, only on pages whose data carries one.
           Motion reasons live in FeatureTour.jsx's header. ── */}
       {page.tour && <FeatureTour tour={page.tour} />}
+
+      {/* ── Report gallery, only on pages whose data carries one: the reports
+          page first (2026-09-20). Every report there is a screenshot of, as a
+          small phone with a title and one line, so a reader sees the registers
+          rather than reading a list of their names. ── */}
+      {page.gallery && (
+        <section className="tally-section feature-gallery" id="gallery">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.gallery.overline}</span>
+              <h2 className="section-title">{page.gallery.heading}</h2>
+              {page.gallery.intro && <p className="feature-gallery-intro">{page.gallery.intro}</p>}
+            </div>
+            <div className="feature-gallery-grid">
+              {page.gallery.items.map((item) => {
+                const shot = screen(item.screen);
+                return (
+                  <article key={item.screen} className="feature-gallery-card">
+                    <div className="feature-gallery-shot">
+                      <img
+                        src={shot.src}
+                        srcSet={shot.srcSet}
+                        sizes="150px"
+                        alt={shot.alt}
+                        width={shot.width}
+                        height={shot.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── An exported sheet, only on pages whose data carries one: the
+          Team Sales export first (2026-09-20). Shown whole, not tucked and
+          rotated like the homepage's PaperSheet, because here it is the
+          subject, not a prop. ── */}
+      {page.sheet && (
+        <section className="tally-section feature-sheet" id="sheet">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.sheet.overline}</span>
+              <h2 className="section-title">{page.sheet.heading}</h2>
+              <p className="feature-sheet-intro">{page.sheet.body}</p>
+            </div>
+            <figure className="feature-sheet-paper">
+              <img
+                src={screen(page.sheet.screen).src}
+                srcSet={screen(page.sheet.screen).srcSet}
+                sizes="(max-width: 767px) calc(100vw - 32px), 760px"
+                alt={screen(page.sheet.screen).alt}
+                width={screen(page.sheet.screen).width}
+                height={screen(page.sheet.screen).height}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </section>
+      )}
+
+      {/* ── In detail. Only on pages whose data carries a `detail` block: a
+          feature with a lot of behaviour worth naming (document import first,
+          2026-09-20) gets a card per topic, each a short list of what the app
+          does today, and a link to the full how-to guide. Every line comes
+          from a source marked Live; nothing Stage-only is described here.
+          A point is a bold lead and one sentence (2026-09-20 evening), never
+          a paragraph. ── */}
+      {page.detail && (
+        <section className="tally-section feature-detail" id="detail">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.detail.overline}</span>
+              <h2 className="section-title">{page.detail.heading}</h2>
+              {page.detail.intro && <p className="feature-detail-intro">{page.detail.intro}</p>}
+            </div>
+            <div className="tally-grid feature-detail-grid">
+              {page.detail.groups.map((group) => (
+                <article key={group.title} className="tally-card feature-detail-card">
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.points.map((point) => (
+                      <li key={point.lead}>
+                        <strong className="feature-detail-lead">{point.lead}.</strong> {point.text}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+            {page.detail.guide && (
+              <p className="feature-detail-more">
+                <Link to={`/guide/${page.detail.guide.slug}`}>{page.detail.guide.label}</Link>
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ── Comparison table. Real <table>, competitors unnamed. ── */}
       <section className="comparison-section feature-comparison" id="comparison">

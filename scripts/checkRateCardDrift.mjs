@@ -20,6 +20,23 @@
 //
 // A page with ZERO rupee figures also fails: a guard that can pass by failing
 // to see anything reads as coverage without being any (checkFeaturesHub lesson).
+//
+// ── data-not-a-price ──
+// Some rupee figures on a scanned page are illustrations, not offers: the paper
+// invoice slip in the homepage story totals ₹1,86,420.16, and the WhatsApp
+// message card beside it quotes the same figure. Neither is a price the
+// partner rate card could ever justify, and putting them in the snapshot would
+// be a lie about what the snapshot is.
+//
+// So an element may carry the bare attribute `data-not-a-price`, and this guard
+// removes that element AND EVERYTHING INSIDE IT before it looks for figures.
+// Put it on the ROOT of the illustration (the slip, the message card), never on
+// a wrapper that also holds a real price — the whole subtree goes dark to this
+// check, and a real price hidden inside one would sail past.
+//
+// Rules of thumb for whether a figure earns the attribute: it is an example of
+// a customer's own money (an invoice, a payment, a balance), it is not
+// something Takkada charges for, and changing it changes no offer.
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -59,9 +76,9 @@ export function allowedFigures(snap) {
 }
 
 // Prerendered React splits adjacent JSX children with comment nodes, so a
-// rupee figure can arrive as "₹<!-- -->17<!-- -->Cr+". The matcher skips
+// rupee figure can arrive as "₹<!-- -->12<!-- -->crore". The matcher skips
 // comments/whitespace after ₹, and a figure followed by a scale word
-// (₹17Cr+, ₹2 lakh) is a marketing stat, not a rate-card price.
+// (₹12 crore, ₹2 lakh) is an article figure, not a rate-card price.
 const RUPEE_RE = /₹((?:<!--[^>]*-->|&nbsp;|\s)*)([\d,]*\d)/g;
 const GAP_RE = /^(?:<!--[^>]*-->|&nbsp;|\s)+/;
 const SCALE_RE = /^(?:cr(?:ore)?s?|lakhs?|l\b)/i;
@@ -77,9 +94,67 @@ export function extractFigures(html) {
   return figures;
 }
 
+// One tag, open or close, with its attributes. The attribute part steps over
+// quoted values so a `>` inside an attribute cannot end the tag early.
+const TAG_RE = /<(\/?)([a-zA-Z][\w-]*)((?:"[^"]*"|'[^']*'|[^>"'])*)>/g;
+const MARKED_RE = /(?:^|\s)data-not-a-price(?=$|[\s=/])/;
+// A tag that cannot contain anything, so it never opens a subtree to strip.
+const VOID_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr',
+]);
+
+/**
+ * Drop every element carrying `data-not-a-price`, subtree and all.
+ *
+ * Counts nesting rather than matching `<tag ...>` to the first `</tag>`: the
+ * slip is a div of divs, and a single greedy or lazy regex would either eat the
+ * rest of the document or stop at the first inner `</div>` and leave the total
+ * behind. An unclosed marked element swallows the rest of the page, which is
+ * the safe way to be wrong here — the zero-figures check then fails the build
+ * rather than passing it quietly.
+ */
+export function stripNotAPrice(html) {
+  let out = '';
+  let copyFrom = 0;
+  let stripping = null;
+  let depth = 0;
+
+  TAG_RE.lastIndex = 0;
+  for (let m = TAG_RE.exec(html); m !== null; m = TAG_RE.exec(html)) {
+    const [full, slash, rawName, attrs] = m;
+    const name = rawName.toLowerCase();
+    const isClose = slash === '/';
+    const childless = VOID_TAGS.has(name) || attrs.trimEnd().endsWith('/');
+
+    if (stripping === null) {
+      if (isClose || !MARKED_RE.test(attrs)) continue;
+      out += html.slice(copyFrom, m.index);
+      if (childless) {
+        copyFrom = m.index + full.length;
+      } else {
+        stripping = name;
+        depth = 1;
+      }
+    } else if (name === stripping) {
+      if (isClose) {
+        depth -= 1;
+        if (depth === 0) {
+          copyFrom = m.index + full.length;
+          stripping = null;
+        }
+      } else if (!childless) {
+        depth += 1;
+      }
+    }
+  }
+
+  return stripping === null ? out + html.slice(copyFrom) : out;
+}
+
 /** Layer 2: scan one rendered page. */
 export function inspectPage(html, allowed) {
-  const figures = extractFigures(html);
+  const figures = extractFigures(stripNotAPrice(html));
   return {
     total: figures.length,
     unknown: [...new Set(figures.filter((figure) => !allowed.has(figure)))],

@@ -9,11 +9,14 @@
 // opened, and can be preloaded alongside the HTML.
 //
 // This deliberately copies Google's @font-face declarations VERBATIM, rewriting
-// only the src URL. Same weights, same unicode-ranges, same font-display. Both
-// families are variable fonts (one file serves every weight), and instancing
-// them ourselves would risk changing how the opsz/wght axes render. Copying the
-// declarations makes the output identical to what the browser gets today by
-// construction, so there is nothing to reason about.
+// only the src URL. Same weights, same unicode-ranges, same font-display, and
+// no re-instancing of our own, so the output is identical to what the browser
+// gets from Google by construction and there is nothing to reason about.
+//
+// The two families are not built the same way and the naming has to survive it:
+// Plus Jakarta Sans is variable, so its five weights all point at ONE file per
+// subset, while IBM Plex Mono ships static cuts, so each weight has its own
+// file. See buildCss for how the filenames stay unique.
 //
 // Run this to refresh the vendored files (e.g. Google ships a new version, or a
 // weight is added to the request):
@@ -33,10 +36,12 @@ const FONT_DIR = resolve(repoRoot, 'public/assets/fonts');
 const CSS_OUT = resolve(repoRoot, 'src/fonts.css');
 
 // Must stay in sync with the families/weights the site actually uses.
-// See CLAUDE.md §7: Plus Jakarta Sans for body/UI, Fraunces for headings.
+// See CLAUDE.md §7: Plus Jakarta Sans carries everything (800 hero, 700
+// headings, 400-600 body/UI) and IBM Plex Mono is the one utility face, used
+// only for the slip, time labels and stop labels.
 export const GOOGLE_CSS_URL =
   'https://fonts.googleapis.com/css2' +
-  '?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700' +
+  '?family=IBM+Plex+Mono:wght@400;500;600' +
   '&family=Plus+Jakarta+Sans:wght@400;500;600;700;800' +
   '&display=swap';
 
@@ -48,10 +53,10 @@ export const GOOGLE_CSS_URL =
 // falls back exactly as it would have anyway.
 export const KEEP_SUBSETS = ['latin', 'latin-ext'];
 
-// Google's latin-ext files are 59KB (Fraunces) and 22KB (Plus Jakarta Sans),
-// and this site uses exactly ONE character from that range: the rupee sign
-// U+20B9, 1,710 times. Shipping 81KB to draw one glyph cost the homepage its
-// LCP — the browser gives a font discovered during layout VeryHigh priority, so
+// Google's latin-ext files ran 59KB and 22KB for the two families the site
+// shipped in July, and this site uses exactly ONE character from that range:
+// the rupee sign U+20B9, 1,710 times. Shipping 81KB to draw one glyph cost the
+// homepage its LCP — a font discovered during layout gets VeryHigh priority, so
 // those two files were stealing bandwidth from the hero image mid-download.
 //
 // So latin-ext is re-subset down to just the rupee: 81,228 bytes -> 2,568.
@@ -114,10 +119,32 @@ export function parseBlocks(css) {
  * subset rather than Google's opaque hash so the repo stays readable and a
  * refresh overwrites in place instead of accumulating orphans.
  */
-export function localFileName(block, subset) {
+export function localFileName(block, subset, weight = '') {
   const family = (block.match(/font-family:\s*'([^']+)'/) || [])[1] || 'font';
   const slug = family.toLowerCase().replace(/\s+/g, '-');
-  return `${slug}-${subset}.woff2`;
+  return `${slug}${weight ? `-${weight}` : ''}-${subset}.woff2`;
+}
+
+/**
+ * The declared weight of a block, slugified ('400', or '400-800' for a range).
+ *
+ * Only ever called when a family+subset resolves to more than one remote file
+ * and the weight therefore HAS to go in the local filename. So it throws rather
+ * than returning '': an empty weight would hand localFileName the un-suffixed
+ * name — the very name the suffix exists to avoid — and the script would
+ * overwrite one cut with another and print a success line.
+ */
+export function weightOf(block) {
+  const weight = ((block.match(/font-weight:\s*([^;]+);/) || [])[1] || '').trim().replace(/\s+/g, '-');
+  if (!weight) {
+    throw new Error(
+      'vendorFonts: this family serves a different file per weight for one subset, so the ' +
+        'weight has to go in the local filename — but the @font-face below declares no ' +
+        'parsable font-weight, and the un-suffixed name would silently overwrite another ' +
+        `cut:\n${block}`
+    );
+  }
+  return weight;
 }
 
 export function srcUrlOf(block) {
@@ -137,14 +164,44 @@ export function rewriteBlock(block, fileName) {
  */
 export function buildCss(blocks) {
   const kept = blocks.filter((b) => KEEP_SUBSETS.includes(b.subset));
+
+  // A variable family (Plus Jakarta Sans) serves every weight from one file, so
+  // family+subset already names it uniquely and the five weight blocks dedupe
+  // onto a single download. A family that ships STATIC cuts (IBM Plex Mono)
+  // serves a different file per weight behind the same family+subset — writing
+  // those to one name would leave 400 and 500 text rendering in whichever cut
+  // was downloaded last, with no error and nothing to see in the CSS. So count
+  // the distinct URLs per name first, and put the weight in the filename for
+  // any family that needs it.
+  const urlsPerName = new Map();
+  for (const { subset, block } of kept) {
+    const url = srcUrlOf(block);
+    if (!url) continue;
+    const name = localFileName(block, subset);
+    if (!urlsPerName.has(name)) urlsPerName.set(name, new Set());
+    urlsPerName.get(name).add(url);
+  }
+
   const downloads = new Map();
   const parts = [];
 
   for (const { subset, block } of kept) {
     const url = srcUrlOf(block);
     if (!url) continue;
-    const fileName = localFileName(block, subset);
-    downloads.set(url, fileName);
+
+    // One remote file gets exactly one local name, whichever weight block
+    // reaches it first. Google does collapse SOME weights of a family onto one
+    // file and not others, and naming each block independently would emit a
+    // src for a file the download loop below is never told to fetch — a 404
+    // that nothing in the build can see, because the CSS is well-formed and
+    // every OTHER file does exist.
+    let fileName = downloads.get(url);
+    if (!fileName) {
+      const base = localFileName(block, subset);
+      fileName =
+        urlsPerName.get(base).size > 1 ? localFileName(block, subset, weightOf(block)) : base;
+      downloads.set(url, fileName);
+    }
     let out = rewriteBlock(block, fileName);
     const narrowed = SUBSET_TO_CODEPOINTS[subset];
     if (narrowed) {
@@ -162,8 +219,8 @@ export function buildCss(blocks) {
     ' * src URL rewritten, so rendering is identical to the hosted version.',
     ' * Loading them from our own origin removes two render-blocking',
     ' * third-party round trips from the critical path (CLAUDE.md §7 explains',
-    ' * why the Fraunces face in particular is load-bearing: without it every',
-    ' * heading silently reverts to Plus Jakarta Sans).',
+    ' * why each face is load-bearing: if the mono stops resolving, the slip and',
+    ' * the time labels silently reflow in a system monospace).',
     ' *',
     ' * latin-ext carries the rupee sign U+20B9 (range U+20AD-20C0), so most',
     ' * pages fetch it. It is intentionally not preloaded — see index.html.',

@@ -1,0 +1,1003 @@
+/* journey.css — playable phone, invoice slip, paper sheets, follow-one-invoice.
+   Every rule head is prefixed .home-v3 (home-v3.test.jsx enforces this for
+   home styles) except .journey-strip, which renders on feature pages.
+
+   Motion contract for this file: only transform, opacity and filter are
+   animated, easing is always var(--ease-out), and nothing enters from scale(0).
+   Anything that can reverse mid-flight is a transition; the one @keyframes
+   animation here is the hint-dot ping, which is constant ambient motion that
+   never reverses. Marigold (--color-highlight) is a dot and a focus ring, never
+   a fill. */
+
+/* ---------- Playable phone (hero) ---------- */
+
+/* 720 / 1491 is the home screen asset itself, which is the box the hotspot
+   percentages in heroHotspots.js were measured in, so the boxes land on their
+   tiles at every width. */
+.home-v3 .pphone {
+  position: relative;
+  width: min(340px, 70vw);
+  aspect-ratio: 720 / 1491;
+  margin-inline: auto;
+}
+.home-v3 .pphone-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* The shadow belongs to the phone silhouette, so it lives on the base image;
+   an ancestor filter would force a re-raster on every hint-dot ping. */
+.home-v3 .pphone-base {
+  filter: drop-shadow(0 40px 70px rgba(5, 12, 28, 0.6));
+}
+
+.home-v3 .pphone-hot {
+  display: block;
+  position: absolute;
+  border: 0;
+  border-radius: 14px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+.home-v3 .pphone-hot:active {
+  transform: scale(0.97);
+}
+.home-v3 .pphone-hot:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* The hint dot is two circles in one place: ::after is the solid marigold dot
+   and never moves; ::before is the ring that pings. The ping animates transform
+   and opacity only — a box-shadow ping repaints the layer every frame. */
+.home-v3 .pphone-hot::after,
+.home-v3 .pphone-hot::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-highlight);
+}
+/* --ping-delay is set per hotspot in PlayablePhone.jsx, so the stagger belongs
+   to the tile rather than to its position among its siblings. */
+.home-v3 .pphone-hot::before {
+  opacity: 0;
+  animation: pphone-ping 2.2s var(--ease-out) infinite;
+  animation-delay: var(--ping-delay, 0s);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .pphone-hot:hover {
+    background-color: rgba(0, 110, 166, 0.12);
+  }
+}
+
+@keyframes pphone-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion drops the ping and transform transition, while the 0.97 press
+   state snaps. The background-colour fade stays because it is not motion. */
+@media (prefers-reduced-motion: reduce) {
+  .home-v3 .pphone-hot::before {
+    animation: none;
+  }
+  .home-v3 .pphone-hot {
+    transition: background-color 160ms var(--ease-out);
+  }
+  .home-v3 .pphone-hot:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ---------- Follow one invoice (home) ---------- */
+
+/* Nothing in this section plays on a timer. Every piece of motion below is a
+   transition keyed to the station the reader has scrolled into, so scrolling
+   back up takes the story apart in the same order it was built — and a stamp
+   caught halfway down reverses from where it is instead of jumping. */
+
+.home-v3 .foi {
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 96px 0 40px;
+}
+.home-v3 .foi-intro {
+  max-width: 1160px;
+  margin: 0 auto 24px;
+  padding: 0 32px;
+}
+.home-v3 .foi-intro .section-label {
+  color: var(--color-accent);
+}
+.home-v3 .foi-intro .section-title {
+  color: #fff;
+  max-width: 720px;
+}
+.home-v3 .foi-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 56px;
+}
+
+/* ---- The pinned slip ---- */
+
+.home-v3 .slip-rail {
+  position: sticky;
+  top: 84px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+/* The torn top and bottom edge is a mask, not an image, so the paper stays crisp
+   at every DPR. The stamp zone is in flow after the status; every stamp keeps
+   its slot at opacity zero, so changing state never changes the paper's height. */
+.home-v3 .slip {
+  position: relative;
+  background: var(--color-paper);
+  color: #1d2433;
+  font: 400 12.5px/1.7 var(--font-mono);
+  padding: 26px 24px 28px;
+  transform: rotate(-1.6deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  -webkit-mask:
+    radial-gradient(circle 6px at 8px 0, transparent 98%, #000) -8px 0 / 16px 51% repeat-x,
+    radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) -8px 100% / 16px 51% repeat-x;
+  mask:
+    radial-gradient(circle 6px at 8px 0, transparent 98%, #000) -8px 0 / 16px 51% repeat-x,
+    radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) -8px 100% / 16px 51% repeat-x;
+}
+.home-v3 .slip-head {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+/* On the full paper the number can be short: the party, the place, the lines and
+   the total are all right there. The mobile bar swaps in the full number, since
+   there it is the only identification the reader gets. */
+.home-v3 .slip-no--full {
+  display: none;
+}
+.home-v3 .slip-party {
+  font: 800 19px/1.2 var(--font-sans);
+  letter-spacing: -0.015em;
+  margin-top: 10px;
+}
+.home-v3 .slip-place {
+  opacity: 0.6;
+}
+.home-v3 .slip hr {
+  border: 0;
+  border-top: 1.5px dashed rgba(29, 36, 51, 0.25);
+  margin: 12px 0;
+}
+.home-v3 .slip-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.home-v3 .slip-line span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-v3 .slip-total {
+  font-weight: 600;
+  font-size: 15px;
+}
+/* min-height holds the line open so the slip does not resize under a longer
+   status and shove the stamps off their marks. */
+.home-v3 .slip-status {
+  margin-top: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  opacity: 0.65;
+  min-height: 20px;
+}
+
+.home-v3 .slip-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(29, 36, 51, 0.25);
+}
+
+/* The thunk. A stamp lands from scale(1.5) over 260ms; it lifts off faster than
+   it lands (160ms transform, 120ms opacity), because paper releasing a stamp is
+   a lighter event than a stamp hitting paper. Both directions are transitions on
+   one class — never keyframes — so the motion is reversible mid-flight. */
+.home-v3 .slip-stamp {
+  position: static;
+  font: 800 12px/1 var(--font-sans);
+  letter-spacing: 0.08em;
+  padding: 5px 9px;
+  border: 2.5px solid currentColor;
+  border-radius: 6px;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transform: scale(1.5) rotate(var(--r, 0deg));
+  transition:
+    opacity 120ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+.home-v3 .slip-stamp.is-on {
+  opacity: 0.9;
+  transform: scale(1) rotate(var(--r, 0deg));
+  transition:
+    opacity 180ms var(--ease-out),
+    transform 260ms var(--ease-out);
+}
+.home-v3 .slip-stamp--blue {
+  color: var(--stamp-blue);
+}
+.home-v3 .slip-stamp--green {
+  color: var(--stamp-green);
+}
+.home-v3 .slip-stamp--red {
+  color: var(--stamp-red);
+}
+.home-v3 .slip-stamp--ink {
+  color: var(--stamp-ink);
+}
+.home-v3 .slip-stamp--lg {
+  font-size: 18px;
+  padding: 6px 14px;
+  border-width: 3px;
+}
+.home-v3 .slip-stamp--order {
+  --r: -5deg;
+}
+.home-v3 .slip-stamp--bill {
+  --r: 3deg;
+}
+.home-v3 .slip-stamp--load {
+  --r: -3deg;
+}
+.home-v3 .slip-stamp--send {
+  --r: 4deg;
+}
+.home-v3 .slip-stamp--remind {
+  --r: -2deg;
+}
+.home-v3 .slip-stamp--recover {
+  --r: -8deg;
+}
+.home-v3 .slip-stamp--tally {
+  --r: 3deg;
+}
+
+.home-v3 .slip-stops {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin: 0;
+  font: 400 11.5px var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+/* The rail brightens by opacity, not by colour, so the only properties animated
+   anywhere in this section stay transform, opacity and filter. The marigold on
+   the stop the reader is at is a straight swap, not a fade. */
+.home-v3 .slip-stops li {
+  opacity: 0.35;
+  transition: opacity 220ms var(--ease-out);
+}
+.home-v3 .slip-stops li.is-done {
+  opacity: 0.7;
+}
+.home-v3 .slip-stops li.is-on {
+  opacity: 1;
+  color: var(--color-highlight);
+}
+
+/* ---- The stations ---- */
+
+.home-v3 .foi-station {
+  min-height: 84vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 40px;
+  align-items: center;
+  opacity: 0.28;
+  transition: opacity 320ms var(--ease-out);
+}
+.home-v3 .foi-copy {
+  min-width: 0;
+}
+.home-v3 .foi-station.is-on {
+  opacity: 1;
+}
+/* Scroll position is not the only way into a station. A keyboard visitor tabs
+   through the pills and the two sheet buttons long before the observer has
+   decided that station is the one being read, and at 0.28 alpha the focus ring
+   is painted at 0.28 too — the ring they are steering by disappears (WCAG
+   2.4.7). This has to come after both rules above: it is the same specificity
+   as .is-on, so source order is what decides. */
+.home-v3 .foi-station:focus-within {
+  opacity: 1;
+}
+.home-v3 .foi-when {
+  font: 400 13px var(--font-mono);
+  letter-spacing: 0.05em;
+  color: var(--color-highlight);
+  text-transform: uppercase;
+}
+.home-v3 .foi-station h3 {
+  font: 800 38px/1.08 var(--font-sans);
+  font-size: clamp(28px, 2.6vw, 38px);
+  letter-spacing: -0.03em;
+  margin: 12px 0 14px;
+}
+.home-v3 .foi-station p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16.5px;
+  line-height: 1.6;
+  max-width: 430px;
+}
+.home-v3 .foi-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.home-v3 .foi-pill {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .foi-pill:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+}
+.home-v3 .foi-pill:active {
+  transform: scale(0.97);
+}
+.home-v3 .foi-pill:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* isolation makes the visual its own stacking context, so the tucked sheet and
+   the second phone sit behind the front phone but never behind the section's
+   navy. A negative z-index would do exactly that the moment a station reaches
+   opacity 1 and stops being a stacking context of its own — the sheet would
+   disappear precisely when the reader arrived at it. */
+.home-v3 .foi-visual {
+  position: relative;
+  isolation: isolate;
+  width: 380px;
+  min-height: 520px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.home-v3 .foi-phone {
+  position: relative;
+  z-index: 2;
+  width: 236px;
+  height: auto;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5));
+  transform: translateY(18px);
+  transition: transform 320ms var(--ease-out);
+}
+.home-v3 .foi-station.is-on .foi-phone {
+  transform: none;
+}
+.home-v3 .foi-phone--1 {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 184px;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* ---- The printed sheets ---- */
+
+.home-v3 .sheet {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  z-index: 1;
+  background: #fff;
+  transform: rotate(-5deg);
+  transform-origin: left top;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  transition: transform 160ms var(--ease-out);
+}
+/* No stop carries both a second phone and a sheet today. Keep the combined
+   state explicitly contained if the story data ever introduces one. */
+.home-v3 .foi-visual.has-second.has-sheet .sheet {
+  left: 0;
+  bottom: 0;
+}
+.home-v3 .sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.home-v3 .sheet-caption {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1d2433;
+  background: var(--color-highlight);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+/* Hover before active: they set the same property at the same specificity, so
+   the later rule wins and a press while hovering has to be the later rule. */
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .sheet:hover {
+    transform: rotate(-3deg) translateY(-6px);
+  }
+}
+.home-v3 .sheet:active {
+  transform: rotate(-5deg) scale(0.97);
+}
+.home-v3 .sheet:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 4px;
+}
+
+/* The sheet has to fit the viewport it opens in, not just the width of it. At
+   the 1100px cap the salesman sheet (720x440) stands 672px tall, which is taller
+   than the usable area of a 1366x768 laptop, and with overflow hidden the bottom
+   of it was simply gone. Both caps are on the image as well as the box, because
+   a percentage max-height against a parent that only has a max-height is not
+   reliably resolvable -- the image carries absolute caps and the dialog
+   shrink-wraps whatever the image settles at, so the whole sheet is always on
+   screen and Close stays in the visible box. */
+.home-v3 .sheet-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  max-height: 88dvh;
+  /* A 48px strip above the image so Close has white to sit in. Without it the
+     pill lands on the sheet itself at narrow widths, where 92vw makes the
+     sheet small - the same "Close over the content" defect D6 reported. */
+  padding: 48px 0 0;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+/* The enlarged sheet is a modal, and modals are not origin-aware: it stays
+   centred and fades up from scale(0.96) — close enough to read as the same
+   sheet — never from scale(0), which reads as a zoom out of nowhere. Entry only,
+   via @starting-style; there is nothing to say on the way out. */
+.home-v3 .sheet-dialog[open] {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+.home-v3 .sheet-dialog[open]::backdrop {
+  background: rgba(5, 12, 28, 0.7);
+  opacity: 1;
+  transition: opacity 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+.home-v3 .sheet-dialog img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1100px, 92vw);
+  max-height: calc(88vh - 48px);
+  max-height: calc(88dvh - 48px);
+  object-fit: contain;
+}
+.home-v3 .sheet-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--color-primary-dark);
+  color: #fff;
+  font: 600 14px var(--font-sans);
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .sheet-close:hover {
+    background-color: #1b3a6b;
+  }
+}
+.home-v3 .sheet-close:active {
+  transform: scale(0.97);
+}
+.home-v3 .sheet-close:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 3px;
+}
+
+/* ---- The Send stop's message ---- */
+
+/* A picture of the WhatsApp message the retailer gets, drawn in HTML because no
+   capture of a delivered invoice exists. It is the Send stop's screen, so unlike
+   the call chip it stays on at mobile width. Nothing in it is pressable, so
+   nothing in it has a hover or a press state. */
+.home-v3 .wam {
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  display: grid;
+  gap: 6px;
+}
+.home-v3 .wam-from {
+  font: 600 11px var(--font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.home-v3 .wam-bubble {
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 14px 14px 14px 4px;
+  padding: 12px 14px 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.home-v3 .wam-bubble p, .home-v3 .wam-bubble span {
+  color: inherit;
+}
+.home-v3 .wam-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f4f8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 9px;
+}
+.home-v3 .wam-bubble .wam-file-kind {
+  flex: none;
+  font: 700 10px var(--font-sans);
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--color-danger);
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+.home-v3 .wam-file-name {
+  font: 500 11.5px var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-v3 .wam-line {
+  margin: 0 0 6px;
+}
+.home-v3 .wam-bubble .wam-cta {
+  display: block;
+  text-align: center;
+  font: 600 13px var(--font-sans);
+  color: var(--color-primary-dark);
+  border-top: 1px solid rgba(15, 31, 61, 0.12);
+  margin: 8px -14px 0;
+  padding: 9px 14px 0;
+}
+.home-v3 .wam-bubble .wam-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: rgba(29, 36, 51, 0.5);
+}
+.home-v3 .wam-bubble .wam-ticks {
+  color: #34b7f1;
+  font-size: 12px;
+}
+
+.home-v3 .foi-callchip {
+  position: absolute;
+  right: 0;
+  top: auto;
+  bottom: 8px;
+  z-index: 3;
+  display: grid;
+  gap: 2px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  font-size: 12.5px;
+}
+.home-v3 .foi-callchip strong {
+  font-size: 14px;
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .home-v3 .foi-station {
+    grid-template-columns: 1fr;
+  }
+  .home-v3 .foi-visual {
+    margin-top: 28px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  /* The pinned bar's height is a constant the stations have to scroll clear of,
+     so it is written down once here and used in both places. Every row that is
+     still in the bar, top to bottom, with nothing left out:
+
+       10.0        .slip-rail padding-top
+       10.0        .slip padding-top
+       21.3   NUMBER ROW   .slip-head, 12.5 x 1.7 — a flex row, never wraps
+       12.0        .slip-status margin-top
+       17.0   STATUS ROW   .slip-status, 10 x 1.7 = 17, nowrap, one line
+        6.0        .slip-stamps margin-top
+       21.0   STAMP ROW    .slip-stamps fixed height; stamps are absolute only
+                           inside this dedicated, text-free row
+       10.0        .slip padding-bottom
+       10.0        .slip-rail padding-bottom
+      ------
+      117.3  ->  --foi-bar-h: 118px
+
+     Nothing else contributes. .slip-party, .slip-place, the rules, every
+     .slip-line INCLUDING the total, and .slip-stops are all display: none in
+     this query, and with .slip-stops gone the rail is down to one flex item so
+     its 26px gap adds nothing (and is zeroed anyway). That gap and the stop rail
+     are what made the first number, 143px, understate the bar by ~41px and land
+     scroll-margin-top short.
+
+     Every row is fixed or clamped to one line and the stamp is out of flow, so
+     the bar is the same height at all seven stops. It used to grow ~28px the
+     moment PAID landed, which shoved the page under the reader's thumb.
+
+     Nothing overflows horizontally at 320px either, where the bar has 260px of
+     content: the number row is 25 characters of 12.5px mono at 0.04em, so
+     25 x (7.5 + 0.5) = 200px; the status row is 252px (see below); the stamp is
+     at most 116px starting 14px in. */
+  .home-v3 .foi {
+    --foi-nav-h: 56px;
+    --foi-bar-h: 118px;
+  }
+  .home-v3 .foi-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 16px;
+  }
+  /* On a phone the slip collapses to a pinned bar carrying three things and
+     nothing else: the invoice number, the current status, and the stamp for the
+     stop the reader is at. The stop rail and the total row are hidden here —
+     the rail's seven labels are the stations themselves, and the total is on the
+     paper the moment the reader opens it. With .slip-stops gone the rail has one
+     flex item left, so its 26px gap cannot contribute; `gap: 0` says so out
+     loud rather than relying on that. */
+  .home-v3 .slip-rail {
+    position: sticky;
+    top: var(--foi-nav-h);
+    z-index: 5;
+    height: auto;
+    gap: 0;
+    padding: 10px 0;
+    background: var(--color-primary-dark);
+  }
+  .home-v3 .slip {
+    transform: none;
+    padding: 10px 14px;
+    box-shadow: none;
+    -webkit-mask: none;
+    mask: none;
+    border-radius: 10px;
+  }
+  .home-v3 .slip hr,
+  .home-v3 .slip-line,
+  .home-v3 .slip-place,
+  .home-v3 .slip-party,
+  .home-v3 .slip-stops,
+  .home-v3 .slip-no--short {
+    display: none;
+  }
+  .home-v3 .slip-no--full {
+    display: inline;
+  }
+  /* One line, always. The longest status is 42 characters; at 10px IBM Plex Mono
+     (advance exactly 0.6em) with the letter-spacing dropped that is 42 x 6 =
+     252px, against the 260px a 320px phone leaves after the grid's 16px gutters
+     and the slip's 14px padding. The nowrap and the ellipsis are the floor below
+     that, so the bar's height is a guarantee and not an estimate. */
+  .home-v3 .slip-status {
+    font-size: 10px;
+    letter-spacing: 0;
+    min-height: 0;
+    height: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .home-v3 .slip-stamps {
+    border: 0;
+    margin: 6px 0 0;
+    padding: 0;
+    height: 21px;
+    position: relative;
+  }
+  /* All seven stamps stay in the DOM, stacked in one fixed slot in the paper's
+     bottom-left and out of flow, so swapping the current one is a pure opacity
+     crossfade with nothing to reflow and no height to change. The .is-on group
+     is repeated because it out-specifies a bare .slip-stamp and would otherwise
+     light every stamp the reader has already passed.
+
+     The stamp gets a row of its own rather than sharing the status line's: at
+     11px the widest of the seven ("IRN + E-WAY", 10 glyphs and 3 spaces) is
+     10 x 7.48 + 3 x 3.3 + 13 x 0.88 + 20 = 116px, and a lane that wide would
+     leave the 42-character status under 30 characters and ellipsise it at every
+     stop. The status is the live region and the only accessible account of the
+     slip's state, so it gets the full width. */
+  .home-v3 .slip-stamp,
+  .home-v3 .slip-stamp.is-on {
+    position: absolute;
+    top: 0;
+    right: auto;
+    left: 0;
+    bottom: auto;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-width: 2px;
+    opacity: 0;
+    transform: none;
+    transition: opacity 180ms var(--ease-out);
+  }
+  .home-v3 .slip-stamp.is-current,
+  .home-v3 .slip-stamp.is-on.is-current {
+    opacity: 0.88;
+  }
+  /* Nothing dims on a phone: a station fills the screen on its own, so the dim
+     would only read as a broken page. The scroll margin clears the nav and the
+     pinned bar, so a jump to #stop-bill does not land under them. */
+  .home-v3 .foi-station {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 56px 0;
+    opacity: 1;
+    scroll-margin-top: calc(var(--foi-nav-h) + var(--foi-bar-h) + 12px);
+  }
+  .home-v3 .foi-station h3 {
+    font-size: 28px;
+  }
+  .home-v3 .foi-visual {
+    margin-top: 28px;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .home-v3 .foi-phone--1,
+  .home-v3 .foi-callchip {
+    display: none;
+  }
+  /* flex: none on both, so the widths the `sizes` attribute promises are the
+     widths that render. The numbers are picked to fit the narrowest phone the
+     site supports: at a 320px viewport the visual is 288px wide, and
+     0.34 x 288 - 0.12 x 288 + 220 = 283px. */
+  .home-v3 .foi-phone {
+    flex: none;
+    width: 220px;
+  }
+  .home-v3 .sheet,
+  .home-v3 .foi-visual.has-second.has-sheet .sheet {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    flex: none;
+    width: 34%;
+    margin-right: -12%;
+  }
+}
+
+/* Reduced motion keeps the fades — they are what carry the change of state — and
+   drops every transform TRANSITION: the stamps appear at their resting angle,
+   the phones and the sheets do not move on scroll or hover, the dialog only
+   fades, and the stations stop dimming. The three pressables keep their 0.97
+   press STATE — a control that does not answer the finger reads as broken — but
+   it snaps rather than eases, so there is no motion to track. The background-
+   colour fades stay: a colour change is not motion. */
+@media (prefers-reduced-motion: reduce) {
+  .home-v3 .slip-stamp,
+  .home-v3 .slip-stamp.is-on {
+    transform: rotate(var(--r));
+    transition: opacity 200ms var(--ease-out);
+  }
+  .home-v3 .foi-station,
+  .home-v3 .foi-station.is-on {
+    opacity: 1;
+    transition: none;
+  }
+  .home-v3 .foi-phone,
+  .home-v3 .foi-station.is-on .foi-phone {
+    transform: none;
+    transition: none;
+  }
+  .home-v3 .sheet,
+  .home-v3 .sheet:hover {
+    transform: rotate(-5deg);
+    transition: none;
+  }
+  /* :active must come after :hover here for the same reason it does in the
+     normal path — they set the same property at the same specificity, so the
+     later rule wins, and a mouse press matches both. Neutralising the hover lift
+     without re-stating the press would have quietly taken the press away from
+     every pointer device under reduced motion. */
+  .home-v3 .sheet:active {
+    transform: rotate(-5deg) scale(0.97);
+  }
+  .home-v3 .foi-pill,
+  .home-v3 .sheet-close {
+    transition: background-color 160ms var(--ease-out);
+  }
+  .home-v3 .sheet-dialog[open] {
+    transform: none;
+    transition: opacity 200ms var(--ease-out);
+
+    @starting-style {
+      transform: none;
+      opacity: 0;
+    }
+  }
+}
+
+/* ── The journey strip (src/components/JourneyStrip.jsx) ──
+ *
+ * Seven stops at the foot of a feature page's hero, the page's own stop marked.
+ * It lives here rather than in feature-page.css because it is the same seven
+ * stations the homepage story above is made of, and the two have to move
+ * together; what lives in feature-page.css is only the colour it takes on the
+ * navy hero.
+ *
+ * So everything below is layout, type and motion — surface-agnostic on purpose.
+ * The links take `color: inherit`, so dropping the strip onto a light surface
+ * one day gives dark pills rather than an unreadable one, and the one colour
+ * stated here is the marigold dot, which is the site's mark for "you are at
+ * this stop" and reads on either ground.
+ *
+ * Motion: a press and a hover, nothing on arrival. This is navigation and it is
+ * on every feature page, so an entrance animation would be a thing the reader
+ * sits through once per page for no information. */
+.journey-strip {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.journey-strip-label {
+  font: 400 12px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.journey-strip ol {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* inline-flex, not block: the current stop's dot is a ::before, and a flex row
+   is what centres a 6px circle against a 13px cap-height without magic
+   numbers. The transparent border is always present so the marked stop changes
+   only its colour and never the pill's size. */
+.journey-strip a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: 600 13px var(--font-sans);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 160ms var(--ease-out),
+    border-color 160ms var(--ease-out),
+    color 160ms var(--ease-out);
+}
+
+.journey-strip a:active {
+  transform: scale(0.97);
+}
+
+.journey-strip a:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+.journey-strip li[aria-current='step'] a {
+  font-weight: 700;
+}
+
+/* Marigold marks the active stop, the same way it does on the homepage story.
+   It is a dot, never a fill: the accent colour is never a button. */
+.journey-strip li[aria-current='step'] a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-highlight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Colour still moves — it carries no motion. The scale's TRANSITION goes, so
+     the press snaps instead of easing; the press STATE stays, because a link
+     that does not answer the finger reads as broken. Same ruling as the hero's
+     hotspots and the sheets. */
+  .journey-strip a {
+    transition:
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out),
+      color 160ms var(--ease-out);
+  }
+
+  .journey-strip a:active {
+    transform: scale(0.97);
+  }
+}

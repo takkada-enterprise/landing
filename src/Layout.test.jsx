@@ -29,7 +29,7 @@ import Layout from './Layout';
 import Home from './routes/Home';
 import { appLinks, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { leadFeaturePages } from './data/featureGroups';
+import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
 
 beforeEach(() => {
   siteContentMock.demoEntryLive = true;
@@ -198,22 +198,47 @@ describe('Features disclosure in the desktop header', () => {
     };
   }
 
-  it('lists exactly the lead features plus a way to the hub', () => {
+  // Ronak, 2026-09-20: the menu showed nine of the feature pages and sent the
+  // other twenty to "All features". Every page is in the menu now, under the
+  // journey heading the hub files it under, so nothing is reachable only from
+  // the hub.
+  it('lists every feature page, grouped, plus a way to the hub', () => {
     const { panelLinks } = renderLayout();
-    // Derived from the same export the hub and the footer read. A lead-list
-    // edit must move all three together or none.
     expect(panelLinks()).toEqual([
-      ...leadFeaturePages(FEATURE_PAGES).map(featurePagePath),
+      ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map(featurePagePath)),
       '/features',
+    ]);
+  });
+
+  it('names every group above its links, and files every page once', () => {
+    const { container } = renderLayout();
+    const groups = menuFeatureGroups(FEATURE_PAGES);
+    expect([...container.querySelectorAll('.nav-features-group > h3')].map((h) => h.textContent)).toEqual(
+      groups.map((group) => group.title)
+    );
+    const linked = groups.flatMap((group) => group.pages.map((page) => page.slug));
+    expect(new Set(linked).size).toBe(linked.length);
+  });
+
+  // Ronak, 2026-09-20: the comparison pages are not features, and naming a
+  // competitor in the nav of every page is not what the header is for. They
+  // keep their place on the hub, which "All features" reaches.
+  it('leaves the comparison pages out of the menu but not out of the hub', () => {
+    const { panelLinks } = renderLayout();
+    expect(panelLinks()).not.toContain('/biz-analyst-alternative');
+    expect(panelLinks()).not.toContain('/livekeeping-alternative');
+    expect(panelLinks()).toContain('/features');
+    expect(FEATURE_GROUPS.find((g) => g.id === 'weighing-options').slugs).toEqual([
+      'biz-analyst-alternative',
+      'livekeeping-alternative',
     ]);
   });
 
   // Reachable from any page without navigating away first — the whole point of
   // putting it in the header rather than only on the hub.
   it('carries the same links on a page that is not the homepage', () => {
-    expect(renderLayout('/blog').panelLinks().length).toBe(
-      leadFeaturePages(FEATURE_PAGES).length + 1
-    );
+    const menuPages = menuFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
+    expect(renderLayout('/blog').panelLinks().length).toBe(menuPages + 1);
   });
 
   it('starts closed, inert, and out of the tab order', () => {
@@ -655,5 +680,97 @@ describe('mobile menu overlay', () => {
 
     expect(overlay().className).not.toContain('open');
     expect(document.body.classList.contains('lock-scroll')).toBe(false);
+  });
+});
+
+// The bar is fixed and transparent until the page scrolls, and .blog-index-hero
+// and .blog-post-header are both navy — but Layout never lets the transparent
+// state happen there: forceLightNav puts the `scrolled` class on the bar for
+// every /blog route at scroll 0. That is what protects the blog, not the
+// nav-on-navy :has() list in styles.css, and it is worth pinning: drop
+// forceLightNav and the header becomes dark ink on dark navy on 170 posts.
+describe('the nav over the navy blog heroes', () => {
+  const renderAt = (at) =>
+    render(
+      <MemoryRouter initialEntries={[at]}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div />} />
+            <Route path="blog" element={<div />} />
+            <Route path="blog/:slug" element={<div />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    ).container;
+
+  const navAt = (at) => renderAt(at).querySelector('.site-nav');
+
+  it('starts a blog index and a blog post in the opaque light state, unscrolled', () => {
+    expect(window.scrollY).toBe(0);
+    for (const route of ['/blog', '/blog/tally-on-mobile']) {
+      expect(
+        navAt(route).classList.contains('scrolled'),
+        `${route} renders the bar transparent over its navy hero`
+      ).toBe(true);
+    }
+  });
+
+  // The other half of the pin: the class is not simply always on, or the
+  // assertion above would hold however the nav behaved.
+  it('leaves the homepage bar transparent at the top, as the hero expects', () => {
+    expect(navAt('/').classList.contains('scrolled')).toBe(false);
+  });
+});
+
+// A hash jump moves the whole page, which is the largest motion the site makes.
+describe('hash scrolling answers the motion preference', () => {
+  const scrollIntoView = vi.fn();
+  const realScrollIntoView = Element.prototype.scrollIntoView;
+  const realMatchMedia = window.matchMedia;
+
+  beforeEach(() => {
+    scrollIntoView.mockClear();
+    Element.prototype.scrollIntoView = scrollIntoView;
+  });
+  afterEach(() => {
+    Element.prototype.scrollIntoView = realScrollIntoView;
+    window.matchMedia = realMatchMedia;
+  });
+
+  const renderAtHash = () =>
+    render(
+      <MemoryRouter initialEntries={['/#pricing']}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<div id="pricing">prices</div>} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    );
+
+  it('glides to the anchor by default', () => {
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+  });
+
+  it('cuts straight there when the visitor asked for less motion', () => {
+    window.matchMedia = vi.fn((query) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query,
+      addListener() {},
+      removeListener() {},
+      addEventListener() {},
+      removeEventListener() {},
+    }));
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
+  });
+
+  // SSG renders with no window and jsdom can be handed no matchMedia at all;
+  // neither may throw on the way to the anchor.
+  it('still scrolls when matchMedia is missing entirely', () => {
+    delete window.matchMedia;
+    renderAtHash();
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
   });
 });

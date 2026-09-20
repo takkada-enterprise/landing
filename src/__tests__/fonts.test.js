@@ -12,17 +12,27 @@ const mainJsx = read('src/main.jsx');
 const styles = read('src/styles.css');
 const premium = read('src/premium.css');
 
-// CLAUDE.md §7 records the failure this file exists to prevent: if the Fraunces
-// face stops resolving, every heading on the site silently reverts to Plus
-// Jakarta Sans. No error, no build failure, no visual test catches it unless
-// someone happens to look. It nearly shipped once (2026-07-06).
-const REQUIRED_FAMILIES = ['Fraunces', 'Plus Jakarta Sans'];
+// CLAUDE.md §7 records the failure this file exists to prevent: a face that
+// stops resolving costs nothing loud. Text keeps rendering — in a system font,
+// at the wrong metrics. No error, no build failure, no visual test catches it
+// unless someone happens to look. It nearly shipped once (2026-07-06).
+const REQUIRED_FAMILIES = ['Plus Jakarta Sans', 'IBM Plex Mono'];
 
 describe('self-hosted webfonts', () => {
   it('declares an @font-face for every family the site depends on', () => {
     for (const family of REQUIRED_FAMILIES) {
       expect(fontsCss).toContain(`font-family: '${family}'`);
     }
+  });
+
+  // The positive case above is satisfied by a fonts.css that ALSO declares a
+  // third family — which is how an extra face gets onto the critical path
+  // without anyone deciding to put it there. The type system is two families;
+  // a third one has to fail here, not get noticed in a waterfall later.
+  it('declares no family beyond the two the site ships', () => {
+    const declared = [...fontsCss.matchAll(/font-family:\s*'([^']+)'/g)].map((m) => m[1]);
+    expect(declared.length).toBeGreaterThan(0);
+    expect([...new Set(declared)].sort()).toEqual([...REQUIRED_FAMILIES].sort());
   });
 
   it('ships a real woff2 file behind every src', () => {

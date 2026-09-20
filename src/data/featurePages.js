@@ -64,6 +64,7 @@
 // The extension is load-bearing. siteMetadata.js and the sitemap / llms.txt
 // generators load this module through Node ESM, which does not resolve
 // extensionless specifiers.
+import { screen } from './screens.js';
 import { SECOND_BATCH } from './featurePagesSecondBatch.js';
 import { ALTERNATIVES } from './featurePagesAlternatives.js';
 import { PERSONAS } from './featurePagesPersonas.js';
@@ -106,12 +107,7 @@ const FIRST_BATCH = [
     // fetch priority and its bytes are pinned in scripts/checkImageBudgets.mjs.
     // A real Guwahati storefront with the coordinates and timestamp on it does
     // more for trust than any diagram of the feature (CLAUDE.md craft rule 4).
-    hero: {
-      image: '/assets/screenshots/field-visit-photo-mockup.webp',
-      alt: 'Takkada visit proof: a geo-tagged, time-stamped photo of a retailer shopfront in Guwahati',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'field-visits' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-12',
@@ -136,32 +132,25 @@ const FIRST_BATCH = [
           title: 'Nine in the morning, he opens his beat',
           body:
             'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each. He opens the app and today’s shops are already listed for him.',
-          screenshot: '/assets/screenshots/beats-mockup.webp',
-          screenshotAlt:
-            'Beats screen in Takkada listing named routes, each with its salesman and dealer count',
+          screen: 'beats',
         },
         {
           title: 'He checks in, and the visit proves itself',
           body:
             'One tap marks the visit with the time and the place, and it carries a geo-tagged, time-stamped photo. The shop front, the shelf, the stock lying in the corner. Nothing to argue about at month end.',
-          screenshot: '/assets/screenshots/field-visits-feed-mockup.webp',
-          screenshotAlt:
-            'Field visit feed in Takkada showing salesman check-ins with the time and location of each',
+          screen: 'field-visits',
         },
         {
           title: 'The order is booked against live stock',
           body:
             'Live stock sits next to every item, so nobody promises what the godown does not have. It lands in your Tally as a sales order the moment he saves it, with the pending quantity tracked until it ships.',
-          screenshot: '/assets/screenshots/add-items-mockup.webp',
-          screenshotAlt: 'Building an order in Takkada with live stock on hand next to every item',
+          screen: 'godown-stock',
         },
         {
           title: 'The godown loads the van from one sheet',
           body:
             'The orders booked on a route total themselves into one load sheet. So many bags, so many crates, then the same list dealer by dealer. As the van empties, deliveries get ticked off against each shop.',
-          screenshot: '/assets/screenshots/beat-load-sheet-mockup.webp',
-          screenshotAlt:
-            'Dispatch load sheet in Takkada totalling the items to load for one route, with the per-dealer breakdown below',
+          screen: 'van-loading',
         },
         {
           title: 'The invoice reaches the retailer on WhatsApp',
@@ -174,9 +163,7 @@ const FIRST_BATCH = [
           title: 'By night you already know how the day went',
           body:
             'Visits, orders and collections per salesman as they land, with monthly targets and commission worked out from what actually got billed and collected. The evening call asking everyone what they did stops being necessary.',
-          screenshot: '/assets/screenshots/team-sales-hub-mockup.webp',
-          screenshotAlt:
-            'Team Sales screen in Takkada: who is out today, and the leaderboard with targets and commission per salesman',
+          screen: 'salesman-summary',
         },
       ],
       // RBAC is not a station: it has no hour in the day, and dropping it into
@@ -184,6 +171,16 @@ const FIRST_BATCH = [
       // removes. It keeps its FAQ answer and its comparison row.
       footnote:
         'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
+    },
+    // The exported Team Sales sheet (Ronak, 2026-09-20 15:10): the one page
+    // an owner actually forwards. Registry slug, same file the homepage's
+    // Tally stop enlarges; capture #8 of plan 2026-09-20-001 replaces it once
+    // the demo receipts carry names.
+    sheet: {
+      screen: 'sheet-salesman',
+      overline: 'THE SHEET',
+      heading: 'Salesman-wise sales, invoices and collections, exported',
+      body: 'Team Sales exports one sheet for any period: each member with the invoices raised, the sales they add up to, the receipts logged, the amount collected and the commission earned. Send it to the accountant or open it in Excel, and the month-end argument starts from one number.',
     },
     comparison: {
       heading: 'What changes once the order leaves the shop',
@@ -305,12 +302,7 @@ const FIRST_BATCH = [
         'UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.',
     },
     footerLabel: 'Payment collection',
-    hero: {
-      image: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
-      alt: 'An invoice PDF and a pay-now link delivered to a customer on WhatsApp',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'settlements' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -321,10 +313,7 @@ const FIRST_BATCH = [
         title: 'The pay link rides on the invoice',
         body:
           'Every invoice you raise carries its own UPI link for the exact amount. Nothing to generate on the side, nothing to paste into a chat.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice summary in Takkada with the amount due and a payment link on the same screen',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'Send',
@@ -341,20 +330,14 @@ const FIRST_BATCH = [
         title: 'The money goes to your bank, not a wallet',
         body:
           'Collections settle into your own current account. You are not withdrawing from a balance held somewhere else, and there is no cut taken out of the rupees on the way.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'List of settled collections with the amount and date of each',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
       {
         icon: 'BookOpen',
         title: 'The receipt finds its own invoice',
         body:
           'The entry posts into Tally against the bill it settles. When one payment covers three invoices it splits across all three, so the party ledger is right without anyone matching it in the evening.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing receipts matched against the invoices they settle',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
     ],
     comparison: {
@@ -463,12 +446,7 @@ const FIRST_BATCH = [
         'Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
     },
     footerLabel: 'Payment reminders',
-    hero: {
-      image: '/assets/screenshots/payment-reminders.webp',
-      alt: 'Smart Reminders settings in Takkada with the schedule, due days and payment link availability',
-      width: 820,
-      height: 1698,
-    },
+    hero: { screen: 'reminders' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -479,10 +457,7 @@ const FIRST_BATCH = [
         title: 'You set the cadence, not the messages',
         body:
           'Decide how many days before the due date the first nudge goes, and how often one follows after. The app picks the wording for where that bill stands, so nobody is drafting anything.',
-        image: '/assets/screenshots/smart-reminders-mockup.webp',
-        alt: 'Reminder schedule showing pre-due and post-due steps for an invoice',
-        width: 391,
-        height: 790,
+        screen: 'reminder-schedule',
       },
       {
         icon: 'MessageCircle',
@@ -499,20 +474,14 @@ const FIRST_BATCH = [
         title: 'Caps keep it from becoming spam',
         body:
           'A limit per party per day, and parties you can hold back entirely. Your biggest retailer does not get four messages because four of his bills came due together.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and their due dates',
-        width: 600,
-        height: 1243,
+        screen: 'reminders',
       },
       {
         icon: 'CheckCheck',
         title: 'It stops on its own when he pays',
         body:
           'The reminder run reads live outstanding from your books, so a bill that got settled drops out of the next cycle. Nobody is chasing money that already came in.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Settled collections list showing invoices that have been paid',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
     ],
     comparison: {
@@ -624,12 +593,7 @@ const FIRST_BATCH = [
     // einvoice-eway.webp was the obvious hero and is deliberately not used:
     // it shows a real customer's party name and a real brand. Flagged for
     // removal from the homepage too, where it is currently live.
-    hero: {
-      image: '/assets/screenshots/invoice-summary-mockup.webp',
-      alt: 'An invoice in Takkada with the E-Invoice action available on the same screen',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'invoice-summary-send' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -640,30 +604,21 @@ const FIRST_BATCH = [
         title: 'Raise the invoice where you are standing',
         body:
           'Party, items, quantity, rate and GST, in your own numbering series. It is a Tally voucher from the moment you save it, not a note you copy over later.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Invoice item lines with quantity, rate and GST being entered on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'godown-stock',
       },
       {
         icon: 'QrCode',
         title: 'The IRN and QR come back onto that voucher',
         body:
           'One tap sends it for registration and the IRN with its signed QR lands against the same invoice. No portal login, and no separate document to reconcile against the one in your books.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice detail screen with the E-Invoice action on the same voucher',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'FileCheck2',
         title: 'Your Tally shows one invoice, not two',
         body:
           'The registration details write back against the existing voucher. Your numbering, your formats and your ledgers stay exactly as they were, which is the part that usually breaks when e-invoicing is bolted on.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing the single invoice entry the registration attached to',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'Send',
@@ -784,12 +739,7 @@ const FIRST_BATCH = [
         'E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.',
     },
     footerLabel: 'E-way bill from phone',
-    hero: {
-      image: '/assets/screenshots/delivery-challans-mockup.webp',
-      alt: 'Delivery challan screen in Takkada listing dispatches ready to move',
-      width: 600,
-      height: 1218,
-    },
+    hero: { screen: 'van-loading' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -800,10 +750,7 @@ const FIRST_BATCH = [
         title: 'It starts from the dispatch you already made',
         body:
           'The invoice or the delivery challan is the source. Party, items and value are already there, so nobody is retyping a consignment into a second screen while a driver waits.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Delivery challans listed in the app with their dispatch details',
-        width: 600,
-        height: 1218,
+        screen: 'dispatch-beats',
       },
       {
         icon: 'MapPin',
@@ -820,10 +767,7 @@ const FIRST_BATCH = [
         title: 'The number writes back into Tally',
         body:
           'The e-way bill number lands against the same voucher, alongside the IRN if the invoice was registered too. One document trail, not a folder of PDFs somebody matches later.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice detail in the app carrying the dispatch document actions',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'Send',
@@ -947,12 +891,7 @@ const FIRST_BATCH = [
     // twenty reports look like an empty product. The sales register carries
     // real volume and no identifying name, so it leads instead and the summary
     // screen becomes the first walk-through step.
-    hero: {
-      image: '/assets/screenshots/monthly-sales.webp',
-      alt: 'Sale invoices register grouped by month, with the total and invoice count for each',
-      width: 904,
-      height: 1874,
-    },
+    hero: { screen: 'total-fy' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -963,42 +902,51 @@ const FIRST_BATCH = [
         title: 'The year so far, on the first screen',
         body:
           'Sales, receipts, purchase, payments, credit and debit notes for the financial year, before you tap anything. It is the summary most owners open first thing and then close again.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
       {
         icon: 'BarChart3',
         title: 'Registers you can walk down',
         body:
           'Sales by month, by party and by item, with the purchase side alongside. Tap a month to get the invoices inside it, tap an invoice to get its lines.',
-        image: '/assets/screenshots/monthly-sales.webp',
-        alt: 'Sale invoices register grouped by month with totals and invoice counts',
-        width: 904,
-        height: 1874,
+        screen: 'sales-analytics',
       },
       {
         icon: 'Clock',
         title: 'Outstanding sorted by how old it is',
         body:
           'Receivables and payables by age, so the ninety-day parties stand out from the ones who are merely late. From the same screen you can send a reminder or share the ledger.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing outstanding invoices with their ages',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'Share2',
         title: 'Any report, to anyone, as PDF or Excel',
         body:
           'Send the register to your CA or the ledger to a retailer straight from the report. The month-end routine of exporting from the office machine and mailing it stops being a task.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Settlements report listing collections by party, date and amount',
-        width: 391,
-        height: 790,
+        screen: 'report-export',
       },
     ],
+    // Every report there is a screenshot of (Ronak, 2026-09-20). Twelve, in
+    // the order an owner meets them: sales, purchases, collections, stock, out.
+    gallery: {
+      overline: 'THE REPORTS',
+      heading: 'Every report on the phone, one screen each',
+      intro: 'These are the registers as they open on a phone, from the demo company. Tap any figure in the app and it opens into the vouchers behind it.',
+      items: [
+        { screen: 'total-fy', title: 'This financial year', body: 'Sales, receipts, purchase, payments, credit and debit notes, one figure each.' },
+        { screen: 'sales-analytics', title: 'Sales analytics', body: 'The monthly trend for the year and how much of it sits with your top customers.' },
+        { screen: 'sales-by-item', title: 'Sales by item', body: 'Quantity, amount, average price and the spread against purchase, by month, quarter or year.' },
+        { screen: 'customer-analytics', title: 'Went quiet', body: 'Customers who stopped ordering, the value at risk, and how long each has been silent.' },
+        { screen: 'purchase-analytics', title: 'Purchase analytics', body: 'The monthly purchase trend and how concentrated your spend is across suppliers.' },
+        { screen: 'purchases-by-item', title: 'Purchases by item', body: 'Quantity bought, amount, average cost and the spread against your selling price.' },
+        { screen: 'receivables-report', title: "A party's receivables", body: 'Total due in ageing buckets, the open bills, and Share PDF or Send on WhatsApp.' },
+        { screen: 'collections-outstanding', title: 'Outstanding by party', body: "Every party's dues by age, with the collector assigned to each." },
+        { screen: 'payment-behaviour', title: 'Payment behaviour', body: 'What was collected this year and how many days each customer takes to pay.' },
+        { screen: 'godown-list', title: 'Stock by godown', body: 'Item count, value and quantity per godown, as on any date.' },
+        { screen: 'godown-items', title: "One godown's items", body: "Each item in a godown with its quantity and value at today's rate." },
+        { screen: 'report-export', title: 'Any report, out', body: 'Excel or PDF from the report itself, onto WhatsApp or email.' },
+      ],
+    },
     comparison: {
       heading: 'What you can actually read on the phone',
       othersLabel: 'Other Tally mobile apps',
@@ -1089,7 +1037,7 @@ const FIRST_BATCH = [
       'The supplier bills arrive as PDFs and photos. Somebody sits down at seven in the evening and types them in, one line at a time.',
     // 48 words.
     answer:
-      'To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate, GST and the supplier are matched against your existing masters. You check the draft on screen, and it posts as a purchase voucher.',
+      'To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.',
     waContext: 'feature-import-purchase-from-pdf',
     waMessage:
       'Hi, I want to stop typing supplier purchase bills into Tally by hand. Can you show me how the PDF and photo import works?',
@@ -1105,56 +1053,98 @@ const FIRST_BATCH = [
         'Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.',
     },
     footerLabel: 'Import purchase from PDF',
-    hero: {
-      image: '/assets/screenshots/add-items-mockup.webp',
-      alt: 'Voucher item lines with quantity, rate and GST shown for checking before the entry is saved',
-      width: 600,
-      height: 1242,
-    },
+    hero: { screen: 'document-import' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
     walkthroughHeading: 'A supplier bill, without the typing',
+    detail: {
+      overline: 'IN DETAIL',
+      heading: 'What the import actually does',
+      intro: 'What the app does today, read from the working build. The bold words are the point; the guide has the rest.',
+      groups: [
+        {
+          title: 'What you can send in',
+          points: [
+            { lead: 'PDF or photo', text: 'A supplier bill as a PDF, JPG or PNG up to 5 MB. A big photo is shrunk on the phone first.' },
+            { lead: 'Straight from WhatsApp', text: 'Share the file into the app from WhatsApp, Files or Gallery, or scan it with the camera.' },
+            { lead: 'One Imports history', text: 'Every attempt of every kind sits in one list, so a bill started on the road is finished at the desk.' },
+          ],
+        },
+        {
+          title: 'It knows what the document is',
+          points: [
+            { lead: 'Named before it is saved', text: 'A short AI step says purchase invoice, sales invoice, order or bank statement, and asks when it is unsure.' },
+            { lead: 'Your GSTIN is the proof', text: 'A bill issued under your own GSTIN is a sale. A supplier bill is never mistaken for one.' },
+            { lead: 'Permissions checked twice', text: 'Rights are checked again on the detected kind, so nobody imports a purchase by sending it in as an order.' },
+          ],
+        },
+        {
+          title: 'What it reads off the bill',
+          points: [
+            { lead: 'The whole header', text: 'Supplier, GSTIN, invoice number and date, due date, place of supply, taxable total, CGST, SGST, IGST and grand total.' },
+            { lead: 'Every line', text: 'Description, HSN, quantity, unit, rate, GST rate and amount. MRP only when it is printed, never worked out.' },
+            { lead: 'Totals rows skipped', text: 'Discount, round-off and sub-total rows are left out. Several invoices in one PDF are flagged, not merged.' },
+            { lead: 'Scans still work', text: 'A PDF the AI cannot read falls back to a text reader, and the review screen says so.' },
+          ],
+        },
+        {
+          title: "It checks the bill's own maths",
+          points: [
+            { lead: 'Three ways, one answer', text: 'Totalled from printed amounts, from the rate before tax and from the rate after tax. The one landing on the printed grand total wins.' },
+            { lead: 'Printed IGST wins', text: 'A CGST and SGST split between two states is treated as a misread and the GSTINs decide.' },
+            { lead: 'Never a quiet difference', text: 'If nothing matches the printed total, a banner says so on review instead of posting the gap.' },
+          ],
+        },
+        {
+          title: 'Matched to your Tally, then checked by you',
+          points: [
+            { lead: 'Supplier from your ledgers', text: 'Suggested from what you have, or created in one tap. The same bill number twice is flagged as a duplicate.' },
+            { lead: 'Items remembered', text: "Map a supplier's wording to your stock item once and the next bill matches on its own." },
+            { lead: 'Continue says why', text: 'Map 3 more items to continue, or a quantity the bill never stated. Nothing is quietly set to 1.' },
+            { lead: 'Posts only on your yes', text: 'Edit HSN, quantity, unit, rate or GST on any line, then approve. Only then is it a purchase voucher.' },
+          ],
+        },
+        {
+          title: 'Kept safe',
+          points: [
+            { lead: 'Reopen any attempt', text: 'The original file is kept for 14 days and a stuck job is retried into the same slot, so one bill never becomes two entries.' },
+            { lead: 'Never read twice', text: 'The same file for the same company is not read again, and results never cross companies.' },
+            { lead: '15 an hour', text: 'Up to 15 documents per company per hour, then a short wait.' },
+            { lead: 'Per member, per register', text: 'The company needs Document Import switched on, and a member needs create rights on the register the document becomes.' },
+          ],
+        },
+      ],
+      guide: { slug: 'import-documents', label: 'Read the step-by-step guide to importing a document' },
+    },
     walkthrough: [
       {
         icon: 'Camera',
         title: 'Send it the bill however it arrived',
         body:
           'A PDF from the supplier, or a photo of the paper copy taken at the godown. Both go in the same way, which matters because half of them still come as paper.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Item lines read off a supplier bill, with quantity, rate and GST filled in',
-        width: 600,
-        height: 1242,
+        screen: 'import-picker',
       },
       {
         icon: 'ListChecks',
         title: 'The lines are matched to your own masters',
         body:
           'Items are matched to the stock items you already have, the supplier to the ledger you already use, and unit differences between his case and your piece are reconciled rather than creating a duplicate master.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Draft voucher summary showing the supplier, the items and the total',
-        width: 600,
-        height: 1243,
+        screen: 'import-item-match',
       },
       {
         icon: 'ShieldCheck',
         title: 'Nothing posts until a person says so',
         body:
           'The draft is shown line by line with what it read and what it matched. You correct anything that looks wrong and approve it, so a misread rate never reaches your books quietly.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Supplier ledger showing the purchase entries recorded against it',
-        width: 600,
-        height: 1243,
+        screen: 'purchase-review',
       },
       {
         icon: 'BarChart3',
         title: 'The purchase side stays current',
         body:
           'Because the bills go in as they arrive rather than in a weekend batch, your payables and your purchase register are worth reading on a Tuesday afternoon.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Reports screen showing purchase and payments for the financial year',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
     ],
     comparison: {
@@ -1270,12 +1260,7 @@ const FIRST_BATCH = [
         'What a distributor can actually do with Tally from a phone: read live outstanding and over twenty reports, raise invoices and other vouchers in the existing numbering series, dispatch them on WhatsApp, collect by UPI at 0% MDR, and have every entry write back into the same Tally company.',
     },
     footerLabel: 'Tally on mobile',
-    hero: {
-      image: '/assets/screenshots/home-screen-framed.webp',
-      alt: 'The Takkada home screen on a phone, showing the business registers at a glance',
-      width: 800,
-      height: 1624,
-    },
+    hero: { screen: 'home' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1286,40 +1271,28 @@ const FIRST_BATCH = [
         title: 'Your books open where you are standing',
         body:
           'Receivables, payables, sales, purchase and stock on the first screen, read from your own Tally. The last synced position stays readable even when the office machine is off.',
-        image: '/assets/screenshots/home-screen-framed.webp',
-        alt: 'Takkada home screen with the business registers listed',
-        width: 800,
-        height: 1624,
+        screen: 'home',
       },
       {
         icon: 'BookOpen',
         title: 'Any party, any bill, in two taps',
         body:
           'Open a retailer and see what he owes, how old it is, and which invoices make it up. Share his ledger on WhatsApp from the same screen instead of promising to send it later.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'ListChecks',
         title: 'Raise the entry, do not just look at it',
         body:
           'Invoices, delivery challans, sales orders, receipts, credit and debit notes, in your own numbering series and your own formats. It is a Tally voucher, not a note to copy across later.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Voucher item lines with live stock, quantity and rate on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'godown-stock',
       },
       {
         icon: 'CalendarClock',
         title: 'The chasing runs while you do other things',
         body:
           'Reminders go out on WhatsApp on a schedule with the invoice and the ledger attached, and the pay link sits in the message. Receipts match themselves back to the bill they settle.',
-        image: '/assets/screenshots/smart-reminders-mockup.webp',
-        alt: 'Reminder schedule showing the pre-due and post-due steps for an invoice',
-        width: 391,
-        height: 790,
+        screen: 'reminder-schedule',
       },
     ],
     comparison: {
@@ -1443,6 +1416,47 @@ export const featureRouteMetadata = FEATURE_PAGES.map((page) => ({
   changefreq: 'monthly',
   priority: page.priority,
 }));
+
+// One hero, two shapes. A page written before the screen registry carries its
+// own `{ image, alt, width, height }`; a page pointed at a real app screen
+// carries `{ screen: '<slug>' }` and everything else - both widths, the alt
+// text somebody wrote after opening the PNG, the provenance record - travels
+// with the registry entry. Every reader goes through here, because the schema
+// image, the feature-page LCP img and the hub's lead cards each used to reach
+// into `hero.image` on their own and would each have gone blank on the new
+// shape.
+export function heroShot(page) {
+  if (!page?.hero) return null;
+  if (page.hero.screen) return screen(page.hero.screen);
+  // Normalised to the registry's own shape - `src`, not `image` - so callers
+  // never branch. A legacy hero has one width, hence no srcSet.
+  const { image, alt, width, height } = page.hero;
+  return { src: image, srcSet: undefined, alt, width, height };
+}
+
+// A walkthrough step or tour station names its screen by registry slug, like
+// the hero. Until Ronak's remaining captures land (WhatsApp chat, permissions,
+// beats, visit photo, order link; 2026-09-20) a step may still carry the old
+// `image` or `screenshot` shape, which renders as a placeholder through the
+// same return shape so the card markup never branches.
+export function stepShot(step) {
+  if (!step) return null;
+  if (step.screen) return screen(step.screen);
+  if (step.image) {
+    const { image, alt, width, height } = step;
+    return { src: image, srcSet: undefined, alt, width, height };
+  }
+  if (step.screenshot) {
+    return {
+      src: step.screenshot,
+      srcSet: undefined,
+      alt: step.screenshotAlt,
+      width: 600,
+      height: 1242,
+    };
+  }
+  return null;
+}
 
 // Consumed by the footer "Features" column in src/data/siteContent.js.
 export const featureFooterLinks = FEATURE_PAGES.map((page) => ({

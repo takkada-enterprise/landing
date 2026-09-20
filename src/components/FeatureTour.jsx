@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { stepShot } from '../data/featurePages';
 
 // Scroll-driven tour for feature pages. A sticky phone crossfades between
 // screens while the reader's scroll walks the story station by station.
@@ -59,10 +60,7 @@ export default function FeatureTour({ tour }) {
         <div className="ftour-grid">
           <ol className="ftour-list" ref={listRef}>
             {tour.stations.map((station, i) => (
-              <li
-                key={station.title}
-                className={`ftour-step${i === active ? ' is-active' : ''}`}
-              >
+              <li key={station.title} className={`ftour-step${i === active ? ' is-active' : ''}`}>
                 <button
                   type="button"
                   aria-expanded={i === active}
@@ -88,12 +86,14 @@ export default function FeatureTour({ tour }) {
             {tour.stations.map((station, i) => (
               <img
                 key={station.title}
-                src={station.screenshot}
-                alt={station.screenshotAlt}
+                src={stepShot(station).src}
+                srcSet={stepShot(station).srcSet}
+                sizes="200px"
+                alt={stepShot(station).alt}
                 className={i === active ? 'is-active' : undefined}
                 aria-hidden={i !== active}
-                width={600}
-                height={1242}
+                width={stepShot(station).width}
+                height={stepShot(station).height}
                 loading="lazy"
                 decoding="async"
               />

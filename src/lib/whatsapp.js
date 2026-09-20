@@ -10,8 +10,10 @@ export const WHATSAPP_MESSAGES = {
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
   header:
     'Hi, I am on takkada.com and want to know more about Takkada for my business.',
-  'home-hero':
-    'Hi, I run a distribution business on Tally. I saw takkada.com and want to see how it works.',
+  // 'home-hero' retired 2026-09-18 with the hero's WhatsApp button. The hero's
+  // only CTA is now DemoTryCTA, which keeps `home-hero` as its ANALYTICS context
+  // (the event series is continuous) but never reads this map: its kill-switch
+  // branch hard-codes the 'demo' context below.
   features:
     'Hi, I am looking at the features on takkada.com and want a walkthrough.',
   // The /features hub, kept separate from the homepage section above so the
@@ -41,10 +43,10 @@ export const WHATSAPP_MESSAGES = {
   demo: 'Hi, I tried the demo company on takkada.com. I want to set this up for my own business.',
   'sticky-bar':
     'Hi, I am reading takkada.com on my phone and want to know more about Takkada.',
-  'story-order-to-cash':
-    'Hi, I saw the order-to-cash road on takkada.com. I want to see how the invoice-to-UPI loop works for my business.',
-  'story-team-sales':
-    'Hi, I run a sales team in the field. I want to see how Takkada handles salesman check-ins and orders.',
+  // 'story-order-to-cash' and 'story-team-sales' retired 2026-09-18 with the two
+  // homepage story sections. The one story that replaced them (FollowOneInvoice)
+  // ends in feature-page links, not a WhatsApp CTA, so it registers no context
+  // of its own; a context nothing renders is a message that can never arrive.
   // Feature landing pages register their own context from their content entry,
   // so a new page arrives in the funnel already triaged instead of falling back
   // to the default message.

@@ -88,6 +88,8 @@ Two properties make this hold up in practice. Restriction has to be per member r
 
 Layer the create-without-alter rule on top and the picture is complete. The salesman posts an order and logs a receipt, cannot go back into yesterday's entry to change the rate, and cannot delete it. The office keeps the correction rights it always had.
 
+Where a new joiner is still learning your rates, the tighter setting is to let him save and have the entry wait: [voucher approval before Tally](/voucher-approval-before-tally/) holds his invoice or order for an approver, who sees the party's dues and every line before anything reaches the books.
+
 A second benefit arrives without being asked for. A [salesman-wise sales report](/blog/salesman-wise-sales-report-tally/) becomes trustworthy, because each member's activity is attributable rather than pooled under one shared login that four people know the password to.
 
 ## Setting It Up Without Stalling the Field Team

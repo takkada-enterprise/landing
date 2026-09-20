@@ -8,13 +8,14 @@
 //
 // That is not hypothetical. Forty of the July 2026 batch shipped that way and
 // sat broken across roughly a third of the corpus until somebody looked. The
-// cause is structural: `scripts/generate-blog-images.py` carries a hand-kept
-// ARTICLES list, so adding a post and forgetting the list entry is a silent
-// failure with no build signal. This guard is the signal.
+// cause was structural: `scripts/generate-blog-images.py` carried a hand-kept
+// ARTICLES list, so adding a post and forgetting the list entry was a silent
+// failure with no build signal. That list is gone since 2026-09-20 — the
+// generator reads content/blog frontmatter — so this guard should now only
+// fire when somebody adds a post without running the generator at all.
 //
 // Runs inside `npm run build`, so a missing image fails the build rather than
-// the customer's unfurl. Fix by adding the slug to ARTICLES in
-// scripts/generate-blog-images.py and re-running it.
+// the customer's unfurl. Fix by running `python3 scripts/generate-blog-images.py`.
 import { existsSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
