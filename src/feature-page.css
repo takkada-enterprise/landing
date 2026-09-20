@@ -95,7 +95,10 @@
   justify-content: center;
   height: 220px;
   overflow: hidden;
-  background: var(--color-wash);
+  /* Not --color-wash: the section behind the cards is that blue, so the band
+   * disappeared into the page and the phone looked chopped off above a
+   * headless white box. Surface tint keeps the card one visible object. */
+  background: var(--color-surface);
 }
 
 .feature-step-shot img {
