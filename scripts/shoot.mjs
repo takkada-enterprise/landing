@@ -76,6 +76,12 @@ SETS.sheet = [
 ];
 // The reports page's gallery of every registered report screen (2026-09-20).
 SETS.gallery = [['gallery-tally-reports-on-mobile', '/tally-reports-on-mobile#gallery']];
+// The header's Features menu, opened (2026-09-20: it now lists all 29 pages).
+// Two pages, because the nav repaints itself over a navy hero.
+SETS.menu = [
+  ['menu-home', '/', { click: '.nav-features-toggle' }],
+  ['menu-hub', '/features', { click: '.nav-features-toggle' }],
+];
 // The two round-two pages and the hub sections they join (2026-09-20), so the
 // day's check is six shots and not the whole 29-page feature set.
 SETS.round2 = [
@@ -86,7 +92,7 @@ SETS.round2 = [
   ['round2-walk-ai-collection-calls', '/ai-collection-calls#walkthrough'],
   ['round2-hub-recover', '/features#recover'],
 ];
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.menu, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);
@@ -150,7 +156,7 @@ async function cdp(wsUrl) {
   };
 }
 
-async function shoot(port, name, path, w, h) {
+async function shoot(port, name, path, w, h, opts = {}) {
   const url = `${base}${path}`;
   const target = await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent('about:blank')}`, {
     method: 'PUT',
@@ -187,6 +193,38 @@ async function shoot(port, name, path, w, h) {
       });
       if (result.exceptionDetails || !result.result.value) throw new Error(`Could not scroll to #${id}`);
       await sleep(500);
+    }
+    // A menu that only exists while it is open cannot be proved by a shot of
+    // the page it hangs off. `click` opens it first; a selector that is not on
+    // the page at this width (the desktop nav below 900px) is not an error.
+    if (opts.click) {
+      // Retried: the first click can land before React has hydrated the
+      // header, and a click on a not-yet-live button is silently nothing.
+      // aria-expanded is the element's own account of whether it opened.
+      const opened = await client.send('Runtime.evaluate', {
+        expression: `new Promise((resolve) => {
+          let rounds = 0;
+          const tap = () => {
+            const el = document.querySelector(${JSON.stringify(opts.click)});
+            if (el && el.getAttribute('aria-expanded') === 'true') { resolve('open'); return; }
+            // A missing element is retried, not reported: at 390 the desktop
+            // nav is display:none and never arrives, and on a server-rendered
+            // route the button can be a hydration tick behind the load event.
+            if (rounds++ >= 6) { resolve(el ? 'stuck' : 'absent'); return; }
+            if (!el) { setTimeout(tap, 600); return; }
+            // One click per round, then a wait long enough for React to
+            // re-render the attribute. Clicking again before that read lands
+            // toggles the menu shut while the stale attribute still says open.
+            el.click();
+            setTimeout(tap, 600);
+          };
+          tap();
+        })`,
+        awaitPromise: true,
+        returnByValue: true,
+      });
+      if (opened.result.value === 'stuck') throw new Error(`${opts.click} never opened on ${url}`);
+      await sleep(400);
     }
     await client.send('Runtime.evaluate', {
       expression: `Promise.race([
@@ -225,8 +263,8 @@ async function shoot(port, name, path, w, h) {
 
 try {
   const port = await devtoolsPort();
-  for (const [name, path] of SETS[set]) {
-    for (const [w, h] of [[1440, 900], [390, 844]]) await shoot(port, name, path, w, h);
+  for (const [name, path, opts] of SETS[set]) {
+    for (const [w, h] of [[1440, 900], [390, 844]]) await shoot(port, name, path, w, h, opts);
   }
 } finally {
   if (chrome.exitCode === null) {

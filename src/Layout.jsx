@@ -9,7 +9,7 @@ import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
 import { navLinks, footerColumns, contactInfo, appLinks, demoEntryLive } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { leadFeaturePages } from './data/featureGroups';
+import { menuFeatureGroups } from './data/featureGroups';
 import { organizationSchema, webSiteSchema } from './data/schema';
 
 const MOBILE_MENU_ID = 'mobile-menu';
@@ -22,13 +22,15 @@ const FEATURES_PANEL_ID = 'nav-features-panel';
 const OPEN_INTENT_MS = 130;
 const CLOSE_DELAY_MS = 240;
 
-// Derived from the same export the hub's lead tier and the footer column read,
-// so the three surfaces cannot drift. footerLabel rather than llms.title: this
-// is a menu, and "Payment collection on Tally" beside "Tally on mobile" reads
-// as a paragraph, not a list.
-const LEAD_FEATURES = leadFeaturePages(FEATURE_PAGES).map((page) => ({
-  label: page.footerLabel,
-  path: featurePagePath(page),
+// Every feature page, under the same headings the hub files them under, so the
+// menu and the hub cannot drift (Ronak, 2026-09-20: the menu showed nine and
+// sent the rest to "All features", which is a page away). footerLabel rather
+// than llms.title: this is a menu, and "Payment collection on Tally" beside
+// "Tally on mobile" reads as a paragraph, not a list.
+const FEATURE_MENU = menuFeatureGroups(FEATURE_PAGES).map((group) => ({
+  id: group.id,
+  title: group.title,
+  items: group.pages.map((page) => ({ label: page.footerLabel, path: featurePagePath(page) })),
 }));
 
 function hashTargetFrom(href) {
@@ -179,8 +181,13 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
       </button>
       <div id={FEATURES_PANEL_ID} className="nav-features-panel" inert={!open}>
         <div className="nav-features-list">
-          {LEAD_FEATURES.map((feature) => (
-            <Link key={feature.path} to={feature.path}>{feature.label}</Link>
+          {FEATURE_MENU.map((group) => (
+            <div key={group.id} className="nav-features-group">
+              <h3>{group.title}</h3>
+              {group.items.map((feature) => (
+                <Link key={feature.path} to={feature.path}>{feature.label}</Link>
+              ))}
+            </div>
           ))}
         </div>
         <Link to={href} className="nav-features-all">

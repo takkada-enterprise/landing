@@ -368,6 +368,16 @@ export function leadFeaturePages(pages) {
 }
 
 /**
+ * Every group with every page, in FEATURE_GROUPS order — what the header's
+ * Features menu reads (Ronak, 2026-09-20: it listed nine and hid the other
+ * twenty behind "All features"). No lead-tier subtraction here: the menu is a
+ * directory, and a directory that omits a page is the bug being fixed.
+ */
+export function menuFeatureGroups(pages) {
+  return groupFeaturePages(pages);
+}
+
+/**
  * The sections of the hub, in FEATURE_GROUPS order, each minus the pages the
  * lead tier already shows. The subtraction is what keeps "exactly one card per
  * feature page" true now that every group is a section: nine of the twenty-seven

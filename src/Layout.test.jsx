@@ -29,7 +29,7 @@ import Layout from './Layout';
 import Home from './routes/Home';
 import { appLinks, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { leadFeaturePages } from './data/featureGroups';
+import { menuFeatureGroups } from './data/featureGroups';
 
 beforeEach(() => {
   siteContentMock.demoEntryLive = true;
@@ -198,22 +198,32 @@ describe('Features disclosure in the desktop header', () => {
     };
   }
 
-  it('lists exactly the lead features plus a way to the hub', () => {
+  // Ronak, 2026-09-20: the menu showed nine of the feature pages and sent the
+  // other twenty to "All features". Every page is in the menu now, under the
+  // journey heading the hub files it under, so nothing is reachable only from
+  // the hub.
+  it('lists every feature page, grouped, plus a way to the hub', () => {
     const { panelLinks } = renderLayout();
-    // Derived from the same export the hub and the footer read. A lead-list
-    // edit must move all three together or none.
     expect(panelLinks()).toEqual([
-      ...leadFeaturePages(FEATURE_PAGES).map(featurePagePath),
+      ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map(featurePagePath)),
       '/features',
     ]);
+  });
+
+  it('names every group above its links, and files every page exactly once', () => {
+    const { container } = renderLayout();
+    const groups = menuFeatureGroups(FEATURE_PAGES);
+    expect([...container.querySelectorAll('.nav-features-group > h3')].map((h) => h.textContent)).toEqual(
+      groups.map((group) => group.title)
+    );
+    const linked = groups.flatMap((group) => group.pages.map((page) => page.slug));
+    expect(new Set(linked).size).toBe(FEATURE_PAGES.length);
   });
 
   // Reachable from any page without navigating away first — the whole point of
   // putting it in the header rather than only on the hub.
   it('carries the same links on a page that is not the homepage', () => {
-    expect(renderLayout('/blog').panelLinks().length).toBe(
-      leadFeaturePages(FEATURE_PAGES).length + 1
-    );
+    expect(renderLayout('/blog').panelLinks().length).toBe(FEATURE_PAGES.length + 1);
   });
 
   it('starts closed, inert, and out of the tab order', () => {

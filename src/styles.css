@@ -477,8 +477,8 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   position: absolute;
   top: calc(100% + 16px);
   left: -12px;
-  width: min(440px, calc(100vw - 48px));
-  padding: 12px;
+  width: min(880px, calc(100vw - 48px));
+  padding: 18px 16px 14px;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
@@ -498,17 +498,36 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
               transform var(--dur-fast) var(--ease-out);
 }
 
+/* CSS columns, not a grid: the balance is done by the browser, so adding a
+   page to a group or a group to the journey cannot leave one column long and
+   another short, and nothing here hardcodes which heading sits in which
+   column. break-inside keeps a heading with its own links. */
 .nav-features-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px 6px;
+  columns: 4;
+  column-gap: 22px;
+}
+
+.nav-features-group {
+  break-inside: avoid;
+  margin-bottom: 14px;
+}
+
+.nav-features-group > h3 {
+  margin: 0 0 2px;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 /* Scoped past `.nav-links a`, which sets the top-level item's size, colour and
    the premium.css underline sweep. A menu row is none of those things. */
 .nav-links .nav-features-panel a {
   display: block;
-  padding: 9px 10px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-weight: 500;
@@ -531,7 +550,7 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 8px;
+  margin-top: 0;
   padding-top: 12px;
   border-top: 1px solid var(--color-hairline);
   border-radius: 0;
@@ -543,6 +562,19 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
 .nav-links .nav-features-all:hover {
   background: transparent;
   color: var(--color-primary-dark);
+}
+
+/* The panel is anchored to the left edge of "Features", so its width is what
+   decides whether it hangs off the right of the viewport. The desktop nav
+   survives down to 900px (.desktop-only), so the columns drop with it. */
+@media (max-width: 1199px) {
+  .nav-features-panel { width: min(660px, calc(100vw - 48px)); }
+  .nav-features-list { columns: 3; }
+}
+
+@media (max-width: 999px) {
+  .nav-features-panel { width: min(460px, calc(100vw - 48px)); }
+  .nav-features-list { columns: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {
