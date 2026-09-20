@@ -10,8 +10,9 @@ import {
   featurePagePath,
   getFeaturePage,
   heroShot,
+  stepShot,
 } from '../featurePages';
-import { screen } from '../screens';
+import { screen, SCREENS } from '../screens';
 import {
   FEATURE_BLURBS,
   FEATURE_GROUPS,
@@ -26,10 +27,7 @@ import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { findImagePreloads } from '../../../scripts/stripImagePreloads.mjs';
-import {
-  checkReferences,
-  loadManifest,
-} from '../../../scripts/checkScreenshotProvenance.mjs';
+import { checkReferences, loadManifest } from '../../../scripts/checkScreenshotProvenance.mjs';
 import { ICON_NAMES } from '../../components/FeaturePage';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -114,19 +112,51 @@ describe('feature page data contract', () => {
     }
   );
 
+  // A step names its screen by registry slug (`screen`), or, until Ronak's
+  // remaining captures land (2026-09-20), still carries the old `image` shape
+  // as a placeholder. Either way it resolves to a real file with explicit
+  // dimensions, which is what keeps CLS at 0 on these pages.
   it.each(FEATURE_PAGES.filter((p) => p.walkthrough?.length).map((p) => [p.slug, p]))(
-    '%s: every walk-through step has a real screenshot with explicit dimensions',
+    '%s: every walk-through step resolves to a real screenshot with explicit dimensions',
     (_slug, page) => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
       for (const step of page.walkthrough) {
-        expect(existsSync(resolve(repoRoot, `public${step.image}`))).toBe(true);
-        expect(step.alt.length).toBeGreaterThan(0);
-        // Explicit width/height are what keep CLS at 0 on these pages.
-        expect(step.width).toBeGreaterThan(0);
-        expect(step.height).toBeGreaterThan(0);
+        const shot = stepShot(step);
+        expect(shot, `${page.slug} step "${step.title}" has no screen`).not.toBeNull();
+        if (step.screen) expect(SCREENS).toHaveProperty(step.screen);
+        expect(existsSync(resolve(repoRoot, `public${shot.src}`))).toBe(true);
+        expect(shot.alt.length).toBeGreaterThan(0);
+        expect(shot.width).toBeGreaterThan(0);
+        expect(shot.height).toBeGreaterThan(0);
       }
     }
   );
+
+  // The placeholder set is closed: only the screens Ronak is still shooting
+  // may keep the old shape. Anything else must come through the registry.
+  const PLACEHOLDER_IMAGES = new Set([
+    '/assets/screenshots/whatsapp-dispatch-mockup.webp',
+    '/assets/screenshots/rbac.webp',
+    '/assets/screenshots/beats-mockup.webp',
+    '/assets/screenshots/field-visit-photo-mockup.webp',
+    '/assets/screenshots/add-items-mockup.webp',
+    '/assets/screenshots/order-link-catalog-mockup.webp',
+    '/assets/screenshots/order-link-cart-mockup.webp',
+    '/assets/screenshots/order-link-confirm-mockup.webp',
+    '/assets/screenshots/order-link-sent-mockup.webp',
+    '/assets/screenshots/order-link-inbox-mockup.webp',
+  ]);
+  it('only the screens still being captured are left on the old image shape', () => {
+    const legacy = [];
+    for (const page of FEATURE_PAGES) {
+      for (const s of page.walkthrough ?? [])
+        if (!s.screen) legacy.push(`${page.slug}: ${s.image}`);
+      for (const s of page.tour?.stations ?? [])
+        if (!s.screen) legacy.push(`${page.slug}: ${s.screenshot}`);
+    }
+    const offenders = legacy.filter((l) => !PLACEHOLDER_IMAGES.has(l.split(': ')[1]));
+    expect(offenders).toEqual([]);
+  });
 
   // Every image a reader can see on the page. Tour stations belong here as
   // much as walk-through steps do: they are full-bleed phone screens, and
@@ -134,8 +164,8 @@ describe('feature page data contract', () => {
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
     heroShot(page).src,
-    ...(page.walkthrough?.map((s) => s.image) ?? []),
-    ...(page.tour?.stations?.map((s) => s.screenshot) ?? []),
+    ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
+    ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
   ];
 
   it.each(FEATURE_PAGES.filter((p) => p.tour).map((p) => [p.slug, p]))(
@@ -143,11 +173,12 @@ describe('feature page data contract', () => {
     (_slug, page) => {
       expect(page.tour.stations.length).toBeGreaterThan(0);
       for (const station of page.tour.stations) {
+        const shot = stepShot(station);
         expect(
-          existsSync(resolve(repoRoot, `public${station.screenshot}`)),
+          shot && existsSync(resolve(repoRoot, `public${shot.src}`)),
           `${page.slug} tour station "${station.title}" points at a missing file.`
         ).toBe(true);
-        expect(station.screenshotAlt.length).toBeGreaterThan(0);
+        expect(shot.alt.length).toBeGreaterThan(0);
         expect(station.title.length).toBeGreaterThan(0);
         expect(station.body.length).toBeGreaterThan(0);
       }
@@ -207,7 +238,12 @@ describe('feature page data contract', () => {
     for (const page of FEATURE_PAGES) {
       const used = pageImages(page);
       const placeholders = used
-        .map((src) => src.split('/').pop().replace(/\.(webp|png|jpg)$/, ''))
+        .map((src) =>
+          src
+            .split('/')
+            .pop()
+            .replace(/\.(webp|png|jpg)$/, '')
+        )
         .filter((file) => file in PLACEHOLDER_ASSETS);
       if (placeholders.length === 0) continue;
       expect(
@@ -268,12 +304,12 @@ describe('feature page data contract', () => {
   const pageReferences = (page) => [
     { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
     ...(page.walkthrough ?? []).map((step, i) => ({
-      path: step.image,
+      path: stepShot(step).src,
       surface: 'featurePage:walkthrough',
       origin: `${page.slug} walk-through step ${i + 1}`,
     })),
     ...(page.tour?.stations ?? []).map((station) => ({
-      path: station.screenshot,
+      path: stepShot(station).src,
       surface: 'featurePage:tour',
       origin: `${page.slug} tour station "${station.title}"`,
     })),
@@ -298,7 +334,12 @@ describe('feature page data contract', () => {
       ([, record]) => record.knownSensitive
     );
     const stems = new Set(
-      sensitive.map(([, record]) => record.path.split('/').pop().replace(/\.\w+$/, ''))
+      sensitive.map(([, record]) =>
+        record.path
+          .split('/')
+          .pop()
+          .replace(/\.\w+$/, '')
+      )
     );
     expect([...stems].sort()).toEqual([
       'bankbook',
@@ -451,7 +492,8 @@ describe('feature page data contract', () => {
   // exist yet and why, and a flat ban made writing that truth impossible. So
   // the ban stays absolute everywhere a claim can live, and the FAQ is allowed
   // to discuss closure only while denying it and citing the advisory.
-  const CLOSURE = /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
+  const CLOSURE =
+    /clos(e|ing|ure)[^.,"]{0,40}(e-?way|eway)|(e-?way|eway)[^.,"]{0,40}clos(e|ing|ure)/;
 
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: never claims e-way bill closure on any selling surface',
@@ -479,9 +521,13 @@ describe('feature page data contract', () => {
         // answer that raises closure without it is either a claim or a vague
         // half-answer, and both are failures.
         expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toContain('abeyance');
-        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toMatch(/advisory no\. 668/);
+        expect(answer, `${page.slug}: closure FAQ must cite the advisory`).toMatch(
+          /advisory no\. 668/
+        );
         // And it must actually say no.
-        expect(answer, `${page.slug}: closure FAQ must deny, not claim`).toMatch(/\bno\b|\bnot\b|cannot/);
+        expect(answer, `${page.slug}: closure FAQ must deny, not claim`).toMatch(
+          /\bno\b|\bnot\b|cannot/
+        );
       }
     }
   );
@@ -607,9 +653,7 @@ describe('feature page registration is automatic', () => {
   });
 
   it('still reaches every feature page from the hub and footer together', () => {
-    const footerSlugs = footerColumns
-      .find((c) => c.title === 'Features')
-      .links.map((l) => l.page);
+    const footerSlugs = footerColumns.find((c) => c.title === 'Features').links.map((l) => l.page);
     // The hub tiers cover FEATURE_PAGES exactly (asserted above), so the union
     // is the hub. Stated as a union anyway: if the hub's coverage is ever
     // narrowed, this names the page that lost its last crawlable link rather
@@ -689,10 +733,11 @@ describe('feature page heroes come from the screen registry', () => {
   const withScreen = FEATURE_PAGES.filter((p) => p.hero?.screen);
 
   // A screen showing a phone number, a real person's name beside a number, or a
-  // GSTIN is not published. These two were reviewed and rejected on 2026-09-19;
-  // they stay registered because the journey still uses nothing from them, and
-  // they stay out of every feature page until Ronak's re-captures land.
-  const BLOCKED = ['einvoice-eway', 'van-loading'];
+  // GSTIN is not published. `einvoice-eway` was rejected on 2026-09-19 for the
+  // party's number; its retouched successor is `invoice-summary-send`. The Van
+  // screen (`van-loading`, "ronak / 9194…") was cleared by Ronak on 2026-09-20:
+  // it is his own number and he chose to publish it as is.
+  const BLOCKED = ['einvoice-eway'];
 
   it('names a registered slug wherever hero.screen is set', () => {
     for (const page of withScreen) {

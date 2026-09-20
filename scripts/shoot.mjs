@@ -56,7 +56,14 @@ const SETS = {
     ['sheet-salesman', '/?sheet=sheet-salesman#stop-tally'],
   ],
 };
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.sheets];
+// The same 27 pages scrolled to their story section (walkthrough grid or
+// tour), because the cards live below the fold and the hero shot never shows
+// them. Layout's useScrollToHash lands on the section id.
+SETS.walk = SETS.feature.map(([name, path]) => [
+  name.replace(/^feature-/, 'walk-'),
+  `${path}${path === '/salesman-app-tally' ? '#tour' : '#walkthrough'}`,
+]);
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);

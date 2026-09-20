@@ -42,7 +42,7 @@ import {
   articlePageSchema,
   SITE_URL,
 } from '../data/schema';
-import { featurePagePath, heroShot } from '../data/featurePages';
+import { featurePagePath, heroShot, stepShot } from '../data/featurePages';
 
 // The feature-landing-page template. One entry in src/data/featurePages.js is
 // one page; this renders it. Built as a second template beside ICPTemplate
@@ -147,8 +147,8 @@ function FeaturePage({ page }) {
             // Without the fallback, a tour-only page emits Article with no
             // image at all.
             image:
-              page.walkthrough?.[0]?.image ??
-              page.tour?.stations?.[0]?.screenshot ??
+              stepShot(page.walkthrough?.[0])?.src ??
+              stepShot(page.tour?.stations?.[0])?.src ??
               shot?.src,
             datePublished: page.datePublished,
             dateModified: page.updated,
@@ -209,40 +209,46 @@ function FeaturePage({ page }) {
           story is a grid. A page carrying a scroll tour instead tells the same
           day once, below, and rendering both narrated it twice. ── */}
       {page.walkthrough?.length > 0 && (
-      <section className="tally-section feature-walkthrough" id="walkthrough">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">{page.overline}</span>
-            <h2 className="section-title">{page.walkthroughHeading}</h2>
-          </div>
-          <div className="feature-steps">
-            {page.walkthrough.map((step) => {
-              const Icon = ICONS[step.icon];
-              return (
-                <article key={step.title} className="feature-step">
-                  <div className="feature-step-copy">
-                    <div className="tally-card-icon">{Icon && <Icon size={22} />}</div>
-                    <h3>{step.title}</h3>
-                    <p>{step.body}</p>
-                  </div>
-                  {step.image && (
-                    <div className="feature-step-shot">
-                      <img
-                        src={step.image}
-                        alt={step.alt}
-                        width={step.width}
-                        height={step.height}
-                        loading="lazy"
-                        decoding="async"
-                      />
+        <section className="tally-section feature-walkthrough" id="walkthrough">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.overline}</span>
+              <h2 className="section-title">{page.walkthroughHeading}</h2>
+            </div>
+            <div className="feature-steps" data-steps={page.walkthrough.length}>
+              {page.walkthrough.map((step) => {
+                const Icon = ICONS[step.icon];
+                const stepImg = stepShot(step);
+                return (
+                  <article key={step.title} className="feature-step">
+                    {/* Media band first and fixed-height (feature-page.css), so
+                      every phone in a row starts and is cut at the same y
+                      whatever the copy under it does. */}
+                    {stepImg && (
+                      <div className="feature-step-shot">
+                        <img
+                          src={stepImg.src}
+                          srcSet={stepImg.srcSet}
+                          sizes="208px"
+                          alt={stepImg.alt}
+                          width={stepImg.width}
+                          height={stepImg.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
+                    <div className="feature-step-copy">
+                      <div className="tally-card-icon">{Icon && <Icon size={22} />}</div>
+                      <h3>{step.title}</h3>
+                      <p>{step.body}</p>
                     </div>
-                  )}
-                </article>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       )}
 
       {/* ── Scroll-driven order tour, only on pages whose data carries one.

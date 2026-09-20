@@ -72,20 +72,14 @@ export const SECOND_BATCH = [
         title: 'Every party carries its own balance',
         body:
           'Open a retailer and the outstanding is already there, read from your Tally rather than typed by anyone. The invoices behind the number are listed under it, so the figure can be argued with on evidence.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'Clock',
         title: 'Overdue sorted by how old it is',
         body:
           'The thirty-day party and the ninety-day party stop looking alike. You work the list from the oldest down, which is the order that actually gets money in.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing outstanding invoices with their ages',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'Send',
@@ -102,20 +96,14 @@ export const SECOND_BATCH = [
         title: 'The receipt finds its own invoice',
         body:
           'When he pays, the receipt posts into Tally against the invoice it settles. The evening spent matching credits to bills stops being part of your day.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Settled collections list showing invoices that have been paid',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
       {
         icon: 'BarChart3',
         title: 'The whole book in one view',
         body:
           'Sales, receipts, purchase and payments for the financial year, so you can see whether collections are keeping pace with billing or quietly falling behind it.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
     ],
     comparison: {
@@ -237,20 +225,14 @@ export const SECOND_BATCH = [
         title: 'Open the party, see the entries',
         body:
           'Every invoice, receipt and note against that retailer, in order, read from your Tally. This is the same ledger your accountant is looking at on the desktop.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing receipts matched against the invoices they settle',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'CalendarClock',
         title: 'Choose the period he is arguing about',
         body:
           'Any date range, not just the current year. When a retailer disputes an entry from two seasons ago, you send that window rather than the whole book.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and their due dates',
-        width: 600,
-        height: 1243,
+        screen: 'statement-settings',
       },
       {
         icon: 'Share2',
@@ -267,20 +249,14 @@ export const SECOND_BATCH = [
         title: 'A payment link rides along with it',
         body:
           'Once he agrees the balance, there is nothing left to arrange. He pays from the same message by UPI, at 0% MDR, with no transaction cap and no monthly fee.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice summary in Takkada with the amount due and a payment link on the same screen',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'CheckCheck',
         title: 'The receipt lands against the right bill',
         body:
           'His payment posts into your Tally against the invoices it settles, so the statement you send next month already reflects it.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'List of settled collections with the amount and date of each',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
     ],
     comparison: {
@@ -398,20 +374,14 @@ export const SECOND_BATCH = [
         title: 'Overdue grouped by age',
         body:
           'Parties fall into slabs by how long their bills have been outstanding. The list you should be working today separates itself from the list that can wait.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing outstanding invoices with their ages',
-        width: 600,
-        height: 1243,
+        screen: 'collections-outstanding',
       },
       {
         icon: 'ListChecks',
         title: 'The bills behind every number',
         body:
           'Ageing computed bill by bill rather than on a closing balance, so a part-paid invoice ages on what is still open against it rather than dropping out of the report.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'Send',
@@ -428,20 +398,14 @@ export const SECOND_BATCH = [
         title: 'Reminders take over the routine chasing',
         body:
           'Schedules run before and after the due date, with caps per party so nobody is messaged into ignoring you. Your calls go to the parties that need a human.',
-        image: '/assets/screenshots/smart-reminders-mockup.webp',
-        alt: 'Reminder schedule showing pre-due and post-due steps for an invoice',
-        width: 391,
-        height: 790,
+        screen: 'reminder-schedule',
       },
       {
         icon: 'BarChart3',
         title: 'Watch whether the ageing is improving',
         body:
           'Collections against billing across the year, so you can tell whether the oldest slab is actually shrinking or just being replaced by new arrivals.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'payment-behaviour',
       },
     ],
     comparison: {
@@ -559,30 +523,21 @@ export const SECOND_BATCH = [
         title: 'Screens built for a phone',
         body:
           'Registers, parties and reports laid out for a thumb rather than a mouse. Nothing to zoom into, and nothing that needs a keyboard you do not have with you.',
-        image: '/assets/screenshots/home-screen-framed.webp',
-        alt: 'Takkada home screen with the business registers listed',
-        width: 800,
-        height: 1624,
+        screen: 'home',
       },
       {
         icon: 'Wallet',
         title: 'The books, not a picture of the books',
         body:
           'Party balances and outstanding invoices you can search and tap through. A remote session shows you the desktop; this gives you the data underneath it.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'party-list',
       },
       {
         icon: 'BarChart3',
         title: 'Reports that open on a 4G signal',
         body:
           'A summary of sales, receipts, purchase and payments loads over an ordinary mobile connection, in a market street where a remote desktop session would time out.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
       {
         icon: 'ShieldCheck',
@@ -727,10 +682,7 @@ export const SECOND_BATCH = [
         title: 'A schedule, not a blast',
         body:
           'Steps that run before the due date as a nudge and after it as a follow-up. The retailer hears from you at the moment it changes what he does, rather than on the day you happened to remember him.',
-        image: '/assets/screenshots/smart-reminders-mockup.webp',
-        alt: 'Reminder schedule showing pre-due and post-due steps for an invoice',
-        width: 391,
-        height: 790,
+        screen: 'reminder-schedule',
       },
       {
         icon: 'MessageCircle',
@@ -747,30 +699,21 @@ export const SECOND_BATCH = [
         title: 'He can pay from the reminder',
         body:
           'A pay-now link sits in the message at 0% MDR, with no transaction cap and no monthly fee. The gap between deciding to pay and actually paying is where most collections are lost.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice summary in Takkada with the amount due and a payment link on the same screen',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'ShieldCheck',
         title: 'Caps keep the relationship intact',
         body:
           'You set how often any one party can be messaged. A retailer who is chased daily stops reading you altogether, which costs more than the bill you were chasing.',
-        image: '/assets/screenshots/payment-reminders.webp',
-        alt: 'Reminder settings controlling how often a party is messaged',
-        width: 820,
-        height: 1698,
+        screen: 'reminders',
       },
       {
         icon: 'CheckCheck',
         title: 'Paid bills leave the queue by themselves',
         body:
           'When the receipt lands in your Tally, the invoice drops out of the schedule. Nobody gets chased for money they have already sent, which is the mistake that ends the goodwill fastest.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'Settled collections list showing invoices that have been paid',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
     ],
     comparison: {
@@ -889,50 +832,35 @@ export const SECOND_BATCH = [
         title: 'Bring in the statement you already download',
         body:
           'The file your bank gives you, without anyone retyping a line of it. This is the same statement your accountant has been working through by eye.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'List of settled collections with the amount and date of each',
-        width: 391,
-        height: 790,
+        screen: 'document-import',
       },
       {
         icon: 'ListChecks',
         title: 'Each credit is read, not guessed at',
         body:
           'The narration and the UTR are used to work out who sent the money. A credit with a reference in it is matched on that reference rather than on the amount alone.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing receipts matched against the invoices they settle',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'CheckCheck',
         title: 'The bills it clears are proposed for you',
         body:
           'One payment covering three invoices is split across them rather than sitting on account. You see the proposed allocation before it becomes an entry.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice summary showing the amount due against a bill',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'ShieldCheck',
         title: 'Nothing posts until you say so',
         body:
           'You approve the batch, and only then are the receipts written into Tally. A credit that cannot be attributed waits for you rather than being forced onto the nearest party.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing the entries recorded against it',
-        width: 600,
-        height: 1243,
+        screen: 'maker-checker',
       },
       {
         icon: 'BarChart3',
         title: 'The bank position stops being a mystery',
         body:
           'Receipts and payments for the year in one view, so the gap between what the bank shows and what the books show is something you can look at rather than something you dread.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
     ],
     comparison: {
@@ -1050,30 +978,21 @@ export const SECOND_BATCH = [
         title: 'Stock read location by location',
         body:
           'Item balances per godown rather than one company total. The question of whether the branch can serve an order stops needing a phone call to answer.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Voucher item lines with live stock, quantity and rate on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'godown-stock',
       },
       {
         icon: 'Truck',
         title: 'Move stock between godowns from the phone',
         body:
           'A transfer recorded on the spot becomes a stock journal in your Tally, so the books do not wait for someone to enter it when they next sit at the desktop.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Dispatch documents listed in the app with their details',
-        width: 600,
-        height: 1218,
+        screen: 'add-items',
       },
       {
         icon: 'FileCheck2',
         title: 'The godown travels with the document',
         body:
           'Invoices and delivery challans carry the location the goods actually left from, which is what keeps the stock in the books matching the stock on the floor.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice detail in the app carrying the dispatch document actions',
-        width: 600,
-        height: 1243,
+        screen: 'van-loading',
       },
       {
         icon: 'Lock',
@@ -1090,10 +1009,7 @@ export const SECOND_BATCH = [
         title: 'The movement behind the balance',
         body:
           'What sold, what came in and what moved, so a location running dry is something you notice before the orders start bouncing.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'sales-by-item',
       },
     ],
     comparison: {
@@ -1200,12 +1116,7 @@ export const SECOND_BATCH = [
         'Several Tally companies held in one mobile app: switch between businesses without logging out, each keeping its own books, parties, reports and user permissions, with sales, receipts, purchase and outstanding read live for whichever is open.',
     },
     footerLabel: 'Multi-company',
-    hero: {
-      image: '/assets/screenshots/reports-screen.webp',
-      alt: 'Financial year summary of sales, receipts, purchase and payments for a company',
-      width: 820,
-      height: 1698,
-    },
+    hero: { screen: 'home' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1216,40 +1127,28 @@ export const SECOND_BATCH = [
         title: 'Switch business without switching app',
         body:
           'Your companies sit behind one login. Checking the second firm stops being a job you postpone until the accountant sends something.',
-        image: '/assets/screenshots/home-screen-framed.webp',
-        alt: 'Takkada home screen with the business registers listed',
-        width: 800,
-        height: 1624,
+        screen: 'home',
       },
       {
         icon: 'BarChart3',
         title: 'The same reports for each of them',
         body:
           'Sales, receipts, purchase and payments for the financial year, read from that company’s own Tally rather than from a summary someone prepared.',
-        image: '/assets/screenshots/reports-screen.webp',
-        alt: 'Financial year summary of sales, receipts, purchase and payments in the app',
-        width: 820,
-        height: 1698,
+        screen: 'total-fy',
       },
       {
         icon: 'Wallet',
         title: 'Outstanding kept where it belongs',
         body:
           'Each company carries its own parties and its own receivables. A retailer who buys from two of your firms shows the right balance under each, instead of one merged figure that is true for neither.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'party-list',
       },
       {
         icon: 'Activity',
         title: 'Compare the month across firms',
         body:
           'The sales register by month for each business, so a quiet quarter in the smaller firm is visible while there is still time to do something about it.',
-        image: '/assets/screenshots/monthly-sales.webp',
-        alt: 'Sale invoices register grouped by month with totals and invoice counts',
-        width: 904,
-        height: 1874,
+        screen: 'sales-analytics',
       },
       {
         icon: 'Lock',
@@ -1377,40 +1276,28 @@ export const SECOND_BATCH = [
         title: 'Live stock sits next to every item',
         body:
           'What the godown holds is on screen while the order is being written, so nobody commits to quantities that were sold last week.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Voucher item lines with live stock, quantity and rate on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'godown-stock',
       },
       {
         icon: 'ListChecks',
         title: 'The order becomes a Tally voucher',
         body:
           'It lands against the right party and the right items without anyone re-entering it. The evening spent typing up the day is what this removes.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Sales order screen showing pending quantities against each item',
-        width: 600,
-        height: 1243,
+        screen: 'pending-orders',
       },
       {
         icon: 'Clock',
         title: 'Pending quantity is tracked until it ships',
         body:
           'Part-dispatched lines keep showing what is still owed to the retailer, so an order half-served does not quietly become an order forgotten.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Pending quantities remaining against an order after part dispatch',
-        width: 600,
-        height: 1243,
+        screen: 'pending-orders',
       },
       {
         icon: 'Truck',
         title: 'Convert it when the goods move',
         body:
           'The order becomes a delivery challan or an invoice without being rewritten, carrying the same items, rates and party across.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Delivery challans listed in the app with their dispatch details',
-        width: 600,
-        height: 1218,
+        screen: 'dispatch-beats',
       },
       {
         icon: 'Send',
@@ -1542,40 +1429,28 @@ export const SECOND_BATCH = [
         title: 'Raise it where the goods are',
         body:
           'At the godown door, on the phone, while the vehicle is being loaded. The challan does not wait for someone to be free at the desktop.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Delivery challans listed in the app with their dispatch details',
-        width: 600,
-        height: 1218,
+        screen: 'van-loading',
       },
       {
         icon: 'PackageCheck',
         title: 'The godown is recorded on it',
         body:
           'The location the stock actually left from travels with the document, which is what keeps each godown balance honest rather than only the company total.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Item lines with quantity and value on the dispatch document',
-        width: 600,
-        height: 1242,
+        screen: 'add-items',
       },
       {
         icon: 'ListChecks',
         title: 'A whole round in one go',
         body:
           'When twenty deliveries leave together, the challans can be raised as a batch instead of one at a time. Dispatch day stops being a queue at one screen.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Order lines listed with the quantities to be dispatched',
-        width: 600,
-        height: 1243,
+        screen: 'review-invoices',
       },
       {
         icon: 'FileCheck2',
         title: 'It becomes the invoice later',
         body:
           'The same items and rates carry into the sales invoice without anyone rewriting them, so what was delivered and what was billed cannot drift apart.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice detail in the app carrying the dispatch document actions',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary',
       },
       {
         icon: 'Send',
@@ -1692,12 +1567,7 @@ export const SECOND_BATCH = [
         'Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.',
     },
     footerLabel: 'Credit and debit notes',
-    hero: {
-      image: '/assets/screenshots/invoice-summary-mockup.webp',
-      alt: 'Voucher summary on a phone showing the party, the items and the total',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'invoice-summary' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1708,40 +1578,28 @@ export const SECOND_BATCH = [
         title: 'Start from the invoice it adjusts',
         body:
           'The note is raised against the original bill rather than as a loose entry, so the party ledger shows what was reduced and which invoice it belonged to.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger showing the invoice entries recorded against a retailer',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'ListChecks',
         title: 'Item lines, with the tax worked out',
         body:
           'Quantities and rates are entered the way they were on the invoice and the GST follows them, so a return does not become a tax question at filing time.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Voucher item lines with quantity, rate and GST being entered on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'godown-stock',
       },
       {
         icon: 'FileCheck2',
         title: 'It lands in Tally as a voucher',
         body:
           'The note is written into your books against the same party, so the receivable moves the day the adjustment was agreed rather than whenever someone gets to the desktop.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Draft voucher summary showing the party, the items and the total',
-        width: 600,
-        height: 1243,
+        screen: 'total-fy',
       },
       {
         icon: 'Wallet',
         title: 'The outstanding reflects it straight away',
         body:
           'What the retailer owes drops by what you have agreed to credit. Nobody chases him for an amount that both of you already know is not payable.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'Party ledger with outstanding invoices and the amount due',
-        width: 600,
-        height: 1243,
+        screen: 'receivables-report',
       },
       {
         icon: 'Lock',
@@ -1860,12 +1718,7 @@ export const SECOND_BATCH = [
         'Invoice PDFs sent in the distributor’s own format: logo, terms, bank and UPI details laid out to match what the business already prints, delivered on WhatsApp as soon as the invoice is saved in Tally.',
     },
     footerLabel: 'Invoice template',
-    hero: {
-      image: '/assets/screenshots/invoice-summary-mockup.webp',
-      alt: 'Invoice summary in Takkada with the amount due and a payment link on the same screen',
-      width: 600,
-      height: 1243,
-    },
+    hero: { screen: 'invoice-summary' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
@@ -1876,30 +1729,21 @@ export const SECOND_BATCH = [
         title: 'Your format, not a default one',
         body:
           'Logo, business details, terms and the layout your customers already recognise from the bills you print in the office.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice summary showing the amount due against a bill',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-settings',
       },
       {
         icon: 'ListChecks',
         title: 'The lines as you enter them',
         body:
           'Items, quantities, rates and GST come from the voucher in your Tally, so the PDF and your books say the same thing.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Invoice item lines with quantity, rate and GST being entered on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'review-invoices',
       },
       {
         icon: 'QrCode',
         title: 'Your bank and UPI details on the bill',
         body:
           'The retailer does not have to ask where to send money. Where payment collection is on, a pay-now link goes with the PDF as well.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Invoice detail screen showing the payment options against the bill',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'Send',
@@ -1916,10 +1760,7 @@ export const SECOND_BATCH = [
         title: 'What went out, and when',
         body:
           'The sales register by month with totals and counts, so you can see the billing that actually left the building rather than what you assume did.',
-        image: '/assets/screenshots/monthly-sales.webp',
-        alt: 'Sale invoices register grouped by month, with the total and invoice count for each',
-        width: 904,
-        height: 1874,
+        screen: 'sales-analytics',
       },
     ],
     comparison: {
@@ -2039,50 +1880,35 @@ export const SECOND_BATCH = [
         title: 'Photograph the page',
         body:
           'The order book as it is, written in the market. No format to follow and nothing for the salesman to fill in twice.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Item lines with quantity, rate and GST filled in on a phone',
-        width: 600,
-        height: 1242,
+        screen: 'document-import',
       },
       {
         icon: 'ListChecks',
         title: 'The lines come back as a draft',
         body:
           'Items, quantities and rates are read off the page and matched against your item masters, so what you are checking is a voucher rather than a picture.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Voucher item lines with quantity, rate and GST shown for checking before the entry is saved',
-        width: 600,
-        height: 1242,
+        screen: 'review-invoices',
       },
       {
         icon: 'ShieldCheck',
         title: 'A person checks it before it posts',
         body:
           'You correct anything that came back wrong and approve the rest. Nothing reaches your books that somebody has not looked at.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'Draft voucher summary showing the party, the items and the total',
-        width: 600,
-        height: 1243,
+        screen: 'maker-checker',
       },
       {
         icon: 'PackageCheck',
         title: 'It becomes an order in Tally',
         body:
           'The approved draft is written in as a sales order against the right party, with the pending quantity tracked until it ships.',
-        image: '/assets/screenshots/pending-orders-mockup.webp',
-        alt: 'Sales order screen showing pending quantities against each item',
-        width: 600,
-        height: 1243,
+        screen: 'pending-orders',
       },
       {
         icon: 'Truck',
         title: 'Then it moves like any other order',
         body:
           'Converted to a challan or an invoice without being rewritten, and sent to the retailer with a payment link where collection is on.',
-        image: '/assets/screenshots/delivery-challans-mockup.webp',
-        alt: 'Delivery challans listed in the app with their dispatch details',
-        width: 600,
-        height: 1218,
+        screen: 'dispatch-beats',
       },
     ],
     comparison: {

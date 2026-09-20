@@ -55,25 +55,60 @@
 }
 
 /* ── Walk-through ──
- * A card grid rather than alternating full-width rows. Six phone screenshots
- * stacked one per row ran to roughly 3,700px of scroll, which is the long-scroll
- * punishment craft rule 2 exists to prevent. Cards keep the same six steps
- * inside about a third of the height and reuse the card vocabulary (rule 10). */
+ * A card grid, one step per card. Six tracks so 3-, 4- and 5-step pages all
+ * fill their rows: a card spans 2, a 4-step page's cards span 3 (2×2), and the
+ * last two of a 5-step page span 3, so no row ends with one orphan card.
+ *
+ * The phone sits in a media band FIRST and the band has a fixed height, so
+ * every phone in a row starts at the same y and is cut at the same y whatever
+ * the copy under it does. The band shows the top of the screen (app bar and
+ * first rows), the part that names the feature. Before 2026-09-20 the phone
+ * sat under the copy inside a max-height box, so each card clipped it at a
+ * different height and no two phones lined up. */
 .feature-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 24px;
   margin-top: 48px;
 }
 
 .feature-step {
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
-  padding: 28px 28px 0;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+}
+
+.feature-steps[data-steps='4'] .feature-step {
+  grid-column: span 3;
+}
+
+.feature-steps[data-steps='5'] .feature-step:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.feature-step-shot {
+  display: flex;
+  justify-content: center;
+  height: 220px;
+  overflow: hidden;
+  background: var(--color-wash);
+}
+
+.feature-step-shot img {
+  display: block;
+  width: 208px;
+  height: auto;
+  margin-top: 20px;
+  /* Transparent-background mockups: shadow the silhouette, not the box. */
+  filter: drop-shadow(0 10px 20px rgba(10, 23, 48, 0.14));
+}
+
+.feature-step-copy {
+  padding: 24px 28px 28px;
 }
 
 .feature-step-copy h3 {
@@ -90,25 +125,6 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-text-secondary);
-}
-
-/* The screenshot sits at the foot of the card and is deliberately cropped by
- * the card edge, so a 600x1243 phone capture reads as a device peeking in
- * rather than dictating the card's height. */
-.feature-step-shot {
-  margin-top: 24px;
-  max-height: 200px;
-  overflow: hidden;
-}
-
-.feature-step-shot img {
-  display: block;
-  width: 100%;
-  max-width: 208px;
-  height: auto;
-  margin: 0 auto;
-  /* Transparent-background mockups: shadow the silhouette, not the box. */
-  filter: drop-shadow(0 10px 20px rgba(10, 23, 48, 0.14));
 }
 
 /* ── Comparison table with sentences in the cells ──
@@ -241,6 +257,12 @@
     max-width: 260px;
     margin: 0 auto;
   }
+
+  .feature-steps .feature-step,
+  .feature-steps[data-steps='4'] .feature-step,
+  .feature-steps[data-steps='5'] .feature-step:nth-child(n + 4) {
+    grid-column: span 3;
+  }
 }
 
 @media (max-width: 767px) {
@@ -250,7 +272,13 @@
   }
 
   .feature-steps {
-    gap: 44px;
+    gap: 16px;
+  }
+
+  .feature-steps .feature-step,
+  .feature-steps[data-steps='4'] .feature-step,
+  .feature-steps[data-steps='5'] .feature-step:nth-child(n + 4) {
+    grid-column: span 6;
   }
 
   .feature-related {

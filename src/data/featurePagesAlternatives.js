@@ -90,20 +90,14 @@ export const ALTERNATIVES = [
         title: 'The receipt posts itself against the right bill',
         body:
           'When the money lands, the receipt entry goes into Tally against that invoice on its own. Partial payments, one payment covering three bills, and payments with no reference all get matched. The nine o\'clock reconciliation stops being a job.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'A party ledger with the paid bill closed off against the receipt',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'FileCheck2',
         title: 'The compliance panic is handled from the phone',
         body:
           'Raise the IRN and the e-way bill at the counter, and when the buyer changes his mind an hour later, cancel the e-invoice or the e-way bill from the same screen with the reason code the portal wants. Cancellation is the part nobody else in the category has.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A GST invoice on the phone with its IRN and e-way bill status shown against the voucher',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'Lock',
@@ -120,10 +114,7 @@ export const ALTERNATIVES = [
         title: 'Billing follows the business, not the handset',
         body:
           'Biz Analyst charges per mobile device per Tally licence, so a fourth salesman is a fourth subscription. Takkada prices by plan with extra users added on top, which is the cheaper shape once a field team exists and the more expensive one for a single owner.',
-        image: '/assets/screenshots/sales-target-mockup.webp',
-        alt: 'Per-salesman targets and achievement tracked for a field team',
-        width: 600,
-        height: 1243,
+        screen: 'salesman-summary',
       },
     ],
     comparison: {
@@ -274,40 +265,28 @@ export const ALTERNATIVES = [
         title: 'He pays on UPI and it costs you zero MDR',
         body:
           'Any UPI app, any amount, no transaction cap and no monthly fee. On low-ticket distribution where a hundred retailers each pay a few thousand rupees, the percentage a gateway takes is the difference the collection has to earn back.',
-        image: '/assets/screenshots/settlements-mockup.webp',
-        alt: 'UPI collections arriving against outstanding bills through the day',
-        width: 391,
-        height: 790,
+        screen: 'settlements',
       },
       {
         icon: 'CheckCheck',
         title: 'Tally gets the receipt without you typing it',
         body:
           'The receipt entry posts against the correct invoice on its own, including when one payment covers three bills or arrives with no reference at all. That is the work Livekeeping leaves on the desk, because it has no collection rail to reconcile from.',
-        image: '/assets/screenshots/party-ledger-mockup.webp',
-        alt: 'A party ledger showing the bill closed off by the receipt written back into Tally',
-        width: 600,
-        height: 1243,
+        screen: 'party-detail',
       },
       {
         icon: 'FileCheck2',
         title: 'The cancel button exists on this side',
         body:
           'Both apps raise the IRN and the e-way bill from the phone. When the buyer cancels the order or the truck never leaves, Takkada cancels the e-invoice or the e-way bill from the same screen, with the portal reason code, and writes the status back against the voucher.',
-        image: '/assets/screenshots/invoice-summary-mockup.webp',
-        alt: 'A GST invoice showing its IRN and e-way bill status on the phone',
-        width: 600,
-        height: 1243,
+        screen: 'invoice-summary-send',
       },
       {
         icon: 'BookOpen',
         title: 'The purchase side comes in from a photo',
         body:
           'Photograph the supplier bill or drop the PDF in, and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way. It is the data-entry hour nobody wants at the end of the day.',
-        image: '/assets/screenshots/add-items-mockup.webp',
-        alt: 'Item lines built from a supplier bill and ready to be checked before saving',
-        width: 600,
-        height: 1242,
+        screen: 'document-import',
       },
     ],
     comparison: {

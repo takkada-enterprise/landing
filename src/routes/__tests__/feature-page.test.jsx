@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -9,7 +10,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import FeaturePage from '../../components/FeaturePage';
-import { FEATURE_PAGES, featurePagePath, heroShot } from '../../data/featurePages';
+import { FEATURE_PAGES, featurePagePath, heroShot, stepShot } from '../../data/featurePages';
 import { routeMetadata } from '../../data/siteMetadata';
 import { routes } from '../index';
 import { pricing, planPricing } from '../../data/siteContent';
@@ -88,12 +89,20 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
       const steps = container.querySelectorAll('.feature-step');
       expect(steps).toHaveLength(page.walkthrough.length);
+      expect(grid.querySelector('.feature-steps').getAttribute('data-steps')).toBe(
+        String(page.walkthrough.length)
+      );
       page.walkthrough.forEach((step, i) => {
-        const img = steps[i].querySelector('img');
-        expect(img.getAttribute('src')).toBe(step.image);
-        expect(img.getAttribute('alt')).toBe(step.alt);
-        expect(img.getAttribute('width')).toBe(String(step.width));
-        expect(img.getAttribute('height')).toBe(String(step.height));
+        const shot = stepShot(step);
+        // Media band first, then copy: the band's fixed height is what lines
+        // the phones up across a row (feature-page.css).
+        expect(steps[i].firstElementChild.className).toBe('feature-step-shot');
+        const img = steps[i].querySelector('.feature-step-shot img');
+        expect(img.getAttribute('src')).toBe(shot.src);
+        expect(img.getAttribute('srcset')).toBe(shot.srcSet ?? null);
+        expect(img.getAttribute('alt')).toBe(shot.alt);
+        expect(img.getAttribute('width')).toBe(String(shot.width));
+        expect(img.getAttribute('height')).toBe(String(shot.height));
         expect(img.getAttribute('loading')).toBe('lazy');
       });
     } else {
@@ -167,7 +176,9 @@ describe.each(CASES)('%s emits the AEO schema set', (_slug, page) => {
   it('emits a SoftwareApplication reference published by the organization', () => {
     const { schemas } = renderPage(page);
     const app = byType(schemas, 'SoftwareApplication');
-    expect(app.publisher).toEqual({ '@id': 'https://takkada.com/#organization' });
+    expect(app.publisher).toEqual({
+      '@id': 'https://takkada.com/#organization',
+    });
   });
 
   it('emits a BreadcrumbList ending at the page canonical, on known routes', () => {
@@ -254,8 +265,9 @@ describe('every feature page shows where it sits in the invoice journey', () => 
 // by hand: a list typed here is a list that goes stale the first time an eighth
 // stylesheet is added, and the leak it lets through is exactly the one this
 // guard exists to catch.
-const APP_STYLESHEETS = [...readFileSync('src/main.jsx', 'utf8').matchAll(/^import\s+'(\.[^']+\.css)'/gm)]
-  .map((m) => m[1].replace(/^\.\//, 'src/'));
+const APP_STYLESHEETS = [
+  ...readFileSync('src/main.jsx', 'utf8').matchAll(/^import\s+'(\.[^']+\.css)'/gm),
+].map((m) => m[1].replace(/^\.\//, 'src/'));
 
 const NAVY_SCOPE = /\.feature-hero\b|\.features-hub-hero\b/;
 
@@ -283,7 +295,9 @@ function rulesOf(css) {
 /** Heads that turn an .icp-hero page navy without naming one of the two heroes. */
 function navyLeaks(css) {
   return rulesOf(css)
-    .filter(([sel, body]) => /\.icp-hero\b/.test(sel) && !NAVY_SCOPE.test(sel) && GOES_NAVY.test(body))
+    .filter(
+      ([sel, body]) => /\.icp-hero\b/.test(sel) && !NAVY_SCOPE.test(sel) && GOES_NAVY.test(body)
+    )
     .map(([sel]) => sel);
 }
 
@@ -342,5 +356,29 @@ describe('the navy hero stays on the two heroes it is for', () => {
       '.feature-hero p',
       '.features-hub-hero .container p',
     ]);
+  });
+});
+
+describe('walkthrough card CSS', () => {
+  const css = readFileSync(resolve(__dirname, '../../feature-page.css'), 'utf8').replace(
+    /\/\*[\s\S]*?\*\//g,
+    ''
+  );
+  const block = (head) => {
+    const i = css.indexOf(`${head} {`);
+    return i < 0 ? '' : css.slice(i, css.indexOf('}', i));
+  };
+  it('the media band is fixed-height and clipped, so phones line up by construction', () => {
+    expect(block('.feature-step-shot')).toMatch(/height:\s*\d+px/);
+    expect(block('.feature-step-shot')).toMatch(/overflow:\s*hidden/);
+    expect(block('.feature-step-shot')).not.toMatch(/max-height/);
+  });
+  it('4-step pages fill two rows and 5-step pages widen the last two cards', () => {
+    expect(css).toMatch(
+      /\.feature-steps\[data-steps='4'\] \.feature-step \{\s*grid-column: span 3;/
+    );
+    expect(css).toMatch(
+      /\.feature-steps\[data-steps='5'\] \.feature-step:nth-child\(n \+ 4\) \{\s*grid-column: span 3;/
+    );
   });
 });
