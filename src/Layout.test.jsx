@@ -29,7 +29,7 @@ import Layout from './Layout';
 import Home from './routes/Home';
 import { appLinks, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { menuFeatureGroups } from './data/featureGroups';
+import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
 
 beforeEach(() => {
   siteContentMock.demoEntryLive = true;
@@ -210,20 +210,35 @@ describe('Features disclosure in the desktop header', () => {
     ]);
   });
 
-  it('names every group above its links, and files every page exactly once', () => {
+  it('names every group above its links, and files every page once', () => {
     const { container } = renderLayout();
     const groups = menuFeatureGroups(FEATURE_PAGES);
     expect([...container.querySelectorAll('.nav-features-group > h3')].map((h) => h.textContent)).toEqual(
       groups.map((group) => group.title)
     );
     const linked = groups.flatMap((group) => group.pages.map((page) => page.slug));
-    expect(new Set(linked).size).toBe(FEATURE_PAGES.length);
+    expect(new Set(linked).size).toBe(linked.length);
+  });
+
+  // Ronak, 2026-09-20: the comparison pages are not features, and naming a
+  // competitor in the nav of every page is not what the header is for. They
+  // keep their place on the hub, which "All features" reaches.
+  it('leaves the comparison pages out of the menu but not out of the hub', () => {
+    const { panelLinks } = renderLayout();
+    expect(panelLinks()).not.toContain('/biz-analyst-alternative');
+    expect(panelLinks()).not.toContain('/livekeeping-alternative');
+    expect(panelLinks()).toContain('/features');
+    expect(FEATURE_GROUPS.find((g) => g.id === 'weighing-options').slugs).toEqual([
+      'biz-analyst-alternative',
+      'livekeeping-alternative',
+    ]);
   });
 
   // Reachable from any page without navigating away first — the whole point of
   // putting it in the header rather than only on the hub.
   it('carries the same links on a page that is not the homepage', () => {
-    expect(renderLayout('/blog').panelLinks().length).toBe(FEATURE_PAGES.length + 1);
+    const menuPages = menuFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
+    expect(renderLayout('/blog').panelLinks().length).toBe(menuPages + 1);
   });
 
   it('starts closed, inert, and out of the tab order', () => {

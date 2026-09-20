@@ -368,13 +368,23 @@ export function leadFeaturePages(pages) {
 }
 
 /**
- * Every group with every page, in FEATURE_GROUPS order — what the header's
- * Features menu reads (Ronak, 2026-09-20: it listed nine and hid the other
- * twenty behind "All features"). No lead-tier subtraction here: the menu is a
- * directory, and a directory that omits a page is the bug being fixed.
+ * "Biz Analyst alternative" and "Livekeeping alternative" are not things
+ * Takkada does, they are pages for somebody already shopping around. In a menu
+ * headed Features they read as two more features and they name a competitor in
+ * the nav of every page on the site. They stay on the hub, and in the sitemap,
+ * and one click away under "All features" (Ronak, 2026-09-20).
+ */
+const MENU_EXCLUDED_GROUP_IDS = ['weighing-options'];
+
+/**
+ * Every group with every page, in FEATURE_GROUPS order, minus the groups above
+ * — what the header's Features menu reads (Ronak, 2026-09-20: it listed nine
+ * and hid the other twenty behind "All features"). No lead-tier subtraction:
+ * the menu is a directory, and a directory that omits a feature is the bug
+ * being fixed.
  */
 export function menuFeatureGroups(pages) {
-  return groupFeaturePages(pages);
+  return groupFeaturePages(pages).filter((group) => !MENU_EXCLUDED_GROUP_IDS.includes(group.id));
 }
 
 /**

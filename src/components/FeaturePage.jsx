@@ -207,6 +207,25 @@ function FeaturePage({ page }) {
         </div>
       </section>
 
+      {/* ── A recording of the thing the page describes, only on pages whose
+          data carries one: the AI collection call first (2026-09-20). Directly
+          under the hero (Ronak, 2026-09-20): on a page about a phone call the
+          call itself is the proof, and under the walkthrough it was four cards
+          past the fold where nobody would reach it. ── */}
+      {page.listen && (
+        <section className="tally-section feature-listen" id="listen">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.listen.overline}</span>
+              <h2 className="section-title">{page.listen.heading}</h2>
+              {page.listen.body && <p className="feature-listen-intro">{page.listen.body}</p>}
+            </div>
+            <CallPlayer listen={page.listen} />
+            {page.listen.caption && <p className="feature-listen-caption">{page.listen.caption}</p>}
+          </div>
+        </section>
+      )}
+
       {/* ── Walk-through, one real screenshot per step. Only on pages whose
           story is a grid. A page carrying a scroll tour instead tells the same
           day once, below, and rendering both narrated it twice. ── */}
@@ -249,24 +268,6 @@ function FeaturePage({ page }) {
                 );
               })}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── A recording of the thing the page describes, only on pages whose
-          data carries one: the AI collection call first (2026-09-20). It sits
-          under the walkthrough because the four cards say what happens and
-          this says what it sounds like. ── */}
-      {page.listen && (
-        <section className="tally-section feature-listen" id="listen">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-label">{page.listen.overline}</span>
-              <h2 className="section-title">{page.listen.heading}</h2>
-              {page.listen.body && <p className="feature-listen-intro">{page.listen.body}</p>}
-            </div>
-            <CallPlayer listen={page.listen} />
-            {page.listen.caption && <p className="feature-listen-caption">{page.listen.caption}</p>}
           </div>
         </section>
       )}

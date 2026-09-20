@@ -493,6 +493,11 @@ describe('call recording section', () => {
       expect(audio.hasAttribute('autoplay')).toBe(false);
       expect(section.querySelector('.call-player-play').getAttribute('aria-pressed')).toBe('false');
       expect(section.querySelectorAll('.call-player-bar')).toHaveLength(page.listen.peaks.length * 2);
+      // Directly under the hero, ahead of the story (Ronak, 2026-09-20): on a
+      // page about a phone call, the call is the proof and it was four cards
+      // past the fold.
+      const story = container.querySelector('#walkthrough') ?? container.querySelector('#tour');
+      expect(section.compareDocumentPosition(story) & 4).toBeTruthy();
       const seek = section.querySelector('[role="slider"]');
       expect(seek.getAttribute('aria-valuenow')).toBe('0');
       expect(seek.getAttribute('aria-valuemax')).toBe(String(Math.round(page.listen.duration)));
