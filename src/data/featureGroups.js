@@ -53,7 +53,12 @@ export const FEATURE_GROUPS = [
     stop: 'order',
     title: 'Taking the order',
     intro: "What your salesman does at the retailer's counter, and what you see of it.",
-    slugs: ['salesman-app-tally', 'sales-order-on-mobile', 'order-booking-app-tally'],
+    slugs: [
+      'salesman-app-tally',
+      'sales-order-on-mobile',
+      'voucher-approval-before-tally',
+      'order-booking-app-tally',
+    ],
   },
   {
     id: 'bill',
@@ -184,6 +189,8 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'voucher-approval-before-tally':
+    "A team member's invoice or order waits for your approval, line by line, before it reaches Tally.",
   'payment-collection-tally':
     'A UPI link on every invoice and inside every reminder, at 0% MDR on what lands.',
   'payment-reminder-tally':

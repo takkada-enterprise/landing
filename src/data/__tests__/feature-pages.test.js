@@ -835,3 +835,13 @@ describe('report gallery', () => {
     }
   });
 });
+
+// Round two, 2026-09-20: the two pages Ronak asked for. Pinned by slug so a
+// regroup cannot drop one without saying so.
+describe('round-two pages', () => {
+  it('ships the approvals page under the Order stop', () => {
+    expect(getFeaturePage('voucher-approval-before-tally')).toBeDefined();
+    expect(FEATURE_GROUPS.find((g) => g.id === 'order').slugs).toContain('voucher-approval-before-tally');
+  });
+});
+

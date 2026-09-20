@@ -2280,4 +2280,142 @@ export const SECOND_BATCH = [
     ],
     priority: 0.9,
   },
+  // ── Voucher approval (maker-checker), 2026-09-20 ──
+  // Written from plan 2026-08-31-002, 2026-09-03-006 and 2026-09-08-005 (all
+  // shipped) and the demo's Review request capture. Approvers are business
+  // admins plus members with the Can approve vouchers switch.
+  {
+    slug: 'voucher-approval-before-tally',
+    searchPhrase: 'Voucher approval before Tally',
+    overline: 'APPROVALS',
+    headline: 'Voucher approval before Tally: nothing posts until you say so.',
+    subheadline:
+      'A new salesman raised an invoice at the wrong rate on Tuesday. You found it in the ledger on Friday, after the retailer had paid the wrong amount.',
+    answer:
+      "Voucher approval before Tally means a team member's invoice, order or receipt waits for you instead of posting. You choose which voucher kinds need a checker. The approver sees the party's dues and every line, corrects what is wrong, and approves, sends it back or declines. Only the approved save reaches your books.",
+    waContext: 'feature-voucher-approval-before-tally',
+    waMessage:
+      'Hi, I want my team\'s invoices and orders to wait for my approval before they reach Tally. Can you show me how Takkada does it?',
+    seo: {
+      title: 'Voucher Approval Before Tally, From Your Phone | Takkada',
+      description:
+        "A team member's invoice, order or receipt waits for an approver before it reaches Tally. See the dues and every line, correct it, approve or send it back.",
+    },
+    llms: {
+      section: 'Features',
+      title: 'Voucher approval before Tally',
+      summary:
+        "Maker-checker approval for distributors on Tally: the owner ticks which voucher kinds need a checker, a team member's save becomes a request, the approver reviews the party's dues and every line on the phone, edits if needed, and approves, sends back with a note or declines; only the approver's save is written into Tally, and every request keeps its history.",
+    },
+    footerLabel: 'Voucher approval',
+    hero: { screen: 'maker-checker' },
+    author: 'founder',
+    datePublished: '2026-09-20',
+    updated: '2026-09-20',
+    walkthroughHeading: 'Four taps between a mistake and your ledger',
+    walkthrough: [
+      {
+        icon: 'Lock',
+        title: 'You choose what needs a checker',
+        body:
+          'Tick the voucher kinds that must be approved, invoices, orders, receipts or any of the rest, and switch on Can approve vouchers for the people who check them.',
+        screen: 'member-permissions',
+      },
+      {
+        icon: 'ListChecks',
+        title: 'The team member saves as usual',
+        body:
+          'He fills the order or the invoice the way he always has. Save sends it to the approver instead of the books, and he can see it waiting.',
+        screen: 'godown-stock',
+      },
+      {
+        icon: 'ShieldCheck',
+        title: 'The approver sees everything before saying yes',
+        body:
+          "The party's dues and last payment, every line with rate and GST. Correct a wrong rate, then approve and save, send it back with a note, or decline.",
+        screen: 'maker-checker',
+      },
+      {
+        icon: 'FileCheck2',
+        title: 'The approved save is the posting',
+        body:
+          "There is no second step. The approver's save is what reaches your Tally, and the request keeps its history: who sent it, who sent it back, who approved.",
+        screen: 'pending-orders',
+      },
+    ],
+    comparison: {
+      heading: 'What stands between a team member and your ledger',
+      othersLabel: 'Other Tally mobile apps',
+      rows: [
+        {
+          feature: "A team member's entry before it reaches Tally",
+          takkada: 'Waits for an approver you named',
+          others: 'Posts the moment it is saved',
+        },
+        {
+          feature: 'Which entries need a checker',
+          takkada: 'Chosen per voucher kind',
+          others: 'All or nothing, if offered at all',
+        },
+        {
+          feature: 'What the approver sees',
+          takkada: "The party's dues and every line, editable",
+          others: 'A summary, or the ledger afterwards',
+        },
+        {
+          feature: 'Sending it back for a correction',
+          takkada: 'With a note, to the person who made it',
+          others: 'Delete it and ask him to redo it',
+        },
+        {
+          feature: 'Record of who approved what',
+          takkada: 'Kept on every request',
+          others: 'Not kept',
+        },
+      ],
+      disclaimer:
+        'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
+    },
+    planPointer: {
+      plan: 'Copilot',
+      note: 'Voucher approval comes with role-based access for your team on the Copilot plan.',
+    },
+    faqs: [
+      {
+        q: 'Which vouchers can be put behind approval?',
+        a: 'Any of the voucher kinds the app raises: sales invoices, sales orders, purchase invoices, purchase orders, receipts, payments, credit and debit notes and the rest. You tick the kinds in Settings, so a receipt can need a checker while a sales order does not.',
+      },
+      {
+        q: 'Who can approve?',
+        a: 'Every business admin, and any member you switch on with Can approve vouchers in Member Permissions. The person who made the entry cannot approve his own. A member without the switch still sees his own requests and where each one stands.',
+      },
+      {
+        q: 'Can the approver change the entry?',
+        a: "Yes. The review opens the same form the maker filled, with the party's dues alongside, so a wrong rate or quantity is corrected there and then. The maker is told the request was approved with changes rather than finding out from the ledger.",
+      },
+      {
+        q: 'What happens when it is sent back?',
+        a: "The maker gets it back with the approver's note, fixes it and resubmits. The request keeps every step in its history, so a month later you can still see who sent what back and why. Declined requests stay on record too.",
+      },
+      {
+        q: 'Does anything reach Tally before approval?',
+        a: "No. The request sits outside your books as a draft the approver can read. Only the approver's save is written into Tally, as the voucher it was always going to be, under your normal number series.",
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: 'restrict-salesman-access-tally',
+        title: 'How to Restrict Salesman Access in Tally Without Locking Him Out of His Job',
+      },
+      {
+        slug: 'salesman-order-to-tally-without-reentry',
+        title: 'Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally',
+      },
+      {
+        slug: 'credit-limit-for-retailers',
+        title: 'Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It',
+      },
+    ],
+    priority: 0.8,
+  },
 ];
