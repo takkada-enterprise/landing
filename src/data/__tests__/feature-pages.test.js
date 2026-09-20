@@ -45,7 +45,7 @@ const HELD_PAGES = {
   'order-booking-app-tally':
     'Published 2026-08-11 on operator direction while Order Link v2 was stage-only: prod customer_order_links still had the v1 shape and zero rows, and the five customer_order_v2 migrations were absent from supabase-functions origin/main. Re-check every capability sentence once that promotion lands.',
   'ai-collection-calls':
-    'Built 2026-09-20 on Ronak\'s direction while AI calling was a plan (docs/plans/2026-09-20-004 at the monorepo root, nothing built, Angoor webhook unverified). Every capability sentence comes from the requirements doc, not the app. Before this page goes live: re-check each sentence against the shipped feature and replace walkthrough step 1 with a capture of the Call with AI confirm sheet.',
+    'Built 2026-09-20 on Ronak\'s direction while AI calling was a plan (docs/plans/2026-09-20-004 at the monorepo root, nothing built, Angoor webhook unverified). Every capability sentence comes from the requirements doc, not the app. Before this page goes live: re-check each sentence against the shipped feature and replace walkthrough step 1 with a capture of the Call with AI confirm sheet. The demo recording on the page has not been listened to by the author of this list: confirm it carries no customer and that it says what the section copy says it says.',
 };
 
 describe('feature page data contract', () => {
@@ -850,6 +850,29 @@ describe('round-two pages', () => {
     expect(getFeaturePage('ai-collection-calls')).toBeDefined();
     expect(FEATURE_GROUPS.find((g) => g.id === 'recover').slugs).toContain('ai-collection-calls');
     expect(HELD_PAGES).toHaveProperty('ai-collection-calls');
+  });
+});
+
+// The demo call (2026-09-20): Ronak wants the recording on the AI calling page.
+// It is the one thing on that page a reader can check for themselves, so it is
+// pinned to a file that exists rather than to a URL somebody meant to upload.
+describe('call recording', () => {
+  const withCall = FEATURE_PAGES.filter((p) => p.listen);
+  it('is on the AI calling page and nowhere else', () => {
+    expect(withCall.map((p) => p.slug)).toEqual(['ai-collection-calls']);
+  });
+  it.each(withCall.map((p) => [p.slug, p]))('%s: names a file that ships, with its own waveform', (_slug, page) => {
+    const { listen } = page;
+    expect(listen.src.startsWith('/assets/audio/')).toBe(true);
+    expect(existsSync(resolve(repoRoot, `public${listen.src}`))).toBe(true);
+    expect(listen.duration).toBeGreaterThan(0);
+    // Read off the file itself, so the bars are this call and not a decoration.
+    expect(listen.peaks.length).toBe(64);
+    for (const peak of listen.peaks) {
+      expect(peak).toBeGreaterThan(0);
+      expect(peak).toBeLessThanOrEqual(1);
+    }
+    expect(Math.max(...listen.peaks)).toBe(1);
   });
 });
 

@@ -91,6 +91,10 @@ SETS.round2 = [
   ['round2-ai-collection-calls', '/ai-collection-calls'],
   ['round2-walk-ai-collection-calls', '/ai-collection-calls#walkthrough'],
   ['round2-hub-recover', '/features#recover'],
+  ['round2-listen', '/ai-collection-calls#listen'],
+  // The player mid-clip: paused it is grey bars, and the coloured half and the
+  // moving waveform are the whole point of it.
+  ['round2-listen-playing', '/ai-collection-calls#listen', { click: '.call-player-play' }],
 ];
 SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.menu, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.gallery, ...SETS.sheets];
 
@@ -103,6 +107,9 @@ const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 const profile = mkdtempSync(join(tmpdir(), 'takkada-shoot-'));
 const chrome = spawn(CHROME, [
   '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run',
+  // A synthetic click is not a user gesture, so audio would refuse to start
+  // and a player shot would always be the paused state.
+  '--autoplay-policy=no-user-gesture-required',
   `--user-data-dir=${profile}`, '--remote-debugging-port=0', 'about:blank',
 ], { stdio: 'ignore' });
 
@@ -206,7 +213,11 @@ async function shoot(port, name, path, w, h, opts = {}) {
           let rounds = 0;
           const tap = () => {
             const el = document.querySelector(${JSON.stringify(opts.click)});
-            if (el && el.getAttribute('aria-expanded') === 'true') { resolve('open'); return; }
+            // aria-expanded for a disclosure, aria-pressed for a toggle: the
+            // element's own account of whether the tap did anything.
+            const on = el && (el.getAttribute('aria-expanded') === 'true'
+              || el.getAttribute('aria-pressed') === 'true');
+            if (on) { resolve('open'); return; }
             // A missing element is retried, not reported: at 390 the desktop
             // nav is display:none and never arrives, and on a server-rendered
             // route the button can be a hydration tick behind the load event.

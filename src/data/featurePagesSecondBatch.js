@@ -2474,6 +2474,24 @@ export const SECOND_BATCH = [
         screen: 'recovery-team',
       },
     ],
+    // The demo call itself (Ronak, 2026-09-20). `peaks` is the recording's own
+    // RMS in 64 buckets, read off the file with ffmpeg, so the picture is this
+    // call and not an ornament. Re-read it if the file is ever replaced.
+    listen: {
+      overline: 'HEAR ONE',
+      heading: 'A demo call, end to end',
+      body: 'Eighty-two seconds from our own demo line. The agent names the business, says what is due, and asks when it will be paid.',
+      src: '/assets/audio/ai-collection-call-demo.mp3',
+      duration: 82,
+      peaks: [
+        0.12, 0.58, 0.74, 0.9, 0.63, 1, 0.29, 0.14, 0.45, 0.72, 0.9, 0.58, 0.69, 0.41, 0.31, 0.12,
+        0.41, 0.76, 0.88, 0.85, 0.36, 0.35, 0.12, 0.52, 0.77, 0.87, 0.95, 0.54, 0.32, 0.33, 0.12,
+        0.12, 0.94, 0.75, 0.95, 0.76, 0.18, 0.33, 0.12, 0.61, 0.77, 0.59, 0.78, 0.62, 0.19, 0.26,
+        0.12, 0.12, 0.77, 0.77, 0.75, 0.45, 0.29, 0.12, 0.73, 0.71, 0.59, 0.31, 0.12, 0.35, 0.72,
+        0.56, 0.12, 0.23,
+      ],
+      caption: 'Recorded on our demo line, not a customer call.',
+    },
     comparison: {
       heading: 'What happens after the reminder is ignored',
       othersLabel: 'Other Tally mobile apps',

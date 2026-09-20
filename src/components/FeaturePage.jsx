@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import Seo from './Seo';
 import FeatureTour from './FeatureTour';
+import CallPlayer from './CallPlayer';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
@@ -248,6 +249,24 @@ function FeaturePage({ page }) {
                 );
               })}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── A recording of the thing the page describes, only on pages whose
+          data carries one: the AI collection call first (2026-09-20). It sits
+          under the walkthrough because the four cards say what happens and
+          this says what it sounds like. ── */}
+      {page.listen && (
+        <section className="tally-section feature-listen" id="listen">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.listen.overline}</span>
+              <h2 className="section-title">{page.listen.heading}</h2>
+              {page.listen.body && <p className="feature-listen-intro">{page.listen.body}</p>}
+            </div>
+            <CallPlayer listen={page.listen} />
+            {page.listen.caption && <p className="feature-listen-caption">{page.listen.caption}</p>}
           </div>
         </section>
       )}

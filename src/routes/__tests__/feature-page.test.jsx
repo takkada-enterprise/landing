@@ -478,3 +478,30 @@ describe('walkthrough card CSS', () => {
     );
   });
 });
+
+describe('call recording section', () => {
+  it.each(FEATURE_PAGES.filter((p) => p.listen).map((p) => [p.slug, p]))(
+    '%s: renders a paused player that fetches nothing until it is asked to',
+    (_slug, page) => {
+      const { container } = renderPage(page);
+      const section = container.querySelector('#listen');
+      expect(section).not.toBeNull();
+      const audio = section.querySelector('audio');
+      expect(audio.getAttribute('src')).toBe(page.listen.src);
+      // 160 KB down every visitor's line for a clip most will never play.
+      expect(audio.getAttribute('preload')).toBe('none');
+      expect(audio.hasAttribute('autoplay')).toBe(false);
+      expect(section.querySelector('.call-player-play').getAttribute('aria-pressed')).toBe('false');
+      expect(section.querySelectorAll('.call-player-bar')).toHaveLength(page.listen.peaks.length * 2);
+      const seek = section.querySelector('[role="slider"]');
+      expect(seek.getAttribute('aria-valuenow')).toBe('0');
+      expect(seek.getAttribute('aria-valuemax')).toBe(String(Math.round(page.listen.duration)));
+      expect(seek.getAttribute('tabindex')).toBe('0');
+    }
+  );
+  it('a page without a recording renders no player', () => {
+    const page = FEATURE_PAGES.find((p) => !p.listen);
+    expect(renderPage(page).container.querySelector('#listen')).toBeNull();
+  });
+});
+
