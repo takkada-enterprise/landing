@@ -19,7 +19,10 @@
 //
 export const HERO_HOME = {
   headline: 'Your Tally, in your pocket.',
-  body: 'This is the real home screen. Tap any tile with a yellow dot to see how that part works, then come back here.',
+  // The one instruction on the page, on its own line so it cannot be read past
+  // (Ronak, 2026-09-20: at body weight "most people will ignore" it).
+  tap: 'Tap any tile with a yellow dot.',
+  body: 'This is the real home screen. Each dot opens how that part works, then brings you back here.',
 };
 
 const tile = (col, row) => ({

@@ -64,7 +64,7 @@ export const heroContent = {
 // behaviors plus the download. The deep safety story lives in #data-safety.
 export const tallyTrust = {
   overline: 'The Tally Connector',
-  heading: 'Your Tally. Now on your phone.',
+  heading: 'Your books stay on your PC.',
   subtitle:
     'A small Windows program sits next to your Tally and syncs both ways in real time. Your books never leave your computer.',
   points: [
@@ -676,7 +676,7 @@ export const comparisonSection = {
 };
 
 export const contactInfo = {
-  company: 'Pay Saathi Innovations LLP',
+  company: 'Pay Saathi Innovation LLP',
   phone: '+91 94359 77777',
   email: 'admin@paysaathi.com',
   website: 'www.takkada.com',

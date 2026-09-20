@@ -7,7 +7,7 @@
 // takes the story apart again in the same order it was built. Nothing moves
 // unless the reader moves it.
 import { Link } from 'react-router-dom';
-import { STOPS, liveFeatures } from '../data/journey';
+import { STOPS, STORY, liveFeatures } from '../data/journey';
 import { FEATURE_PAGES } from '../data/featurePages';
 import { screen } from '../data/screens';
 import { useActiveStation } from '../hooks/useActiveStation';
@@ -61,10 +61,11 @@ export default function FollowOneInvoice() {
   return (
     <section className="foi" id="digital-collection" aria-labelledby="foi-title">
       <div className="foi-intro">
-        <span className="section-label">Follow one invoice</span>
+        <span className="section-label">{STORY.label}</span>
         <h2 className="section-title" id="foi-title">
-          From the order at the counter to the receipt in Tally.
+          {STORY.title}
         </h2>
+        <p className="foi-lead">{STORY.lead}</p>
       </div>
       <div className="foi-grid">
         <InvoiceSlip activeIndex={active} />
@@ -88,6 +89,7 @@ export default function FollowOneInvoice() {
                 id={`stop-${stop.id}`}
               >
                 <div className="foi-copy">
+                  <div className="foi-stop-index tabular-nums">{`Stop ${i + 1} of ${STOPS.length}`}</div>
                   <div className="foi-when tabular-nums">{stop.when}</div>
                   <h3>{stop.headline}</h3>
                   <p>{stop.body}</p>

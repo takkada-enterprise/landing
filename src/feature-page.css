@@ -904,6 +904,15 @@
 .ftour-step.is-active button {
   opacity: 1;
 }
+/* Nothing dims on a phone (same ruling as the homepage story in journey.css):
+ * a step fills the screen on its own there, so a 40% step reads as disabled
+ * copy rather than as "not yet". Desktop keeps the dim; the sticky phone beside
+ * the list is what makes it legible as focus. */
+@media (max-width: 899px) {
+  .ftour-step button {
+    opacity: 1;
+  }
+}
 
 /* Pressable things press (whole-row target, so the dip stays subtle). */
 .ftour-step button:active {

@@ -4,7 +4,7 @@
 // must not be dead links, and the hotspot boxes that must actually sit over the
 // tiles they claim. Nothing else in the build looks at any of that.
 import { describe, it, expect } from 'vitest';
-import { STOPS, INVOICE, liveFeatures } from '../journey';
+import { STOPS, STORY, INVOICE, liveFeatures } from '../journey';
 import { HOTSPOTS, JOBS, HERO_HOME, jobHref } from '../heroHotspots';
 import { SCREENS } from '../screens';
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
@@ -223,6 +223,7 @@ describe('copy rules (CLAUDE.md §5)', () => {
   ];
   const exports = {
     STOPS,
+    STORY,
     HOTSPOTS,
     JOBS,
     HERO_HOME,

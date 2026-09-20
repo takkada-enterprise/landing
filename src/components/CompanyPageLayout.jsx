@@ -18,7 +18,7 @@ function CompanyPageLayout({ children }) {
           <p>See how Takkada can automate your payment collections.</p>
           <div className="company-page-cta-actions">
             <CTAButton variant="primary" type="button" onClick={() => setOpen(true)}>
-              Book a Demo <ArrowRight size={18} />
+              Book a call <ArrowRight size={18} />
             </CTAButton>
             <CTAButton variant="secondary" href={appLinks.download}>
               Download App

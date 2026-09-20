@@ -13,7 +13,7 @@ vi.mock('vite-react-ssg', () => ({
 import Home from '../Home';
 import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
-import { STOPS } from '../../data/journey';
+import { STOPS, STORY } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -44,7 +44,7 @@ describe('Home v3 structure (AE1)', () => {
     expect(h1s.map((h) => h.textContent)).toEqual([HERO_HOME.headline]);
 
     const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
-    expect(h2s).toContain('From the order at the counter to the receipt in Tally.');
+    expect(h2s).toContain(STORY.title);
 
     const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
     for (const stop of STOPS) {
@@ -155,6 +155,35 @@ describe('the hero links directly to feature pages', () => {
       const alpha = Number(block.match(/color:\s*rgba\(255,\s*255,\s*255,\s*([\d.]+)\)/)?.[1]);
       expect(alpha, `${selector} is below the readable-on-navy floor`).toBeGreaterThanOrEqual(0.72);
     }
+  });
+});
+
+// Ronak, 2026-09-20 22:18, on his phone: "Highlight tap any tile, bold it
+// increase the size, otherwise most people will ignore". The instruction was
+// body copy at 17px / 72% white. It is now the lead line, and the dot in front
+// of it is the same marigold as the dots on the phone it points at.
+describe('the tap instruction is the hero lead', () => {
+  it('renders the instruction as a bold lead with a marigold dot, then the rest as body', () => {
+    const { container } = renderHome();
+    const sub = container.querySelector('.hv3-hero .hero-subtitle');
+    const lead = sub.querySelector('strong.hv3-hero-tap');
+    expect(lead).toBeTruthy();
+    expect(lead.textContent.trim()).toBe(HERO_HOME.tap);
+    expect(lead.querySelector('.hv3-hero-tap-dot[aria-hidden="true"]')).toBeTruthy();
+    expect(sub.textContent).toContain(HERO_HOME.body);
+    expect(HERO_HOME.body).not.toMatch(/tap any tile/i);
+  });
+
+  it('sets the lead at 20px / 700 in white, and paints the dot in the highlight token', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    const lead = cssBlock(css, '.home-v3 .hv3-hero-tap {');
+    expect(lead, 'no .hv3-hero-tap rule').not.toBe('');
+    expect(Number(lead.match(/font-size:\s*(\d+)px/)?.[1])).toBeGreaterThanOrEqual(20);
+    expect(Number(lead.match(/font-weight:\s*(\d+)/)?.[1])).toBeGreaterThanOrEqual(700);
+    expect(lead).toMatch(/color:\s*#fff\b/i);
+    const dot = cssBlock(css, '.home-v3 .hv3-hero-tap-dot {');
+    expect(dot).toMatch(/background:\s*var\(--color-highlight\)/);
+    expect(dot).toMatch(/border-radius:\s*50%/);
   });
 });
 
@@ -571,5 +600,39 @@ describe('the scrolled nav is opaque over navy (D7)', () => {
     if (alpha !== undefined) {
       expect(Number(alpha), `${file} paints the scrolled bar at ${alpha}, navy reads through`).toBeGreaterThanOrEqual(0.94);
     }
+  });
+});
+
+// Ronak, 2026-09-20 22:14: "Need space here", on a shot of the job chips sitting
+// in a bare navy field under the browser's scrollbar, the fourth chip cut at the
+// edge, and the white proof card starting flush against the navy.
+describe('the phone hero gives the job row room', () => {
+  const css = readFileSync('src/home.css', 'utf8');
+  const stacked = cssBlock(css, '@media (max-width: 1000px)');
+
+  it('hides the scrollbar and bleeds the row to the viewport edge', () => {
+    const jobs = cssBlock(stacked, '.home-v3 .hv3-hero-jobs {');
+    expect(jobs).toMatch(/scrollbar-width:\s*none/);
+    expect(jobs).toMatch(/margin:\s*48px -16px 0/);
+    expect(jobs).toMatch(/padding:\s*0 16px 8px/);
+    expect(stacked).toMatch(/\.hv3-hero-jobs::-webkit-scrollbar\s*\{\s*display:\s*none/);
+  });
+
+  it('keeps 64px of navy under the row and lifts the proof card 28px off it', () => {
+    expect(cssBlock(stacked, '.home-v3 .hv3-hero {')).toMatch(/padding:\s*96px 0 64px/);
+    // The first 767px block in home.css is the proof strip's.
+    const phone = cssBlock(css, '@media (max-width: 767px)');
+    expect(cssBlock(phone, '.home-v3 .hv3-proof {')).toMatch(/padding:\s*28px 0 72px/);
+  });
+});
+
+// Two headlines on one page said the same thing: the hero's "Your Tally, in
+// your pocket." and, six screens later, the connector band's "Your Tally. Now
+// on your phone." (2026-09-21 phone walk).
+describe('the connector band has its own headline', () => {
+  it('has no h2 that opens the way the hero does', () => {
+    const { container } = renderHome();
+    const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
+    expect(h2s.filter((t) => /^your tally[,.]/i.test(t))).toEqual([]);
   });
 });

@@ -24,7 +24,7 @@ describe('PhoneModal', () => {
 
   it('shows a validation error before submitting', async () => {
     render(<PhoneModal isOpen onClose={vi.fn()} />);
-    fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+    fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
 
     expect(screen.getByText('Please enter your phone number')).toBeInTheDocument();
     expect(submitDemoBookingSpy).not.toHaveBeenCalled();
@@ -39,7 +39,7 @@ describe('PhoneModal', () => {
     fireEvent.change(screen.getByLabelText(/phone number/i), {
       target: { value: '98 76a54-32109' },
     });
-    fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+    fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
 
     await act(async () => {
       await Promise.resolve();
@@ -72,7 +72,7 @@ describe('PhoneModal', () => {
     fireEvent.change(screen.getByLabelText(/phone number/i), {
       target: { value: '9876543210' },
     });
-    fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+    fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
 
     await act(async () => {
       await Promise.resolve();
@@ -107,7 +107,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     // Booking is still pending here, yet the calendar tab is already open.
@@ -137,7 +137,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     expect(navigate).toHaveBeenCalledWith('https://app.takkada.com/#/demo?phone=919876543210');
@@ -157,7 +157,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     expect(submitDemoBookingSpy).toHaveBeenCalledWith(
@@ -189,7 +189,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     // The capture is still in flight, and the visitor is already gone.
@@ -211,7 +211,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     // Capture is best-effort. Entry is not.
@@ -235,7 +235,7 @@ describe('PhoneModal', () => {
     for (const [bad, message] of cases) {
       fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: bad } });
       await act(async () => {
-        fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+        fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
       });
       expect(navigate, `navigated on "${bad}"`).not.toHaveBeenCalled();
       expect(submitDemoBookingSpy, `captured "${bad}"`).not.toHaveBeenCalled();
@@ -252,7 +252,7 @@ describe('PhoneModal', () => {
       target: { value: '9876543210' },
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     expect(screen.queryByText('Redirecting to calendar...')).toBeNull();
@@ -286,7 +286,7 @@ describe('PhoneModal', () => {
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /continue to book/i }));
+      fireEvent.click(screen.getByRole('button', { name: /pick a time/i }));
     });
 
     expect(window.open).toHaveBeenCalledTimes(1);

@@ -27,7 +27,7 @@ vi.mock('./data/siteContent', async (importOriginal) => {
 
 import Layout from './Layout';
 import Home from './routes/Home';
-import { appLinks, navLinks } from './data/siteContent';
+import { appLinks, contactInfo, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
 
@@ -119,6 +119,13 @@ describe('brand logo assets', () => {
       const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
       expect(Math.abs(ratio - sourceRatio)).toBeLessThan(0.1);
     }
+  });
+  // The footer said "Pay Saathi Innovations LLP" and "© 2025"; the data-safety
+  // card two screens up said "Pay Saathi Innovation LLP" (2026-09-21 walk).
+  it('prints the current year and the one legal name in the footer', () => {
+    const footer = renderLayout().querySelector('.footer-bottom');
+    expect(footer.textContent).toContain(`© ${new Date().getFullYear()} ${contactInfo.company}.`);
+    expect(contactInfo.company).toBe('Pay Saathi Innovation LLP');
   });
 });
 
@@ -310,7 +317,7 @@ describe('header top level', () => {
     expect(navLinks.filter((l) => l.href.startsWith('#')).map((l) => l.href)).toEqual(['#pricing']);
   });
 
-  // A Windows installer wearing pill chrome read as a peer of "Book a Demo" to
+  // A Windows installer wearing pill chrome read as a peer of "Book a call" to
   // someone who had never heard of Takkada. It is back in the bar, but as a
   // nav-family mark: two pills, and a third thing that is not one.
   it('keeps the button row at two pills however many actions the bar carries', () => {
@@ -440,13 +447,13 @@ describe('header actions', () => {
 
   it('gives the calendar its header slot up to the demo', () => {
     const { actions, byName } = renderLayout();
-    expect(byName(actions(), /book a demo/i)).toHaveLength(0);
+    expect(byName(actions(), /book a call/i)).toHaveLength(0);
   });
 
   it('falls all the way back to the calendar when the flag is off', () => {
     siteContentMock.demoEntryLive = false;
     const { actions, byName } = renderLayout();
-    expect(byName(actions(), /book a demo/i)).toHaveLength(1);
+    expect(byName(actions(), /book a call/i)).toHaveLength(1);
     expect(byName(actions(), /try the demo/i)).toHaveLength(0);
   });
 
@@ -490,7 +497,7 @@ describe('header actions', () => {
   it('leaves the calendar in the mobile menu, where there is room for both', () => {
     const { container, byName } = renderLayout();
     const menu = container.querySelector('.mobile-overlay');
-    expect(byName(menu, /book a demo/i)).toHaveLength(1);
+    expect(byName(menu, /book a call/i)).toHaveLength(1);
   });
 });
 
@@ -524,7 +531,23 @@ describe('mobile menu actions', () => {
 
   it('offers the demo, the conversation and the calendar, in that order', () => {
     const labels = openMenu().actions().map((el) => el.textContent.trim());
-    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a Demo']);
+    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a call']);
+  });
+
+  // Ronak, 2026-09-20 22:18, circling both white pills: "same thing". They
+  // were two full-width white pills both ending in "demo". Now the live demo
+  // keeps the white pill, the conversation keeps the filled one, and the call
+  // is a blue outline, each with its own icon and no shared word.
+  it('gives the three actions three different chromes and an icon each', () => {
+    const { actions } = openMenu();
+    const variants = actions().map((el) => el.className.match(/cta-btn--(primary|secondary|outline|dark)\b/)?.[1]);
+    expect(variants).toEqual(['secondary', 'primary', 'outline']);
+    for (const el of actions()) {
+      expect(el.querySelector('svg'), `${el.textContent.trim()} has no icon`).toBeTruthy();
+    }
+    expect(actions().map((el) => el.textContent.trim()).filter((t) => /demo/i.test(t))).toEqual([
+      'Try the demo',
+    ]);
   });
 
   it('renders exactly one WhatsApp link at either value of the flag', () => {
@@ -538,7 +561,7 @@ describe('mobile menu actions', () => {
   it('falls back to the menu as it stands today when the flag is off', () => {
     siteContentMock.demoEntryLive = false;
     const labels = openMenu().actions().map((el) => el.textContent.trim());
-    expect(labels).toEqual(['Chat on WhatsApp', 'Book a Demo']);
+    expect(labels).toEqual(['Chat on WhatsApp', 'Book a call']);
   });
 
   // A stack of full-width pills with one half-width one in it reads as broken.
