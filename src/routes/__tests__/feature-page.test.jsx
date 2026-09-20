@@ -376,8 +376,13 @@ describe('exported sheet section', () => {
       expect(section.querySelector('h2').textContent).toBe(page.sheet.heading);
     },
   );
-  it('the salesman page carries the Team Sales export; a page without sheet data renders none', () => {
+  it('the salesman page carries the Team Sales export and the challan page the loading sheet', () => {
     expect(FEATURE_PAGES.find((p) => p.slug === 'salesman-app-tally').sheet.screen).toBe('sheet-salesman');
+    // Ronak, 2026-09-20 19:50: the printed loading sheet is the point of the
+    // challan page and the page never showed it.
+    expect(FEATURE_PAGES.find((p) => p.slug === 'delivery-challan-from-mobile').sheet.screen).toBe(
+      'sheet-loading'
+    );
     const page = FEATURE_PAGES.find((p) => !p.sheet);
     expect(renderPage(page).container.querySelector('#sheet')).toBeNull();
   });

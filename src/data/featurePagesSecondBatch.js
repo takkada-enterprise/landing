@@ -1504,6 +1504,15 @@ export const SECOND_BATCH = [
         height: 1243,
       },
     ],
+    // The printed loading sheet is what the page is for (Ronak, 2026-09-20).
+    // sheet-loading is the Picking List capture: the load list, then the grid.
+    sheet: {
+      screen: 'sheet-loading',
+      overline: 'THE SHEET',
+      heading: 'One loading sheet per van, printed from the phone',
+      body:
+        'Before the challans exist, the godown works from this. The load list by item, grouped by category with a subtotal each, a tick box on every line and the drops it goes to. Under it the same load as a grid, shop by item, so the driver ticks each drop off at the gate. Printed from the phone, or saved as a PDF on the desktop.',
+    },
     comparison: {
       heading: 'What dispatch paperwork has to keep up with',
       othersLabel: 'Other Tally mobile apps',

@@ -68,7 +68,10 @@ SETS.detail = ['import-purchase-from-pdf', 'bank-statement-import-tally', 'handw
   (slug) => [`detail-${slug}`, `/${slug}#detail`]
 );
 // The exported sheet on the pages that carry one (2026-09-20).
-SETS.sheet = [['sheet-salesman-app-tally', '/salesman-app-tally#sheet']];
+SETS.sheet = [
+  ['sheet-salesman-app-tally', '/salesman-app-tally#sheet'],
+  ['sheet-delivery-challan-from-mobile', '/delivery-challan-from-mobile#sheet'],
+];
 SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
