@@ -10,7 +10,7 @@
       "reviewed": true,
       "reviewedOn": "2026-09-07",
       "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "The Takkada wordmark (\"Takkada — by Pay Saathi\"). Product branding, not a picture of the application. Inspected 2026-09-07."
+      "origin": "The Takkada wordmark (\"Takkada \u2014 by Pay Saathi\"). Product branding, not a picture of the application. Inspected 2026-09-07."
     },
     "52950a346c22881ad5ce6dcf05ea5d6115d43f8d12a2d217cbeea43c161e114e": {
       "path": "public/assets/screenshots/takkada-logo.webp",
@@ -456,34 +456,6 @@
       "reviewedOn": "2026-09-18",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
       "origin": "WebP export at 1440w of \"Picking List.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Printed loading sheet."
-    },
-    "7eb7e115fe6ef89e9cfcadf8278120861564b329ab4a357cc9d25aaa2aa4b7dd": {
-      "path": "public/assets/screens/sheet-salesman-720.webp",
-      "kind": "appScreenshot",
-      "sha256": "7eb7e115fe6ef89e9cfcadf8278120861564b329ab4a357cc9d25aaa2aa4b7dd",
-      "companyId": 143,
-      "captureRecord": "latest mockup/salesman wise summary report.png (operator mockup set)",
-      "capturedAt": "2026-09-17",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/reports/team-sales/export",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 720w of \"salesman wise summary report.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
-    },
-    "9a711480f5825dde35ada3cd128be6862defa7daec49dbc38e5c38738d5f7efd": {
-      "path": "public/assets/screens/sheet-salesman-1440.webp",
-      "kind": "appScreenshot",
-      "sha256": "9a711480f5825dde35ada3cd128be6862defa7daec49dbc38e5c38738d5f7efd",
-      "companyId": 143,
-      "captureRecord": "latest mockup/salesman wise summary report.png (operator mockup set)",
-      "capturedAt": "2026-09-17",
-      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
-      "route": "/reports/team-sales/export",
-      "reviewed": true,
-      "reviewedOn": "2026-09-18",
-      "reviewedBy": "Ronak (operator mockups, latest mockup folder)",
-      "origin": "WebP export at 1440w of \"salesman wise summary report.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Team Sales export."
     },
     "5ef02f9df3c5037e565cb88be87270e1d7e9a19b13062fa6744a192ca2d011f4": {
       "path": "public/assets/screens/review-invoices-360.webp",
@@ -988,6 +960,34 @@
       "reviewedOn": "2026-09-20",
       "reviewedBy": "Ronak (operator mockups, latest mockup folder); number retouch checked by eye 2026-09-20",
       "origin": "WebP export at 360w of \"Invoice setting 1.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoices settings: default GST mode, only this GST mode, round off, default price level, reverse charge, batch numbers."
+    },
+    "0e4ef2ea9fb29f151d847e1af1b489c38f857a43d4cb2355aa7847af7442816d": {
+      "path": "public/assets/screens/sheet-salesman-720.webp",
+      "kind": "appScreenshot",
+      "sha256": "0e4ef2ea9fb29f151d847e1af1b489c38f857a43d4cb2355aa7847af7442816d",
+      "companyId": 143,
+      "captureRecord": "latest mockup/salesman wise summary report names.png (operator mockup set, nine \"Member\" rows retouched to placeholder names)",
+      "capturedAt": "2026-09-17",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/reports/team-sales/export",
+      "reviewed": true,
+      "reviewedOn": "2026-09-20",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder); name retouch checked by eye 2026-09-20",
+      "origin": "WebP export at 720 of \"salesman wise summary report names.png\" in mockups/, written by scripts/exportScreens.mjs. The source is the operator's Team Sales export with the nine rows the demo data labelled \"Member\" (receipts under ids with no user row, fixed by supabase-functions PR #802) replaced by placeholder names at Ronak's instruction (2026-09-20), Arial 16px over the row. Shows: Exported Team Sales sheet: each member with sales count, sales, receipts count, collected and commission; the nine rows the demo data printed as \"Member\" carry placeholder names."
+    },
+    "add569252c4dbc308ce71f0023af2bae159ac2c5b309de0dd255fb4466a2467b": {
+      "path": "public/assets/screens/sheet-salesman-1440.webp",
+      "kind": "appScreenshot",
+      "sha256": "add569252c4dbc308ce71f0023af2bae159ac2c5b309de0dd255fb4466a2467b",
+      "companyId": 143,
+      "captureRecord": "latest mockup/salesman wise summary report names.png (operator mockup set, nine \"Member\" rows retouched to placeholder names)",
+      "capturedAt": "2026-09-17",
+      "appRevision": "operator mockup set of 2026-09-18; exact app build not recorded",
+      "route": "/reports/team-sales/export",
+      "reviewed": true,
+      "reviewedOn": "2026-09-20",
+      "reviewedBy": "Ronak (operator mockups, latest mockup folder); name retouch checked by eye 2026-09-20",
+      "origin": "WebP export at 1440 of \"salesman wise summary report names.png\" in mockups/, written by scripts/exportScreens.mjs. The source is the operator's Team Sales export with the nine rows the demo data labelled \"Member\" (receipts under ids with no user row, fixed by supabase-functions PR #802) replaced by placeholder names at Ronak's instruction (2026-09-20), Arial 16px over the row. Shows: Exported Team Sales sheet: each member with sales count, sales, receipts count, collected and commission; the nine rows the demo data printed as \"Member\" carry placeholder names."
     }
   },
   "unprovenAllowlist": {

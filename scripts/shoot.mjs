@@ -67,7 +67,9 @@ SETS.walk = SETS.feature.map(([name, path]) => [
 SETS.detail = ['import-purchase-from-pdf', 'bank-statement-import-tally', 'handwritten-order-to-tally'].map(
   (slug) => [`detail-${slug}`, `/${slug}#detail`]
 );
-SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheets];
+// The exported sheet on the pages that carry one (2026-09-20).
+SETS.sheet = [['sheet-salesman-app-tally', '/salesman-app-tally#sheet']];
+SETS.all = [...SETS.home, ...SETS.story, ...SETS.hub, ...SETS.feature, ...SETS.walk, ...SETS.detail, ...SETS.sheet, ...SETS.sheets];
 
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
 if (!SETS[set]) throw new Error(`Unknown set "${set}". One of: ${Object.keys(SETS).join(', ')}`);

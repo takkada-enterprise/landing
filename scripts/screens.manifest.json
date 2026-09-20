@@ -87,8 +87,8 @@
   },
   {
     "slug": "sheet-salesman",
-    "source": "salesman wise summary report.png",
-    "shows": "Team Sales export",
+    "source": "salesman wise summary report names.png",
+    "shows": "Exported Team Sales sheet: each member with sales count, sales, receipts count, collected and commission; the nine rows the demo data printed as \"Member\" carry placeholder names",
     "alt": "Exported team sales sheet by member",
     "sheet": true
   },

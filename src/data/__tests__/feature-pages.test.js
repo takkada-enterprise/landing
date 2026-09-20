@@ -166,6 +166,7 @@ describe('feature page data contract', () => {
     heroShot(page).src,
     ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
     ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
+    ...(page.sheet ? [screen(page.sheet.screen).src] : []),
   ];
 
   it.each(FEATURE_PAGES.filter((p) => p.tour).map((p) => [p.slug, p]))(
@@ -313,6 +314,9 @@ describe('feature page data contract', () => {
       surface: 'featurePage:tour',
       origin: `${page.slug} tour station "${station.title}"`,
     })),
+    ...(page.sheet
+      ? [{ path: screen(page.sheet.screen).src, surface: 'featurePage:sheet', origin: `${page.slug} sheet` }]
+      : []),
   ];
   const provenanceErrors = (references) =>
     checkReferences({ references, manifest: provenance, readBytes: readImageBytes }).errors;

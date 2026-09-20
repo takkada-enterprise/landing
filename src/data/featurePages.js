@@ -174,6 +174,16 @@ const FIRST_BATCH = [
       footnote:
         'View and create rights are set per register, per person. You can restrict which ledgers and which stock groups a salesman sees, so the field team works without your whole book being open to them.',
     },
+    // The exported Team Sales sheet (Ronak, 2026-09-20 15:10): the one page
+    // an owner actually forwards. Registry slug, same file the homepage's
+    // Tally stop enlarges; capture #8 of plan 2026-09-20-001 replaces it once
+    // the demo receipts carry names.
+    sheet: {
+      screen: 'sheet-salesman',
+      overline: 'THE SHEET',
+      heading: 'Salesman-wise sales, invoices and collections, exported',
+      body: 'Team Sales exports one sheet for any period: each member with the invoices raised, the sales they add up to, the receipts logged, the amount collected and the commission earned. Send it to the accountant or open it in Excel, and the month-end argument starts from one number.',
+    },
     comparison: {
       heading: 'What changes once the order leaves the shop',
       othersLabel: 'Other Tally mobile apps',

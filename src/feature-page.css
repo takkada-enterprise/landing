@@ -133,6 +133,35 @@
   color: var(--color-text-secondary);
 }
 
+/* ── The sheet ──
+ * One exported sheet shown whole, paper on the wash: white, a hairline and a
+ * soft drop, no rotation (that is the homepage's tucked prop; here the sheet
+ * is the subject). Width follows the container up to the export's own 720w. */
+.feature-sheet-intro {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.feature-sheet-paper {
+  max-width: 760px;
+  margin: 40px auto 0;
+  padding: 12px;
+  background: var(--color-white);
+  border: 1px solid rgba(10, 23, 48, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 50px rgba(10, 23, 48, 0.14);
+}
+
+.feature-sheet-paper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ── In detail ──
  * A grid of topic cards, each a short list. Same card vocabulary as the hub
  * (.tally-card), wider tracks because a list needs the room a blurb does not. */

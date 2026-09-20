@@ -11,6 +11,7 @@ vi.mock('vite-react-ssg', () => ({
 
 import FeaturePage from '../../components/FeaturePage';
 import { FEATURE_PAGES, featurePagePath, heroShot, stepShot } from '../../data/featurePages';
+import { screen } from '../../data/screens';
 import { routeMetadata } from '../../data/siteMetadata';
 import { routes } from '../index';
 import { pricing, planPricing } from '../../data/siteContent';
@@ -356,6 +357,29 @@ describe('the navy hero stays on the two heroes it is for', () => {
       '.feature-hero p',
       '.features-hub-hero .container p',
     ]);
+  });
+});
+
+describe('exported sheet section', () => {
+  it.each(FEATURE_PAGES.filter((p) => p.sheet).map((p) => [p.slug, p]))(
+    '%s: shows the whole registered sheet with its dimensions',
+    (_slug, page) => {
+      const { container } = renderPage(page);
+      const section = container.querySelector('#sheet');
+      expect(section).not.toBeNull();
+      const shot = screen(page.sheet.screen);
+      const img = section.querySelector('.feature-sheet-paper img');
+      expect(img.getAttribute('src')).toBe(shot.src);
+      expect(img.getAttribute('srcset')).toBe(shot.srcSet ?? null);
+      expect(img.getAttribute('width')).toBe(String(shot.width));
+      expect(img.getAttribute('height')).toBe(String(shot.height));
+      expect(section.querySelector('h2').textContent).toBe(page.sheet.heading);
+    },
+  );
+  it('the salesman page carries the Team Sales export; a page without sheet data renders none', () => {
+    expect(FEATURE_PAGES.find((p) => p.slug === 'salesman-app-tally').sheet.screen).toBe('sheet-salesman');
+    const page = FEATURE_PAGES.find((p) => !p.sheet);
+    expect(renderPage(page).container.querySelector('#sheet')).toBeNull();
   });
 });
 

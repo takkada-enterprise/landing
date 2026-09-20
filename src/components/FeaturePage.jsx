@@ -43,6 +43,7 @@ import {
   SITE_URL,
 } from '../data/schema';
 import { featurePagePath, heroShot, stepShot } from '../data/featurePages';
+import { screen } from '../data/screens';
 
 // The feature-landing-page template. One entry in src/data/featurePages.js is
 // one page; this renders it. Built as a second template beside ICPTemplate
@@ -254,6 +255,34 @@ function FeaturePage({ page }) {
       {/* ── Scroll-driven order tour, only on pages whose data carries one.
           Motion reasons live in FeatureTour.jsx's header. ── */}
       {page.tour && <FeatureTour tour={page.tour} />}
+
+      {/* ── An exported sheet, only on pages whose data carries one: the
+          Team Sales export first (2026-09-20). Shown whole, not tucked and
+          rotated like the homepage's PaperSheet, because here it is the
+          subject, not a prop. ── */}
+      {page.sheet && (
+        <section className="tally-section feature-sheet" id="sheet">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">{page.sheet.overline}</span>
+              <h2 className="section-title">{page.sheet.heading}</h2>
+              <p className="feature-sheet-intro">{page.sheet.body}</p>
+            </div>
+            <figure className="feature-sheet-paper">
+              <img
+                src={screen(page.sheet.screen).src}
+                srcSet={screen(page.sheet.screen).srcSet}
+                sizes="(max-width: 767px) calc(100vw - 32px), 760px"
+                alt={screen(page.sheet.screen).alt}
+                width={screen(page.sheet.screen).width}
+                height={screen(page.sheet.screen).height}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* ── In detail. Only on pages whose data carries a `detail` block: a
           feature with a lot of behaviour worth naming (document import first,
