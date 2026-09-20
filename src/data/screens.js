@@ -110,12 +110,35 @@ export const SCREENS = {
     'statement-settings',
     'Statement options: a full ledger account or only pending bills, with item lines included'
   ),
-  'sheet-loading': sheet(
-    'sheet-loading',
-    'Printed loading sheet with load list by item',
-    720,
-    335
+  'invoice-summary': phone(
+    'invoice-summary',
+    'Invoice summary with the party, invoice number, date and payment terms'
   ),
+  'invoice-summary-send': phone(
+    'invoice-summary-send',
+    'Invoice summary with the amount, GST mode and the WhatsApp and e-invoice switches'
+  ),
+  'party-detail': phone(
+    'party-detail',
+    "A party's ledger with the amount to collect and each invoice's due status"
+  ),
+  'van-loading': phone(
+    'van-loading',
+    'A van being loaded drop by drop, with the route order and item quantities'
+  ),
+  'add-items': phone(
+    'add-items',
+    'Adding items to a document with the godown picked at the top and a rate on every item'
+  ),
+  'invoice-settings': phone(
+    'invoice-settings',
+    'Invoice settings: GST mode, rounding, price level, reverse charge and batch numbers'
+  ),
+  'collections-outstanding': phone(
+    'collections-outstanding',
+    'Collections outstanding by ageing slab, party by party, with who is collecting'
+  ),
+  'sheet-loading': sheet('sheet-loading', 'Printed loading sheet with load list by item', 720, 335),
   'sheet-salesman': sheet('sheet-salesman', 'Exported team sales sheet by member', 720, 440),
 };
 

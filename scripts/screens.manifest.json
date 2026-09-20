@@ -151,5 +151,48 @@
     "source": "Statement setting.png",
     "shows": "Statements: ledger account or pending bills only, and whether item lines and narration are included",
     "alt": "Statement options: a full ledger account or only pending bills, with item lines included"
+  },
+  {
+    "slug": "invoice-summary",
+    "source": "Invoice summary 9435977777.png",
+    "shows": "Invoice Summary, upper half: party with a placeholder mobile number, invoice number, date, payment due chips, sales ledger",
+    "alt": "Invoice summary with the party, invoice number, date and payment terms"
+  },
+  {
+    "slug": "invoice-summary-send",
+    "source": "Auto einv and eway 9435977777.png",
+    "shows": "Invoice Summary, lower half: amount details, GST mode, payment status, Send invoice via WhatsApp to a placeholder number, Generate E-Invoice",
+    "alt": "Invoice summary with the amount, GST mode and the WhatsApp and e-invoice switches"
+  },
+  {
+    "slug": "party-detail",
+    "source": "Party Detail 9435977777.png",
+    "shows": "Party ledger for Mahalaxmi Kirana Mart: to collect, opening balance and sales, a placeholder mobile number, invoice rows marked Due, Share Statement and Add Transaction",
+    "alt": "A party's ledger with the amount to collect and each invoice's due status"
+  },
+  {
+    "slug": "van-loading",
+    "source": "Van Loading.png",
+    "shows": "Van 17 Sep, Building: 7 shops, 39 lines, driver card, route order with drops and item quantities, Van is loaded",
+    "alt": "A van being loaded drop by drop, with the route order and item quantities"
+  },
+  {
+    "slug": "add-items",
+    "source": "Godown wise item selection.png",
+    "shows": "Add Items: search, Godown: Main Store chip, select a godown on every line, items with a rate per unit",
+    "alt": "Adding items to a document with the godown picked at the top and a rate on every item"
+  },
+  {
+    "slug": "invoice-settings",
+    "source": "Invoice setting 1.png",
+    "shows": "Invoices settings: default GST mode, only this GST mode, round off, default price level, reverse charge, batch numbers",
+    "alt": "Invoice settings: GST mode, rounding, price level, reverse charge and batch numbers",
+    "q": 66
+  },
+  {
+    "slug": "collections-outstanding",
+    "source": "Partywise collection report.png",
+    "shows": "Collections, Outstanding tab: total overdue, 90+ slab, ageing legend, per-party buckets with the assigned collector",
+    "alt": "Collections outstanding by ageing slab, party by party, with who is collecting"
   }
 ]

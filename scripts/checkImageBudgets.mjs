@@ -138,6 +138,22 @@ export const BUDGETS = [
   ['public/assets/fonts/ibm-plex-mono-400-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
   ['public/assets/fonts/ibm-plex-mono-500-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
   ['public/assets/fonts/ibm-plex-mono-600-latin.woff2', 14_000, 'utility face: slip, time and stop labels'],
+  ['public/assets/screens/invoice-summary-360.webp', 32_000, 'feature-page screen (invoice-summary)'],
+  ['public/assets/screens/invoice-summary-720.webp', 60_000, 'feature-page screen (invoice-summary)'],
+  ['public/assets/screens/invoice-summary-send-360.webp', 32_000, 'feature-page screen (invoice-summary-send)'],
+  ['public/assets/screens/invoice-summary-send-720.webp', 60_000, 'feature-page screen (invoice-summary-send)'],
+  ['public/assets/screens/party-detail-360.webp', 32_000, 'feature-page screen (party-detail)'],
+  ['public/assets/screens/party-detail-720.webp', 60_000, 'feature-page screen (party-detail)'],
+  ['public/assets/screens/van-loading-360.webp', 32_000, 'feature-page screen (van-loading)'],
+  ['public/assets/screens/van-loading-720.webp', 60_000, 'feature-page screen (van-loading)'],
+  ['public/assets/screens/add-items-360.webp', 32_000, 'feature-page screen (add-items)'],
+  ['public/assets/screens/add-items-720.webp', 60_000, 'feature-page screen (add-items)'],
+  ['public/assets/screens/invoice-settings-360.webp', 32_000, 'feature-page screen (invoice-settings)'],
+  ['public/assets/screens/invoice-settings-720.webp', 60_000, 'feature-page screen (invoice-settings)'],
+  ['public/assets/screens/collections-outstanding-360.webp', 32_000, 'feature-page screen (collections-outstanding)'],
+  ['public/assets/screens/collections-outstanding-720.webp', 60_000, 'feature-page screen (collections-outstanding)'],
+  ['public/assets/screens/sales-analytics-360.webp', 32_000, 'feature-page hero (tally-app-for-agri-input-distributors)'],
+  ['public/assets/screens/sales-analytics-720.webp', 64_000, 'feature-page hero (tally-app-for-agri-input-distributors)'],
 ];
 
 export function overBudget(entries, sizeOf) {

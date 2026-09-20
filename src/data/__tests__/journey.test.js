@@ -240,7 +240,11 @@ describe('copy rules (CLAUDE.md §5)', () => {
 // a re-capture that clears the number is welcome, but it arrives under a new
 // slug and gets looked at, rather than inheriting a reviewed name.
 describe('captures rejected for showing a real number stay out (2026-09-20)', () => {
-  const REJECTED = ['einvoice-eway', 'van-loading'];
+  // `van-loading` left this list on 2026-09-20: the number on it is Ronak's own
+  // and he chose to publish the Van screen as it is (registered under the same
+  // slug, reviewed again on that date). `einvoice-eway` stays out; its retouched
+  // successor is `invoice-summary-send`.
+  const REJECTED = ['einvoice-eway'];
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
   it.each(REJECTED)('%s is not in the screen registry', (slug) => {
