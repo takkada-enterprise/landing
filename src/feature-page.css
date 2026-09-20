@@ -93,7 +93,7 @@
 .feature-step-shot {
   display: flex;
   justify-content: center;
-  height: 220px;
+  padding: 24px 0;
   overflow: hidden;
   /* Not --color-wash: the section behind the cards is that blue, so the band
    * disappeared into the page and the phone looked chopped off above a
@@ -101,11 +101,14 @@
   background: var(--color-surface);
 }
 
+/* The whole phone, never cropped: a fixed 220px band cut every screen in half
+ * and read as a broken image (Ronak, 15:07). Every capture is the same
+ * 360×746 phone (the placeholders 600×1242, the same aspect), so the bands in
+ * a row stay equal in height and the copy below still starts at one y. */
 .feature-step-shot img {
   display: block;
-  width: 208px;
+  width: 220px;
   height: auto;
-  margin-top: 20px;
   /* Transparent-background mockups: shadow the silhouette, not the box. */
   filter: drop-shadow(0 10px 20px rgba(10, 23, 48, 0.14));
 }

@@ -392,10 +392,11 @@ describe('walkthrough card CSS', () => {
     const i = css.indexOf(`${head} {`);
     return i < 0 ? '' : css.slice(i, css.indexOf('}', i));
   };
-  it('the media band is fixed-height and clipped, so phones line up by construction', () => {
-    expect(block('.feature-step-shot')).toMatch(/height:\s*\d+px/);
-    expect(block('.feature-step-shot')).toMatch(/overflow:\s*hidden/);
+  it('the media band shows the whole phone at one width, so phones line up by construction', () => {
+    expect(block('.feature-step-shot')).not.toMatch(/height:/);
     expect(block('.feature-step-shot')).not.toMatch(/max-height/);
+    expect(block('.feature-step-shot img')).toMatch(/width:\s*\d+px/);
+    expect(block('.feature-step-shot img')).toMatch(/height:\s*auto/);
   });
   it('the in-detail grid widens the remainder of its last row instead of orphaning a card', () => {
     expect(block('.feature-detail-grid')).toMatch(/repeat\(6, minmax\(0, 1fr\)\)/);
