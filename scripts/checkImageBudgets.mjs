@@ -122,6 +122,22 @@ export const BUDGETS = [
   ['public/assets/screens/sales-by-item-720.webp', 60_000, 'feature-page hero (sales-by-item)'],
   ['public/assets/screens/maker-checker-360.webp', 32_000, 'feature-page hero (maker-checker)'],
   ['public/assets/screens/maker-checker-720.webp', 60_000, 'feature-page hero (maker-checker)'],
+  // Feature-page heroes for the schemes-and-discount pages (2026-09-25): 360w is
+  // what a phone fetches, 720w is the 2x candidate at sizes="300px". Same
+  // ceilings as the other registry heroes; the scheme list and the inventory
+  // screen are dense, so check the 720w size after export and raise to 64_000
+  // with a reason if q80 lands over 60_000.
+  ['public/assets/screens/scheme-free-noodles-360.webp', 32_000, 'feature-page hero (schemes-tally)'],
+  ['public/assets/screens/scheme-free-noodles-720.webp', 60_000, 'feature-page hero (schemes-tally)'],
+  ['public/assets/screens/fmcg-margin-sheet-360.webp', 32_000, 'feature-page hero (fmcg-module-tally)'],
+  ['public/assets/screens/fmcg-margin-sheet-720.webp', 60_000, 'feature-page hero (fmcg-module-tally)'],
+  ['public/assets/screens/auto-inventory-360.webp', 32_000, 'feature-page hero (autoparts-billing-tally)'],
+  // The inventory list is the densest screen in the set: q80 exported at 84 KB,
+  // so the manifest drops it to q50 (62 KB) and the ceiling is the 64_000 used
+  // by the other dense heroes.
+  ['public/assets/screens/auto-inventory-720.webp', 64_000, 'feature-page hero (autoparts-billing-tally)'],
+  ['public/assets/screens/ladder-cart-360.webp', 32_000, 'feature-page hero (ladder-discount-tally)'],
+  ['public/assets/screens/ladder-cart-720.webp', 60_000, 'feature-page hero (ladder-discount-tally)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:
