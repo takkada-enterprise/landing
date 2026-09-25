@@ -127,6 +127,17 @@ export const FEATURE_GROUPS = [
     ],
   },
   {
+    id: 'schemes-discount',
+    title: 'Schemes and discount',
+    intro: 'How the rate on the line is arrived at, and what the company scheme gives away.',
+    slugs: [
+      'schemes-tally',
+      'fmcg-module-tally',
+      'autoparts-billing-tally',
+      'ladder-discount-tally',
+    ],
+  },
+  {
     id: 'weighing-options',
     title: 'Weighing your options',
     intro: 'Honest comparisons with the other Tally mobile apps distributors look at.',
@@ -190,6 +201,14 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'schemes-tally':
+    'Buy X get Y free and slab schemes set up once, applied in the cart, costed per scheme and party.',
+  'fmcg-module-tally':
+    'MRP, retailer margin, D1 and D2 per item; the rate comes down by itself, with a break-even floor.',
+  'autoparts-billing-tally':
+    'Selling price from the last purchase cost plus a markup per brand, on two price levels.',
+  'ladder-discount-tally':
+    'Three discount steps on the line, one aggregate in Tally, every step printed on the PDF.',
   'ai-collection-calls':
     'An AI call in the party\'s language for the bills WhatsApp did not move, logged on the recovery board.',
   'voucher-approval-before-tally':
@@ -311,6 +330,7 @@ export const LEAD_FEATURE_SLUGS = [
  */
 export const SECTION_GROUP_IDS = [
   ...STOPS.map((stop) => stop.id),
+  'schemes-discount',
   'weighing-options',
   'built-for-your-trade',
 ];

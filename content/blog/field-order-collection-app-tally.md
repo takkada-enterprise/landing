@@ -49,7 +49,7 @@ The app reads stock, prices, party masters, and outstanding balances from Tally 
 
 ### Capability 2: SKU-level catalog with live prices
 
-The catalog has product names, codes, MRPs, dealer prices, and GST percentages, all read directly from Tally. The salesman can search by name or SKU. The price the salesman quotes is the price Tally has, not yesterday's price list. No daily refresh, no stale exports.
+The catalog has product names, codes, MRPs, dealer prices, and GST percentages, all read directly from Tally. The salesman can search by name or SKU. The price the salesman quotes is the price Tally has, not yesterday's price list. No daily refresh, no stale exports. Where the rate is worked down from MRP through the retailer's margin and trade discounts, the [FMCG module for Tally](/fmcg-module-tally/) page shows how each line is priced and held above break-even.
 
 ### Capability 3: Retailer-specific credit awareness
 

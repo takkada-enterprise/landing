@@ -291,7 +291,7 @@
     "source": "Resolve lines om sai traders.png",
     "shows": "Resolve Bank Statement: 0 of 37 resolved, each line marked Payment or Receipt and needs review, Resolve, Allocate to bills, Not applicable, Post resolved lines; the party name in one narration replaced by a placeholder",
     "alt": "Resolving bank statement lines: pick the party, allocate to bills, then post"
-    },
+  },
   {
     "slug": "purchase-analytics",
     "source": "Purchase Analystics.png",
@@ -304,5 +304,132 @@
     "source": "Itemwise purchase report.png",
     "shows": "Purchases by Item for Sep 2026, month, quarter or FY: per item the quantity purchased, amount, average price, sales average and spread, with new and change badges",
     "alt": "Purchases by item with quantity, amount, average cost and the spread against the selling price"
+  },
+  {
+    "slug": "scheme-free-noodles",
+    "source": "scheme-free-noodles.png",
+    "shows": "Invoice Summary: Noodles line with a read-only free line under it, Free, Buy 5 get 1",
+    "alt": "Invoice summary with a free Noodles case added by the Buy 5 get 1 scheme"
+  },
+  {
+    "slug": "scheme-list-kinds",
+    "source": "scheme-list-kinds.png",
+    "shows": "Schemes settings list with the New scheme sheet: Buy X get X free, Buy X get Y free, Quantity slab discount, Invoice value discount",
+    "alt": "Schemes list with the four kinds of scheme to choose from"
+  },
+  {
+    "slug": "scheme-free-rice",
+    "source": "scheme-free-rice.png",
+    "shows": "Add Items: Basmati Rice with a free bag line added by the scheme",
+    "alt": "Basmati Rice bill with one free bag added by the scheme"
+  },
+  {
+    "slug": "scheme-slab-applied",
+    "source": "scheme-slab-applied.png",
+    "shows": "Invoice line tagged Scheme: Slab with the percentage and the benefit shown",
+    "alt": "Invoice line carrying the slab discount from a scheme"
+  },
+  {
+    "slug": "scheme-buy-x-get-x",
+    "source": "scheme-buy-x-get-x.png",
+    "shows": "Scheme editor, Buy X get X free: Tea Powder, buy 12 get 1, repeat on, once a day per party, dates",
+    "alt": "Scheme editor for buy X get X free: Tea Powder 12 plus 1, repeating, once a day per party"
+  },
+  {
+    "slug": "scheme-buy-x-get-y",
+    "source": "scheme-buy-x-get-y.png",
+    "shows": "Scheme editor, Buy X get Y free: 5 biscuit cartons earn 1 noodles case, free item value",
+    "alt": "Scheme editor for buy X get Y free: 5 biscuit cartons earn 1 noodles case"
+  },
+  {
+    "slug": "scheme-qty-slab",
+    "source": "scheme-qty-slab.png",
+    "shows": "Scheme editor, Quantity slab discount: up to 10 gives 1%, up to 25 gives 2.5%, beyond 4%",
+    "alt": "Scheme editor for a quantity slab discount with three slabs"
+  },
+  {
+    "slug": "scheme-invoice-value",
+    "source": "scheme-invoice-value.png",
+    "shows": "Scheme editor, Invoice value discount: bill value slabs with a percentage each",
+    "alt": "Scheme editor for an invoice value discount with bill value slabs"
+  },
+  {
+    "slug": "scheme-parties",
+    "source": "scheme-parties.png",
+    "shows": "Scheme editor: items or a stock group, all parties, a party group or a picked list",
+    "alt": "Scheme editor choosing items or a stock group and which parties the scheme is for"
+  },
+  {
+    "slug": "fmcg-margin-sheet",
+    "source": "fmcg-margin-sheet.png",
+    "shows": "Item Discount sheet: retailer margin, D1, D2 with a max hint on each, headroom",
+    "alt": "Item Discount sheet with retailer margin, D1 and D2 and the maximum for each field"
+  },
+  {
+    "slug": "fmcg-config-bikaji",
+    "source": "fmcg-config-bikaji.png",
+    "shows": "Stock group billing config: MRP, margin, D1, D2, commission per item",
+    "alt": "Stock group with MRP, margin, D1, D2 and commission set per item"
+  },
+  {
+    "slug": "fmcg-config-chocolates",
+    "source": "fmcg-config-chocolates.png",
+    "shows": "Stock group billing config, 9 of 9 items configured",
+    "alt": "Items configured with MRP, margin and discounts, nine of nine done"
+  },
+  {
+    "slug": "auto-inventory",
+    "source": "auto-inventory.png",
+    "shows": "Inventory: each part with cost as of a date, M1, SP1, M2, SP2",
+    "alt": "Inventory with cost as of date, M1, SP1, M2 and SP2 per part",
+    "q": 50
+  },
+  {
+    "slug": "auto-markup-setup",
+    "source": "auto-markup-setup.png",
+    "shows": "AutoParts billing settings: company default markup, per stock group markups for SP1 and SP2",
+    "alt": "AutoParts billing setup with the company default and stock group markups"
+  },
+  {
+    "slug": "auto-price-changes",
+    "source": "auto-price-changes.png",
+    "shows": "Price Changes: last 90 days of purchases, parts that moved over 10% flagged",
+    "alt": "Purchase price changes listing parts whose cost moved more than 10%"
+  },
+  {
+    "slug": "auto-group-items",
+    "source": "auto-group-items.png",
+    "shows": "Items in a stock group with the markup and supplier source shown per part",
+    "alt": "Items in a stock group inheriting SP1 and SP2 markup from the group"
+  },
+  {
+    "slug": "ladder-cart",
+    "source": "ladder-cart.png",
+    "shows": "Cart line: 10% + 5% + 4%, total 17.92%",
+    "alt": "Cart line showing 10% + 5% + 4% with the total 17.92%"
+  },
+  {
+    "slug": "ladder-sheet-empty",
+    "source": "ladder-sheet-empty.png",
+    "shows": "Item Discount sheet: Discount % and two named step fields, empty",
+    "alt": "Item Discount sheet with the discount and two named step fields empty"
+  },
+  {
+    "slug": "ladder-sheet-filled",
+    "source": "ladder-sheet-filled.png",
+    "shows": "Item Discount sheet with three steps typed and the running price after each, total 17.92%",
+    "alt": "Item Discount sheet with three steps typed and the running price after each"
+  },
+  {
+    "slug": "ladder-step-names",
+    "source": "ladder-step-names.png",
+    "shows": "Discount step names dialog",
+    "alt": "Discount step names dialog, the names used as invoice columns"
+  },
+  {
+    "slug": "ladder-summary",
+    "source": "ladder-summary.png",
+    "shows": "Invoice Summary with the ladder total on the line, amount and GST from the rounded aggregate",
+    "alt": "Invoice summary with the ladder total on the line"
   }
 ]

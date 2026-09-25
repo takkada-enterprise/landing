@@ -202,6 +202,91 @@ export const SCREENS = {
     'purchases-by-item',
     'Purchases by item with quantity, amount, average cost and the spread against the selling price'
   ),
+  // Schemes and discount pages (2026-09-25). Demo company; no numbers, no GSTIN.
+  'scheme-free-noodles': phone(
+    'scheme-free-noodles',
+    'Invoice summary with a free Noodles case added by the Buy 5 get 1 scheme'
+  ),
+  'scheme-list-kinds': phone(
+    'scheme-list-kinds',
+    'Schemes list with the four kinds of scheme to choose from'
+  ),
+  'scheme-free-rice': phone(
+    'scheme-free-rice',
+    'Basmati Rice bill with one free bag added by the scheme'
+  ),
+  'scheme-slab-applied': phone(
+    'scheme-slab-applied',
+    'Invoice line carrying the slab discount from a scheme'
+  ),
+  'scheme-buy-x-get-x': phone(
+    'scheme-buy-x-get-x',
+    'Scheme editor for buy X get X free: Tea Powder 12 plus 1, repeating, once a day per party'
+  ),
+  'scheme-buy-x-get-y': phone(
+    'scheme-buy-x-get-y',
+    'Scheme editor for buy X get Y free: 5 biscuit cartons earn 1 noodles case'
+  ),
+  'scheme-qty-slab': phone(
+    'scheme-qty-slab',
+    'Scheme editor for a quantity slab discount with three slabs'
+  ),
+  'scheme-invoice-value': phone(
+    'scheme-invoice-value',
+    'Scheme editor for an invoice value discount with bill value slabs'
+  ),
+  'scheme-parties': phone(
+    'scheme-parties',
+    'Scheme editor choosing items or a stock group and which parties the scheme is for'
+  ),
+  'fmcg-margin-sheet': phone(
+    'fmcg-margin-sheet',
+    'Item Discount sheet with retailer margin, D1 and D2 and the maximum for each field'
+  ),
+  'fmcg-config-bikaji': phone(
+    'fmcg-config-bikaji',
+    'Stock group with MRP, margin, D1, D2 and commission set per item'
+  ),
+  'fmcg-config-chocolates': phone(
+    'fmcg-config-chocolates',
+    'Items configured with MRP, margin and discounts, nine of nine done'
+  ),
+  'auto-inventory': phone(
+    'auto-inventory',
+    'Inventory with cost as of date, M1, SP1, M2 and SP2 per part'
+  ),
+  'auto-markup-setup': phone(
+    'auto-markup-setup',
+    'AutoParts billing setup with the company default and stock group markups'
+  ),
+  'auto-price-changes': phone(
+    'auto-price-changes',
+    'Purchase price changes listing parts whose cost moved more than 10%'
+  ),
+  'auto-group-items': phone(
+    'auto-group-items',
+    'Items in a stock group inheriting SP1 and SP2 markup from the group'
+  ),
+  'ladder-cart': phone(
+    'ladder-cart',
+    'Cart line showing 10% + 5% + 4% with the total 17.92%'
+  ),
+  'ladder-sheet-empty': phone(
+    'ladder-sheet-empty',
+    'Item Discount sheet with the discount and two named step fields empty'
+  ),
+  'ladder-sheet-filled': phone(
+    'ladder-sheet-filled',
+    'Item Discount sheet with three steps typed and the running price after each'
+  ),
+  'ladder-step-names': phone(
+    'ladder-step-names',
+    'Discount step names dialog, the names used as invoice columns'
+  ),
+  'ladder-summary': phone(
+    'ladder-summary',
+    'Invoice summary with the ladder total on the line'
+  ),
   'bank-statement-review': phone(
     'bank-statement-review',
     'A bank statement read into the app, each line marked as a receipt'
