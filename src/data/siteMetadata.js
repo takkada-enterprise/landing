@@ -60,6 +60,12 @@ export const routeMetadata = [
     priority: 0.3,
   },
   {
+    path: '/ai-assistant',
+    sourceFile: 'src/routes/AiAssistant.jsx',
+    changefreq: 'monthly',
+    priority: 0.5,
+  },
+  {
     path: '/terms-and-conditions',
     sourceFile: 'src/routes/TermsAndConditions.jsx',
     changefreq: 'yearly',

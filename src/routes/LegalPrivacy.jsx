@@ -19,7 +19,7 @@ function PrivacyPolicy() {
       />
       <article className="company-article">
         <h1>Privacy Policy</h1>
-        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; {contactInfo.company}</p>
+        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: September 28, 2026 &bull; {contactInfo.company}</p>
         <p className="company-lead">
           {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
         </p>
@@ -47,6 +47,11 @@ function PrivacyPolicy() {
         <h2>3. Information Sharing</h2>
         <p>
           We do not share your data with any third parties for marketing or commercial purposes. Data is never sold. We do not share your business or financial information beyond what is strictly required to operate the platform (e.g. payment gateways to process transactions). Legal disclosures occur only when required by regulatory bodies and law enforcement under Indian law.
+        </p>
+
+        <h3>AI assistant connections</h3>
+        <p>
+          If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
         </p>
 
         <h2>4. Security Measures</h2>
