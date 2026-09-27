@@ -3,6 +3,7 @@ import Home from './Home';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import LegalPrivacy from './LegalPrivacy';
+import AiAssistant from './AiAssistant';
 import TermsAndConditions from './TermsAndConditions';
 import RefundPolicy from './RefundPolicy';
 import MobileTally from './MobileTally';
@@ -30,6 +31,7 @@ const ELEMENT_FOR_PATH = {
   '/about-us': <AboutUs />,
   '/contact-us': <ContactUs />,
   '/privacy-policy': <LegalPrivacy />,
+  '/ai-assistant': <AiAssistant />,
   '/terms-and-conditions': <TermsAndConditions />,
   '/refund-policy': <RefundPolicy />,
   '/mobile-tally': <MobileTally />,
