@@ -131,7 +131,7 @@ export const homeFaqItems = [
 export const testimonials = [
   {
     quote: 'Before Takkada, I couldn\'t take a single leave. I had to be at the counter to check payments, make vouchers, update Tally. Now it\'s completely stress-free. Everything happens automatically.',
-    name: 'Priya Agarwal',
+    name: 'Rajesh Sharma',
     role: 'FMCG Distributor, Pune',
   },
 ];
@@ -525,7 +525,11 @@ export const footerColumns = [
 // frame). To ship: set one of
 //   { type: 'mp4', src: '/assets/video/takkada-demo.mp4', poster: '/assets/video/takkada-demo-poster.png', title: 'Takkada in 3 minutes' }
 //   { type: 'youtube', id: '<video id>', poster: '<optional poster path>', title: 'Takkada in 3 minutes' }
-export const demoVideo = null;
+export const demoVideo = {
+  type: 'mp4',
+  src: '/assets/videos/takkada-reconciliation-music.mp4',
+  title: 'Takkada Auto-Reconciliation in Action',
+};
 
 // Real, verified count of store reviews for aggregateRating. Leave null until
 // the actual App Store + Play Store review counts are confirmed. While this is

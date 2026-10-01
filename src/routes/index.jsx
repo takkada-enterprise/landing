@@ -37,6 +37,7 @@ const ELEMENT_FOR_PATH = {
   '/mobile-tally': <MobileTally />,
   '/whatsapp-invoice-tally': <WhatsAppInvoice />,
   '/auto-reconciliation-tally': <AutoReconciliation />,
+  '/reconciliation': <AutoReconciliation />,
   '/for-distributors': <ForDistributors />,
   '/tally-mobile-app-comparison': <TallyMobileComparison />,
   '/demo': <TryDemo />,
