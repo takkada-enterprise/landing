@@ -114,6 +114,13 @@ export const routeMetadata = [
     priority: 0.8,
   },
   {
+    path: '/reconciliation',
+    sourceFile: 'src/routes/AutoReconciliation.jsx',
+    changefreq: 'monthly',
+    priority: 0.7,
+    sitemap: false,
+  },
+  {
     path: '/for-distributors',
     llms: {
       section: 'Key pages',

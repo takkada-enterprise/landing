@@ -200,6 +200,32 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
 
 function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOpen, setFeaturesOpen }) {
   const { setOpen } = usePhoneModal();
+  const location = useLocation();
+  const isAutoRecon = location.pathname === '/auto-reconciliation-tally' || location.pathname === '/reconciliation';
+
+  if (isAutoRecon) {
+    return (
+      <header className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
+        <div className="nav-inner" style={{ justifyContent: 'space-between' }}>
+          <Link to="/" className="nav-logo">
+            <img
+              src="/assets/screenshots/takkada-logo.webp"
+              alt="Takkada"
+              className="nav-logo-img"
+              width="107"
+              height="38"
+            />
+          </Link>
+          <div className="nav-actions">
+            <WhatsAppCTA context="icp-auto-reconciliation">
+              Chat on WhatsApp
+            </WhatsAppCTA>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className={`site-nav ${scrolled ? 'scrolled' : ''}${menuOpen ? ' menu-open' : ''}`}>
       <div className="nav-inner">
@@ -369,6 +395,38 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
 }
 
 function SiteFooter() {
+  const location = useLocation();
+  const isAutoRecon = location.pathname === '/auto-reconciliation-tally' || location.pathname === '/reconciliation';
+
+  if (isAutoRecon) {
+    return (
+      <footer className="footer footer-minimal" style={{ borderTop: '1px solid var(--color-border)', padding: '32px 0', background: 'var(--color-surface)' }}>
+        <div className="container">
+          <div className="footer-minimal-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <Link to="/" className="footer-logo">
+                <img
+                  src="/assets/screenshots/takkada-logo.webp"
+                  alt="Takkada"
+                  width="96"
+                  height="34"
+                  loading="lazy"
+                />
+              </Link>
+              <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }} className="tabular-nums">&copy; {new Date().getFullYear()} {contactInfo.company}. All rights reserved.</span>
+            </div>
+            <div style={{ display: 'flex', gap: '24px', fontSize: '13px', fontWeight: 500 }}>
+              <Link to="/privacy-policy" style={{ color: 'var(--color-text-secondary)' }}>Privacy Policy</Link>
+              <Link to="/terms-and-conditions" style={{ color: 'var(--color-text-secondary)' }}>Terms &amp; Conditions</Link>
+              <Link to="/refund-policy" style={{ color: 'var(--color-text-secondary)' }}>Refund Policy</Link>
+              <Link to="/contact-us" style={{ color: 'var(--color-text-secondary)' }}>Contact</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="footer">
       <div className="container">

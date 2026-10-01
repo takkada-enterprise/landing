@@ -36,7 +36,7 @@ export const WHATSAPP_MESSAGES = {
   'icp-whatsapp-invoice':
     'Hi, I want my Tally invoices to reach customers on WhatsApp automatically. Can you show me?',
   'icp-auto-reconciliation':
-    'Hi, I want to stop matching payments into Tally by hand. Can you show me how auto-reconciliation works?',
+    'Hi, I want to know more about auto-reconciliation for my business on Tally.',
   blog: 'Hi, I was reading an article on takkada.com and want to know more about Takkada.',
   comparison:
     'Hi, I am comparing Tally mobile apps. I want to see a demo of Takkada.',
