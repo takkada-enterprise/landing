@@ -36,8 +36,6 @@ The call itself is short. The agent names the business, says what is due, and as
   <audio src="/assets/audio/ai-collection-call-demo.mp3" controls preload="none" style="width: 100%; border-radius: 8px; outline: none;"></audio>
 </div>
 
-Our 82-second demo call, recorded on our own demo line, is on the [AI collection calls page](/auto-reconciliation-tally).
-
 ## After the call: 30+ outputs
 
 This is where most calling falls apart, and where the AI agent does its real work. Each call returns more than 30 parameters. The most important is what the party committed to:

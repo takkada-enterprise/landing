@@ -53,5 +53,3 @@ The forty small parties get the same call as the big ones, on the same day.
 ## What it costs
 
 Calling is charged per connected minute, and the cost is shown before you confirm. Compare that with a salary for someone whose whole job is dialling. AI calling is switched on per company on request and sits on top of the Copilot plan.
-
-You can hear an 82-second demo call, recorded on our own demo line, on the [AI collection calls page](/auto-reconciliation-tally).
