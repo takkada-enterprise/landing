@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import BlogCtaBand from '../components/BlogCtaBand';
@@ -51,6 +52,31 @@ function RelatedPosts({ currentSlug }) {
 function BlogPost() {
   const { slug } = useParams();
   const post = getPostBySlug(slug);
+
+  useEffect(() => {
+    const container = document.querySelector('.blog-post-body');
+    if (!container) return undefined;
+    const handleClick = (e) => {
+      const playBtn = e.target.closest('.call-player-play');
+      if (playBtn) {
+        const player = playBtn.closest('.call-player');
+        const audio = player?.querySelector('audio');
+        if (audio) {
+          if (audio.paused) {
+            audio.play().catch(() => {});
+            player.classList.add('playing');
+            playBtn.setAttribute('aria-pressed', 'true');
+          } else {
+            audio.pause();
+            player.classList.remove('playing');
+            playBtn.setAttribute('aria-pressed', 'false');
+          }
+        }
+      }
+    };
+    container.addEventListener('click', handleClick);
+    return () => container.removeEventListener('click', handleClick);
+  }, [slug]);
 
   if (!post) {
     return (
