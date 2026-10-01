@@ -29,27 +29,12 @@ Because the inputs come straight from Tally, the amount the agent quotes matches
 
 The call itself is short. The agent names the business, says what is due, and asks when it will be paid. It speaks in the party's language.
 
-<div class="call-player">
-  <audio src="/assets/audio/ai-collection-call-demo.mp3" preload="none"></audio>
-  <button type="button" class="call-player-play" aria-pressed="false" aria-label="Play the recording">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-  </button>
-  <div class="call-player-wave" role="slider" tabIndex="0" aria-label="Seek within the recording">
-    <div class="call-player-track">
-      <span class="call-player-bar" style="height: 30%"></span>
-      <span class="call-player-bar" style="height: 60%"></span>
-      <span class="call-player-bar" style="height: 90%"></span>
-      <span class="call-player-bar" style="height: 40%"></span>
-      <span class="call-player-bar" style="height: 70%"></span>
-      <span class="call-player-bar" style="height: 100%"></span>
-      <span class="call-player-bar" style="height: 50%"></span>
-      <span class="call-player-bar" style="height: 80%"></span>
-    </div>
-  </div>
-  <p class="call-player-time"><span>0:00</span> / <span>1:22</span></p>
+<div class="demo-audio-card" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 18px 20px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+  <h4 style="font-size: 15px; font-weight: 700; color: #0F1F3D; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+    <span>🎧</span> Listen to a demo AI call
+  </h4>
+  <audio src="/assets/audio/ai-collection-call-demo.mp3" controls preload="none" style="width: 100%; border-radius: 8px; outline: none;"></audio>
 </div>
-
-<audio src="/assets/audio/ai-collection-call-demo.mp3" controls preload="none" style="width: 100%; margin: 16px 0; border-radius: 8px;"></audio>
 
 Our 82-second demo call, recorded on our own demo line, is on the [AI collection calls page](/auto-reconciliation-tally).
 
