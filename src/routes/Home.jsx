@@ -323,7 +323,7 @@ function Home({ seo = HOME_SEO }) {
             {/* Add-ons close the table rather than sitting below it as an
                 orphan block, because they apply to every column above. */}
             <div className="rate-addons">
-              <div className="rate-addons-title">Add to any plan</div>
+              <div className="rate-addons-title">Add-ons</div>
               <ul className="rate-addons-list">
                 {pricing.addons.map((addon) => (
                   <li key={addon.label} className="rate-addon">

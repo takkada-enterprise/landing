@@ -111,7 +111,7 @@ A: Visit check-in and check-out are saved on the phone without signal and upload
 
 **Q: How much does a salesman seat cost on top of the base app?**
 
-A: Pricing across apps varies. On Takkada, the plans that carry field-team access are priced per business (₹8,500 a year for Copilot, ₹24,000 for Enterprise), and each additional user beyond the included one is an add-on your Tally partner prices. A distributor with three salesmen pays the plan once plus a login for each extra person on the team.
+A: Pricing across apps varies. On Takkada, the plans that carry field-team access are priced per business (₹9,000 a year for Copilot, ₹24,000 for Enterprise), and each additional user beyond the included one is an add-on your Tally partner prices. A distributor with three salesmen pays the plan once plus a login for each extra person on the team.
 
 **Q: Can I track how much each salesman has collected, not just invoiced?**
 

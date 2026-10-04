@@ -4,6 +4,7 @@ slug: "payment-follow-up-calls-for-distributors"
 meta_description: "The reminder was read and ignored. Here is why the follow-up call is where collections stall, and how distributors on Tally are handing that call to an AI agent."
 primary_keyword: "payment follow up call"
 date: "2026-10-02"
+updated: "2026-10-04"
 author: "harsh"
 category: "Collections"
 excerpt: "The reminder was read and ignored. Here is why the follow-up call is where collections stall, and how distributors on Tally are handing that call to an AI agent."
@@ -52,4 +53,4 @@ The forty small parties get the same call as the big ones, on the same day.
 
 ## What it costs
 
-Calling is charged per connected minute, and the cost is shown before you confirm. Compare that with a salary for someone whose whole job is dialling. AI calling is switched on per company on request and sits on top of the Copilot plan.
+Calling is charged per connected minute, and the cost is shown before you confirm. Compare that with a salary for someone whose whole job is dialling. AI calling is switched on per company on request. It is an add-on on any plan, priced by your partner, and it is included in Enterprise.

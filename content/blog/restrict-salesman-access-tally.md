@@ -126,6 +126,6 @@ A: In Tally alone the two are hard to separate cleanly, because the report right
 
 **Q: What does it cost to add salesmen with restricted access?**
 
-A: On Takkada, role-based salesman access sits in the Copilot plan at ₹8,500 per year for the business, with GST extra, and each additional user beyond the included one is an add-on your Tally partner prices. A three-year term is 25% off and billed once. So an owner with three salesmen is looking at the plan plus three user seats, rather than a per-salesman licence for the accounting software itself.
+A: On Takkada, role-based salesman access sits in the Copilot plan at ₹9,000 per year for the business, with GST extra, and each additional user beyond the included one is an add-on your Tally partner prices. A three-year term is 25% off and billed once. So an owner with three salesmen is looking at the plan plus three user seats, rather than a per-salesman licence for the accounting software itself.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

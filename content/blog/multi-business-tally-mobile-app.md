@@ -96,7 +96,7 @@ Some apps charge a full subscription per company. A distributor running 3 Tally 
 
 The Takkada pricing model: every plan covers unlimited companies at the one plan price.
 
-A distributor on the Copilot plan running 4 businesses pays ₹8,500 a year once, and the second, third, and fourth Tally company come with it. Not 4× the platform cost.
+A distributor on the Copilot plan running 4 businesses pays ₹9,000 a year once, and the second, third, and fourth Tally company come with it. Not 4× the platform cost.
 
 This pricing exists because 4 companies in the same office is structurally one customer, not four. A multi-business Tally mobile app should be priced accordingly.
 

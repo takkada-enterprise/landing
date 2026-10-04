@@ -88,7 +88,7 @@ The rebuild took six weeks. Invoice capture through Tally XML integration, five-
 
 After eight weeks: DSO at 44 days. One accountant back on GST and margin work. The "chase" part of the week disappeared because the app was doing it, and the retailers were paying faster because the link was right there in the reminder.
 
-The app cost ₹8,500 a year for the business. The working capital freed by the 14-day DSO compression was approximately ₹31 lakh, roughly 350 times the app cost, in the first year.
+The app cost ₹9,000 a year for the business. The working capital freed by the 14-day DSO compression was approximately ₹31 lakh, roughly 340 times the app cost, in the first year.
 
 ## What Takkada is, in one sentence
 

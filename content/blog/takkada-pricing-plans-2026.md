@@ -11,12 +11,12 @@ category: "Market Reality"
 excerpt: "A distributor comparing collection tools usually finds the real cost hidden in the MDR, not the sticker price. Takkada pricing is built the other way around: a flat annual subscription you can read off a table, and 0% MDR on UPI so the collection rail itself adds nothing per transaction."
 ---
 
-Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, automatic reminders and voucher creation from mobile and web in your pocket. Assurance is ₹6,480 and adds E-Invoice and E-Way Bill generation from the phone. Copilot is ₹8,500 and adds PDF purchase import, bank statement import, Auto Invoice Dispatch, and Reports +. Enterprise is ₹24,000 and switches on every module, from trade schemes to a billing engine of your choice. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
+Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, automatic reminders and voucher creation from mobile and web in your pocket. Assurance is ₹6,480 and adds E-Invoice and E-Way Bill generation from the phone. Copilot is ₹9,000 and adds PDF purchase import, bank statement import, Auto Invoice Dispatch, and Reports +. Enterprise is ₹24,000 and adds schemes, recovery, order links, AI calling and one billing engine, in one price. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
 
 ## Key Highlights
 
-- Four annual plans, GST extra: Momentum ₹4,500, Assurance ₹6,480, Copilot ₹8,500, Enterprise ₹24,000
-- A 3-year subscription is billed once at 25% off, so Copilot works out to ₹6,375 a year instead of ₹8,500
+- Four annual plans, GST extra: Momentum ₹4,500, Assurance ₹6,480, Copilot ₹9,000, Enterprise ₹24,000
+- A 3-year subscription is billed once at 25% off, so Copilot works out to ₹6,750 a year instead of ₹9,000
 - Payment Collection is an add-on on every plan, priced by your partner, and UPI receipts on it carry 0% MDR
 
 ## In This Article
@@ -41,8 +41,8 @@ The principle behind the structure: the price you read is the price you pay. The
 |---|---|---|---|
 | Momentum | ₹4,500 | ₹3,375 | Seeing the books, sending reminders, and creating vouchers from anywhere |
 | Assurance | ₹6,480 | ₹4,860 | E-Invoice and E-Way Bill from the phone |
-| Copilot | ₹8,500 | ₹6,375 | PDF and bank statement import, Auto Invoice Dispatch |
-| Enterprise | ₹24,000 | ₹18,000 | Every module, including one billing engine |
+| Copilot | ₹9,000 | ₹6,750 | PDF and bank statement import, Auto Invoice Dispatch |
+| Enterprise | ₹24,000 | ₹18,000 | Schemes, recovery, order links, AI calling and one billing engine |
 
 ## What Each Plan Is For
 
@@ -50,13 +50,13 @@ The principle behind the structure: the price you read is the price you pay. The
 
 **Assurance (₹6,480).** For distributors whose trucks wait on paperwork. [E-invoice IRN](/blog/e-invoice-on-phone-tally/) with QR and [e-way bill](/blog/e-way-bill-on-phone/) generate from the phone and land back in Tally against the same voucher, without a portal login.
 
-**Copilot (₹8,500).** For the business where the evening is spent typing. Import from PDF turns a supplier bill into a purchase entry, bank statement import matches receipts against your ledgers, and Auto Invoice Dispatch fires every Tally invoice on WhatsApp the moment it is saved, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/). Reports + and role-based access for field salesman teams are included.
+**Copilot (₹9,000).** For the business where the evening is spent typing. Import from PDF turns a supplier bill into a purchase entry, bank statement import matches receipts against your ledgers, and Auto Invoice Dispatch fires every Tally invoice on WhatsApp the moment it is saved, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/). Reports + and role-based access for field salesman teams are included.
 
-**Enterprise (₹24,000).** For the distributor who wants every module switched on. Everything in Copilot, plus trade schemes and scheme credit notes, the recovery dashboard, the customer order link and personal party links, AI collection calls billed per connected minute, and one billing engine of your choice: FMCG billing, Auto parts billing or Ladder discount.
+**Enterprise (₹24,000).** For the distributor who runs trade schemes, works a recovery list and takes orders over links. Everything in Copilot, plus trade schemes and scheme credit notes, the recovery dashboard, the customer order link and personal party links, AI collection calls billed per connected minute, and one billing engine of your choice: FMCG billing, Auto parts billing or Ladder discount.
 
 ## The 3-Year Term
 
-A 3-year subscription is billed once at 25% off the yearly rate. On Copilot that is ₹19,125 for three years instead of ₹25,500, so the effective rate is ₹6,375 a year. The plan contents do not change with the term. The only thing the longer term buys is the lower rate.
+A 3-year subscription is billed once at 25% off the yearly rate. On Copilot that is ₹20,250 for three years instead of ₹27,000, so the effective rate is ₹6,750 a year. The plan contents do not change with the term. The only thing the longer term buys is the lower rate.
 
 ## Add-Ons
 
@@ -86,7 +86,7 @@ Against numbers like these, the gap between the ₹4,500 entry plan and the ₹2
 
 **Q: How much does Takkada cost?**
 
-A: Takkada is priced as a flat annual subscription per customer (GST extra): Momentum ₹4,500, Assurance ₹6,480, Copilot ₹8,500, and Enterprise ₹24,000. A 3-year subscription is billed once at 25% off the yearly rate.
+A: Takkada is priced as a flat annual subscription per customer (GST extra): Momentum ₹4,500, Assurance ₹6,480, Copilot ₹9,000, and Enterprise ₹24,000. A 3-year subscription is billed once at 25% off the yearly rate.
 
 **Q: Is there an MDR or transaction fee on UPI collection?**
 
@@ -94,7 +94,7 @@ A: No. On the Payment Collection add-on, UPI receipts carry 0% MDR with no trans
 
 **Q: Which plan should a collections-focused distributor pick?**
 
-A: A distributor whose work is invoicing in the field usually needs Assurance (₹6,480) for e-invoice and e-way bill from the phone, or Copilot (₹8,500) to also have every invoice auto-dispatched on WhatsApp the moment it is created. Add Payment Collection on either one to collect on a UPI link. Your partner quotes the add-on price.
+A: A distributor whose work is invoicing in the field usually needs Assurance (₹6,480) for e-invoice and e-way bill from the phone, or Copilot (₹9,000) to also have every invoice auto-dispatched on WhatsApp the moment it is created. Add Payment Collection on either one to collect on a UPI link. Your partner quotes the add-on price.
 
 **Q: What does an extra user cost?**
 

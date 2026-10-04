@@ -57,12 +57,12 @@ Some distributors hire a Tally partner to build a custom TDL (Tally Definition L
 
 ## A capability and price comparison
 
-| Shape | Typical price (₹/user/year) | View outstanding | Create invoice | Payment link | E-invoice and e-way bill | Auto-reco into Tally |
+| Shape | Typical price (₹/year) | View outstanding | Create invoice | Payment link | E-invoice and e-way bill | Auto-reco into Tally |
 | --- | --- | --- | --- | --- | --- | --- |
 | Remote desktop | 0 to 30,000 (team license) | Yes (slow) | Yes (slow) | No | No | No |
-| Read-only companion | 2,000 to 4,000 | Yes | No | No | No | No |
-| Read + voucher | 3,500 to 5,000 | Yes | Yes | No | Some | No |
-| Full-stack mobile | 6,480 to 24,000 (per business) | Yes | Yes | Yes | Yes | Yes |
+| Read-only companion | 2,000 to 4,000 per user | Yes | No | No | No | No |
+| Read + voucher | 3,500 to 5,000 per user | Yes | Yes | No | Some | No |
+| Full-stack mobile | 6,480 to 24,000 for the business | Yes | Yes | Yes | Yes | Yes |
 | Custom TDL | 25,000+ one-time | Depends | Depends | No | No | No |
 
 ## A buyer's checklist for Indian distributors

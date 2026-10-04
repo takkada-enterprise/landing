@@ -105,7 +105,7 @@ A: 45 to 55 days for FMCG, electronics, textiles. 35 to 45 days for fast-moving 
 
 **Q: How much does it cost to move from Tier 1 to Tier 3?**
 
-A: Tooling cost is typically ₹6,480 to ₹8,500 a year for the business on a full-stack mobile platform, plus existing Tally licensing. Operational cost is the discipline change: writing credit policy, training salesmen on the new flow, retraining the accountant for exception handling. Most distributors complete the move in a quarter.
+A: Tooling cost is typically ₹6,480 to ₹9,000 a year for the business on a full-stack mobile platform, plus existing Tally licensing. Operational cost is the discipline change: writing credit policy, training salesmen on the new flow, retraining the accountant for exception handling. Most distributors complete the move in a quarter.
 
 **Q: Is bad debt unavoidable in Indian distribution?**
 

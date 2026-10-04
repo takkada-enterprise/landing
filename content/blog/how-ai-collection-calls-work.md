@@ -4,6 +4,7 @@ slug: "how-ai-collection-calls-work"
 meta_description: "What an AI collection call knows before it dials, and what it hands back after. A plain look at the inputs and outputs behind Takkada's calling agent."
 primary_keyword: "AI collection calls"
 date: "2026-10-02"
+updated: "2026-10-04"
 author: "harsh"
 category: "Collections"
 excerpt: "What an AI collection call knows before it dials, and what it hands back after. A plain look at the inputs and outputs behind Takkada's calling agent."
@@ -58,4 +59,4 @@ That is the difference between making calls and running collections.
 
 ## What it costs
 
-Charged per connected minute, with the cost shown before you confirm. Switched on per company on request, on top of the Copilot plan.
+Charged per connected minute, with the cost shown before you confirm. Switched on per company on request, as an add-on on any plan or included in Enterprise.

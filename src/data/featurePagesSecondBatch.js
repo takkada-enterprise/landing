@@ -2442,7 +2442,7 @@ export const SECOND_BATCH = [
       section: 'Features',
       title: 'AI collection calls',
       summary:
-        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up on the recovery board and the party's timeline; charged on connected minutes on top of the plan.",
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up on the recovery board and the party's timeline; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
     },
     footerLabel: 'AI collection calls',
     hero: { screen: 'followup-log' },
@@ -2525,8 +2525,8 @@ export const SECOND_BATCH = [
         'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Copilot',
-      note: 'AI calling is switched on per company on request and charged on connected minutes, on top of the plan.',
+      plan: 'Enterprise',
+      note: 'AI calling is included in Enterprise and is an add-on on any other plan, switched on per company on request. Calls are charged on connected minutes.',
     },
     faqs: [
       {

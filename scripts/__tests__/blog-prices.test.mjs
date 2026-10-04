@@ -22,11 +22,22 @@ const ADDON_PRICE = new RegExp(
     '₹\\s?[\\d,]+[^.\\n₹]{0,30}\\badd-on',
     // A price that bundles an add-on in, however far along the sentence:
     // "₹10,000 + GST subscription (Copilot with the Payment Collection add-on)".
-    // "₹8,500 ..., plus the add-on priced by your partner" stays legal.
+    // "₹9,000 ..., plus the add-on priced by your partner" stays legal.
     '₹\\s?[\\d,]+[^.\\n₹]{0,80}\\b(with|including|incl)\\b[^.\\n₹]{0,40}\\badd-on',
   ].join('|'),
   'i',
 );
+// The add-on modules sold since plan 2026-10-04-002. Case-sensitive on
+// purpose: lowercase "schemes" or "AI calling" also describe competitor
+// products and trade schemes with real rupee figures, while the module names
+// are capitalised the way the rate card prints them. A name followed by
+// software/app/tool is a product category ("FMCG billing software costs
+// ₹3,600"), never our module. (A scoped `(?-i:...)` inside ADDON_PRICE would
+// do this in one regex, but Node 22, the CI runtime, does not support regexp
+// modifiers.)
+const MODULE_PRICE =
+  /\b(Schemes|FMCG billing|Ladder discount|Recovery dashboard|AI calling|Personal party links|Auto ?[Pp]arts billing)\b(?! (?:software|apps?|tools?)\b)[^.\n]{0,60}₹\s?\d/;
+const addonPrice = (s) => s.match(ADDON_PRICE)?.[0] ?? s.match(MODULE_PRICE)?.[0];
 
 const posts = readdirSync(dir)
   .filter((f) => f.endsWith('.md'))
@@ -40,7 +51,7 @@ describe('blog prices', () => {
 
   it('no blog post quotes an add-on price', () => {
     const hits = posts
-      .map(([f, s]) => [f, s.match(ADDON_PRICE)?.[0]])
+      .map(([f, s]) => [f, addonPrice(s)])
       .filter(([, m]) => m)
       .map(([f, m]) => `${f}: ${m}`);
     expect(hits).toEqual([]);
@@ -56,12 +67,28 @@ describe('blog prices', () => {
       'own WhatsApp Business number is an early access add-on at ₹2,000',
       'Additional businesses are ₹1,000 per business per year',
       'a flat ₹10,000 + GST subscription (Takkada Copilot with the Payment Collection add-on)',
+      'Schemes costs ₹3,000 a year',
+      'FMCG billing is ₹4,000 per year',
+      'Ladder discount comes in at ₹2,500',
+      'the Recovery dashboard is ₹3,000 a year on top',
+      'AI calling is ₹6 per connected minute',
+      'Personal party links run ₹1,500 a year',
+      'Auto parts billing is priced at ₹5,000',
+      'AutoParts billing is priced at ₹5,000',
     ]) {
-      expect(s).toMatch(ADDON_PRICE);
+      expect(addonPrice(s), s).toBeTruthy();
     }
-    expect('View-only apps usually charge per additional user (₹2,000 to ₹4,000 each).').not.toMatch(ADDON_PRICE);
-    expect(
-      'a flat ₹8,500 + GST Copilot subscription, plus the Payment Collection add-on priced by your partner',
-    ).not.toMatch(ADDON_PRICE);
+    for (const s of [
+      'View-only apps usually charge per additional user (₹2,000 to ₹4,000 each).',
+      'a flat ₹9,000 + GST Copilot subscription, plus the Payment Collection add-on priced by your partner',
+      // Competitor and trade-scheme figures in lowercase prose stay legal.
+      'The company runs trade schemes worth ₹2 lakh a quarter across the beat.',
+      'Generic AI calling tools charge ₹4 to ₹8 a minute.',
+      'Their FMCG billing app costs ₹3,600 per user per year.',
+      'FMCG billing software usually costs ₹3,000 to ₹6,000 a year.',
+      'a ladder discount of ₹5 a case above 50 cases',
+    ]) {
+      expect(addonPrice(s), s).toBeUndefined();
+    }
   });
 });

@@ -108,6 +108,20 @@ describe('pricing comparison table', () => {
     expect(cta, 'the add-on strip has no contact CTA').toBeTruthy();
   });
 
+  it('never claims Enterprise carries every module (final review 2026-10-04)', () => {
+    // Enterprise leaves out Payment Collection, the own WhatsApp number, the
+    // message pack, extra users and two of the three billing engines, so
+    // "every module" and "Add to any plan" (AI calling is included in
+    // Enterprise) overstate it.
+    const container = renderHome();
+    expect(container.textContent).not.toMatch(/every module|all modules/i);
+    expect(container.querySelector('.rate-addons-title').textContent).toBe('Add-ons');
+    expect(pricing.matrix.map((g) => g.group)).toContain('Modules switched on');
+    expect(pricing.plans.find((p) => p.plan === 'Enterprise').description).toMatch(
+      /one billing engine/
+    );
+  });
+
   it('no longer offers Clarity anywhere on the page', () => {
     renderHome();
     expect(pricing.plans.map((p) => p.plan)).not.toContain('Clarity');

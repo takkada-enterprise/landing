@@ -59,7 +59,7 @@ describe('webSiteSchema', () => {
 describe('pricing data (rate card, July 2026)', () => {
   it('maps each plan to its current rate-card MRP', () => {
     const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.annualPrice]));
-    expect(byPlan).toEqual({ Momentum: 4500, Assurance: 6480, Copilot: 8500, Enterprise: 24000 });
+    expect(byPlan).toEqual({ Momentum: 4500, Assurance: 6480, Copilot: 9000, Enterprise: 24000 });
   });
 
   it('keeps the retired plan names off the public site', () => {
@@ -240,11 +240,11 @@ describe('planPricing', () => {
 
   it('quotes the list rate on the 1-year term with nothing saved', () => {
     const quote = planPricing(plan, '1y');
-    expect(quote.perYear).toBe(8500);
-    expect(quote.total).toBe(8500);
+    expect(quote.perYear).toBe(9000);
+    expect(quote.total).toBe(9000);
     expect(quote.saving).toBe(0);
     expect(quote.savingLabel).toBeNull();
-    expect(quote.price).toBe('₹8,500');
+    expect(quote.price).toBe('₹9,000');
     // The headline price already is the total on a 1-year term, so no
     // second "billed" line is offered for the card to render.
     expect(quote.totalLabel).toBeNull();
@@ -252,13 +252,13 @@ describe('planPricing', () => {
 
   it('takes exactly 25% off the 3-year term and quotes it per year', () => {
     const quote = planPricing(plan, '3y');
-    expect(quote.perYear).toBe(6375);
-    expect(quote.total).toBe(19125);
-    expect(quote.saving).toBe(8500 * 3 - 19125);
-    expect(quote.price).toBe('₹6,375');
-    expect(quote.listPrice).toBe('₹8,500');
-    expect(quote.totalLabel).toBe('₹19,125 billed once for 3 years');
-    expect(quote.savingLabel).toBe('You keep ₹6,375');
+    expect(quote.perYear).toBe(6750);
+    expect(quote.total).toBe(20250);
+    expect(quote.saving).toBe(9000 * 3 - 20250);
+    expect(quote.price).toBe('₹6,750');
+    expect(quote.listPrice).toBe('₹9,000');
+    expect(quote.totalLabel).toBe('₹20,250 billed once for 3 years');
+    expect(quote.savingLabel).toBe('You keep ₹6,750');
   });
 
   it('discounts every plan by the same 25% on the 3-year term', () => {
@@ -269,7 +269,7 @@ describe('planPricing', () => {
   });
 
   it('falls back to the 1-year term when handed an unknown term id', () => {
-    expect(planPricing(plan, 'nonsense').perYear).toBe(8500);
+    expect(planPricing(plan, 'nonsense').perYear).toBe(9000);
   });
 
   it('defaults the site to the discounted 3-year term', () => {
@@ -347,7 +347,7 @@ describe('softwareApplicationSchema', () => {
     expect(offers['Clarity']).toBeUndefined();
     expect(offers['Momentum']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
     expect(offers['Assurance']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
-    expect(offers['Copilot']).toMatchObject({ price: '8500', priceCurrency: 'INR' });
+    expect(offers['Copilot']).toMatchObject({ price: '9000', priceCurrency: 'INR' });
     expect(offers['Enterprise']).toMatchObject({ price: '24000', priceCurrency: 'INR' });
   });
 });

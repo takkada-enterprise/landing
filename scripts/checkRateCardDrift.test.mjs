@@ -85,14 +85,14 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('catches the duplicated plan.price literal drifting from annualPrice', () => {
     const sitePricing = clone(pricing);
-    sitePricing.plans[0].price = '₹8,500'; // Momentum quoting Copilot's rate
+    sitePricing.plans[0].price = '₹9,000'; // Momentum quoting Copilot's rate
     const problems = inspectData(sitePricing, snapshot);
     expect(problems.some((p) => p.includes('price string'))).toBe(true);
   });
 
   it('accepts every figure the snapshot derives (annual, per-year, billed-once)', () => {
     const html =
-      '<p>₹8,500 ₹6,375 ₹19,125 ₹4,500 ₹3,375 ₹10,125 ₹24,000 ₹18,000 ₹54,000</p>';
+      '<p>₹9,000 ₹6,750 ₹20,250 ₹4,500 ₹3,375 ₹10,125 ₹24,000 ₹18,000 ₹54,000</p>';
     expect(inspectPage(html, allowed)).toEqual({ total: 9, unknown: [] });
   });
 
@@ -104,8 +104,8 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
     expect(inspectPage('<p>₹2,900</p>', allowed).unknown).toEqual([2900]);
   });
 
-  it('does not allow the never-rendered 3-year list total (₹25,500) — the allow-list stays as narrow as the page', () => {
-    expect(inspectPage('<p>₹25,500</p>', allowed).unknown).toEqual([25500]);
+  it('does not allow the never-rendered 3-year list total (₹27,000) — the allow-list stays as narrow as the page', () => {
+    expect(inspectPage('<p>₹27,000</p>', allowed).unknown).toEqual([27000]);
   });
 
   it('catches a hand-typed price in a component (the June failure mode)', () => {
@@ -136,7 +136,7 @@ describe('checkRateCardDrift — data-not-a-price illustrations', () => {
     '<span>₹1,86,420.16</span></div></div>';
 
   it('ignores a figure inside a marked element, nested tags and all', () => {
-    expect(inspectPage(`<main>${SLIP}<p>₹8,500</p></main>`, allowed)).toEqual({
+    expect(inspectPage(`<main>${SLIP}<p>₹9,000</p></main>`, allowed)).toEqual({
       total: 1,
       unknown: [],
     });

@@ -296,8 +296,8 @@ export const pricing = {
     },
     {
       plan: 'Copilot',
-      annualPrice: 8500,
-      price: '\u20B98,500',
+      annualPrice: 9000,
+      price: '\u20B99,000',
       period: '/year + GST',
       description: 'The evening data-entry shift, handled.',
       badge: 'Most Popular',
@@ -308,7 +308,7 @@ export const pricing = {
       annualPrice: 24000,
       price: '\u20B924,000',
       period: '/year + GST',
-      description: 'Every module, one price: schemes, recovery, order links, AI calling.',
+      description: 'Schemes, recovery, order links, AI calling and one billing engine, in one price.',
       badge: 'Most complete',
     },
   ],
@@ -362,7 +362,7 @@ export const pricing = {
     // status depends on the plan 2026-10-04-002 backend. Capability claims
     // only, never adoption claims.
     {
-      group: 'Switch on every module',
+      group: 'Modules switched on',
       rows: [
         { label: 'One billing engine: FMCG, Auto parts or Ladder discount', from: 3 },
         { label: 'Trade schemes and scheme credit notes', from: 3 },
