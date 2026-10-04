@@ -357,9 +357,10 @@ export const pricing = {
       ],
     },
     // Enterprise's own rows. Without them its column would tick exactly what
-    // Copilot ticks at nearly three times the price. Every module named here
-    // is live on prod companies (feature entitlements checked 2026-10-04);
-    // these are capability claims, never adoption claims.
+    // Copilot ticks at nearly three times the price. The capability behind
+    // each row exists on prod (entitlements checked 2026-10-04); its for-sale
+    // status depends on the plan 2026-10-04-002 backend. Capability claims
+    // only, never adoption claims.
     {
       group: 'Switch on every module',
       rows: [

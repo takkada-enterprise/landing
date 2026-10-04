@@ -50,7 +50,7 @@ const data = {
     },
     {
       q: 'What voucher types can the salesman raise from the phone?',
-      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Assurance and Copilot plans.',
+      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone from the Assurance plan up.',
     },
     {
       q: 'Does this need the office Tally laptop to be open?',

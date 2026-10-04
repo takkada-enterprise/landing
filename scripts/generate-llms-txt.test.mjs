@@ -41,7 +41,7 @@ describe('buildPricingBlock', () => {
     expect(block).toContain('Momentum ₹4,500');
     expect(block).toContain('Enterprise ₹24,000');
     expect(block).not.toContain('₹2,900');
-    expect(block).not.toMatch(/Add-ons:.*₹/s);
+    expect(block.slice(block.indexOf('Add-ons'))).not.toContain('₹');
     expect(block).toContain('Ask your partner for pricing');
   });
 
