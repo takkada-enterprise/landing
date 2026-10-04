@@ -119,7 +119,7 @@ export const homeFaqItems = [
     // Per-device pricing was withdrawn 2026-08-12 (it was drift, not an
     // offer) \u2014 this answer must not quote a device price.
     answer:
-      'Yes. Every plan includes one user. Extra users are \u20B93,000 per year each.',
+      'Yes. Every plan includes one user, and you can add more. Your partner quotes extra users per year.',
   },
 ];
 
@@ -276,14 +276,10 @@ export function planPricing(plan, termId = DEFAULT_PRICING_TERM) {
 export const pricing = {
   terms: PRICING_TERMS,
   defaultTerm: DEFAULT_PRICING_TERM,
+  // Clarity (₹2,900) was retired from sale 2026-10-04 (plan 2026-10-04-002).
+  // Existing subscribers renew it through the partner config; the public site
+  // never offers it again.
   plans: [
-    {
-      plan: 'Clarity',
-      annualPrice: 2900,
-      price: '\u20B92,900',
-      period: '/year + GST',
-      description: 'Every number Tally holds, in your pocket.',
-    },
     {
       plan: 'Momentum',
       annualPrice: 4500,
@@ -307,6 +303,14 @@ export const pricing = {
       badge: 'Most Popular',
       highlighted: true,
     },
+    {
+      plan: 'Enterprise',
+      annualPrice: 24000,
+      price: '\u20B924,000',
+      period: '/year + GST',
+      description: 'Every module, one price: schemes, recovery, order links, AI calling.',
+      badge: 'Most complete',
+    },
   ],
   // The capability matrix is the single source of truth for what each plan
   // carries. `from` is the index of the first plan in `plans` that includes
@@ -328,60 +332,71 @@ export const pricing = {
     {
       group: 'Raise entries from anywhere',
       rows: [
-        { label: 'Vouchers from mobile and web', from: 1 },
-        { label: 'Edit vouchers from anywhere', from: 1 },
-        { label: 'Delivery challans and sales orders', from: 1 },
-        { label: 'Your own invoice PDF template', from: 1 },
+        { label: 'Vouchers from mobile and web', from: 0 },
+        { label: 'Edit vouchers from anywhere', from: 0 },
+        { label: 'Delivery challans and sales orders', from: 0 },
+        { label: 'Your own invoice PDF template', from: 0 },
       ],
     },
     {
       group: 'Clear the paperwork',
       rows: [
-        { label: 'E-Invoice with IRN and QR from your phone', from: 2 },
-        { label: 'E-Way Bill in one tap, no portal login', from: 2 },
-        { label: 'Both write back into Tally', from: 2 },
+        { label: 'E-Invoice with IRN and QR from your phone', from: 1 },
+        { label: 'E-Way Bill in one tap, no portal login', from: 1 },
+        { label: 'Both write back into Tally', from: 1 },
       ],
     },
     {
       group: 'Hand over the typing',
       rows: [
-        { label: 'Import from PDF for supplier bills', from: 3 },
-        { label: 'Bank statement import with auto-matching', from: 3 },
-        { label: 'Auto Invoice Dispatch on every Tally invoice', from: 3 },
-        { label: 'Reports + advanced reporting', from: 3 },
-        { label: 'Role-based access for salesman teams', from: 3 },
+        { label: 'Import from PDF for supplier bills', from: 2 },
+        { label: 'Bank statement import with auto-matching', from: 2 },
+        { label: 'Auto Invoice Dispatch on every Tally invoice', from: 2 },
+        { label: 'Reports + advanced reporting', from: 2 },
+        { label: 'Role-based access for salesman teams', from: 2 },
+      ],
+    },
+    // Enterprise's own rows. Without them its column would tick exactly what
+    // Copilot ticks at nearly three times the price. Every module named here
+    // is live on prod companies (feature entitlements checked 2026-10-04);
+    // these are capability claims, never adoption claims.
+    {
+      group: 'Switch on every module',
+      rows: [
+        { label: 'One billing engine: FMCG, Auto parts or Ladder discount', from: 3 },
+        { label: 'Trade schemes and scheme credit notes', from: 3 },
+        { label: 'Recovery dashboard with promise-to-pay follow-ups', from: 3 },
+        { label: 'Customer order link and personal party links', from: 3 },
+        { label: 'AI collection calls, billed per connected minute', from: 3 },
       ],
     },
   ],
+  // Add-ons never show a price on the site: partners quote them (ruled
+  // 2026-10-04, plan 2026-10-04-002). Each item is a label and one line of
+  // what it does, and NO `price` key. checkRateCardDrift fails the build if a
+  // priced add-on comes back without a snapshot entry, and the rendered-page
+  // scan fails on any rupee figure the plans cannot justify.
   addons: [
-    {
-      label: 'Payment Collection',
-      price: '\u20B91,500 / year',
-      note: 'UPI links on every invoice, zero MDR. Auto-reconciles into Tally. Available on every plan.',
-    },
-    { label: 'Extra user', price: '\u20B93,000 / user / year' },
-    // "Extra device" was removed 2026-08-12: nothing in the product or the
-    // partner rate card sells a per-device price \u2014 it was drift, not an offer.
-    { label: 'WhatsApp 8,000-message pack', price: '\u20B92,000 / year' },
-    // Early access wording is guard-enforced (zero enabled customers,
-    // 2026-08-03) and must sit in the label \u2014 addon pills render label +
-    // price only, and the rendered-page guard checks the same sentence.
-    { label: 'Your own WhatsApp number (early access)', price: '\u20B92,000 / year' },
-    // Operator-set 2026-08-11. Derived through formatInr rather than typed,
-    // the same way biggerSetups and every plan price are, so the figure has
-    // one source. The neighbours above are older literal strings; new entries
-    // go through the helper.
-    //
-    // This pill and /order-booking-app-tally ship on the SAME branch on
-    // purpose. Publishing a price for the ordering link while the v2 backend
-    // is stage-only would put a number on something a prod customer cannot be
-    // given, so both sit behind the same release gate.
-    { label: 'Customer Order Link', price: `${formatInr(3999)} / year` },
+    { label: 'FMCG billing', note: 'A fast billing counter, with retail margin and discount set per item.' },
+    { label: 'Auto parts billing', note: 'Selling prices worked out from what the last container cost, plus your markup.' },
+    { label: 'Schemes', note: 'Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.' },
+    { label: 'Ladder discount', note: 'Named discounts in steps, with one aggregate on your invoice and in Tally.' },
+    { label: 'Recovery dashboard', note: 'Log every follow-up and promise to pay, and see which promises were missed.' },
+    { label: 'Customer order link', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
+    { label: 'Personal party links', note: 'A link of its own for each party, so every order arrives already matched to them.' },
+    { label: 'AI calling', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
+    // The rendered-page guard (home-v3.test.jsx) still requires "early access"
+    // beside every own-number mention, so the note leads with it.
+    { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
+    { label: 'WhatsApp 8,000-message pack', note: 'More WhatsApp messages for reminders and invoice dispatch.' },
+    { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
+    { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
+  addonsCta: 'Ask your partner for pricing',
 };
 
 /**
- * The homepage's headline range ("₹2,900 to ₹8,500"), derived from the plan
+ * The homepage's headline range ("₹4,500 to ₹24,000"), derived from the plan
  * list. A hand-typed copy of this range in Home.jsx drifted from the table
  * once already (drift episode #2, 2026-08) — derive it, never type it.
  */
@@ -393,9 +408,8 @@ export function planPriceRange() {
 // Two options that cannot be a plan column or a capability row, because
 // neither is priced per user. The self-hosting line carries two figures on
 // two different clocks (once at implementation, then yearly from the second
-// year) and the add-on pills render a single price string, so a pill would
-// have to drop one of them. This block closes the rate table the same way
-// `pricing.addons` does.
+// year), and add-ons carry no price on the site at all. This block closes the
+// rate table the same way `pricing.addons` does.
 //
 // Both lines are operator-supplied (2026-08-06) and already print on slide 13
 // of pitch-deck/takkada-product-deck-2026-08.html. The wording here is adapted

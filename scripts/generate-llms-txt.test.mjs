@@ -20,7 +20,7 @@ const committed = readFileSync(resolve(repoRoot, 'public/llms.txt'), 'utf-8');
 
 // The plan names that were pulled from the rate card. llms.txt advertised them
 // for months after the rebuild; these assertions are what stops that recurring.
-const RETIRED = ['View Only', 'Voucher Model', 'Collections Model', 'Full Access', '8,499', '2,700'];
+const RETIRED = ['View Only', 'Voucher Model', 'Collections Model', 'Full Access', '8,499', '2,700', 'Clarity', '2,900'];
 
 describe('url', () => {
   it('gives the apex root a bare trailing slash', () => {
@@ -38,8 +38,11 @@ describe('buildPricingBlock', () => {
     for (const plan of pricing.plans) {
       expect(block).toContain(plan.plan);
     }
-    expect(block).toContain('₹2,900');
-    expect(block).toContain('₹8,500');
+    expect(block).toContain('Momentum ₹4,500');
+    expect(block).toContain('Enterprise ₹24,000');
+    expect(block).not.toContain('₹2,900');
+    expect(block).not.toMatch(/Add-ons:.*₹/s);
+    expect(block).toContain('Ask your partner for pricing');
   });
 
   it('states the default multi-year term and its discount', () => {
@@ -47,10 +50,10 @@ describe('buildPricingBlock', () => {
   });
 
   it('tracks a price change instead of pinning the old number', () => {
-    const bumped = { ...pricing, plans: [{ plan: 'Clarity', annualPrice: 3100 }], addons: [] };
+    const bumped = { ...pricing, plans: [{ plan: 'Momentum', annualPrice: 4700 }], addons: [] };
     const block = buildPricingBlock(bumped);
-    expect(block).toContain('₹3,100');
-    expect(block).not.toContain('₹2,900');
+    expect(block).toContain('₹4,700');
+    expect(block).not.toContain('₹4,500');
   });
 });
 
@@ -128,11 +131,19 @@ describe('the committed public/llms.txt', () => {
     for (const plan of pricing.plans) {
       expect(committed).toContain(plan.plan);
     }
+    expect(committed).toContain('Momentum ₹4,500');
+    expect(committed).toContain('Enterprise ₹24,000');
     expect(committed).toContain('₹6,480');
   });
 
+  it('lists the add-ons without a single price', () => {
+    const addonsBlock = committed.slice(committed.indexOf('Add-ons'), committed.indexOf('\n\n', committed.indexOf('Add-ons')));
+    expect(addonsBlock).toContain('Ask your partner for pricing');
+    expect(addonsBlock).not.toMatch(/₹/);
+  });
+
   it('keeps the mandatory early-access wording on the WhatsApp-number add-on', () => {
-    expect(committed).toContain('Your own WhatsApp number (early access)');
+    expect(committed).toMatch(/Your own WhatsApp number: Early access/);
   });
 
   it('uses apex URLs with no www subdomain', () => {

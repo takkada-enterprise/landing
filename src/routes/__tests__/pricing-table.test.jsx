@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 vi.mock('vite-react-ssg', () => ({
@@ -91,8 +91,27 @@ describe('pricing comparison table', () => {
     expect(addons).toBeTruthy();
     for (const addon of pricing.addons) {
       expect(addons.textContent).toContain(addon.label);
-      expect(addons.textContent).toContain(addon.price);
+      expect(addons.textContent).toContain(addon.note);
     }
+  });
+
+  it('lists every module as an add-on with no price — partners quote them (ruled 2026-10-04)', () => {
+    const container = renderHome();
+    expect(pricing.addons.map((a) => a.label)).toEqual([
+      'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
+      'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
+      'WhatsApp 8,000-message pack', 'Payment Collection', 'Extra user',
+    ]);
+    expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
+    expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);
+    const cta = container.querySelector('.rate-addons a[href*="wa.me"]');
+    expect(cta, 'the add-on strip has no contact CTA').toBeTruthy();
+  });
+
+  it('no longer offers Clarity anywhere on the page', () => {
+    renderHome();
+    expect(pricing.plans.map((p) => p.plan)).not.toContain('Clarity');
+    expect(document.body.textContent).not.toContain('2,900');
   });
 
   it('no longer sells an "Extra device" price anywhere on the page', () => {
@@ -104,7 +123,6 @@ describe('pricing comparison table', () => {
     // assertion sailed past.
     expect(container.textContent).not.toMatch(/extra device/i);
     expect(pricing.addons.map((a) => a.label)).not.toContain('Extra device');
-    expect(pricing.addons).toHaveLength(5);
   });
 
   it('derives the headline price range from the plan list, never a typed string', () => {
@@ -119,7 +137,16 @@ describe('pricing comparison table', () => {
 
   it('marks exactly one plan as the highlighted column', () => {
     const container = renderHome();
+    expect(pricing.plans).toHaveLength(4);
     expect(container.querySelectorAll('.rate-plan--hero')).toHaveLength(1);
+    expect(container.querySelector('.rate-plan--hero').textContent).toContain('Copilot');
+    const enterprise = pricing.plans.find((p) => p.plan === 'Enterprise');
+    expect(enterprise).toMatchObject({ annualPrice: 24000, badge: 'Most complete' });
+    expect(enterprise.highlighted).toBeFalsy();
+    // Below 900px the picker opens on the highlighted plan, not the last one.
+    expect(container.querySelector('.rate-table').getAttribute('data-active-plan')).toBe(
+      String(pricing.plans.findIndex((p) => p.highlighted))
+    );
     expect(container.querySelectorAll('.rate-cell--hero')).toHaveLength(ROWS.length);
   });
 
@@ -185,7 +212,7 @@ describe('bigger setups block', () => {
 
   it('did not become a plan column or a capability row', () => {
     expect(pricing.plans).toHaveLength(4);
-    expect(pricing.matrix).toHaveLength(4);
+    expect(pricing.matrix).toHaveLength(5);
     const labels = [
       ...pricing.plans.map((p) => p.plan),
       ...pricing.matrix.flatMap((g) => [g.group, ...g.rows.map((r) => r.label)]),
@@ -204,26 +231,6 @@ describe('bigger setups block', () => {
     expect(cta.getAttribute('href')).not.toContain(
       encodeURIComponent(WHATSAPP_MESSAGES.pricing)
     );
-  });
-
-  it('prices the Customer Order Link add-on from a number, not a typed string', () => {
-    // Operator-set 2026-08-11. Recomputed here so a hand-edited figure in the
-    // data file fails instead of quietly disagreeing with CLAUDE.md §3.
-    const container = renderHome();
-    const addon = pricing.addons.find((a) => a.label === 'Customer Order Link');
-    expect(addon, 'the Customer Order Link add-on is missing').toBeTruthy();
-    expect(addon.price).toBe(`${formatInr(3999)} / year`);
-
-    const strip = container.querySelector('.rate-addons');
-    expect(strip.textContent).toContain('Customer Order Link');
-    expect(strip.textContent).toContain(formatInr(3999));
-
-    // It is an add-on, never a plan column or a capability row.
-    const rows = [
-      ...pricing.plans.map((p) => p.plan),
-      ...pricing.matrix.flatMap((g) => [g.group, ...g.rows.map((r) => r.label)]),
-    ].join(' | ');
-    expect(rows).not.toMatch(/order link/i);
   });
 
   it('keeps adoption language away from an option nobody has taken yet', () => {

@@ -140,8 +140,8 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
-      note: 'Reading receivables on mobile is in the entry plan. Voucher creation and UPI collection sit above it.',
+      plan: 'Momentum',
+      note: 'Reading receivables and creating vouchers on mobile are both in the entry plan. UPI collection is an add-on on every plan.',
     },
     faqs: [
       {
@@ -293,7 +293,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Ledger and invoice share is in the entry plan. Payment collection is an add-on available on every plan.',
     },
     faqs: [
@@ -442,7 +442,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Receivables and the 20+ reports are in the entry plan. Payment collection is an add-on on every plan.',
     },
     faqs: [
@@ -591,8 +591,8 @@ export const SECOND_BATCH = [
         'Compared against the remote desktop and screen-sharing tools distributors most often use to reach Tally from outside the office, as of 8 August 2026.',
     },
     planPointer: {
-      plan: 'Clarity',
-      note: 'Reading the books on mobile is in the entry plan. Creating vouchers from the phone sits above it.',
+      plan: 'Momentum',
+      note: 'Reading the books and creating vouchers from the phone are both in the entry plan.',
     },
     faqs: [
       {
@@ -747,7 +747,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Automated WhatsApp reminders are in the entry plan. Payment collection is an add-on available on every plan.',
     },
     faqs: [
@@ -1082,7 +1082,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Reading stock is in the entry plan. Recording transfers and raising challans from the phone starts here.',
+      note: 'Reading stock, recording transfers and raising challans from the phone all start at the entry plan.',
     },
     faqs: [
       {
@@ -1227,7 +1227,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Unlimited companies are included from the entry plan. Extra users are priced separately.',
     },
     faqs: [
@@ -1836,7 +1836,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch sits in the top plan.',
+      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Copilot.',
     },
     faqs: [
       {
@@ -2222,13 +2222,12 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      // The ordering link became a priced add-on on 2026-08-11 (operator
-      // direction, ₹3,999/year in pricing.addons). It still needs a plan
-      // underneath it, because the thing it produces is a sales order, so the
-      // pointer names that plan and sends the reader to the rate card for the
-      // add-on figure rather than repeating it here (CLAUDE.md §3).
+      // The ordering link is an add-on, and since 2026-10-04 add-ons carry no
+      // price on the site: partners quote them. It still needs a plan under
+      // it, because the thing it produces is a sales order, so the pointer
+      // names that plan (CLAUDE.md §3).
       note:
-        'The Customer Order Link is an add-on you switch on per business, and it needs a plan under it: an approved order becomes a sales order in your Tally, which starts here. Both figures are on the rate card.',
+        'The Customer Order Link is an add-on you switch on per business, and it needs a plan under it: an approved order becomes a sales order in your Tally, which starts here. Ask your partner for the add-on price.',
     },
     faqs: [
       {

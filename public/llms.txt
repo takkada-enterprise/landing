@@ -2,9 +2,21 @@
 
 > Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.
 
-Pricing (annual list price per business, GST extra): Clarity ₹2,900 · Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹8,500. A 3-year term is 25% off, billed once.
+Pricing (annual list price per business, GST extra): Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹8,500 · Enterprise ₹24,000. A 3-year term is 25% off, billed once.
 
-Add-ons: Payment Collection ₹1,500 / year · Extra user ₹3,000 / user / year · WhatsApp 8,000-message pack ₹2,000 / year · Your own WhatsApp number (early access) ₹2,000 / year · Customer Order Link ₹3,999 / year.
+Add-ons (Ask your partner for pricing):
+- FMCG billing: A fast billing counter, with retail margin and discount set per item.
+- Auto parts billing: Selling prices worked out from what the last container cost, plus your markup.
+- Schemes: Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.
+- Ladder discount: Named discounts in steps, with one aggregate on your invoice and in Tally.
+- Recovery dashboard: Log every follow-up and promise to pay, and see which promises were missed.
+- Customer order link: Customers order from a link to your item list, and you approve each one into Tally.
+- Personal party links: A link of its own for each party, so every order arrives already matched to them.
+- AI calling: AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.
+- Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
+- WhatsApp 8,000-message pack: More WhatsApp messages for reminders and invoice dispatch.
+- Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
+- Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
 

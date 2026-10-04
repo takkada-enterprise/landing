@@ -24,4 +24,19 @@ describe('rateCardSnapshot term math', () => {
     expect(quote.perYear).toBe(6375);
     expect(quote.total).toBe(19125);
   });
+
+  it('reproduces the Enterprise figures and keeps Clarity and add-on prices off the site', () => {
+    const enterprise = pricing.plans.find(
+      (p) => p.plan === snapshot.plans.enterprise.publicName,
+    );
+    expect(enterprise.annualPrice).toBe(24000);
+    const quote = planPricing(enterprise, '3y');
+    expect(quote.perYear).toBe(18000);
+    expect(quote.total).toBe(54000);
+    expect(Object.values(snapshot.plans).map((p) => p.publicName)).not.toContain('Clarity');
+    expect(snapshot.addons).toEqual({});
+    expect(snapshot.dashboardOnlyKeys).toEqual(
+      expect.arrayContaining(['view_only', 'payment_collection', 'customer_order_link']),
+    );
+  });
 });

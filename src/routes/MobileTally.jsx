@@ -66,7 +66,7 @@ const data = {
       // so this answer now points at the pricing table instead of pinning a
       // number that goes stale the next time the card moves.
       q: 'Can my accountant use it too?',
-      a: 'Yes. Every plan includes one user, and you can add more. Extra users are priced per year on the rate card on the home page, so an owner and an accountant sharing the same books is a normal setup rather than something that needs a different plan.',
+      a: 'Yes. Every plan includes one user, and you can add more. Your partner quotes extra users per year, so an owner and an accountant sharing the same books is a normal setup rather than something that needs a different plan.',
     },
     {
       q: 'What Tally versions work?',

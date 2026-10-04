@@ -59,12 +59,7 @@ describe('webSiteSchema', () => {
 describe('pricing data (rate card, July 2026)', () => {
   it('maps each plan to its current rate-card MRP', () => {
     const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.annualPrice]));
-    expect(byPlan).toEqual({
-      Clarity: 2900,
-      Momentum: 4500,
-      Assurance: 6480,
-      Copilot: 8500,
-    });
+    expect(byPlan).toEqual({ Momentum: 4500, Assurance: 6480, Copilot: 8500, Enterprise: 24000 });
   });
 
   it('keeps the retired plan names off the public site', () => {
@@ -73,11 +68,14 @@ describe('pricing data (rate card, July 2026)', () => {
     expect(names).not.toContain('Voucher Model');
     expect(names).not.toContain('Collections Model');
     expect(names).not.toContain('Full Access');
+    // Clarity retired from sale 2026-10-04 (plan 2026-10-04-002): existing
+    // renewals keep it in the partner config, the public site never offers it.
+    expect(names).not.toContain('Clarity');
   });
 
   it('carries no superseded prices', () => {
     const prices = pricing.plans.map((p) => p.annualPrice);
-    for (const superseded of [2500, 2700, 6000, 7200, 7500, 8499]) {
+    for (const superseded of [2500, 2700, 2900, 6000, 7200, 7500, 8499]) {
       expect(prices).not.toContain(superseded);
     }
   });
@@ -88,11 +86,14 @@ describe('pricing data (rate card, July 2026)', () => {
     }
   });
 
-  it('sells Payment Collection as a ₹1,500 / year add-on on every plan', () => {
+  it('lists every add-on without a price — partners quote them (ruled 2026-10-04)', () => {
+    expect(pricing.addons.length).toBeGreaterThan(0);
+    expect(pricing.addons.every((a) => !('price' in a))).toBe(true);
+    expect(JSON.stringify(pricing.addons)).not.toMatch(/₹|\\u20B9/);
+    expect(pricing.addonsCta).toBe('Ask your partner for pricing');
     const collection = pricing.addons.find((a) => a.label === 'Payment Collection');
     expect(collection).toBeDefined();
-    expect(collection.price).toBe('₹1,500 / year');
-    expect(collection.note).toMatch(/every plan/i);
+    expect(collection.note).toBeTruthy();
   });
 
   it('bundles the former add-on modules into the top plan rather than selling them separately', () => {
@@ -102,7 +103,8 @@ describe('pricing data (rate card, July 2026)', () => {
     expect(addonLabels).not.toContain('Reports +');
     expect(addonLabels).not.toContain('Salesman module');
 
-    const topTier = pricing.plans.length - 1;
+    // Copilot carries them; Enterprise inherits them as the column above it.
+    const topTier = pricing.plans.findIndex((p) => p.plan === 'Copilot');
     const allRows = pricing.matrix.flatMap((g) => g.rows);
     for (const capability of [/Import from PDF/, /Auto Invoice Dispatch/, /Reports \+/, /salesman/i]) {
       const row = allRows.find((r) => capability.test(r.label));
@@ -171,7 +173,10 @@ describe('pricing matrix', () => {
     STORY,
     tallyTrust,
     homeFaqItems,
-    pricing,
+    // An add-on renders as its label with its note beside it, so the guard
+    // reads them as the one line a visitor sees (the own-number label carries
+    // no qualifier; its note leads with "Early access").
+    pricing: { ...pricing, addons: pricing.addons.map((a) => `${a.label}. ${a.note}`) },
   };
 
   it('claims nothing unclaimable in the Home v3 copy', () => {
@@ -339,10 +344,11 @@ describe('softwareApplicationSchema', () => {
       softwareApplicationSchema().offers.map((o) => [o.name, o])
     );
     expect(offers['View Only']).toBeUndefined();
-    expect(offers['Clarity']).toMatchObject({ price: '2900', priceCurrency: 'INR' });
+    expect(offers['Clarity']).toBeUndefined();
     expect(offers['Momentum']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
     expect(offers['Assurance']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
     expect(offers['Copilot']).toMatchObject({ price: '8500', priceCurrency: 'INR' });
+    expect(offers['Enterprise']).toMatchObject({ price: '24000', priceCurrency: 'INR' });
   });
 });
 

@@ -62,7 +62,7 @@ const data = {
     },
     {
       q: 'What plan do I need for field sales invoicing?',
-      a: 'Mobile invoicing is available on the Momentum plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Assurance and Copilot plans.',
+      a: 'Mobile invoicing is available on the Momentum plan (₹4,500/year) and above. E-invoice and e-way bill are included from the Assurance plan up.',
     },
   ],
   breadcrumb: [

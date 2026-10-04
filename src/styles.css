@@ -3489,44 +3489,56 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
 
 .rate-addons-list {
   grid-column: 2 / -1;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   min-width: 0;
-  flex-wrap: wrap;
   gap: 8px;
-  align-content: center;
+  margin: 0;
   padding: 16px 20px;
+  list-style: none;
   border-top: 0.5px solid var(--color-border);
   background: var(--color-surface-variant);
 }
 
+/* Label and one line of what the module does. No price: partners quote
+   add-ons (ruled 2026-10-04), so the strip closes on one shared CTA. */
 .rate-addon {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 7px;
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
   background: var(--color-white);
   box-shadow: var(--shadow-xs);
-  font-size: 13px;
 }
 
 .rate-addon-label {
-  color: var(--color-text-secondary);
-}
-
-.rate-addon-price {
+  font-size: 13px;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.rate-addons-note {
+.rate-addon-note {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.rate-addons-foot {
   grid-column: 1 / -1;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
   padding: 0 20px 18px;
   background: var(--color-surface-variant);
-  font-size: 12.5px;
-  line-height: 1.45;
-  color: var(--color-text-secondary);
+}
+
+.rate-addons-cta {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 /* Bigger setups: the last strip of the table, on the white surface so it
@@ -3695,7 +3707,7 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   .rate-row-label,
   .rate-addons-title,
   .rate-addons-list,
-  .rate-addons-note,
+  .rate-addons-foot,
   .rate-bigger-head,
   .rate-bigger-cards,
   .rate-bigger-foot {
@@ -3739,6 +3751,13 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   .rate-picker-option {
     padding: 8px 13px;
     font-size: 13px;
+  }
+
+  /* Four plan names must fit a 390px phone without the last one ("Enterprise")
+     hiding behind the picker's sideways scroll. */
+  .rate-picker-option {
+    flex: 1 1 auto;
+    padding: 8px 8px;
   }
 }
 

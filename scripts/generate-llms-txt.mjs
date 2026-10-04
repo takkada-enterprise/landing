@@ -52,10 +52,11 @@ export function buildPricingBlock(priceData) {
     defaultTerm && defaultTerm.discount > 0
       ? ` A ${defaultTerm.years}-year term is ${Math.round(defaultTerm.discount * 100)}% off, billed once.`
       : '';
-  const addons = priceData.addons.map((a) => `${a.label} ${a.price}`).join(' · ');
+  // Add-ons carry no price anywhere on the site: partners quote them.
+  const addons = priceData.addons.map((a) => `- ${a.label}: ${a.note}`).join('\n');
   return (
     `Pricing (annual list price per business, GST extra): ${ladder}.${termLine}\n\n` +
-    `Add-ons: ${addons}.`
+    `Add-ons (${priceData.addonsCta ?? 'ask for pricing'}):\n${addons}`
   );
 }
 

@@ -20,26 +20,22 @@ Four sub-ICPs:
 
 Rate card rebuilt 2026-07-25 to anchor against Livekeeping's ₹3,000 / ₹5,000 / ₹7,000 ladder. The live source of truth is `pricing` in `src/data/siteContent.js`; this section mirrors it and `src/data/schema.test.js` pins it. Every price string on the site is derived from `annualPrice` through `formatInr` / `planPricing` — never hand-write a rupee figure into a component.
 
-Plans:
-- **Clarity: ₹2,900.** Read the books on mobile. Receivables, automated WhatsApp reminders, ledger/invoice share, 20+ reports, unlimited companies, 1 user.
-- **Momentum: ₹4,500.** Adds voucher creation and editing from mobile and web, delivery challans, sales orders, custom invoice PDF template.
+Plans (ladder rebuilt 2026-10-04, plan 2026-10-04-002):
+- **Momentum: ₹4,500.** The entry plan. Read the books on mobile (receivables, automated WhatsApp reminders, ledger/invoice share, 20+ reports, unlimited companies, 1 user) plus voucher creation and editing from mobile and web, delivery challans, sales orders, custom invoice PDF template.
 - **Assurance: ₹6,480.** Adds E-Invoice (IRN + QR) and E-Way Bill generation from the phone, written back into Tally against the same voucher.
-- **Copilot: ₹8,500.** Everything. Import from PDF, bank statement import, Auto Invoice Dispatch, Reports +, role-based salesman access. This is the highlighted "Most Popular" card.
+- **Copilot: ₹8,500.** Import from PDF, bank statement import, Auto Invoice Dispatch, Reports +, role-based salesman access. This is the highlighted "Most Popular" card.
+- **Enterprise: ₹24,000.** Badge "Most complete", not highlighted. Everything in Copilot plus every module: schemes and scheme credit notes, recovery dashboard, customer order link and personal party links, AI calling (billed per connected minute), and exactly ONE billing engine of FMCG billing, Auto parts billing or Ladder discount. Its own matrix group ("Switch on every module") is what makes the column differ from Copilot.
 
-  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12). **Pending Orders stays out of the pricing matrix.** It was pulled on 2026-07-25 (zero active companies); re-verified 2026-08-03 it is a paid add-on active on 3 prod companies, so a capability claim (no adoption claim) is allowed on the homepage feature grid — but it is not a rate-card row. Re-check before adding any new row.
+  Claims discipline: every capability row in the matrix was checked against prod `company_feature_entitlements` on 2026-07-25 (bank statement import 90 companies active, e-invoice/e-way 87, auto dispatch 58, PDF import 35, Reports + 23, payment collection 12); the Enterprise module rows were checked 2026-10-04 (billing_module 18, autoparts_billing 6, ladder_discount 2, schemes 4, scheme_credit_notes 13, recovery_followups 25, public_customer_ordering 33, ai_calling 2, own_whatsapp_number 24 active prod companies). `personal_order_links` is a new entitlement in plan 2026-10-04-002; the per-party links themselves already exist under `public_customer_ordering`. Capability claims only, never adoption claims. **Pending Orders stays out of the pricing matrix.** It was pulled on 2026-07-25 (zero active companies); re-verified 2026-08-03 it is a paid add-on active on 3 prod companies, so a capability claim (no adoption claim) is allowed on the homepage feature grid — but it is not a rate-card row. Re-check before adding any new row.
 
-Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts each stays absent: **View Only** (₹2,700), **Voucher Model**, **Collections Model**, **Full Access / Auto Dispatch** (₹8,499).
+Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts each stays absent: **Clarity** (₹2,900, retired from sale 2026-10-04; existing subscribers renew it through the partner config, the site never offers it), **View Only** (₹2,700), **Voucher Model**, **Collections Model**, **Full Access / Auto Dispatch** (₹8,499).
 
-**3-year term: 25% off, billed once.** Per-year effective rates ₹2,175 / ₹3,375 / ₹4,860 / ₹6,375. The site defaults to the 3-year column (`pricing.defaultTerm`).
+**3-year term: 25% off, billed once.** Per-year effective rates ₹3,375 / ₹4,860 / ₹6,375 / ₹18,000. The site defaults to the 3-year column (`pricing.defaultTerm`).
 
-Add-ons (per year):
-- **Payment Collection: ₹1,500.** UPI links on every invoice, zero MDR, auto-reconciled into Tally. Available on **every** plan; it is no longer bundled into any tier.
-- Extra user: ₹3,000
+Add-ons: **add-ons never show a price on the site — partners quote them (ruled 2026-10-04).** `pricing.addons` items are `{ label, note }` with no `price` key, and the strip closes on one shared line, `pricing.addonsCta` ("Ask your partner for pricing"), plus a WhatsApp CTA. `src/data/rateCardSnapshot.json` carries `addons: {}` and lists every add-on key under `dashboardOnlyKeys`; `scripts/checkRateCardDrift.mjs` fails the build on any rupee figure on the homepage or refund policy that a plan cannot justify, so a typed add-on price anywhere there goes red. The list, in order: FMCG billing, Auto parts billing, Schemes, Ladder discount, Recovery dashboard, Customer order link, Personal party links, AI calling, Your own WhatsApp number, WhatsApp 8,000-message pack, Payment Collection, Extra user.
+- Your own WhatsApp number: the rendered-page guard (`src/routes/__tests__/home-v3.test.jsx`) and the data guard in `src/data/schema.test.js` still require "early access" beside every own-number mention, so the note leads with it. The guards date from zero enabled customers (2026-08-03); prod showed 24 active companies on 2026-10-04, so dropping the wording is an operator call, not a cleanup.
 - Extra device: removed 2026-08-12 — nothing in the product or the partner rate card sells a per-device price; it was drift, not an offer. Do not re-add without asking
 - Extra business: removed from the public rate card 2026-08-04 (operator direction) — do not re-add without asking
-- WhatsApp 8,000-message pack: ₹2,000
-- Your own WhatsApp Business number: ₹2,000 (early access — zero enabled customers as of 2026-08-03; "early access" wording is mandatory anywhere this is mentioned)
-- **Customer Order Link: ₹3,999** (operator-set 2026-08-11). Retailers order from a link and the merchant approves each order into Tally as a sales order. Derived through `formatInr(3999)`, not typed. **Ships on the same branch as `/order-booking-app-tally` and behind the same gate**: the v2 backend is stage-only, so publishing this price before it reaches prod would put a figure on something a prod customer cannot be given. Do not lift this pill onto `main` on its own.
 
 Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 
@@ -49,7 +45,7 @@ Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are *
 
 Both figures are operator-supplied (2026-08-06) and print on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
 
-These are deliberately **not** plan columns and **not** capability-matrix rows: neither is priced per user, and the self-hosting line carries two figures on two different clocks, which the add-on pill strip (label + one price string) cannot render without dropping one. They close the rate table as their own block. Do not "tidy" either one into the matrix or the add-on list.
+These are deliberately **not** plan columns and **not** capability-matrix rows: neither is priced per user, and the self-hosting line carries two figures on two different clocks, which the add-on strip (label + one line, no price) cannot carry. They close the rate table as their own block. Do not "tidy" either one into the matrix or the add-on list.
 
 Claims discipline: both are capability claims with **zero delivered deployments as of 2026-08-11**. No adoption language anywhere near them, and the first buyer is also the first implementation. `pitch-deck/product-deck-claims-2026-08.md` still records these two rows as "not on the public site/rate card" and needs correcting now that they are.
 

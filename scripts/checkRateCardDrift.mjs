@@ -14,7 +14,8 @@
 //      snapshot entry, or a snapshot entry the site dropped all fail.
 //   2. Rendered HTML: every ₹-figure on the prerendered homepage and refund
 //      policy must be derivable from the snapshot (annual, the 3-year per-year
-//      and billed-once amounts, addon prices, the biggerSetups exemption).
+//      and billed-once amounts, any addon prices (none since 2026-10-04), the
+//      biggerSetups exemption).
 //      Blog HTML is deliberately out of scope — 170 posts legitimately quote
 //      prices in prose that goes stale by design.
 //
@@ -188,18 +189,22 @@ export function inspectData(sitePricing, snap) {
     }
   }
 
+  // Add-ons carry no price on the site since 2026-10-04 (partners quote them),
+  // so an unpriced add-on needs no snapshot entry. A PRICED one still does:
+  // a price string reappearing without a snapshot entry is drift.
   const snapAddons = Object.values(snap.addons);
   for (const { publicLabel, priceInr } of snapAddons) {
     const siteAddon = sitePricing.addons.find((a) => a.label === publicLabel);
     if (!siteAddon) {
       problems.push(`add-on "${publicLabel}" is in the snapshot but not on the site`);
-    } else if (!siteAddon.price.includes(formatInr(priceInr))) {
+    } else if (!siteAddon.price?.includes(formatInr(priceInr))) {
       problems.push(
-        `add-on "${publicLabel}": site says "${siteAddon.price}", snapshot says ${formatInr(priceInr)}`,
+        `add-on "${publicLabel}": site says "${siteAddon.price ?? 'no price'}", snapshot says ${formatInr(priceInr)}`,
       );
     }
   }
   for (const siteAddon of sitePricing.addons) {
+    if (siteAddon.price === undefined) continue;
     if (!snapAddons.some((a) => a.publicLabel === siteAddon.label)) {
       problems.push(
         `add-on "${siteAddon.label}" is on the site but absent from the snapshot — new offers get a snapshot entry AND a dashboard config key in the same change`,
