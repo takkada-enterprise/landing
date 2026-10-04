@@ -62,7 +62,7 @@ Some distributors hire a Tally partner to build a custom TDL (Tally Definition L
 | Remote desktop | 0 to 30,000 (team license) | Yes (slow) | Yes (slow) | No | No | No |
 | Read-only companion | 2,000 to 4,000 | Yes | No | No | No | No |
 | Read + voucher | 3,500 to 5,000 | Yes | Yes | No | Some | No |
-| Full-stack mobile | 6,000 to 7,500 | Yes | Yes | Yes | Yes | Yes |
+| Full-stack mobile | 6,480 to 24,000 (per business) | Yes | Yes | Yes | Yes | Yes |
 | Custom TDL | 25,000+ one-time | Depends | Depends | No | No | No |
 
 ## A buyer's checklist for Indian distributors
@@ -95,7 +95,7 @@ Owner wanting visibility only: read-only companion, ₹2,000 to ₹4,000 per yea
 
 Small team needing voucher creation: read + voucher, ₹3,500 to ₹5,000 per year.
 
-Collections-heavy distributor above ₹5 crore turnover: full-stack, ₹6,480 to ₹8,500 per year. The ROI comes from compressed DSO and removed reconciliation time, not app features.
+Collections-heavy distributor above ₹5 crore turnover: full-stack, ₹6,480 to ₹24,000 a year, per business. The ROI comes from compressed DSO and removed reconciliation time, not app features.
 
 ## What Takkada is, in one sentence
 

@@ -20,6 +20,10 @@ const ADDON_PRICE = new RegExp(
     '(Payment Collection|extra user|additional user beyond|(extra|additional) business|own (WhatsApp )?(Business )?number|message pack|Order Link)[^.\\n]{0,60}₹\\s?\\d',
     '\\badd-on\\b[^.\\n]{0,30}₹\\s?\\d',
     '₹\\s?[\\d,]+[^.\\n₹]{0,30}\\badd-on',
+    // A price that bundles an add-on in, however far along the sentence:
+    // "₹10,000 + GST subscription (Copilot with the Payment Collection add-on)".
+    // "₹8,500 ..., plus the add-on priced by your partner" stays legal.
+    '₹\\s?[\\d,]+[^.\\n₹]{0,80}\\b(with|including|incl)\\b[^.\\n₹]{0,40}\\badd-on',
   ].join('|'),
   'i',
 );
@@ -51,9 +55,13 @@ describe('blog prices', () => {
       'each additional user beyond the included one is ₹3,000 per year',
       'own WhatsApp Business number is an early access add-on at ₹2,000',
       'Additional businesses are ₹1,000 per business per year',
+      'a flat ₹10,000 + GST subscription (Takkada Copilot with the Payment Collection add-on)',
     ]) {
       expect(s).toMatch(ADDON_PRICE);
     }
     expect('View-only apps usually charge per additional user (₹2,000 to ₹4,000 each).').not.toMatch(ADDON_PRICE);
+    expect(
+      'a flat ₹8,500 + GST Copilot subscription, plus the Payment Collection add-on priced by your partner',
+    ).not.toMatch(ADDON_PRICE);
   });
 });
