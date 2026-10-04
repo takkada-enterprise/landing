@@ -2429,20 +2429,20 @@ export const SECOND_BATCH = [
     subheadline:
       'The WhatsApp went out at nine. Two days later the bill is still open, and somebody in your office has to pick up the phone and ask.',
     answer:
-      "AI collection calls are how Takkada follows up the parties who did not answer the WhatsApp reminder. You pick the overdue parties and tap Call with AI. An agent calls each one in their language, asks for the payment, and logs what they said as a follow-up on the recovery board. Calling is charged on connected minutes.",
+      "AI collection calls are how Takkada follows up the parties who ignored the WhatsApp reminder. You tick overdue parties and tap Call with AI. An agent calls each in their language, asks for the payment, and logs what they said as a follow-up, shown on the recovery board when the Recovery dashboard is on. Calls are billed per connected minute.",
     waContext: 'feature-ai-collection-calls',
     waMessage:
       'Hi, I want an AI call to follow up the parties who ignore my WhatsApp reminders, with what they said logged for my team. Can you show me how it works?',
     seo: {
       title: 'AI Collection Calls for Tally Receivables | Takkada',
       description:
-        'AI collection calls for overdue parties: pick them from outstanding, the call asks in their language, and what they said is logged on the recovery board.',
+        'AI collection calls for overdue parties: pick them from outstanding, the call asks in their language, and what they said is logged as a follow-up.',
     },
     llms: {
       section: 'Features',
       title: 'AI collection calls',
       summary:
-        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up on the recovery board and the party's timeline; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
     },
     footerLabel: 'AI collection calls',
     hero: { screen: 'followup-log' },
@@ -2469,7 +2469,7 @@ export const SECOND_BATCH = [
         icon: 'Target',
         title: 'The board counts it',
         body:
-          "AI calls and your team's own calls sit in the same log, so the recovery board shows who recovered what and who is still waiting on a promise.",
+          "With the Recovery dashboard on, AI calls and your team's own calls sit in the same log, so the recovery board shows who recovered what and who is still waiting on a promise.",
         screen: 'recovery-team',
       },
     ],
@@ -2512,7 +2512,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Where the outcome goes',
-          takkada: "The recovery board and the party's timeline",
+          takkada: "The recovery board and the party's timeline, with the Recovery dashboard on",
           others: 'A diary, or nowhere',
         },
         {
@@ -2525,8 +2525,8 @@ export const SECOND_BATCH = [
         'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Enterprise',
-      note: 'AI calling is included in Enterprise and is an add-on on any other plan, switched on per company on request. Calls are charged on connected minutes.',
+      plan: 'Momentum',
+      note: 'AI calling is an add-on on any plan, starting here, and comes included in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
     },
     faqs: [
       {
@@ -2539,15 +2539,15 @@ export const SECOND_BATCH = [
       },
       {
         q: 'What if the party disputes the amount or promises to pay?',
-        a: 'A promise is logged with the amount and the date and shows up in promise tracking. A dispute, or a request to speak to you, is pushed to the recovery owner for that party, so a person takes over exactly where the call left off.',
+        a: 'With the Recovery dashboard on, a promise is logged with the amount and the date and shows up in promise tracking. A dispute, or a request to speak to you, is pushed to the recovery owner for that party, so a person takes over exactly where the call left off.',
       },
       {
         q: 'What does it cost?',
-        a: 'Calling is charged on connected minutes, on top of your plan, and the rate is shown on the confirm sheet before any call is placed. A call that does not connect costs nothing. The feature is switched on per company; ask us to enable it.',
+        a: 'Calling is charged on connected minutes, on top of your plan, and the rate is shown on the confirm sheet before any call is placed. A call that does not connect costs nothing. The feature is an add-on switched on per company, and your partner quotes it.',
       },
       {
         q: 'Does it replace my collection team?',
-        a: "It takes the first call, the one nobody in the office wants to make, and writes down what was said. Your team's own follow-ups sit in the same log, and the board shows both, so the person chasing a party sees the whole conversation.",
+        a: "It takes the first call, the one nobody in the office wants to make, and writes down what was said. Your team's own follow-ups sit in the same log, and with the Recovery dashboard on the board shows both, so the person chasing a party sees the whole conversation.",
       },
     ],
     relatedPosts: [

@@ -851,6 +851,16 @@ describe('round-two pages', () => {
     expect(FEATURE_GROUPS.find((g) => g.id === 'recover').slugs).toContain('ai-collection-calls');
     expect(HELD_PAGES).toHaveProperty('ai-collection-calls');
   });
+  it('prices the AI calling page from the entry plan, not Enterprise (re-review 2026-10-04)', () => {
+    // AI calling is an add-on on any plan. Pointing at Enterprise put
+    // ₹18,000/year beside it, which reads as the cost of AI calling.
+    const { planPointer, answer } = getFeaturePage('ai-collection-calls');
+    expect(planPointer.plan).toBe('Momentum');
+    expect(planPointer.note).toMatch(/add-on on any plan/);
+    expect(planPointer.note).toMatch(/included in Enterprise/);
+    // The recovery board needs the Recovery dashboard module; the copy says so.
+    expect(answer).toMatch(/when the Recovery dashboard is on/);
+  });
 });
 
 // The demo call (2026-09-20): Ronak wants the recording on the AI calling page.

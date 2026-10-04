@@ -49,7 +49,7 @@ This is where most calling falls apart, and where the AI agent does its real wor
 - An escalation, for parties who need the owner's attention
 - The call duration, connection status, partial-payment offer, reason for delay, sentiment, and payment mode mentioned
 
-All of it is logged as a follow-up against the party, on their timeline and on the recovery board, the same place your team's own calls are logged.
+All of it is logged as a follow-up against the party. With the Recovery dashboard on, it shows on their timeline and on the recovery board, the same place your team's own calls are logged.
 
 ## Why the outputs matter more than the call
 

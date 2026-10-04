@@ -412,7 +412,7 @@ export function planPriceRange() {
 // year), and add-ons carry no price on the site at all. This block closes the
 // rate table the same way `pricing.addons` does.
 //
-// Both lines are operator-supplied (2026-08-06) and already print on slide 13
+// The lines here are operator-supplied (2026-08-06) and already print on slide 13
 // of pitch-deck/takkada-product-deck-2026-08.html. The wording here is adapted
 // from that slide on purpose: the prospect who gets the deck and the prospect
 // who only finds the site should read the same offer.
@@ -427,9 +427,9 @@ export function planPriceRange() {
 export const biggerSetups = {
   title: 'Bigger setups',
   // Sits in the table's label column, the way `rate-table-corner` carries the
-  // "what you get" note. Without it the column is 450px of empty white next
-  // to two tall cards.
-  intro: 'Some businesses need more than a plan column. Both of these are priced against your setup rather than your user count.',
+  // "what you get" note. Without it the column is empty white next to the
+  // card.
+  intro: 'Some businesses need more than a plan column. This one is priced against your setup rather than your user count.',
   items: [
     {
       id: 'multi-company',

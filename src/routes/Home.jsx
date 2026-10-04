@@ -321,7 +321,8 @@ function Home({ seo = HOME_SEO }) {
             ))}
 
             {/* Add-ons close the table rather than sitting below it as an
-                orphan block, because they apply to every column above. */}
+                orphan block, because any plan can take them (Enterprise
+                already includes some of them). */}
             <div className="rate-addons">
               <div className="rate-addons-title">Add-ons</div>
               <ul className="rate-addons-list">
@@ -343,10 +344,9 @@ function Home({ seo = HOME_SEO }) {
             </div>
 
             {/* Bigger setups close the table for the same reason add-ons do:
-                both apply across every column above, and neither is a plan.
-                Two cards rather than pills, because the self-hosting line
-                carries two figures on two different clocks and a pill renders
-                one price string. */}
+                they sit outside the plan columns and none of them is a plan.
+                A card rather than a pill, so the custom-pricing line can carry
+                its own note beside the price. */}
             <div className="rate-bigger">
               <div className="rate-bigger-head">
                 <div className="rate-bigger-title">{biggerSetups.title}</div>

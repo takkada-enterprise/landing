@@ -40,14 +40,15 @@ Add-ons: **add-ons never show a price on the site — partners quote them (ruled
 Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are **no longer sold as add-ons**. They are bundled into Copilot.
 
 **Bigger setups** (published on the public rate card 2026-08-11; the live source is `biggerSetups` in `src/data/siteContent.js`, pinned by `src/routes/__tests__/pricing-table.test.jsx`):
-- **Host it on your own server: ₹30,000 one-time implementation, then ₹15,000/year maintenance from the second year.** The customer's database and backend run on their own server.
 - **Consolidated reports across companies: custom pricing.** One combined view of receivables, sales and reports across every company the customer runs.
 
-Both figures are operator-supplied (2026-08-06) and print on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
+The self-hosting line (own server, one-time implementation plus yearly maintenance) was removed from the site in df3bef1; do not re-add it without asking.
 
-These are deliberately **not** plan columns and **not** capability-matrix rows: neither is priced per user, and the self-hosting line carries two figures on two different clocks, which the add-on strip (label + one line, no price) cannot carry. They close the rate table as their own block. Do not "tidy" either one into the matrix or the add-on list.
+The line is operator-supplied (2026-08-06) and prints on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
 
-Claims discipline: both are capability claims with **zero delivered deployments as of 2026-08-11**. No adoption language anywhere near them, and the first buyer is also the first implementation. `pitch-deck/product-deck-claims-2026-08.md` still records these two rows as "not on the public site/rate card" and needs correcting now that they are.
+It is deliberately **not** a plan column and **not** a capability-matrix row: it is not priced per user. It closes the rate table as its own block. Do not "tidy" it into the matrix or the add-on list.
+
+Claims discipline: a capability claim with **zero delivered deployments as of 2026-08-11**. No adoption language anywhere near it, and the first buyer is also the first implementation.
 
 ## 4. GTM motion
 
