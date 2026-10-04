@@ -5,7 +5,7 @@ meta_title: "Multi-Business Tally Mobile App for Indian Distributors"
 meta_description: "A multi-business Tally mobile app shows consolidated outstanding, collections, and stock across 2–5 companies on one phone. Here is what to look for."
 primary_keyword: "multi business tally mobile app"
 date: "2026-05-18"
-updated: "2026-08-08"
+updated: "2026-10-04"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "An Indian distributor often runs three businesses out of one office: a parent FMCG firm, a sister pharma firm in the spouse's name, and a hardware vertical under the son. Three Tally companies, three sets of books, one owner who needs to see all of it on one screen."
@@ -88,15 +88,15 @@ The access pattern in a typical multi-business Indian distributor:
 
 A multi-business Tally mobile app that supports this hierarchy out of the box does not need IT consulting to set up. Each user is added with a role; the role determines what they see and what they can do.
 
-## Pricing Reality and the Extra Business Rule
+## Pricing Reality: One Price for Every Company
 
 For a multi-business Tally mobile app, the pricing question is: how does the platform price for distributors running 2, 3, or 5 companies?
 
 Some apps charge a full subscription per company. A distributor running 3 Tally companies pays 3× the annual subscription. This punishes the structural reality of Indian family businesses.
 
-The Takkada pricing model: the first business is at the plan price. Additional businesses are ₹1,000 per business per year on every plan.
+The Takkada pricing model: every plan covers unlimited companies at the one plan price.
 
-A distributor on the Copilot plan running 4 businesses pays the plan price plus 3 × ₹1,000 for the additional businesses. ₹3,000 a year for the second, third, and fourth Tally company. Not 4× the platform cost.
+A distributor on the Copilot plan running 4 businesses pays ₹8,500 a year once, and the second, third, and fourth Tally company come with it. Not 4× the platform cost.
 
 This pricing exists because 4 companies in the same office is structurally one customer, not four. A multi-business Tally mobile app should be priced accordingly.
 
@@ -124,6 +124,6 @@ A: Yes. Role-based access requires each user to have their own login. This is al
 
 **Q: Is there a limit on how many Tally companies a multi-business Tally mobile app can handle?**
 
-A: Practically, no. Takkada supports as many companies as the distributor has running, with the ₹1,000 per-extra-business pricing applying from the second company onward.
+A: Practically, no. Takkada supports as many companies as the distributor has running, all covered by the one plan price.
 
 Takkada is the multi-business Tally mobile app for Indian distributors with consolidated dashboards, role-based access, and 0% MDR UPI collection across every company. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). What each business shows on the phone is set out on the [multi-company Tally reports](/multi-company-tally-reports/) page.

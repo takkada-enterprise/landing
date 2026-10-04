@@ -5,7 +5,7 @@ meta_title: "Restrict Salesman Access in Tally: What Owners Can Hide"
 meta_description: "Tally access is close to all or nothing. What its security levels can and cannot hide from a field salesman, and the permission model that fixes it."
 primary_keyword: "restrict salesman access in tally"
 date: "2026-08-04"
-updated: "2026-08-08"
+updated: "2026-10-04"
 author: "founder"
 category: "Field Sales"
 excerpt: "Most owners have not given their salesmen access to the books because of one uncomfortable fact: handing a field man the company data hands him every party's balance, every purchase rate, and the margin on every item. The reluctance is rational, and the fix is permission that scopes party by party instead of report by report."
@@ -126,6 +126,6 @@ A: In Tally alone the two are hard to separate cleanly, because the report right
 
 **Q: What does it cost to add salesmen with restricted access?**
 
-A: On Takkada, role-based salesman access sits in the Copilot plan at ₹8,500 per year for the business, with GST extra, and each additional user beyond the included one is ₹3,000 per year. A three-year term is 25% off and billed once. So an owner with three salesmen is looking at the plan plus three user seats, rather than a per-salesman licence for the accounting software itself.
+A: On Takkada, role-based salesman access sits in the Copilot plan at ₹8,500 per year for the business, with GST extra, and each additional user beyond the included one is an add-on your Tally partner prices. A three-year term is 25% off and billed once. So an owner with three salesmen is looking at the plan plus three user seats, rather than a per-salesman licence for the accounting software itself.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

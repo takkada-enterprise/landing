@@ -5,7 +5,7 @@ meta_title: "What Does Takkada Automate in Tally?"
 meta_description: "What does Takkada automate in Tally, and what stays manual. An honest list: dispatch, reminders, collection, reconciliation, and the calls it leaves to you."
 primary_keyword: "what does takkada automate"
 date: "2026-07-21"
-updated: "2026-07-25"
+updated: "2026-10-04"
 author: "founder"
 category: "Autopilot"
 excerpt: "Every distributor who hears 'automate your Tally' has the same fair question underneath the pitch: what exactly runs on its own, and what am I still on the hook for. This is the honest version of that answer, limits included."
@@ -56,7 +56,7 @@ Takkada does not chase for you after the escalation point. A well-overdue accoun
 
 Automation is not one switch that is either on or off for everyone. Some pieces sit in specific plans.
 
-Auto Invoice Dispatch is the headline feature of the Copilot plan. Import-from-PDF for supplier bills, bank statement import, and advanced business reporting are bundled into the same plan. Reminders run from the entry plan up, and UPI collection is a ₹1,500 a year add-on that sits on top of any plan. The [full pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which plan carries what, so nobody buys expecting an automation that their plan does not include.
+Auto Invoice Dispatch is the headline feature of the Copilot plan. Import-from-PDF for supplier bills, bank statement import, and advanced business reporting are bundled into the same plan. Reminders run from the entry plan up, and UPI collection is an add-on that sits on top of any plan, priced by your partner. The [full pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which plan carries what, so nobody buys expecting an automation that their plan does not include.
 
 ## What Takkada Never Touches in Your Tally
 
@@ -86,7 +86,7 @@ A: No. It writes new vouchers (receipts, and purchase entries you confirm) and t
 
 **Q: Is every automation included in every plan?**
 
-A: No. Auto Invoice Dispatch, Import-from-PDF, bank statement import, and advanced reporting all sit in the Copilot plan. Reminders run from the entry plan up, and UPI collection is a ₹1,500 a year add-on on top of any plan. The pricing guide shows the exact split.
+A: No. Auto Invoice Dispatch, Import-from-PDF, bank statement import, and advanced reporting all sit in the Copilot plan. Reminders run from the entry plan up, and UPI collection is an add-on on top of any plan, priced by your partner. The pricing guide shows the exact split.
 
 **Q: How much still needs human review after automation?**
 

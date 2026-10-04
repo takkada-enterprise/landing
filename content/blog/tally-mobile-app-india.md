@@ -5,17 +5,17 @@ meta_title: "Tally Mobile App India: 5 Shapes That Exist in 2026"
 meta_description: "A candid look at the tally mobile app India market. What each shape covers, what each costs, and which fits a distributor, wholesaler or CA."
 primary_keyword: "tally mobile app india"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-10-04"
 author: "founder"
 category: "Market Reality"
 excerpt: "Search traffic for the phrase \"tally mobile app India\" spiked around 2017 when Biz Analyst crossed a million downloads on the Play Store. Since then, a whole market of add-ons has grown up around Tally Prime, most built by Tally Certified Partners or third-party SaaS companies targeting the 28,000-plus certified Tally partner network."
 ---
 
-The phrase tally mobile app India does not point at one product, because Tally Solutions ships no native mobile app. It points at the market of companion apps that grew up around Tally Prime, and for a distributor that market sorts into five shapes: remote-desktop tools like AnyDesk, read-only viewer apps, view-plus-voucher apps, full-stack apps that also collect payments, and the official Tally.NET remote feature meant for auditors. The right fit depends on three questions: who uses it day to day, whether owner, accountant, or salesman, how much it writes back into Tally, and whether it handles the money coming in. Pricing across these shapes runs from ₹0 to roughly ₹7,500 per user per year, so the cheap option and the capable option are rarely the same one. What separates a 2026-ready app from a 2020-era one is GST compliance on the move: e-invoice, e-way bill, and IRN cancellation from the phone.
+The phrase tally mobile app India does not point at one product, because Tally Solutions ships no native mobile app. It points at the market of companion apps that grew up around Tally Prime, and for a distributor that market sorts into five shapes: remote-desktop tools like AnyDesk, read-only viewer apps, view-plus-voucher apps, full-stack apps that also collect payments, and the official Tally.NET remote feature meant for auditors. The right fit depends on three questions: who uses it day to day, whether owner, accountant, or salesman, how much it writes back into Tally, and whether it handles the money coming in. Pricing across these shapes runs from ₹0 to ₹24,000 a year, so the cheap option and the capable option are rarely the same one. What separates a 2026-ready app from a 2020-era one is GST compliance on the move: e-invoice, e-way bill, and IRN cancellation from the phone.
 
 ## Key Highlights
 
-- The tally mobile app India market has five distinct shapes, priced from ₹0 to ₹8,500 per user per year
+- The tally mobile app India market has five distinct shapes, priced from ₹0 to ₹24,000 a year
 - The right fit depends on three things: who uses it (owner, accountant, salesman), what they write back to Tally, and how they handle money coming in
 - GST compliance on the move — e-invoice, e-way bill, IRN cancellation — separates 2020-era apps from what ships in 2026
 
@@ -49,7 +49,7 @@ Livekeeping and a handful of smaller Tally-partner-built apps sit here. Distribu
 
 4. Full-stack mobile apps (invoicing + collections + compliance)
 
-This is the category Takkada sits in, along with a couple of newer players. Pricing runs ₹6,480 to ₹8,500 per user per year on the e-invoicing-and-up tiers. The shape includes voucher creation, UPI payment link generation, WhatsApp invoice and reminder dispatch, auto-reconciliation of UPI into Tally, plus e-invoice and e-way bill from the phone.
+This is the category Takkada sits in, along with a couple of newer players. Takkada's e-invoicing-and-up tiers run ₹6,480 to ₹24,000 a year, priced per business rather than per user. The shape includes voucher creation, UPI payment link generation, WhatsApp invoice and reminder dispatch, auto-reconciliation of UPI into Tally, plus e-invoice and e-way bill from the phone.
 
 5. Custom TDL on a mobile-friendly WebView
 

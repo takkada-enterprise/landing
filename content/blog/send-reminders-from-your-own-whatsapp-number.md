@@ -5,7 +5,7 @@ meta_title: "Payment Reminder From Your Own WhatsApp Number"
 meta_description: "Reminders from a rented number read like spam. Sending from your own WhatsApp Business number, in early access, and the real cost of moving it."
 primary_keyword: "payment reminder from own whatsapp number"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-10-04"
 author: "founder"
 category: "Collections"
 excerpt: "A retailer who has had your shop's number saved for eleven years opens a message from it without thinking. The same words arriving from an unfamiliar ten-digit number get swiped away with the loan offers. The sender does more work than the wording ever will."
@@ -99,7 +99,7 @@ The behaviours that put a number at risk are worth avoiding on their own merit a
 
 Takkada sends WhatsApp payment reminders and [scheduled reminder runs](/blog/scheduled-payment-reminders-tally/) against your live Tally data today, from a verified business sending number, each message carrying the invoice number, the outstanding amount, the due status and a UPI payment link at 0% MDR. The same pipe carries [invoice dispatch on WhatsApp](/blog/tally-whatsapp-invoice-dispatch/) and PDF ledger statements.
 
-Sending from your own WhatsApp Business number is an early access add-on at ₹2,000 a year, and being in early access means it is opened for one company at a time rather than switched on from a settings screen. The onboarding is deliberately not self-serve. You submit the number you want to use inside the app, the registration and verification are completed for you, and the number goes live for sending once that is done. There is no instant activation toggle, because the step where somebody checks which number you are about to move off the WhatsApp app is what stops an owner losing his personal chats by accident.
+Sending from your own WhatsApp Business number is an early access add-on priced by your partner, and being in early access means it is opened for one company at a time rather than switched on from a settings screen. The onboarding is deliberately not self-serve. You submit the number you want to use inside the app, the registration and verification are completed for you, and the number goes live for sending once that is done. There is no instant activation toggle, because the step where somebody checks which number you are about to move off the WhatsApp app is what stops an owner losing his personal chats by accident.
 
 Before you ask for it in early access, do the two checks above. Get them right and the reminder your retailer opens on a Tuesday morning looks like every other message he has had from you for a decade, which is the whole point.
 
@@ -121,7 +121,7 @@ A: The office or accounts number already printed on your invoices and boards, pr
 
 **Q: What does sending from my own number cost?**
 
-A: Sending from your own WhatsApp Business number is an early access add-on priced at ₹2,000 a year, on top of your plan. It is early access rather than generally available, so it is opened for one company at a time and there is no self-serve switch for it. Reminders themselves are part of the plan and do not need this add-on.
+A: Sending from your own WhatsApp Business number is an early access add-on on top of your plan, priced by your partner. It is early access rather than generally available, so it is opened for one company at a time and there is no self-serve switch for it. Reminders themselves are part of the plan and do not need this add-on.
 
 **Q: How does the setup actually happen?**
 
