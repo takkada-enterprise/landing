@@ -32,7 +32,7 @@ Import-from-PDF turns a supplier's PDF bill into a Tally purchase entry automati
 
 The receivables side of a distribution business gets all the attention, but the payables side has its own quiet grind. Every principal, transporter, and vendor sends a bill, and most of them arrive as a PDF over email or a photo on WhatsApp. Someone at the office has to open each one and type it into Tally: the supplier ledger, every line item, the quantity, the rate, the GST split, the invoice number and date.
 
-For a distributor booking dozens of purchase bills a week, this is hours of careful typing where a single wrong digit throws off the [accounts payable figure](/blog/accounts-payable-in-tally-for-distributors/). It is exactly the kind of rule-based work that does not need a human to do the entry, only to check it.
+For a distributor booking dozens of purchase bills a week, this is hours of careful typing where a single wrong digit throws off the [accounts payable figure](/blog/accounts-payable-in-tally-for-distributors/). With [automated invoice extraction](https://perfectparser.com/solutions/invoice-data-extraction), this rule-based work does not need a human to do the entry, only to check it.
 
 ## What Import-from-PDF Reads and Drafts
 
