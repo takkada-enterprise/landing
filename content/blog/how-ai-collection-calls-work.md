@@ -13,17 +13,7 @@ A collection call is only as good as two things: what the caller knows before di
 
 Takkada's AI agent is built around those two ends.
 
-<p style="margin: 24px 0 12px 0; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-  <a href="https://buildfinds.com/projects/takkada?utm_source=badge" target="_blank" rel="noopener noreferrer">
-    <img src="https://buildfinds.com/buildfinds/images/badges/featured-on-light.svg" alt="Featured on Build Finds" style="height:44px;width:auto"/>
-  </a>
-  <a href="https://aitoolboxer.com/projects/takkada?utm_source=badge" target="_blank" rel="noopener noreferrer">
-    <img src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg" alt="Featured on AI Tool Boxer" style="height:44px;width:auto"/>
-  </a>
-  <a href="https://www.indietools.app/products/takkada" target="_blank" rel="noopener noreferrer">
-    <img src="https://www.indietools.app/badges/listed-on-indietools-light.png" alt="Listed on IndieTools" style="height:44px;width:auto"/>
-  </a>
-</p>
+
 
 ## Before the call: 20+ inputs
 
