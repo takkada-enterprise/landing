@@ -20,6 +20,9 @@ Takkada's AI agent is built around those two ends.
   <a href="https://aitoolboxer.com/projects/takkada?utm_source=badge" target="_blank" rel="noopener noreferrer">
     <img src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg" alt="Featured on AI Tool Boxer" style="height:44px;width:auto"/>
   </a>
+  <a href="https://www.indietools.app/products/takkada" target="_blank" rel="noopener noreferrer">
+    <img src="https://www.indietools.app/badges/listed-on-indietools-light.png" alt="Listed on IndieTools" style="height:44px;width:auto"/>
+  </a>
 </p>
 
 ## Before the call: 20+ inputs
