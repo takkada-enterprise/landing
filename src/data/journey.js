@@ -187,7 +187,7 @@ export const STOPS = [
     label: 'Recover',
     when: 'Day 30 · 11:00 AM',
     headline: 'No reply to the reminder, so Takkada makes the call.',
-    body: "An AI call in the party's own language asks for the payment and logs what they said. AI calling is charged on connected minutes. Your team's own follow-ups sit in the same log, and the recovery board shows who recovered what.",
+    body: "An AI call in the party's own language asks for the payment and saves what they said against the party. AI calling is charged on connected minutes. With the Recovery dashboard on, your team's own follow-ups sit in the same log, and the recovery board shows who recovered what.",
     screens: ['followup-log', 'recovery-team'],
     sheet: null,
     stamp: { text: 'PAID', tone: 'red', size: 'lg' },

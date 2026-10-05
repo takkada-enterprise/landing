@@ -22,6 +22,7 @@ import {
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
+import { STOPS } from '../journey';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -860,6 +861,18 @@ describe('round-two pages', () => {
     expect(planPointer.note).toMatch(/included in Enterprise/);
     // The recovery board needs the Recovery dashboard module; the copy says so.
     expect(answer).toMatch(/when the Recovery dashboard is on/);
+  });
+  it('never claims the recovery board without the Recovery dashboard (re-review 2026-10-05)', () => {
+    const page = getFeaturePage('ai-collection-calls');
+    const texts = [
+      FEATURE_BLURBS['ai-collection-calls'],
+      ...page.walkthrough.map((s) => `${s.title} ${s.body}`),
+      STOPS.find((s) => s.id === 'recover').body,
+    ];
+    for (const t of texts) {
+      if (/recovery board|follow-up log|same log/i.test(t)) expect(t).toMatch(/Recovery dashboard/);
+    }
+    expect(page.walkthrough[1].title).not.toMatch(/lands as a follow-up/);
   });
 });
 

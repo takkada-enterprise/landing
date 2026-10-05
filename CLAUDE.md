@@ -44,7 +44,7 @@ Import from PDF, Auto Invoice Dispatch, Reports +, and the Salesman module are *
 
 The self-hosting line (own server, one-time implementation plus yearly maintenance) was removed from the site in df3bef1; do not re-add it without asking.
 
-The line is operator-supplied (2026-08-06) and prints on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
+The consolidated-reports line is operator-supplied (2026-08-06) and prints on slide 13 of `pitch-deck/takkada-product-deck-2026-08.html`; the site copy is adapted from that slide on purpose, so the deck prospect and the site prospect read the same offer. The flow is deck → site, not the reverse.
 
 It is deliberately **not** a plan column and **not** a capability-matrix row: it is not priced per user. It closes the rate table as its own block. Do not "tidy" it into the matrix or the add-on list.
 

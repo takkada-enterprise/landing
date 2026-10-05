@@ -2460,9 +2460,9 @@ export const SECOND_BATCH = [
       },
       {
         icon: 'MessageCircle',
-        title: 'What they said lands as a follow-up',
+        title: 'What they said is saved against the party',
         body:
-          "The call asks for the payment in the party's language. A promise with a date, a dispute, a callback request or an escalation is logged against the party like any other follow-up.",
+          "The call asks for the payment in the party's language. A promise with a date, a dispute, a callback request or an escalation is saved against the party with the recording, and joins your team's follow-up log when the Recovery dashboard is on.",
         screen: 'followup-log',
       },
       {
@@ -2512,7 +2512,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Where the outcome goes',
-          takkada: "The recovery board and the party's timeline, with the Recovery dashboard on",
+          takkada: "The party's page; the recovery board too, with the Recovery dashboard on",
           others: 'A diary, or nowhere',
         },
         {

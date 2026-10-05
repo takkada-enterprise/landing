@@ -406,24 +406,22 @@ export function planPriceRange() {
   return `${formatInr(Math.min(...prices))} to ${formatInr(Math.max(...prices))}`;
 }
 
-// Two options that cannot be a plan column or a capability row, because
-// neither is priced per user. The self-hosting line carries two figures on
-// two different clocks (once at implementation, then yearly from the second
-// year), and add-ons carry no price on the site at all. This block closes the
-// rate table the same way `pricing.addons` does.
+// One option that cannot be a plan column or a capability row, because it is
+// not priced per user: consolidated reports across companies, quoted against
+// the customer's company list. It closes the rate table the same way
+// `pricing.addons` does. (The self-hosting line was removed in df3bef1.)
 //
-// The lines here are operator-supplied (2026-08-06) and already print on slide 13
+// The line is operator-supplied (2026-08-06) and already prints on slide 13
 // of pitch-deck/takkada-product-deck-2026-08.html. The wording here is adapted
 // from that slide on purpose: the prospect who gets the deck and the prospect
 // who only finds the site should read the same offer.
 //
-// Claims discipline: these are capability claims with ZERO delivered
-// deployments as of 2026-08-11. No adoption language ("customers run this",
-// "used by") is permitted anywhere near them (CLAUDE.md \u00A73, \u00A75).
+// Claims discipline: a capability claim with ZERO delivered deployments as of
+// 2026-08-11. No adoption language ("customers run this", "used by") is
+// permitted anywhere near it (CLAUDE.md \u00A73, \u00A75).
 //
-// Rupee figures go through formatInr for the same reason every plan price
-// does: a hand-typed string here could drift from the deck and nothing would
-// catch it. src/routes/__tests__/pricing-table.test.jsx recomputes both.
+// It carries no rupee figure ("Custom pricing"); if one is ever added, route it
+// through formatInr and pin it in src/routes/__tests__/pricing-table.test.jsx.
 export const biggerSetups = {
   title: 'Bigger setups',
   // Sits in the table's label column, the way `rate-table-corner` carries the

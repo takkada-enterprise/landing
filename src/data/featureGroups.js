@@ -210,7 +210,7 @@ export const FEATURE_BLURBS = {
   'ladder-discount-tally':
     'Three discount steps on the line, one aggregate in Tally, every step printed on the PDF.',
   'ai-collection-calls':
-    'An AI call in the party\'s language for the bills WhatsApp did not move, logged on the recovery board.',
+    "An AI call in the party's language for the bills WhatsApp did not move, with what they said saved against the party.",
   'voucher-approval-before-tally':
     "A team member's invoice or order waits for your approval, line by line, before it reaches Tally.",
   'payment-collection-tally':
