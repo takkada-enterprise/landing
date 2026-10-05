@@ -472,23 +472,47 @@ function SiteFooter() {
                   DPIIT Recognized<br /><span style={{ color: '#ea580c', fontWeight: 700 }}>Startup India</span> Company
                 </span>
               </div>
-              {/* <div className="saashunt-badge-card">
+              <div className="directory-badges-card" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <a
-                  href="https://saashunt.best/projects/takkada"
+                  href="https://buildfinds.com/projects/takkada?utm_source=badge"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ display: 'inline-block' }}
                 >
                   <img
-                    src="/assets/badges/featured-on-light.svg"
-                    alt="Featured on SaasHunt"
-                    style={{ height: '40px', width: 'auto' }}
+                    src="https://buildfinds.com/buildfinds/images/badges/featured-on-light.svg"
+                    alt="Featured on Build Finds"
+                    style={{ height: '36px', width: 'auto' }}
                     loading="lazy"
-                    width="136"
-                    height="40"
                   />
                 </a>
-              </div> */}
+                <a
+                  href="https://aitoolboxer.com/projects/takkada?utm_source=badge"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-block' }}
+                >
+                  <img
+                    src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg"
+                    alt="Featured on AI Tool Boxer"
+                    style={{ height: '36px', width: 'auto' }}
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://www.indietools.app/products/takkada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-block' }}
+                >
+                  <img
+                    src="https://www.indietools.app/badges/listed-on-indietools-light.png"
+                    alt="Listed on IndieTools"
+                    style={{ height: '36px', width: 'auto' }}
+                    loading="lazy"
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <div className="footer-columns">
