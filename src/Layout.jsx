@@ -473,32 +473,7 @@ function SiteFooter() {
                 </span>
               </div>
               <div className="directory-badges-card" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <a
-                  href="https://buildfinds.com/projects/takkada?utm_source=badge"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: 'inline-block' }}
-                >
-                  <img
-                    src="https://buildfinds.com/buildfinds/images/badges/featured-on-light.svg"
-                    alt="Featured on Build Finds"
-                    style={{ height: '36px', width: 'auto' }}
-                    loading="lazy"
-                  />
-                </a>
-                <a
-                  href="https://aitoolboxer.com/projects/takkada?utm_source=badge"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: 'inline-block' }}
-                >
-                  <img
-                    src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg"
-                    alt="Featured on AI Tool Boxer"
-                    style={{ height: '36px', width: 'auto' }}
-                    loading="lazy"
-                  />
-                </a>
+               
                 <a
                   href="https://www.indietools.app/products/takkada"
                   target="_blank"
