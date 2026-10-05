@@ -34,18 +34,6 @@ What is Takkada: it is a mobile-first software layer for Tally that helps Indian
 
 The one-line version a distributor would repeat to another distributor: "Tally toh wahi hai, bas ab phone se invoice ban jaata hai, WhatsApp pe chala jaata hai, aur paisa aate hi Tally mein chadh jaata hai."
 
-<p style="margin: 24px 0 12px 0; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-  <a href="https://buildfinds.com/projects/takkada?utm_source=badge" target="_blank" rel="noopener noreferrer">
-    <img src="https://buildfinds.com/buildfinds/images/badges/featured-on-light.svg" alt="Featured on Build Finds" style="height:44px;width:auto"/>
-  </a>
-  <a href="https://aitoolboxer.com/projects/takkada?utm_source=badge" target="_blank" rel="noopener noreferrer">
-    <img src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg" alt="Featured on AI Tool Boxer" style="height:44px;width:auto"/>
-  </a>
-  <a href="https://www.indietools.app/products/takkada" target="_blank" rel="noopener noreferrer">
-    <img src="https://www.indietools.app/badges/listed-on-indietools-light.png" alt="Listed on IndieTools" style="height:44px;width:auto"/>
-  </a>
-</p>
-
 ## The Problem Takkada Was Built To Solve
 
 An Indian distributor running ₹2 crore to ₹200 crore of turnover carries receivables across 30 to 300 retail parties, on 30 to 90 day terms. The money does not arrive on its own. Someone has to track who owes what, send the reminder, take the payment, and then match that payment back to the right invoice inside Tally.
