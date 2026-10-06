@@ -22,6 +22,7 @@ import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import FAQItem from '../components/FAQItem';
 import { softwareApplicationSchema, faqPageSchema, breadcrumbSchema } from '../data/schema';
+import { pricing } from '../data/siteContent';
 import './AutoReconciliation.css';
 
 const FAQS = [
@@ -502,9 +503,9 @@ function AutoReconciliation() {
 
           {/* Pricing Box (PDF Page 4) */}
           <div className="recon-price-box">
-            <div className="recon-price-left tabular-nums">
-              ₹1,500 <span>/ year + GST</span>
-            </div>
+            {/* Add-ons carry no price on the site: partners quote them
+                (ruled 2026-10-04). */}
+            <div className="recon-price-left">{pricing.addonsCta}</div>
             <div className="recon-price-right">
               Comes with Payment Collection on any Takkada plan. 0% MDR on UPI. 7-day free trial, no card.
             </div>

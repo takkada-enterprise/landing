@@ -140,8 +140,8 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
-      note: 'Reading receivables on mobile is in the entry plan. Voucher creation and UPI collection sit above it.',
+      plan: 'Momentum',
+      note: 'Reading receivables and creating vouchers on mobile are both in the entry plan. UPI collection is an add-on on every plan.',
     },
     faqs: [
       {
@@ -293,7 +293,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Ledger and invoice share is in the entry plan. Payment collection is an add-on available on every plan.',
     },
     faqs: [
@@ -442,7 +442,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Receivables and the 20+ reports are in the entry plan. Payment collection is an add-on on every plan.',
     },
     faqs: [
@@ -591,8 +591,8 @@ export const SECOND_BATCH = [
         'Compared against the remote desktop and screen-sharing tools distributors most often use to reach Tally from outside the office, as of 8 August 2026.',
     },
     planPointer: {
-      plan: 'Clarity',
-      note: 'Reading the books on mobile is in the entry plan. Creating vouchers from the phone sits above it.',
+      plan: 'Momentum',
+      note: 'Reading the books and creating vouchers from the phone are both in the entry plan.',
     },
     faqs: [
       {
@@ -747,7 +747,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Automated WhatsApp reminders are in the entry plan. Payment collection is an add-on available on every plan.',
     },
     faqs: [
@@ -1082,7 +1082,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Reading stock is in the entry plan. Recording transfers and raising challans from the phone starts here.',
+      note: 'Reading stock, recording transfers and raising challans from the phone all start at the entry plan.',
     },
     faqs: [
       {
@@ -1227,7 +1227,7 @@ export const SECOND_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note: 'Unlimited companies are included from the entry plan. Extra users are priced separately.',
     },
     faqs: [
@@ -1836,7 +1836,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch sits in the top plan.',
+      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Copilot.',
     },
     faqs: [
       {
@@ -2222,13 +2222,12 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      // The ordering link became a priced add-on on 2026-08-11 (operator
-      // direction, ₹3,999/year in pricing.addons). It still needs a plan
-      // underneath it, because the thing it produces is a sales order, so the
-      // pointer names that plan and sends the reader to the rate card for the
-      // add-on figure rather than repeating it here (CLAUDE.md §3).
+      // The ordering link is an add-on, and since 2026-10-04 add-ons carry no
+      // price on the site: partners quote them. It still needs a plan under
+      // it, because the thing it produces is a sales order, so the pointer
+      // names that plan (CLAUDE.md §3).
       note:
-        'The Customer Order Link is an add-on you switch on per business, and it needs a plan under it: an approved order becomes a sales order in your Tally, which starts here. Both figures are on the rate card.',
+        'The Customer Order Link is an add-on you switch on per business, and it needs a plan under it: an approved order becomes a sales order in your Tally, which starts here. Ask your partner for the add-on price.',
     },
     faqs: [
       {
@@ -2430,20 +2429,20 @@ export const SECOND_BATCH = [
     subheadline:
       'The WhatsApp went out at nine. Two days later the bill is still open, and somebody in your office has to pick up the phone and ask.',
     answer:
-      "AI collection calls are how Takkada follows up the parties who did not answer the WhatsApp reminder. You pick the overdue parties and tap Call with AI. An agent calls each one in their language, asks for the payment, and logs what they said as a follow-up on the recovery board. Calling is charged on connected minutes.",
+      "AI collection calls are how Takkada follows up the parties who ignored the WhatsApp reminder. You tick overdue parties and tap Call with AI. An agent calls each in their language, asks for the payment, and logs what they said as a follow-up, shown on the recovery board when the Recovery dashboard is on. Calls are billed per connected minute.",
     waContext: 'feature-ai-collection-calls',
     waMessage:
       'Hi, I want an AI call to follow up the parties who ignore my WhatsApp reminders, with what they said logged for my team. Can you show me how it works?',
     seo: {
       title: 'AI Collection Calls for Tally Receivables | Takkada',
       description:
-        'AI collection calls for overdue parties: pick them from outstanding, the call asks in their language, and what they said is logged on the recovery board.',
+        'AI collection calls for overdue parties: pick them from outstanding, the call asks in their language, and what they said is logged as a follow-up.',
     },
     llms: {
       section: 'Features',
       title: 'AI collection calls',
       summary:
-        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up on the recovery board and the party's timeline; charged on connected minutes on top of the plan.",
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
     },
     footerLabel: 'AI collection calls',
     hero: { screen: 'followup-log' },
@@ -2461,16 +2460,16 @@ export const SECOND_BATCH = [
       },
       {
         icon: 'MessageCircle',
-        title: 'What they said lands as a follow-up',
+        title: 'What they said is saved against the party',
         body:
-          "The call asks for the payment in the party's language. A promise with a date, a dispute, a callback request or an escalation is logged against the party like any other follow-up.",
+          "The call asks for the payment in the party's language. A promise with a date, a dispute, a callback request or an escalation is saved against the party with the recording, and joins your team's follow-up log when the Recovery dashboard is on.",
         screen: 'followup-log',
       },
       {
         icon: 'Target',
         title: 'The board counts it',
         body:
-          "AI calls and your team's own calls sit in the same log, so the recovery board shows who recovered what and who is still waiting on a promise.",
+          "With the Recovery dashboard on, AI calls and your team's own calls sit in the same log, so the recovery board shows who recovered what and who is still waiting on a promise.",
         screen: 'recovery-team',
       },
     ],
@@ -2513,7 +2512,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Where the outcome goes',
-          takkada: "The recovery board and the party's timeline",
+          takkada: "The party's page; the recovery board too, with the Recovery dashboard on",
           others: 'A diary, or nowhere',
         },
         {
@@ -2526,8 +2525,8 @@ export const SECOND_BATCH = [
         'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Copilot',
-      note: 'AI calling is switched on per company on request and charged on connected minutes, on top of the plan.',
+      plan: 'Momentum',
+      note: 'AI calling is an add-on on any plan, starting here, and comes included in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
     },
     faqs: [
       {
@@ -2540,15 +2539,15 @@ export const SECOND_BATCH = [
       },
       {
         q: 'What if the party disputes the amount or promises to pay?',
-        a: 'A promise is logged with the amount and the date and shows up in promise tracking. A dispute, or a request to speak to you, is pushed to the recovery owner for that party, so a person takes over exactly where the call left off.',
+        a: 'With the Recovery dashboard on, a promise is logged with the amount and the date and shows up in promise tracking. A dispute, or a request to speak to you, is pushed to the recovery owner for that party, so a person takes over exactly where the call left off.',
       },
       {
         q: 'What does it cost?',
-        a: 'Calling is charged on connected minutes, on top of your plan, and the rate is shown on the confirm sheet before any call is placed. A call that does not connect costs nothing. The feature is switched on per company; ask us to enable it.',
+        a: 'Calling is charged on connected minutes, on top of your plan, and the rate is shown on the confirm sheet before any call is placed. A call that does not connect costs nothing. The feature is an add-on switched on per company, and your partner quotes it.',
       },
       {
         q: 'Does it replace my collection team?',
-        a: "It takes the first call, the one nobody in the office wants to make, and writes down what was said. Your team's own follow-ups sit in the same log, and the board shows both, so the person chasing a party sees the whole conversation.",
+        a: "It takes the first call, the one nobody in the office wants to make, and writes down what was said. Your team's own follow-ups sit in the same log, and with the Recovery dashboard on the board shows both, so the person chasing a party sees the whole conversation.",
       },
     ],
     relatedPosts: [

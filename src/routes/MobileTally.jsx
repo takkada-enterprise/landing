@@ -58,7 +58,7 @@ const data = {
       // Those names were withdrawn in the 2026-07-25 rate card rebuild and
       // CLAUDE.md §3 forbids reintroducing them.
       q: 'Is this just a dashboard or can I do more?',
-      a: 'Out of the box it is visibility and reminders. Raising vouchers from your phone comes in with the Momentum plan, and payment collection is an add-on that works on any plan including this one. You keep the same account and the same data when you move.',
+      a: 'More. Every plan reads the books and raises vouchers from the phone, so invoices, receipts and payments go into Tally from wherever you are. Payment collection is an add-on on every plan, and you keep the same account and the same data when you move up.',
     },
     {
       // The rupee figure here used to be typed into the copy. Prices are
@@ -66,7 +66,7 @@ const data = {
       // so this answer now points at the pricing table instead of pinning a
       // number that goes stale the next time the card moves.
       q: 'Can my accountant use it too?',
-      a: 'Yes. Every plan includes one user, and you can add more. Extra users are priced per year on the rate card on the home page, so an owner and an accountant sharing the same books is a normal setup rather than something that needs a different plan.',
+      a: 'Yes. Every plan includes one user, and you can add more. Your partner quotes extra users per year, so an owner and an accountant sharing the same books is a normal setup rather than something that needs a different plan.',
     },
     {
       q: 'What Tally versions work?',

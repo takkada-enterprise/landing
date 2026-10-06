@@ -375,7 +375,7 @@ const FIRST_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note:
         'Payment collection is an add-on that works on every plan, including the entry one. You do not have to move up a tier to start collecting.',
     },
@@ -519,7 +519,7 @@ const FIRST_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note:
         'Automatic WhatsApp reminders are in every plan, starting with the entry one. Nothing here needs a higher tier.',
     },
@@ -982,7 +982,7 @@ const FIRST_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note:
         'Reports are in every plan, starting with the entry one, and unlimited companies come with it.',
     },
@@ -1330,9 +1330,9 @@ const FIRST_BATCH = [
         'Checked on 8 August 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Clarity',
+      plan: 'Momentum',
       note:
-        'Reading the books starts at the entry plan. Raising vouchers from the phone comes in one tier up, and collection is an add-on that works on either.',
+        'Reading the books and raising vouchers from the phone both start at the entry plan, and collection is an add-on that works on every plan.',
     },
     faqs: [
       {

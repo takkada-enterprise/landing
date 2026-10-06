@@ -5,7 +5,7 @@ meta_title: "Salesman Order Taking Without Re-Entry Into Tally"
 meta_description: "The order gets written on a pad, photographed, then typed again in the office. What that second typing costs, and what changes when it goes."
 primary_keyword: "salesman order taking without re-entry"
 date: "2026-08-04"
-updated: "2026-08-11"
+updated: "2026-10-04"
 author: "founder"
 category: "Field Sales"
 excerpt: "Every order in a distribution business gets taken twice. Once at the retailer's counter on a pad, and once again in the office at eight in the evening by an operator reading a blurry photo. The second typing is unpaid work that also happens to be where the errors come from."
@@ -96,7 +96,7 @@ The second half of the discipline is measurement. If orders are being taken in t
 
 ## Taking the Order Once, Into Tally
 
-In Takkada, the salesman opens the party on his phone, picks stock items from the live Tally list, and saves the order. It syncs into Tally as a sales order, so the office does not retype it. Order creation from the phone comes in from the Momentum plan at ₹4,500 a year, and role-based salesman access sits in Copilot at ₹8,500, both annual and before GST.
+In Takkada, the salesman opens the party on his phone, picks stock items from the live Tally list, and saves the order. It syncs into Tally as a sales order, so the office does not retype it. Order creation from the phone comes in from the Momentum plan at ₹4,500 a year, and role-based salesman access sits in Copilot at ₹9,000, both annual and before GST.
 
 Team access controls are the part worth setting up carefully on day one. Per team member you decide which screens open, which ledgers and ledger groups are visible, which stock groups, and which registers, so a salesman can be limited to his own parties.
 

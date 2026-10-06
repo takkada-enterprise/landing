@@ -22,6 +22,7 @@ import {
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
+import { STOPS } from '../journey';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -850,6 +851,28 @@ describe('round-two pages', () => {
     expect(getFeaturePage('ai-collection-calls')).toBeDefined();
     expect(FEATURE_GROUPS.find((g) => g.id === 'recover').slugs).toContain('ai-collection-calls');
     expect(HELD_PAGES).toHaveProperty('ai-collection-calls');
+  });
+  it('prices the AI calling page from the entry plan, not Enterprise (re-review 2026-10-04)', () => {
+    // AI calling is an add-on on any plan. Pointing at Enterprise put
+    // ₹18,000/year beside it, which reads as the cost of AI calling.
+    const { planPointer, answer } = getFeaturePage('ai-collection-calls');
+    expect(planPointer.plan).toBe('Momentum');
+    expect(planPointer.note).toMatch(/add-on on any plan/);
+    expect(planPointer.note).toMatch(/included in Enterprise/);
+    // The recovery board needs the Recovery dashboard module; the copy says so.
+    expect(answer).toMatch(/when the Recovery dashboard is on/);
+  });
+  it('never claims the recovery board without the Recovery dashboard (re-review 2026-10-05)', () => {
+    const page = getFeaturePage('ai-collection-calls');
+    const texts = [
+      FEATURE_BLURBS['ai-collection-calls'],
+      ...page.walkthrough.map((s) => `${s.title} ${s.body}`),
+      STOPS.find((s) => s.id === 'recover').body,
+    ];
+    for (const t of texts) {
+      if (/recovery board|follow-up log|same log/i.test(t)) expect(t).toMatch(/Recovery dashboard/);
+    }
+    expect(page.walkthrough[1].title).not.toMatch(/lands as a follow-up/);
   });
 });
 

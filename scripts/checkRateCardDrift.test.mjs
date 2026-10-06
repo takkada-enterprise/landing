@@ -37,9 +37,22 @@ describe('checkRateCardDrift — data layer (AE2/AE3)', () => {
 
   it('fails when the site drops an offer the snapshot still carries', () => {
     const sitePricing = clone(pricing);
-    sitePricing.addons = sitePricing.addons.filter((a) => a.label !== 'Customer Order Link');
+    sitePricing.plans = sitePricing.plans.filter((p) => p.plan !== 'Enterprise');
     const problems = inspectData(sitePricing, snapshot);
-    expect(problems.some((p) => p.includes('Customer Order Link'))).toBe(true);
+    expect(problems.some((p) => p.includes('Enterprise'))).toBe(true);
+  });
+
+  it('accepts the unpriced add-on list — partners quote add-ons, the site never does', () => {
+    expect(Object.keys(snapshot.addons)).toEqual([]);
+    expect(pricing.addons.length).toBeGreaterThan(0);
+    expect(inspectData(pricing, snapshot)).toEqual([]);
+  });
+
+  it('keeps Clarity off the site: a Clarity column the snapshot lacks fails', () => {
+    const sitePricing = clone(pricing);
+    sitePricing.plans.unshift({ plan: 'Clarity', annualPrice: 2900, price: '₹2,900' });
+    const problems = inspectData(sitePricing, snapshot);
+    expect(problems.some((p) => p.includes('Clarity'))).toBe(true);
   });
 });
 
@@ -63,7 +76,7 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('rounds derived figures the way formatInr rounds (non-multiple-of-4 plan)', () => {
     const drifted = clone(snapshot);
-    drifted.plans.view_only.annualInr = 2990; // 2990 × 0.75 = 2242.5 → ₹2,243
+    drifted.plans.voucher.annualInr = 2990; // 2990 × 0.75 = 2242.5 → ₹2,243
     const allowed = allowedFigures(drifted);
     expect(allowed.has(2990)).toBe(true);
     expect(allowed.has(2243)).toBe(true);
@@ -72,23 +85,31 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('catches the duplicated plan.price literal drifting from annualPrice', () => {
     const sitePricing = clone(pricing);
-    sitePricing.plans[0].price = '₹8,500'; // Clarity quoting Copilot's rate
+    sitePricing.plans[0].price = '₹9,000'; // Momentum quoting Copilot's rate
     const problems = inspectData(sitePricing, snapshot);
     expect(problems.some((p) => p.includes('price string'))).toBe(true);
   });
 
-  it('accepts every figure the snapshot derives (annual, per-year, billed-once, addons, exemptions)', () => {
+  it('accepts every figure the snapshot derives (annual, per-year, billed-once)', () => {
     const html =
-      '<p>₹8,500 ₹6,375 ₹19,125 ₹2,900 ₹2,175 ₹6,525 ₹1,500 ₹3,999</p>';
-    expect(inspectPage(html, allowed)).toEqual({ total: 8, unknown: [] });
+      '<p>₹9,000 ₹6,750 ₹20,250 ₹4,500 ₹3,375 ₹10,125 ₹24,000 ₹18,000 ₹54,000</p>';
+    expect(inspectPage(html, allowed)).toEqual({ total: 9, unknown: [] });
   });
 
-  it('does not allow the never-rendered 3-year list total (₹25,500) — the allow-list stays as narrow as the page', () => {
-    expect(inspectPage('<p>₹25,500</p>', allowed).unknown).toEqual([25500]);
+  it('fails a page that prints an add-on price — add-ons carry no figure on the site', () => {
+    expect(inspectPage('<p>Schemes ₹3,000 / year</p>', allowed).unknown).toEqual([3000]);
+  });
+
+  it('fails the retired Clarity price if it ever comes back', () => {
+    expect(inspectPage('<p>₹2,900</p>', allowed).unknown).toEqual([2900]);
+  });
+
+  it('does not allow the never-rendered 3-year list total (₹27,000) — the allow-list stays as narrow as the page', () => {
+    expect(inspectPage('<p>₹27,000</p>', allowed).unknown).toEqual([27000]);
   });
 
   it('catches a hand-typed price in a component (the June failure mode)', () => {
-    const { unknown } = inspectPage('<h2>₹2,900 to ₹9,999 per year</h2>', allowed);
+    const { unknown } = inspectPage('<h2>₹4,500 to ₹9,999 per year</h2>', allowed);
     expect(unknown).toEqual([9999]);
   });
 
@@ -115,7 +136,7 @@ describe('checkRateCardDrift — data-not-a-price illustrations', () => {
     '<span>₹1,86,420.16</span></div></div>';
 
   it('ignores a figure inside a marked element, nested tags and all', () => {
-    expect(inspectPage(`<main>${SLIP}<p>₹8,500</p></main>`, allowed)).toEqual({
+    expect(inspectPage(`<main>${SLIP}<p>₹9,000</p></main>`, allowed)).toEqual({
       total: 1,
       unknown: [],
     });

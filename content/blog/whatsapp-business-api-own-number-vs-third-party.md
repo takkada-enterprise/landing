@@ -5,7 +5,7 @@ meta_title: "WhatsApp Business API: Own Number vs Third Party"
 meta_description: "Three tiers of WhatsApp for business, what a solution provider is, and what really changes when reminders go from your number instead of a rented one."
 primary_keyword: "whatsapp business api own number vs third party"
 date: "2026-08-04"
-updated: "2026-08-04"
+updated: "2026-10-04"
 author: "founder"
 category: "Collections"
 excerpt: "Every tool that sends WhatsApp for you is sending it from somebody's number. Usually not yours. Before you buy one, it is worth knowing the three tiers you might be sold, what each costs, and what your retailer actually sees when the message lands on his phone."
@@ -97,7 +97,7 @@ The bill is the smallest part of it. Four things to plan for.
 | Retailers already reply to your number and you want the thread kept whole | The Platform, on your own number |
 | You expect to change software vendors within a year | Your own number, under your own portfolio |
 
-Takkada sends WhatsApp reminders and invoice dispatch from a shared business number on every plan today, which is how the [WhatsApp payment reminders](/blog/whatsapp-payment-reminder-for-distributors/) most customers run are going out. Sending the same messages from your own WhatsApp Business number is an early access add-on at ₹2,000 a year with GST extra, and no customer is enabled on it yet. The early access onboarding is light on your side: you submit the number inside the app, the setup with Meta is completed for you, and the number goes live once it is through. The companion piece on [sending reminders from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) covers what changes on the collections side once it does.
+Takkada sends WhatsApp reminders and invoice dispatch from a shared business number on every plan today, which is how the [WhatsApp payment reminders](/blog/whatsapp-payment-reminder-for-distributors/) most customers run are going out. Sending the same messages from your own WhatsApp Business number is an early access add-on priced by your partner, and some customers already send from their own number. The early access onboarding is light on your side: you submit the number inside the app, the setup with Meta is completed for you, and the number goes live once it is through. The companion piece on [sending reminders from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) covers what changes on the collections side once it does.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 
@@ -121,7 +121,7 @@ A: For any business-initiated message outside an open 24-hour reply window, yes.
 
 **Q: WhatsApp reminder apne number se kaise bhejein?**
 
-A: You need the WhatsApp Business Platform with your own number registered on it, which means freeing that number from the WhatsApp app, getting a display name approved, and going through business verification. In Takkada this is an early access add-on priced at ₹2,000 a year with GST extra, and it is not switched on for any customer yet. You submit the number inside the app, the setup is completed for you, and the number goes live after that.
+A: You need the WhatsApp Business Platform with your own number registered on it, which means freeing that number from the WhatsApp app, getting a display name approved, and going through business verification. In Takkada this is an early access add-on priced by your partner, already switched on for some customers. You submit the number inside the app, the setup is completed for you, and the number goes live after that.
 
 **Q: How much does Meta charge for WhatsApp business messages in India?**
 

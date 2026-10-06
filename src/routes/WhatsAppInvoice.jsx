@@ -1,6 +1,9 @@
 import { FileText, MessageCircle, RefreshCw, Smartphone } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
-import { appLinks } from '../data/siteContent';
+import { appLinks, formatInr, pricing } from '../data/siteContent';
+
+// Derived, never typed: a hand-typed copy drifts from the rate card (drift episode #2).
+const momentum = pricing.plans.find((p) => p.plan === 'Momentum');
 
 const data = {
   overline: 'FIELD SALES INVOICING',
@@ -50,7 +53,7 @@ const data = {
     },
     {
       q: 'What voucher types can the salesman raise from the phone?',
-      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone on the Assurance and Copilot plans.',
+      a: 'Tax invoices, delivery challans, and sales orders. E-invoice IRN and e-way bill generation are also available from the phone from the Assurance plan up.',
     },
     {
       q: 'Does this need the office Tally laptop to be open?',
@@ -62,7 +65,7 @@ const data = {
     },
     {
       q: 'What plan do I need for field sales invoicing?',
-      a: 'Mobile invoicing is available on the Momentum plan (₹4,500/year) and above. E-invoice and e-way bill are included in the Assurance and Copilot plans.',
+      a: `Mobile invoicing is available on the Momentum plan (${formatInr(momentum.annualPrice)}/year) and above. E-invoice and e-way bill are included from the Assurance plan up.`,
     },
   ],
   breadcrumb: [

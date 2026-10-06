@@ -5,7 +5,7 @@ meta_title: "What Field Teams Need From a Tally App in India"
 meta_description: "What Indian distribution salesmen actually need from a Tally mobile app, and why view-only access answers only the first half of a day in the market."
 primary_keyword: "salesman app tally india"
 date: "2026-05-18"
-updated: "2026-08-26"
+updated: "2026-10-04"
 author: "founder"
 category: "Field Sales"
 excerpt: "The owner of a Nagpur pharma distributor bought Biz Analyst for his three salesmen in 2023. They used it for four months, then went back to calling the office accountant before every delivery. The problem was not the app — it was that the app could only answer half of the salesman's questions."
@@ -111,7 +111,7 @@ A: Visit check-in and check-out are saved on the phone without signal and upload
 
 **Q: How much does a salesman seat cost on top of the base app?**
 
-A: Pricing across apps varies. On Takkada, the plans that carry field-team access are priced per business (₹6,480–₹8,500 per year), and each additional user beyond the included device costs ₹3,000 per year. A distributor with three salesmen is looking at roughly ₹16,000–₹21,000 per year for the full team, including the owner and accountant.
+A: Pricing across apps varies. On Takkada, the plans that carry field-team access are priced per business (₹9,000 a year for Copilot, ₹24,000 for Enterprise), and each additional user beyond the included one is an add-on your Tally partner prices. A distributor with three salesmen pays the plan once plus a login for each extra person on the team.
 
 **Q: Can I track how much each salesman has collected, not just invoiced?**
 

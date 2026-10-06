@@ -67,8 +67,11 @@ const HOME_SEO = {
 function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
-  // Which plan column the narrow-viewport table shows. Desktop ignores it.
-  const [activePlan, setActivePlan] = useState(pricing.plans.length - 1);
+  // Which plan column the narrow-viewport table shows; it opens on the
+  // highlighted plan. Desktop ignores it.
+  const [activePlan, setActivePlan] = useState(
+    Math.max(0, pricing.plans.findIndex((p) => p.highlighted))
+  );
   useScrollReveal();
 
   return (
@@ -318,31 +321,32 @@ function Home({ seo = HOME_SEO }) {
             ))}
 
             {/* Add-ons close the table rather than sitting below it as an
-                orphan block, because they apply to every column above. */}
+                orphan block, because any plan can take them (Enterprise
+                already includes some of them). */}
             <div className="rate-addons">
-              <div className="rate-addons-title">Add to any plan</div>
-              <div className="rate-addons-list">
+              <div className="rate-addons-title">Add-ons</div>
+              <ul className="rate-addons-list">
                 {pricing.addons.map((addon) => (
-                  <span key={addon.label} className="rate-addon">
+                  <li key={addon.label} className="rate-addon">
                     <span className="rate-addon-label">{addon.label}</span>
-                    <span className="rate-addon-price tabular-nums">{addon.price}</span>
-                  </span>
+                    <span className="rate-addon-note">{addon.note}</span>
+                  </li>
                 ))}
+              </ul>
+              {/* Add-ons carry no price on the site: partners quote them
+                  (ruled 2026-10-04). One shared line, not a figure per pill. */}
+              <div className="rate-addons-foot">
+                <p className="rate-addons-cta">{pricing.addonsCta}</p>
+                <WhatsAppCTA context="pricing" variant="outline">
+                  Ask about add-ons on WhatsApp
+                </WhatsAppCTA>
               </div>
-              <p className="rate-addons-note">
-                Payment Collection puts a UPI link on every invoice at zero MDR and reconciles the
-                receipt back into Tally. With your own WhatsApp number, early access for now, every
-                reminder and invoice goes out from your number instead of ours. The Customer Order
-                Link lets your retailers order from a link and you approve each one into Tally.
-                Every plan includes 1 user.
-              </p>
             </div>
 
             {/* Bigger setups close the table for the same reason add-ons do:
-                both apply across every column above, and neither is a plan.
-                Two cards rather than pills, because the self-hosting line
-                carries two figures on two different clocks and a pill renders
-                one price string. */}
+                they sit outside the plan columns and none of them is a plan.
+                A card rather than a pill, so the custom-pricing line can carry
+                its own note beside the price. */}
             <div className="rate-bigger">
               <div className="rate-bigger-head">
                 <div className="rate-bigger-title">{biggerSetups.title}</div>

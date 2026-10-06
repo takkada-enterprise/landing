@@ -5,7 +5,7 @@ meta_title: "PDF to Tally Purchase Entry, Automatically"
 meta_description: "Turn a supplier PDF into a Tally purchase entry automatically. Import-from-PDF reads the bill and drafts the purchase voucher, so payables stops being typing."
 primary_keyword: "pdf to tally purchase entry"
 date: "2026-07-21"
-updated: "2026-08-09"
+updated: "2026-10-04"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's payables desk is a stack of supplier PDFs waiting to be typed into Tally, line by line, GST by GST. Import-from-PDF reads the bill and drafts the purchase entry, so the stack turns into a review queue instead of a typing queue."
@@ -82,7 +82,7 @@ A: The draft flags it for the accountant to map to the right stock item. Because
 
 **Q: Which plan includes Import-from-PDF?**
 
-A: It is bundled into the Copilot plan (₹8,500 a year, GST extra), together with bank statement import. A distributor whose main need today is invoicing can start on a lower plan and move to Copilot when the payables typing becomes the bottleneck.
+A: It is bundled into the Copilot plan (₹9,000 a year, GST extra), together with bank statement import. A distributor whose main need today is invoicing can start on a lower plan and move to Copilot when the payables typing becomes the bottleneck.
 
 **Q: Does the drafted entry stay in Tally as normal?**
 
