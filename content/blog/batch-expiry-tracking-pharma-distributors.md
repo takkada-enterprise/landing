@@ -9,7 +9,7 @@ category: "Tally Mobile"
 excerpt: "A chemist calls about a strip that expired on his shelf. Here is how a pharma distributor on Tally can see Exp at the moment of billing and put the batch on the bill."
 ---
 
-Batch and expiry tracking for pharma distributors works best at the moment of billing, and Takkada's Price by batch setting puts it there: when you bill a chemist from the phone, the Batch box on the sales-invoice line lists each batch of that medicine with stock left, its Mfg and Exp dates and its MRP, as your Tally books hold them. Expired batches drop to the bottom of the list with a red Expired label, so the clerk sees the problem before the strip leaves. Pick a batch and the line takes that batch's rate; pick a second batch and it goes on its own line. The PDF the chemist receives prints the batch with Mfg and Exp under the item name, and the bill reaches Tally with the batch and dates on each line. Because chemists buy below MRP, the rate box stays editable and keeps whatever you type.
+Batch and expiry tracking for pharma distributors works best at the moment of billing, and Takkada's Price by batch setting puts it there: when you bill a chemist from the phone, the Batch box on the sales-invoice line lists each batch of that medicine with stock left, its Mfg and Exp dates and its MRP, as your Tally books hold them. Expired batches drop to the bottom of the list with a red Expired label, so the clerk sees the problem before the strip leaves. Pick a batch and the line takes that batch's rate; pick a second batch and it goes on its own line. The PDF the chemist receives prints the batch with Mfg and Exp under the item name, and the bill reaches Tally with the batch on each line and its dates when known. Because chemists buy below MRP, you can type your trade rate over the MRP and the line keeps it.
 
 ## A pharma distributor's ordinary Tuesday
 
@@ -30,11 +30,11 @@ The list follows batch-name order with expired stock at the bottom. The clerk pi
 
 ## Rates, PTR and the MRP default
 
-Chemists buy at the trade rate, below MRP. When a batch has an MRP in Tally, the app fills the MRP first because it is the one price printed on the strip. Change it to your trade rate on the line and the line keeps it. If your purchase entries leave batch MRP blank, the app falls back to the last rate you sold that batch at, then to the item's usual rate. Most medicines now sit in the 5% GST slab: in an Excl. GST bill an MRP of ₹105 is filled as ₹100.00.
+Chemists buy at the trade rate, below MRP. When a batch has an MRP in Tally, the app fills the MRP first because it is the one price printed on the strip. Change it to your trade rate on the line and the line keeps it. If your purchase entries leave batch MRP blank, the app falls back to the last rate you sold that batch at, then to the rate already on the line. Most medicines now sit in the 5% GST slab: in an Excl. GST bill an MRP of ₹105 is filled as ₹100.00.
 
 ## What the chemist and your Tally receive
 
-The chemist's PDF prints, under each item, a line such as `AMX2409 · Mfg 01-Sep-2026 · Exp 31-Aug-2028`. When the expiry claim comes back, the batch on his bill matches the batch in your Tally, because the sales voucher carried the batch name, Mfg and expiry for that line.
+The chemist's PDF prints, under each item, a line such as `AMX2409 · Mfg 01-Sep-2026 · Exp 31-Aug-2028`. When the expiry claim comes back, the batch on his bill matches the batch in your Tally, because the sales voucher carried the batch name for that line, with Mfg and expiry when known.
 
 ## Where the rest of your pharma flow stands
 

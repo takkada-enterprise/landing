@@ -10,13 +10,13 @@ category: "Tally Mobile"
 excerpt: "Two batches of the same item, two MRPs, two expiry dates. Here is how Takkada lets you pick the batch on the bill, prices the line from it and prints Mfg and Exp under the item."
 ---
 
-Batch-wise billing for Tally means the invoice names the exact batch that left your godown, and Takkada's Price by batch setting does this from the phone: tap the Batch box on a sales-invoice line, pick the batch, and the line takes that batch's rate. The list shows each batch of the item with stock left in that godown, along with its MRP, last purchase rate, Mfg date and expiry date where your Tally books carry them. The rate comes from the batch's MRP first, then the last rate you sold that batch at, then the item's usual rate. Expired batches sit at the bottom of the list with a red Expired label. A second batch of the same item goes on its own line with its own rate. On the PDF, the batch prints under the item with Mfg and Exp beside it, and the bill reaches Tally with the batch name and dates on each line.
+Batch-wise billing for Tally means the invoice names the exact batch that left your godown, and Takkada's Price by batch setting does this from the phone: tap the Batch box on a sales-invoice line, pick the batch, and the line takes that batch's rate. The list shows each batch of the item with stock left in that godown, along with its MRP, last purchase rate, Mfg date and expiry date where your Tally books carry them. The rate comes from the batch's MRP first, then the last rate you sold that batch at, then the rate already on the line. Expired batches sit at the bottom of the list with a red Expired label. A second batch of the same item goes on its own line with its own rate. On the PDF, the batch prints under the item with Mfg and Exp beside it, and the bill reaches Tally with the batch name on each line and its dates when known.
 
 ## Why one item needs more than one line
 
 You buy the same cough syrup, biscuit or engine oil many times a year. Each purchase arrives as a batch with its own number, Mfg date, expiry and often its own printed MRP, and Tally keeps them apart when the item is batch-wise.
 
-The trouble starts at billing. The salesman knows "Product X, 20 pieces". The godown packs 12 from the older batch and 8 from the newer one. If the bill says one batch, or none, your Tally stock per batch drifts, and the retailer's claim for an expired strip has nothing to match against.
+The trouble starts at billing. The order says 20 pieces, and the godown packs 12 from the older batch and 8 from the newer one. If the bill says one batch, or none, your Tally stock per batch drifts, and the retailer's claim for an expired strip has nothing to match against.
 
 ## Turning it on
 
@@ -38,13 +38,13 @@ When you pick a batch, the app fills the rate in this order:
 
 1. The batch MRP. In an Incl. GST bill it goes in as it is. In an Excl. GST bill the GST is taken out: MRP ₹105 at 5% becomes ₹100.00.
 2. If the batch has no MRP, the last rate you sold that batch at.
-3. If neither exists, the item's usual rate.
+3. If neither exists, the rate already on the line, which is usually the item's rate.
 
-Most distributors sell to retailers below MRP, so the rate box stays open. Type your rate and the line keeps it. If your Tally batches carry no MRP, the second rung does the work and the line opens at your last selling rate for that batch.
+Most distributors sell to retailers below MRP, so type your rate over it and the line keeps it, unless you have locked rates for ladder discounts. If your Tally batches carry no MRP, the line opens at your last selling rate for that batch.
 
 ## On the PDF and in Tally
 
-Under the item name the PDF prints `B2409 · Mfg 01-Sep-2026 · Exp 31-Jan-2028`, with each date only when known. The bill goes to Tally as a normal sales voucher, each line carrying its batch, its Mfg and expiry, and its own rate.
+Under the item name the PDF prints `B2409 · Mfg 01-Sep-2026 · Exp 31-Jan-2028`, with each date only when known. The bill goes to Tally as a normal sales voucher, each line carrying its batch, its own rate, and its Mfg and expiry when known.
 
 ## What it covers today
 
@@ -64,7 +64,7 @@ A: Yes. The app marks it in red and leaves the decision to you.
 
 **Q: Will the rate always be the MRP?**
 
-A: The MRP comes first when the batch has one. You can change the rate on the line, and the line keeps what you type.
+A: The MRP comes first when the batch has one. You can type your own rate over it, and the line keeps what you type.
 
 **Q: Does it work on sales orders and returns?**
 

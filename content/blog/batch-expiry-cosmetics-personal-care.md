@@ -10,7 +10,7 @@ category: "Tally Mobile"
 excerpt: "Hair colour, creams and serums arrive in lots with their own MRP and expiry. Here is how a cosmetics distributor on Tally sees the lot and its dates at the moment of billing."
 ---
 
-Batch and expiry tracking for cosmetics and personal-care distributors is easiest when the dates are in front of you while you bill, and Takkada's Price by batch setting puts them there. On a sales-invoice line, the Batch box lists each lot of that cream, hair colour or serum with stock left in the godown, its MRP, Mfg and Exp, as your Tally books hold them. Expired lots drop to the bottom with a red Expired label. Pick the lot that is going out and the line takes its rate: the lot MRP first, then the last rate that lot sold at, then the item rate, and the rate stays editable. If a store takes two lots of one product, each lands on its own line at its own rate. The PDF prints the lot under the item with Mfg and Exp, and the bill reaches Tally with the lot and dates on each line.
+Batch and expiry tracking for cosmetics and personal-care distributors is easiest when the dates are in front of you while you bill, and Takkada's Price by batch setting puts them there. On a sales-invoice line, the Batch box lists each lot of that cream, hair colour or serum with stock left in the godown, its MRP, Mfg and Exp, as your Tally books hold them. Expired lots drop to the bottom with a red Expired label. Pick the lot that is going out and the line takes its rate: the lot MRP first, then the last rate that lot sold at, then the rate already on the line, and you can type over it. If a store takes two lots of one product, each lands on its own line at its own rate. The PDF prints the lot under the item with Mfg and Exp, and the bill reaches Tally with the lot on each line and its dates when known.
 
 ## How the trade runs
 
@@ -29,11 +29,11 @@ Two MRPs for the same shade sit side by side, so the clerk sees which pack is in
 
 ## The rate on the line
 
-The lot MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Stores buy below MRP, so type your trade rate and the line keeps it. If your Tally lots carry no MRP, the line opens at the last rate you sold that lot at, then at the item's usual rate. Scheme free lines take the lot and keep their free rate.
+The lot MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Stores buy below MRP, so type your trade rate and the line keeps it. If your Tally lots carry no MRP, the line opens at the last rate you sold that lot at, then at the rate already on the line. Scheme free lines take the lot and keep their free rate.
 
 ## What the store and Tally receive
 
-The PDF prints `HC2608 · Mfg 11-Aug-2026 · Exp 10-Aug-2029` under the shade name. Tally receives the same lot, Mfg and expiry on the sales voucher line, with that line's own rate, so lot-wise stock in your books follows the bills.
+The PDF prints `HC2608 · Mfg 11-Aug-2026 · Exp 10-Aug-2029` under the shade name. Tally receives the same lot on the sales voucher line, with Mfg and expiry when known, with that line's own rate, so lot-wise stock in your books follows the bills.
 
 ## Scope today
 
@@ -51,7 +51,7 @@ A: Yes, under the item, when Tally holds the lot's dates and the lot was picked 
 
 **Q: Can my salesman change the rate after picking a lot?**
 
-A: Yes, unless you have locked rates for ladder discounts. Otherwise the rate box stays editable and the line keeps the typed rate.
+A: Yes, unless you have locked rates for ladder discounts. Otherwise type the new rate and the line keeps it.
 
 **Q: Who can switch Price by batch on?**
 

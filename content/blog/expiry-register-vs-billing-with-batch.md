@@ -1,7 +1,7 @@
 ---
 title: "Tracking Expiry in a Register vs Seeing It While You Bill"
 slug: "expiry-register-vs-billing-with-batch"
-meta_description: "Tracking expiry in a register tells you what is expiring this month. Seeing Exp while you bill stops the wrong batch leaving. How the two fit together on Tally."
+meta_description: "Tracking expiry in a register shows what expires this month. Seeing Exp while you bill helps keep the wrong batch off the bill. How the two fit on Tally."
 primary_keyword: "tracking expiry in a register"
 date: "2026-10-12"
 author: "harsh"
@@ -9,7 +9,7 @@ category: "Comparisons"
 excerpt: "A monthly expiry register and a batch list on the billing screen answer different questions. Here is what each one catches, what each misses, and how they work side by side."
 ---
 
-Tracking expiry in a register tells you, once a month, which batches are close to expiry so you can push them or return them; seeing expiry while you bill stops the wrong batch from leaving on a particular invoice. A distributor usually needs both, and they do different jobs. The register, whether a notebook, a spreadsheet or Tally's own batch reports, is a look back across the whole godown. Takkada's Price by batch setting gives the second view: on a sales-invoice line, the Batch box lists each batch of the item with stock left, its Mfg and Exp and its MRP from your Tally books, with expired batches at the bottom under a red Expired label. The clerk picks the batch going out, the line takes that batch's rate, and the PDF prints the batch with Mfg and Exp under the item. The register keeps its monthly job, and the bill now carries the batch the register will later look for.
+Tracking expiry in a register tells you, once a month, which batches are close to expiry so you can push them or return them; seeing expiry while you bill helps your clerk keep the wrong batch off a particular invoice. A distributor usually needs both, and they do different jobs. The register, whether a notebook, a spreadsheet or Tally's own batch reports, is a look back across the whole godown. Takkada's Price by batch setting gives the second view: on a sales-invoice line, the Batch box lists each batch of the item with stock left, its Mfg and Exp and its MRP from your Tally books, with expired batches at the bottom under a red Expired label. The clerk picks the batch going out, the line takes that batch's rate, and the PDF prints the batch with Mfg and Exp under the item. The register keeps its monthly job, and the bill now carries the batch the register will later look for.
 
 ## How the register works today
 
@@ -25,7 +25,7 @@ With Price by batch on, the clerk tapping the Batch box sees, for that item and 
 - `MRP ₹120 · Mfg 01-Sep-2026 · Exp 31-Jan-2028` under it, where Tally has those details
 - Expired batches at the bottom, marked in red
 
-He picks the batch the register asked to clear first. If the order needs two batches, each goes on its own line with its own rate. The retailer's PDF names the batch with its dates, and Tally receives the same batch and dates on the voucher line, so batch stock in Tally follows the bills.
+He picks the batch the register asked to clear first. If the order needs two batches, each goes on its own line with its own rate. The retailer's PDF names the batch with its dates, and Tally receives the same batch on the voucher line, with its dates when known, so batch stock in Tally follows the bills.
 
 ## Side by side
 

@@ -9,7 +9,7 @@ category: "Tally Mobile"
 excerpt: "The company revised MRP, and your godown now holds the same soap at two printed prices. Here is how to bill old and new MRP stock without mixing them up."
 ---
 
-Batch-wise MRP for FMCG distributors matters most in the weeks after a company revises prices, when the same item sits in your godown at two printed MRPs. With Takkada's Price by batch setting, the Batch box on a sales-invoice line lists each batch of the item with its own MRP, stock left, Mfg and Exp, straight from your Tally books. The clerk sees that batch A carries ₹20 and batch B carries ₹22 before he bills, picks the one going out, and the line takes that batch's rate. If the retailer takes both, the second batch lands on its own line at its own rate, so the bill shows exactly how many old-MRP and new-MRP packs left. The rate starts at the batch MRP when Tally has one, then the last rate that batch sold at, then the item rate, and stays editable. The PDF prints each batch under the item.
+Batch-wise MRP for FMCG distributors matters most in the weeks after a company revises prices, when the same item sits in your godown at two printed MRPs. With Takkada's Price by batch setting, the Batch box on a sales-invoice line lists each batch of the item with its own MRP, stock left, Mfg and Exp, straight from your Tally books. The clerk sees that one batch carries ₹20 and the other carries ₹22 before he bills, picks the one going out, and the line takes that batch's rate. If the retailer takes both, the second batch lands on its own line at its own rate, so the bill shows exactly how many old-MRP and new-MRP packs left. The rate starts at the batch MRP when Tally has one, then the last rate that batch sold at, then the rate already on the line, and you can type over it. The PDF prints each batch under the item.
 
 ## The week after a revision
 
@@ -21,14 +21,14 @@ Your retailers watch the printed MRP closely, because that is what their custome
 
 When the purchase of each lot was entered batch-wise in Tally with its MRP, the batch list on the phone shows both lots on one screen:
 
-- OLD-0825, 80 left, with `MRP ₹20 · Mfg 02-Aug-2026` under it
-- NEW-1025, 140 left, with `MRP ₹22 · Mfg 03-Oct-2026` under it
+- A2608, 80 left, with `MRP ₹20 · Mfg 02-Aug-2026` under it
+- A2610, 140 left, with `MRP ₹22 · Mfg 03-Oct-2026` under it
 
 Pick the old lot and the line takes its rate. If the order is 10 cartons and only 6 old remain, pick the new lot as well: the app adds a second line for the same item, quantity 1, at the new lot's rate, and you set its quantity. The retailer's bill now reads in two lines what actually reached his shelf.
 
 ## Where the rate comes from
 
-The batch MRP goes in first. In an Incl. GST bill it is used as it is. In an Excl. GST bill the app takes the GST out, rounded to two decimals. Most FMCG distributors bill retailers below MRP, so for them the MRP on the row is mainly a label that tells old stock from new, and the rate box stays open for the trade rate. If your batches carry no MRP in Tally, the line opens at the last rate you sold that batch at, and after that at the item's usual rate.
+The batch MRP goes in first. In an Incl. GST bill it is used as it is. In an Excl. GST bill the app takes the GST out, rounded to two decimals. Most FMCG distributors bill retailers below MRP, so for them the MRP on the row is mainly a label that tells old stock from new, and they type the trade rate over it. If your batches carry no MRP in Tally, the line opens at the last rate you sold that batch at, and after that at the rate already on the line.
 
 ## On the PDF and in Tally
 

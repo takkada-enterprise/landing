@@ -9,7 +9,7 @@ category: "Tally Mobile"
 excerpt: "Ek hi item, do batch, do MRP, do expiry. Phone se bill banate waqt sahi batch kaise chune aur invoice par Mfg aur Exp kaise chhape, seedhi bhasha mein."
 ---
 
-Batch wise MRP aur expiry date invoice mein dikhane ka tarika hai Takkada ki Price by batch setting: business admin ise Settings, Invoices mein on karta hai, aur phir sales invoice ki line par Batch box dabate hi us item ke batch ki list khulti hai. List mein batch ka naam, godown mein kitna maal bacha hai, line ka rate, aur MRP, purchase rate, Mfg aur Exp dikhte hain, jab Tally mein bhare hon. Batch chuno to line par uska rate aa jaata hai: pehle batch ka MRP, MRP na ho to us batch ka last selling rate, woh bhi na ho to item ka normal rate. Expired batch list mein sabse neeche laal Expired label ke saath dikhta hai. Doosra batch chuno to woh alag line par apne rate ke saath aata hai. PDF par item ke neeche batch ke saath Mfg aur Exp chhapte hain, aur Tally mein bhi line par batch aur dates jaati hain.
+Batch wise MRP aur expiry date invoice mein dikhane ka tarika hai Takkada ki Price by batch setting: business admin ise Settings, Invoices mein on karta hai, aur phir sales invoice ki line par Batch box dabate hi us item ke batch ki list khulti hai. List mein batch ka naam, godown mein kitna maal bacha hai, line ka rate, aur MRP, purchase rate, Mfg aur Exp dikhte hain, jab Tally mein bhare hon. Batch chuno to line par uska rate aa jaata hai: pehle batch ka MRP, MRP na ho to us batch ka last selling rate, woh bhi na ho to line par pehle se jo rate hai. Expired batch list mein sabse neeche laal Expired label ke saath dikhta hai. Doosra batch alag line par apne rate ke saath aata hai. PDF par item ke neeche batch ke saath Mfg aur Exp chhapte hain, aur Tally mein bhi line par batch jaata hai, dates ho to dates bhi.
 
 ## Godown ka asli scene
 
@@ -41,11 +41,11 @@ List batch ke naam ke hisaab se chalti hai, expired batch sabse neeche laal mein
 
 Pehle batch ka MRP aata hai. Incl. GST bill mein MRP seedha rate ban jaata hai. Excl. GST bill mein GST nikal ke: ₹105 MRP, 5% GST, to rate ₹100.00.
 
-Chemist ko aap MRP se kam par dete ho. Rate box khula rehta hai, apna rate likho, line wahi rakhegi. Tally mein batch ka MRP bhara hi nahi hai to us batch ka last selling rate aata hai, woh bhi na ho to item ka normal rate.
+Chemist ko aap MRP se kam par dete ho. Apna rate MRP ke upar likh do, line wahi rakhegi, bas ladder discount ka rate lock on na ho. Tally mein batch ka MRP bhara hi nahi hai to us batch ka last selling rate aata hai, woh bhi na ho to line par pehle se jo rate hai.
 
 ## PDF aur Tally mein kya jaata hai
 
-PDF par item ke neeche likha aata hai `SY2409 · Mfg 01-Sep-2026 · Exp 31-Aug-2028`. Jo date Tally mein nahi hai, woh nahi chhapti. Tally mein sales voucher ki line par wahi batch, Mfg aur expiry jaate hain, line ke apne rate ke saath.
+PDF par item ke neeche likha aata hai `SY2409 · Mfg 01-Sep-2026 · Exp 31-Aug-2028`. Jo date Tally mein nahi hai, woh nahi chhapti. Tally mein sales voucher ki line par wahi batch jaata hai, Mfg aur expiry ho to woh bhi, line ke apne rate ke saath.
 
 ## Kya abhi nahi hota
 

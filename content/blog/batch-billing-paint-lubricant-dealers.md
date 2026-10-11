@@ -9,7 +9,7 @@ category: "Tally Mobile"
 excerpt: "A painter needs a touch-up from the same batch, and engine oil changes MRP more often than the counter can track. Here is how a dealer on Tally bills by batch from the phone."
 ---
 
-Batch billing for paint and lubricant dealers solves two counter problems: a painter who needs a touch-up from the same batch as last week, and engine oil that arrives at a new MRP before the old stock is gone. Takkada's Price by batch setting handles both from the phone. On a sales-invoice line, the Batch box lists each batch of that paint or oil with stock left in the godown, its MRP and Mfg date, and its expiry where Tally has one. Pick the batch and the line takes its rate: the batch MRP first, then the last rate that batch sold at, then the item rate, and you can type over it. Two batches of one item go on two lines at their own rates. The PDF prints the batch under the item with its dates, and the bill reaches Tally with the batch on each line, so the next order can be matched to it.
+Batch billing for paint and lubricant dealers solves two counter problems: a painter who needs a touch-up from the same batch as last week, and engine oil that arrives at a new MRP before the old stock is gone. Takkada's Price by batch setting handles both from the phone. On a sales-invoice line, the Batch box lists each batch of that paint or oil with stock left in the godown, its MRP and Mfg date, and its expiry where Tally has one. Pick the batch and the line takes its rate: the batch MRP first, then the last rate that batch sold at, then the rate already on the line, and you can type over it. Two batches of one item go on two lines at their own rates. The PDF prints the batch under the item with its dates, and the bill reaches Tally with the batch on each line, so the next order can be matched to it.
 
 ## Two trades, one shelf problem
 
@@ -28,11 +28,11 @@ Pick the batch the contractor is taking and it prints on his bill. When he retur
 
 ## The rate on the line
 
-The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Painters, contractors and garages usually buy below MRP, so type your rate and the line keeps it. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the item's usual rate.
+The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Painters, contractors and garages usually buy below MRP, so type your rate and the line keeps it. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the rate already on the line.
 
 ## What the PDF and Tally show
 
-The PDF prints `EM2609 · Mfg 02-Sep-2026` under the item, with Exp added when the batch has one. Tally receives the batch and its dates on the sales voucher line, with that line's rate, so the batch balance in your godown moves with each bill.
+The PDF prints `EM2609 · Mfg 02-Sep-2026` under the item, with Exp added when the batch has one. Tally receives the batch on the sales voucher line, with its dates when known, with that line's rate, so the batch balance in your godown moves with each bill.
 
 ## What it does not do
 

@@ -10,7 +10,7 @@ category: "How-To"
 excerpt: "Five steps from the settings switch to a PDF with the batch, Mfg and Exp under the item, with what each screen shows on the way."
 ---
 
-To pick a batch on an invoice in Takkada and print Mfg and Expiry on the PDF, a business admin turns on Price by batch under Settings, Invoices, and from then on the Batch box on a sales-invoice line lists the item's batches to choose from. Each batch row shows the stock left in that godown, the rate the line will take, and the MRP, purchase rate, Mfg and Exp where your Tally books carry them. Tap a batch and the line takes it with its rate: the batch MRP first, then the last rate that batch sold at, then the item rate. Expired batches sit at the bottom in red. When you share or print the invoice, the PDF shows the batch under the item name with Mfg and Exp beside it, and the bill reaches Tally with the same batch and dates on the line. The steps below walk through it once.
+To pick a batch on an invoice in Takkada and print Mfg and Expiry on the PDF, a business admin turns on Price by batch under Settings, Invoices, and from then on the Batch box on a sales-invoice line lists the item's batches to choose from. Each batch row shows the stock left in that godown, the rate the line will take, and the MRP, purchase rate, Mfg and Exp where your Tally books carry them. Tap a batch and the line takes it with its rate: the batch MRP first, then the last rate that batch sold at, then the rate already on the line. Expired batches sit at the bottom in red. When you share or print the invoice, the PDF shows the batch under the item name with Mfg and Exp beside it, and the bill reaches Tally with the same batch on the line, with its dates when known. The steps below walk through it once.
 
 ## Before you start
 
@@ -27,7 +27,7 @@ Turn on Price by batch. If the Batch box was off, it turns on too. Only a busine
 
 ## Step 2: Start a sales invoice
 
-Create a sales invoice as you normally do: party, then items. Add the item and set the quantity. The line opens at the item's usual rate.
+Create a sales invoice as you normally do: party, then items. Add the item and set the quantity. The line opens at the rate the app normally gives it.
 
 ## Step 3: Tap the Batch box
 
@@ -45,13 +45,13 @@ Tap the batch. The line takes the batch and its rate:
 
 1. The batch MRP. In an Incl. GST invoice it goes in as it is. In an Excl. GST invoice the GST comes out: MRP ₹105 at 5% fills ₹100.00.
 2. If the batch has no MRP, the last rate you sold that batch at.
-3. If neither, the item's usual rate.
+3. If neither, the rate already on the line, usually the item's rate.
 
-Change the rate if you sell below MRP; the line keeps what you type. To bill the same item from a second batch, tap the Batch box again and pick it. The app adds a new line for the item, quantity 1, at the second batch's rate, and leaves the first line as it was. Set the new line's quantity.
+If you sell below MRP, type your rate over it and the line keeps it, unless you have locked rates for ladder discounts. To bill the same item from a second batch, tap the Batch box again and pick it. The app adds a new line for the item, quantity 1, at the second batch's rate, and leaves the first line as it was. Set the new line's quantity.
 
 ## Step 5: Save and share the PDF
 
-Save the invoice and share or print it. Under the item name the PDF prints `B2409 · Mfg 01-Sep-2026 · Exp 31-Jan-2028`, each date only when known. The saved invoice on the phone shows the same line. The bill goes to Tally as a sales voucher with the batch, Mfg and expiry on each line and each line's own rate.
+Save the invoice and share or print it. Under the item name the PDF prints `B2409 · Mfg 01-Sep-2026 · Exp 31-Jan-2028`, each date only when known. The saved invoice on the phone shows the same line. The bill goes to Tally as a sales voucher, each line carrying its batch and its own rate, plus Mfg and expiry when known.
 
 ## If something looks off
 

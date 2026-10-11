@@ -26,18 +26,18 @@ Checked 2026-10-12 against prod and takkada `origin/main` (e80468be, the live re
 - Picking a batch on a line with no batch puts that batch and its rate on the line. Picking a second batch on a line that already has one adds a new line below for the same item, qty 1, at the new batch's rate; the first line keeps its rate and qty (`lib/screens/add_invoice_items_screen.dart:4809–4852`; `batch_pick.dart:347–371`).
 - Typing two batch names on one priced line is refused: "One batch per line when pricing by batch" (`batch_pick.dart:392–401`).
 - A scheme free line takes the batch only, keeping its rate and qty (`add_invoice_items_screen.dart:4818–4826`).
-- The rate box stays editable after a pick; a typed rate stays (manual override) (`add_invoice_items_screen.dart:4860–4863`; `lib/widgets/invoice/cart_sheet.dart:637–640`, blocked only when the ladder-discount rate lock is on).
+- After a pick you can type over the rate and the typed rate stays (manual override) (`add_invoice_items_screen.dart:4860–4863`), **except** when the ladder-discount rate lock is on: `cart_sheet.dart:637–638` returns early when `rateLocked`, fed by `_lockRateAndStep1` / setting `ladder_lock_rate_and_step1` (`add_invoice_items_screen.dart:5922`). Copy says "type your rate over it" and adds the ladder-lock caveat; never "stays open/editable".
 
 **The rate ladder** (`batch_pick.dart:312–345`)
 1. The batch MRP. Treated as GST-inclusive: used as-is in Incl. GST (and no-GST) mode; in Excl. GST mode GST is taken out, rounded to 2 decimals (`lib/utils/gst_calculator.dart:50–53`). Example: MRP ₹105 at 5% in Excl. mode → ₹100.00.
 2. Else the batch's last sold rate (ex-GST), with GST added in Incl. GST mode (`lib/utils/invoice_price_level_resolver.dart:350–361`).
-3. Else the line's current rate (the item rate the app already put there).
+3. Else the line's current rate (`batch_pick.dart:320, 344`): whatever is on the line at the pick, which may be the item rate, a price-level rate or a rate the clerk typed. Copy says "the rate already on the line", never "the item's usual rate".
 - A zero or missing figure falls through to the next rung (`batch_pick.dart:322–323`).
 
 **On the bill and in Tally**
 - The PDF and the saved-invoice screen print a sub-line under the item: `BATCH · Mfg 01-Sep-2026 · Exp 31-Jan-2028`, each date only when known (`batch_pick.dart:39–52`; edge twin `supabase/functions/generate-invoice-pdf/data-adapters.ts:298–337`). Dates are attached by a priced pick (`batch_pick.dart:378–390`).
 - The batch's MRP reaches the bill as the line's rate (rung 1). There is no separate batch-MRP column (see Must not say).
-- The bill goes to Tally with each line's batch name and, when known, Mfg (`MFDON`) and expiry (`EXPIRYPERIOD`) inside the batch allocation (tally-database-loader `src/TallyFunctions/xml/builders/voucher-builder/sales-purchase.mts:151`; `delivery-note-tracking.mts:68–83`; `src/main/queue/job-adapters/shared/line-items.ts:61–62`; the app saves `mfd`/`expiry` in `batch_allocations`, `lib/models/batch_allocation.dart:65–72`). Each line keeps its own rate.
+- The bill goes to Tally with each line's batch name and, when known, Mfg (`MFDON`) and expiry (`EXPIRYPERIOD`) inside the batch allocation (tally-database-loader `src/TallyFunctions/xml/builders/voucher-builder/sales-purchase.mts:151`; `delivery-note-tracking.mts:68–83`; `src/main/queue/job-adapters/shared/line-items.ts:61–62`; the app saves `mfd`/`expiry` in `batch_allocations`, `lib/models/batch_allocation.dart:65–72`). Each line keeps its own rate. Dates are sent only when the line carries them (`buildBatchDatesXml`), so copy says "with its dates when known".
 
 **With Price by batch off**
 - With only Batch numbers on, the sales-invoice Batch box still lists in-stock batches with "N left" (no rate, no facts line, no Expired label), allows several batches with quantities on one line, and does not change the rate (`cart_sheet.dart:578–579, 1059–1075`; `add_invoice_items_screen.dart:4783–4806`).
@@ -57,7 +57,7 @@ Checked 2026-10-12 against prod and takkada `origin/main` (e80468be, the live re
 - That the PDF prints the batch MRP in its own column. The MRP/Marginal column (Incl. GST companies, lines that carry an MRP) reads the line's own MRP field, which the batch pick does not fill (`generate-invoice-pdf/index.ts:567–578`; `invoice_line_item.dart:243–246`).
 - That Mfg/Exp print when Price by batch is off, or on invoices billed from Tally. Dates come with a priced pick.
 - That Price by batch works on quotations, sales orders, delivery challans, credit notes / sales returns or purchase bills. Sales orders and credit notes go to Tally with the default batch only (`sales-order.mts:102`, `credit-note.mts:104`).
-- That the rate is locked to MRP. It is editable; and the MRP default sits above what most distributors charge a retailer, which the posts say plainly.
+- That the rate is locked to MRP, or that it is always editable (ladder rate lock blocks typing). The MRP default sits above what most distributors charge a retailer, which the posts say plainly.
 - That purchase import reads batch or expiry (consistent with `import-automation-claims.md`), or that the van / loading sheet shows batch or expiry (consistent with `dispatch-load-claims.md`).
 - Pharma or other GST examples at 12% (slab folded into 5%/18% in Sept 2025). Prefer Incl. GST examples where the MRP is the rate; the one Excl. example is MRP ₹105 at 5% → ₹100.00.
 - Absolutes ("every invoice", "always", "har bill") about the dates or MRP: they appear only when Tally holds them.

@@ -10,7 +10,7 @@ category: "Tally Mobile"
 excerpt: "Juice with a six-month life and snacks with four leave little room for guesswork. Here is how a food distributor on Tally sees the expiry of each batch while billing."
 ---
 
-Batch-wise billing for food and beverage distributors protects the few months a product has on the shelf, and Takkada's Price by batch setting lets you do it from the phone. On a sales-invoice line, the Batch box lists each batch of that juice, snack or sauce with stock left in the godown and its Mfg and Exp dates, as your Tally books hold them, along with its MRP. Batches already past expiry drop to the bottom with a red Expired label. Your clerk reads the Exp on each row and picks the batch that should go out first. The line takes that batch's rate: its MRP first, then the last rate that batch sold at, then the item rate, and he can type over it. A second batch goes on its own line. The retailer's PDF prints the batch with Mfg and Exp under the item, and Tally receives the same batch and dates.
+Batch-wise billing for food and beverage distributors protects the few months a product has on the shelf, and Takkada's Price by batch setting lets you do it from the phone. On a sales-invoice line, the Batch box lists each batch of that juice, snack or sauce with stock left in the godown and its Mfg and Exp dates, as your Tally books hold them, along with its MRP. Batches already past expiry drop to the bottom with a red Expired label. Your clerk reads the Exp on each row and picks the batch that should go out first. The line takes that batch's rate: its MRP first, then the last rate that batch sold at, then the rate already on the line, and he can type over it. A second batch goes on its own line. The retailer's PDF prints the batch with Mfg and Exp under the item, and Tally receives the same batch, with its dates when known.
 
 ## When the calendar is the risk
 
@@ -30,11 +30,11 @@ The list follows batch name, with expired stock at the bottom. The app does not 
 
 ## The rate on the line
 
-The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Retailers buy below MRP, so type your trade rate and the line keeps it. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the item rate.
+The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Retailers buy below MRP, so type your trade rate and the line keeps it. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the rate already on the line.
 
 ## What the retailer and Tally see
 
-The retailer's PDF prints `MD2607 · Mfg 20-Jul-2026 · Exp 19-Jan-2027` under the item. If he later calls about short shelf life, the dates are on his copy. In Tally, the sales voucher carries the batch, Mfg and expiry on each line, so your batch-wise stock moves with each bill.
+The retailer's PDF prints `MD2607 · Mfg 20-Jul-2026 · Exp 19-Jan-2027` under the item. If he later calls about short shelf life, the dates are on his copy. In Tally, the sales voucher carries the batch on each line, with Mfg and expiry when known, so your batch-wise stock moves with each bill.
 
 ## Limits worth knowing
 

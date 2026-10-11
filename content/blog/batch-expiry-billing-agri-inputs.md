@@ -10,7 +10,7 @@ category: "Tally Mobile"
 excerpt: "Pesticide lots expire, seed lots carry their own dates, and the season rush leaves no time to check. Here is how an agri-input dealer on Tally sees the lot while billing."
 ---
 
-Batch and expiry billing for agri-input dealers means the bill names the lot of pesticide or seed that went to the farmer or retailer, with its Mfg and expiry dates, and Takkada's Price by batch setting does this from the phone. On a sales-invoice line, the Batch box lists each lot of that product with stock left in the godown, its MRP, Mfg and Exp as your Tally books hold them. Lots past their expiry date drop to the bottom with a red Expired label, which matters in a godown where last season's cartons sit behind this season's. Pick the lot and the line takes its rate: the lot's MRP first, then the last rate that lot sold at, then the item rate, all editable. A second lot goes on its own line. The PDF prints the lot under the item with Mfg and Exp, and Tally receives the batch and dates on each line.
+Batch and expiry billing for agri-input dealers means the bill names the lot of pesticide or seed that went to the farmer or retailer, with its Mfg and expiry dates, and Takkada's Price by batch setting does this from the phone. On a sales-invoice line, the Batch box lists each lot of that product with stock left in the godown, its MRP, Mfg and Exp as your Tally books hold them. Lots past their expiry date drop to the bottom with a red Expired label, which matters when last season's cartons sit behind this season's. Pick the lot and the line takes its rate: the lot's MRP first, then the last rate that lot sold at, then the rate already on the line, and you can type over it. A second lot goes on its own line. The PDF prints the lot under the item with Mfg and Exp, and Tally receives the batch on each line, with its dates when known.
 
 ## The season rush
 
@@ -30,11 +30,11 @@ The clerk picks the lot going into the bag. The expired lot stays visible so it 
 
 ## The rate on the line
 
-The lot MRP fills the rate first. In an Incl. GST bill it goes in as it is; in an Excl. GST bill the GST is taken out. Dealers who sell to retailers below MRP type their rate, and the line keeps it. If your Tally lots carry no MRP, the line opens at the last rate you sold that lot at, then at the item's usual rate. Fertiliser bags that are not batch-wise in Tally bill exactly as they do today.
+The lot MRP fills the rate first. In an Incl. GST bill it goes in as it is; in an Excl. GST bill the GST is taken out. Dealers who sell to retailers below MRP type their rate, and the line keeps it. If your Tally lots carry no MRP, the line opens at the last rate you sold that lot at, then at the rate already on the line. Fertiliser bags that are not batch-wise in Tally bill exactly as they do today.
 
 ## On the bill and in Tally
 
-The PDF prints a line under the product such as `L2503 · Mfg 15-Mar-2026 · Exp 14-Mar-2028`. Tally gets the same lot, Mfg and expiry on the sales voucher line, so the lot balance in your godown moves with the bill. When a farmer comes back in October with a complaint, the lot is on his copy and in your books.
+The PDF prints a line under the product such as `L2503 · Mfg 15-Mar-2026 · Exp 14-Mar-2028`. Tally gets the same lot on the sales voucher line, with Mfg and expiry when known, so the lot balance in your godown moves with the bill. When a farmer comes back in October with a complaint, the lot is on his copy and in your books.
 
 ## What stays in Tally
 
