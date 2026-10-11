@@ -28,7 +28,7 @@ It happens anyway. The loading boys get to drop 14 and there is no room. The dri
 
 When the truck is back, the person at the godown opens the van and presses Key back what went. Lines are pre-filled with what was ordered, so only the short ones change. Drop 14's crates go to 0 with the reason Vehicle full. A dhaba that refused two crates gets Shop refused. Save what went out.
 
-The van then shows Still owed from this load, and those crates stay pending on each shop's order. Over a summer, the count of Vehicle full lines is a plain record of how often your truck was the bottleneck.
+The van then shows Still owed from this load, and those crates stay pending on each shop's order. Over a summer, each Vehicle full line under Still owed is a plain record of a day your truck was the bottleneck.
 
 ## Bill what reached the shop
 

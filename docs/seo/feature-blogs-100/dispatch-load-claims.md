@@ -73,7 +73,7 @@ Checked 2026-10-11 against prod (SELECT only) and takkada `origin/main` (e80468b
 
 ## Must not say
 
-- Vehicle tracking, GPS, live location of a van, route optimisation or suggested routes (route order is a manual drag), van capacity or weight/volume maths, auto-splitting orders across vans. None is on the Dispatch screens. "Vehicle full" is only a shortfall reason the person keys.
+- Vehicle tracking, GPS, live location of a van, route optimisation or suggested routes (route order is a manual drag), van capacity or weight/volume maths, auto-splitting orders across vans. None is on the Dispatch screens. "Vehicle full" is only a shortfall reason the person keys. No screen counts or totals shortfall reasons; each shows per van under Still owed, so do not say "the count of Vehicle full lines".
 - Delivery challans made from a van ("Make challans", "Bill the van as Delivery challan"): the help file treats it as not customer-visible (`help/dispatch_help.dart:22–26`). Do not describe it.
 - Batch numbers, expiry dates or FEFO picking on the van or sheet (no such field on van lines). Pharma post says only that the van and sheet do not show batch or expiry. Make no claim either way about batch details on invoices made from a van (prod `commit_dispatch_load_invoices` copies the order line's `batch_allocations`, untested against short quantities).
 - Site addresses per order. The slip prints the shop ledger's address and phone only when the ledger carries them.
