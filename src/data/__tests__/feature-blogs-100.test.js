@@ -17,7 +17,7 @@ const imgDir = resolve(repoRoot, 'public/assets/blog');
 
 const BANNED = /seamless|world-class|enterprise-grade|revolutionary|unleash|game-changer|trusted by thousands|millions of|99\.9%/i;
 const PRICE = /₹\s?[\d,]+(\.\d+)?\s*(\/|per|a|an)\s*(min|minute|month|year|user|seat|company)\b|₹\s?[\d,]+\s*(\+\s*GST|plan|add-on)/i;
-const INTERNAL = /\b(supabase|flutter|angoor|electron|tally-database-loader)\b/i;
+const INTERNAL = /\b(supabase|flutter|angoor|electron|tally-database-loader|loader)\b/i;
 const DEVANAGARI = /[ऀ-ॿ]/;
 const KINDS = { pillar: 1, usecase: 6, howto: 1, hinglish: 1, compare: 1 };
 const featureSlugs = new Set(FEATURE_PAGES.map((p) => p.slug));
@@ -71,6 +71,9 @@ describe.skipIf(FEATURE_BLOG_BATCHES.length === 0)('feature blogs 100: every lis
             expect(data[k], k).toBeTruthy();
           }
           expect(data.meta_description.length).toBeLessThanOrEqual(160);
+          const kw = data.primary_keyword.trim().toLowerCase();
+          expect(data.title.toLowerCase(), `title lacks "${kw}"`).toContain(kw);
+          expect(data.meta_description.toLowerCase(), `meta_description lacks "${kw}"`).toContain(kw);
           expect(authors[data.author], `unknown author ${data.author}`).toBeTruthy();
           if (data.title.length > 60) expect((data.meta_title || '').length).toBeGreaterThan(0);
           if (data.meta_title) expect(data.meta_title.length).toBeLessThanOrEqual(60);
