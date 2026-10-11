@@ -62,4 +62,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'gaadi-load-loading-sheet-kaise-banaye', kind: 'hinglish' },
     { slug: 'paper-picking-list-vs-dispatch-load', kind: 'compare' },
   ]},
+  { id: 'order-links', featurePage: 'order-booking-app-tally', pillar: 'whatsapp-order-link-for-distributors', posts: [
+    { slug: 'whatsapp-order-link-for-distributors', kind: 'pillar' },
+    { slug: 'order-links-fmcg-retailer-orders', kind: 'usecase' },
+    { slug: 'order-links-pharma-chemist-orders', kind: 'usecase' },
+    { slug: 'order-links-agri-input-village-retailers', kind: 'usecase' },
+    { slug: 'order-links-hardware-shops', kind: 'usecase' },
+    { slug: 'order-links-bakery-dairy-daily-orders', kind: 'usecase' },
+    { slug: 'order-links-stationery-packaging-wholesalers', kind: 'usecase' },
+    { slug: 'how-to-send-personal-order-link', kind: 'howto' },
+    { slug: 'customer-khud-order-kaise-bheje', kind: 'hinglish' },
+    { slug: 'orders-by-phone-vs-orders-by-link', kind: 'compare' },
+  ]},
 ];
