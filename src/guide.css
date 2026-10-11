@@ -108,7 +108,8 @@
   .guide-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-.guide-hub-card {
+.guide-hub-card,
+.guide-hub-shortcuts {
   display: block;
   padding: 18px 20px;
   background: var(--color-white);
@@ -121,12 +122,14 @@
     border-color var(--dur-fast) var(--ease-soft);
 }
 
-.guide-hub-card:hover {
+.guide-hub-card:hover,
+.guide-hub-shortcuts:hover {
   border-color: var(--color-sage);
   box-shadow: var(--shadow-sm);
 }
 
-.guide-hub-card h3 {
+.guide-hub-card h3,
+.guide-hub-shortcuts h3 {
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.35;
@@ -134,7 +137,8 @@
   margin: 0 0 6px;
 }
 
-.guide-hub-card p {
+.guide-hub-card p,
+.guide-hub-shortcuts p {
   font-size: 0.9375rem;
   line-height: 1.55;
   color: var(--color-text-secondary);
@@ -404,4 +408,42 @@
   color: var(--color-text-secondary);
   max-width: 62ch;
   margin: 0;
+}
+
+/* ── keyboard shortcuts (/keyboard-shortcuts) ──────────────────────────── */
+
+.shortcuts-page .shortcuts-key {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+/* Three short columns fit a phone once the keys may wrap; the guide's 460px
+   table floor would push the Mac column off screen. */
+@media (max-width: 600px) {
+  .shortcuts-page .guide-prose table { min-width: 0; }
+  .shortcuts-page .shortcuts-key { white-space: normal; }
+}
+
+/* The page says "print this and keep it by the keyboard", so the printout is
+   the card alone: no menu, no footer, no scroll boxes clipping a column. */
+@media print {
+  body:has(.shortcuts-page) .site-nav,
+  body:has(.shortcuts-page) .footer,
+  .shortcuts-page .guide-breadcrumb,
+  .shortcuts-page .guide-back {
+    display: none !important;
+  }
+  body:has(.shortcuts-page) { background: #fff; }
+  .shortcuts-page .guide-table-wrap { overflow: visible; margin-bottom: 10px; }
+  .shortcuts-page .guide-prose table { font-size: 9.5pt; min-width: 0; }
+  .shortcuts-page .guide-prose th,
+  .shortcuts-page .guide-prose td { padding: 3px 8px; }
+  .shortcuts-page .guide-prose tr { break-inside: avoid; }
+  .shortcuts-page .guide-prose h2 { margin: 14px 0 2px; break-after: avoid; }
+  .shortcuts-page .guide-prose p { margin: 0 0 6px; }
+}
+
+.guide-hub-shortcuts {
+  margin: 0 0 32px;
 }

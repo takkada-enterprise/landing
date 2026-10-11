@@ -151,6 +151,14 @@ function GuideIndex() {
             </p>
           </header>
 
+          <Link className="guide-hub-shortcuts" to="/keyboard-shortcuts">
+            <h3>Keyboard shortcuts for the desktop</h3>
+            <p>
+              Every key for billing on a computer: save with Ctrl + A, pull an order with Alt + O,
+              and move around without the mouse. Print it for the billing counter.
+            </p>
+          </Link>
+
           {groups.map((group) => (
             <section
               className="guide-hub-group"
