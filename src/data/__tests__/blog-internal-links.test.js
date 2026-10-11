@@ -70,6 +70,7 @@ const DEFAULT_FLOOR = 1;
 const LINK_FLOORS = {
   'ai-collection-calls': 11,
   'fmcg-module-tally': 11,
+  'import-purchase-from-pdf': 11,
   'salesman-app-tally': 9,
   'godown-wise-stock-on-mobile': 6,
   'e-invoice-from-phone': 5,
@@ -87,6 +88,7 @@ const LINK_FLOORS = {
   'tally-app-for-fmcg-distributors': 3,
   'tally-app-for-pharma-distributors': 3,
   'tally-on-mobile': 3,
+  'bank-statement-import-tally': 2,
   'debtor-ageing-report-on-phone': 2,
 };
 

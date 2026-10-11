@@ -1,0 +1,71 @@
+# Claims sheet: `import-automation` batch (plan 2026-10-11-001, Task 5)
+
+Checked 2026-10-11 against prod and takkada `origin/main` (e80468be, the release that is live), supabase-functions `origin/main` and tally-database-loader `origin/master`. Line refs are from `git show origin/main:<path> | grep -n`.
+
+- Prod entitlement: `select feature_key, status, count(*) from company_feature_entitlements where feature_key='document_import' group by 1,2;` returned **133 active** (62 inactive). The feature is live on prod, so the batch proceeds. The count is never quoted in copy.
+- Use on prod (never quoted), last 90 days of `purchase_invoice_import_jobs` (source `upload`): purchase invoices 72 posted / 61 needs_review; sales invoices 4 posted; sales orders 6 posted; purchase orders 0 posted. `bank_statement_import_jobs`: 46 in the last 30 days.
+- Posted imports reach Tally: of the imports posted in the last 60 days, 23 of 29 purchase invoices, 2 of 4 sales invoices and 6 of 6 sales orders have a `tally_jobs` row on the saved voucher, all `COMPLETED`.
+- In the app it is one switch, **Import Automation** (`lib/config/addon_catalog.dart:250–256`), while the site's pricing page sells PDF import and bank statement import as Copilot rows (`src/data/siteContent.js`). Posts name neither: call it "the same import feature", with no plan or add-on framing.
+
+## Can say
+
+**What can be imported and from where**
+- Kinds claimed: Purchase invoice "A bill you've received from a supplier", Sales order "An order a customer has placed with you", Sales invoice "A bill you've issued to a customer", Bank statement (`lib/models/import_document_kind.dart:11–40`). Purchase order is also a kind in code but is not claimed (see Must not say).
+- Home quick action **Import** ("Bills, orders, statements") opens **Imports**, with an **Import a document** button and a list of past imports "so you can pick up anything you left half-finished" (`lib/utils/home_quick_action_catalog.dart:101`, `lib/screens/home_screen.dart:3699`, `:1012`; `lib/screens/document_import/import_history_screen.dart:345`, `:366–368`).
+- From the registers: Sales and Purchase show **Import from PDF or photo**; Sales orders show **Import from photo** (`lib/screens/invoice_register/invoice_register_configs.dart:140`, `:276`, `:465`).
+- Source sheet: **Take a photo**, **Choose from gallery**, **Choose a file** "PDF, JPG or PNG" (`lib/widgets/document_import/import_source_sheet.dart:72`, `:77`, `:82–83`). Purchase upload copy: "Upload a supplier tax invoice, or photograph one ... PDF, JPG or PNG, up to 5 MB. Large photos are shrunk automatically." (`lib/screens/purchase_invoice_import/upload_purchase_invoice_pdf_screen.dart:93–100`).
+- Android share sheet: Takkada is offered when a PDF, JPG or PNG is shared from another app, such as WhatsApp (`android/app/src/main/AndroidManifest.xml:65–71`, intent `SEND`). On iPhone only PDFs open in Takkada from another app (`ios/Runner/Info.plist:49–62`, `com.adobe.pdf` only); a photo is saved and picked from the gallery inside the app.
+- One document at a time on the live app: bulk import is behind `BULK_DOCUMENT_IMPORT_ENABLED`, off unless the build passes it, and no release build does (`lib/config/feature_flags.dart:46–52`; no CI/build file sets it).
+- The New document screen: "What is this document?" when more than one kind is open; "Reading your document… Usually about 10 seconds. You can leave this screen"; a **What we read** summary with **Yes, continue**; if unreadable, "The photo may be blurred or cropped", **Try again** or **Enter it myself** (`lib/screens/document_import/import_shared_document_screen.dart:685`, `:721–723`, `:757`, `:801`, `:892`, `:976–995`).
+- Help text: "Import turns a photo or PDF of a document into an entry you can check and save ... The reading is a suggestion — check every party, item and amount before you create anything." (`lib/help/help_catalog.dart:350–360`). This is the core claim: the entry is reviewed before it is saved.
+- Extraction never posts on its own: the extract functions create no vouchers and no Tally jobs (supabase-functions `origin/main` `supabase/functions/extract-purchase-invoice-pdf`, `extract-bank-statement`, grep for `purchase_invoices` insert / `tally_jobs` empty). A job waits as `needs_review` until a person saves it (prod statuses `needs_review`, `posted`, `cancelled`, `failed`).
+
+**Supplier bill (purchase invoice) review** (`lib/screens/purchase_invoice_import/`, `lib/widgets/purchase_invoice_import/`)
+- Read off the bill: supplier name, GSTIN, address; invoice number, date, due date, totals, CGST/SGST/IGST, discount, TDS; per line description, HSN, quantity, rate, MRP, GST rate, discount %, amount, unit; serial/IMEI numbers (`lib/models/purchase_invoice_extraction.dart:47–164`).
+- **Match Supplier**: "Suggested matches" with High / Medium / Low confidence, search "by name or GSTIN", "Create new supplier" (`resolve_supplier_screen.dart:173`, `:213`, `:247`, `:373`; `supplier_match_card.dart:30–40`).
+- **Map Line Items**: each bill line is mapped to one of your stock items; "Suggested items", "Remembered from a past invoice", "Matched by part number", **Search**, **Create**, **Add line**, Remove item, **Continue to review** (`resolve_lines_screen.dart:275`, `:567`, `:645`, `:667`; `line_match_row.dart:318`, `:395`, `:414`, `:422`).
+- Remembering: after a successful import, the item a supplier's line was mapped to is remembered for that supplier's next bill; the rate and discount are never remembered (MRP, unit, GST rate and HSN are; say "rates and discounts", not "prices"), and what the new bill prints always wins (`lib/utils/import_line_memory.dart:4–7`, `:69–75`).
+- Units: "UOM X — not a Tally unit. Tap Edit item details to fix." The unit flag shows on the line row. **Edit item details** sets unit, quantity, rate, GST and HSN; the HSN check ("An HSN code is 4, 6 or 8 digits. Check the bill.") shows only inside that sheet, the row just prints "HSN <value>" (`line_match_row.dart:165`, `:228–230`; `edit_import_line_details_sheet.dart:167`, `:187–193`). A part-percent GST rate blocks Continue with "Create this bill by hand" (`resolve_lines_screen.dart:735–737`).
+- **Review Purchase Voucher**: Supplier Invoice No., Supplier Invoice Date, Purchase Ledger, Voucher Type, Voucher No., Voucher Date, Payment Due Terms, items, MRP (optional) "Printed MRP — not the rate", "MRP is below the purchase rate — please double-check.", Additional Charges & Adjustments, Round Off, **Save Purchase Voucher** (`review_imported_purchase_invoice_screen.dart:922`, `:986`, `:1042–1152`, `:1399–1420`, `:1458`, `:1532`).
+- Totals check: "These items add up to ₹X. The bill says ₹Y. Check the items before you save." (`:88–90`).
+- Duplicate: "A purchase invoice with this supplier reference already exists." and Save disabled while it shows (`:540`, `:983`). It is a screen-side lookup (`check_purchase_invoice_duplicate`): on a lookup error Save stays enabled (`:543–545`), two copies reviewed at the same time both pass, and there is no database guard. Say "a bill already saved once is caught before it is saved again", never "cannot land twice".
+- Weak reading: "please double-check the supplier and each line before continuing" (`extraction_quality_banner.dart:72–73`).
+- After saving, the voucher goes to Tally the same way an entry made in the app does (prod tally_jobs above). Do not promise a time.
+
+**Customer order (sales order) import** (`lib/screens/sales_order_import/`)
+- "Photograph the customer's order, or pick a photo they sent you. Takkada reads the items and quantities; you confirm each one against the picture." "Handwritten orders work. Photograph the whole page in good light, and keep the sizes legible." (`upload_sales_order_screen.dart:103–112`).
+- "Who is this order from?" with "Written on the order: ..." (`resolve_customer_screen.dart:95`, `:135`); the order picture is shown on these screens (`SourceImagePane` used in both sales-order screens).
+- **Match the items**: "You mapped this before", "Remembered"; a quantity the app cannot read shows "The order says "..." — enter a number."; a rate read off the paper is marked "From the order", your own rate shows as "Your rate ₹X"; a line whose total disagrees warns "Check the quantity and rate." (`resolve_order_lines_screen.dart:379`, `:634`, `:704`, `:719`, `:731–734`, `:832`, `:860`, `:1006`). Some members cannot change rates: "No rate set for this item — ask the owner to set one." (`:715`).
+- Ruling on the WhatsApp angle: orders do not arrive from WhatsApp by themselves. The customer sends a photo on WhatsApp; you share it into Takkada (Android share sheet) or save it and pick it from the gallery, or photograph a paper order.
+
+**Sales invoice import** (`lib/screens/sales_invoice_import/`)
+- "Pick a sales invoice you have already issued from other billing software, or photograph the printed copy. Takkada reads the customer, the items and the tax off it; you confirm each one." "The invoice keeps its own number and date, and your customer is not messaged — they already have this bill." (`upload_sales_invoice_screen.dart:127–134`).
+- "Who was this invoice billed to?", search by name or GSTIN, create a new customer (`resolve_customer_screen.dart:260`, `:299–316`). Two Tally items with the same name: "Pick the right one — nothing was chosen for you." (`resolve_lines_screen.dart:428–430`).
+- If the GST number printed is not yours, the app asks what the document is instead of treating it as your sale (`import_shared_document_screen.dart:59–60`).
+
+**Bank statement import** (`lib/screens/bank_statement_import/`)
+- Bank & Cash → bank account → **Import statement** (`lib/screens/bank_accounts_screen.dart:919`). "Upload a CSV, XLS, or XLSX bank statement to prepare receipt, payment, and contra vouchers for review." Files up to 10 MB; "Date format in file" choice; "You can review skipped duplicates before posting." (`upload_bank_statement_screen.dart:56`, `:216`, `:241`, `:312`).
+- Password-protected statements: "Enter the password your bank uses ... It is used once to open this file and is not saved." (`statement_password_sheet.dart:91`, `:102`, `:128`).
+- Pick the bank ledger; warning if "This statement looks like it is for a different bank account" (`confirm_bank_statement_import_screen.dart:85–86`, `:115`).
+- **Resolve Bank Statement**: per line Suggested ledger; "Looks already recorded on <date> for <amount>" when an existing entry matches on date and amount (advisory only, the line stays postable, `bank_statement_import_line.dart:143–146`); **Possible duplicate** chip and the **Post anyway** hold only for a line already imported from an earlier statement (`duplicate_skipped`, auto-skipped by supabase-functions `extract-bank-statement/stage_lines.ts:237`; `bank_statement_line_chrome.dart:105–109`); **Confirm**, **Change ledger**, **Split EMI** (principal and interest), **Allocate to bills**, **Not applicable**, change type (money received / paid out / transfer between your own accounts), edit narration; **Post resolved lines** (`resolve_bank_statement_lines_screen.dart:705`, `:769`, `:867`, `:917–952`, `:1016–1022`, `:1113`; `loan_split_input_sheet.dart:141–152`). Posting uses the app's normal receipt and payment entries (`bank_statement_import_service.dart:907–1000`).
+
+## Must not say
+
+- Purchase order import as a live capability. The kind and the register action exist in code, but prod has 0 posted purchase-order imports ever (6 cancelled), so it is not proven live (controller ruling, fix round 1).
+- That a bank line matching a hand-entered voucher is held back or needs Post anyway. It only shows "Looks already recorded on"; the hold applies to re-imported statement lines.
+- That an imported purchase bill "cannot" or "does not" land twice.
+- The add-on or plan name ("Import Automation add-on", Copilot) in posts.
+
+- Any accuracy figure, "no checking needed", "100%", "error-free", "fully automatic posting", or that an import reaches Tally without a person saving it.
+- The name of any AI, OCR or model vendor (the code names one; never in copy), or "Read by your AI assistant".
+- That bank statements can be imported from a PDF or a photo. Bank import takes CSV, XLS or XLSX only; a statement image in the document flow is redirected: "Upload a CSV, XLS, or XLSX statement through Bank & Cash instead." (`import_shared_document_screen.dart:49–50`).
+- That the import reads **batch numbers or expiry dates**. The extraction has no batch or expiry field and the review screen has no batch input (`purchase_invoice_extraction.dart:138–164`; grep `batch|expiry` in the purchase import files empty). Ruling: the pharma post's slug and title drop "batch and expiry"; the post says plainly that batch and expiry are not read.
+- That Takkada reads WhatsApp, picks orders out of chats, or that orders "arrive automatically". On iPhone, photos cannot be shared straight into Takkada (PDF only).
+- Several bills at once, bulk import, batch upload or importing a whole year of invoices. Live builds import one document at a time.
+- That supplier rates or discounts are remembered, or that a remembered item overrides what the bill prints.
+- That the original photo is shown beside the lines on the purchase flow (it is shown on the order and sales-invoice screens only).
+- Specific turnaround promises ("in seconds", "instantly in Tally"). The app's own "usually about 10 seconds" for reading is fine.
+- How long the kept copy of a document is stored.
+- Counts of companies or imports, customer names, testimonials, prices of the add-on.
+- Internal names (the DB, the app framework, the sync agent, vendor names).
+- Primary keywords already owned: `pdf to tally purchase entry` (`import-purchase-from-pdf-tally`), `track purchase bills tally`, `purchase report tally mobile`, `bills payable meaning tally`, `bill wise payable tally`, `bank reconciliation in tally` (`how-to-reconcile-bank-statement-tally-mobile`), `bank balance tally mobile`, `field order collection app tally`, `salesman order taking without re-entry`, `customer order link whatsapp`. Feature page head terms not used as post-title openers or misdirected anchors: "Import purchase from PDF", "Bank statement import", "Handwritten order to Tally".

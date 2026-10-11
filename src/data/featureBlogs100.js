@@ -38,4 +38,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'party-ne-payment-promise-toda-kaise-pata-kare', kind: 'hinglish' },
     { slug: 'recovery-register-notebook-vs-recovery-dashboard', kind: 'compare' },
   ]},
+  { id: 'import-automation', featurePage: 'import-purchase-from-pdf', pillar: 'import-purchase-bills-into-tally-photo-pdf', posts: [
+    { slug: 'import-purchase-bills-into-tally-photo-pdf', kind: 'pillar' },
+    { slug: 'purchase-bill-import-fmcg-distributors', kind: 'usecase' },
+    { slug: 'purchase-bill-import-pharma-distributors', kind: 'usecase' },
+    { slug: 'supplier-bill-import-hardware-traders', kind: 'usecase' },
+    { slug: 'bank-statement-import-tally-distributors', kind: 'usecase' },
+    { slug: 'order-import-whatsapp-photos-wholesalers', kind: 'usecase' },
+    { slug: 'customer-invoice-import-moving-to-tally', kind: 'usecase' },
+    { slug: 'how-to-photograph-supplier-bill-review-entry', kind: 'howto' },
+    { slug: 'purchase-bill-photo-se-tally-entry', kind: 'hinglish' },
+    { slug: 'typing-purchase-bills-vs-importing', kind: 'compare' },
+  ]},
 ];
