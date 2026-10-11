@@ -201,5 +201,17 @@ export const routeMetadata = [
     changefreq: 'weekly',
     priority: 0.9,
   },
+  {
+    path: '/keyboard-shortcuts',
+    llms: {
+      section: 'Key pages',
+      title: 'Keyboard shortcuts (Desktop Entry)',
+      summary:
+        "Every key for billing on a computer with the Desktop Entry add-on: save, pull an order, print, cancel, and move between Sales, Purchases and Money.",
+    },
+    sourceFile: 'src/routes/KeyboardShortcuts.jsx',
+    changefreq: 'monthly',
+    priority: 0.6,
+  },
   ...featureRouteMetadata,
 ];
