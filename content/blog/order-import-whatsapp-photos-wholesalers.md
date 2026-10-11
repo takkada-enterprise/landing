@@ -36,7 +36,7 @@ When the lines are done, tap **Continue**. The order lands on the same summary s
 
 The counter person still looks at every line against the photo. What changes is the typing: the app reads the page and you correct it, which is faster than starting from a blank order, and the picture is right there when a figure looks wrong. Some team members cannot change rates; if an item has no rate set for them, the app asks them to get the owner to set one.
 
-The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side of the same add-on, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) covers the series.
+The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side of the same import feature, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) covers the series.
 
 ## Frequently Asked Questions
 

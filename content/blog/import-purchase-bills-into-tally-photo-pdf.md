@@ -9,7 +9,7 @@ category: "Autopilot"
 excerpt: "Supplier bills arrive as PDFs and WhatsApp photos, and someone types them into Tally every evening. Here is how the photo becomes a purchase entry you check before it is saved."
 ---
 
-To import purchase bills into Tally from a photo or PDF, you photograph the supplier's bill or pick the PDF in Takkada, and the supplier, invoice number, line items, quantities, rates and GST are read off it for you. You then match the supplier and each line to your own Tally masters, check the draft purchase voucher, and save it. Nothing is saved on its own: the reading is a suggestion, and the app says so on its help screen, so every party, item and amount passes in front of you before the entry exists. Once you save, the purchase voucher goes to Tally the same way any entry made in the app does. The bill can be a PDF, a JPG or a PNG up to 5 MB, and large photos are shrunk automatically. This guide covers the whole flow, what gets read, what you still check by hand, and which other documents the same Import Automation add-on handles, from customer orders to bank statements.
+To import purchase bills into Tally from a photo or PDF, you photograph the supplier's bill or pick the PDF in Takkada, and the supplier, invoice number, line items, quantities, rates and GST are read off it for you. You then match the supplier and each line to your own Tally masters, check the draft purchase voucher, and save it. Nothing is saved on its own: the reading is a suggestion, and the app says so on its help screen, so every party, item and amount passes in front of you before the entry exists. Once you save, the purchase voucher goes to Tally the same way any entry made in the app does. The bill can be a PDF, a JPG or a PNG up to 5 MB, and large photos are shrunk automatically. This guide covers the whole flow, what gets read, what you still check by hand, and which other documents the same import feature handles, from customer orders to bank statements.
 
 ## Where the evening goes today
 
@@ -27,11 +27,11 @@ Then come three screens:
 
 ## The checks that catch mistakes
 
-If the items add up to a different total from the one printed on the bill, the review screen says so: "These items add up to ₹X. The bill says ₹Y. Check the items before you save." If a purchase invoice from that supplier with the same reference already exists, the screen says so and the save button stays off, so the same bill forwarded twice on WhatsApp does not land twice. When the reading is weak, a banner asks you to double-check the supplier and each line before continuing.
+If the items add up to a different total from the one printed on the bill, the review screen says so: "These items add up to ₹X. The bill says ₹Y. Check the items before you save." If a purchase invoice from that supplier with the same reference already exists, the screen says so and the save button stays off, so a bill already saved once is caught before it is saved again. When the reading is weak, a banner asks you to double-check the supplier and each line before continuing.
 
 ## The same flow for other documents
 
-The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side in detail. The same add-on also reads customer orders into sales orders, issued sales invoices, purchase orders, and bank statements in CSV, XLS or XLSX. The posts in this series take each one in turn, from [order photos for wholesalers](/blog/order-import-whatsapp-photos-wholesalers) to [bank statement imports](/blog/bank-statement-import-tally-distributors).
+The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side in detail. The same import feature also reads customer orders into sales orders, issued sales invoices into your sales register, and bank statements in CSV, XLS or XLSX. The posts in this series take each one in turn, from [order photos for wholesalers](/blog/order-import-whatsapp-photos-wholesalers) to [bank statement imports](/blog/bank-statement-import-tally-distributors).
 
 ## Frequently Asked Questions
 

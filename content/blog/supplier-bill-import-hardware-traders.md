@@ -32,7 +32,7 @@ A line read off the bill that should not be there can be removed, and **Add line
 
 ## Checks before the voucher is saved
 
-On a 60-line bill, the total check earns its place. If the mapped lines add up to a different figure from the total printed on the bill, **Review Purchase Voucher** shows both numbers and asks you to check the items before saving. Units that are not Tally units, and HSN codes that are not 4, 6 or 8 digits, are flagged on the line for you to fix in **Edit item details**.
+On a 60-line bill, the total check earns its place. If the mapped lines add up to a different figure from the total printed on the bill, **Review Purchase Voucher** shows both numbers and asks you to check the items before saving. Units that are not Tally units are flagged on the line for you to fix in **Edit item details**, and when you open that sheet it also checks that the HSN code is 4, 6 or 8 digits.
 
 Your trusted person still checks the bill. What changes is that lines already mapped from that supplier come back matched on the next bill, and someone else in the office can do the review, because the app shows which item each line went to.
 

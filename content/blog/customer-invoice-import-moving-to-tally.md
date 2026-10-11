@@ -31,7 +31,7 @@ Then the invoice opens on the normal invoice screen, where you check the sales l
 
 Each invoice is its own import, so plan this for the gap period rather than for years of history. The work changes from typing an invoice to checking one, which is faster, and the original document is shown on the customer screen for comparison. Your customer hears nothing from it, which matters when the bill went to them weeks ago.
 
-The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side of the same add-on, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) covers the full series.
+The [Import purchase from PDF](/import-purchase-from-pdf) page shows the purchase side of the same import feature, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) covers the full series.
 
 ## Frequently Asked Questions
 

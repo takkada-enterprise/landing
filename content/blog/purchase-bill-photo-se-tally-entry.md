@@ -29,7 +29,7 @@ Android phone pe WhatsApp se photo seedha Takkada mein share bhi kar sakte ho. i
 
 **Map Line Items:** bill ki line ko apne stock item se jodo. Jo line pichhle bill mein jodi thi, woh "Remembered from a past invoice" ke saath pehle se bhari aati hai. Unit agar Tally ki unit nahi hai, toh line pe dikhta hai, Edit item details mein theek kar lo.
 
-**Review Purchase Voucher:** supplier invoice number, date, purchase ledger, voucher type, due terms, items aur extra charges dekho. Agar items ka jod bill ke total se alag hai, toh app dono number dikha ke bolta hai pehle check karo. Agar yeh bill pehle se entry ho chuka hai, toh "A purchase invoice with this supplier reference already exists" aata hai aur save ka button band rehta hai.
+**Review Purchase Voucher:** supplier invoice number, date, purchase ledger, voucher type, due terms, items aur extra charges dekho. Agar items ka jod bill ke total se alag hai, toh app dono number dikha ke bolta hai pehle check karo. Agar is supplier ka yahi bill number pehle se save hai, toh "A purchase invoice with this supplier reference already exists" aata hai aur save ka button band rehta hai.
 
 Sab theek ho toh Save Purchase Voucher dabao.
 

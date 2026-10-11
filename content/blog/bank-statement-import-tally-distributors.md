@@ -33,7 +33,7 @@ The **Resolve Bank Statement** screen lists every line with what to do next:
 - **Not applicable** for lines that should not be posted.
 - Change the type when a line is a transfer between your own bank and cash accounts, or edit the narration.
 
-A line marked **Possible duplicate** shows "Looks already recorded on" the date and amount of the existing entry. You can skip it, or post it anyway when it really is a second payment.
+When a line matches an entry already in your books by date and amount, it shows "Looks already recorded on" with that entry's date and amount, so check it before you post. A line already imported from an earlier statement is marked **Possible duplicate** and held back until you tap **Post anyway**.
 
 When some lines are ready, the button reads Post and the number of resolved lines. The rest stay saved to finish later, and an import summary shows what was posted and what is still open.
 
@@ -41,7 +41,7 @@ When some lines are ready, the button reads Post and the number of resolved line
 
 The statement must be the bank's CSV, XLS or XLSX file. A photo or PDF of a statement is not read; the app asks for the spreadsheet file instead. The detailed walkthrough is on the [Bank statement import](/bank-statement-import-tally) page.
 
-Bank imports sit in the same Import Automation add-on as supplier bills, which the [Import purchase from PDF](/import-purchase-from-pdf) page covers, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) explains the rest of the series.
+Bank imports sit alongside supplier bill imports, which the [Import purchase from PDF](/import-purchase-from-pdf) page covers, and the [guide to importing purchase bills into Tally](/blog/import-purchase-bills-into-tally-photo-pdf) explains the rest of the series.
 
 ## Frequently Asked Questions
 
@@ -51,7 +51,7 @@ A: CSV, XLS and XLSX files up to 10 MB. Password-protected statements open with 
 
 **Q: Will it post a payment I already entered by hand?**
 
-A: A line that matches an existing entry is marked Possible duplicate with that entry's date and amount. It posts only if you choose Post anyway.
+A: The line shows "Looks already recorded on" with that entry's date and amount, so check it before you post. A line already imported from an earlier statement is held back until you tap Post anyway.
 
 **Q: Can one credit settle several invoices?**
 

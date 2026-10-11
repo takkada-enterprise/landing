@@ -46,7 +46,7 @@ The screen will not continue while a line is unmapped or has no quantity on the 
 **Review Purchase Voucher** shows the supplier invoice number and date, purchase ledger, voucher type, voucher number and date, payment due terms, items and any additional charges. Watch for two warnings:
 
 - "These items add up to ₹X. The bill says ₹Y." The lines do not match the bill's printed total. Find the line that differs before saving.
-- "A purchase invoice with this supplier reference already exists." This bill is already in your books, and the save button stays off.
+- "A purchase invoice with this supplier reference already exists." A bill with this reference from this supplier is already saved, and the save button stays off.
 
 When everything matches, tap **Save Purchase Voucher**.
 

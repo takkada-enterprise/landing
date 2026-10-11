@@ -30,7 +30,7 @@ On **Match Supplier**, the company's ledger is suggested with a confidence label
 
 Company bills are long, and a single misread line can throw the total off by a few hundred rupees. If the items add up to a different figure from the total printed on the bill, the review screen shows both numbers and asks you to check before saving. A unit that does not exist in your Tally, like "CS" when your master uses "Case", is flagged on the line so you can fix it under Edit item details.
 
-If the same bill reaches you twice, once from the company's salesman and once from their accounts team, the second one shows "A purchase invoice with this supplier reference already exists" and the save button stays off.
+If the same bill reaches you twice, once from the company's salesman and once from their accounts team, and the first is already saved, the second shows "A purchase invoice with this supplier reference already exists" and the save button stays off.
 
 ## Where the time goes now
 
