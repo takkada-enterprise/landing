@@ -2,7 +2,7 @@
 title: "Recovery Dashboard for Tally: Every Follow-up, Promise and Missed Date in One Place"
 meta_title: "Recovery Dashboard for Tally | Takkada"
 slug: "recovery-dashboard-for-tally"
-meta_description: "A recovery dashboard for Tally: log every follow-up and promise to pay, check promises against Tally receipts, and see the missed ones each morning."
+meta_description: "A recovery dashboard for Tally: log follow-ups and promises to pay, check promises against Tally receipts, and see the missed ones each morning."
 primary_keyword: "recovery dashboard for Tally"
 date: "2026-10-11"
 author: "harsh"
@@ -10,7 +10,7 @@ category: "Collections"
 excerpt: "Tally knows what each party owes. It does not know who called them yesterday or what they promised. Here is how a recovery dashboard keeps that record."
 ---
 
-A recovery dashboard for Tally keeps every follow-up, every promise to pay and every missed date against the party it belongs to, so your whole team works from one record. In Takkada, whoever chases a payment taps Mark followed up on the party in Collections or Bills Receivable, picks how they reached the party and what happened, and can add a promised amount with a date, a next follow-up date and a note. Once a promised date passes, the promise is checked against the receipts in your Tally books and marked kept, part paid or missed, and the missed ones are listed in the next morning's daily brief. The Recovery screen also shows who on your team is chasing which party, how much has come back, and which overdue parties nobody has touched. Your Tally ledgers stay exactly as they are. The follow-up record lives in Takkada, right beside the outstanding it explains.
+A recovery dashboard for Tally keeps your follow-ups, promises to pay and missed dates against the party they belong to, so your whole team works from one record. In Takkada, whoever chases a payment taps Mark followed up on the party in Collections or Bills Receivable, picks how they reached the party and what happened, and can add a promised amount with a date, a next follow-up date and a note. Once a promised date passes, the promise is checked against the receipts in your Tally books and marked kept, part paid or missed, and the missed ones are listed in the next morning's daily brief. The Recovery screen also shows who on your team is chasing which party, how much has come back, and which overdue parties nobody has touched. Your Tally ledgers stay exactly as they are. The follow-up record lives in Takkada, right beside the outstanding it explains.
 
 ## The part of recovery Tally does not hold
 
@@ -20,7 +20,7 @@ Tally tells you what a party owes and how old each bill is. It has no place for 
 
 The Log follow-up sheet asks four short things. How did you reach them: Call, WhatsApp, In person or Other. What happened: Will pay, No answer, Wrong number, Disputes amount, Refused or Other. Then an optional promise to pay, which takes an amount and a date together, an optional next follow-up date, and an optional note for the words that matter, like "cheque after GST refund".
 
-Above the form, Already tried shows the last five entries on that party, each with the name of the person who logged it. After you save, the party drops off your Collections list for a few days, so two people do not ring the same shop back to back. If there is no signal, the entry is saved on the phone and syncs when the connection returns.
+Above the form, Already tried shows the last five entries on that party, each with the name of the person who logged it. So before you dial, you can see whether a colleague already spoke to them today. If there is no signal, the entry is saved on the phone and syncs when the connection returns.
 
 ## What happens to a promise after its date
 
@@ -32,7 +32,7 @@ There is one safeguard. If Takkada's copy of your Tally data has not yet caught 
 
 Recovery sits inside the Collect tab. At the top is the daily brief, built each morning, with Promises due today, Follow-ups due, Missed promises, Awaiting confirmation and Top overdue. A Share on WhatsApp button sends its text to whoever you pick.
 
-Below it are five tabs. Parties and Bills are the Collections and Bills Receivable reports with follow-ups built in. Habits shows how each party pays and needs Reports+. Team shows Recovered, Still out, Dealers worked and Promises kept, then each member's figures, with a last line for overdue parties nobody has chased. History lists every follow-up, newest first, with the promise and next date on each row.
+Below it are five tabs. Parties and Bills are the Collections and Bills Receivable reports with follow-ups built in. Habits shows how each party pays and needs Reports+. Team shows Recovered, Still out, Dealers worked and Promises kept, then each member's figures, with a last line for overdue parties nobody has chased. History shows one card per party, latest activity first, with its newest entry, how many logs it has and any open promise; tap a card to see that party's last five entries.
 
 ## Who is chasing whom
 
@@ -50,7 +50,7 @@ A: No. Follow-ups and promises are kept in Takkada. Takkada only reads your Tall
 
 **Q: How does Takkada know a promise was missed?**
 
-A: After the promised date, it adds up the party's receipts in your Tally books up to that date. Nothing received reads Promise missed, part of it reads Part paid. If the Tally data has not caught up yet, the promise shows Awaiting confirmation.
+A: After the promised date, it adds up the receipts entered in your Tally books for that party up to that date. Nothing received reads Promise missed, part of it reads Part paid. If the Tally data has not caught up yet, the promise shows Awaiting confirmation.
 
 **Q: Can every salesman see every party?**
 

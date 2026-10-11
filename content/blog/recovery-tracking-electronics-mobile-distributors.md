@@ -25,7 +25,7 @@ Already tried shows the last five entries on that retailer, each naming who logg
 
 ## The morning list
 
-The daily brief sits at the top of the Recovery screen in the Collect tab. Promises due today shows which retailers committed to pay today. Follow-ups due shows the ones you planned to call back. Missed promises lists retailers whose promised date passed without enough receipts in your Tally books up to that date. Top overdue lists the biggest balances.
+The daily brief sits at the top of the Recovery screen in the Collect tab. Promises due today shows which retailers committed to pay today. Follow-ups due shows the ones you planned to call back. Missed promises lists retailers whose promised date passed with no receipt in your Tally books up to that date. Top overdue lists the biggest balances.
 
 If Takkada's copy of your Tally data has not caught up past a promised date, the promise sits under Awaiting confirmation instead of missed. A Share on WhatsApp button sends the brief's text to your sales group.
 
@@ -47,7 +47,7 @@ A: Yes. Pick Disputes amount and write the reason in the note. Everyone who open
 
 **Q: Does a part payment show up?**
 
-A: Yes. If the receipts in Tally up to the promised date cover part of the promise, it shows Part paid.
+A: If receipts entered in Tally up to the promised date cover part of the promise, it shows Part paid.
 
 **Q: Does Takkada edit my Tally data?**
 

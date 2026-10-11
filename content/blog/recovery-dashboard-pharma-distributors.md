@@ -26,9 +26,9 @@ Pick Call, WhatsApp, In person or Other, then the outcome. A promise needs an am
 
 ## Promises checked against Tally receipts
 
-After the promised date, the chemist's receipts in your Tally books up to that date settle it. All of it received reads Promise kept, part of it reads Part paid, none reads Promise missed. A cheque counts once its receipt is entered in Tally, dated on or before the promised date. If Takkada's copy of your Tally data has not yet caught up past the promised date, the promise waits as Awaiting confirmation.
+After the promised date, the chemist's receipts in your Tally books up to that date settle it. All of it received reads Promise kept, part of it reads Part paid, none reads Promise missed. Only receipts dated on or before the promised date are counted. If Takkada's copy of your Tally data has not yet caught up past the promised date, the promise waits as Awaiting confirmation.
 
-The History tab lists every follow-up across all chemists, newest first, with the promised amount and next date on each row. You can search a chemist or filter by team member, which helps when the owner asks what happened with a nursing home last month.
+The History tab shows one card per chemist, latest activity first, with the newest entry, how many logs there are and any open promise. Search a chemist or filter by team member, then tap the card to read that chemist's last five entries.
 
 ## Seeing the whole book
 

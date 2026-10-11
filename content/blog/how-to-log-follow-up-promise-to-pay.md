@@ -10,7 +10,7 @@ category: "How-To"
 excerpt: "Eight steps from the Collections report to a saved promise, with every button named as it appears in the app, and what happens after the promised date."
 ---
 
-To log a follow-up and promise-to-pay in Takkada, open the Collections report, tap the party, tap Mark followed-up, choose how you reached them and what happened, enter the promised amount and date, and tap Save follow-up + promise. The entry is saved against the party with your name on it, and your team sees it. If you leave the promise empty, the button reads Save follow-up and only the conversation is recorded. A promise takes an amount and a date together, and once that date passes, Takkada checks the party's receipts in your Tally books and marks it kept, part paid or missed. You need the Recovery dashboard switched on for your business. Without it, Mark followed up simply hides the party on your phone for a few days and nothing is logged. This guide walks through each step with the labels exactly as they appear on screen, then shows where the follow-up turns up afterwards.
+To log a follow-up and promise-to-pay in Takkada, open the Collections report, tap the party, tap Mark followed-up, choose how you reached them and what happened, enter the promised amount and date, and tap Save follow-up + promise. The entry is saved against the party with your name on it, and your team sees it. If you leave the promise empty, the button reads Save follow-up and only the conversation is recorded. A promise takes an amount and a date together, and once that date passes, Takkada checks the party's receipts in your Tally books and marks it kept, part paid or missed. You need the Recovery dashboard switched on for your business. Without it, Mark followed up only hides the party on that phone for a short while, and nothing is logged. This guide walks through each step with the labels exactly as they appear on screen, then shows where the follow-up turns up afterwards.
 
 ## Step 1: Open the Collections report
 
@@ -42,11 +42,11 @@ Tap "Next follow-up (optional)" to choose when this party should come up again. 
 
 ## Step 8: Save
 
-Tap Save follow-up + promise. A message confirms "Follow-up + promise logged for" the party, and the party drops off your Collections list for a few days. A hidden count on the list lets you show them again. If there is no signal, the app says the follow-up is saved on this device and will sync when the connection returns.
+Tap Save follow-up + promise. A message confirms "Follow-up + promise logged for" the party, and the row leaves the list on that screen. If there is no signal, the app says the follow-up is saved on this device and will sync when the connection returns.
 
 ## What happens after you save
 
-On the next follow-up date, the party appears under Follow-ups due in that morning's daily brief on the Recovery screen. On the promised date, it appears under Promises due today. After the promised date, the party's receipts in Tally up to that date decide whether it reads Promise kept, Part paid or Promise missed. If your Tally data in Takkada has not caught up past the date, it shows Awaiting confirmation. The History tab lists your entry with "Promised ₹ by" the date and the next date.
+On the next follow-up date, the party appears under Follow-ups due in that morning's daily brief on the Recovery screen. On the promised date, it appears under Promises due today. After the promised date, the party's receipts in Tally up to that date decide whether it reads Promise kept, Part paid or Promise missed. If your Tally data in Takkada has not caught up past the date, it shows Awaiting confirmation. On the History tab, the party's card shows your entry with "Promised ₹ by" the date and the next date.
 
 Routine nudges between calls can go out as WhatsApp [payment reminders from Tally](/payment-reminder-tally). For the full Recovery screen, read the [recovery dashboard for Tally](/blog/recovery-dashboard-for-tally) guide.
 

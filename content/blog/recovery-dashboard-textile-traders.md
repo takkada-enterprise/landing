@@ -34,7 +34,7 @@ The daily brief also lists Awaiting confirmation and Top overdue, and Share on W
 
 On long credit, the parties that hurt are the ones nobody remembers to chase. The Team tab shows Recovered, Still out, Dealers worked and Promises kept, and a Nobody has chased line that counts overdue parties with no follow-up at all. Tap it to see them.
 
-Each party on the Parties tab shows who in your office is chasing it, or Not yet chased, and a company admin can move a party to someone else. The History tab lists every follow-up, newest first, with search by party and a filter by team member.
+Each party on the Parties tab shows who in your office is chasing it, or Not yet chased, and a company admin can move a party to someone else. The History tab shows one card per party, latest activity first, with the newest entry, the number of logs and any open promise, plus search by party and a filter by team member.
 
 Parties far away also respond to WhatsApp [payment reminders from Tally](/payment-reminder-tally) between agent calls. The [recovery dashboard for Tally](/blog/recovery-dashboard-for-tally) guide explains each tab.
 
@@ -46,7 +46,7 @@ A: Open the party, tap Mark followed up, pick Other as the channel, enter the am
 
 **Q: Will the app show which promises the agents' parties broke?**
 
-A: Yes. Once your Tally data in Takkada has caught up past the promised date, a party without enough receipts appears under Missed promises in the daily brief, whoever relayed the promise.
+A: Yes. Once your Tally data in Takkada has caught up past the promised date, a party with no receipt by that date appears under Missed promises in the daily brief, whoever relayed the promise.
 
 **Q: Our credit is 90 days. Can I set a follow-up that far out?**
 

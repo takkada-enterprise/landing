@@ -32,7 +32,7 @@ After a promised date passes, the party's receipts in Tally up to that date deci
 
 ## The whole season at a glance
 
-The Team tab shows Recovered, Still out, Dealers worked and Promises kept, and a Nobody has chased line counting overdue parties no one has logged a follow-up on. Tap it to see which ones. The History tab lists every follow-up, newest first, with search and a filter by team member, which is how you find what a party said back in July.
+The Team tab shows Recovered, Still out, Dealers worked and Promises kept, and a Nobody has chased line counting overdue parties no one has logged a follow-up on. Tap it to see which ones. The History tab shows one card per party, latest activity first, with the newest entry, the number of logs and any open promise. Search a party and tap its card to read its last five entries.
 
 Between visits, WhatsApp [payment reminders from Tally](/payment-reminder-tally) can carry the routine nudges. The [recovery dashboard for Tally](/blog/recovery-dashboard-for-tally) guide explains each tab of the Recovery screen.
 

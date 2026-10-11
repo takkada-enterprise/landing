@@ -22,7 +22,7 @@ Then there are the disputes. A rate agreed on the phone does not match the bill,
 
 The Log follow-up sheet takes Call, WhatsApp, In person or Other, then one outcome: Will pay, No answer, Wrong number, Disputes amount, Refused or Other. A promise needs both an amount and a date. The note holds the detail, like "rate difference on 40 bags, owner to call him".
 
-Above the form, Already tried shows the last five entries on that contractor, with who logged each, the outcome and the time. When the owner and the accountant both chase the same large contractor, each sees what the other heard. After you save, the contractor drops off your Collections list for a few days, so he is not called twice in an afternoon.
+Above the form, Already tried shows the last five entries on that contractor, with who logged each, the outcome and the time. When the owner and the accountant both chase the same large contractor, each sees what the other heard.
 
 ## Promises checked against your receipts
 
@@ -34,7 +34,7 @@ The daily brief at the top of the Recovery screen lists Promises due today, Foll
 
 Each contractor on the Parties tab shows the name of the person chasing him, taken from the last follow-up, or Not yet chased. A company admin can move a contractor to another person. The Team tab shows Recovered, Still out, Dealers worked and Promises kept, and a Nobody has chased line that counts the overdue contractors with no follow-up at all.
 
-The History tab keeps every entry, newest first, with search by contractor. When a contractor says "I told your man last month", you can see what was actually logged.
+The History tab shows one card per contractor, latest activity first, with the newest entry, how many logs there are and any open promise. Tap a card to read that contractor's last five entries, so when he says "I told your man already", you can check what was logged.
 
 For the routine nudges, WhatsApp [payment reminders from Tally](/payment-reminder-tally) work alongside the follow-up log. The [recovery dashboard for Tally](/blog/recovery-dashboard-for-tally) guide covers the Recovery screen in full.
 

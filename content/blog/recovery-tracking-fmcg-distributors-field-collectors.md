@@ -50,11 +50,11 @@ A: The entry is saved on the phone and syncs once the connection is back. The co
 
 **Q: Can I see which collector logged a promise?**
 
-A: Yes. Every entry shows the name of the person who logged it, on the retailer's timeline and on the History tab.
+A: Yes. Each entry shows the name of the person who logged it on the retailer's timeline.
 
 **Q: Does the app mark a promise missed if the shop paid cash to the collector?**
 
-A: The check reads receipts in Tally, so enter the cash receipt in Tally as usual. While Takkada's copy of your Tally data has not caught up past the promised date, the promise shows Awaiting confirmation rather than missed.
+A: The check reads receipts entered in Tally, so the cash needs to reach your Tally books first. While Takkada's copy of your Tally data has not caught up past the promised date, the promise shows Awaiting confirmation rather than missed.
 
 ## Start with one route
 
