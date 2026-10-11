@@ -50,4 +50,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'purchase-bill-photo-se-tally-entry', kind: 'hinglish' },
     { slug: 'typing-purchase-bills-vs-importing', kind: 'compare' },
   ]},
+  { id: 'dispatch-load', featurePage: null, pillar: 'dispatch-planning-from-tally-orders', posts: [
+    { slug: 'dispatch-planning-from-tally-orders', kind: 'pillar' },
+    { slug: 'dispatch-load-fmcg-beat-vans', kind: 'usecase' },
+    { slug: 'dispatch-planning-beverage-distributors', kind: 'usecase' },
+    { slug: 'dispatch-load-building-material-site-delivery', kind: 'usecase' },
+    { slug: 'dispatch-planning-agri-input-peak-season', kind: 'usecase' },
+    { slug: 'dispatch-load-pharma-same-day-delivery', kind: 'usecase' },
+    { slug: 'dispatch-load-electrical-hardware-wholesalers', kind: 'usecase' },
+    { slug: 'how-to-build-load-print-loading-sheet', kind: 'howto' },
+    { slug: 'gaadi-load-loading-sheet-kaise-banaye', kind: 'hinglish' },
+    { slug: 'paper-picking-list-vs-dispatch-load', kind: 'compare' },
+  ]},
 ];
