@@ -18,7 +18,7 @@ Your customers are contractors, builders and households in the middle of constru
 
 ## Put the site order on a truck
 
-Open Dispatch. The Orders tab lists sales orders that still have quantity to send, whether they were entered in Tally or booked by your salesman through [sales orders on mobile](/sales-order-on-mobile). Search the contractor's name, tick the order and press Add to van. A big order can ride one truck; several smaller site orders can share one, each as its own drop.
+Open Dispatch. The Orders tab lists sales orders that still have quantity to send, whether they were entered in Tally or booked by your salesman through [sales orders on mobile](/sales-order-on-mobile). Search the contractor's name, tick the order and press Add to van. A big order can ride one truck, and orders for several parties can share one, with each party as its own drop. Two sites for the same contractor sit under that contractor's one drop.
 
 Add the vehicle number and the driver on the van page, drag the drops into the order the truck will reach them, and print the sheet. The Load list shows each item with its unit, so bags, tons and boxes read as they are in your Tally items. The Drop slip for each site has Item, Sent and Received columns, a Short / returned line and a Received by line for whoever signs at the site. If the party's ledger carries an address and phone, they print on the slip; site directions you write on the slip by hand.
 

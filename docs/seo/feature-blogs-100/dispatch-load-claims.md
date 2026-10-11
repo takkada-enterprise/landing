@@ -25,6 +25,12 @@ Checked 2026-10-11 against prod (SELECT only) and takkada `origin/main` (e80468b
 - Header: **Vehicle number (optional)**, **Driver (optional)**, salesman ("Add a salesman") (`:1819`, `:1853`, `:1588`).
 - **Route order — drag a drop to reorder**; each shop is "Drop N — <shop>" (`:1611`, `:1654`).
 - Toolbar: **Print the sheet**, **Export the sheet to Excel**, **Take lines off the van** (`:1322`, `:1358`, `:1363`). A line taken off goes back on the picking list (`:645–649`).
+- **Print the sheet** shows whenever the van has lines, at any stage (`van_page.dart:1319–1323`). **Export the sheet to Excel** and **Take lines off the van** live in the van page's **More** menu (`van_page.dart:1334`, `:1355–1363`), not beside Print.
+- **Taking lines off**: freely while the van is Building or Loaded (app `models/dispatch_load.dart:452–453` `isEditable` = draft or sent; `:560–566` `canRemoveLines`; live prod `remove_from_dispatch_load` gate `v_status not in ('draft', 'sent')` → "This van is already past loading: only a shop whose order has changed or been cancelled can be taken off it now"). Note: the older migration `20261003180500_dispatch_van_mutation_rpcs.sql` allowed draft only; the live body allows draft and sent. Post copy uses the narrower "before you mark it loaded" so it holds on both.
+- **Drops are per party**: "Drop N — <shop>" (`van_page.dart:1654`); the sheet groups drops by party (`loading_sheet_generator.dart:36–38`). Two orders for one party are one drop.
+- **Adding to a van, chooser**: when vans are still being built, Add asks "N vans are being built. Which one is this going on?" with **Start a new van** (`orders_tab.dart:623–624`, `:640`); if the open-van list cannot be read, "Start a new van only if you are sure none is open" / **Not now** (`:685–699`).
+- **Continuation drop slips**: a drop with more than 26 item lines is chunked into continuation slips, each repeating the shop's number and name (`loading_sheet_generator.dart:58–64`, `:595–598`).
+- **Load grid second column group**: beyond 16 item columns per landscape page, the grid continues as a second column group repeating the drop rows (`loading_sheet_generator.dart:42–52`).
 - Several vans can be open at once; the Load/Dispatch tab lists them and prints the open vans; "Vans are shared, so somebody else may move one while you are reading it." (`help/dispatch_help.dart:344–351`).
 - Orders and other documents cannot share a van ("Take the odd ones off so everything on it comes from the same place.") (`models/dispatch_stage_words.dart:114–116`).
 

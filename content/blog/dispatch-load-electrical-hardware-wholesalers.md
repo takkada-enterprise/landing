@@ -47,7 +47,7 @@ A: No. Lines come pre-filled with the quantity on the van, so you only change th
 
 **Q: Can I export the sheet?**
 
-A: Yes. The van page has Export the sheet to Excel beside Print the sheet.
+A: Yes. Export the sheet to Excel sits in the van page's More menu.
 
 **Q: What if the office billed the van's orders in Tally while it was out?**
 
