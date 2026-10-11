@@ -214,6 +214,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Razorpay Payment Links vs Tally-Native Collection](https://takkada.com/blog/razorpay-vs-tally-native-collection/)
 - [Recovery Register in a Notebook vs a Recovery Dashboard](https://takkada.com/blog/recovery-register-notebook-vs-recovery-dashboard/)
 - [Refrens vs Takkada: Which Fits a Tally-Using Distributor](https://takkada.com/blog/refrens-vs-takkada/)
+- [Spreadsheet Price Lists vs Cost-Plus Pricing for Spare Parts](https://takkada.com/blog/spreadsheet-price-list-vs-cost-plus-spare-parts/)
 - [Takkada vs CredFlow: Tally Receivables Apps Compared (2026)](https://takkada.com/blog/takkada-vs-credflow/)
 - [Tally Remote Access vs a Mobile App for Distributors](https://takkada.com/blog/tally-remote-access-vs-mobile-app/)
 - [Typing Purchase Bills by Hand vs Importing Them](https://takkada.com/blog/typing-purchase-bills-vs-importing/)
@@ -295,6 +296,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How to Record Payment in Tally on Mobile](https://takkada.com/blog/how-to-record-payment-in-tally-on-mobile/)
 - [How to Send a Payment Reminder From Tally on WhatsApp](https://takkada.com/blog/how-to-send-payment-reminder-from-tally-whatsapp/)
 - [How to Send a Personal Order Link to Each Party](https://takkada.com/blog/how-to-send-personal-order-link/)
+- [How to Set Markup at Company, Group and Item Level](https://takkada.com/blog/how-to-set-markup-company-group-item/)
 - [How to Set Retailer Margin and Discount per Stock Item](https://takkada.com/blog/how-to-set-retailer-margin-discount-per-item/)
 - [How to Set Up Named Ladder Discounts on an Invoice](https://takkada.com/blog/how-to-set-up-named-ladder-discounts/)
 - [How to Share a Ledger Statement on WhatsApp From Tally](https://takkada.com/blog/how-to-share-ledger-statement-whatsapp-tally/)
@@ -398,6 +400,11 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 - [10% + 5% + 2%, Shown and Totalled Right: Ladder Discount in Tally Invoices](https://takkada.com/blog/ladder-discount-in-tally-invoices/)
 - [Agri Input Dealer Scheme Software: When the Year Lands in Two Windows](https://takkada.com/blog/crop-protection-dealer-scheme-software/)
+- [Auto Parts Billing for Commercial-Vehicle Parts Wholesalers](https://takkada.com/blog/commercial-vehicle-parts-billing/)
+- [Auto Parts Billing for Lubricant and Battery Distributors](https://takkada.com/blog/lubricant-battery-distributor-billing/)
+- [Auto Parts Billing for Tractor and Farm-Machinery Parts Dealers](https://takkada.com/blog/tractor-farm-machinery-parts-billing/)
+- [Auto Parts Billing for Two-Wheeler Spare Parts Distributors](https://takkada.com/blog/two-wheeler-spare-parts-billing/)
+- [Auto Parts Billing Software for Tally: Selling Price from Last Purchase Cost + Markup](https://takkada.com/blog/auto-parts-billing-software-for-tally/)
 - [Dealer Scheme Management in Tally: Why the Season Never Settles Cleanly](https://takkada.com/blog/dealer-scheme-management-tally/)
 - [Discount par Discount Kaise Lagaye Invoice mein](https://takkada.com/blog/discount-par-discount-invoice-mein/)
 - [FMCG Billing for Beverage and Dairy Distributors](https://takkada.com/blog/fmcg-billing-beverage-dairy-distributors/)
@@ -414,9 +421,12 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Ladder Discount for Paint Dealers with Trade and Cash Discount](https://takkada.com/blog/ladder-discount-paint-dealers/)
 - [Ladder Discount for Pharma Distributors with Trade Discount](https://takkada.com/blog/ladder-discount-pharma-trade-discount/)
 - [Ladder Discount for Tiles and Sanitaryware Dealers](https://takkada.com/blog/ladder-discount-tiles-sanitaryware-dealers/)
+- [Markup by Stock Group: Pricing Thousands of Part Numbers Without a Spreadsheet](https://takkada.com/blog/markup-by-stock-group-part-numbers/)
 - [Quantity Discount vs Cash Discount: What Changes in the Books and Under GST](https://takkada.com/blog/quantity-discount-vs-cash-discount-gst/)
 - [Scheme Credit Note GST Treatment: When a Payout Reduces Tax and When It Only Moves Money](https://takkada.com/blog/scheme-credit-note-gst-distributors/)
 - [Season Scheme Calculation for Dealers: Settling Kharif and Rabi Without a Fight](https://takkada.com/blog/season-scheme-settlement-agri-input/)
+- [Spare Parts ka Rate Cost + Margin se Kaise Banaye](https://takkada.com/blog/spare-parts-rate-cost-plus-margin/)
+- [Spare Parts Pricing for Auto Parts Importers After Every Container](https://takkada.com/blog/spare-parts-pricing-importers-landed-cost/)
 
 ### Tally Mobile
 

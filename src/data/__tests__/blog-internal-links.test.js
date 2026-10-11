@@ -69,6 +69,7 @@ const DEFAULT_FLOOR = 1;
 
 const LINK_FLOORS = {
   'ai-collection-calls': 11,
+  'autoparts-billing-tally': 11,
   'fmcg-module-tally': 11,
   'import-purchase-from-pdf': 11,
   'ladder-discount-tally': 11,
