@@ -60,7 +60,7 @@ A: It shows only orders with quantity left to send. If Dispatch is set to load f
 
 **Q: Can I change the sheet after printing?**
 
-A: You can print the sheet again at any stage, and changes made while the van is still being built show on the new print. Before key-back the Dispatched boxes print blank; after key-back they print the keyed quantities.
+A: You can print the sheet again at any stage, and changes you make to the van show on the new print. Before key-back the Dispatched boxes print blank; after key-back they print the keyed quantities.
 
 **Q: Do I need a printer?**
 
