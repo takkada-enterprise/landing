@@ -19,7 +19,7 @@ The mechanic is the hardest party to reach. He is under a vehicle with greasy ha
 
 ## A round of calls, then another
 
-Send reminders now lists every party that owes money, with the overdue total, the number of overdue bills and the age of the oldest bill. The total matches your Bills Receivable screen, so the garage hears the same figure your ledger shows. Tick the overdue garages, tap Call with AI, and confirm the number of parties and the cost on the sheet before tapping Call now.
+Send reminders now lists every party with an overdue amount, showing the overdue total, the number of overdue bills and the age of the oldest bill. The overdue total matches your Bills Receivable screen, so the garage hears the same figure your ledger shows. Tick the overdue garages, tap Call with AI, and confirm the number of parties and the cost on the sheet before tapping Call now.
 
 Results come back on each party. Garages that promised a date need nothing until then. Garages that dispute a bill, say over a part returned as wrong fitment, show Disputes amount with the reason and the invoice in the note. A party with a call already queued is skipped and named on the result sheet, so nobody gets two calls at once.
 

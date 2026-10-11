@@ -31,7 +31,7 @@ Tap **Save Settings**.
 
 ## Step 3: Open Send reminders now
 
-Back on Payment Reminders, tap **Send reminders now** ("Chase selected customers straight away"). The screen lists every party that owes money, with the overdue total, the number of overdue bills and the age of the oldest bill. The total matches your Bills Receivable screen.
+Back on Payment Reminders, tap **Send reminders now** ("Chase selected customers straight away"). The screen lists every party with an overdue amount, showing the overdue total, the number of overdue bills and the age of the oldest bill. The overdue total matches your Bills Receivable screen.
 
 ## Step 4: Pick the parties
 

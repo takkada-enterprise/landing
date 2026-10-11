@@ -19,7 +19,7 @@ Collection runs through agents. The agent visits each town once or twice a seaso
 
 ## Calls between the agent's visits
 
-Send reminders now lists every party that owes money, with the overdue total, the number of overdue bills and the age of the oldest bill, from the same figures as your Bills Receivable screen. You can search by name or filter by Tally ledger group. If your ledgers are grouped by agent or by state, one tap narrows the list to the parties one agent handles.
+Send reminders now lists every party with an overdue amount, showing the overdue total, the number of overdue bills and the age of the oldest bill, from the same figures as your Bills Receivable screen. You can search by name or filter by Tally ledger group. If your ledgers are grouped by agent or by state, one tap narrows the list to the parties one agent handles.
 
 Tap Call with AI, and the confirm sheet shows the number of parties and the cost before you tap Call now. A party the AI cannot call is named on the result sheet with the reason, such as no phone number on the ledger or the monthly AI call limit reached.
 

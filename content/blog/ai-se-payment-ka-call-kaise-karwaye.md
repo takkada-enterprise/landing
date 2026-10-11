@@ -34,7 +34,7 @@ Phir **Save Settings** dabao.
 
 ## Call kaise lagaye
 
-Payment Reminders mein **Send reminders now** kholo. Wahan har woh party dikhegi jiska paisa baaki hai, kitna overdue hai, kitne bill pending hain, aur sabse purana bill kitne din ka hai. Yeh amount wahi hai jo Bills Receivable mein dikhta hai.
+Payment Reminders mein **Send reminders now** kholo. Wahan har woh party dikhegi jiska paisa overdue hai, kitna overdue hai, kitne bill pending hain, aur sabse purana bill kitne din ka hai. Yeh overdue amount wahi hai jo Bills Receivable mein dikhta hai.
 
 Naam se search karo, ya Tally ke ledger group se filter karo. Party tick karo aur neeche **Call with AI** dabao. Sheet pe likha aayega "Call 15 parties with AI", aur kharcha bhi wahin dikhega. **Call now** dabao.
 

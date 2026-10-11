@@ -20,7 +20,7 @@ That is where the overdue list grows. By the end of the month, sixty shops are p
 
 ## How the calls fit the beat
 
-Send reminders now lists every party that owes money, with the overdue total, the number of overdue bills and the age of the oldest bill. The total matches your Bills Receivable screen. If your Tally ledgers are grouped by route or area, the group chips let you pick the beats that are not running this week and tick only those shops.
+Send reminders now lists every party with an overdue amount, showing the overdue total, the number of overdue bills and the age of the oldest bill. The overdue total matches your Bills Receivable screen. If your Tally ledgers are grouped by route or area, the group chips let you pick the beats that are not running this week and tick only those shops.
 
 Tap Call with AI and the confirm sheet shows how many parties will be called and the cost before you tap Call now. The result sheet then says "Queued 42 calls" and names every shop that was skipped, with the reason: no phone number on the ledger, asked not to be called, a call already queued, nothing overdue, or the monthly AI call limit reached.
 
