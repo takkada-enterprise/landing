@@ -26,7 +26,7 @@ Above the form, Already tried shows the last five entries on that party, with wh
 
 ## When harvest money starts coming in
 
-Set the next follow-up date for the week the mandi opens. On that morning, the party appears under Follow-ups due in the daily brief at the top of the Recovery screen. Promises due today lists every party whose promised date is today.
+Set the next follow-up date for the week the mandi opens. On that morning, the party appears under Follow-ups due in the daily brief at the top of the Recovery screen. Promises due today lists the parties whose promised date is today.
 
 After a promised date passes, the party's receipts in Tally up to that date decide the status: all received reads Promise kept, some reads Part paid, none reads Promise missed. If Takkada's copy of your Tally data has not caught up past that date, the promise shows Awaiting confirmation until it does. In a busy harvest week, that keeps a farmer off the missed list while your books are still catching up.
 
