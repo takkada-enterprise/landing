@@ -63,7 +63,7 @@ A: Yes. Switch off "Call again when a promise is missed" on the AI calling scree
 
 **Q: Does Call with AI also send a WhatsApp reminder?**
 
-A: No. Send now and Call with AI are separate buttons on the same ticked list. Tap the one you want, or both.
+A: Not on its own. Send now and Call with AI are separate buttons on the same ticked list. If the party asks for details on the call, their bills are sent on WhatsApp once.
 
 ## Get set up
 

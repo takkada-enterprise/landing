@@ -10,7 +10,7 @@ category: "Comparisons"
 excerpt: "Your accountant and an AI agent can work the same overdue list. Here is what each one does well, what each leaves on record, and how to split the list."
 ---
 
-Office staff calling vs AI calling comes down to this: your staff are better at the few parties who need judgement and a relationship, and the AI is better at asking the long list of everyone else, the same way every time, and writing every answer down. In Takkada, both work from the same overdue list in Send reminders now, built from your Tally books. With the Recovery dashboard on, your accountant logs each call's outcome, promise and note on the party, and the AI, started from the Call with AI button, logs the same kind of follow-up on its own, tagged AI, with a recording. Both land in the same place, so the owner sees one history per party, whoever made the call. The useful question is which parties go to which caller. This comparison walks through what each does well, what each leaves on record, and a simple way to split one overdue list between your office and the AI.
+Office staff calling vs AI calling comes down to this: your staff are better at the few parties who need judgement and a relationship, and the AI is better at asking the long list of everyone else, the same way every time, and writing every answer down. In Takkada, both work from the same overdue list in Send reminders now, built from your Tally books. With the Recovery dashboard on, your accountant logs each call's outcome, promise and note on the party, and the AI, started from the Call with AI button, logs the same kind of follow-up on its own, tagged AI, with a recording once it is ready. Both land in the same place, so the owner sees one history per party, whoever made the call. The useful question is which parties go to which caller. This comparison walks through what each does well, what each leaves on record, and a simple way to split one overdue list between your office and the AI.
 
 ## The same list, two callers
 
@@ -26,8 +26,8 @@ Your accountant can make perhaps fifteen good calls on a normal day, between ent
 | How many in a day | As many as the day allows | Every party you tick, within calling hours |
 | What is said | Depends on who is calling | Your business name, the amount due, the bills, days overdue |
 | Language | Whoever speaks it in the office | One of twelve, set once |
-| What is recorded | Whatever the person logs | Outcome, promise, note and a recording, every time |
-| Missed promise | Someone has to remember | Automatic re-call after the days you set, if switched on |
+| What is recorded | Whatever the person logs | Outcome and note on every call; a promise when one is given; a recording once it is ready |
+| Missed promise or no reply | Someone has to remember | Automatic re-call after a missed promise, and another try on the next calling day when there was no answer or no date, if switched on |
 | Judgement calls | Yes: discounts, extra time, a visit | No. It records the dispute and passes it to you |
 
 ## Where your staff win

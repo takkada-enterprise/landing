@@ -10,7 +10,7 @@ category: "Collections"
 excerpt: "Contractors on 45 to 90 day credit, payments tied to their own site bills, and a promise that moves every week. Here is how AI calls keep every promise on record."
 ---
 
-AI collection calls for hardware and building-material traders keep a written record of every contractor's promise, so the next call starts from what they said last time. In Takkada, you open Send reminders now, tick the contractors, masons and small builders who are past their credit days, and tap Call with AI. An AI agent calls each one in the language you set, names your business and the amount due from your Tally books, and asks when they will pay. The answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and a recording. If a contractor misses the date he gave, the AI can call him again on its own a set number of days later. For a trader selling cement, steel, pipes and fittings to builders on 45 to 90 day credit, the promises stop living in one person's diary.
+AI collection calls for hardware and building-material traders keep a written record of every contractor's promise, so the next call starts from what they said last time. In Takkada, you open Send reminders now, tick the contractors, masons and small builders who are past their credit days, and tap Call with AI. An AI agent calls each one in the language you set, names your business and the amount due from your Tally books, and asks when they will pay. The answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and, once ready, the recording. If a contractor misses the date he gave, the AI can call him again on its own a set number of days later. For a trader selling cement, steel, pipes and fittings to builders on 45 to 90 day credit, the promises stop living in one person's diary.
 
 ## How hardware credit actually runs
 
@@ -32,7 +32,7 @@ A cap on AI calls per party per month, four by default, keeps the follow-up firm
 
 ## Where you see it
 
-With the Recovery dashboard on, every AI call lands on the contractor's follow-up timeline, next to your own calls and visits, with a recording you can play. Without it, results show on the party's bills page under AI call results.
+With the Recovery dashboard on, every AI call lands on the contractor's follow-up timeline, next to your own calls and visits, and its recording plays once it is ready. Without it, results show on the party's bills page under AI call results.
 
 For how the calls work in general, read [AI calling for payment collection](/blog/ai-calling-for-payment-collection-tally), or see the [AI collection calls](/ai-collection-calls) page.
 

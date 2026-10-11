@@ -10,7 +10,7 @@ category: "Collections"
 excerpt: "Seed, fertiliser and pesticide go out on credit all season, and the money comes in only after harvest. Here is how AI calls ask every farmer in the same two weeks."
 ---
 
-AI calls for agri-input dealers let you ask every farmer for payment in the few weeks after harvest, when the money is actually in hand. In Takkada, you open Send reminders now once the mandi sales start, tick the farmers and village retailers who still owe you for the season's seed, fertiliser and pesticide, and tap Call with AI. An AI agent calls each one in the language you set, such as Marathi, Gujarati, Punjabi, Telugu or Hindi, names your shop and the amount due from your Tally books, and asks when they will pay. Each answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and a recording. If a farmer misses the date he gave, the AI can call him again on its own a set number of days later, so the short post-harvest window does not slip by while your counter is busy with sowing.
+AI calls for agri-input dealers let you ask every farmer for payment in the few weeks after harvest, when the money is actually in hand. In Takkada, you open Send reminders now once the mandi sales start, tick the farmers and village retailers who still owe you for the season's seed, fertiliser and pesticide, and tap Call with AI. An AI agent calls each one in the language you set, such as Marathi, Gujarati, Punjabi, Telugu or Hindi, names your shop and the amount due from your Tally books, and asks when they will pay. Each answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and, once ready, the recording. If a farmer misses the date he gave, the AI can call him again on its own a set number of days later, so the short post-harvest window does not slip by while your counter is busy with sowing.
 
 ## The agri-input credit season
 
@@ -50,7 +50,7 @@ A: No. A party with no mobile number on the ledger shows "No mobile number saved
 
 **Q: Does the AI call automatically when the harvest starts?**
 
-A: No. You choose when to start by ticking parties and tapping Call with AI. The only automatic call is the re-call after a missed promise.
+A: No. You choose when to start by ticking parties and tapping Call with AI. After that, the AI tries again by itself after a missed promise, or on the next calling day when a farmer did not pick up or gave no date.
 
 **Q: Can a farmer call back to talk to me?**
 

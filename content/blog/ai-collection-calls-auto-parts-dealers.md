@@ -9,7 +9,7 @@ category: "Collections"
 excerpt: "Two hundred garages, small bills every day, and a mechanic who is under a truck when you call. Here is how AI calls handle the follow-up and try again."
 ---
 
-AI collection calls for auto parts dealers take the daily follow-up with garages and mechanics off your counter. In Takkada, you open Send reminders now, tick the garages, workshops and fleet owners who are past their credit days, and tap Call with AI. An AI agent calls each one in the language you set, names your shop and the amount due from your Tally books, and asks when they will pay. The answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and a recording. A mechanic who could not pick up shows No answer, ready for another round. If a garage promises a date and misses it, the AI can call again on its own a set number of days later. For a parts dealer with a long list of small garage accounts, every overdue bill gets asked about without taking your staff away from the counter.
+AI collection calls for auto parts dealers take the daily follow-up with garages and mechanics off your counter. In Takkada, you open Send reminders now, tick the garages, workshops and fleet owners who are past their credit days, and tap Call with AI. An AI agent calls each one in the language you set, names your shop and the amount due from your Tally books, and asks when they will pay. The answer is logged as a follow-up on that party: Will pay with an amount and date, No answer, Wrong number, Disputes amount or Refused, with a note and, once ready, the recording. A mechanic who could not pick up gets another try the next calling day. If a garage promises a date and misses it, the AI can call again on its own a set number of days later. For a parts dealer with a long list of small garage accounts, every overdue bill gets asked about without taking your staff away from the counter.
 
 ## How garage credit builds up
 
@@ -21,7 +21,7 @@ The mechanic is the hardest party to reach. He is under a vehicle with greasy ha
 
 Send reminders now lists every party that owes money, with the overdue total, the number of overdue bills and the age of the oldest bill. The total matches your Bills Receivable screen, so the garage hears the same figure your ledger shows. Tick the overdue garages, tap Call with AI, and confirm the number of parties and the cost on the sheet before tapping Call now.
 
-Results come back on each party. Garages that promised a date need nothing until then. Garages that dispute a bill, say over a part returned as wrong fitment, show Disputes amount with the reason and the invoice in the note. No answers stay on your list for the next round, and a party with a call already queued is skipped and named on the result sheet, so nobody gets two calls at once.
+Results come back on each party. Garages that promised a date need nothing until then. Garages that dispute a bill, say over a part returned as wrong fitment, show Disputes amount with the reason and the invoice in the note. A party with a call already queued is skipped and named on the result sheet, so nobody gets two calls at once.
 
 ## Calling hours for workshop hours
 
@@ -31,7 +31,7 @@ A cap on AI calls per party per month, four by default, stops a small garage fro
 
 ## Where the results show
 
-With the Recovery dashboard on, each AI call sits on the garage's follow-up timeline, tagged AI, next to your staff's own calls, and Recovery's History tab shows each promise with its amount and date. Without it, the results show on the party's bills page under AI call results. Every AI call has a recording you can play.
+With the Recovery dashboard on, each AI call sits on the garage's follow-up timeline, tagged AI, next to your staff's own calls, and Recovery's History tab shows each promise with its amount and date. Without it, the results show on the party's bills page under AI call results. An AI call's recording plays from the timeline once it is ready.
 
 For the full picture, read [AI calling for payment collection](/blog/ai-calling-for-payment-collection-tally), or see the [AI collection calls](/ai-collection-calls) page.
 
@@ -39,7 +39,7 @@ For the full picture, read [AI calling for payment collection](/blog/ai-calling-
 
 **Q: What happens when the mechanic does not pick up?**
 
-A: The call is logged as No answer on that party. You can tick those parties again in a later round, up to the monthly AI call cap you set.
+A: With "Call again when a promise is missed" on, the AI tries that garage again on the next calling day, within your calling hours and the monthly AI call cap. You can also tick it again yourself in a later round.
 
 **Q: Can the AI call on Sunday?**
 

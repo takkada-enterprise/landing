@@ -31,11 +31,14 @@ Each line names the file on takkada `origin/main` (or supabase-functions `origin
 - The note holds what the party said, plus dispute reason, disputed invoice, who picked up, a claimed payment date and reference when given (same migration, `v_note_parts`).
 - A party who asks not to be called again is not called again (`party_ai_call_optout`; app copy "Asked not to be called").
 - Where each piece shows: the party's timeline ("Already tried") prints author · outcome · time, the note, the AI tag and Play recording (`log_followup_sheet.dart:233–300`). The promise prints as "Promised ₹X by <date>" with its status (Promised, Paid, Missed, Part paid) and the next follow-up as "Next: <date>" on the Recovery dashboard's **History** tab (`recovery_history_tab.dart:368–430`). Do not say the promise amount prints on the per-party timeline.
-- **Play recording** on an AI call row; "Recording not available yet" before it is ready (`log_followup_sheet.dart:292–322`).
+- **Play recording** on an AI call row; "Recording not available yet" before it is ready (`log_followup_sheet.dart:292–322`). Say the recording plays once it is ready. Never "every call has a recording" or "every time": unanswered calls have none, and a promise exists only when given.
+- "No answer" may appear in the outcome list (the code backs it), but do not claim an unanswered call shows up as a No answer row: on prod no AI follow-up with no_answer has been written yet.
 - With the Recovery dashboard on, the result lands on the party's follow-up timeline. Without it, it shows on the party's bills page under **AI call results** (`send_reminders_now_screen.dart:594–597`, `bills_party_page_screen.dart:1826`).
 
 **Owner settings** (screen "AI calling", Payment Reminders → AI calling, subtitle "Automatic re-calls, calling hours, language and limits"; `ai_calling_settings_screen.dart`, defaults in `reminder_config.dart` `AiCallSettings`)
 - **Call again when a promise is missed**: "If a party does not pay what they promised, the AI calls them again". On by default; **Days after the promised date** (default 1, 0–30).
+- The same automatic sweep also tries again, on the next open calling day, a party whose last AI call ended without an answer or with no promise date (outcome no_answer, spoke_will_pay or other with no promise). Same delay, calling window, monthly cap and the same toggle. Refused, Disputes amount and Wrong number are not re-tried (supabase-functions `20261036050000_ai_recall_retries_no_answer_and_no_promise_date.sql`; live prod `prepare_ai_recall_requests` contains `retry_calls`). Word it as "tries again on the next calling day when a party did not pick up or gave no date"; never as a visible "No answer" row.
+- If the party asks for details during the call, their open bills are sent to them on WhatsApp once and a note is logged, "Details sent on WhatsApp after the AI call" (`complete_ai_call_request` → `enqueue_ai_call_details_share`, supabase-functions `20261035100100…:928`). Call with AI does not send a WhatsApp reminder on its own.
 - Calling hours: **Start calling from** / **Stop calling at** (default 10:00 to 18:00).
 - **Calling days**: Mon to Sun chips (default Mon to Sat).
 - **Max AI calls per party per month** (default 4, range 1–31).
@@ -48,8 +51,8 @@ Each line names the file on takkada `origin/main` (or supabase-functions `origin
 - The per-minute rate or any ₹ figure for calls, the add-on or a plan. (The app shows a rate on the confirm sheet; it stays out of the blog.)
 - The calling vendor's name, or any internal tool name.
 - Any language beyond the twelve in the dropdown. Do not say the AI picks the language per party or switches language mid-call; the language is one company setting.
-- That the AI calls automatically on its own from day one of overdue. The only automatic call is the re-call after a missed promise; every first call starts from a person ticking parties and tapping Call with AI.
-- That the AI collects money, takes a payment on the call, sends a payment link on the call, or sends a WhatsApp after the call.
+- That the AI calls automatically on its own from day one of overdue. Every first call starts from a person ticking parties and tapping Call with AI; the automatic calls are only the follow-ups above (missed promise, no answer, no date). Never write "the only automatic call is the re-call". Never mention a same-day retry a couple of hours later (stage only).
+- That the AI collects money, takes a payment on the call, or sends a payment link on the call. (The one WhatsApp after a call is the details share above, only when the party asks.)
 - That it writes anything back into Tally. The result is a follow-up in the app.
 - Call counts, connection rates, recovery percentages, "N companies use this", customer names, testimonials.
 - Sentiment, escalation, payment mode, or any other output not listed under Can say.
