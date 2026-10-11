@@ -45,7 +45,7 @@ A: PDF, JPG or PNG, up to 5 MB. You can take a photo, pick one from the gallery 
 
 **Q: Will it remember my item names next time?**
 
-A: Yes. After a successful import, the item you mapped a supplier's line to is suggested again on that supplier's next bill. Prices are never remembered; the new bill's figures are used.
+A: Yes. After a successful import, the item you mapped a supplier's line to is suggested again on that supplier's next bill. Rates and discounts are never remembered; the new bill's figures are used.
 
 **Q: Can I import a bank statement the same way?**
 
