@@ -44,7 +44,7 @@ Only the business admin can change markups. Members allowed to see purchase cost
 
 ## When costs move
 
-The markups stay put while the costs underneath them change with each purchase bill. Tap Price changes to see each recent purchase bill, which parts it moved and what that did to their selling prices at today's markup.
+The markups stay put while the costs underneath them change with each purchase bill. Tap Price changes to see each recent purchase bill that moved a cost, which parts it moved and what that did to their selling prices at today's markup.
 
 The full set of rules is in the [AutoParts billing guide](/blog/auto-parts-billing-software-for-tally), and the screens are on [cost-plus pricing for Tally](/autoparts-billing-tally).
 

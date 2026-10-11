@@ -36,7 +36,7 @@ The Purchase price changes screen lists the recent purchase bills and which part
 
 | | Spreadsheet price list | Cost-plus in AutoParts billing |
 |---|---|---|
-| When cost changes | Price changes when someone edits the sheet | Price follows the next purchase bill that reaches the app |
+| When cost changes | Price changes when someone edits the sheet | Price follows the latest qualifying purchase bill (or the preferred supplier's) once it reaches the app |
 | Different markups by brand | A column per row, copied down | One markup per stock group, item overrides |
 | Who sees the cost | Anyone with the file | Cost and markup held back from staff not allowed to see purchase costs |
 | Parts with no purchase | Whatever was typed | Shown as Never purchased or No usable cost, billed at the normal price |

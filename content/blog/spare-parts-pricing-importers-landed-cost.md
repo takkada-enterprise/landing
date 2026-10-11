@@ -7,10 +7,10 @@ primary_keyword: "spare parts pricing for auto parts importers"
 date: "2026-10-12"
 author: "harsh"
 category: "Schemes"
-excerpt: "A container lands hundreds of part numbers at new costs. Here is how the purchase bill resets each part's cost, how the selling price follows your markup, and how the moves show up on one card."
+excerpt: "A container lands hundreds of part numbers at new costs. Here is how the purchase bill resets the cost of the parts it prices, how the selling price follows your markup, and how the moves show up on one card."
 ---
 
-Spare parts pricing for auto parts importers gets easier when the container's purchase bill itself resets the price of each part, and that is how AutoParts billing in Takkada works. Once the purchase bill reaches the app, each part on it gets a new cost: the money paid per unit on that bill after the trade discount, before GST. Your markup for the part's stock group, or its own markup, turns that cost into the selling price. A part on two lines of one bill, 300 pieces at a list of ₹600 less 58% and 100 pieces at a net ₹270, costs ₹256.50, the weighted average of the two lines. At a 35% markup its selling price moves from ₹324.00 to ₹346.28 before GST. The Purchase price changes screen then shows the whole container as one card, with each part's old and new cost and the parts that moved more than 10% highlighted.
+Spare parts pricing for auto parts importers gets easier when the container's purchase bill itself resets the price of the parts on it, and that is how AutoParts billing in Takkada works. Once the purchase bill reaches the app, each part on it that qualifies takes its cost from that bill: the money paid per unit after the trade discount, before GST. Your markup for the part's stock group, or its own markup, turns that cost into the selling price. A part on two lines of one bill, 300 pieces at a list of ₹600 less 58% and 100 pieces at a net ₹270, costs ₹256.50, the weighted average of the two lines. At a 35% markup its selling price moves from ₹324.00 to ₹346.28 before GST. If the bill moved any costs, the Purchase price changes screen shows the container as one card, with each part's old and new cost and the parts that moved more than 10% highlighted.
 
 ## The importer's month
 
@@ -32,7 +32,7 @@ The cost follows the item lines on the purchase bill. Customs duty, freight or c
 
 ## The Price changes card
 
-Open Settings, Invoices, AutoParts billing, and tap Price changes. Each purchase bill from the last 90 days is one card: bill number and date, the supplier, and a line such as "212 items · 17 moved more than 10%". Inside, the parts with the largest moves come first.
+Open Settings, Invoices, AutoParts billing, and tap Price changes. Each purchase bill from the last 90 days that moved a cost is one card: bill number and date, the supplier, and a line such as "212 items · 17 moved more than 10%". Inside, the parts with the largest moves come first.
 
 Each row reads like this: Cost 240.00 → 256.50, +6.88%, and the selling price 324.00 → 346.28. A second part going from ₹80.00 to ₹92.00 is a 15% move, so its row is marked Over 10%. The selling prices on this screen use today's markup, as the screen says, so the list tells you what the container does to your price now.
 

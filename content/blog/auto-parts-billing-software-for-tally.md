@@ -10,7 +10,7 @@ category: "Schemes"
 excerpt: "A parts business lives on cost plus a markup that differs by brand. Here is how Takkada reads the cost from your purchase bills, applies your markup and puts the price on the bill, worked on a ₹250.24 bearing."
 ---
 
-Auto parts billing software for Tally should price a part from what you paid for it, and Takkada's AutoParts billing does exactly that: the selling price is the last purchase cost plus a markup you set for the whole company, for a stock group or for a single item. The cost is read from the latest purchase bill for that part in your books, per unit, after the trade discount on the line and before GST. A bearing that cost ₹250.24, with a 40% markup, sells at ₹350.34 before GST, and the bill adds GST on top. When the next consignment's purchase bill reaches the app at a new cost, the selling price moves with it, and the Purchase price changes screen lists which parts moved and by how much. An item's own markup wins over its group's, and the group's wins over the company default. Cost and markup stay hidden from staff who are not allowed to see purchase costs.
+Auto parts billing software for Tally should price a part from what you paid for it, and Takkada's AutoParts billing does exactly that: the selling price is the last purchase cost plus a markup you set for the whole company, for a stock group or for a single item. The cost is read from the latest purchase bill for that part in your books, per unit, after the trade discount on the line and before GST. A bearing that cost ₹250.24, with a 40% markup, sells at ₹350.34 before GST, and the bill adds GST on top. When the next consignment's purchase bill reaches the app at a new cost, the selling price of each part it prices moves with it, and the Purchase price changes screen lists which parts moved and by how much. An item's own markup wins over its group's, and the group's wins over the company default. Cost and markup stay hidden from staff who are not allowed to see purchase costs.
 
 ## Why parts prices drift
 
@@ -44,7 +44,7 @@ The line keeps the cost, markup and purchase date it was priced from. Reopening 
 
 ## When a consignment lands
 
-The Price changes button opens Purchase price changes: one card per purchase bill from the last 90 days, such as "38 items · 4 moved more than 10%". Each part shows its old and new cost, the change in percent, and its selling price before and after at today's markup.
+The Price changes button opens Purchase price changes: one card for each purchase bill from the last 90 days that moved a cost, such as "38 items · 4 moved more than 10%". Each part shows its old and new cost, the change in percent, and its selling price before and after at today's markup.
 
 The module page, [cost-plus pricing for Tally](/autoparts-billing-tally), shows the screens.
 

@@ -10,7 +10,7 @@ category: "Schemes"
 excerpt: "Bearing ₹250.24 mein aaya, 40% laga ke ₹350.34. Spare parts ka rate purchase cost aur markup se kaise banta hai, aur cost badalne par rate kaise badalta hai, seedhi bhasha mein."
 ---
 
-Spare parts ka rate cost + margin se banane ka seedha tarika hai: part ki last purchase cost lo aur us par apna markup lagao, aur Takkada ka AutoParts billing yahi hisaab phone par khud karta hai. Cost aati hai us part ke latest purchase bill se, line ka discount ghata ke, GST se pehle, part ki apni unit mein. Markup aap teen jagah set kar sakte ho: poori company ke liye, kisi stock group ke liye, ya ek item ke liye. Item ka apna markup sabse pehle, phir group ka, phir company ka. Ek bearing ₹250.24 mein aaya aur group ka markup 40% hai, to rate bana ₹350.34, GST alag se bill par judega. Agla purchase bill naye cost par app mein aaya, to rate bhi naye cost se banega. Counter wale ko sirf selling rate dikhta hai, cost aur markup unhe nahi dikhte jinhe purchase cost dekhne ki permission nahi hai.
+Spare parts ka rate cost + margin se banane ka seedha tarika hai: part ki last purchase cost lo aur us par apna markup lagao, aur Takkada ka AutoParts billing yahi hisaab phone par khud karta hai. Cost aati hai us part ke latest purchase bill se, line ka discount ghata ke, GST se pehle, part ki apni unit mein. Markup aap teen jagah set kar sakte ho: poori company ke liye, kisi stock group ke liye, ya ek item ke liye. Item ka apna markup sabse pehle, phir group ka, phir company ka. Ek bearing ₹250.24 mein aaya aur group ka markup 40% hai, to rate bana ₹350.34, GST alag se bill par judega. Agla purchase bill naye cost par app mein aaya aur woh part ke liye ginti mein aata hai, to rate naye cost se banega. Counter wale ko sirf selling rate dikhta hai, cost aur markup unhe nahi dikhte jinhe purchase cost dekhne ki permission nahi hai.
 
 ## Dukaan ka asli scene
 
@@ -51,7 +51,7 @@ Kuch part ka rate cost se nahi banta. Jo part kabhi khareeda hi nahi, Stock Summ
 
 ## Naya maal aaya, rate kitna badla
 
-AutoParts billing screen par Price changes dabao. Pichhle 90 din ke purchase bill ek-ek card mein dikhte hain. Card ke andar part ka purana aur naya cost, kitne percent badla, aur selling rate pehle aur ab, aaj ke markup se. 10% se zyada badle part alag se highlight hote hain.
+AutoParts billing screen par Price changes dabao. Pichhle 90 din ke woh purchase bill, jinse kisi part ka cost badla, ek-ek card mein dikhte hain. Card ke andar part ka purana aur naya cost, kitne percent badla, aur selling rate pehle aur ab, aaj ke markup se. 10% se zyada badle part alag se highlight hote hain.
 
 Poore niyam [AutoParts billing guide](/blog/auto-parts-billing-software-for-tally) mein hain, aur screens [cost-plus pricing for Tally](/autoparts-billing-tally) page par.
 

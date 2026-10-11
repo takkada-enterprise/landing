@@ -22,7 +22,7 @@ Most wholesalers keep two price lists for this, and keeping both in step with co
 
 The levels are called SP1 and SP2 until you rename them. Open Settings, Invoices, AutoParts billing, tap Level names, and call them Retail and Fleet, up to 24 characters each. Renaming changes only the words on screen.
 
-Each markup dialog then has two boxes: Retail markup % and Fleet markup %. Set them for the company default, for a stock group, or for a single item. The same order applies at both levels: the item's own figure first, then its group's, then the company default. Leave the second box blank and that item has no Fleet price, in which case a Fleet party is billed that item at its normal price.
+Each markup dialog then has two boxes: Retail markup % and Fleet markup %. Set them for the company default, for a stock group, or for a single item. The same order applies at both levels: the item's own figure first, then its group's, then the company default. A blank Fleet box on an item or group falls through to the next level. If no level (item, group or company default) has a Fleet markup, a Fleet party is billed that item at its normal price.
 
 ## Putting a party on a level
 
@@ -58,7 +58,7 @@ A: The business admin, from the party's edit sheet. Parties start on the first l
 
 **Q: What if an item has no second-level markup?**
 
-A: A party on the second level is billed that item at its normal price.
+A: It takes its group's, then the company default's. If none of the three has one, a party on the second level is billed that item at its normal price.
 
 **Q: Do both prices change when the cost changes?**
 

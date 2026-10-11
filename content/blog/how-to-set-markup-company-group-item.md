@@ -40,7 +40,7 @@ If a part comes from more than one supplier, tap the truck button on its group, 
 
 ## Step 6: Name and use the second level
 
-Tap Level names to rename SP1 and SP2, for example Retail and Dealer, up to 24 characters. Each markup dialog has a box for each level; leave the second blank for no second-level price. Then open a party's edit sheet and choose its AutoParts price level.
+Tap Level names to rename SP1 and SP2, for example Retail and Dealer, up to 24 characters. Each markup dialog has a box for each level. A blank second box falls through to the group's figure, then the company default's, and an item with no second-level markup at any of the three has no second-level price. Then open a party's edit sheet and choose its AutoParts price level.
 
 ## Step 7: Check the result
 

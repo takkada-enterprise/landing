@@ -10,7 +10,7 @@ category: "Schemes"
 excerpt: "Thousands of small parts, hundreds of garages and a brand price change every few months. Here is how cost-plus billing keeps the counter's rates in step with what you paid."
 ---
 
-Auto parts billing for two-wheeler spare parts distributors works best when the bill price of each part follows its last purchase cost plus your markup, and Takkada's AutoParts billing sets it up that way on the phone. You give each stock group its markup once, for example 30% on brake parts and 28% on clutch parts, and the app reads each part's cost from its latest purchase bill, after the trade discount and before GST. A brake shoe set that cost ₹142.60 sells at ₹185.38, and a clutch plate that cost ₹318.45 sells at ₹407.62, both before GST. When the brand raises its price and your next purchase bill reaches the app, the selling price follows. Your counter staff bill from the phone at the right rate without seeing what you paid, and the item's card shows the date of the purchase the cost came from, so you can tell how fresh it is.
+Auto parts billing for two-wheeler spare parts distributors works best when the bill price of each part follows its last purchase cost plus your markup, and Takkada's AutoParts billing sets it up that way on the phone. You give each stock group its markup once, for example 30% on brake parts and 28% on clutch parts, and the app reads each part's cost from its latest purchase bill, after the trade discount and before GST. A brake shoe set that cost ₹142.60 sells at ₹185.38, and a clutch plate that cost ₹318.45 sells at ₹407.62, both before GST. When the brand raises its price and your next purchase bill reaches the app, the selling price follows. Counter staff who are not allowed to see purchase costs bill from the phone at the right rate without seeing what you paid, and the item's card shows the date of the purchase the cost came from, so you can tell how fresh it is.
 
 ## The counter on a busy morning
 
@@ -48,7 +48,7 @@ A part bought only in boxes of ten, while its Tally unit is pieces, has no purch
 
 ## After a price revision
 
-Tap Price changes on the AutoParts billing screen. The latest purchase bill shows how many items moved and how many moved more than 10%, with each part's old and new cost and selling price. The rules behind the numbers are in the [AutoParts billing guide](/blog/auto-parts-billing-software-for-tally), and the module page is [cost-plus pricing for Tally](/autoparts-billing-tally).
+Tap Price changes on the AutoParts billing screen. Each recent purchase bill that moved a cost shows how many items moved and how many moved more than 10%, with each part's old and new cost and selling price. The rules behind the numbers are in the [AutoParts billing guide](/blog/auto-parts-billing-software-for-tally), and the module page is [cost-plus pricing for Tally](/autoparts-billing-tally).
 
 ## Frequently Asked Questions
 

@@ -10,7 +10,7 @@ category: "Schemes"
 excerpt: "Season-driven demand, slow movers bought months ago and farmers who pay after harvest. Here is how cost-plus billing prices tractor parts from the last purchase, worked on a ₹4,850 hydraulic pump."
 ---
 
-Auto parts billing for tractor and farm-machinery parts dealers can take the selling price of each part from its last purchase cost plus your markup, and AutoParts billing in Takkada does this from the phone. You set a markup for each stock group, such as 18% on hydraulic parts and 32% on filters, and the app reads each part's cost from its latest purchase bill, after the trade discount and before GST. A hydraulic pump that cost ₹4,850.00 sells at ₹5,723.00 before GST, and a filter that cost ₹96.50 sells at ₹127.38. For a slow-moving part bought months ago, the item's card in Stock Summary shows "Cost as of" with the purchase date, so you know how old the cost behind the price is. When a fresh purchase reaches the app before the season, the selling price follows it, and the Purchase price changes screen lists which parts moved. GST is added on the bill at each item's rate.
+Auto parts billing for tractor and farm-machinery parts dealers can take the selling price of each part from its last purchase cost plus your markup, and AutoParts billing in Takkada does this from the phone. You set a markup for each stock group, such as 18% on hydraulic parts and 32% on filters, and the app reads each part's cost from its latest purchase bill, after the trade discount and before GST. A hydraulic pump that cost ₹4,850.00 sells at ₹5,723.00 before GST, and a filter that cost ₹96.50 sells at ₹127.38. For a slow-moving part bought months ago, the item's card in Stock Summary shows "Cost as of" with the purchase date, so you know how old the cost behind the price is. When a fresh purchase that qualifies reaches the app before the season, the selling price follows it, and the Purchase price changes screen lists which parts moved. GST is added on the bill at each item's rate.
 
 ## The dealer's year
 
@@ -57,7 +57,7 @@ A: The person billing can type a different rate on the line, and the line keeps 
 
 **Q: Do sales returns use the cost-plus price?**
 
-A: No. Credit notes do not take the AutoParts price; it applies to sales invoices, quotations and sales orders.
+A: No. Credit notes do not take the AutoParts price; it applies on the sales side, such as invoices, quotations, sales orders and delivery challans.
 
 ## Talk to us
 
