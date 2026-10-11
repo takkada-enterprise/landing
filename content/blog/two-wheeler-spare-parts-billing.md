@@ -36,7 +36,7 @@ On a sales invoice from the phone, 20 brake shoe sets come in at ₹185.38 each:
 
 Ten clutch plates at ₹407.62 make ₹4,076.20 taxable, with ₹366.86 each of CGST and SGST, for ₹4,809.92. The GST rates here are an example; the bill uses each item's own GST rate.
 
-If a garage bargains and the person billing types a lower rate, the line keeps the typed rate. The invoice reaches Tally as a sales voucher with each line's rate.
+If a garage bargains and the person billing types a lower rate, the line keeps the typed rate, unless the owner has locked rates for staff. The invoice reaches Tally as a sales voucher with each line's rate.
 
 ## Who sees the cost
 

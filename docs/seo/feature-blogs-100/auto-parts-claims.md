@@ -70,7 +70,7 @@ Checked 2026-10-12 against prod and takkada `origin/main` (e80468be, the live re
 - "Cost always resolves" / "every part gets a price". Never purchased, No usable cost, Prices are being prepared all exist.
 - "The price updates instantly / the moment you book the purchase." It updates after the purchase reaches the app; timing not promised.
 - "A parent group's markup flows to its sub-groups." Grouping is by the item's own stock group.
-- "Staff cannot change the rate" / "the price is locked." The rate can be typed over.
+- "Staff cannot change the rate" / "the price is locked" as a rule. The rate can be typed over, unless the owner has switched on the Ladder discount staff lock (Lock rate and first discount for staff), which makes the Rate box read-only for staff. Say "unless the owner has locked rates for staff"; never "anyone can type over the rate" bare.
 - "Margin" as the app's meaning. It is markup on cost (Hinglish post explains the difference).
 - Anything about AutoParts combining with FMCG billing (MRP) or ladder discount.
 - That credit notes, purchases or debit notes use the AutoParts price.

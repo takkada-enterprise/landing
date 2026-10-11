@@ -53,7 +53,7 @@ A: The app prices it from that purchase and shows the purchase date on the item'
 
 **Q: Can the counter give a farmer a lower rate?**
 
-A: The person billing can type a different rate on the line, and the line keeps that rate.
+A: The person billing can type a different rate on the line, and the line keeps that rate, unless the owner has locked rates for staff.
 
 **Q: Do sales returns use the cost-plus price?**
 

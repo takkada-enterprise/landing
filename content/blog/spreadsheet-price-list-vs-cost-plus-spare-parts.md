@@ -62,7 +62,7 @@ A: No. The selling price is rounded to two decimals.
 
 **Q: Will a price typed on the bill be overwritten?**
 
-A: No. If the person billing types a different rate, the line keeps that rate.
+A: No. If the person billing types a different rate, the line keeps that rate, unless the owner has locked rates for staff.
 
 ## Talk to us
 

@@ -40,7 +40,7 @@ Each markup dialog has a second box for a second level. The levels are called SP
 
 On a sales invoice, quotation or sales order, the part arrives at its AutoParts price for that party's level. Ten bearings at ₹350.34 make a taxable value of ₹3,503.40. At 18% GST, CGST is ₹315.31 and SGST is ₹315.31, for a line total of ₹4,134.02.
 
-The line keeps the cost, markup and purchase date it was priced from. Reopening the saved bill later does not re-price it, and an order turned into an invoice carries the same price. If the person billing types a different rate, the line keeps that rate. Tally receives the line's rate like any sales line; the cost and markup stay in the app.
+The line keeps the cost, markup and purchase date it was priced from. Reopening the saved bill later does not re-price it, and an order turned into an invoice carries the same price. If the person billing types a different rate, the line keeps that rate, unless the owner has locked rates for staff. Tally receives the line's rate like any sales line; the cost and markup stay in the app.
 
 ## When a consignment lands
 
