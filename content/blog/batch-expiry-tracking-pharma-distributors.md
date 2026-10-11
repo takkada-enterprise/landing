@@ -30,7 +30,7 @@ The list follows batch-name order with expired stock at the bottom. The clerk pi
 
 ## Rates, PTR and the MRP default
 
-Chemists buy at the trade rate, below MRP. When a batch has an MRP in Tally, the app fills the MRP first because it is the one price printed on the strip. Change it to your trade rate on the line and the line keeps it. If your purchase entries leave batch MRP blank, the app falls back to the last rate you sold that batch at, then to the rate already on the line. Most medicines now sit in the 5% GST slab: in an Excl. GST bill an MRP of ₹105 is filled as ₹100.00.
+Chemists buy at the trade rate, below MRP. When a batch has an MRP in Tally, the app fills the MRP first because it is the one price printed on the strip. Change it to your trade rate on the line and the line keeps it, unless the owner has locked rates for staff. If your purchase entries leave batch MRP blank, the app falls back to the last rate you sold that batch at, then to the rate already on the line. Most medicines now sit in the 5% GST slab: in an Excl. GST bill an MRP of ₹105 is filled as ₹100.00.
 
 ## What the chemist and your Tally receive
 

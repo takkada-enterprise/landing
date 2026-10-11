@@ -64,7 +64,7 @@ A: Yes. The app marks it in red and leaves the decision to you.
 
 **Q: Will the rate always be the MRP?**
 
-A: The MRP comes first when the batch has one. You can type your own rate over it, and the line keeps what you type.
+A: The MRP comes first when the batch has one. You can type your own rate over it, and the line keeps what you type, unless the owner has locked rates for staff.
 
 **Q: Does it work on sales orders and returns?**
 

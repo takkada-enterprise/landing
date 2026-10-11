@@ -69,7 +69,7 @@ A: Settings, Invoices, below Batch numbers on invoices.
 
 **Q: Why does the rate show the MRP?**
 
-A: The batch MRP is the first rate the app fills. Type your own rate and the line keeps it.
+A: The batch MRP is the first rate the app fills. Type your own rate and the line keeps it, unless the owner has locked rates for staff.
 
 **Q: Can I pick an expired batch?**
 

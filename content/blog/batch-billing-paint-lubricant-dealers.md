@@ -28,7 +28,7 @@ Pick the batch the contractor is taking and it prints on his bill. When he retur
 
 ## The rate on the line
 
-The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Painters, contractors and garages usually buy below MRP, so type your rate and the line keeps it. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the rate already on the line.
+The batch MRP fills the rate first: as it is in an Incl. GST bill, with GST taken out in an Excl. GST bill. Painters, contractors and garages usually buy below MRP, so type your rate and the line keeps it, unless the owner has locked rates for staff. If your Tally batches carry no MRP, the line opens at the last rate you sold that batch at, then at the rate already on the line.
 
 ## What the PDF and Tally show
 
