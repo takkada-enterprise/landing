@@ -26,4 +26,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'fmcg-distributor-billing-mobile-se-tally-mein', kind: 'hinglish' },
     { slug: 'manual-rate-calculation-vs-margin-based-fmcg-billing', kind: 'compare' },
   ]},
+  { id: 'recovery-dashboard', featurePage: null, pillar: 'recovery-dashboard-for-tally', posts: [
+    { slug: 'recovery-dashboard-for-tally', kind: 'pillar' },
+    { slug: 'recovery-tracking-fmcg-distributors-field-collectors', kind: 'usecase' },
+    { slug: 'recovery-dashboard-pharma-distributors', kind: 'usecase' },
+    { slug: 'recovery-tracking-agri-input-dealers', kind: 'usecase' },
+    { slug: 'recovery-dashboard-building-material-suppliers', kind: 'usecase' },
+    { slug: 'recovery-tracking-electronics-mobile-distributors', kind: 'usecase' },
+    { slug: 'recovery-dashboard-textile-traders', kind: 'usecase' },
+    { slug: 'how-to-log-follow-up-promise-to-pay', kind: 'howto' },
+    { slug: 'party-ne-payment-promise-toda-kaise-pata-kare', kind: 'hinglish' },
+    { slug: 'recovery-register-notebook-vs-recovery-dashboard', kind: 'compare' },
+  ]},
 ];
