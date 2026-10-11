@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "Chemists check every percentage on a pharma bill against what the rep promised. Here is how a trade discount and an extra step print separately while Tally gets one figure, worked on a ₹17,000 line."
 ---
 
-A ladder discount for pharma distributors lets the chemist's bill show the trade discount and any extra step separately, for example 10% trade and then 2% for prompt payment, while Tally gets the single compounded percentage. In Takkada, you type the steps on a sales invoice or sales order line from the phone. The app applies them one after the other and rounds the total to two decimals: 11.8%. Two hundred strips at a rate of ₹85 before GST come to ₹17,000, and after both steps the taxable value is ₹14,994.00. The line reads "10% + 2% · total 11.8%". The PDF prints Disc. for the trade discount, a column named for your second step, and Total Disc. Tally receives 11.8 in the item line's discount field, next to your rate. The chemist sees both percentages he was promised, and your books carry the same amount as his bill.
+A ladder discount for pharma distributors lets the chemist's bill show the trade discount and any extra step separately, for example 10% trade and then 2% for prompt payment, while Tally gets the single compounded percentage. In Takkada, you type the steps on a sales invoice or sales order line from the phone. The app applies them one after the other and rounds the total to two decimals: 11.8%. Two hundred strips at a rate of ₹85 before GST come to ₹17,000, and after both steps the taxable value is ₹14,994.00. The line reads "10% + 2% · total 11.80%". The PDF prints Disc. for the trade discount, a column named for your second step, and Total Disc. Tally receives 11.8 in the item line's discount field, next to your rate. The chemist sees both percentages he was promised, and your books carry the same amount as his bill.
 
 ## A pharma distributor's day
 
@@ -21,7 +21,7 @@ The chemist's counter checks every bill. A bill showing 11.8% when the rep said 
 
 The owner sets the names once in Settings, Invoices, Discount step names. Second discount and Third discount take up to 16 characters each, so "Prompt" and "Scheme" both fit. The first step is the line's usual Discount %, printed as Disc. on the PDF.
 
-On the bill, add the item, tap its discount, and type 10 in Discount % and 2 in Prompt. The Item Discount sheet shows the strip price after each step, 85.00 → 76.50 → 74.97, total 11.8%.
+On the bill, add the item, tap its discount, and type 10 in Discount % and 2 in Prompt. The Item Discount sheet shows the strip price after each step, 85.00 → 76.50 → 74.97, total 11.80%.
 
 ## The ₹17,000 line
 
@@ -33,7 +33,7 @@ Two hundred strips at a rate of ₹85, rate before GST, 5% GST.
 - CGST ₹374.85 and SGST ₹374.85
 - Line total: ₹15,743.70
 
-Both steps come off before GST, and GST is worked on what remains. For an item taxed at 12%, the same line carries CGST ₹899.64 and SGST ₹899.64, a total of ₹16,793.28. The discount does not change with the tax rate.
+Both steps come off before GST, and GST is worked on what remains. For an item taxed at 18%, the discount and the ₹14,994.00 stay the same; only the GST on top changes.
 
 ## Orders, edits and returns
 
@@ -43,7 +43,7 @@ Expiry and breakage returns go back on a credit note with a plain discount per l
 
 ## Keeping trade discount fixed for staff
 
-Many pharma distributors fix the trade discount and let the billing desk decide only the extra step. The owner can set each item's first discount in Settings, Invoices, First discount by item, and turn on "Lock rate and first discount for staff". On sales invoices, orders and quotations made by non-owner logins, the rate and Discount % then show read-only and staff change only the named steps. The owner's login is not locked.
+Many pharma distributors fix the trade discount and let the billing desk decide only the extra step. The owner can set each item's first discount in Settings, Invoices, First discount by item, and turn on "Lock rate and first discount for staff". On sales invoices, orders and quotations made by non-owner logins, the rate and Discount % then show read-only and staff change only the named steps. The owner's own login is not covered by the lock.
 
 ## What reaches Tally
 

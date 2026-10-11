@@ -9,7 +9,7 @@ category: "How-To"
 excerpt: "Four steps from a blank setting to a bill that prints Disc., your own step names and Total Disc., with an optional lock so staff cannot touch the rate or the first discount."
 ---
 
-To set up named ladder discounts in Takkada, the owner names the second and third discount steps once in Settings, Invoices, Discount step names, and from then on anyone billing a sales invoice or sales order can type up to three steps on a line. The first step is the line's usual Discount %. The two extra steps take your names, up to 16 characters each, such as Trade and Cash, and those names appear on the phone's discount sheet and as column headings on the invoice PDF. Typing 10, 5 and 2 on a ₹10,000 line, rate before GST, gives a total of 16.21% and a taxable value of ₹8,379.00. Tally receives that 16.21 in the item line's discount field. If you want staff to change only the named steps, the owner can also set each item's first discount and turn on a lock. The whole setup takes a few minutes and needs the Ladder discount add-on on your company.
+To set up named ladder discounts in Takkada, the owner names the second and third discount steps once in Settings, Invoices, Discount step names, and from then on anyone billing a sales invoice or sales order can type up to three steps on a line. The first step is the line's usual Discount %. The two extra steps take your names, up to 16 characters each, such as Trade and Cash, and those names appear on the phone's discount sheet and as column headings on the invoice PDF. Typing 10, 5 and 2 on a ₹10,000 line, rate before GST, gives a total of 16.21% and a taxable value of ₹8,379.00. Tally receives that 16.21 in the item line's discount field. If you want staff to change only the named steps, the owner can also set each item's first discount and turn on a lock. The setup needs the Ladder discount add-on on your company.
 
 ## Step 1: Name the two extra steps
 
@@ -52,7 +52,7 @@ From then on, for logins other than the owner, on sales invoices, sales orders a
 - each new line takes the item's first discount
 - the two named steps stay open
 
-The server checks the first discount as well, and refuses a staff line that carries a different one. Credit notes are outside the lock.
+The server checks the first discount as well, and refuses a new staff line that carries a different one. Credit notes are outside the lock.
 
 For the full method behind the totals, read [how the ladder discount works on a Tally invoice](/blog/ladder-discount-in-tally-invoices). The module is at [ladder discount in Tally](/ladder-discount-tally).
 

@@ -44,7 +44,7 @@ If the garage's order was booked first as a sales order, its steps carry into th
 
 ## Holding the dealer discount at your rate
 
-If your dealer discount is fixed and only the extra step is negotiable, the owner can set each item's first discount in Settings, Invoices, First discount by item, and turn on "Lock rate and first discount for staff". For non-owner logins on sales invoices, orders and quotations, the Rate box and Discount % then show read-only, the item's first discount fills new lines, and staff can change only the named steps. Your own login stays free to change both.
+If your dealer discount is fixed and only the extra step is negotiable, the owner can set each item's first discount in Settings, Invoices, First discount by item, and turn on "Lock rate and first discount for staff". For non-owner logins on sales invoices, orders and quotations, the Rate box and Discount % then show read-only, the item's first discount fills new lines, and staff can change only the named steps. The owner's own login is not covered by the lock.
 
 ## What reaches Tally
 

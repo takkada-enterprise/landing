@@ -22,7 +22,7 @@ Checked 2026-10-11 against prod and takkada `origin/main` (e80468be, the release
   - Tiles: 40 boxes at ₹1,250 = ₹50,000. 10% + 5% → **14.5%**. Taxable **₹42,750.00**. 18%: ₹3,847.50 + ₹3,847.50; total ₹50,445.00. Chain 1250.00 → 1125.00 → 1068.75.
   - Paint: 12 tins at ₹2,400 = ₹28,800. 20% + 3% → **22.4%**. Taxable **₹22,348.80**. 18%: ₹2,011.39 + ₹2,011.39; total ₹26,371.58. Chain 2400.00 → 1920.00 → 1862.40.
   - Electrical: 50 pieces at ₹480 = ₹24,000. 30% + 5% + 2% → **34.83%**. Taxable **₹15,640.80**. 18%: ₹1,407.67 + ₹1,407.67; total ₹18,456.14. Chain 480.00 → 336.00 → 319.20 → 312.82.
-  - Pharma: 200 strips at ₹85 = ₹17,000. 10% + 2% → **11.8%**. Taxable **₹14,994.00**. 12%: ₹899.64 + ₹899.64; total ₹16,793.28. (At 5%: ₹374.85 + ₹374.85; total ₹15,743.70.) Chain 85.00 → 76.50 → 74.97.
+  - Pharma: 200 strips at ₹85 = ₹17,000. 10% + 2% → **11.8%**. Taxable **₹14,994.00**. 5% GST (medicines; the 12% slab was folded into 5%/18% in Sept 2025): ₹374.85 + ₹374.85; total ₹15,743.70. Chain 85.00 → 76.50 → 74.97.
   - Auto parts: 10 pieces at ₹1,800 = ₹18,000. 25% + 5% → **28.75%**. Taxable **₹12,825.00**. 18%: ₹1,154.25 + ₹1,154.25; total ₹15,133.50. Chain 1800.00 → 1350.00 → 1282.50.
 
 **Where the steps are set up, and by whom**
@@ -37,6 +37,7 @@ Checked 2026-10-11 against prod and takkada `origin/main` (e80468be, the release
 - Tap the line's discount ("+ Discount" or the discount chip) to open **Item Discount** (`lib/widgets/invoice/cart_sheet.dart:1226–1240`; `add_invoice_items_screen.dart:6899`). With the add-on on, under Discount % sit two more boxes named with the company's step names (`:6947–6951`).
 - As steps are typed the sheet shows the per-unit price after each step and the total, for example "100.00 → 90.00 → 85.50 → 83.79 · total 16.21%" (`:6954`; `ladder_discount.dart:44–64`).
 - A ladder forms only when step 2 or step 3 is filled; with only Discount % typed, the line is an ordinary single-discount line (`billing_discount_form.dart:200–219`).
+- On-screen totals always print two decimals (`ladder_discount.dart:41`, `toStringAsFixed(2)`): "total 22.40%", "total 14.50%", "total 11.80%". The PDF's step and Total Disc. cells trim trailing zeros (`items_table_widget.dart:610–611`), so the PDF reads 22.4%; Tally gets 22.4.
 - The cart chip and the invoice summary line read "10% + 5% + 2% · total 16.21%" (`ladder_discount.dart:37–42`; `cart_sheet.dart:1234–1238`; `lib/screens/invoice_summary_screen.dart:5513`). The saved invoice's detail screen shows the same text (`lib/screens/sales_invoice_detail_screen.dart:493`).
 - Steps appear on sales flows only: the boxes are not loaded for purchase documents or for the credit-note picker (`add_invoice_items_screen.dart:1743–1745`; credit note passes `onItemsSelected`, `lib/screens/create_credit_note_screen.dart:692–703`). Steps are stored on sales invoice lines and sales order lines only (`20261024110000_ladder_discount_columns.sql`). Quotations are sales orders marked optional (`lib/services/sales_order_service.dart:489–494`).
 
@@ -46,7 +47,7 @@ Checked 2026-10-11 against prod and takkada `origin/main` (e80468be, the release
 - The PDF prints percentages per step and the Total Disc.; the per-step prices are on the phone sheet, not the PDF (`priceChain` is used only at `add_invoice_items_screen.dart:6954`).
 
 **What reaches Tally**
-- Only the rounded total. It is stored as the line's `discount_percent`; the steps are stored beside it as provenance (`20261024110000_ladder_discount_columns.sql:1`; `invoice_line_item.dart:1005–1008`).
+- Only the rounded total. The figure Takkada sends is rounded to two decimals (`line-items.ts` `toFixed(2)`); say that, not "Tally only takes two decimals". It is stored as the line's `discount_percent`; the steps are stored beside it as provenance (`20261024110000_ladder_discount_columns.sql:1`; `invoice_line_item.dart:1005–1008`).
 - The Tally sync puts that one figure in the item line's discount field, `<DISCOUNT>16.21</DISCOUNT>`, next to the rate (tally-database-loader `src/main/queue/job-adapters/shared/line-items.ts:323–333`; `src/TallyFunctions/xml/builders/voucher-builder/sales-purchase.mts:393–394, 438–440`; sales orders `sales-order.mts:94`). Nothing on the Tally side reads the step columns (`git grep ladder_step origin/master -- src` returns nothing).
 - An invoice reaches Tally as a sales voucher, a sales order as a sales order (from the FMCG claims sheet, same builders).
 - The server stops its usual re-derivation of discount % from amounts on laddered lines, so the stored 16.21 is not nudged a paisa away (`20261024110100_ladder_discount_trigger_fence.sql`).
@@ -58,11 +59,11 @@ Checked 2026-10-11 against prod and takkada `origin/main` (e80468be, the release
 
 **The staff lock (only when the owner turns it on)**
 - Settings → Invoices → **Lock rate and first discount for staff**, subtitle "Staff can change only <step 2 name> and <step 3 name>". Off by default. Shown only with the add-on; the owner's login changes it (`invoices_settings_screen.dart:2123–2143`; `invoice_config_service.dart:174–186`; server default false).
-- It applies when all hold: the company has Ladder discount, the switch is on, and the person is not the business admin (`lib/services/ladder_rate_lock.dart:9–39`). The owner is never locked.
+- It applies when all hold: the company has Ladder discount, the switch is on, and the person is not the business admin (`lib/services/ladder_rate_lock.dart:9–39`). The businessadmin is not covered by the lock, but the role check fails closed (`:33–38`: a failed role read counts as staff), so copy says "the owner is not covered by the lock", never "never locked".
 - It covers sales invoices, sales orders and quotations, with their edits and approvals; not credit notes (`add_invoice_items_screen.dart:1759–1764`).
 - For a locked staff member: the Rate box is read-only (`:4690–4693`, `:5922`), the price level is shown as "<level> (set by owner)" and cannot be changed (`:5005–5015`), the Discount % box is read-only with "Set by owner" (`:6920, 6938`), and each new line's first discount is the item's First discount % (0% if none set) (`:1802–1804, 2258`). Steps 2 and 3 stay open.
 - An invoice made from an order by locked staff takes the item's current first discount; editing a saved invoice keeps the line's own (`:1780–1786`).
-- The server also refuses a staff line whose first discount differs from the owner's: "First discount is set by the owner: X%" (`20261035510100_ladder_lock_step1_fence.sql`). It skips unchanged old lines and van-load billing. The server does not check the rate; the rate lock is on the app screen.
+- The server also refuses a new staff line (INSERT, or an UPDATE that changes step 1) whose first discount differs from the owner's: "First discount is set by the owner: X%" (`20261035510100_ladder_lock_step1_fence.sql`). It skips unchanged old lines and van-load billing. The server does not check the rate; the rate lock is on the app screen.
 
 **Relation to the FMCG Billing Module**
 - The two add-ons are mutually exclusive; the server refuses to enable one while the other is on ("Disable billing_module before enabling ladder_discount", `20261024110500_ladder_discount_feature_key.sql`; trigger live on prod). The ladder boxes do not show on an item set up in the Billing Module (`add_invoice_items_screen.dart:6128–6130, 6947`).

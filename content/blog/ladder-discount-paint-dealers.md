@@ -10,7 +10,7 @@ category: "Schemes"
 excerpt: "Painters and contractors expect trade discount and cash discount on separate lines of their thinking. Here is how both print on the bill, with Tally getting one figure, worked on a ₹28,800 line."
 ---
 
-A ladder discount for paint dealers shows the trade discount and the cash discount as two steps on the same bill line, so a painter or contractor sees 20% trade and then 3% cash, while Tally gets the single figure they compound to. In Takkada, you type both on a sales invoice or sales order from the phone. The app applies them one after the other and rounds the total to two decimals: 22.4%. Twelve 20-litre tins at ₹2,400 before GST make ₹28,800, and after both steps the taxable value is ₹22,348.80. The line reads "20% + 3% · total 22.4%". The PDF prints Disc. for the trade discount, a column named Cash, or whatever you call it, and Total Disc. Tally receives 22.4 in the item line's discount field. Your customer sees the cash discount he earned, and the voucher in Tally carries the same amount as his bill.
+A ladder discount for paint dealers shows the trade discount and the cash discount as two steps on the same bill line, so a painter or contractor sees 20% trade and then 3% cash, while Tally gets the single figure they compound to. In Takkada, you type both on a sales invoice or sales order from the phone. The app applies them one after the other and rounds the total to two decimals: 22.4%. Twelve 20-litre tins at ₹2,400 before GST make ₹28,800, and after both steps the taxable value is ₹22,348.80. The line reads "20% + 3% · total 22.40%". The PDF prints Disc. for the trade discount, a column named Cash, or whatever you call it, and Total Disc. Tally receives 22.4 in the item line's discount field. Your customer sees the cash discount he earned, and the voucher in Tally carries the same amount as his bill.
 
 ## A paint counter's day
 
@@ -22,7 +22,7 @@ So when the bill shows 23%, the painter thinks he was promised 20 and 3 and got 
 
 The owner names the extra steps once: Settings, Invoices, Discount step names. Put "Cash" in Second discount. If your company also runs a seasonal step, name the third one "Season". Each name takes up to 16 characters.
 
-At the counter, add the tins, tap the line's discount, and type 20 in Discount % and 3 in Cash. The Item Discount sheet shows the tin price after each step: 2400.00 → 1920.00 → 1862.40, total 22.4%. The painter sees ₹1,862.40 a tin before GST on your phone screen before you save.
+At the counter, add the tins, tap the line's discount, and type 20 in Discount % and 3 in Cash. The Item Discount sheet shows the tin price after each step: 2400.00 → 1920.00 → 1862.40, total 22.40%. The painter sees ₹1,862.40 a tin before GST on your phone screen before you save.
 
 ## The ₹28,800 line
 
@@ -46,7 +46,7 @@ The cash discount here is part of the line's discount, decided at billing time, 
 
 The invoice syncs to Tally as a sales voucher with the list rate and 22.4 in the item line's discount field. The step names print on your PDF and stay in Takkada.
 
-Want staff to give the cash discount but never touch the trade discount? The owner can turn on "Lock rate and first discount for staff" and set each item's first discount. Staff then see the rate and Discount % as read-only and can change only the named steps. The owner's login is not locked.
+Want staff to give the cash discount but never touch the trade discount? The owner can turn on "Lock rate and first discount for staff" and set each item's first discount. Staff then see the rate and Discount % as read-only and can change only the named steps. The owner's own login is not covered by the lock.
 
 The rounding rule is explained in [how the ladder discount works on a Tally invoice](/blog/ladder-discount-in-tally-invoices). The module page is [ladder discount in Tally](/ladder-discount-tally).
 

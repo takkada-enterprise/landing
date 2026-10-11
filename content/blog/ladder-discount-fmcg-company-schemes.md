@@ -34,7 +34,7 @@ On the invoice, the salesman adds the item and taps its discount. The Item Disco
 - CGST ₹2,410.02 and SGST ₹2,410.02
 - Line total: ₹31,598.04
 
-A calculator taking 8%, 2% and 1% off ₹30,000 in turn ends at ₹26,777.52. The bill is 48 paise higher because Tally holds one discount percentage to two decimals, and the app works the amount from that same 10.74%. Both sides agree with what Tally will show.
+A calculator taking 8%, 2% and 1% off ₹30,000 in turn ends at ₹26,777.52. The bill is 48 paise higher because the figure Takkada sends to Tally is rounded to two decimals, and the app works the amount from that same 10.74%. Both sides agree with what Tally will show.
 
 ## What Tally and the retailer each see
 
@@ -62,7 +62,7 @@ A: No. Tally gets one percentage per item line, the rounded total. The separate 
 
 **Q: Why is my calculator 48 paise off the bill?**
 
-A: The calculator keeps every decimal. The bill uses the total rounded to two decimals, because that is the figure Tally holds, and works the amount from it.
+A: The calculator keeps every decimal. The bill works the amount from the total rounded to two decimals, the same figure Takkada sends to Tally.
 
 ## Talk to us
 

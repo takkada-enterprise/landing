@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "A contractor's quote has a dealer discount and a project discount, and the final bill has to match it. Here is how the steps print on the invoice while Tally gets one figure, on a ₹50,000 line."
 ---
 
-A ladder discount for tiles and sanitaryware dealers puts the discounts you quote a builder or contractor, such as 10% dealer discount and then 5% project discount, as separate steps on the same bill line. In Takkada, you type the steps on a sales invoice or sales order from the phone. The app compounds them into one total rounded to two decimals, 14.5% in this case, and works out the line amount from it. Forty boxes of tiles at ₹1,250 before GST come to ₹50,000; after 10% and then 5%, the taxable value is ₹42,750.00. The line shows "10% + 5% · total 14.5%", and the PDF prints a column for your named step beside Disc. and a Total Disc. column. Tally receives 14.5 in the item line's discount field, next to the list rate. The contractor reads the same steps he was quoted, and your Tally books carry the same ₹42,750.00.
+A ladder discount for tiles and sanitaryware dealers puts the discounts you quote a builder or contractor, such as 10% dealer discount and then 5% project discount, as separate steps on the same bill line. In Takkada, you type the steps on a sales invoice or sales order from the phone. The app compounds them into one total rounded to two decimals, 14.5% in this case, and works out the line amount from it. Forty boxes of tiles at ₹1,250 before GST come to ₹50,000; after 10% and then 5%, the taxable value is ₹42,750.00. The line shows "10% + 5% · total 14.50%", and the PDF prints a column for your named step beside Disc. and a Total Disc. column. Tally receives 14.5 in the item line's discount field, next to the list rate. The contractor reads the same steps he was quoted, and your Tally books carry the same ₹42,750.00.
 
 ## A tiles dealer's week
 
@@ -21,7 +21,7 @@ When the bill carries one discount, say 14.5%, the accountant has to redo the su
 
 The owner sets the names once, in Settings, Invoices, Discount step names: Second discount and Third discount, up to 16 characters each. A tiles counter might use "Project" and "Special". The first step stays the line's usual Discount %, printed as Disc.
 
-On the bill, add the item, tap its discount, and type 10 in Discount % and 5 in Project. The Item Discount sheet shows the box price after each step: 1250.00 → 1125.00 → 1068.75, total 14.5%. Leave the third box blank when the quote has only two steps.
+On the bill, add the item, tap its discount, and type 10 in Discount % and 5 in Project. The Item Discount sheet shows the box price after each step: 1250.00 → 1125.00 → 1068.75, total 14.50%. Leave the third box blank when the quote has only two steps.
 
 ## The ₹50,000 line
 

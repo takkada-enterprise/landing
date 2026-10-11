@@ -43,7 +43,7 @@ A panel builder's order booked as a sales order keeps its steps, and the invoice
 
 ## Keeping the base discount fixed
 
-If brand base discounts are not negotiable at your counter, the owner can set each item's first discount under Settings, Invoices, First discount by item, and switch on "Lock rate and first discount for staff". For non-owner logins on sales invoices, orders and quotations, the rate and Discount % then show read-only, the item's first discount fills new lines, and staff can change only the named steps. The server also refuses a staff line whose first discount differs from yours.
+If brand base discounts are not negotiable at your counter, the owner can set each item's first discount under Settings, Invoices, First discount by item, and switch on "Lock rate and first discount for staff". For non-owner logins on sales invoices, orders and quotations, the rate and Discount % then show read-only, the item's first discount fills new lines, and staff can change only the named steps. The server also refuses a new staff line whose first discount differs from yours.
 
 ## What reaches Tally
 

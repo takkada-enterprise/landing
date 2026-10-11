@@ -10,11 +10,11 @@ category: "Comparisons"
 excerpt: "The calculator says ₹8,293.50. The bill says ₹8,293.00. Both did the sum honestly. Here is where the 50 paise go, and why the bill is the one that matches Tally."
 ---
 
-Working out a compound discount on a calculator gives you the exact chain, but the Tally voucher carries one discount percentage per line, to two decimals, so the calculator's answer is often a few paise away from what your voucher will show. On ₹10,000 with 10% + 5% + 3%, the calculator ends at ₹8,293.50, because the true compound discount is 17.065%, a figure with three decimals. In Takkada, you type the three steps on the invoice line instead, and the app rounds the total half up to 17.07%, works the line from that figure, and lands on ₹8,293.00, the same amount Tally computes from 17.07. The bill also prints each step and the total, so the retailer sees how 10, 5 and 3 became 17.07. The calculator is fine for a quick quote at the counter. The invoice is where the number has to agree with your books, and that is the one the app works out for you.
+Working out a compound discount on a calculator gives you the exact chain, but the figure Takkada sends to Tally is one discount percentage per line, rounded to two decimals, so the calculator's answer is often a few paise away from what your voucher will show. On ₹10,000 with 10% + 5% + 3%, the calculator ends at ₹8,293.50, because the true compound discount is 17.065%, a figure with three decimals. In Takkada, you type the three steps on the invoice line instead, and the app rounds the total half up to 17.07%, works the line from that figure, and lands on ₹8,293.00, the same amount Tally computes from 17.07. The bill also prints each step and the total, so the retailer sees how 10, 5 and 3 became 17.07. The calculator is fine for a quick quote at the counter. The invoice is where the number has to agree with your books, and that is the one the app works out for you.
 
 ## The calculator way
 
-Most offices handle stepped discounts like this. The salesman or the billing clerk takes ₹10,000, knocks off 10% to get ₹9,000, takes 5% off that to get ₹8,550, takes 3% off that to get ₹8,293.50, and then needs one percentage for Tally's discount column. He divides, gets 17.065, and has to choose between 17.06 and 17.07.
+Most offices handle stepped discounts like this. The salesman or the billing clerk takes ₹10,000, knocks off 10% to get ₹9,000, takes 5% off that to get ₹8,550, takes 3% off that to get ₹8,293.50, and then needs one percentage for Tally's discount column. He divides, gets 17.065, and rounds it himself, to 17.06 or to 17.07.
 
 - At 17.06%, Tally's line comes to ₹8,294.00
 - At 17.07%, it comes to ₹8,293.00
@@ -57,7 +57,7 @@ For the complete method, read [how the ladder discount works on a Tally invoice]
 
 **Q: Why does my calculator give a different amount from the bill?**
 
-A: The calculator keeps every decimal of the compound discount. The Tally voucher carries one percentage to two decimals, and the bill is worked from that rounded figure so that it matches Tally.
+A: The calculator keeps every decimal of the compound discount. The figure Takkada sends to Tally is rounded to two decimals, and the bill is worked from that rounded figure so that it matches Tally.
 
 **Q: How does the app round 17.065%?**
 

@@ -7,16 +7,16 @@ primary_keyword: "ladder discount in Tally invoices"
 date: "2026-10-11"
 author: "harsh"
 category: "Schemes"
-excerpt: "Your trade quotes 10 + 5 + 2. Tally has one discount column. Here is how the ladder keeps every step on the bill and sends Tally the single figure they add up to, with a ₹10,000 line worked to the paisa."
+excerpt: "Your trade quotes 10 + 5 + 2. Tally has one discount column. Here is how the ladder keeps every step on the bill and sends Tally the single figure they compound to, with a ₹10,000 line worked to the paisa."
 ---
 
-A ladder discount in Tally invoices means the customer sees every step of the discount, 10% then 5% then 2%, while Tally receives the one figure those steps add up to. In Takkada, you type up to three discount percentages on a sales invoice or sales order line from the phone. The app applies them one after the other, rounds the result to two decimals, and works out the line amount from that single figure. On ₹10,000, 10% + 5% + 2% comes to 16.21%, so the line is ₹8,379.00 before GST. The line reads "10% + 5% + 2% · total 16.21%". The invoice PDF prints a column for each step under the names you chose, plus a Total Disc. column. Tally gets 16.21 in the item line's discount field, next to your list rate, so the bill your customer checks and the voucher in your books carry the same amount.
+A ladder discount in Tally invoices means the customer sees every step of the discount, 10% then 5% then 2%, while Tally receives the one figure those steps compound to. In Takkada, you type up to three discount percentages on a sales invoice or sales order line from the phone. The app applies them one after the other, rounds the result to two decimals, and works out the line amount from that single figure. On ₹10,000, 10% + 5% + 2% comes to 16.21%, so the line is ₹8,379.00 before GST. The line reads "10% + 5% + 2% · total 16.21%". The invoice PDF prints a column for each step under the names you chose, plus a Total Disc. column. Tally gets 16.21 in the item line's discount field, next to your list rate, so the bill your customer checks and the voucher in your books carry the same amount.
 
 ## Why one discount column is not enough
 
 Most distributors are passed discounts in layers. The company gives a scheme, the trade discount sits under it, and a cash discount comes off at the end if the retailer pays on time. Each one is a percentage of what is left after the one before, so 10 + 5 + 2 is never 17%.
 
-Tally takes one discount percentage per item line. Someone in your office compounds the steps on a calculator, decides how to round, and types one number. The retailer receives a bill with that one number and has no way to check it against the scheme letter, so the call comes: "bhai, 17% bola tha, yeh 16 kaise hua?"
+Tally takes one discount percentage per item line. Someone in your office compounds the steps on a calculator, decides how to round, and types one number. The retailer receives a bill with that one number and has no way to check it against the scheme letter, so the call comes: "bhai, 17% bola tha, yeh 16 kaise hua?" The payment waits until someone in your office explains the arithmetic.
 
 ## The ₹10,000 line, worked
 
@@ -39,7 +39,7 @@ The PDF keeps the Disc. column for the first step and adds one column per extra 
 
 ## What Tally receives
 
-Only the total. The invoice reaches Tally as a sales voucher, and a sales order as a sales order, with your rate and 16.21 in the item line's discount field. The steps and their names stay in Takkada. Because the line amount was computed from the same rounded 16.21, the app and Tally land on the same paisa.
+Tally receives only the total: the invoice reaches it as a sales voucher, and a sales order as a sales order, with your rate and 16.21 in the item line's discount field. The steps and their names stay in Takkada. Because the line amount was computed from the same rounded 16.21, the app and Tally land on the same paisa.
 
 When a total needs rounding, the app rounds half up to two decimals. 10% + 5% + 3% compounds to 17.065%, and the line carries 17.07%.
 

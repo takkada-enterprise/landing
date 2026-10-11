@@ -50,7 +50,7 @@ Total ko round karna pade toh app do decimal tak half up round karta hai. 10 + 5
 
 ## Staff ko rok sakte ho?
 
-Haan, agar aap chaho. Owner Settings, Invoices mein **First discount by item** se item ka pehla discount set kare aur **Lock rate and first discount for staff** on kare. Phir owner ke alawa doosre login ke liye sales invoice, order aur quotation par rate aur Discount % badal nahi sakte, sirf Trade aur Cash badal sakte hain. Owner ka login lock nahi hota.
+Haan, agar aap chaho. Owner Settings, Invoices mein **First discount by item** se item ka pehla discount set kare aur **Lock rate and first discount for staff** on kare. Phir owner ke alawa doosre login ke liye sales invoice, order aur quotation par rate aur Discount % badal nahi sakte, sirf Trade aur Cash badal sakte hain. Yeh lock owner ke login par laagu nahi hota.
 
 Sales order se invoice banao toh steps saath aate hain. Saved invoice edit karo toh line apne steps ke saath khulti hai. Return credit note par jaata hai, wahan seedha ek discount lagta hai.
 
