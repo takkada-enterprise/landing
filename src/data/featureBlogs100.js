@@ -98,4 +98,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'spare-parts-rate-cost-plus-margin', kind: 'hinglish' },
     { slug: 'spreadsheet-price-list-vs-cost-plus-spare-parts', kind: 'compare' },
   ]},
+  { id: 'batch-expiry-mrp', featurePage: null, pillar: 'batch-wise-billing-for-tally', posts: [
+    { slug: 'batch-wise-billing-for-tally', kind: 'pillar' },
+    { slug: 'batch-expiry-tracking-pharma-distributors', kind: 'usecase' },
+    { slug: 'batch-wise-mrp-fmcg-mrp-revision', kind: 'usecase' },
+    { slug: 'batch-expiry-billing-agri-inputs', kind: 'usecase' },
+    { slug: 'batch-billing-food-beverage-shelf-life', kind: 'usecase' },
+    { slug: 'batch-expiry-cosmetics-personal-care', kind: 'usecase' },
+    { slug: 'batch-billing-paint-lubricant-dealers', kind: 'usecase' },
+    { slug: 'how-to-pick-batch-show-mfg-expiry-on-invoice', kind: 'howto' },
+    { slug: 'batch-wise-mrp-expiry-invoice-mein', kind: 'hinglish' },
+    { slug: 'expiry-register-vs-billing-with-batch', kind: 'compare' },
+  ]},
 ];

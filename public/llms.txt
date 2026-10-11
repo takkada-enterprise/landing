@@ -217,6 +217,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Spreadsheet Price Lists vs Cost-Plus Pricing for Spare Parts](https://takkada.com/blog/spreadsheet-price-list-vs-cost-plus-spare-parts/)
 - [Takkada vs CredFlow: Tally Receivables Apps Compared (2026)](https://takkada.com/blog/takkada-vs-credflow/)
 - [Tally Remote Access vs a Mobile App for Distributors](https://takkada.com/blog/tally-remote-access-vs-mobile-app/)
+- [Tracking Expiry in a Register vs Seeing It While You Bill](https://takkada.com/blog/expiry-register-vs-billing-with-batch/)
 - [Typing Purchase Bills by Hand vs Importing Them](https://takkada.com/blog/typing-purchase-bills-vs-importing/)
 - [UPI vs Card vs Cash Collection Cost for Distributors](https://takkada.com/blog/upi-vs-card-vs-cash-collection-cost-distributor/)
 - [Vyapar Alternative for Distributors Using Tally: Why the Two Tools Solve Different Problems](https://takkada.com/blog/vyapar-alternative-for-distributors/)
@@ -292,6 +293,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How to Log a Follow-up and Promise-to-Pay from the Collections Report](https://takkada.com/blog/how-to-log-follow-up-promise-to-pay/)
 - [How to Manage Multiple Branches in Tally with Godowns](https://takkada.com/blog/manage-multiple-branches-tally-godowns/)
 - [How to Photograph a Supplier Bill and Review the Entry Before It Reaches Tally](https://takkada.com/blog/how-to-photograph-supplier-bill-review-entry/)
+- [How to Pick a Batch on an Invoice and Show Mfg and Expiry on the PDF](https://takkada.com/blog/how-to-pick-batch-show-mfg-expiry-on-invoice/)
 - [How to Reconcile a Bank Statement With Tally on Mobile](https://takkada.com/blog/how-to-reconcile-bank-statement-tally-mobile/)
 - [How to Record Payment in Tally on Mobile](https://takkada.com/blog/how-to-record-payment-in-tally-on-mobile/)
 - [How to Send a Payment Reminder From Tally on WhatsApp](https://takkada.com/blog/how-to-send-payment-reminder-from-tally-whatsapp/)
@@ -430,6 +432,14 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Tally Mobile
 
+- [Batch and Expiry Billing for Agri-Input Dealers: Seeds, Pesticides and Fertiliser](https://takkada.com/blog/batch-expiry-billing-agri-inputs/)
+- [Batch and Expiry Tracking for Cosmetics and Personal-Care Distributors](https://takkada.com/blog/batch-expiry-cosmetics-personal-care/)
+- [Batch and Expiry Tracking for Pharma Distributors](https://takkada.com/blog/batch-expiry-tracking-pharma-distributors/)
+- [Batch Billing for Paint and Lubricant Dealers](https://takkada.com/blog/batch-billing-paint-lubricant-dealers/)
+- [Batch Wise MRP aur Expiry Date Invoice mein Kaise Dikhaye](https://takkada.com/blog/batch-wise-mrp-expiry-invoice-mein/)
+- [Batch-wise Billing for Food and Beverage Distributors with Short Shelf Life](https://takkada.com/blog/batch-billing-food-beverage-shelf-life/)
+- [Batch-wise Billing for Tally: Batch Number, Mfg Date, Expiry and MRP Rate on the Invoice](https://takkada.com/blog/batch-wise-billing-for-tally/)
+- [Batch-wise MRP for FMCG Distributors After an MRP Revision](https://takkada.com/blog/batch-wise-mrp-fmcg-mrp-revision/)
 - [Best Tally App for Receivables in India (2026)](https://takkada.com/blog/best-tally-app-for-receivables-2026/)
 - [bill-by-bill-against-reference-tally](https://takkada.com/blog/bill-by-bill-against-reference-tally/)
 - [Creditors vs Debtors in Tally: A Distributor's Cheat Sheet](https://takkada.com/blog/creditors-vs-debtors-tally/)
