@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "Sachets at one margin, bottles at another, detergent bags at a third, and MRPs that change with every new batch from the company. Here is how per-item rates keep up."
 ---
 
-FMCG billing for personal-care and detergent distributors works when every item carries its own MRP, retailer margin and discount limits, because a shampoo sachet, a 340 ml bottle and a 1 kg detergent bag never share one rate structure. In Takkada, the owner sets those figures per stock item in the Billing Module. On every new sales invoice or sales order the salesman makes from his phone, the rate stays the printed MRP and the retailer's margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. When a shop is owed the company's trade discount, the salesman adds it on the line as Discount 1 or Discount 2, capped at the maximum you set, and the margin stays locked for staff. The finished bill syncs to Tally as a sales voucher with the discount on each item line. Your salesmen stop carrying a rate sheet, and a revised MRP reaches every new bill the moment you change it.
+FMCG billing for personal-care and detergent distributors works when every item carries its own MRP, retailer margin and discount limits, because a shampoo sachet, a bottle and a detergent bag never share one rate structure. In Takkada, the owner sets those figures per stock item in the Billing Module. When the salesman adds one of those items to a new sales invoice or sales order on his phone, the rate stays the printed MRP and the retailer's margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. When a shop is owed the company's trade discount, the salesman adds it on the line as Discount 1 or Discount 2, capped at the maximum you set, and the margin stays locked for staff. Invoices and sales orders sync to Tally with the discount on each item line. A revised MRP reaches the next new bill the moment you change it.
 
 ## How a personal-care distributor's week runs
 
@@ -45,9 +45,9 @@ See the [FMCG billing software for Tally](/blog/fmcg-billing-software-for-tally)
 
 A: Yes. When each is its own stock item in Tally, each carries its own MRP and margin in the Billing Module.
 
-**Q: Can a salesman give a chemist more than the company allows?**
+**Q: Can a salesman give a chemist more discount than the company allows?**
 
-A: No. Discount 1 and Discount 2 are capped at the maximum you set on the item, and the sheet refuses a higher figure.
+A: Not on the Item Discount sheet. Discount 1 and Discount 2 are capped at the maximum you set, and a higher figure is refused. A rate typed by hand in the Rate box replaces the MRP on that line instead.
 
 **Q: What if an item has no margin set?**
 

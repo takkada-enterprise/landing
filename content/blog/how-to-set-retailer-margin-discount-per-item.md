@@ -55,7 +55,7 @@ A: Look under Settings, then Invoices. If it shows an add-on marker or a lock, t
 
 **Q: Can I leave Discount 1 and Discount 2 empty?**
 
-A: Yes. Then the salesman cannot give that discount on the item. Only the retailer margin applies.
+A: Yes. Then the Item Discount sheet gives no room for that discount on the item, and only the retailer margin applies.
 
 **Q: Does changing a margin change old bills?**
 

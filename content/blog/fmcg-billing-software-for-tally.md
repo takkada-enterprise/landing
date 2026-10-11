@@ -2,21 +2,21 @@
 title: "FMCG Billing Software for Tally: Retailer Margin and Discount per Item"
 meta_title: "FMCG Billing Software for Tally | Takkada"
 slug: "fmcg-billing-software-for-tally"
-meta_description: "FMCG billing software for Tally: set MRP, retailer margin and two discount limits per stock item, and every new bill works out the retailer's rate itself."
+meta_description: "FMCG billing software for Tally: set MRP, retailer margin and two discount limits per stock item, and new bills work out the retailer's rate for those items."
 primary_keyword: "FMCG billing software for Tally"
 date: "2026-10-11"
 author: "harsh"
 category: "Schemes"
-excerpt: "Your price structure starts at the printed MRP and ends at the retailer's rate. Here is how Takkada's Billing Module keeps that structure on every stock item, so the salesman bills from his phone without a calculator."
+excerpt: "Your price structure starts at the printed MRP and ends at the retailer's rate. Here is how Takkada's Billing Module keeps that structure on each stock item you set up, so the salesman bills from his phone without a calculator."
 ---
 
-FMCG billing software for Tally should start where your price structure starts: the printed MRP, the retailer's margin and the trade discounts the company allows. In Takkada, the owner sets those per stock item once, in the Billing Module, and every new sales invoice or sales order from the phone works out the retailer's rate from them. When the salesman adds an item, the rate stays the MRP and the retailer's margin appears as the line's discount, worked as a divisor the way the trade states it: a 20% margin becomes a 16.67% discount. The salesman can add Discount 1 and Discount 2 up to the maximum you set, and cannot touch the margin. The bill then syncs to Tally as a normal sales voucher with the discount on each item line. Your price list stops living in a register and a calculator, and each new bill comes out at the rate you agreed with the company.
+FMCG billing software for Tally should start where your price structure starts: the printed MRP, the retailer's margin and the trade discounts the company allows. In Takkada, the owner sets those per stock item once, in the Billing Module, and a new sales invoice or sales order from the phone works out the retailer's rate for those items. When the salesman adds an item, the rate stays the MRP and the retailer's margin appears as the line's discount, worked as a divisor the way the trade states it: a 20% margin becomes a 16.67% discount. The salesman can add Discount 1 and Discount 2 up to the maximum you set, and the margin box is locked for him. Invoices and sales orders sync to Tally with the discount on each item line. Your price list stops living in a register and a calculator, and the items you have set up bill at the rate you agreed with the company.
 
 ## Why FMCG pricing breaks on the counter
 
-An FMCG distributor's price is never one number. The company prints an MRP, tells you the retailer's margin, and runs a trade discount or two on top. Then it changes them. A grammage cut, a new MRP, a revised margin on one pack size. The office updates a sheet, the salesman carries last month's sheet, and the retailer gets billed at whichever rate the person holding the pen remembered.
+The company prints an MRP, tells you the retailer's margin, and runs a trade discount or two on top. Then it changes them. A grammage cut, a new MRP, a revised margin on one pack size. The office updates a sheet, the salesman carries last month's sheet, and the retailer gets billed at whichever rate the person holding the pen remembered.
 
-The rate the retailer pays is also not MRP minus the margin. A retailer's margin is stated on his cost, so a 20% margin means he buys at MRP divided by 1.20. Subtract 20% and you have given him 25%. On a ₹10 pack that is the difference between ₹8.33 and ₹8.00, and on a month of biscuits it adds up fast.
+The rate the retailer pays is also not MRP minus the margin. A retailer's margin is stated on his cost, so a 20% margin means he buys at MRP divided by 1.20. Subtract 20% and you have given him 25%. On a ₹10 pack that is ₹8.33 against ₹8.00.
 
 ## What you set per stock item
 
@@ -33,7 +33,7 @@ The same boxes sit on each stock item's own page, in the Billing Configuration c
 
 When the salesman adds an item to a new sales invoice or sales order, the margin is applied by itself. Take a biscuit pack with an MRP of ₹10, 5% GST and a 20% retailer margin, and 120 packs on an Incl. GST invoice. The cart shows "Discount 16.7%". The invoice line reads "Qty: 120 | Rate: ₹ 10 / item", "Disc: 16.7% (-₹ 190.44)" and "Retail Margin: 20%", and the line total is ₹999.56.
 
-A calculator says 120 × ₹8.33 is ₹1,000. The line is 44 paise lower because the app rounds the way Tally does: the rate without GST to the paisa first (₹9.52), then the discount at 16.67%, then CGST and SGST separately.
+A calculator says 120 × (₹10 ÷ 1.20) is ₹1,000. The line is 44 paise lower because the app rounds the way Tally does: the rate without GST to the paisa first (₹9.52), then the discount at 16.67%, then CGST and SGST separately.
 
 If the retailer is owed a trade discount, the salesman taps the line's discount and the **Item Discount** sheet opens. It shows "Max Discount 1: 3%" style limits, and a higher figure is refused with "Cannot exceed 3%". The Retailer margin box is greyed out for anyone but the owner. With D1 at 2% on the same line, the combined discount becomes 18.33% and the total ₹979.66.
 
@@ -43,7 +43,7 @@ The margin is applied once and never twice. A line someone already priced by han
 
 ## What Tally receives
 
-The bill reaches Tally as a sales voucher, with the discount percentage on each item line. The MRP you type stays in Takkada; Tally's item master is not changed. For the full module, see [MRP-based billing for Tally](/fmcg-module-tally).
+An invoice reaches Tally as a sales voucher and a sales order as a sales order, with the discount percentage on the item line. The MRP you type stays in Takkada; Tally's item master is not changed. For the full module, see [MRP-based billing for Tally](/fmcg-module-tally).
 
 ## Frequently Asked Questions
 
@@ -57,7 +57,7 @@ A: No. The margin applies by itself. D1 and D2 are the maximums the salesman may
 
 **Q: Can a salesman change the margin on a bill?**
 
-A: No. The Retailer margin box is disabled for staff, and the line uses the margin set on the item.
+A: Not on the Item Discount sheet, where the Retailer margin box is disabled for staff. If he types a rate by hand, that rate replaces the MRP on the line and the margin is not added on top.
 
 **Q: What if I leave the MRP box empty?**
 

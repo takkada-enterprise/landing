@@ -1,7 +1,7 @@
 ---
 title: "FMCG Distributor ka Billing Mobile se Tally mein Kaise Kare"
 slug: "fmcg-distributor-billing-mobile-se-tally-mein"
-meta_description: "FMCG distributor ka billing mobile se Tally mein: har item pe MRP aur retailer margin ek baar daalo, phir salesman ka har bill sahi rate pe banta hai."
+meta_description: "FMCG distributor ka billing mobile se Tally mein: har item pe MRP aur retailer margin ek baar daalo, phir in items ka rate bill pe khud sahi aata hai."
 primary_keyword: "billing mobile se Tally mein"
 date: "2026-10-11"
 author: "harsh"
@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "Rate list purani, salesman ka calculator alag, aur shaam ko Tally mein entry alag. Takkada mein FMCG billing mobile se kaise hoti hai, MRP se retailer rate tak, step by step."
 ---
 
-FMCG distributor ka billing mobile se Tally mein karne ka seedha tarika hai: Takkada mein har stock item pe MRP aur retailer margin ek baar daal do, phir salesman phone se jo bhi naya sales invoice ya sales order banaye, rate khud sahi aata hai. Item add karte hi rate MRP hi rehta hai aur retailer ka margin line pe discount ban ke lag jata hai, trade ke hisaab se divisor wala tarika: 20% margin matlab 16.67% discount. Company ka trade discount ho toh salesman line pe Discount 1 ya Discount 2 daal sakta hai, lekin aapki rakhi hui limit se zyada nahi, aur margin woh badal hi nahi sakta. Bill phir Tally mein sales voucher ban ke jata hai, har item line pe discount ke saath. Matlab rate list ka register band, salesman ka calculator band, aur shaam ko Tally mein dobara entry karne ka jhanjhat bhi khatam.
+FMCG distributor ka billing mobile se Tally mein karne ka seedha tarika hai: Takkada mein har stock item pe MRP aur retailer margin ek baar daal do, phir salesman phone se naya sales invoice ya sales order banaye toh in items ka rate khud sahi aata hai. Item add karte hi rate MRP hi rehta hai aur retailer ka margin line pe discount ban ke lag jata hai, trade ke hisaab se divisor wala tarika: 20% margin matlab 16.67% discount. Company ka trade discount ho toh salesman line pe Discount 1 ya Discount 2 daal sakta hai, lekin aapki rakhi hui limit se zyada nahi, aur margin wala box uske liye band rehta hai. Invoice Tally mein sales voucher ban ke jata hai aur sales order, sales order ban ke, item line pe discount ke saath. Matlab rate list ka register band, salesman ka calculator band, aur shaam ko Tally mein dobara entry karne ka jhanjhat bhi khatam.
 
 ## Problem jo har FMCG distributor jaanta hai
 
@@ -52,7 +52,7 @@ A: Haan. MRP aur margin har stock item pe alag set hota hai, toh ₹5, ₹10 aur
 
 **Q: Kya salesman margin badal sakta hai?**
 
-A: Nahi. Item Discount sheet pe Retailer margin ka box staff ke liye band hai, aur bill pe item ka set kiya hua margin hi lagta hai.
+A: Item Discount sheet pe nahi, wahan Retailer margin ka box staff ke liye band hai. Haan, agar woh Rate box mein khud rate type kare, toh woh rate MRP ki jagah le leta hai aur margin upar se nahi lagta.
 
 **Q: Sales order se invoice banaya toh margin dobara lagega kya?**
 
@@ -60,7 +60,7 @@ A: Nahi. Sales order se bana invoice wahi rate rakhta hai jo order mein tha, isl
 
 **Q: MRP Tally mein jata hai kya?**
 
-A: MRP Takkada mein rehta hai. Tally mein sales voucher jata hai, har item line pe discount ke saath, aur Tally ka item master nahi badalta.
+A: MRP Takkada mein rehta hai. Tally mein invoice sales voucher ban ke jata hai, item line pe discount ke saath, aur Tally ka item master nahi badalta.
 
 ## Shuru karo
 

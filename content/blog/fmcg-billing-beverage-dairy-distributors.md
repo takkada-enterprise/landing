@@ -1,7 +1,7 @@
 ---
 title: "FMCG Billing for Beverage and Dairy Distributors"
 slug: "fmcg-billing-beverage-dairy-distributors"
-meta_description: "FMCG billing for beverage and dairy distributors: retailer margin worked from MRP on every line, so early-morning bills come out right from the phone."
+meta_description: "FMCG billing for beverage and dairy distributors: retailer margin worked from MRP for each item you set up, so early bills come out right from the phone."
 primary_keyword: "FMCG billing for beverage and dairy distributors"
 date: "2026-10-11"
 author: "harsh"
@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "The van leaves at six, the bills have to be ready before it does, and every bottle and pouch carries its own MRP and margin. Here is how the rate works itself out."
 ---
 
-FMCG billing for beverage and dairy distributors has to be quick and exact at the same time, because the van leaves early and every bottle, pouch and cup carries its own MRP and retailer margin. In Takkada, the owner sets the MRP and the margin on each stock item once, in the Billing Module. When the salesman or the billing clerk adds an item to a new sales invoice or sales order on the phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. A trade discount, if the company allows one, goes on the line as Discount 1 or Discount 2, never above the limit you set, and the margin itself is locked for staff. The bill syncs to Tally as a sales voucher with the discount on each item line. Morning billing becomes picking items and quantities, and the rates take care of themselves.
+FMCG billing for beverage and dairy distributors has to be quick and exact at the same time, because the van leaves early and every bottle, pouch and cup carries its own MRP and retailer margin. In Takkada, the owner sets the MRP and the margin on each stock item once, in the Billing Module. When the salesman or the billing clerk adds an item to a new sales invoice or sales order on the phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. A trade discount, if the company allows one, goes on the line as Discount 1 or Discount 2, never above the limit you set, and the margin itself is locked for staff. Invoices and sales orders sync to Tally with the discount on each item line. For the items you have set up, morning billing becomes picking items and quantities.
 
 ## The beverage and dairy morning
 
@@ -25,7 +25,7 @@ The owner opens Settings, then Invoices, then **Billing Module**. Your Tally sto
 - **Retail Margin %**, the margin the company gives the outlet
 - **Discount 1 %** and **Discount 2 %**, the most a salesman may give, if any
 
-Only the owner's login can set these. A salesman cannot change them from his phone.
+Only the owner's login can set these. A salesman cannot edit them from his phone.
 
 ## What a bill looks like
 
@@ -51,7 +51,7 @@ A: No. Items without a margin set, such as loose paneer sold by weight, bill at 
 
 **Q: Can the van salesman change the margin on the spot?**
 
-A: No. The Retailer margin box on the Item Discount sheet is greyed out for everyone but the owner.
+A: Not on the Item Discount sheet, where the Retailer margin box is greyed out for everyone but the owner. A rate he types by hand replaces the MRP on that line instead.
 
 ## Get started
 

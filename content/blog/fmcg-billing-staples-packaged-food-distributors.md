@@ -1,7 +1,7 @@
 ---
 title: "FMCG Billing for Staples and Packaged-Food Distributors"
 slug: "fmcg-billing-staples-packaged-food-distributors"
-meta_description: "FMCG billing for staples and packaged-food distributors: thin margins worked from MRP to the paisa on every atta, rice, dal and oil line, right from the phone."
+meta_description: "FMCG billing for staples and packaged-food distributors: thin margins worked from MRP to the paisa on packed atta, rice, dal and oil lines, from the phone."
 primary_keyword: "FMCG billing for staples and packaged-food distributors"
 date: "2026-10-11"
 author: "harsh"
@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "When the margin on a 5 kg atta bag is 8%, a rate off by a rupee eats the profit on the line. Here is how per-item margins keep staples billing exact."
 ---
 
-FMCG billing for staples and packaged-food distributors has to be exact to the paisa, because the margins on atta, rice, dal, sugar and oil are thin and the bags are heavy. In Takkada, the owner sets each packed item's MRP and retailer margin once in the Billing Module. When the salesman adds a 5 kg atta bag or a 1 litre oil pouch to a new sales invoice or sales order on his phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. The amounts are rounded the way Tally rounds them. A trade discount, when the company allows one, goes on the line as Discount 1 or Discount 2, capped at the maximum you set, and staff cannot change the margin. Loose items without a margin keep their usual rate from Tally. The bill syncs to Tally with the discount on each item line.
+FMCG billing for staples and packaged-food distributors has to be exact to the paisa, because the margins on atta, rice, dal, sugar and oil are thin and the bags are heavy. In Takkada, the owner sets each packed item's MRP and retailer margin once in the Billing Module. When the salesman adds a 5 kg atta bag or a 1 litre oil pouch to a new sales invoice or sales order on his phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. The amounts are rounded the way Tally rounds them. A trade discount, when the company allows one, goes on the line as Discount 1 or Discount 2, capped at the maximum you set, and the margin box is locked for staff. Loose items without a margin keep their usual rate from Tally. Invoices and sales orders sync to Tally with the discount on each item line.
 
 ## The staples distributor's arithmetic
 

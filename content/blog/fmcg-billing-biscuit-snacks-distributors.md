@@ -1,15 +1,15 @@
 ---
 title: "FMCG Billing for Biscuit and Snacks Distributors"
 slug: "fmcg-billing-biscuit-snacks-distributors"
-meta_description: "FMCG billing for biscuit and snacks distributors: MRP and retailer margin set per pack, so every ₹5, ₹10 and ₹20 pack bills at the right rate from the phone."
+meta_description: "FMCG billing for biscuit and snacks distributors: MRP and retailer margin set per pack, so ₹5, ₹10 and ₹20 packs each bill at their own rate from the phone."
 primary_keyword: "FMCG billing for biscuit and snacks distributors"
 date: "2026-10-11"
 author: "harsh"
 category: "Schemes"
-excerpt: "Three pack sizes of the same biscuit, three margins, and a salesman billing 30 shops a day. Here is how per-item MRP and margin keep every rate right."
+excerpt: "Three pack sizes of the same biscuit, three margins, and a salesman billing 30 shops a day. Here is how per-item MRP and margin keep each pack's rate right."
 ---
 
-FMCG billing for biscuit and snacks distributors comes down to one thing: every pack size has its own MRP and its own retailer margin, and the bill has to get both right on every line. In Takkada, the owner sets the MRP and the retailer margin on each pack in the Billing Module once. When the salesman adds the ₹10 cream biscuit or the ₹20 namkeen to a new sales invoice or sales order on his phone, the rate stays the MRP and the margin shows as the line's discount, worked the way the trade works it, as a divisor on the retailer's cost. If the company runs a trade discount, he can add it on the line, up to the limit you set and no further. The retailer margin itself is locked for staff. The bill syncs to Tally with the discount on each item line, so the evening entry is already done and the rates match the company's letter.
+FMCG billing for biscuit and snacks distributors comes down to one thing: every pack size has its own MRP and its own retailer margin, and the bill has to get both right on every line. In Takkada, the owner sets the MRP and the retailer margin on each pack in the Billing Module once. When the salesman adds the ₹10 cream biscuit or the ₹20 namkeen to a new sales invoice or sales order on his phone, the rate stays the MRP and the margin shows as the line's discount, worked the way the trade works it, as a divisor on the retailer's cost. If the company runs a trade discount, he can add it on the line, up to the limit you set and no further. The retailer margin itself is locked for staff. Invoices and sales orders sync to Tally with the discount on each item line. The evening entry is already done.
 
 ## A biscuit distributor's day
 
@@ -55,7 +55,7 @@ A: Change the MRP box on that item in the Billing Module. The next new bill take
 
 **Q: Does the MRP go into Tally?**
 
-A: The MRP stays in Takkada. Tally receives the sales voucher with the discount on each item line, and its item master is not changed.
+A: The MRP stays in Takkada. Tally receives the invoice as a sales voucher with the discount on the item line, and its item master is not changed.
 
 ## Get started
 

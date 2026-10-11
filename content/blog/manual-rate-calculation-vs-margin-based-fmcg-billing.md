@@ -6,10 +6,10 @@ primary_keyword: "margin-based FMCG billing"
 date: "2026-10-11"
 author: "harsh"
 category: "Comparisons"
-excerpt: "A rate sheet, a calculator and the salesman's memory, against MRP and margin stored on every item. Here is what each way costs on a real bill."
+excerpt: "A rate sheet, a calculator and the salesman's memory, against MRP and margin stored on each item. Here is what each way costs on a real bill."
 ---
 
-Margin-based FMCG billing replaces the rate sheet and the calculator with figures stored on each stock item: the printed MRP, the retailer's margin and the most a salesman may give as trade discount. With manual rate calculation, someone works out MRP less margin less discount for every line, from a sheet that may be a month old. In Takkada's Billing Module, the owner sets those figures once, and every new sales invoice or sales order from the phone takes the MRP as the rate and applies the margin by itself as the line's discount, worked as a divisor on the retailer's cost. Extra discounts are capped at your limit, and staff cannot change the margin. The difference shows up on three things you already care about: rates that match the company's letter, a salesman who cannot give away more than you allowed, and totals rounded the way Tally rounds them. Here is how the two compare on a real bill.
+Margin-based FMCG billing replaces the rate sheet and the calculator with figures stored on each stock item: the printed MRP, the retailer's margin and the most a salesman may give as trade discount. With manual rate calculation, someone works out MRP less margin less discount for every line, often from an old sheet. In Takkada's Billing Module, the owner sets those figures once, and a new sales invoice or sales order from the phone takes the MRP as the rate for each item you have set up and applies the margin by itself as the line's discount, worked as a divisor on the retailer's cost. Extra discounts on the Item Discount sheet are capped at your limit, and the margin box is locked for staff. The difference shows up on three things you already care about: rates that match the company's letter, a salesman whose extra discount stops at the limit you set, and totals rounded the way Tally rounds them.
 
 ## The same bill, two ways
 
@@ -29,7 +29,7 @@ With the margin set on the item, the cart shows "Discount 16.7%". The invoice li
 | Extra discount | Agreed at the counter, case by case | Discount 1 and Discount 2, capped at your limit |
 | Who can change the margin | Whoever writes the bill | Only the owner's login |
 | MRP revision | Reprint and resend the sheet | Change one box; the next new bill takes it |
-| Getting it into Tally | Typed again in the evening | Synced as a sales voucher with the discount on each line |
+| Getting it into Tally | Typed again in the evening | Invoices and sales orders synced with the discount on each line |
 
 ## Where manual still happens
 

@@ -1,7 +1,7 @@
 ---
 title: "FMCG Billing for Super Stockists Selling to Sub-Distributors"
 slug: "fmcg-billing-super-stockists"
-meta_description: "FMCG billing for super stockists: set MRP and your buyer's margin per item, and each new bill to a sub-distributor or wholesaler works its rate down from MRP."
+meta_description: "FMCG billing for super stockists: set MRP and your buyer's margin per item, and new bills to sub-distributors and wholesalers work those rates down from MRP."
 primary_keyword: "FMCG billing for super stockists"
 date: "2026-10-11"
 author: "harsh"
@@ -9,7 +9,7 @@ category: "Schemes"
 excerpt: "A super stockist bills fewer parties but bigger cases, and the margin a sub-distributor keeps is the whole conversation. Here is how per-item margins keep each bill on the agreed rate."
 ---
 
-FMCG billing for super stockists means billing sub-distributors and wholesalers at MRP less the margin they are promised, item by item, without working each case rate out by hand. In Takkada, the owner sets each stock item's MRP and margin once in the Billing Module. The box is named Retail Margin, and for a super stockist it holds the margin your buyer keeps. On every new sales invoice or sales order from the phone, the rate stays the MRP and that margin is applied by itself as the line's discount, worked as a divisor on the buyer's cost. Any trade discount the company passes down goes on the line as Discount 1 or Discount 2, capped at the maximum you set, and staff cannot change the margin. The bill syncs to Tally as a sales voucher with the discount on each item line. Big orders with sixty lines come out at the agreed rates, and the owner stops checking every case by hand.
+FMCG billing for super stockists means billing sub-distributors and wholesalers at MRP less the margin they are promised, item by item. In Takkada, the owner sets each stock item's MRP and margin once in the Billing Module. The box is named Retail Margin, and for a super stockist it holds the margin your buyer keeps. When an item you have set up goes on a new sales invoice or sales order from the phone, the rate stays the MRP and that margin is applied by itself as the line's discount, worked as a divisor on the buyer's cost. Any trade discount the company passes down goes on the line as Discount 1 or Discount 2, capped at the maximum you set, and the margin box is locked for staff. Invoices and sales orders sync to Tally with the discount on the item line. The set-up items on a sixty-line order come out at the agreed rates.
 
 ## How a super stockist bills
 
@@ -55,7 +55,7 @@ A: No. An invoice made from a sales order keeps the rate the order quoted.
 
 **Q: What does Tally show for these bills?**
 
-A: Each bill reaches Tally as a sales voucher with the discount percentage on every item line. The MRP stays in Takkada, and Tally's item master is not changed.
+A: Each invoice reaches Tally as a sales voucher, and each sales order as a sales order, with the discount percentage on the item line. The MRP stays in Takkada, and Tally's item master is not changed.
 
 ## Get started
 

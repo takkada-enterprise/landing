@@ -7,10 +7,10 @@ primary_keyword: "FMCG billing for confectionery wholesalers"
 date: "2026-10-11"
 author: "harsh"
 category: "Schemes"
-excerpt: "Hundreds of toffees, lollipops, jars and bars, most of them a rupee or five, each with a margin of its own. Here is how a confectionery wholesaler gets every line right."
+excerpt: "Hundreds of toffees, lollipops, jars and bars, most of them a rupee or five, each with a margin of its own. Here is how a confectionery wholesaler gets the lines right."
 ---
 
-FMCG billing for confectionery wholesalers is a problem of volume: hundreds of small SKUs, each with its own MRP and retailer margin, and orders that run to 60 or 70 lines. In Takkada, the owner sets the MRP and margin for each SKU once, working through the Billing Module one stock group at a time, with a running count of how many items in each group are done. After that, when anyone adds an item to a new sales invoice or sales order on the phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. A trade discount goes on the line as Discount 1 or Discount 2, up to the limit you set, and the margin stays locked for staff. The bill syncs to Tally as a sales voucher with the discount on each item line. A long order no longer depends on anyone remembering two hundred rates.
+FMCG billing for confectionery wholesalers is a problem of volume: hundreds of small SKUs, each with its own MRP and retailer margin, and orders that run to 60 or 70 lines. In Takkada, the owner sets the MRP and margin for each SKU once, working through the Billing Module one stock group at a time, with a running count of how many items in each group are done. After that, when anyone adds an item to a new sales invoice or sales order on the phone, the rate stays the MRP and the margin is applied by itself as the line's discount, worked as a divisor on the retailer's cost. A trade discount goes on the line as Discount 1 or Discount 2, up to the limit you set, and the margin stays locked for staff. Invoices and sales orders sync to Tally with the discount on each item line. A long order no longer depends on anyone remembering two hundred rates.
 
 ## The confectionery counter
 
