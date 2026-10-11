@@ -86,4 +86,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'discount-par-discount-invoice-mein', kind: 'hinglish' },
     { slug: 'compound-discount-calculator-vs-invoice', kind: 'compare' },
   ]},
+  { id: 'auto-parts', featurePage: 'autoparts-billing-tally', pillar: 'auto-parts-billing-software-for-tally', posts: [
+    { slug: 'auto-parts-billing-software-for-tally', kind: 'pillar' },
+    { slug: 'spare-parts-pricing-importers-landed-cost', kind: 'usecase' },
+    { slug: 'two-wheeler-spare-parts-billing', kind: 'usecase' },
+    { slug: 'tractor-farm-machinery-parts-billing', kind: 'usecase' },
+    { slug: 'commercial-vehicle-parts-billing', kind: 'usecase' },
+    { slug: 'lubricant-battery-distributor-billing', kind: 'usecase' },
+    { slug: 'markup-by-stock-group-part-numbers', kind: 'usecase' },
+    { slug: 'how-to-set-markup-company-group-item', kind: 'howto' },
+    { slug: 'spare-parts-rate-cost-plus-margin', kind: 'hinglish' },
+    { slug: 'spreadsheet-price-list-vs-cost-plus-spare-parts', kind: 'compare' },
+  ]},
 ];
