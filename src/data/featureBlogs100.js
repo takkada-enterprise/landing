@@ -14,4 +14,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'ai-se-payment-ka-call-kaise-karwaye', kind: 'hinglish' },
     { slug: 'office-staff-calling-vs-ai-calling', kind: 'compare' },
   ]},
+  { id: 'fmcg-billing', featurePage: 'fmcg-module-tally', pillar: 'fmcg-billing-software-for-tally', posts: [
+    { slug: 'fmcg-billing-software-for-tally', kind: 'pillar' },
+    { slug: 'fmcg-billing-biscuit-snacks-distributors', kind: 'usecase' },
+    { slug: 'fmcg-billing-personal-care-detergent-distributors', kind: 'usecase' },
+    { slug: 'fmcg-billing-beverage-dairy-distributors', kind: 'usecase' },
+    { slug: 'fmcg-billing-super-stockists', kind: 'usecase' },
+    { slug: 'fmcg-billing-confectionery-wholesalers', kind: 'usecase' },
+    { slug: 'fmcg-billing-staples-packaged-food-distributors', kind: 'usecase' },
+    { slug: 'how-to-set-retailer-margin-discount-per-item', kind: 'howto' },
+    { slug: 'fmcg-distributor-billing-mobile-se-tally-mein', kind: 'hinglish' },
+    { slug: 'manual-rate-calculation-vs-margin-based-fmcg-billing', kind: 'compare' },
+  ]},
 ];
