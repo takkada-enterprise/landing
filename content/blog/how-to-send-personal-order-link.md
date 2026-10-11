@@ -39,7 +39,7 @@ Tap Save.
 
 ## Step 4: Approve his order
 
-Members with full access get a New order received notification, unless they have switched it off. His order is in Customer orders, already matched to him. Check the lines, then press Create order or Create invoice. The voucher goes to Tally when the sync runs on the office computer. More on the flow is in the [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) guide and on the [order booking app for Tally](/order-booking-app-tally) page.
+Members with full access get a New order received notification, unless they have switched it off. His order is in Customer orders, already matched to him. Tap Yes, that is them to confirm the party, check the lines, then press Create order or Create invoice. The voucher goes to Tally when the sync runs on the office computer. More on the flow is in the [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) guide and on the [order booking app for Tally](/order-booking-app-tally) page.
 
 ## If you need to send it again
 

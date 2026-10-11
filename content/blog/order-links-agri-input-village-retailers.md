@@ -10,7 +10,7 @@ category: "Field Sales"
 excerpt: "In sowing season every village retailer calls at once. Here is how a link lets them send the order themselves while you decide what to confirm and at what rate."
 ---
 
-Order links for agri-input dealers let village retailers send their seed, fertiliser and pesticide orders from a link on WhatsApp instead of calling your counter during the busiest weeks of the season. The retailer opens the link in his phone's browser, finds items by typing part of the name, enters bags or packets, and taps Place order. In Takkada the order waits in your Customer orders inbox until you confirm the retailer, check quantities and rates, and press Create order or Create invoice. Only that Sales Order or invoice goes to Tally, when the sync runs on the office computer. Agri rates move during the season, so many dealers choose Don't show prices, and the retailer picks items while you price the order on approval. The page sends items and quantities only, never a rate. The retailer needs a working internet connection to open the link and send, and no app or login.
+Order links for agri-input dealers let village retailers send their seed, fertiliser and pesticide orders from a link on WhatsApp instead of calling your counter during the busiest weeks of the season. The retailer opens the link in his phone's browser, finds items by typing part of the name, enters bags or packets, and taps Place order. In Takkada the order sits with you until you confirm the retailer, check quantities and rates, and press Create order or Create invoice; the voucher you create is what your office sync carries into Tally. Agri rates move during the season, so you can choose Don't show prices, and the retailer picks items while you price the order on approval. The page sends items and quantities only, never a rate. The retailer needs a working internet connection to open the link and send, and no app or login.
 
 ## Sowing season at the counter
 
@@ -20,7 +20,7 @@ An agri-input dealer in a district town supplies 150 village retailers. For most
 
 Set up the company-wide link in Settings, Order link, with your business name and WhatsApp number, and send it to your retailers before the season opens. When you create the link, your Tally stock items are already on it; under Items on this link you can switch off anything you do not want offered, such as products for the other crop.
 
-A retailer opens it, types "dap" or a seed variety, and sees each item with its unit, so he orders 50 kg bags when you sell 50 kg bags. If your items sit in two or more categories, chips filter by them. He enters his name, his 10-digit mobile number, and a note such as "deliver with Thursday vehicle", then taps Place order. The page gives him an order number and a Tell the seller on WhatsApp button.
+A retailer opens it, types "dap" or a seed variety, and sees each item with its unit, so he orders 50 kg bags when you sell 50 kg bags. He enters his name, his 10-digit mobile number, and a note such as "deliver with Thursday vehicle", then taps Place order. The page gives him an order number and a Tell the seller on WhatsApp button.
 
 ## Rates in a season that changes weekly
 
@@ -30,7 +30,7 @@ If your stock in Tally is accurate, switch off Show items that are out of stock,
 
 ## Confirming only what you can supply
 
-Members with full access get a New order received notification, unless they have switched it off. Open Customer orders, confirm the retailer against your books, and work through the lines. On a Don't show prices order every line needs a Rate (excl. GST) before you can create anything, and you can lower a Quantity to what you can actually send.
+Between walk-in farmers, open Customer orders, confirm the retailer against your books, and work through the lines. On a Don't show prices order every line needs a Rate (excl. GST) before you can create anything, and you can lower a Quantity to what you can actually send.
 
 Press Create order for a Sales Order, or Create invoice to bill now. If the same retailer ordered twice, Reject the second; nothing is sent to Tally. The full flow is in the [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) guide, and the screens are on the [order booking app for Tally](/order-booking-app-tally) page.
 

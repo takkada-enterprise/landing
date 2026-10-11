@@ -9,7 +9,7 @@ category: "Field Sales"
 excerpt: "School season brings stationery shops you have never billed, and packaging buyers who need a GST bill. Here is how one link handles both without a phone call."
 ---
 
-Order links for stationery and packaging wholesalers let your buyers order notebooks, pens, tape, cartons and poly bags themselves from a link you send on WhatsApp. The buyer opens it in his phone's browser, searches your items, enters quantities, and gives his name, mobile number and, if he has one, his GST number before tapping Place order. In Takkada the order waits in your Customer orders inbox. When the GST number matches a party in your books, the order shows that match, and you confirm it or pick the right party yourself. You can change quantities and rates, then press Create order for a Sales Order or Create invoice to bill. That voucher goes to Tally when the sync runs on the office computer. The page sends items and quantities only, so rates come from the option you chose, from Tally rates to no prices at all.
+Order links for stationery and packaging wholesalers let your buyers order notebooks, pens, tape, cartons and poly bags themselves from a link you send on WhatsApp. The buyer opens it in his phone's browser, searches your items, enters quantities, and gives his name, mobile number and, if he has one, his GST number before tapping Place order. The order then reaches you in Takkada. When the GST number matches a party in your books, the order shows that match, and you confirm it or pick the right party yourself. You can change quantities and rates, then press Create order for a Sales Order or Create invoice to bill. Your office computer's sync then carries that voucher into Tally. The page sends items and quantities only, so rates come from the option you chose, from Tally rates to no prices at all.
 
 ## Two kinds of buyer, one counter
 
@@ -29,7 +29,7 @@ Under Prices customers see, choose Tally rates, Last billed rate, a Tally price 
 
 ## Approving into Tally
 
-Members with full access get a New order received notification, unless they have switched it off. Open the order, confirm the party, and check each line's Quantity, Rate (excl. GST) and Disc %. Pick the sales ledger. The screen tells you whether CGST and SGST or IGST will be added on top of the rates. Press Create order or Create invoice.
+Open the order, confirm the party, and check each line's Quantity, Rate (excl. GST) and Disc %. Pick the sales ledger. The screen tells you whether CGST and SGST or IGST will be added on top of the rates. Press Create order or Create invoice.
 
 For accounts that order every few weeks, send a personal link from the party page; it opens with "Ordering for" and their name and skips the GST step. The [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) guide covers both link types, and the [order booking app for Tally](/order-booking-app-tally) page shows the screens.
 

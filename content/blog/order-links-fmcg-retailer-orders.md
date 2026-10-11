@@ -10,7 +10,7 @@ category: "Field Sales"
 excerpt: "Your salesman reaches each beat once a week. The kirana runs out of biscuits on Thursday. Here is how a link lets him order in between without a phone call."
 ---
 
-Order links for FMCG distributors let a kirana order between salesman visits by opening a link you sent on WhatsApp, picking items from your list and tapping Place order. In Takkada the order lands in your Customer orders inbox, where you confirm which party it is, check quantities and rates, and press Create order to make a Sales Order that goes to Tally when the sync runs on the office computer. The retailer needs no app and no login; he types his mobile number when he sends the order. You choose what prices the page shows, from your Tally rates to no prices at all, and the page sends only items and quantities, so a retailer cannot set his own rate. The salesman keeps his beat. The link covers the days he is somewhere else, and the shops your beat plan reaches only once a week or once a fortnight.
+Order links for FMCG distributors let a kirana order between salesman visits by opening a link you sent on WhatsApp, picking items from your list and tapping Place order. In Takkada the order lands in your Customer orders inbox, where you confirm which party it is, check quantities and rates, and press Create order to make a Sales Order, which Tally picks up at the next sync from your office computer. The retailer needs no app and no login; he types his mobile number when he sends the order. You choose what prices the page shows, from your Tally rates to no prices at all, and the page sends only items and quantities, so a retailer cannot set his own rate. The salesman keeps his beat. The link covers the days he is somewhere else, and the shops your beat plan reaches only once a week or once a fortnight.
 
 ## The week between visits
 
@@ -22,7 +22,7 @@ The voice notes are the expensive part. Somebody plays them in the morning, work
 
 Set up the company-wide link once in Settings, Order link: your public business name, your WhatsApp number, and what prices customers see. Create the link and paste it into your retailer broadcast or the chats you already have.
 
-A kirana opens it in his phone's browser. He types "bis" in the search box and your biscuit items appear, each showing the unit it is sold in. If your items sit in two or more categories, chips let him filter by them. He adds quantities, checks Your order, gives his shop name and mobile number, and taps Place order. He gets an order number and a button to tell you on WhatsApp.
+A kirana opens it in his phone's browser. He types "bis" in the search box and your biscuit items appear, each showing the unit it is sold in. He adds quantities, checks Your order, gives his shop name and mobile number, and taps Place order. He gets an order number and a button to tell you on WhatsApp.
 
 ## Pricing for a trade where rates move
 
@@ -30,7 +30,7 @@ FMCG rates change with every scheme and every price revision. Under Prices custo
 
 ## Approving the morning's orders
 
-Members with full access get a New order received notification, unless they have switched it off. Open Customer orders and filter by New. Each order shows the buyer name, item count and, where priced, the value excluding GST.
+Next morning, before the vans are loaded, open Customer orders and filter by New. Each order shows the buyer name, item count and, where priced, the value excluding GST.
 
 Open one. If the app matched the shop to a party in your books, tap Yes, that is them; otherwise pick the party yourself. Check the Quantity, Rate (excl. GST) and Disc % on each line, pick the sales ledger, and press Create order. The Sales Order is then an ordinary sales order in your books, the same as one your salesman booked, ready to bill when the goods go.
 

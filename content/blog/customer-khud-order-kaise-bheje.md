@@ -27,7 +27,7 @@ Usko aapka stock kabhi nahi dikhta. Agar aapka Tally stock sahi hai, toh Show it
 
 ## Step 3: order check karo aur Tally mein bhejo
 
-Full access wale members ko New order received ka notification aata hai, agar unhone band nahi kiya. Home par Orders kholo, Customer orders mein naya order dikhega. Order kholo. App ne party match ki hai toh Yes, that is them dabao, warna khud party chuno. Lines mein Quantity, Rate (excl. GST) aur Disc % ke box hain, zarurat ho toh wahin badlo. Phir Create order ya Create invoice. Galat ya double order ho toh Reject karo, Tally mein kuch nahi jaata.
+Home par Orders kholo, Customer orders mein naya order dikhega. Order kholo. App ne party match ki hai toh Yes, that is them dabao, warna khud party chuno. Lines mein Quantity, Rate (excl. GST) aur Disc % ke box hain, zarurat ho toh wahin badlo. Phir Create order ya Create invoice. Galat ya double order ho toh Reject karo, Tally mein kuch nahi jaata.
 
 Poora tarika [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) wale guide mein hai, aur screens [order booking app for Tally](/order-booking-app-tally) page par.
 

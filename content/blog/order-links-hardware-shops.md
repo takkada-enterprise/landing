@@ -9,7 +9,7 @@ category: "Field Sales"
 excerpt: "A hardware retailer's order is forty lines of sizes, gauges and finishes read out over the phone. Here is how a link lets him type them against your own item list."
 ---
 
-Order links for hardware shops let the retailers who buy from your wholesale business type their own orders against your item list, so "two dozen 1.5 inch screws, the brass ones" becomes the exact stock item in your Tally. You send the link on WhatsApp. The shop owner opens it in his browser, searches by a size or a word from the item name, filters by category, enters quantities and taps Place order. In Takkada the order waits in your Customer orders inbox. You confirm the shop against your books, check quantities and rates, and press Create order for a Sales Order or Create invoice to bill it. That voucher goes to Tally when the sync runs on the office computer. The shop needs no app or login and types his mobile number when he sends. The page sends quantities only, so rates come from your side, and stock counts are never shown.
+Order links for hardware shops let the retailers who buy from your wholesale business type their own orders against your item list, so "two dozen 1.5 inch screws, the brass ones" becomes the exact stock item in your Tally. You send the link on WhatsApp. The shop owner opens it in his browser, searches by a size or a word from the item name, narrows by category where your items are grouped, enters quantities and taps Place order. Takkada holds it for you in Customer orders. You confirm the shop against your books, check quantities and rates, and press Create order for a Sales Order or Create invoice to bill it. Tally gets that voucher on the next sync from the office computer. The shop needs no app or login and types his mobile number when he sends. The page sends quantities only, so rates come from your side, and stock counts are never shown.
 
 ## Forty lines over the phone
 
@@ -27,7 +27,7 @@ Under Prices customers see you can show Tally rates, the Last billed rate per it
 
 ## From order to Tally entry
 
-Members with full access get a New order received notification, unless they have switched it off. Open the order in Customer orders. The app suggests a party match where it can; tap Yes, that is them, or pick the shop yourself. Change any Quantity, Rate (excl. GST) or Disc % before approving. A 40-line order is still one screen to check, with the lines named as your stock items.
+Open the order in Customer orders. The app suggests a party match where it can; tap Yes, that is them, or pick the shop yourself. Change any Quantity, Rate (excl. GST) or Disc % before approving. A 40-line order is still one screen to check, with the lines named as your stock items.
 
 Press Create order, or Create invoice if the goods are going out today. The note box on the order carries anything the shop owner added, such as a delivery time. See the [WhatsApp order link for distributors](/blog/whatsapp-order-link-for-distributors) guide for the full flow and the [order booking app for Tally](/order-booking-app-tally) page for the screens.
 

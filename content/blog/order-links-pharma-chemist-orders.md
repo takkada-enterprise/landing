@@ -10,7 +10,7 @@ category: "Field Sales"
 excerpt: "A chemist's WhatsApp order is a photo of a handwritten list with brand names half cut off. Here is how a link makes him pick the exact item from your list instead."
 ---
 
-Order links for pharma distributors replace the photo of a handwritten chemist list with an order picked item by item from your own stock list. You send the chemist a link on WhatsApp; he searches by the first few letters of a brand, enters quantities, adds a note if he needs the goods today, and taps Place order. In Takkada the order waits in your Customer orders inbox. You confirm the chemist against your books, check each line's quantity and rate, and press Create order for a Sales Order or Create invoice to bill straight away. Only what you create goes to Tally, when the sync runs on the office computer. The chemist needs no app or login and types his mobile number when ordering. The page shows no stock counts and has no batch or expiry field, so batch selection stays with your billing desk, where it is today.
+Order links for pharma distributors replace the photo of a handwritten chemist list with an order picked item by item from your own stock list. You send the chemist a link on WhatsApp; he searches by the first few letters of a brand, enters quantities, adds a note if he needs the goods today, and taps Place order. In Takkada the order comes to you first, in Customer orders. You confirm the chemist against your books, check each line's quantity and rate, and press Create order for a Sales Order or Create invoice to bill straight away. Nothing reaches Tally until you create it, and then it goes with the office computer's next sync. The chemist needs no app or login and types his mobile number when ordering. The page shows no stock counts and has no batch or expiry field, so batch selection stays with your billing desk, where it is today.
 
 ## The noon rush of handwritten lists
 
@@ -18,7 +18,7 @@ A pharma distributor serving 200 chemists and nursing homes in a city takes orde
 
 ## Picking the exact item
 
-With a link, the chemist does the reading himself. He types "amox" and sees your stock items with that name, each with the unit it is sold in, so the strength and pack are the ones in your Tally. If your items are grouped into two or more categories, chips filter by them. He adds quantities to Your order, and in the details step gives his name or firm name, his 10-digit mobile number and, if he wants, his GST number. Get my business name finds the name registered to that GST number. If that lookup fails, his order still goes through.
+With a link, the chemist does the reading himself. He types "amox" and sees your stock items with that name, each with the unit it is sold in, so the strength and pack are the ones in your Tally. He adds quantities to Your order, and in the details step gives his name or firm name, his 10-digit mobile number and, if he wants, his GST number. Get my business name finds the name registered to that GST number. If that lookup fails, his order still goes through.
 
 The note box, "Anything to tell the seller?", is where he writes "urgent, before 4" or a delivery address.
 
@@ -28,7 +28,7 @@ Under Prices customers see you can show Tally rates, the Last billed rate for ea
 
 ## Checking before you send it to the godown
 
-Members with full access get a New order received notification, unless they have switched it off. In Customer orders, an order whose GST number matches a party in your books shows "Matches" and the party name. Open it, tap Yes, that is them, and check each line. Quantity, Rate (excl. GST) and Disc % can be changed before you approve.
+Between counter calls, check Customer orders. An order whose GST number matches a party in your books shows "Matches" and the party name. Open it, tap Yes, that is them, and check each line. Quantity, Rate (excl. GST) and Disc % can be changed before you approve.
 
 Press Create order to make a Sales Order, or Create invoice to open the invoice screen filled with the chemist and lines. Batches are handled at billing, the way your desk handles them today. If the order is a duplicate of one already phoned in, Reject it; nothing is sent to Tally.
 
@@ -50,7 +50,7 @@ A: Anyone with the company-wide link can send one. It waits in your inbox, and y
 
 **Q: How fast does an approved order reach Tally?**
 
-A: It is recorded in the app at once and reaches Tally when the sync runs on the office computer.
+A: A Sales Order is recorded at once; an invoice once you save it. Either reaches Tally when the sync runs on the office computer.
 
 ## Start with your chemist list
 

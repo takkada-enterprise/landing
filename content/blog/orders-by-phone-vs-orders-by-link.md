@@ -19,7 +19,7 @@ The phone has real strengths. The customer is used to it, it needs nothing insta
 
 ## How a link order travels
 
-You send one link on WhatsApp. The customer opens it in his phone's browser, searches your items, sees each with the unit it is sold in, and enters quantities. He gives his name and mobile number and taps Place order, and he gets an order number on screen. Members with full access get a New order received notification, unless they have switched it off.
+You send one link on WhatsApp. The customer opens it in his phone's browser, searches your items, sees each with the unit it is sold in, and enters quantities. He gives his name and mobile number and taps Place order, and he gets an order number on screen.
 
 In Customer orders you open it, confirm the party, check Quantity, Rate (excl. GST) and Disc % on each line, and press Create order or Create invoice. The typing happened once, by the person who knew what he wanted, against item names that already match your Tally.
 
