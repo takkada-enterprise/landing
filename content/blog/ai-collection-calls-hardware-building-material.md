@@ -22,7 +22,7 @@ The contractor pays when his own client pays him. So every collection call ends 
 
 Every AI call carries the party's total amount due, a summary of the bills, days overdue, the last payment received and, if there was one, the previous promise with its amount and date. If a contractor promised ₹50,000 by the 15th, the next call goes out with that promise in hand.
 
-After each call, a new promise is saved only when the contractor gives both an amount and a date. Each new promise points back at the one it replaces. With the Recovery dashboard on, its History tab shows the trail row by row. First ₹50,000 by the 15th, then ₹30,000 by the 22nd. If he disputes a bill over a short delivery or a rate, the note holds the reason and the invoice he named. If he says he paid by cheque, the note holds the date and reference.
+After each call, a new promise is saved only when the contractor gives both an amount and a date. Each new promise replaces the open one. With the Recovery dashboard on, its History tab shows the latest promise for that contractor, such as ₹30,000 by the 22nd, with its status. If he disputes a bill over a short delivery or a rate, the note holds the reason and the invoice he named. If he says he paid by cheque, the note holds the date and reference.
 
 ## The automatic re-call
 

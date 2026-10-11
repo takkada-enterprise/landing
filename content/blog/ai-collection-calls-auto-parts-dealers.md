@@ -31,7 +31,7 @@ A cap on AI calls per party per month, four by default, stops a small garage fro
 
 ## Where the results show
 
-With the Recovery dashboard on, each AI call sits on the garage's follow-up timeline, tagged AI, next to your staff's own calls, and Recovery's History tab shows each promise with its amount and date. Without it, the results show on the party's bills page under AI call results. An AI call's recording plays from the timeline once it is ready.
+With the Recovery dashboard on, each AI call sits on the garage's follow-up timeline, tagged AI, next to your staff's own calls, and Recovery's History tab shows the latest promise with its amount and date. Without it, the results show on the party's bills page under AI call results. An AI call's recording plays from the timeline once it is ready.
 
 For the full picture, read [AI calling for payment collection](/blog/ai-calling-for-payment-collection-tally), or see the [AI collection calls](/ai-collection-calls) page.
 
