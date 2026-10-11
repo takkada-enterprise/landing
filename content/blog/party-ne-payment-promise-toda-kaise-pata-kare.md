@@ -43,7 +43,7 @@ A: Promise date nikalne ke baad jo agli daily brief banti hai, usme dikhti hai, 
 
 **Q: Party ne aadha paisa diya toh?**
 
-A: Promise date tak jitni receipt Tally mein aayi, woh gini jati hai. Thoda aaya toh Part paid dikhta hai. Baaki ke liye naya promise likh do.
+A: Promise date tak Tally mein aayi receipts dekhi jati hain. Thoda aaya toh Part paid dikhta hai. Baaki ke liye naya promise likh do.
 
 **Q: Kya yeh Tally mein kuch likhta hai?**
 
