@@ -74,4 +74,16 @@ export const FEATURE_BLOG_BATCHES = [
     { slug: 'customer-khud-order-kaise-bheje', kind: 'hinglish' },
     { slug: 'orders-by-phone-vs-orders-by-link', kind: 'compare' },
   ]},
+  { id: 'ladder-discount', featurePage: 'ladder-discount-tally', pillar: 'ladder-discount-in-tally-invoices', posts: [
+    { slug: 'ladder-discount-in-tally-invoices', kind: 'pillar' },
+    { slug: 'ladder-discount-fmcg-company-schemes', kind: 'usecase' },
+    { slug: 'ladder-discount-tiles-sanitaryware-dealers', kind: 'usecase' },
+    { slug: 'ladder-discount-paint-dealers', kind: 'usecase' },
+    { slug: 'ladder-discount-electrical-wholesalers', kind: 'usecase' },
+    { slug: 'ladder-discount-pharma-trade-discount', kind: 'usecase' },
+    { slug: 'ladder-discount-auto-parts-list-price', kind: 'usecase' },
+    { slug: 'how-to-set-up-named-ladder-discounts', kind: 'howto' },
+    { slug: 'discount-par-discount-invoice-mein', kind: 'hinglish' },
+    { slug: 'compound-discount-calculator-vs-invoice', kind: 'compare' },
+  ]},
 ];
