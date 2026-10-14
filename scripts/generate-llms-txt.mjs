@@ -21,6 +21,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { routeMetadata } from '../src/data/siteMetadata.js';
 import { pricing, formatInr } from '../src/data/siteContent.js';
+import { FEATURE_PAGES } from '../src/data/featurePages.js';
 import { INTERNAL_TOPIC_IDS, readGuides, readTopics } from './lib/guideContract.mjs';
 
 export const SITE_URL = 'https://takkada.com';
@@ -197,21 +198,124 @@ export function buildDoc({ priceData, routes, guides, manual = [] }) {
   return lines.join('\n');
 }
 
+/**
+ * Build public/llms-full.txt: an expanded, self-contained markdown document
+ * that includes full feature answers, walkthrough steps, and FAQs alongside
+ * pricing and manual pages so an AI agent can ingest the entire product
+ * reference without crawling dozens of URLs.
+ */
+export function buildFullDoc({ priceData, routes, guides, manual = [], featurePages = [] }) {
+  const lines = [
+    '# Takkada (Full Capability & Documentation Reference)',
+    '',
+    "> Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.",
+    '',
+    buildPricingBlock(priceData),
+    '',
+  ];
+
+  for (const { section, entries } of buildSections(routes)) {
+    lines.push(`## ${section}`, '');
+    for (const e of entries) lines.push(`- [${e.title}](${e.url}): ${e.summary}`);
+    lines.push('');
+  }
+
+  if (featurePages.length > 0) {
+    lines.push('## Feature Deep Dives & Specifications', '');
+    for (const fp of featurePages) {
+      const pageUrl = url(`/${fp.slug}`);
+      lines.push(`### [${fp.headline}](${pageUrl})`, '');
+      if (fp.subheadline) lines.push(`*${fp.subheadline}*`, '');
+      if (fp.answer) {
+        lines.push('**Core capability & workflow:**', fp.answer, '');
+      }
+      if (Array.isArray(fp.walkthrough) && fp.walkthrough.length > 0) {
+        lines.push('**How it works:**');
+        for (const step of fp.walkthrough) {
+          lines.push(`- **${step.title}**: ${step.body}`);
+        }
+        lines.push('');
+      }
+      if (Array.isArray(fp.faqs) && fp.faqs.length > 0) {
+        lines.push('**Frequently Asked Questions:**');
+        for (const faq of fp.faqs) {
+          lines.push(`- **Q: ${faq.q}**`);
+          lines.push(`  A: ${faq.a}`);
+        }
+        lines.push('');
+      }
+    }
+  }
+
+  if (manual.length > 0) {
+    lines.push('## Manual', '');
+    lines.push(
+      'Step-by-step instructions for people using the app, each one checked against ' +
+        `the app itself on the date it names. Index: ${url('/guide')}`,
+      ''
+    );
+    for (const page of manual) {
+      lines.push(`- [${page.title}](${page.url})${page.summary ? `: ${page.summary}` : ''}`);
+    }
+    lines.push('');
+  }
+
+  if (guides.length > 0) {
+    lines.push('## Guides', '');
+    lines.push(
+      `Practical guides on Tally workflows, receivables and collections. Index: ${url('/blog')}`,
+      ''
+    );
+    for (const { category, posts } of guides) {
+      lines.push(`### ${category}`, '');
+      for (const p of posts) lines.push(`- [${p.title}](${p.url})`);
+      lines.push('');
+    }
+  }
+
+  lines.push(
+    '## Contact',
+    '',
+    '- WhatsApp/phone: +91 94359 77777 · email: ronak@paysaathi.com',
+    '- Demo booking: https://calendar.notion.so/meet/ronakmalu/takkada',
+    ''
+  );
+
+  return lines.join('\n');
+}
+
 function main() {
+  const guides = buildGuides(resolve(repoRoot, 'content/blog'));
+  const manual = buildManual(readTopics(repoRoot), readGuides(repoRoot));
+
   const doc = buildDoc({
     priceData: pricing,
     routes: routeMetadata,
-    guides: buildGuides(resolve(repoRoot, 'content/blog')),
-    manual: buildManual(readTopics(repoRoot), readGuides(repoRoot)),
+    guides,
+    manual,
+  });
+
+  const fullDoc = buildFullDoc({
+    priceData: pricing,
+    routes: routeMetadata,
+    guides,
+    manual,
+    featurePages: FEATURE_PAGES,
   });
 
   writeFileSync(resolve(repoRoot, 'public/llms.txt'), doc);
+  writeFileSync(resolve(repoRoot, 'public/llms-full.txt'), fullDoc);
+
   const distDir = resolve(repoRoot, 'dist');
-  if (existsSync(distDir)) writeFileSync(resolve(distDir, 'llms.txt'), doc);
+  if (existsSync(distDir)) {
+    writeFileSync(resolve(distDir, 'llms.txt'), doc);
+    writeFileSync(resolve(distDir, 'llms-full.txt'), fullDoc);
+  }
 
   const pageCount = buildSections(routeMetadata).reduce((n, g) => n + g.entries.length, 0);
   process.stdout.write(
-    `generate-llms-txt: wrote public/llms.txt (${pageCount} pages, ${doc.length} bytes)\n`
+    `generate-llms-txt: wrote public/llms.txt (${pageCount} pages, ${doc.length} bytes)\n` +
+      `generate-llms-txt: wrote public/llms-full.txt (${FEATURE_PAGES.length} features, ${fullDoc.length} bytes)\n`
   );
 }
 

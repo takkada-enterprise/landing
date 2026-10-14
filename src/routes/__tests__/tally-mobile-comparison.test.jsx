@@ -66,6 +66,9 @@ describe('TallyMobileComparison route', () => {
     // Enriched differentiator rows (single data source shared with home).
     expect(table.textContent).toContain('Zero-MDR UPI collection');
     expect(table.textContent).toContain('two-way Tally write-back');
+    // Accessible and crawler-visible text in matrix cells for text scrapers/screen readers.
+    expect(table.textContent).toContain('Yes');
+    expect(table.textContent).toContain('No');
     // One row per data entry — page and home render the same matrix.
     expect(container.querySelectorAll('.comparison-row')).toHaveLength(
       comparisonSection.rows.length

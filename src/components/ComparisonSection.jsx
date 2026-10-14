@@ -52,6 +52,7 @@ function ComparisonSection() {
                   {columns.map((col) => (
                     <td key={col} className="comparison-td comparison-td--value">
                       {row[col] ? <CheckIcon /> : <CrossIcon />}
+                      <span className="sr-only">{row[col] ? 'Yes' : 'No'}</span>
                     </td>
                   ))}
                 </tr>

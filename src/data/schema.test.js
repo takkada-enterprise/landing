@@ -350,6 +350,18 @@ describe('softwareApplicationSchema', () => {
     expect(offers['Copilot']).toMatchObject({ price: '9000', priceCurrency: 'INR' });
     expect(offers['Enterprise']).toMatchObject({ price: '24000', priceCurrency: 'INR' });
   });
+
+  it('declares verified featureList, softwareRequirements, and target country/languages for AI discovery', () => {
+    const schema = softwareApplicationSchema();
+    expect(schema.softwareRequirements).toContain('TallyPrime or Tally.ERP 9');
+    expect(schema.countriesSupported).toBe('IN');
+    expect(schema.inLanguage).toEqual(['en', 'hi']);
+    expect(Array.isArray(schema.featureList)).toBe(true);
+    expect(schema.featureList.length).toBeGreaterThanOrEqual(10);
+    expect(schema.featureList).toContain('GST e-invoice generation and cancellation from mobile');
+    expect(schema.featureList).toContain('Invoice-linked UPI payment collection at zero MDR');
+    expect(schema.featureList).toContain('Automatic payment reconciliation back into Tally');
+  });
 });
 
 describe('absoluteUrl emissions', () => {
