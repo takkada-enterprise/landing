@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   buildDoc,
+  buildFullDoc,
   buildGuides,
   buildManual,
   buildPricingBlock,
@@ -14,9 +15,11 @@ import {
 import { readGuides, readTopics } from './lib/guideContract.mjs';
 import { routeMetadata } from '../src/data/siteMetadata.js';
 import { pricing } from '../src/data/siteContent.js';
+import { FEATURE_PAGES } from '../src/data/featurePages.js';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const committed = readFileSync(resolve(repoRoot, 'public/llms.txt'), 'utf-8');
+const committedFull = readFileSync(resolve(repoRoot, 'public/llms-full.txt'), 'utf-8');
 
 // The plan names that were pulled from the rate card. llms.txt advertised them
 // for months after the rebuild; these assertions are what stops that recurring.
@@ -148,5 +151,36 @@ describe('the committed public/llms.txt', () => {
 
   it('uses apex URLs with no www subdomain', () => {
     expect(committed).not.toMatch(/https:\/\/www\./);
+  });
+});
+
+describe('the committed public/llms-full.txt', () => {
+  it('is byte-identical to what buildFullDoc produces', () => {
+    const regenerated = buildFullDoc({
+      priceData: pricing,
+      routes: routeMetadata,
+      guides: buildGuides(resolve(repoRoot, 'content/blog')),
+      manual: buildManual(readTopics(repoRoot), readGuides(repoRoot)),
+      featurePages: FEATURE_PAGES,
+    });
+    expect(committedFull).toBe(regenerated);
+  });
+
+  it('names no retired plan', () => {
+    for (const name of RETIRED) {
+      expect(committedFull).not.toContain(name);
+    }
+  });
+
+  it('contains feature deep dives with core capability answers and FAQs', () => {
+    expect(committedFull).toContain('## Feature Deep Dives & Specifications');
+    expect(committedFull).toContain('**Core capability & workflow:**');
+    expect(committedFull).toContain('**Frequently Asked Questions:**');
+    expect(committedFull).toContain('Salesman app for Tally');
+    expect(committedFull).toContain('Payment collection on Tally');
+  });
+
+  it('uses apex URLs with no www subdomain', () => {
+    expect(committedFull).not.toMatch(/https:\/\/www\./);
   });
 });
