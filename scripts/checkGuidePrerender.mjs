@@ -24,6 +24,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { readGuides, readTopics, INTERNAL_TOPIC_IDS } from './lib/guideContract.mjs';
+import { pageTitle } from '../src/lib/pageTitle.js';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -154,7 +155,7 @@ export function expectationsFor(topics, guides) {
       path: `/guide/${guide.slug}`,
       slug: guide.slug,
       h1: guide.title,
-      title: guide.metaTitle || `${guide.title} — Takkada`,
+      title: pageTitle(guide.title, guide.metaTitle),
       description: guide.metaDescription ?? '',
       checkedAgainstAppOn: guide.checkedAgainstAppOn,
     });

@@ -5,6 +5,7 @@ import BlogCtaBand from '../components/BlogCtaBand';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
 import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
 import { getAuthor } from '../data/authors';
+import { pageTitle } from '../lib/pageTitle';
 
 const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
   year: 'numeric',
@@ -106,7 +107,7 @@ function BlogPost() {
   return (
     <>
       <Seo
-        title={post.meta_title || `${post.title} — Takkada`}
+        title={pageTitle(post.title, post.meta_title)}
         description={post.meta_description}
         path={`/blog/${post.slug}`}
         ogImage={post.heroImage}

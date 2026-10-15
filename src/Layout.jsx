@@ -628,16 +628,6 @@ function LayoutInner() {
     return () => document.body.classList.remove('lock-scroll');
   }, [menuOpen]);
 
-  const isStandaloneApp = location.pathname.startsWith('/chinese-sayings');
-
-  if (isStandaloneApp) {
-    return (
-      <div className="site-root">
-        <Outlet />
-      </div>
-    );
-  }
-
   const forceLightNav = location.pathname.startsWith('/blog');
 
   return (
