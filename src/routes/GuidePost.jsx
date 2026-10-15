@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { getGuideBySlug } from '../lib/guidePosts';
+import { pageTitle } from '../lib/pageTitle';
 import { articlePageSchema, breadcrumbSchema, DEFAULT_OG_IMAGE } from '../data/schema';
 
 // The public manual's reader.
@@ -120,7 +121,7 @@ function GuidePost() {
   return (
     <>
       <Seo
-        title={guide.meta_title || `${guide.title} — Takkada`}
+        title={pageTitle(guide.title, guide.meta_title)}
         description={guide.meta_description}
         path={path}
         ogType="article"

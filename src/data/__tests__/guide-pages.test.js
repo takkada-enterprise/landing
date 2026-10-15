@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { readGuides, readTopics, SLUG_RE } from '../../../scripts/lib/guideContract.mjs';
 import { FEATURE_PAGES, featurePagePath } from '../featurePages';
 import { routeMetadata } from '../siteMetadata';
+import { pageTitle } from '../../lib/pageTitle';
 
 // The content side of the guide contract: the catalog, the copy and the
 // manifest. scripts/__tests__/guide-contract.test.mjs proves the validator
@@ -180,7 +181,7 @@ describe('guide titles', () => {
 // page breaks that, and a warning in a build log that nobody reads is how
 // thirteen of twenty-one guides ended up with titles Google truncates
 // mid-word. The limits are asserted here instead, against the same strings
-// the route hands to Seo — including the `title — Takkada` fallback a guide
+// the route hands to Seo — including the `title | Takkada` fallback a guide
 // gets when it declares no meta_title of its own, because that fallback is
 // what would actually be served.
 // ───────────────────────────────────────────────────────────────────────────
@@ -189,7 +190,7 @@ const MAX_META_TITLE = 60;
 const MAX_META_DESCRIPTION = 160;
 
 /** Exactly what src/routes/GuidePost.jsx passes to <Seo title=…>. */
-const servedTitle = (guide) => guide.metaTitle || `${guide.title} — Takkada`;
+const servedTitle = (guide) => pageTitle(guide.title, guide.metaTitle);
 
 describe('guide search-result metadata', () => {
   it.each(GUIDES.map((guide) => [guide.slug, guide]))(

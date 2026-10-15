@@ -1,6 +1,7 @@
 ---
 title: "Inside an AI collection call: 20+ inputs in, 30+ outcomes out"
 slug: "how-ai-collection-calls-work"
+meta_title: "How AI Collection Calls Work: Inputs and Outcomes"
 meta_description: "What an AI collection call knows before it dials, and what it hands back after. A plain look at the inputs and outputs behind Takkada's calling agent."
 primary_keyword: "AI collection calls"
 date: "2026-10-02"

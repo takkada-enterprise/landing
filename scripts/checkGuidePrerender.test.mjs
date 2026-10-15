@@ -112,6 +112,6 @@ describe('expectationsFor', () => {
 
   it('falls back to the site title suffix when a guide has no meta_title', () => {
     const [, page] = expectationsFor(topics, [{ ...guides[0], metaTitle: null }]);
-    expect(page.title).toBe(`${expected.h1} — Takkada`);
+    expect(page.title).toBe(`${expected.h1} | Takkada`);
   });
 });

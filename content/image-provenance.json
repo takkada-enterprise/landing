@@ -48,51 +48,6 @@
       "reviewedBy": "w4 classification pass (agent), unsupervised",
       "origin": "A vector \"featured on\" badge. SVG line art, no raster capture. Inspected 2026-09-07."
     },
-    "1fe77abc0baf20a65bc94ff3387de0489fccb73bcd851279cd411e8c7cceebbf": {
-      "path": "public/assets/Wuxia/1932181.jpg",
-      "kind": "illustration",
-      "sha256": "1fe77abc0baf20a65bc94ff3387de0489fccb73bcd851279cd411e8c7cceebbf",
-      "reviewed": true,
-      "reviewedOn": "2026-09-07",
-      "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "Third-party wuxia landscape artwork committed for the /chinese-sayings side page. Painted scene, no application UI. Inspected 2026-09-07."
-    },
-    "2f658dd70a683a103c9a522047ee22e4fb81f0b4b3510564c97b534ac96259c1": {
-      "path": "public/assets/Wuxia/1932198.jpg",
-      "kind": "illustration",
-      "sha256": "2f658dd70a683a103c9a522047ee22e4fb81f0b4b3510564c97b534ac96259c1",
-      "reviewed": true,
-      "reviewedOn": "2026-09-07",
-      "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
-    },
-    "bc3388881fd85d97f4345b77ee7a14bdbae6ca62ec2f3d8ee06a31a191d082de": {
-      "path": "public/assets/Wuxia/1932200.jpg",
-      "kind": "illustration",
-      "sha256": "bc3388881fd85d97f4345b77ee7a14bdbae6ca62ec2f3d8ee06a31a191d082de",
-      "reviewed": true,
-      "reviewedOn": "2026-09-07",
-      "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
-    },
-    "ba6e27bb815cb4d7af6fce45a1ed5ec7119fbd68a24990f6d85c667440ad9cee": {
-      "path": "public/assets/Wuxia/1932246.jpg",
-      "kind": "illustration",
-      "sha256": "ba6e27bb815cb4d7af6fce45a1ed5ec7119fbd68a24990f6d85c667440ad9cee",
-      "reviewed": true,
-      "reviewedOn": "2026-09-07",
-      "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "Third-party wuxia landscape artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
-    },
-    "831528943a885a08027a8d2b64a8f71b604ac47d205a5c1149929cb84766ddff": {
-      "path": "public/assets/Wuxia/wp2999269.png",
-      "kind": "illustration",
-      "sha256": "831528943a885a08027a8d2b64a8f71b604ac47d205a5c1149929cb84766ddff",
-      "reviewed": true,
-      "reviewedOn": "2026-09-07",
-      "reviewedBy": "w4 classification pass (agent), unsupervised",
-      "origin": "Third-party wuxia character artwork for /chinese-sayings. Painted scene, no application UI. Inspected 2026-09-07."
-    },
     "f0cf9e20e1169517a178198bb192f6a4bcd39715c20fdbbccc2e92e54d9d280f": {
       "path": "public/assets/screens/home-360.webp",
       "kind": "appScreenshot",

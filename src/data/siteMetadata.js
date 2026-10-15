@@ -190,16 +190,5 @@ export const routeMetadata = [
     // inbound links but is excluded from sitemap.xml (2026-07 audit item 4).
     sitemap: false,
   },
-  {
-    path: '/chinese-sayings',
-    llms: {
-      section: 'Key pages',
-      title: 'Chinese Novel Sayings & Wuxia Proverbs | The Jianghu Oracle',
-      summary: 'Discover legendary Chinese novel quotes, Xianxia cultivation proverbs, and Wuxia idioms formatted as an authentic manuscript.',
-    },
-    sourceFile: 'src/routes/ChineseNovelQuotesRoute.jsx',
-    changefreq: 'weekly',
-    priority: 0.9,
-  },
   ...featureRouteMetadata,
 ];
