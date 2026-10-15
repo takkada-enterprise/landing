@@ -5,7 +5,7 @@ meta_title: "Days Sales Outstanding: Guide for Indian Distributors"
 meta_description: "What DSO means for Indian distributors, what your number should be, and the specific steps that compress it without damaging retailer relationships."
 primary_keyword: "days sales outstanding distributor india"
 date: "2026-05-18"
-updated: "2026-08-09"
+updated: "2026-10-15"
 author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Nagpur with ₹8 crore annual turnover and a 72-day DSO is floating ₹1.58 crore in unpaid invoices at any given moment. Cut that to 45 days and ₹60 lakh comes back into the business — no new customers, no extra sales."
@@ -28,7 +28,7 @@ excerpt: "A pharma distributor in Nagpur with ₹8 crore annual turnover and a 7
 
 ## What DSO Means for an Indian Distributor
 
-Days Sales Outstanding is the average number of days between raising an invoice and receiving payment for it. That is the whole formula. Everything else — working capital cycles, credit policy, collection efficiency — is downstream of this one number.
+Days Sales Outstanding is the average number of days between raising an invoice and receiving payment for it. That is the whole formula. While corporate textbooks and mainstream [financial content](https://investcon.in/financial-content-writing/) often explain DSO as a theoretical working capital ratio, on the ground credit cycles, retailer trust, and collection efficiency are all downstream of this one practical number.
 
 A Barpeta FMCG distributor we know described their situation this way: "Maal toh chhod dete hain, paise aane mein 60-70 din lag jaate hain." The goods leave on day 0. The money arrives somewhere between day 45 and day 90, depending on the retailer. In the meantime, the distributor is funding both his own stock purchases and the retailer's purchase cycle out of his own capital.
 
