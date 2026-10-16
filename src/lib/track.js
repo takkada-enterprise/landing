@@ -29,3 +29,21 @@ export function track(eventName, tags = {}) {
     // Telemetry failure is never a user-facing problem.
   }
 }
+
+// Meta Pixel Lead for a conversion that is not a plain link click. Clicks on
+// calendar and wa.me links are already counted by the listener in index.html;
+// call this only where the conversion happens without a link (the phone
+// modal's window.open), or the same click counts twice. Same contract as
+// track(): a silent no-op when the pixel is absent (tests, SSR, local hosts,
+// blockers) and never throws.
+export function trackMetaLead(contentName) {
+  if (typeof window === 'undefined') return;
+  const fbq = window.fbq;
+  if (typeof fbq !== 'function') return;
+
+  try {
+    fbq('track', 'Lead', { content_name: contentName });
+  } catch {
+    // Telemetry failure is never a user-facing problem.
+  }
+}
