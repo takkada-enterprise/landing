@@ -141,6 +141,10 @@ function PhoneModal({
       }
 
       track('demo_entry_start', { cta_context: 'phone-modal' });
+      // The OTP itself is sent by the demo app on another origin, so this
+      // site never sees it succeed. A validated number that has just been
+      // captured is the closest point we own, and it is a real lead.
+      trackMetaLead('try_demo_otp');
       navigate(buildDemoHandoffUrl(phone, appLinks.demoApp));
       return;
     }
