@@ -50,8 +50,51 @@
         })(window, document, "clarity", "script", "x3qmzef9tl");
       }
     </script>
+
+    <!-- Meta Pixel (Takkada dataset). Same local-host guard as Clarity so dev
+         sessions never reach the ad account.
+
+         Leads: a click on any link to the demo calendar or to WhatsApp
+         (wa.me / api.whatsapp.com) counts once. Matching on the link target
+         rather than the button text keeps every page covered, the feature
+         pages included. The phone modal opens the calendar with window.open
+         instead of a link, so it fires its own Lead via trackMetaLead() in
+         src/lib/track.js.
+
+         PageView: the pixel fires one on load and, by itself, one on every
+         client-side route change (it listens to history.pushState), so the
+         router needs no extra call. Adding one would double-count. -->
+    <script>
+      if (
+        typeof window !== 'undefined' &&
+        !['localhost', '127.0.0.1'].includes(window.location.hostname) &&
+        !window.location.hostname.startsWith('192.168.') &&
+        !window.location.hostname.startsWith('10.') &&
+        !window.location.hostname.endsWith('.local')
+      ) {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1485519606341338');
+        fbq('track', 'PageView');
+
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a');
+          if (!a || !a.href) return;
+          if (a.href.indexOf('calendar.notion.so') > -1) {
+            fbq('track', 'Lead', { content_name: 'book_demo_click' });
+          } else if (a.href.indexOf('wa.me/') > -1 || a.href.indexOf('api.whatsapp.com') > -1) {
+            fbq('track', 'Lead', { content_name: 'whatsapp_click' });
+          }
+        }, true);
+      }
+    </script>
   </head>
   <body>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=1485519606341338&ev=PageView&noscript=1"/></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
