@@ -4404,6 +4404,33 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   margin: 28px 0 32px;
 }
 
+.blog-figure {
+  margin: 32px 0 28px;
+}
+
+.blog-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+
+.blog-figure figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.blog-figure figcaption a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .blog-post-body table {
   width: 100%;
   border-collapse: collapse;

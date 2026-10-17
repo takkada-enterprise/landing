@@ -312,6 +312,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation](https://takkada.com/blog/payment-link-tally-integration/)
 - [Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)](https://takkada.com/blog/salesman-ki-visit-mobile-se-kaise-track-kare/)
 - [Set Your Own Ageing Slabs for Receivables (0-15, 15-45, 45-90 or Whatever Your Trade Uses)](https://takkada.com/blog/customise-ageing-slabs-receivables-tally/)
+- [Site Structure for a B2B Website: Design Your Product Pages So SEO and Backlinks Work Together](https://takkada.com/blog/b2b-website-structure-seo/)
 - [Stock Khatam Hone se Pehle Kaise Pata Kare (Hinglish)](https://takkada.com/blog/stock-khatam-hone-se-pehle-kaise-pata-kare/)
 - [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
 - [Tally ki Report Mobile par Kaise Dekhe (Hinglish)](https://takkada.com/blog/tally-ki-report-mobile-par-kaise-dekhe/)
