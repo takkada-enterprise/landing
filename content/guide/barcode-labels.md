@@ -22,7 +22,7 @@ quotes:
   - Mfg and expiry, month and year
   - Any batch
   - stickers at a time
-  - Nothing here has an item to label
+  - No item lines to label
   - Printing isn't available in this browser — the sheet was downloaded
   - These labels are too small for a readable barcode — pick a bigger size
   - These labels don't fit on the page — check the size, margins and gaps
@@ -76,8 +76,8 @@ quoteSources:
     - lib/widgets/barcode_labels/label_print_text.dart
   stickers at a time:
     - lib/widgets/barcode_labels/label_print_text.dart
-  Nothing here has an item to label:
-    - lib/widgets/barcode_labels/label_print_flow.dart
+  No item lines to label:
+    - lib/widgets/barcode_labels/label_print_text.dart
   Printing isn't available in this browser — the sheet was downloaded:
     - lib/services/barcode_labels_service.dart
   These labels are too small for a readable barcode — pick a bigger size:
@@ -259,11 +259,13 @@ Enter is still an ordinary search.
 1. Open the screen where you add items: a sales invoice, sales order, purchase
    invoice, credit or debit note, delivery challan, goods receipt or stock
    journal.
-2. Tap "Scan labels".
+2. Tap the scan icon in the top bar ("Scan labels").
 3. Hold labels in front of the camera, or fire a paired Bluetooth gun. Both work
    at the same time, and the on-screen keyboard stays out of the way.
-4. Each scan adds its quantity and shows a running total. A label held in front
-   of the camera counts once, so move to the next box.
+4. Each scan adds its quantity and shows a running total. The camera counts a
+   code once while it stays in view. For boxes that carry the same label, move
+   the phone off the label between boxes for a couple of seconds, or use the
+   gun, which counts every pull of the trigger.
 5. Tap Done to put the scanned lines on the bill.
 
 The phone also reads ordinary maker barcodes, and a code that matches one
@@ -345,5 +347,5 @@ printed; try again online.
 phone browser cannot send the sheet to a printer, so the PDF was saved instead.
 Open it and print from there.
 
-**"Nothing here has an item to label".** The bill has no item lines, only
-ledger or service lines.
+**Print labels is greyed out.** The reason reads "No item lines to label": the
+bill has only ledger or service lines, so there is nothing to put on a sticker.

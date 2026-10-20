@@ -230,12 +230,20 @@ export function readSiteRevision(root = repoRoot) {
  * rather than pick a winner.
  */
 export function newestAppRevision(guides) {
+  const revisions = [...new Set(guides.map((guide) => guide.appRevision).filter(Boolean))];
+  // An abbreviated sha and the full sha of the same commit are one revision:
+  // count each under the longest declared form it is a prefix of.
+  const fullFormOf = (revision) =>
+    revisions
+      .filter((other) => other.startsWith(revision))
+      .reduce((longest, other) => (other.length > longest.length ? other : longest), revision);
   const newestDateByRevision = new Map();
   for (const guide of guides) {
     if (!guide.appRevision) continue;
+    const revision = fullFormOf(guide.appRevision);
     const date = String(guide.checkedAgainstAppOn ?? '');
-    const seen = newestDateByRevision.get(guide.appRevision);
-    if (seen === undefined || date > seen) newestDateByRevision.set(guide.appRevision, date);
+    const seen = newestDateByRevision.get(revision);
+    if (seen === undefined || date > seen) newestDateByRevision.set(revision, date);
   }
   const declared = [...newestDateByRevision.keys()];
   if (declared.length <= 1) return declared;

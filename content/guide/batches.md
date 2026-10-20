@@ -92,7 +92,7 @@ sections:
     permission: same-as-the-document-you-are-on
   - id: price-by-batch
     featureKeys: []
-    settings: {invoice_price_by_batch: on}
+    settings: {price_by_batch_in_invoice: on}
     permission: company-admin
   - id: troubleshooting
     featureKeys: []
@@ -172,16 +172,18 @@ Takkada checks the batches before anything is saved:
 - Selling more than a batch holds follows your business's stock rule. Where
   the rule refuses short stock, the save stops and names how much is
   "left in batch". Otherwise the app asks under "Check batches", and you choose
-  Back or "Save anyway" ("Continue anyway" on the phone).
+  Back or "Save anyway". When you are adding items to a bill on the phone, the
+  same button reads "Continue anyway".
 - An expired batch on a sale is allowed, but the app first asks whether to
   "sell anyway?".
 
 ## Price by batch
 
-A company admin can switch on "Price by batch" in the invoice settings. Each
-line then carries one batch and takes that batch's rate: its MRP, or the rate it
-last sold at, or the item rate. The batch's Mfg and expiry dates print on the
-bill.
+A company admin can switch on "Price by batch" in the invoice settings. It
+works on sales invoices: each line then carries one batch and takes that
+batch's rate, which is its MRP, or the rate it last sold at, or the item rate.
+The batch's Mfg and expiry dates print on the bill. Price by batch needs the
+batch box, so switching it on also switches on "Batch numbers on invoices".
 
 ## When batches look wrong
 

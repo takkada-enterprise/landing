@@ -229,6 +229,16 @@ describe('the app revision the manifest records', () => {
     ).toEqual(['bbb2222']);
   });
 
+  it('counts an abbreviated sha and the full sha of one commit as one revision', () => {
+    expect(
+      newestAppRevision([
+        { appRevision: 'bbb2222', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'bbb2222ffff', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+      ])
+    ).toEqual(['bbb2222ffff']);
+  });
+
   it('refuses two revisions checked on the same newest date', () => {
     expect(() =>
       newestAppRevision([
