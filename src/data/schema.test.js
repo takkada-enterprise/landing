@@ -43,6 +43,26 @@ describe('organizationSchema', () => {
   it('exposes a stable @id used as the publisher anchor', () => {
     expect(organizationSchema()['@id']).toBe(ORG_ID);
   });
+
+  it('says what the company does, so "takkada" is not read as a place name', () => {
+    const org = organizationSchema();
+    expect(org.description).toMatch(/mobile app/);
+    expect(org.description).toMatch(/Tally/);
+    expect(org.knowsAbout).toContain('TallyPrime');
+    expect(org.brand).toEqual({ '@type': 'Brand', name: 'Takkada' });
+  });
+
+  it('uses the homepage canonical, trailing slash included, as its url', () => {
+    expect(organizationSchema().url).toBe(`${SITE_URL}/`);
+  });
+});
+
+describe('softwareApplicationSchema entity links', () => {
+  it('carries its own @id and the store listings in sameAs', () => {
+    const app = softwareApplicationSchema();
+    expect(app['@id']).toBe(`${SITE_URL}/#app`);
+    expect(app.sameAs).toEqual([appLinks.playStore, appLinks.appStore]);
+  });
 });
 
 describe('webSiteSchema', () => {

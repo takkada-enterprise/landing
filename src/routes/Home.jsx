@@ -60,7 +60,13 @@ const HOME_SEO = {
   // The price range is derived from pricing.plans — this description ships in
   // the prerendered meta tag, so a typed figure here would be drift the page
   // itself can't see.
-  description: `Invoice from your phone, send on WhatsApp, collect via UPI, auto-reconcile into Tally. Built for Indian distributors. ${planPriceRange()}/year.`,
+  // Opens on the same entity sentence as the About page lead, so search and
+  // AI summaries read one definition of what Takkada is. The snippet's range
+  // stops at Copilot and leaves Enterprise out (operator call, 2026-10-21);
+  // the pricing section still shows the full ladder.
+  description: `Takkada is a mobile app for Tally. See reports, send WhatsApp payment reminders and collect UPI from your phone. ${planPriceRange(
+    pricing.plans.filter((p) => p.plan !== 'Enterprise')
+  )}/year.`,
   path: '/',
 };
 

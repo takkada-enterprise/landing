@@ -30,6 +30,9 @@ const SAME_AS = [
   SITE_URL,
 ];
 
+const ORGANIZATION_DESCRIPTION =
+  'Takkada is a mobile app for Indian distributors, wholesalers and manufacturers who use Tally. It lets them view Tally reports on their phone, send WhatsApp payment reminders, collect UPI payments and reconcile them back into Tally automatically.';
+
 export function absoluteUrl(path = '/') {
   if (path.startsWith('http')) return path;
   const leading = path.startsWith('/') ? path : `/${path}`;
@@ -49,7 +52,22 @@ export function organizationSchema() {
     name: 'Takkada',
     alternateName: ALTERNATE_NAMES,
     legalName: contactInfo.company,
-    url: SITE_URL,
+    // Bing has tagged "takkada" as a village. A plain description, topics and
+    // brand tell it the name belongs to a software company. The url carries
+    // the trailing slash so it matches the homepage canonical exactly.
+    description: ORGANIZATION_DESCRIPTION,
+    slogan: 'Tally on your mobile',
+    knowsAbout: [
+      'Tally ERP',
+      'TallyPrime',
+      'Accounts receivable',
+      'Payment collection',
+      'GST e-invoicing',
+      'E-way bill',
+      'UPI payments',
+    ],
+    brand: { '@type': 'Brand', name: 'Takkada' },
+    url: `${SITE_URL}/`,
     logo: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     email: contactInfo.email,
     telephone: contactInfo.phone,
@@ -100,6 +118,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/#app`,
     name: 'Takkada',
     alternateName: ALTERNATE_NAMES,
     description:
@@ -126,6 +145,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Multi-company Tally reports',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
+    sameAs: [appLinks.playStore, appLinks.appStore],
     image: absoluteUrl('/assets/screenshots/takkada-logo.png'),
     screenshot: [
       absoluteUrl('/assets/screenshots/home-screen-framed.webp'),
