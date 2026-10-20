@@ -4,7 +4,7 @@ import { getAllGuides } from '../lib/guidePosts';
 import { breadcrumbSchema, collectionPageSchema } from '../data/schema';
 
 // The manual's hub: every guide, once, grouped by the job somebody came here to
-// finish. No search in v1 — twenty-one entries fit on a screen, and a search box
+// finish. No search in v1 — twenty-three entries fit on a screen, and a search box
 // that returns nothing for "GST return" would be worse than the list.
 //
 // The grouping is site information architecture, not content, so it lives here
@@ -59,6 +59,12 @@ export const GUIDE_GROUPS = [
     title: 'Sending and importing documents',
     description: 'Getting documents out to customers, and getting paperwork back in.',
     slugs: ['whatsapp-invoice-delivery', 'import-documents'],
+  },
+  {
+    id: 'stock-on-the-bill',
+    title: 'Stock on the bill',
+    description: 'Batches, expiry dates and MRP on a line, and labels that add a box in one scan.',
+    slugs: ['batches', 'barcode-labels'],
   },
 ];
 

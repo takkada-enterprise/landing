@@ -41,9 +41,10 @@ const TOPICS = readTopics(repoRoot);
 const GUIDES = readGuides(repoRoot);
 const guideBySlug = new Map(GUIDES.map((guide) => [guide.slug, guide]));
 
-// The release inventory agreed in the coordinating plan. A twenty-second topic
-// is a product decision, not a content decision, so the count is pinned.
-const EXPECTED_TOPIC_COUNT = 21;
+// The release inventory agreed in the coordinating plan (21 topics), plus
+// batches and barcode-labels (plan 2026-10-18-016). A new topic is a product
+// decision, not a content decision, so the count is pinned.
+const EXPECTED_TOPIC_COUNT = 23;
 
 // KD-7's in-app-only exception. It has a topic id inside the app and no public
 // page anywhere, ever.

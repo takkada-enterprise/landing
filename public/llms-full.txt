@@ -927,6 +927,8 @@ Step-by-step instructions for people using the app, each one checked against the
 - [How to import documents](https://takkada.com/guide/import-documents/): Send a bill or an order into Takkada as a PDF or a photo, tell it what the document is, match the party and the items, review and create.
 - [How to add your team and set their access](https://takkada.com/guide/team-access/): Invite staff, pick a role, and control exactly which registers, parties, godowns and voucher types each person can see and create.
 - [How to take orders through a customer link](https://takkada.com/guide/customer-order-link/): Turn on your public order link, choose what customers see and pay, share the link, and review, match and approve the orders that come back.
+- [How to enter batches, expiry dates and MRP](https://takkada.com/guide/batches/): Pick a batch on a sale, add a new batch with its Mfg date, expiry and MRP on a purchase, and see which batches are expired or running out.
+- [How to print and scan barcode labels](https://takkada.com/guide/barcode-labels/): Print stickers that carry an item and its box quantity, then scan a whole box into a bill with the phone camera, a Bluetooth gun or a gun on the computer.
 
 ## Guides
 

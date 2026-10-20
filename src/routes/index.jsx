@@ -77,7 +77,7 @@ export const routes = [
         lazy: async () => ({ Component: (await import('./BlogPost')).default }),
       },
       // The public manual, lazy for exactly the same reason. src/lib/guidePosts.js
-      // is an eager import.meta.glob over content/guide/*.md, so the 21 guides'
+      // is an eager import.meta.glob over content/guide/*.md, so the guides'
       // rendered HTML lands in whatever chunk imports it; only these two routes
       // may reach it. Nothing in Home or Layout imports guidePosts, and the
       // built chunk list is the evidence for that.

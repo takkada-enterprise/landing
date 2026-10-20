@@ -143,7 +143,7 @@ export function readReferencedSlugs(appRoot) {
     const parsed = JSON.parse(readFileSync(placements, 'utf-8'));
     for (const record of parsed?.placements ?? []) {
       // placements.json is an audit of where help sits INSIDE the app. For the
-      // twenty-one public topics the topic id is also the public slug, and
+      // public topics the topic id is also the public slug, and
       // reading it as one is what catches an app topic the site never
       // published. KD-7 is the exception in the other direction: "Entries
       // waiting for approval" is explicitly allowed an in-app explanation and

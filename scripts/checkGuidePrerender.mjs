@@ -2,7 +2,7 @@
 // or ships as the wrong page.
 //
 // The /guide routes are lazy for the same reason the blog routes are: the eager
-// import.meta.glob in src/lib/guidePosts.js compiles all 21 guides' rendered
+// import.meta.glob in src/lib/guidePosts.js compiles every guide's rendered
 // HTML into whatever chunk imports it, and that must not be the landing bundle.
 // Lazy routes only stay useful to a crawler while vite-react-ssg keeps
 // resolving them at prerender time. If a router upgrade stops awaiting `lazy`,

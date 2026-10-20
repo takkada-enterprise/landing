@@ -34,6 +34,7 @@ import {
   buildGuideManifest,
   builtPageFor,
   contentSha256,
+  newestAppRevision,
   publishableTopics,
   serializeManifest,
   verifyBuiltPages,
@@ -205,6 +206,46 @@ describe('the app manifest', () => {
   it('names a topic that has no markdown instead of publishing 20 of 21', () => {
     const { errors } = build({ guides: GUIDES.filter((guide) => guide.slug !== 'e-way-bill') });
     expect(errors).toContain('topic e-way-bill: no guide markdown, so it cannot be published');
+  });
+});
+
+describe('the app revision the manifest records', () => {
+  it('is the one revision every guide declares, when they agree', () => {
+    expect(
+      newestAppRevision([
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+      ])
+    ).toEqual(['aaa1111']);
+  });
+
+  it('is the revision of the most recently checked guide when a later one was added', () => {
+    expect(
+      newestAppRevision([
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+        { appRevision: 'bbb2222', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+      ])
+    ).toEqual(['bbb2222']);
+  });
+
+  it('counts an abbreviated sha and the full sha of one commit as one revision', () => {
+    expect(
+      newestAppRevision([
+        { appRevision: 'bbb2222', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'bbb2222ffff', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-09-07' },
+      ])
+    ).toEqual(['bbb2222ffff']);
+  });
+
+  it('refuses two revisions checked on the same newest date', () => {
+    expect(() =>
+      newestAppRevision([
+        { appRevision: 'aaa1111', checkedAgainstAppOn: '2026-10-20' },
+        { appRevision: 'bbb2222', checkedAgainstAppOn: '2026-10-20' },
+      ])
+    ).toThrow(/different app revisions/);
   });
 });
 

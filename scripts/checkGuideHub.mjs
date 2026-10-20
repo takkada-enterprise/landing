@@ -1,7 +1,7 @@
 // checkGuideHub — /guide must link every guide, exactly once, in raw HTML, and
 // every "related guides" link in the manual must land on a page that exists.
 //
-// The hub is the only page on the site that links all 21 guides. If it renders
+// The hub is the only page on the site that links every guide. If it renders
 // client-side, or loses a card, those guides become orphans: reachable only by
 // someone who already knows the URL, which is nobody. That failure is silent —
 // the pages still exist and still return 200.
