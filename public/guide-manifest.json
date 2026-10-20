@@ -1,8 +1,24 @@
 {
   "schemaVersion": 1,
-  "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
-  "siteRevision": "facf0cf4983bb4be9b3563f92ddd38c2d0f5479e",
+  "appRevision": "7e30d58b58b1265fc080d68cf56186226f6a162c",
+  "siteRevision": "d45b6ee9ced9d30482ed5807697d8369417cda07",
   "guides": [
+    {
+      "id": "barcode-labels",
+      "slug": "barcode-labels",
+      "path": "/guide/barcode-labels",
+      "featureKey": "barcode_labels",
+      "checkedAgainstAppOn": "2026-10-20",
+      "contentSha256": "573a8a4bdddc401a7f2175ad984ef691bbddbdfe4849f4b9f735acc57e0f44c4"
+    },
+    {
+      "id": "batches",
+      "slug": "batches",
+      "path": "/guide/batches",
+      "featureKey": null,
+      "checkedAgainstAppOn": "2026-10-20",
+      "contentSha256": "c5443e612bb43154849b5fa46f0303b60384316fba2a9e8e120f001032bf5370"
+    },
     {
       "id": "bills-and-outstanding",
       "slug": "bills-and-outstanding",

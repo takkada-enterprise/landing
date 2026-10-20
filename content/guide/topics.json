@@ -230,6 +230,33 @@
         "lib/screens/customer_order_inbox_screen.dart",
         "lib/screens/customer_order_detail_screen.dart"
       ]
+    },
+    {
+      "id": "batches",
+      "slug": "batches",
+      "featureKey": null,
+      "title": "How to enter batches, expiry dates and MRP",
+      "sourceFiles": [
+        "lib/utils/batch_pick.dart",
+        "lib/widgets/batch/batch_entry_field.dart",
+        "lib/widgets/batch/batch_option_row.dart",
+        "lib/widgets/batch/batch_save_gate.dart",
+        "lib/screens/settings/invoices_settings_screen.dart"
+      ]
+    },
+    {
+      "id": "barcode-labels",
+      "slug": "barcode-labels",
+      "featureKey": "barcode_labels",
+      "title": "How to print and scan barcode labels",
+      "sourceFiles": [
+        "lib/widgets/barcode_labels/print_labels_sheet.dart",
+        "lib/widgets/barcode_labels/label_options_section.dart",
+        "lib/widgets/barcode_labels/scan_labels_sheet.dart",
+        "lib/widgets/barcode_labels/linked_codes_section.dart",
+        "lib/desktop/labels/barcode_labels_dialog.dart",
+        "lib/screens/stock_item_detail_screen.dart"
+      ]
     }
   ]
 }

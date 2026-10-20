@@ -43,7 +43,7 @@ const guideBySlug = new Map(GUIDES.map((guide) => [guide.slug, guide]));
 
 // The release inventory agreed in the coordinating plan. A twenty-second topic
 // is a product decision, not a content decision, so the count is pinned.
-const EXPECTED_TOPIC_COUNT = 21;
+const EXPECTED_TOPIC_COUNT = 23;
 
 // KD-7's in-app-only exception. It has a topic id inside the app and no public
 // page anywhere, ever.

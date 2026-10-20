@@ -60,6 +60,12 @@ export const GUIDE_GROUPS = [
     description: 'Getting documents out to customers, and getting paperwork back in.',
     slugs: ['whatsapp-invoice-delivery', 'import-documents'],
   },
+  {
+    id: 'stock-on-the-bill',
+    title: 'Stock on the bill',
+    description: 'Batches, expiry dates and MRP on a line, and labels that add a box in one scan.',
+    slugs: ['batches', 'barcode-labels'],
+  },
 ];
 
 // The catch-all. It should stay empty; the coverage test above makes sure it
