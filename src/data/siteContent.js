@@ -401,8 +401,8 @@ export const pricing = {
  * list. A hand-typed copy of this range in Home.jsx drifted from the table
  * once already (drift episode #2, 2026-08) — derive it, never type it.
  */
-export function planPriceRange() {
-  const prices = pricing.plans.map((p) => p.annualPrice);
+export function planPriceRange(plans = pricing.plans) {
+  const prices = plans.map((p) => p.annualPrice);
   return `${formatInr(Math.min(...prices))} to ${formatInr(Math.max(...prices))}`;
 }
 

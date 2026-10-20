@@ -21,7 +21,7 @@ function AboutUs() {
       <article className="company-article">
         <h1>About Takkada</h1>
         <p className="company-lead">
-          Takkada is a business automation platform built by <strong>{contactInfo.company}</strong> for Indian distributors, wholesalers, and manufacturers who run their business on Tally.
+          Takkada is a mobile app that connects to Tally, so distributors and wholesalers can see their reports, send payment reminders on WhatsApp and collect UPI payments from their phone. It is built by <strong>{contactInfo.company}</strong> in Guwahati.
         </p>
 
         <h2>Our Mission</h2>
