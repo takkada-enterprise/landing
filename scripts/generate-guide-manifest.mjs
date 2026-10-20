@@ -220,18 +220,39 @@ export function readSiteRevision(root = repoRoot) {
  * builder has no access to the private app repository, so there it falls back
  * to the guides' own frontmatter — which is the more truthful source anyway:
  * the manifest records which app code these pages were reviewed against, not
- * whichever checkout happened to be on the build machine. Guides that disagree
- * with each other are a real inconsistency and fail rather than pick a winner.
+ * whichever checkout happened to be on the build machine.
+ *
+ * A guide added after the rest is checked against a later app than they were,
+ * and each guide keeps its own `appRevision` and `checkedAgainstAppOn`. When
+ * they differ, the manifest records the revision of the most recently checked
+ * guide: the newest app any page was reviewed against. Two different revisions
+ * checked on the same newest date are a real inconsistency and still fail
+ * rather than pick a winner.
  */
-function resolveAppRevision(guides) {
-  const declared = [...new Set(guides.map((guide) => guide.appRevision).filter(Boolean))];
-  if (declared.length > 1) {
+export function newestAppRevision(guides) {
+  const newestDateByRevision = new Map();
+  for (const guide of guides) {
+    if (!guide.appRevision) continue;
+    const date = String(guide.checkedAgainstAppOn ?? '');
+    const seen = newestDateByRevision.get(guide.appRevision);
+    if (seen === undefined || date > seen) newestDateByRevision.set(guide.appRevision, date);
+  }
+  const declared = [...newestDateByRevision.keys()];
+  if (declared.length <= 1) return declared;
+  const newestDate = [...newestDateByRevision.values()].sort().at(-1);
+  const newest = declared.filter((revision) => newestDateByRevision.get(revision) === newestDate);
+  if (newest.length > 1) {
     throw new Error(
-      `generate-guide-manifest: the corpus declares ${declared.length} different app ` +
-        `revisions (${declared.join(', ')}). One manifest cannot record which app the ` +
-        'guides were checked against until they agree.'
+      `generate-guide-manifest: guides checked on ${newestDate} declare ${newest.length} ` +
+        `different app revisions (${newest.join(', ')}). One manifest cannot record which ` +
+        'app the newest guides were checked against until they agree.'
     );
   }
+  return newest;
+}
+
+function resolveAppRevision(guides) {
+  const declared = newestAppRevision(guides);
   if (!declared.length) {
     throw new Error(
       'generate-guide-manifest: no guide declares an appRevision, so there is nothing ' +
