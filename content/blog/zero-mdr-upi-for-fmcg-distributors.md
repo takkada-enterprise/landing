@@ -5,10 +5,13 @@ meta_title: "Zero MDR UPI for FMCG Distributors (2026)"
 meta_description: "Zero MDR UPI for FMCG distributors in India: high-volume low-ticket receipts make per-transaction fees brutal. Why 0% MDR and no per-receipt fee win."
 primary_keyword: "zero mdr upi for fmcg distributors"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "An FMCG distributor in Guwahati collects from 220 kirana stores a day, most paying ₹3,000 to ₹15,000. A ₹3 per-transaction fee on that volume is ₹1,98,000 a year, even at 'zero MDR'. For FMCG, the per-receipt fee hurts more than the percentage. Zero MDR UPI for FMCG distributors only counts if it is truly zero."
 ---
+
+Zero MDR UPI helps an FMCG distributor only when it also comes with no per-transaction fee, because FMCG collection runs on many low-value receipts, where a flat charge per payment can cost more than a small percentage. A distributor taking 220 receipts a day pays around ₹1,98,000 a year at ₹3 a receipt, even under a 0% MDR headline. Person-to-merchant UPI from a bank account carries no MDR, so any fee of that kind comes from the app on top. The second cost is reconciliation. With hundreds of kirana stores paying similar amounts, matching each payment to the right invoice by hand takes hours, and mistakes lead to reminders sent to shops that already paid. A rail with no per-receipt fee and matching by UPI reference handles both problems: the full amount arrives and the receipt posts against the right bill in Tally. This guide works through the costs at FMCG volumes and what to check in a collection app.
 
 ## Key Highlights
 

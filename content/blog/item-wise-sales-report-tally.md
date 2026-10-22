@@ -63,7 +63,7 @@ The two read together are the reorder signal: high sales plus low stock in hand 
 
 The reorder call gets made in the warehouse or on the phone with a supplier, not at the accounts desk. That is the location gap.
 
-Takkada reads your inventory and sales data from Tally and shows item-wise movement on mobile, ranked by quantity or value for the period, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the item movement, and the deeper product cuts sit in the Reports+ add-on for owners who want to slice by category or party. A salesman on a route can even check whether a fast mover is in stock before promising a delivery. Tally stays the system of record.
+Takkada reads your inventory and sales data from Tally and shows item-wise movement on mobile, ranked by quantity or value for the period, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the item movement, and the deeper product cuts sit in Reports + (part of the Copilot and Enterprise plans) for owners who want to slice by category or party. A salesman on a route can even check whether a fast mover is in stock before promising a delivery. Tally stays the system of record.
 
 ## Frequently Asked Questions
 

@@ -5,10 +5,13 @@ meta_title: "BharatPe for Distributors: 0% MDR QR, Honestly"
 meta_description: "BharatPe for distributors: the UPI QR really is 0% MDR, but it does not link to your Tally invoice or reconcile the receipt. Here is what that means."
 primary_keyword: "bharatpe for distributors"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Comparisons"
 excerpt: "BharatPe built its name on a 0% MDR UPI QR, and that claim is honest. UPI person-to-merchant payments carry no MDR for anyone right now. The real question for a distributor is not the fee. It is whether a generic QR knows which of your Tally invoices the money just settled."
 ---
+
+Yes, BharatPe's UPI QR is 0% MDR, and so is every person-to-merchant UPI payment made from a bank account in India, so the zero fee does not set any one app apart. What matters for a distributor is what happens after the money lands. A shop QR records that a payment came in. It does not know which Tally invoice the retailer meant to pay, and it does not post a receipt into your books. Someone in the office still has to look at the credit, guess the bill and enter the receipt by hand, which gets hard when two retailers send the same amount on the same day. A collection link tied to a specific invoice carries that answer with it, and the UPI reference lets the receipt post against the right bill automatically. This post explains where BharatPe fits, where it falls short for invoice-based credit collection, and what to check in any app before moving your retailers onto it.
 
 ## Key Highlights
 

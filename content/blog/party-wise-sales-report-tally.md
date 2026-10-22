@@ -61,7 +61,7 @@ A retailer buying heavily but stretching every payment is quietly funding himsel
 
 The desktop keeps this report late and passive. On the phone it becomes something the owner checks between routes.
 
-Takkada reads your sales vouchers from Tally and shows party-wise sales on mobile, ranked by value for the period, refreshed live through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the ranking, and the deeper cuts sit in the Reports+ add-on for owners who want more than the top line. It sits one tap from the [salesman-wise view](/blog/salesman-wise-sales-report-tally/), so an owner can move from "which party bought" to "which of my people sold it" without leaving the phone. Tally stays the system of record.
+Takkada reads your sales vouchers from Tally and shows party-wise sales on mobile, ranked by value for the period, refreshed live through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the ranking, and the deeper cuts sit in Reports + (part of the Copilot and Enterprise plans) for owners who want more than the top line. It sits one tap from the [salesman-wise view](/blog/salesman-wise-sales-report-tally/), so an owner can move from "which party bought" to "which of my people sold it" without leaving the phone. Tally stays the system of record.
 
 ## Frequently Asked Questions
 

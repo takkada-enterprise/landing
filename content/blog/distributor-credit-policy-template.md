@@ -5,10 +5,13 @@ meta_title: "Distributor Credit Policy Template: Terms, Limits, Penalty"
 meta_description: "A ready-to-use distributor credit policy template with credit terms, credit limits, a late-fee penalty clause, and a stop-supply rule to copy today."
 primary_keyword: "distributor credit policy template"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A Guwahati FMCG distributor with 64 retail parties had no written credit policy, and one party drifted to ₹4.7 lakh outstanding over 96 days before anyone noticed. A one-page credit policy with a fixed limit and a stop-supply trigger would have capped that exposure at ₹1.5 lakh. Here is the template to copy."
 ---
+
+A distributor credit policy needs four parts to be enforceable: credit terms that fix when each bill is due, credit limits that cap how much any party can owe at one time, a late-fee clause for overdue amounts, and a stop-supply rule that holds dispatch when a party crosses the line. Everything else is optional. A late fee of 1.5% to 2% per month on overdue amounts is common in Indian B2B distribution, and it is far easier to collect when it is written into an agreement the retailer has signed. The policy works best when paying on time is also easy. With a UPI payment link on every invoice, most retailers clear the bill before the fee would start, so the penalty clause acts as a deterrent the distributor rarely has to use. This post gives a ready-to-copy template with each clause worded for retailers, plus notes on applying each one consistently across old and new parties.
 
 ## Key Highlights
 

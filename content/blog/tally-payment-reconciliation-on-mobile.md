@@ -5,10 +5,13 @@ meta_title: "Tally Payment Reconciliation on Mobile: How It Works"
 meta_description: "Tally payment reconciliation on mobile: how auto-reconciliation matches UPI receipts to invoices and posts a receipt voucher, ending the 9 PM session."
 primary_keyword: "tally payment reconciliation"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati accountant stays back every night to match the day's UPI credits against invoices in Tally. Forty receipts, ninety minutes, two errors. Moving Tally payment reconciliation onto mobile with auto-matching turns that ninety minutes into zero. Here is how the matching actually works."
 ---
+
+Tally payment reconciliation means matching each payment received to the invoice it settles and posting a receipt voucher in Tally. On mobile it happens as money arrives instead of in a batch at night. Automatic reconciliation uses three facts to make the match: the UPI reference number, the amount and the party. When a retailer pays through a link created for a specific invoice, the payment already says which bill it belongs to, so the app posts a standard receipt voucher into Tally against that bill. Payments that do not match cleanly, such as a part-payment or an unknown sender, are held for a person to check. Payment from a bank account over UPI carries no merchant discount rate, so the amount received equals the invoice amount and there is no gateway deduction to account for. The result is a ledger that is current by morning and a 9 PM session that no longer happens. This guide explains each step and the checks to put in place.
 
 ## Key Highlights
 

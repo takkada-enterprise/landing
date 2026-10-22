@@ -5,10 +5,13 @@ meta_title: "Tally Collection App for Paint Distributors (2026)"
 meta_description: "Paint distributor collection on Tally: brand schemes squeeze your cash while contractor receivables stretch 90 days. A mobile UPI rail with 0% MDR keeps margin."
 primary_keyword: "paint distributor collection"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A paint distributor in Nagpur stocks Asian Paints and Berger across 140 hardware shops and a handful of project contractors. His ledger sits at ₹62 lakh outstanding, the company wants its scheme settlement on time, and three painters paid the same ₹18,500 yesterday. A Tally collection app that runs on a 0% MDR UPI rail fixes both the cash crunch and the nightly reconciliation."
 ---
+
+A collection app for a paint distributor on Tally has to protect a margin that is already squeezed from two sides. Dealer margins run roughly 8% to 15%, company scheme settlements often arrive late, and contractor and project buyers stretch payment past the 45 to 75 days common in the paint trade, often beyond 90. A percentage fee on collections makes it worse. At 1%, a distributor with ₹12 crore of turnover gives up ₹12,00,000 a year. UPI from a bank account carries no merchant discount rate, so collecting on a rail with no per-transaction fee turns that cost into a flat subscription. Reconciliation is the other problem. Painters and small shops often pay similar round amounts, and matching them to the right bill by UPI reference keeps the ledger clean. A UPI link on every Tally invoice, sent on WhatsApp, brings payment forward. This guide covers what the app must do for shop, painter and contractor accounts.
 
 ## Key Highlights
 

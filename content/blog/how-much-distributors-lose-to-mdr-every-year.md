@@ -5,10 +5,13 @@ meta_title: "How Much Distributors Lose to MDR Each Year"
 meta_description: "How much distributors lose to MDR every year, by collection volume, plus the hidden per-transaction fees and reconciliation hours that compound the cost."
 primary_keyword: "how much distributors lose to mdr"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor doing ₹6 crore a year on a 1% gateway loses ₹6,00,000 to MDR annually, the cost of two salesmen, to receive money he already earned. Working out how much distributors lose to MDR every year is the fastest way to see where a 0% rail pays for itself."
 ---
+
+A distributor loses money to the merchant discount rate in direct proportion to collection volume: at 1% MDR, ₹6 crore of annual collections costs ₹6,00,000 a year, and ₹12 crore costs ₹12,00,000. That figure is only the visible part. Some collection apps advertise zero MDR and charge a flat fee per receipt instead. At ₹3 a receipt and 200 receipts a day, that is about ₹1,80,000 a year on top of anything else. The third cost never shows on a statement: the hours an accountant spends matching receipts to invoices when payments arrive without a clear reference. Together these turn collection into a variable cost that grows every time the business does. Person-to-merchant UPI from a bank account carries no MDR, so a rail with no per-receipt fee and automatic matching leaves only a flat annual subscription. This post works through the numbers by collection volume, so you can put in your own figures and see what your current method costs.
 
 ## Key Highlights
 

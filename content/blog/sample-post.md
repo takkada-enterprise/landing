@@ -4,10 +4,13 @@ slug: "distributor-cash-flow-receivables"
 meta_description: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. Here's what the pattern looks like."
 primary_keyword: "distributor cash flow India"
 date: "2026-04-23"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "Most distributors know exactly who owes money. The problem is collecting it without spending the whole day on the phone. The gap between knowing and collecting is where cash flow dies."
 ---
+
+Distributors lose about 15 days of cash a month when overdue invoices slip from 30-day terms to 45 days because nobody followed up in time, and for those extra days the retailer is holding the distributor's money for free. A ₹10 crore distributor typically carries ₹60 lakh to ₹1.5 crore in receivables, so even a fifth of those invoices running late ties up lakhs of working capital that no Tally report shows. It shows up as tight cash and a call to the bank. Follow-up is hard for three reasons: the exact outstanding sits on the office laptop, a reminder only works when it names the invoice, date and amount, and payment confirmation reaches the owner a day or two late, so parties who paid get chased again. The fix is specific WhatsApp reminders with a UPI link, same-day reconciliation, and outstanding visible on the phone. Cutting average collection days from 42 to 32 on ₹80 lakh outstanding frees roughly ₹19 lakh.
 
 ## The 9 PM ritual
 

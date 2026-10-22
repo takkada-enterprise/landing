@@ -61,7 +61,7 @@ Read together, sales and collection tell the real story: a rep who sells well an
 
 The team is in the field; the owner is often with them or on the road himself. A report locked on the office desktop is reviewed too late to act on.
 
-Takkada reads your sales data from Tally and, where salesmen are tagged, surfaces per-salesman performance on mobile, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the team view, and richer team cuts sit in the Reports+ add-on. Because reps using the [field order and collection tools](/blog/field-order-collection-app-tally/) invoice with their own tag, the data lands attributed, so the owner sees today's field performance before the team gets home. Tally stays the system of record.
+Takkada reads your sales data from Tally and, where salesmen are tagged, surfaces per-salesman performance on mobile, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the team view, and richer team cuts sit in Reports + (part of the Copilot and Enterprise plans). Because reps using the [field order and collection tools](/blog/field-order-collection-app-tally/) invoice with their own tag, the data lands attributed, so the owner sees today's field performance before the team gets home. Tally stays the system of record.
 
 ## Frequently Asked Questions
 

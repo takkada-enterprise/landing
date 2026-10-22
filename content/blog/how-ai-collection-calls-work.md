@@ -5,11 +5,13 @@ meta_title: "How AI Collection Calls Work: Inputs and Outcomes"
 meta_description: "What an AI collection call knows before it dials, and what it hands back after. A plain look at the inputs and outputs behind Takkada's calling agent."
 primary_keyword: "AI collection calls"
 date: "2026-10-02"
-updated: "2026-10-04"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "What an AI collection call knows before it dials, and what it hands back after. A plain look at the inputs and outputs behind Takkada's calling agent."
 ---
+
+An AI collection call works by using what your books already know before it dials, and recording what the party says after it hangs up. Before each call, the AI agent pulls more than 20 inputs from Tally and your settings: your business name, the party's name and number, the amount due and the bills behind it, the language set for the company, the ageing slab, due dates, the assigned collector, earlier promises, the last reminder sent and the credit terms. On the call, it names your business, states what is due and asks when it will be paid, in the party's language. After the call, it returns more than 30 outputs. The most important is the outcome: a promise with a date, a dispute, a callback request or an escalation. Duration, connection status, any part-payment offer, the reason for delay and the payment mode mentioned are logged too, against the party's record. This post walks through each stage.
 
 A collection call is only as good as two things: what the caller knows before dialling, and what gets written down after hanging up. Most office calls are weak on both. The caller opens a ledger five minutes before, and the outcome lives in their memory.
 

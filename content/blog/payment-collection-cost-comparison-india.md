@@ -5,11 +5,13 @@ meta_title: "Payment Collection Cost Comparison for Indian Distributors"
 meta_description: "Payment collection cost comparison for Indian distributors across UPI, links, gateways, and Tally-native apps. The honest math on what ₹1 crore costs."
 primary_keyword: "payment collection cost comparison india"
 date: "2026-05-18"
-updated: "2026-10-04"
+updated: "2026-10-23"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Two distributors with the same ₹15 crore turnover can have wildly different payment collection costs. One pays ₹15 lakh a year in MDR; the other pays ₹0. The difference is the architecture, not the volume."
 ---
+
+The cost of collecting ₹1 crore from retailers ranges from close to nothing to more than ₹2 lakh, depending on the rail and the tool. Person-to-merchant UPI from a bank account carries 0% MDR. Payment gateways such as Razorpay, Cashfree and PayU typically charge 0.5% to 2% depending on whether the retailer pays by UPI, net banking or card, and some B2B collection apps add their own margin on top, taking the effective rate to 1% to 1.5%. Percentages are only part of it. Per-transaction fees, monthly platform fees and the staff time spent matching receipts to invoices all count, and the last is usually the largest cost that never appears on a bill. A Tally-native app that collects over UPI at 0% MDR and posts receipts into Tally against each invoice turns collection into a flat annual subscription. This comparison works through what each option costs on ₹1 crore of receipts, line by line.
 
 ## Key Highlights
 

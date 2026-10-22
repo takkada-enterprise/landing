@@ -5,10 +5,13 @@ meta_title: "Zero MDR UPI for Pharma Distributors (2026)"
 meta_description: "Zero MDR UPI for pharma distributors in India: why thin chemist margins make MDR hurt, the long DSO problem, and 0% MDR collection with auto-reconciliation."
 primary_keyword: "zero mdr upi for pharma distributors"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Guwahati runs on 4-5% margins and waits 60-75 days to get paid by chemists. A 1% MDR on his ₹8 crore turnover is ₹8,00,000 a year, a fifth of a margin point he cannot spare. Zero MDR UPI for pharma distributors is not a nice-to-have; it is margin he keeps."
 ---
+
+Zero MDR UPI matters to pharma distributors because chemist-channel margins are thin, roughly 4% to 5%, so a 1% collection fee takes about a fifth of the profit on every rupee collected. Pharma also runs long credit, with DSO commonly 45 to 75 days, and faster collection on UPI shortens the cash cycle without giving up a percentage on each receipt. Person-to-merchant UPI from a bank account carries 0% MDR, so the cost usually comes from the gateway or app on top, as a percentage or a flat fee per receipt. Reconciliation is the second problem. Chemists often pay similar amounts against several bills, and matching each payment by hand at night is slow and error-prone. Matching by UPI reference posts each receipt against the right invoice in Tally as it arrives. A UPI link on every invoice, sent on WhatsApp, also brings payment forward. This guide covers the costs, the collection workflow, and what to check in an app.
 
 ## Key Highlights
 

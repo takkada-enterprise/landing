@@ -5,10 +5,13 @@ meta_title: "UPI vs Card vs Cash Collection Cost Compared"
 meta_description: "UPI vs card vs cash collection cost for distributors: the real expense of each, from MDR and cash leakage to reconciliation time, and why 0% MDR UPI wins."
 primary_keyword: "upi vs card vs cash collection cost"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Comparisons"
 excerpt: "A Guwahati distributor collects in all three: cash that leaks and needs counting, the rare card that costs 1.5%, and UPI that should be free but is not on his current app. Laying the UPI vs card vs cash collection cost side by side shows where the money and the hours actually go."
 ---
+
+For a distributor collecting from retailers, person-to-merchant UPI from a bank account is usually the cheapest method, cards the most expensive in fees, and cash the most expensive in time and risk. Cards typically cost 1% to 2% of each payment in merchant discount rate, so a ₹50,000 card payment loses ₹500 to ₹1,000. Cash has no fee but carries counting time, trips to the bank, and the risk of shortfalls between collection and deposit. UPI should cost nothing, since person-to-merchant UPI from a bank account carries 0% MDR, but some collection apps add a per-transaction fee that eats the saving at high volume. The deciding factor is the full cost, reconciliation included. A UPI rail with no per-transaction fee and automatic matching by UPI reference removes both the fee and the evening spent matching payments to bills. This guide compares the three methods line by line, with the hidden costs counted.
 
 ## Key Highlights
 

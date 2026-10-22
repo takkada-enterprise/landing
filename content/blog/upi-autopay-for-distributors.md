@@ -5,10 +5,13 @@ meta_title: "UPI AutoPay Explained for Indian Distributors"
 meta_description: "What UPI AutoPay and the e-mandate mean for distributors collecting on a fixed cycle, plus the practical path to 0% MDR UPI collection today."
 primary_keyword: "upi autopay"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor with 140 retailers on monthly terms loses three working days every cycle chasing the same ₹40,000–₹60,000 dues. Understanding UPI AutoPay versus link-based collection tells him which mechanism actually fits a 30–90 day distribution book today."
 ---
+
+UPI AutoPay lets a payer set up a mandate once so recurring debits up to ₹15,000 go through without entering a UPI PIN each time, which suits fixed bills such as subscriptions, EMIs and rent. For most distributors it is the wrong tool for receivables. Retailer bills vary in amount and timing: ₹18,000 one week, ₹62,000 the next, sometimes a part-payment against three invoices. A mandate needs a fixed or capped amount on a fixed cycle, which does not match how a retailer buys. A one-time UPI payment link on each invoice fits the trade better. The retailer gets the exact amount with the bill, pays in one tap, and the receipt is matched back to that invoice in Tally by its UPI reference. Payment from a bank account over UPI carries 0% MDR. AutoPay can still work for a fixed monthly item, such as a rental or service charge. This guide explains both and when to use each.
 
 ## Key Highlights
 

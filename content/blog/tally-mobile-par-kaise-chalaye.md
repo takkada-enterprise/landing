@@ -5,11 +5,13 @@ meta_title: "Tally Mobile Par Kaise Chalaye: Step-by-Step Setup"
 meta_description: "Tally mobile par kaise chalaye, step by step. Companion app se Tally data phone pe sync karein, ledger aur outstanding dekhein, UPI 0% MDR pe vasooli karein."
 primary_keyword: "tally mobile par kaise chalaye"
 date: "2026-06-21"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Subah 9 baje aap office se nikal jaate hain aur Tally screen raat tak nahi dikhti. Tab tak ek party ka ₹1,40,000 ka outstanding aapko pata hi nahi chalta aur salesman fresh credit de aata hai. Yahan seedha bataya hai ki phone pe Tally data kaise laayein, step by step."
 ---
+
+Tally mobile par chalane ke liye ek companion app chahiye, kyunki TallyPrime Windows pe chalta hai aur uska data office ke computer mein rehta hai. Tareeka seedha hai. Office ke Tally computer pe ek chhota connector install karein, phone pe app daalein, aur dono ko apni company se jod dein. Iske baad ledger, party ka outstanding, stock aur reports phone pe dikhne lagte hain. Sirf dekhna ho toh read-only app kaafi hai. Lekin agar phone se invoice banana hai, payment link bhejna hai, aur raat 9 baje wali reconciliation khatam karni hai, toh do-tarfa yaani read-and-write app chahiye, jo phone ki entry wapas Tally mein voucher ki tarah daal de. Collection wale app mein har invoice ke saath UPI link jaata hai. Bank account se UPI pe MDR nahi lagta, isliye ₹50,000 ki vasooli pe bhi koi cut nahi katta. Is guide mein install se lekar pehli entry tak har step diya gaya hai, aur yeh bhi ki phone pe kya ho sakta hai aur kya nahi.
 
 ## Key Highlights
 

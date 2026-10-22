@@ -5,10 +5,13 @@ meta_title: "Bad Debt Write Off in Tally: When and How to Do It"
 meta_description: "When to write off a bad debt, the Tally journal entries, GST implications under Section 34, and the income tax treatment under Section 36(1)(vii)."
 primary_keyword: "bad debt write off tally"
 date: "2026-05-06"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A bad debt write off is the accounting decision to remove an unrecoverable receivable from the books and recognise it as a loss. Most Indian distributors carry bad debts on their books for years longer than they should, partly out of hope and partly because the GST and income tax treatment is misunderstood. Both choices cost money."
 ---
+
+A bad debt write off in Tally is a journal entry that debits a Bad Debts expense ledger and credits the party ledger for the amount you no longer expect to collect. It removes the receivable from the books and records an expense. For income tax, Section 36(1)(vii) of the Income Tax Act allows the deduction in the year the debt is written off in the books, and the Supreme Court held in TRF Ltd (2010) that the business does not first have to prove the debt is irrecoverable. Many accountants still wait for proof the law does not ask for. GST works differently. Writing off a bad debt does not return the output GST paid when the original invoice was raised, so that tax is a sunk cost. Decide on write offs before the year closes, with the party's ledger, the last payment date and the recovery attempts on file. This guide covers when to write off, the entries, and what to keep as evidence.
 
 ## Key Highlights
 

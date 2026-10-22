@@ -5,10 +5,13 @@ meta_title: "Payment Gateway Charges Compared for Distributors"
 meta_description: "Payment gateway charges compared for Indian distributors: setup, MDR, per-transaction and hidden fees, versus a 0% MDR UPI rail with no per-receipt fee."
 primary_keyword: "payment gateway charges"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Comparisons"
 excerpt: "A Guwahati distributor signed up for a payment gateway that quoted '1% and nothing else.' A year later, between MDR, a monthly platform fee, and a per-transaction charge, the real cost was closer to ₹2.6 lakh on ₹2 crore collected. Payment gateway charges are rarely the one number on the brochure."
 ---
+
+Payment gateway charges for an Indian distributor are rarely one number. They stack a merchant discount rate on each payment, often a fixed fee per transaction, sometimes a monthly platform fee, and occasionally setup or faster-settlement charges. Comparing gateways on the headline percentage alone misses most of the bill. Counted fully, a distributor collecting ₹2 crore a year through a gateway can pay ₹2 lakh to ₹3 lakh in charges. Person-to-merchant UPI from a retailer's bank account carries 0% MDR, so a collection rail built on it with no per-transaction fee removes both the percentage and the per-receipt charge, leaving a flat annual subscription. The other thing to check is reconciliation. A gateway settles money in batches, while a link tied to each invoice lets the receipt post into Tally against the right bill. This guide sets out each layer of gateway pricing with a worked example, so you can compare quotes on total cost.
 
 ## Key Highlights
 

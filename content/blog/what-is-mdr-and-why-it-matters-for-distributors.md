@@ -5,10 +5,13 @@ meta_title: "What Is MDR? A Plain Guide for Distributors"
 meta_description: "What is MDR? The merchant discount rate is the cut taken on each payment you receive. Here is what it costs an Indian distributor and how 0% MDR changes it."
 primary_keyword: "what is mdr"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati distributor collecting ₹2 crore a year on a payment gateway at 1% MDR pays ₹2,00,000 a year just to receive his own money. He never sees the line item because it is netted off before the money lands. Understanding what MDR is, is the first step to stopping that leak."
 ---
+
+MDR, the merchant discount rate, is the percentage a bank or payment provider deducts from each payment you receive, so a 1% MDR on a ₹10,000 receipt means ₹9,900 reaches your account. For a distributor collecting crores a year, that deduction becomes one of the larger costs of doing business: ₹5 crore of collections at 1% is ₹5,00,000 a year. On person-to-merchant UPI from a bank account, MDR is zero under current rules, which is why a 0% MDR collection rail is possible as a standing arrangement rather than a promotional discount. Cards, some wallets and many payment gateways still charge it. Watch for apps that advertise 0% MDR but charge a flat fee per transaction instead. At ₹3 a transaction and 200 receipts a day, that is ₹600 a day and about ₹1,80,000 a year. This post explains how MDR works, what it costs at different volumes, and the questions to ask any collection provider about fees.
 
 ## Key Highlights
 

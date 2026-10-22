@@ -5,10 +5,13 @@ meta_title: "MDR vs Convenience Fee: UPI Costs for Distributors"
 meta_description: "MDR vs convenience fee explained for distributors: who pays each one on UPI, what it actually costs, and where the 0% MDR claim sits."
 primary_keyword: "mdr vs convenience fee"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor collecting ₹40 lakh a month on a card-style payment rail at 1.8% MDR was bleeding ₹72,000 every month to processing charges he never saw on a statement. Move that collection to a 0% MDR UPI link and the ₹72,000 stays in his account."
 ---
+
+MDR, the merchant discount rate, is charged to the business that receives a payment, while a convenience fee is charged to the person who makes it. For a distributor, MDR comes out of what reaches your account, and a convenience fee is added on top of what the retailer pays. Mixing them up is how distributors lose track of who is paying for each collection. On UPI, a person-to-merchant payment from a savings or current account carries 0% MDR under the current rules. Payments routed through some aggregators, prepaid wallets or RuPay credit on UPI can carry charges of around 0.5% to 1.1% that never appear as a separate line on the bank statement. At ₹40 lakh of collections a month, a 1% charge is ₹40,000 every month taken from money the distributor has already earned. This post explains who pays which fee, where the hidden charges sit, and how to collect on UPI with nothing deducted.
 
 ## Key Highlights
 

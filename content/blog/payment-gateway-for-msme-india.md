@@ -5,14 +5,17 @@ meta_title: "Payment Gateway for MSME India: What Distributors Need"
 meta_description: "A practical guide to payment gateway for MSME in India. UPI MDR, settlement times, B2B-specific features, and what to evaluate before signing."
 primary_keyword: "payment gateway for msme india"
 date: "2026-04-25"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A payment gateway processes the transaction between the customer's bank and yours. For an Indian MSME, the gateway is the layer that lets you accept UPI, cards, net-banking, and (increasingly) BNPL on a single integration. Razorpay, Cashfree, PayU, and Paytm for Business are the dominant gateways serving the MSME and SMB segment."
 ---
 
+The right payment gateway for an MSME distributor in India is chosen less on the headline fee and more on settlement speed, reconciliation and how well it handles B2B invoices. On fees, person-to-merchant UPI from a bank account carries 0% MDR at any amount, while cards, net banking, and wallet or RuPay credit payments above ₹2,000 can carry charges. Settlement varies from same-day to two working days, which matters to a distributor paying suppliers on fixed dates. The questions that decide the choice come after the payment. Can each payment be tied to a specific invoice? Does the gateway give a reference you can match against Tally? Does it handle part-payments and one payment covering several bills? Without those, the gateway collects the money and the accountant still matches it by hand every evening. This guide lists what to evaluate before signing, with the questions to ask each provider and how the answers turn into hours saved or lost.
+
 ## Key Highlights
 
-- UPI is zero-MDR for person-to-merchant payments under ₹2,000; above that, gateway pricing varies from 0% to 0.4% depending on the gateway and the volume tier
+- Person-to-merchant UPI from a bank account is zero-MDR at any amount; the ₹2,000 line applies to wallet (PPI) payments over UPI, and some gateways add their own platform fee on UPI, so ask for every charge
 - Settlement times for Indian MSME-focused gateways range from T+0 (instant) to T+2 working days; the difference is meaningful for cash-flow-tight distributors
 - The right payment gateway for an MSME distributor is decided less by transaction fee and more by reconciliation API quality, B2B invoice support, and integration with the rest of the stack
 
@@ -32,7 +35,7 @@ For a distributor, the gateway is one of three pieces of the collections stack. 
 
 ## The four major Indian gateways MSMEs use
 
-Razorpay. Largest by Indian MSME merchant count. Strong API, deep documentation, supports UPI, cards, net-banking, EMI, BNPL. Settlement T+2 standard, T+1 on higher tiers. UPI is zero-MDR up to ₹2,000; above that, fees vary.
+Razorpay. Largest by Indian MSME merchant count. Strong API, deep documentation, supports UPI, cards, net-banking, EMI, BNPL. Settlement T+2 standard, T+1 on higher tiers. UPI from a bank account is zero-MDR; check whether a platform fee applies on top.
 
 Cashfree Payments. Strong on B2B and on payouts. Robust reconciliation API. Used by many distributor-focused platforms (Takkada included) for the underlying gateway. Settlement T+1 standard, instant settlement available on premium plans. Payouts API is a meaningful advantage for distributors who also need to settle to suppliers.
 
@@ -52,7 +55,7 @@ Five questions, in order of importance.
 
 3. What is the actual settlement time? T+0, T+1, T+2, or T+3 changes your cash-flow shape meaningfully. A distributor on tight working capital cannot afford T+3.
 
-4. What is the MDR structure for B2B-sized payments? UPI is zero-MDR up to ₹2,000 by NPCI rules. Above that, MDR varies. For a distributor whose typical invoice is ₹20,000 to ₹2 lakh, the per-transaction fee at scale matters. Negotiate volume tiers.
+4. What is the MDR structure for B2B-sized payments? UPI from a bank account is zero-MDR at any amount, but wallet payments over ₹2,000 can carry up to 1.1% interchange and some gateways add a platform fee. For a distributor whose typical invoice is ₹20,000 to ₹2 lakh, the per-transaction fee at scale matters. Negotiate volume tiers.
 
 5. Can I do payouts as well, not just collections? Many distributors also need to pay suppliers, salesmen, transporters, brand promoters. A gateway with a payouts API consolidates the stack.
 
@@ -77,7 +80,7 @@ KYC and onboarding friction. MSME onboarding is regulated. Some gateways take 3 
 | Settlement (standard plan) | T+2 | T+1 | T+2 | T+1 |
 | Instant settlement available | Yes (premium) | Yes (premium) | Limited | Yes (with Paytm Bank) |
 | Payouts API | Yes | Yes (strong) | Yes | Yes |
-| MDR on UPI above ₹2,000 | Volume-tiered | Volume-tiered | Volume-tiered | Volume-tiered |
+| Fees on UPI (platform fee, wallet interchange) | Volume-tiered | Volume-tiered | Volume-tiered | Volume-tiered |
 | MDR on cards (typical) | 2% | 1.95% | 2% | 1.99% |
 | Webhook reliability | High | High | Medium | High |
 | KYC onboarding speed | 1 to 3 days | 1 to 2 days | 2 to 5 days | 1 day |
@@ -98,7 +101,7 @@ Takkada uses Cashfree Payments under the hood for collections and payouts, and a
 
 **Q: Is UPI free for MSME merchants in India?**
 
-A: UPI person-to-merchant transactions up to ₹2,000 are zero-MDR by NPCI rules. Above ₹2,000, MDR is gateway-dependent and usually 0% to 0.4%, often negotiable at volume.
+A: Person-to-merchant UPI paid from a bank account carries zero MDR at any amount. Wallet (PPI) payments over UPI above ₹2,000 can carry an interchange of up to 1.1%, and some gateways add their own platform fee on UPI, which is often negotiable at volume.
 
 **Q: Do I need a payment gateway if I just want to accept UPI?**
 
