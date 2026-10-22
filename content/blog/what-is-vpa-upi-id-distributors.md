@@ -5,10 +5,13 @@ meta_title: "What Is a VPA UPI ID? Distributor Collection Guide"
 meta_description: "A VPA UPI ID is your name@bank payment handle. What it is, how a distributor gets one, and how it powers payment links and reconciliation on Tally."
 primary_keyword: "vpa upi id"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Guwahati FMCG distributor collecting from 140 retailers shares one VPA UPI ID like business@axisbank on every invoice. One retailer pays ₹62,400 against three bills, the money lands in the current account, and the receipt matches back into Tally the same evening."
 ---
+
+A VPA, or virtual payment address, is the UPI ID in the form name@bank that routes money to a bank account without sharing the account number or IFSC. For a distributor, one VPA linked to the business current account is enough to receive from every retailer, with no separate setup per party or per payment. You get one from your bank or from a UPI app that supports business accounts, after verifying the account. A VPA on its own only receives money. It becomes useful for collections when it sits behind a payment link on each Tally invoice: the retailer taps the link, the amount is already filled in, and the payment reaches your current account with a UPI reference that can be matched to that invoice. Person-to-merchant UPI from a bank account carries 0% MDR. This guide explains what a VPA is, how to set one up for the business, and how it powers payment links and reconciliation in Tally.
 
 ## Key Highlights
 

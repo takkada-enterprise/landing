@@ -5,11 +5,13 @@ meta_title: "Days Sales Outstanding: Guide for Indian Distributors"
 meta_description: "What DSO means for Indian distributors, what your number should be, and the specific steps that compress it without damaging retailer relationships."
 primary_keyword: "days sales outstanding distributor india"
 date: "2026-05-18"
-updated: "2026-10-15"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A pharma distributor in Nagpur with ₹8 crore annual turnover and a 72-day DSO is floating ₹1.58 crore in unpaid invoices at any given moment. Cut that to 45 days and ₹60 lakh comes back into the business — no new customers, no extra sales."
 ---
+
+Days sales outstanding, or DSO, is the average number of days a distributor waits to be paid after making a sale. Work it out as total receivables divided by credit sales for the period, multiplied by the days in that period. For Indian FMCG and pharma distributors DSO typically runs 45 to 90 days, and a practical target for a ₹5 to ₹30 crore business is 40 to 55 days. The number matters because every day of DSO is cash tied up in retailer ledgers. On ₹10 crore of annual turnover, a 10-day improvement frees roughly ₹27 lakh of working capital. Three levers move DSO most without straining retailer relationships: sending each invoice the same day it is raised, structured WhatsApp reminders at 7, 15 and 30 days, and a UPI payment link on every invoice so paying takes one tap. This guide shows how to calculate your DSO from Tally, what a healthy figure looks like, and which lever to pull first.
 
 ## Key Highlights
 

@@ -4,11 +4,13 @@ slug: "payment-follow-up-calls-for-distributors"
 meta_description: "The reminder was read and ignored. Here is why the follow-up call is where collections stall, and how distributors on Tally are handing that call to an AI agent."
 primary_keyword: "payment follow up call"
 date: "2026-10-02"
-updated: "2026-10-04"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "The reminder was read and ignored. Here is why the follow-up call is where collections stall, and how distributors on Tally are handing that call to an AI agent."
 ---
+
+When a WhatsApp payment reminder has been read and the bill is still open, the next step is a short phone call that asks for a date and writes the answer down. Reminders work for the parties who were going to pay anyway. The rest need a call, and that is where collections usually stall: the accountant is busy with entries, the salesman does not want to spoil a relationship, and the owner keeps putting it off. When calls do happen, they come late, they reach the big parties while forty small ones with ₹8,000 each are skipped, and the promise made on the phone is never recorded. A good follow-up call is plain. It says who is calling and what is due, asks when it will be paid, and logs the answer, whether that is a date, a dispute or a request to call back. Takkada's AI collection calls do this for every overdue party you select, in their own language, and record each outcome.
 
 The reminder went out at nine in the morning. Two blue ticks by eleven. Two days later, the bill is still open.
 

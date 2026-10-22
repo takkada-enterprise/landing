@@ -5,11 +5,13 @@ meta_title: "Multi-Business Tally Mobile App for Indian Distributors"
 meta_description: "A multi-business Tally mobile app shows consolidated outstanding, collections, and stock across 2–5 companies on one phone. Here is what to look for."
 primary_keyword: "multi business tally mobile app"
 date: "2026-05-18"
-updated: "2026-10-04"
+updated: "2026-10-23"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "An Indian distributor often runs three businesses out of one office: a parent FMCG firm, a sister pharma firm in the spouse's name, and a hardware vertical under the son. Three Tally companies, three sets of books, one owner who needs to see all of it on one screen."
 ---
+
+A multi-business Tally mobile app shows outstanding, collections, stock and DSO for several Tally companies on one phone, so an owner running two to five firms sees the numbers without opening each company on a desktop. Many distributor families run more than one company, such as a trading firm, a separate distribution entity and sometimes a second brand, each with its own Tally data. Without a combined view, the morning check means opening each company in turn and comparing figures by hand, which takes 30 to 45 minutes. Role-based access matters as much as the combined view. The owner should see everything, while each accountant or salesman sees only the company and parties they work on. When collecting, each company's UPI receipts should post back into its own Tally books, so the view never mixes up which firm was paid. This guide sets out what to look for in a multi-company Tally app and the questions to ask before you choose one.
 
 ## Key Highlights
 

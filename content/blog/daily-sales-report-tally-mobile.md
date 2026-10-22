@@ -57,7 +57,7 @@ None of this waits for the month-end statement. It is a same-day read, which is 
 
 The last problem is location. The decisions above get made in the field, on a call, or on the drive home, and that is where the Sales Register is not.
 
-Takkada reads your sales vouchers from Tally and puts the day's selling on the phone: total sales today, the bill count, and the largest invoices, refreshed as vouchers post because Takkada keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a stale nightly export. The same mobile surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily total, and the Reports+ add-on opens the deeper cuts for owners who want more than the headline. Tally stays the system of record; the phone just makes today visible.
+Takkada reads your sales vouchers from Tally and puts the day's selling on the phone: total sales today, the bill count, and the largest invoices, refreshed as vouchers post because Takkada keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a stale nightly export. The same mobile surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily total, and Reports + (part of the Copilot and Enterprise plans) opens the deeper cuts for owners who want more than the headline. Tally stays the system of record; the phone just makes today visible.
 
 ## The Reports That Sit Next to It
 

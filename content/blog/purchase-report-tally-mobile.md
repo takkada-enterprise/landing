@@ -56,7 +56,7 @@ That is why the purchase report reads best next to the payables view. Set your b
 
 The purchase report is only as current as the bills entered into Tally, and bill entry is where the buy side falls behind. A stack of supplier invoices waits on the accountant's desk, and until they are keyed, the purchase report understates what the business actually bought and owes.
 
-Takkada reads your purchase vouchers from Tally and shows purchases on the phone, supplier by supplier, alongside what you owe each, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries the buy side. Import from PDF turns a supplier's invoice PDF into a Tally purchase entry, so the bills land faster and the report stays honest, and the Reports+ add-on opens deeper purchase cuts. Tally stays the system of record.
+Takkada reads your purchase vouchers from Tally and shows purchases on the phone, supplier by supplier, alongside what you owe each, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries the buy side. Import from PDF turns a supplier's invoice PDF into a Tally purchase entry, so the bills land faster and the report stays honest, and Reports + (part of the Copilot and Enterprise plans) opens deeper purchase cuts. Tally stays the system of record.
 
 ## Frequently Asked Questions
 

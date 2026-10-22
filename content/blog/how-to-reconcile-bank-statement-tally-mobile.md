@@ -5,11 +5,13 @@ meta_title: "Bank Reconciliation in Tally on Mobile: Step-by-Step"
 meta_description: "Bank reconciliation in Tally, step by step: the classic Banking > BRS flow, setting bank dates, and the faster mobile way to clear UPI receipts daily."
 primary_keyword: "bank reconciliation in tally"
 date: "2026-06-21"
-updated: "2026-08-08"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor sits down at 9 PM to match a ₹4,80,000 bank statement against 60 receipts in Tally, half of them UPI with only a UTR to go on. Here is the classic Tally bank reconciliation flow, step by step, plus the faster way to clear UPI receipts through the day so the night session shrinks."
 ---
+
+Bank reconciliation in Tally happens on the Bank Reconciliation screen under Banking, where you enter the bank date against each voucher until the balance in your books matches the bank statement. It is accurate but slow when most receipts arrive over UPI. A distributor handling 40 to 60 UPI receipts a day can spend 45 to 90 minutes a night matching reference numbers to receipts by hand, and one error means a retailer gets chased for a bill already paid. The faster route is to match collection receipts as the money lands. When payments come in through links tied to specific invoices, each credit carries its UPI reference, and the receipt voucher can post into Tally against the right bill automatically, leaving only exceptions for the accountant to check. Importing the bank statement and auto-matching the remaining entries handles the rest. This guide covers the classic Tally steps, how to set bank dates, and the daily mobile routine that keeps reconciliation current.
 
 ## Key Highlights
 

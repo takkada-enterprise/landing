@@ -5,10 +5,13 @@ meta_title: "Bidirectional Tally Sync: How It Works (2026)"
 meta_description: "Bidirectional Tally sync explained for distributors: how two-way read-write sync keeps your phone and Tally in step, versus read-only mirrors that drift."
 primary_keyword: "bidirectional tally sync"
 date: "2026-06-06"
+updated: "2026-10-23"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Most Tally mobile apps read from Tally and stop there. You see yesterday's data on the phone, but anything you do on the phone never makes it back. Bidirectional Tally sync is the difference between a mirror you can only look at and a workspace you can actually act in."
 ---
+
+Bidirectional Tally sync means data moves both ways between Tally and the phone. Ledgers, open bills and stock flow from Tally to the app, and invoices, receipts and orders created on the app are written back into Tally as proper vouchers. A one-way sync only mirrors Tally onto the phone. That is useful for checking a party's balance, but anything done in the field, such as taking a payment or raising a bill, has to be typed into Tally again by someone in the office, which brings back the manual work the app was meant to remove. Two-way sync is what makes phone invoicing, UPI collection and automatic reconciliation practical, because each action lands in Tally once, against the right party and bill. The usual setup is a small connector on the office Tally machine that reads and writes through Tally's own interface, so the data file stays where it is. This guide explains both directions and the questions to ask any vendor.
 
 ## Key Highlights
 

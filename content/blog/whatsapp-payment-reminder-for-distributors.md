@@ -5,11 +5,13 @@ meta_title: "WhatsApp Payment Reminder Cadence for Distributors"
 meta_description: "A field-tested WhatsApp payment reminder cadence for Indian distributors. Templates, timing and how to stop chasing paid invoices by mistake."
 primary_keyword: "whatsapp payment reminder for distributors"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "Pick up your phone, try calling five retailers in Barpeta or Dibrugarh right now and asking for ₹45,000 pending since last month. You will get three voicemails, one \"bhaiya, shaam ko\" and one who actually picks up. This is the 2026 reality of B2B collections."
 ---
+
+A WhatsApp payment reminder cadence that collects is tied to each invoice's age and names the specific bill, the amount and the due date. Generic messages such as "kindly clear your dues" sent to every party at once tend to be ignored, because the retailer cannot tell which bill is meant or how much to pay. A working cadence sends a soft note a few days before the due date, a clear reminder on the day, and firmer follow-ups at set points after it, each with a UPI link for the exact amount. The worst mistake is reminding a retailer who has already paid. It happens when reconciliation runs days behind, and it damages trust in every reminder that follows. The fix is to stop reminders automatically the moment a payment is matched. Accountants at many distributors spend hours a day on calls and messages chasing receivables, and a fixed schedule gives that time back. This guide gives the templates and timing for each stage.
 
 ## Key Highlights
 

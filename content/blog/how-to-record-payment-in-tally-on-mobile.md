@@ -5,10 +5,13 @@ meta_title: "Record Payment in Tally on Mobile: Field Guide"
 meta_description: "How to record payment in Tally on mobile: log cash and UPI receipts from the field, match the UTR, and post the receipt voucher back into Tally."
 primary_keyword: "record payment in tally on mobile"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A salesman in Guwahati collects ₹87,000 across four parties before lunch, scribbles the amounts on the invoice copy, and the accountant types them into Tally at 9 PM. Two get matched to the wrong invoice. Recording the payment in Tally on mobile, the moment it lands, ends that. Here is the exact flow."
 ---
+
+To record a payment in Tally from a mobile phone, open the party in a Tally-connected app, enter the amount received, choose cash or UPI, add the UPI reference for a digital payment, and save. The app posts a receipt voucher into Tally against that party and, with bill-wise details on, against the specific invoice being paid. Recording the receipt at the moment of collection matters more than the speed of the screen. When a salesman collects cash or sees a UPI credit at the shop, the entry goes in then, with the right bill attached. The alternative is a notebook or a stack of WhatsApp screenshots entered in a batch at night, which is where receipts get posted to the wrong bill or the wrong party. UPI from a bank account carries no merchant discount rate, so the full amount reaches the distributor's account. This guide walks through cash and UPI receipts, part-payments, and checking the entry in Tally afterwards.
 
 ## Key Highlights
 

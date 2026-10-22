@@ -5,10 +5,13 @@ meta_title: "Tally Mobile App for Android: 2026 Reality Check"
 meta_description: "A Tally mobile app for Android connects your phone to the office Tally machine. What installs, what syncs, and what an Android phone can and cannot do."
 primary_keyword: "tally mobile app for android"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati distributor's three salesmen all carry ₹8,000 Android phones, not laptops. He wants Tally on those phones and keeps hitting the same wall: there is no Tally app to install. Here is what a Tally mobile app for Android really is, what syncs to the phone, and what it can and cannot do against the office machine."
 ---
+
+A Tally mobile app for Android is always a companion app, because TallyPrime runs on Windows and the data file stays on the office machine. Two pieces make it work. The app installs on the Android phone. A small connector installs on the computer running Tally and exchanges data with Tally through its built-in interface, syncing ledgers, outstanding, stock and reports to the phone. What the phone can do depends on the app. A read-only app shows reports, outstanding and party ledgers. A read-and-write app also creates invoices, receipts and orders on the phone and writes them back into Tally as vouchers, and some add UPI collection and WhatsApp dispatch. In every case the Tally data file itself never moves to the phone, and the office machine needs to be on and connected for new data to sync. This guide covers what to install, how syncing works, and what an Android phone can and cannot do with Tally.
 
 ## Key Highlights
 

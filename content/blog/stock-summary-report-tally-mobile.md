@@ -62,7 +62,7 @@ Read against movement, it becomes a reorder and clearance engine. An item with h
 
 The availability question is asked at the counter, and the working-capital question is asked wherever the owner happens to be thinking about cash. Neither is asked at the Tally desk.
 
-Takkada reads your inventory from Tally and shows stock on the phone, by item, quantity, and value, kept current through the two-way sync so the phone matches the godown. A salesman confirms availability before promising a delivery, and an owner checks total stock value when he is weighing a big purchase against the cash tied up in inventory and the strain it puts on the [working capital every wholesaler juggles](/blog/working-capital-problem-indian-wholesalers/). Deeper inventory cuts sit in the Reports+ add-on. Tally stays the system of record.
+Takkada reads your inventory from Tally and shows stock on the phone, by item, quantity, and value, kept current through the two-way sync so the phone matches the godown. A salesman confirms availability before promising a delivery, and an owner checks total stock value when he is weighing a big purchase against the cash tied up in inventory and the strain it puts on the [working capital every wholesaler juggles](/blog/working-capital-problem-indian-wholesalers/). Deeper inventory cuts sit in Reports + (part of the Copilot and Enterprise plans). Tally stays the system of record.
 
 ## Frequently Asked Questions
 

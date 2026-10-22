@@ -5,11 +5,13 @@ meta_title: "Razorpay Payment Links vs Tally-Native Collection"
 meta_description: "Razorpay payment links vs a Tally-native collection layer for distributors: platform fees and no Tally posting, versus 0% MDR UPI and auto-reconciliation."
 primary_keyword: "razorpay payment links tally"
 date: "2026-06-14"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "harsh"
 category: "Comparisons"
 excerpt: "Razorpay is an excellent payment gateway, built for online businesses and developers who want a payment link or a checkout in their app. A Tally distributor is neither. They want the payment tied to a bill in Tally, collected without a platform fee, and posted back to the books on its own."
 ---
+
+Razorpay payment links collect money well, but they do not know your Tally invoices, so a distributor still matches each payment and enters the receipt by hand. Razorpay is a payment gateway built for online businesses. Its standard published pricing charges a platform fee of around 2% on many payment methods, with UPI terms that vary by plan, so check current rates before comparing. You get a link, a payment and a settlement to your bank. Matching that settlement to the right invoice and posting the receipt in Tally stays with your accountant. A Tally-native collection layer takes on that second half. Each UPI link is created from a specific Tally invoice, the payment comes back with its UPI reference, and the receipt posts into Tally against that bill automatically. Collection runs over bank-account UPI at 0% MDR. This comparison sets out fees, setup and daily workload side by side, so you can see which fits invoice-based credit collection.
 
 ## Key Highlights
 

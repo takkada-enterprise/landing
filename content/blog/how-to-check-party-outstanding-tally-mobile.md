@@ -5,11 +5,13 @@ meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
 meta_description: "How to check party outstanding in Tally on mobile: the desktop steps, the faster phone way, and how to see partywise outstanding from the field."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
-updated: "2026-08-08"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor is standing at a retailer's counter who wants ₹40,000 of fresh stock on credit. He needs to know the party already owes ₹1,75,000 before he loads the van. Here is how to check that party's outstanding balance in Tally, both the desktop way and the faster way from the phone."
 ---
+
+To check a party's outstanding in TallyPrime on the desktop, go to Gateway of Tally, then Display More Reports, Statements of Accounts, Outstandings, Ledger, and pick the party to see every open bill with its date and amount. The path works, but only at the office machine. On the phone, a mobile app that syncs with Tally shows the same bill-by-bill outstanding for any party in a few seconds, which is when it is most useful: standing at the retailer's counter, or before calling a party who says they have already paid. The view is more useful still when it leads straight to action. From the party's outstanding you can share a ledger statement on WhatsApp, send a reminder for the oldest bill, or send a UPI link for the exact amount due. This guide covers the desktop steps, the faster mobile route, and how to read partywise outstanding from the field without calling the office.
 
 ## Key Highlights
 

@@ -5,10 +5,13 @@ meta_title: "Textile Wholesaler Collection App on Tally (2026)"
 meta_description: "Textile wholesaler collection app for Tally: 60-120 day credit, part-payments across many bills, 0% MDR UPI collection that reconciles bill-by-bill."
 primary_keyword: "textile wholesaler collection app"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A fabric wholesaler in Surat ships ₹2,40,000 of suiting to a retailer who pays ₹40,000 here, ₹65,000 there, across four months and six different bills. Matching those part-payments to the right invoices is the real job. A textile wholesaler collection app that reconciles bill-by-bill on a 0% MDR UPI rail is what closes the right ledger every time."
 ---
+
+A collections app for a textile wholesaler on Tally has to handle the way the trade actually pays: long informal credit of 60 to 120 days, and parties who send irregular part-payments that cover pieces of several open bills. Matching each part-payment to the right invoices is the real work, and it is where a ledger quietly goes wrong. The app should send each bill on WhatsApp with a UPI link, remind as bills age, and post every receipt back into Tally bill by bill, so a ₹60,000 payment against three bills clears the right three. Cost matters as well. Margins on fabric and readymade run roughly 5% to 12%, thinner on grey cloth, so a percentage fee on collections is a real slice of profit. On ₹15 crore of turnover, a 1% fee is ₹15,00,000 a year. UPI from a bank account carries no such fee. This guide covers what a textile collection app must do and what to check before choosing one.
 
 ## Key Highlights
 

@@ -5,11 +5,13 @@ meta_title: "Working Capital Problem for Indian Wholesalers in 2026"
 meta_description: "Why the working capital problem for Indian wholesalers is structural, not seasonal. Credit terms, DSO math, MSME Samadhaan data, and what fixes the gap."
 primary_keyword: "working capital problem indian wholesalers"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "An Indian wholesaler — call it a ₹15 crore turnover distributor of FMCG goods in a Tier 2 city — runs on roughly this rhythm. They buy goods from 8 to 15 brands on 30-day credit terms. They sell those goods to 80 to 200 retailers on 45 to 60-day credit terms. They earn a 3 to 5% gross margin, which after operating costs (rent, salaries, transport, GST compliance) leaves a 1 to 2% net."
 ---
+
+The working capital problem for Indian wholesalers is structural: they give retailers 45 to 90 days of credit while paying their own suppliers in about 30, so a large share of each year's turnover is always locked in receivables. Seasonal cash crunches make it visible, but the mismatch is there every month. At 60 days of credit, about a sixth of annual turnover sits in retailer ledgers at any time, roughly ₹1.6 crore for a ₹10 crore wholesaler, earned but unusable and often covered by an overdraft that charges interest every day. Delays are widespread. The government's MSME Samadhaan portal has recorded more than ₹22,363 crore in delayed-payment complaints since 2017, and those are only the cases formally filed. Borrowing more treats the symptom. The lasting fix is shortening the time between sale and payment through same-day invoicing, scheduled reminders, a payment link on every bill and same-day reconciliation. This guide works through the numbers and each fix.
 
 ## Key Highlights
 

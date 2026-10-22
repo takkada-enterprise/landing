@@ -5,11 +5,13 @@ meta_title: "GST Compliance on Mobile: What Distributors Can Actually Do"
 meta_description: "GST compliance on mobile for Indian distributors in 2026. E-invoice, e-way bill, HSN validation, GSTR-2B reconciliation and what still needs the desktop."
 primary_keyword: "gst compliance on mobile for distributors"
 date: "2026-04-25"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A mid-sized distributor — say ₹15 crore turnover, 80 to 120 retail parties, 30 to 50 B2B invoices a day — carries roughly this monthly compliance load:"
 ---
+
+Most day-to-day GST work for a distributor can now happen on a phone, while return filing still belongs on the desktop or with the CA. E-invoice and e-way bill generation are the two tasks where mobile is faster, because they happen where goods move: at the godown, on the vehicle, or at the retailer's counter. A connected app can raise the invoice, get the IRN and QR code from the portal, create the e-way bill and update the same voucher in Tally. HSN codes and GSTINs can be checked on the phone before the bill is saved. GSTR-1 and GSTR-3B filing, along with matching purchases against GSTR-2B, still needs the full books and is usually done at the office. For businesses above the ₹5 crore e-invoicing threshold, the phone matters most, because a B2B invoice raised without an IRN is not a valid tax invoice. This guide maps which GST tasks move to mobile and which should stay on the desktop.
 
 ## Key Highlights
 

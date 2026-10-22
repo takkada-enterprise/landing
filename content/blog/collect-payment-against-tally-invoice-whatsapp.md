@@ -5,11 +5,13 @@ meta_title: "Collect Payment Against Tally Invoice via WhatsApp"
 meta_description: "Collect payment against Tally invoice on WhatsApp: dispatch the invoice, attach a UPI link, and auto-match the receipt back into Tally at 0% MDR."
 primary_keyword: "collect payment against tally invoice"
 date: "2026-06-14"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A Barpeta distributor sends invoices on WhatsApp, then chases the same parties for payment a week later on the same WhatsApp. The invoice and the money live in two separate conversations. Collecting payment against a Tally invoice in one WhatsApp thread closes that gap. Here is the loop, party by party."
 ---
+
+To collect payment against a Tally invoice on WhatsApp, send the invoice PDF and a UPI payment link for the exact amount together in one message, then match the receipt back to that invoice in Tally when the retailer pays. Keeping everything in one WhatsApp thread matters because that is where the retailer already reads messages from suppliers. The full loop has four steps: dispatch the invoice when it is saved, remind on a schedule as the due date nears, collect through the link, and reconcile the receipt against the bill. When the link is tied to the invoice, the payment arrives with a reference that says which bill it settles, so the office does not have to guess between two parties who paid the same amount. UPI from a bank account carries no merchant discount rate, so a ₹14,320 invoice arrives as ₹14,320. This guide walks through each step, the message format, and what to automate first.
 
 ## Key Highlights
 

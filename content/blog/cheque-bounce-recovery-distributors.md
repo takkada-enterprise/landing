@@ -5,10 +5,13 @@ meta_title: "Cheque Bounce Recovery for Distributors: Section 138"
 meta_description: "What to do when a retailer cheque bounces: the 30-day legal notice, Section 138 timeline, costs, and how digital collection prevents most cases."
 primary_keyword: "cheque bounce recovery distributors"
 date: "2026-05-06"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A cheque bounces when a retailer's cheque is returned unpaid by the bank, usually with the reason \"insufficient funds\" or \"funds insufficient\". For an Indian distributor, this is one of the most stressful events in the operating year. The legal remedy under Section 138 of the Negotiable Instruments Act exists, but most distributors either do not invoke it correctly or settle out of fatigue. Both are expensive."
 ---
+
+When a retailer's cheque bounces, the distributor's strongest remedy is Section 138 of the Negotiable Instruments Act, 1881, which makes a dishonoured cheque a criminal offence, and it runs on a strict timeline. You must send a written legal notice demanding payment within 30 days of receiving the bank's return memo. The retailer then has 15 days to pay. If they do not, you must file the complaint in court within one month after those 15 days end. Miss any window and the criminal route closes, leaving only a slower civil recovery suit. Courts can impose up to two years in jail or a fine of up to twice the cheque amount, which is why the notice alone often brings payment. Recovery is still slow and costly, so the better strategy is to take fewer cheques. A UPI payment link clears the same day and cannot bounce. This playbook covers the notice, the filing, the costs and the move to digital collection.
 
 ## Key Highlights
 

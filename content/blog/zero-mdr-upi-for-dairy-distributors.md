@@ -5,10 +5,13 @@ meta_title: "Zero MDR UPI for Dairy Distributor Collection 2026"
 meta_description: "Dairy distributor collection runs on daily delivery, 7-30 day credit and 3-6% margins. See why high-volume tiny receipts make even 0.5% MDR bleed real money."
 primary_keyword: "dairy distributor collection"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A dairy distributor in Anand delivers milk and curd to 180 retailers every morning, most paying ₹1,200 to ₹4,000. At 3-5% margin and that volume, even a 0.5% MDR is around ₹2,70,000 a year skimmed off the thinnest margins in distribution. For dairy distributor collection, 0% MDR is not a perk, it is margin you keep."
 ---
+
+Zero MDR UPI matters more to a dairy distributor than to almost any other trade, because dairy runs the highest receipt volumes on some of the thinnest margins, roughly 3% to 6%. Deliveries go out every morning, credit runs 7 to 30 days, and receipts are many and small. Even a 0.5% charge cuts straight into margin: on ₹6 crore of collections it is about ₹3,00,000 a year. A flat per-receipt fee is no better at this volume. At ₹2 a receipt and 180 receipts a day, that is around ₹1,08,000 a year. Person-to-merchant UPI from a bank account carries 0% MDR, so a rail with no per-transaction fee removes both costs. The other problem is reconciliation. Daily route delivery produces many look-alike payments of similar amounts from similar shops, and matching each by its UPI reference keeps the ledger right without someone checking screenshots every night. This guide covers the costs, the route-collection workflow and the setup.
 
 ## Key Highlights
 

@@ -17,7 +17,7 @@ An MIS report for a distributor is the short, fixed set of numbers an owner shou
 
 - A distributor MIS is a fixed daily set: sales versus target, outstanding with ageing, cash and bank, stock against sales, and gross margin
 - The value is the habit, not the data, because Tally already holds every number, but reading the same short set daily is what stops month-end surprises
-- Takkada surfaces the MIS set on mobile, reading live from Tally, with deeper cuts in the Reports+ add-on, so the owner glances at the scorecard from the field
+- Takkada surfaces the MIS set on mobile, reading live from Tally, with deeper cuts in Reports + (part of the Copilot and Enterprise plans), so the owner glances at the scorecard from the field
 
 ## In This Article
 
@@ -68,7 +68,7 @@ Salesman performance is a weekly read for most owners, because a fair judgement 
 
 An MIS only works if it is actually read, and a report locked on the office desktop is read rarely. The whole set has to be where the owner is, which is usually not at the Tally machine.
 
-Takkada surfaces the MIS set on the phone, reading live from Tally through the two-way sync, with the deeper analytical cuts sitting in the Reports+ add-on. The same mobile surface that carries the individual [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily scorecard, so checking the business becomes a glance between routes rather than a month-end scramble at the desk. Tally stays the system of record; the phone just makes the daily habit possible.
+Takkada surfaces the MIS set on the phone, reading live from Tally through the two-way sync, with the deeper analytical cuts sitting in Reports + (part of the Copilot and Enterprise plans). The same mobile surface that carries the individual [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily scorecard, so checking the business becomes a glance between routes rather than a month-end scramble at the desk. Tally stays the system of record; the phone just makes the daily habit possible.
 
 ## Frequently Asked Questions
 

@@ -5,11 +5,13 @@ meta_title: "Accounts Receivable Automation for Tally (2026)"
 meta_description: "A guide to accounts receivable automation for Tally: automate invoicing, WhatsApp reminders, UPI collection, and reconciliation for Indian distributors."
 primary_keyword: "accounts receivable automation tally"
 date: "2026-06-06"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Nagpur FMCG distributor employs two people whose whole job is receivables: one types invoices from delivery notes, the other matches bank receipts to bills every evening. Accounts receivable automation does not fire those two people. It moves them off data entry and onto the retailers who actually need chasing."
 ---
+
+Accounts receivable automation for Tally means handing four repetitive jobs to software that reads your Tally data: sending each invoice the day it is raised, reminding retailers on WhatsApp as bills come due, collecting over a UPI link tied to the invoice, and posting each receipt back into Tally against the right bill. Tally stays the book of record throughout, and the automation writes back into it. For most distributors the biggest saving is the last step. Matching receipts to invoices by hand, usually after the shop shuts, is where the accountant's evening goes, and an automatic match on the UPI reference removes that session. Collection over UPI from a bank account carries no merchant discount rate, so automating the collection does not add a percentage fee on every rupee received. This guide covers what to automate first, what to leave manual, and how to tell whether a tool writes back into Tally or only reads from it.
 
 ## Key Highlights
 

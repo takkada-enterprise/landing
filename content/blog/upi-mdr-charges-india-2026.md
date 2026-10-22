@@ -5,10 +5,13 @@ meta_title: "UPI MDR Charges India 2026: What You Pay"
 meta_description: "UPI MDR charges in India explained for 2026: what P2M UPI actually costs, where RuPay credit-on-UPI carries MDR, and how a 0% MDR collection rail works."
 primary_keyword: "upi mdr charges"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Market Reality"
 excerpt: "A Dibrugarh distributor assumed all his UPI collections were free, then noticed a quiet ₹3-per-receipt fee on his collection app. Across 6,000 receipts a year that is ₹18,000 he never agreed to. UPI MDR charges are mostly zero, but the fine print is where distributors bleed."
 ---
+
+UPI MDR charges in India in 2026 are zero for standard person-to-merchant payments from a bank account, so a retailer paying a distributor over UPI costs the distributor nothing in merchant discount rate. The main exceptions are RuPay credit cards linked to UPI, which can carry MDR on larger payments to bigger merchants, and wallet-based payments above ₹2,000, which can carry an interchange charge of up to 1.1%. For a distributor collecting from retailers' bank accounts, neither usually applies. The bigger trap sits in the app on top. Some collection apps advertise 0% MDR and charge a flat fee per receipt, such as ₹3 a transaction. At 200 receipts a day, that is about ₹1,80,000 a year under a zero-MDR headline. When comparing apps, ask for every charge, per transaction, per month and per settlement. This guide explains the current rules, where charges still apply, and how a 0% MDR collection rail works from end to end.
 
 ## Key Highlights
 

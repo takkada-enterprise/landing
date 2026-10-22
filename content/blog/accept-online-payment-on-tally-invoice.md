@@ -5,11 +5,13 @@ meta_title: "Accept Payment on Tally Invoices Without MDR"
 meta_description: "How to accept payment on Tally invoices: turn an invoice into a UPI payment link and collect at 0% MDR, with the full cost math versus a payment gateway."
 primary_keyword: "payment on tally"
 date: "2026-06-14"
-updated: "2026-08-09"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises ₹1,00,000 of invoices a day and pays roughly ₹1,000 in gateway MDR to collect it online. That is ₹3,00,000 a year to receive his own money. Accepting payment on Tally invoices over a 0% MDR UPI rail puts that back in his pocket. Here is how it works."
 ---
+
+To accept online payment on a Tally invoice, attach a UPI payment link to the invoice and send both to the retailer together, usually on WhatsApp. The retailer taps the link, pays the exact amount from any UPI app, and the receipt is matched back to that invoice in Tally, so the party's outstanding drops without anyone keying it in. Person-to-merchant UPI from a bank account carries no merchant discount rate, so a ₹1,00,000 collection can arrive as ₹1,00,000. A card or gateway charge of 0.5% to 1.5% would keep ₹500 to ₹1,500 of it. The gap grows with volume: a distributor collecting ₹3 crore a year at 1% MDR pays ₹3,00,000 just to receive money it was already owed. The other half of the job is matching. A link tied to one invoice tells you which bill was paid, so the evening spent comparing bank credits with open bills goes away. This guide walks through both halves with the full cost math.
 
 ## Key Highlights
 

@@ -5,10 +5,13 @@ meta_title: "UTR Number Meaning and How to Match It in Tally"
 meta_description: "What a utr number is, where to find it in your UPI app or bank statement, and how matching it to the right Tally receipt closes a bill cleanly."
 primary_keyword: "utr number"
 date: "2026-06-21"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor gets a WhatsApp screenshot at 9 PM: a retailer paid ₹47,800 but didn't say against which invoice. The UTR number on that payment is the one thread that links the bank credit back to the exact Tally receipt and closes the bill without a phone call."
 ---
+
+A UTR number, or Unique Transaction Reference, is the reference your bank assigns to every incoming NEFT, RTGS, IMPS or UPI payment, and it is the most reliable way to link a bank credit to a specific Tally receipt. For UPI the reference is a 12-digit number, while NEFT and RTGS references are longer alphanumeric codes. The same reference appears in the payer's UPI app, on your bank statement and in the payment confirmation, so both sides can quote it. You find it in the transaction details of the UPI app or in the narration column of the bank statement. In Tally, entering the reference on the receipt voucher and allocating the receipt Against Reference to the right bill closes that bill cleanly. When a payment comes in through a link tied to an invoice, the reference travels with the credit, so the receipt can post against the right bill automatically. This guide shows where to find it and how to use it.
 
 ## Key Highlights
 

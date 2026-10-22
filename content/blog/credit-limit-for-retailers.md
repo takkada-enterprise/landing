@@ -5,10 +5,13 @@ meta_title: "Credit Limit for Retailers: How to Set and Enforce It"
 meta_description: "A practical method for setting retailer credit limits, enforcing hold-on-dispatch, and revising up or down based on payment history."
 primary_keyword: "credit limit for retailers"
 date: "2026-05-06"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A credit limit is the maximum amount a distributor is willing to let a single retailer owe at any point in time. It is the most under-used risk tool in Indian B2B distribution. Most distributors set credit limits informally in their head, never enforce them in their software, and only react when a party is already 90 days overdue on a large amount."
 ---
+
+A retailer credit limit is the most a party can owe you at any one time, and it is separate from the credit term, which is how many days they get to pay each bill. A term says "30 days net". A limit says "never more than ₹2.5 lakh outstanding, whatever the due dates". Many distributor problems start from treating the two as one. A workable way to set a first limit is to take the retailer's average monthly purchase, multiply by 1.5, and round to the nearest ₹25,000. A party buying ₹1,60,000 a month would start at ₹2,50,000. Review it after six months of payment history, moving it up for steady payers and down for slow ones. The hard part is enforcement. A limit means something only if dispatch is held when it is crossed, even for an old party. Distributors who set that rule and keep it see lower DSO and fewer bad debts. This guide covers setting, enforcing and revising limits.
 
 ## Key Highlights
 

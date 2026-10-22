@@ -5,10 +5,13 @@ meta_title: "Nil MDR UPI Collection, Straight Off Tally"
 meta_description: "Nil MDR UPI collection on Tally invoices: attach a UPI link to each Tally invoice, collect at 0% MDR with no per-transaction fee, and auto-match into Tally."
 primary_keyword: "nil mdr upi collection"
 date: "2026-06-14"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A Dibrugarh distributor raises every invoice in Tally already. The gap is that collecting against it means a separate gateway taking a cut. Nil MDR UPI collection on Tally invoices closes that gap: the link rides on the invoice, the money lands whole, and the receipt posts itself back."
 ---
+
+Nil MDR UPI collection means receiving the full invoice amount over UPI with no merchant discount rate and no per-transaction fee, so a ₹14,320 Tally invoice arrives as ₹14,320. Person-to-merchant UPI from a bank account carries no MDR by default. Cost usually creeps in through the app on top, as a percentage or a flat fee per receipt. Doing it off Tally invoices means the UPI link is generated for the bill you already raise in Tally, for its exact amount, and sent to the retailer with the invoice. When the retailer pays, the receipt posts back into Tally as a voucher against that bill. Matching uses the UPI reference number, which ties each payment to one invoice, so two retailers paying ₹8,500 on the same day reconcile correctly without anyone comparing WhatsApp screenshots. This guide covers how to set up nil MDR collection on Tally invoices, what to check in any app's pricing, and how the matching works.
 
 ## Key Highlights
 

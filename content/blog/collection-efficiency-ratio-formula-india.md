@@ -5,10 +5,13 @@ meta_title: "Collection Efficiency Ratio: Formula and Targets in India"
 meta_description: "What collection efficiency means for Indian distributors, how to calculate it from Tally, healthy ratios by category, and three levers that move it."
 primary_keyword: "collection efficiency ratio india"
 date: "2026-05-18"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A distributor who invoices ₹1 crore in a month and collects ₹85 lakh that month has a collection efficiency of 85%. The number sounds technical. What it actually measures is whether the credit being extended is coming back as cash on the schedule the business needs."
 ---
+
+Collection efficiency is the cash you collected in a period divided by what you invoiced in that period, multiplied by 100. If a distributor billed ₹80 lakh in a 30-day window and collected ₹72 lakh, collection efficiency is 90%. A practical target for Indian FMCG distributors is 85% to 95% on a rolling 30-day basis, and businesses on longer credit terms will sit lower. The ratio is a sister metric to days sales outstanding. DSO tells you how long money takes to arrive. Collection efficiency tells you how much of it arrives at all. A business can look fine on one and poor on the other, so both are worth reading from Tally every month. Three levers move the ratio most: raising and sending the invoice the same day, structured WhatsApp reminders at 7, 15 and 30 days, and a UPI payment link in every reminder so the retailer can pay without asking for bank details. This guide shows how to pull the numbers from Tally.
 
 ## Key Highlights
 

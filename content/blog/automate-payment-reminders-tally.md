@@ -5,11 +5,13 @@ meta_title: "Automate Payment Reminders in Tally (2026)"
 meta_description: "How to automate payment reminders for Tally invoices with smart reminders that change copy by due date and overdue status, sent on WhatsApp with a UPI link."
 primary_keyword: "automate payment reminders tally"
 date: "2026-06-06"
-updated: "2026-08-08"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "A distributor in Rajkot used to keep a diary of who to call for payment. Some days he called, some days he forgot, and the retailers learned which suppliers chased and which did not. Automating payment reminders takes the diary out of his head and turns it into a system that never forgets and never sounds the same twice."
 ---
+
+To automate payment reminders for Tally invoices, connect an app that reads your open bills from Tally and sends each retailer a WhatsApp message on a fixed schedule, with a UPI payment link for the exact amount. Tally can print an outstanding statement, but it does not send reminders on a calendar or change the message as a bill ages. Smart reminders do both. Before the due date the retailer gets a soft note with the amount and the date. After it, the tone gets firmer and the overdue days are named. When the retailer pays, the reminder for that bill stops, so nobody gets chased for money already sent. The advantage over phone calls is consistency. Calls get skipped on the day the accountant is closing GST or the owner is travelling, while a scheduled reminder goes out every day regardless. This guide covers the cadence, the message copy at each stage, and the checks that keep reminders away from parties who have already paid.
 
 ## Key Highlights
 

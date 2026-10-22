@@ -5,10 +5,13 @@ meta_title: "DSO for Distributors: How to Calculate and Reduce It"
 meta_description: "DSO formula, healthy benchmarks for Indian distributors, and five levers that pull DSO down without losing customers. With a worked example."
 primary_keyword: "dso for distributors"
 date: "2026-05-06"
+updated: "2026-10-23"
 author: "founder"
 category: "How-To"
 excerpt: "DSO, or Days Sales Outstanding, is the average number of days a distributor takes to collect cash after raising an invoice. It is the single cleanest number that tells you whether your collections operation is keeping up with your sales team."
 ---
+
+DSO, or days sales outstanding, equals total receivables divided by revenue for the period, multiplied by the number of days in that period. A distributor with ₹2.5 crore outstanding on ₹15 crore of annual revenue has a DSO of about 61 days. For most Indian FMCG and B2B distributors a healthy DSO sits between 45 and 65 days. Above 75 days, three problems have usually stacked up: credit terms stretched party by party, reminders that go out late or unevenly, and reconciliation running days behind the bank, so the office cannot see who has already paid. Bringing DSO down by 10 days on a ₹15 crore turnover releases roughly ₹40 lakh, cash that moves from retailer ledgers back into your current account. This guide works through the formula with an example, sets benchmarks by trade, and covers five levers that pull DSO down without losing customers, from same-day invoicing to a payment link on every bill.
 
 ## Key Highlights
 

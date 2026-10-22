@@ -5,11 +5,13 @@ meta_title: "WhatsApp Invoice Format for Tally Distributors"
 meta_description: "The right WhatsApp invoice format for Tally users: PDF, one-line summary, and a 0% MDR UPI link that retailers tap-to-pay in 8 seconds."
 primary_keyword: "whatsapp invoice format tally"
 date: "2026-05-18"
-updated: "2026-08-08"
+updated: "2026-10-23"
 author: "harsh"
 category: "Collections"
 excerpt: "A WhatsApp invoice that is just a PDF attachment converts 2× slower than a WhatsApp invoice that is a PDF, a one-line summary, and a tap-to-pay UPI link. The format matters as much as the timing."
 ---
+
+The WhatsApp invoice format that gets Tally invoices paid has three parts: the invoice PDF, a one-line summary with the amount and due date, and a UPI payment link set to the exact amount. Each part does a job. The PDF is the tax document the retailer's accountant files. The one-line summary is what the retailer actually reads at a busy counter, so it should say who the bill is from, how much is due and by when. Hinglish often reads more naturally than formal English in Tier 2 and Tier 3 markets. The link lets the retailer pay from the same chat without asking for bank details, and the payment carries a reference that matches it back to the invoice in Tally. UPI from a bank account carries 0% MDR, so adding the link costs nothing per invoice. This guide gives sample message formats for each situation and shows how to send them automatically from Tally the moment an invoice is saved.
 
 ## Key Highlights
 
