@@ -391,6 +391,7 @@ export const pricing = {
     { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
     { label: 'WhatsApp 8,000-message pack', note: 'More WhatsApp messages for reminders and invoice dispatch.' },
     { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
+    { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',

@@ -431,5 +431,55 @@
     "source": "ladder-summary.png",
     "shows": "Invoice Summary with the ladder total on the line, amount and GST from the rounded aggregate",
     "alt": "Invoice summary with the ladder total on the line"
+  },
+  {
+    "slug": "barcode-scan-bill",
+    "source": "Barcode scan into bill.png",
+    "shows": "Scan labels sheet over Add Items: four scans logged, Sugar 50kg Bag total 2, Biscuits Family Pack batch B-26, Tea Powder",
+    "alt": "Scan labels sheet on a bill, each scanned sticker adding its box quantity",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-purchase-print",
+    "source": "Barcode purchase print labels.png",
+    "shows": "Print labels sheet on purchase PUR/26-27/0023: Biscuits Family Pack 33 Carton and Sugar 50kg Bag 31 Bag, pcs per sticker and sticker count, A4 2 x 5",
+    "alt": "Print labels from a purchase bill, with pieces per sticker and the number of stickers for each line",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-batch-options",
+    "source": "Barcode batch label options.png",
+    "shows": "Print labels on a purchase: Biscuits Family Pack batch B-26 with MRP and Mfg/Exp chips, 6 per sticker x 5, sheet options with Show MRP, Show batch, Show dates on",
+    "alt": "Label options with Show MRP, Show batch and Show dates switched on for a batch line",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-overstock",
+    "source": "Barcode over stock note.png",
+    "shows": "Scan labels: two scans of Biscuits Family Pack batch B-26 to a total of 12, orange note Only 8 left in B-26",
+    "alt": "Scanning past the stock in a batch shows how many are left in it",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-link-maker-code",
+    "source": "Barcode not a takkada label link.png",
+    "shows": "Scan labels: a maker EAN scanned, Not a Takkada label, with Link to an item and Type a code",
+    "alt": "A maker barcode scanned, with the option to link it to an item",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-grn-po",
+    "source": "Barcode GRN against PO.png",
+    "shows": "New GRN from ITC Foods Depot: notice 1 ordered line was not scanned with Remove them, Instant Noodles Case received 12 Carton, batch N-1009",
+    "alt": "Goods received against an order, with a notice for the ordered line that was not scanned",
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "barcode-sticker-sheet",
+    "source": "Barcode sticker sheet.png",
+    "shows": "Top three rows of an A4 2 x 5 label sheet: item name, quantity, MRP, batch and dates over a Code128 barcode",
+    "alt": "A4 sticker sheet with item name, box quantity, MRP, batch and dates above each barcode",
+    "sheet": true,
+    "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
   }
 ]

@@ -16,6 +16,7 @@ Add-ons (Ask your partner for pricing):
 - Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
 - WhatsApp 8,000-message pack: More WhatsApp messages for reminders and invoice dispatch.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
+- Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -65,6 +66,7 @@ Add-ons (Ask your partner for pricing):
 - [FMCG module: MRP-based billing on Tally](https://takkada.com/fmcg-module-tally/): MRP-driven billing for FMCG distributors on Tally. Each stock item carries printed MRP, retailer margin (a divisor), two sequential trade discounts (D1, D2) and an item-wise salesman commission. The rate is computed per line; any extra customer discount is checked against the line's break-even; Tally receives list rate and one discount percentage.
 - [AutoParts billing: cost-plus pricing on Tally](https://takkada.com/autoparts-billing-tally/): Cost-plus pricing for parts distributors on Tally. The latest purchase cost is read from Tally per base unit, ex-GST; a markup set at company, stock group or item level gives the selling price; a second markup gives a second price level. A Price Changes screen lists parts whose cost moved. Cost and markup are withheld from members without full access.
 - [Ladder discount on Tally invoices](https://takkada.com/ladder-discount-tally/): Stepped trade discounts for distributors on Tally. Up to three named discount steps per invoice line compound into a single aggregate percentage, rounded half-up to two decimals; the aggregate is what Tally receives and what the taxable value is computed from. The invoice PDF prints each step and the price after it. Works on sales orders too.
+- [Barcode labels on Tally](https://takkada.com/barcode-in-tally-prime/): Barcode stickers for Tally Prime businesses, printed from a purchase bill, an item or a picked list of items, each encoding the item and the quantity in that box. Scanned into sales invoices, purchases, delivery challans, GRNs and stock journals with a phone camera, a Bluetooth scanner or a USB gun; batch, MRP and expiry can print on the label; a maker barcode can be linked to an item. Bills reach Tally as normal vouchers.
 
 ## Company
 

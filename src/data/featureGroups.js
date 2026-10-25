@@ -83,7 +83,7 @@ export const FEATURE_GROUPS = [
     stop: 'load',
     title: 'Loading and stock',
     intro: 'Godowns, challans and what is actually on the shelf.',
-    slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile'],
+    slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile', 'barcode-in-tally-prime'],
   },
   {
     id: 'send',
@@ -201,6 +201,8 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'barcode-in-tally-prime':
+    'Stickers with the box quantity printed from the purchase bill, scanned into bills by phone or gun.',
   'schemes-tally':
     'Buy X get Y free and slab schemes set up once, applied in the cart, costed per scheme and party.',
   'fmcg-module-tally':
