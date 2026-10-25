@@ -2035,6 +2035,15 @@
       "reviewedOn": "2026-09-25",
       "reviewedBy": "Ronak (schemes and discount handoff, demo company 143, no customer detail)",
       "origin": "WebP export at 720w of \"ladder-summary.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the ladder total on the line, amount and GST from the rounded aggregate"
+    },
+    "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785": {
+      "path": "public/assets/testimonials/Meet_Patel_thumbnail_square.jpg",
+      "kind": "photograph",
+      "sha256": "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785",
+      "reviewed": true,
+      "reviewedOn": "2026-10-25",
+      "reviewedBy": "agent classification pass 2026-10-25, opened and checked: a person on camera, no screen, numbers or names in frame",
+      "origin": "Still frame from the customer's video testimonial (siteContent.js testimonial section, PR #154): the customer seated in an office chair. A photograph of a person, not a picture of the application."
     }
   },
   "unprovenAllowlist": {
