@@ -159,7 +159,48 @@ export const BARCODE = [
         a: "Yes, once it is linked. Scan the maker's barcode, tap Link to an item, and choose the item and how many pieces that pack holds. After that, every scan of that barcode adds that quantity. Linking is kept to the business admin, so a salesman cannot point a code at the wrong item.",
       },
     ],
-    relatedPosts: [],
+    relatedPosts: [
+      {
+        slug: 'how-to-print-barcode-in-tally-prime',
+        title: 'How to Create and Print Barcode in Tally Prime: Alias, Scanner and Sticker',
+      },
+      {
+        slug: 'barcode-scanner-in-tally-prime',
+        title: 'How to Use a Barcode Scanner in Tally Prime: USB Gun, Bluetooth or Phone',
+      },
+      {
+        slug: 'barcode-tdl-for-tally-prime',
+        title: 'Barcode TDL for Tally Prime: What It Adds and What to Check Before Installing',
+      },
+      {
+        slug: 'carton-barcode',
+        title: 'Carton Barcode: One Scan for the Whole Box, With the Quantity Inside the Code',
+      },
+      {
+        slug: 'barcode-sticker-size-list-in-mm',
+        title: 'Barcode Sticker Size List in mm: A4 Sheets, Thermal Rolls and What Fits',
+      },
+      {
+        slug: 'print-barcode-with-normal-printer',
+        title: 'Can We Print Barcodes With a Normal Printer? Laser, Inkjet or Thermal for a Godown',
+      },
+      {
+        slug: 'code-128-vs-ean-13',
+        title: 'Code 128 vs EAN-13: Which Barcode Should a Distributor Use?',
+      },
+      {
+        slug: 'qr-code-vs-barcode-for-inventory',
+        title: 'QR Code vs Barcode for Inventory: Which One a Godown Should Print',
+      },
+      {
+        slug: 'how-to-get-barcode-for-products-in-india',
+        title: 'How to Get a Barcode for Products in India, and When a Distributor Does Not Need One',
+      },
+      {
+        slug: 'barcode-billing-for-wholesale',
+        title: 'Barcode Billing for Wholesale: Counter Machine, USB Gun at Tally or Phone Camera',
+      },
+    ],
     priority: 0.8,
   },
 ];
