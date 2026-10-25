@@ -134,7 +134,49 @@ export const testimonials = [
     name: 'Rajesh Sharma',
     role: 'FMCG Distributor, Pune',
   },
+  {
+    quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import se auto-reconciliation ho jaata hai, aur pending payments ke liye smart WhatsApp reminders chale jaate hain. Hamara experience bohot hi achha raha hai.',
+    name: 'Meet Patel',
+    role: 'Owner, Dhan Laxmi',
+  },
 ];
+
+// Verified distributor video testimonials. Add new entries here to feature more video stories.
+export const videoTestimonials = [
+  {
+    id: 'meet-patel-dhan-laxmi',
+    name: 'Meet Patel',
+    role: 'Owner',
+    company: 'Dhan Laxmi',
+    location: 'Gujarat, India',
+    industry: 'Distribution & Wholesale',
+    badge: 'Verified Takkada Customer',
+    duration: '1:56 min',
+    quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
+    summary: 'How Dhan Laxmi solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
+    takeaways: [
+      {
+        title: 'Auto-Reconciliation from Bank Statement',
+        desc: 'One-time mapping, then statement import reconciles bank entries into Tally automatically.',
+      },
+      {
+        title: 'Party-Wise Pending Tracking & Smart Reminders',
+        desc: 'Track active vs pending parties with automated WhatsApp payment notices.',
+      },
+      {
+        title: 'Same-Day Support & Resolution',
+        desc: 'Direct same-day resolution whenever operational or scheme calculation questions arise.',
+      },
+    ],
+    video: {
+      type: 'mp4',
+      src: '/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4',
+      poster: '/assets/testimonials/Meet_Patel_thumbnail_square.jpg',
+      title: 'Meet Patel, Owner of Dhan Laxmi sharing his Takkada experience',
+    },
+  },
+];
+
 
 // Proof strip (2026-08-06 conversion pass, R3): the pull-quote and the two
 // confirmed figures move AHEAD of pricing so the visitor reaches the rate

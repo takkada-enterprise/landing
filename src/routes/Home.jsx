@@ -18,6 +18,7 @@ import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
 import PlayablePhone from '../components/PlayablePhone';
 import FollowOneInvoice from '../components/FollowOneInvoice';
+import VideoTestimonials from '../components/VideoTestimonials';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
@@ -212,6 +213,9 @@ function Home({ seo = HOME_SEO }) {
           <p className="hv3-story-footnote reveal">{differentiators.footnote}</p>
         </div>
       </section>
+
+      {/* ── Verified Customer Stories / Video Testimonials ── */}
+      <VideoTestimonials />
 
       {/* ── Pricing (ported intact from the pre-v3 page; .rate-* DOM is
              pinned by pricing-table.test.jsx — restyle only via .home-v3) ── */}
