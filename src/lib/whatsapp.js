@@ -43,6 +43,8 @@ export const WHATSAPP_MESSAGES = {
   demo: 'Hi, I tried the demo company on takkada.com. I want to set this up for my own business.',
   'sticky-bar':
     'Hi, I am reading takkada.com on my phone and want to know more about Takkada.',
+  'testimonial-video':
+    'Hi, I saw Meet Patel\'s story from Dhan Laxmi on takkada.com and want to know more about Takkada for my business.',
   // 'story-order-to-cash' and 'story-team-sales' retired 2026-09-18 with the two
   // homepage story sections. The one story that replaced them (FollowOneInvoice)
   // ends in feature-page links, not a WhatsApp CTA, so it registers no context
