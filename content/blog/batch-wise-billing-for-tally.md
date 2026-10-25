@@ -5,6 +5,7 @@ slug: "batch-wise-billing-for-tally"
 meta_description: "Batch-wise billing for Tally from your phone: pick the batch, see stock, MRP, Mfg and Exp, get the batch's rate on the line, and print Mfg and Exp on the PDF."
 primary_keyword: "batch-wise billing for Tally"
 date: "2026-10-12"
+updated: "2026-10-25"
 author: "harsh"
 category: "Tally Mobile"
 excerpt: "Two batches of the same item, two MRPs, two expiry dates. Here is how Takkada lets you pick the batch on the bill, prices the line from it and prints Mfg and Exp under the item."
@@ -49,6 +50,8 @@ Under the item name the PDF prints `B2409 · Mfg 01-Sep-2026 · Exp 31-Jan-2028`
 ## What it covers today
 
 Price by batch works on the sales invoice. Quotations, sales orders and credit notes do not take the batch picker. Batches themselves come from your Tally purchases and opening stock; the app reads them and does not create them. Purchase bill import does not read batch or expiry either, so that stays a Tally step.
+
+Or print the batch on the box: [barcode in Tally Prime](/barcode-in-tally-prime) stickers carry it, and one scan books it.
 
 If you run a pharma house, the [Tally app for pharma distributors](/tally-app-for-pharma-distributors) page shows the rest of the day's work on the phone.
 

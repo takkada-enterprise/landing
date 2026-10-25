@@ -16,6 +16,7 @@ Add-ons (Ask your partner for pricing):
 - Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
 - WhatsApp 8,000-message pack: More WhatsApp messages for reminders and invoice dispatch.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
+- Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -65,6 +66,8 @@ Add-ons (Ask your partner for pricing):
 - [FMCG module: MRP-based billing on Tally](https://takkada.com/fmcg-module-tally/): MRP-driven billing for FMCG distributors on Tally. Each stock item carries printed MRP, retailer margin (a divisor), two sequential trade discounts (D1, D2) and an item-wise salesman commission. The rate is computed per line; any extra customer discount is checked against the line's break-even; Tally receives list rate and one discount percentage.
 - [AutoParts billing: cost-plus pricing on Tally](https://takkada.com/autoparts-billing-tally/): Cost-plus pricing for parts distributors on Tally. The latest purchase cost is read from Tally per base unit, ex-GST; a markup set at company, stock group or item level gives the selling price; a second markup gives a second price level. A Price Changes screen lists parts whose cost moved. Cost and markup are withheld from members without full access.
 - [Ladder discount on Tally invoices](https://takkada.com/ladder-discount-tally/): Stepped trade discounts for distributors on Tally. Up to three named discount steps per invoice line compound into a single aggregate percentage, rounded half-up to two decimals; the aggregate is what Tally receives and what the taxable value is computed from. The invoice PDF prints each step and the price after it. Works on sales orders too.
+- [Barcode labels on Tally](https://takkada.com/barcode-in-tally-prime/): Barcode stickers for Tally Prime businesses, printed from a purchase bill, an item or a picked list of items, each encoding the item and the quantity in that box. Scanned into sales invoices, purchases, delivery challans, GRNs and stock journals with a phone camera, a Bluetooth scanner or a USB gun; batch, MRP and expiry can print on the label; a maker barcode can be linked to an item. Bills reach Tally as normal vouchers.
+- [AI agent for Tally Prime (Claude connector)](https://takkada.com/ai-agent-for-tally-prime/): A Takkada connector for Claude, with ChatGPT under review. Reads the synced Tally books: receivables and payables with ageing, party statements, daybook, registers, trial balance, P&L and balance sheet, stock, item-wise party history and the daily collections brief. Proposes writes (receipts, payments, journals, sales and purchase invoices, orders, parties, items, purchase bill and bank statement import, e-invoice, e-way bill, WhatsApp reminders, payment links, ledger statements) that run only after the user confirms; entries can be undone by cancellation. Business admins only, on the AI assistant add-on.
 
 ## Company
 
@@ -902,6 +905,65 @@ A ladder discount in Tally through Takkada is up to three named discount steps o
 - **Q: Can the ladder be combined with the FMCG module's D1 and D2?**
   A: They solve different problems. The FMCG module sets the rate from MRP and margin per item; the ladder describes the discount on a line in steps. Which one a business uses depends on how its trade quotes prices, and the demo is the place to settle that for your setup.
 
+### [Barcode in Tally Prime, with the box quantity printed into every sticker.](https://takkada.com/barcode-in-tally-prime/)
+
+*Print stickers for what just came in, stick one on each box, and bill by scanning. One scan of a 6-carton box puts 6 cartons on the bill, and the bill reaches Tally like any other.*
+
+**Core capability & workflow:**
+Barcode in Tally Prime works through Takkada without a TDL: print stickers from a purchase bill or an item, each carrying the item and the quantity in that box. Scan them into a sales bill, challan, GRN or stock journal with the phone camera, a Bluetooth gun or a USB gun. The voucher reaches Tally as usual.
+
+**How it works:**
+- **Print from the purchase bill**: Open the purchase that just arrived and tap Print labels. Each line asks how many pieces go on one sticker and works out the count: 33 cartons at 6 a sticker is 6 stickers, with the last one saying 3. Print from one item, or tick several in the item list.
+- **Batch, MRP and expiry on the label**: For an item kept batch-wise, each batch gets its own row and its own barcode. Switch on Show MRP, Show batch and Show dates, and the sticker carries the MRP, the batch number and the Mfg and expiry month, so the godown picks the right box.
+- **Scan the box, the quantity lands**: Tap the scan icon on a sales bill, challan, GRN or stock journal and point the phone camera, or use a Bluetooth gun. On the computer, a USB gun does the same job. Scan past what a batch holds and the app says how many are left.
+- **The maker's barcode works too**: A box that already carries a company EAN does not need a second sticker. Scan it once, tap Link to an item, pick the item and the quantity in that pack, and every later scan of that barcode adds it. Only a business admin can link a code.
+- **Receive against the order by scanning**: Make the GRN from the purchase order and scan the boxes as they come off the truck. Each scan fills the received quantity, and the app tells you which ordered lines nobody scanned, so a short supply is caught at the gate, not at the supplier's next bill.
+
+**Frequently Asked Questions:**
+- **Q: Can we use barcode in Tally?**
+  A: Yes. Tally Prime can keep a barcode in the stock item alias and a USB scanner can type it into a voucher. What it does not do on its own is print sticker sheets or put the box quantity in the code. Takkada adds both on top of your Tally, and the bill still lands in Tally as a normal voucher.
+- **Q: How do I print barcode labels for Tally Prime items?**
+  A: Open a purchase bill, an item, or tick several items in the item list, and tap Print labels. Set the pieces per sticker, pick the sheet size and the sticker to start from, so a half-used sheet is not wasted, and print. The phone app opens the print dialog, and on the computer it goes to your printer.
+- **Q: How do I use a barcode scanner with Tally Prime?**
+  A: Any USB barcode gun that types like a keyboard works on the computer: scan into the bill and the line appears with its quantity. On the phone, pair a Bluetooth scanner or use the camera from the scan icon on the bill. Nothing needs to be installed in Tally for either.
+- **Q: Do I need a barcode TDL in Tally?**
+  A: No. Nothing is installed inside Tally. Takkada keeps its own copy of your items and stock in step with Tally, prints the stickers from that, and writes the bills you scan back into Tally as ordinary vouchers. Your Tally setup, your TDLs and your partner customisations stay as they are.
+- **Q: Which printer and sticker paper do I need?**
+  A: Any printer your computer or phone can print to. Pick A4 sticker sheets of 10, 12, 24, 40 or 65 labels, a thermal roll with its own label size, or type a custom size. The stickers are laid out to that sheet, so the barcode sits inside each label when it prints.
+- **Q: Can I scan the barcode already printed on the product?**
+  A: Yes, once it is linked. Scan the maker's barcode, tap Link to an item, and choose the item and how many pieces that pack holds. After that, every scan of that barcode adds that quantity. Linking is kept to the business admin, so a salesman cannot point a code at the wrong item.
+
+### [An AI agent for Tally Prime that answers from your books and waits for your confirm.](https://takkada.com/ai-agent-for-tally-prime/)
+
+*You want to know who to call before ten, what came in yesterday, and whether that supplier bill is posted. Ask Claude in plain words, and the answer comes from your own Tally books.*
+
+**Core capability & workflow:**
+Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or what is due today, and it reads your synced Tally books. Ask it to remind every late party, post a week of supplier bills or five bank statements at once, and it shows a preview first. Nothing happens until you reply confirm.
+
+**How it works:**
+- **Ask who owes you, in your own words**: "Who owes more than 1 lakh and has not paid in 30 days?" comes back as a list of parties with the amount, the oldest bill and how many days it is late. Narrow it to one party, or ask for their full ledger statement with the items on each bill.
+- **The morning collections brief**: Ask what is on for today and it reads the brief the app builds each night: payments promised for today, promises missed, follow-ups due, dealers to chase and what came in yesterday.
+- **Remind every late party in one message**: Say "remind everyone more than 60 days late, with a pay link". You see every party and amount before anything goes, and anyone who has paid in full is left out. Reply confirm and the reminders go out on WhatsApp and land in the Reminders history.
+- **Statements with a Pay Now button to the top ten**: Ask for the ten biggest balances to get their ledger statement. Each dealer gets a PDF of their own ledger on WhatsApp, and the Pay Now button collects what they owe today. One confirm sends all ten.
+- **A week of supplier bills in one go**: Drop in every bill that came this week, PDFs and phone photos together. Each one is matched to its supplier and items and checked against its printed total. A bill already in your books is skipped, and an item it cannot place comes back as one question. Then confirm all.
+- **Five bank statements, one month, one chat**: Attach the month for every bank you run. Each statement posts to its own bank as receipts, payments and contra entries, rows are matched to parties you named before, and only the rows it cannot place come back to you. A wrong import is undone in one step: every entry in it is cancelled, never deleted.
+
+**Frequently Asked Questions:**
+- **Q: How do I connect Tally with ChatGPT or Claude?**
+  A: Tally does not connect to an AI on its own. Takkada keeps a copy of your books in step with Tally, and that copy is what the assistant reads. In Claude, add Takkada as a custom connector and sign in with your Takkada mobile number and a one-time code. The Takkada app is under review for ChatGPT’s app directory. Step-by-step setup is on our AI assistant guide.
+- **Q: Is there a Tally MCP server?**
+  A: Yes, through Takkada. MCP is the standard Claude and ChatGPT use to plug into outside tools, and the Takkada MCP server gives them your synced Tally books plus actions: entries, reminders, payment links, statements, e-invoice and e-way bill. Nothing is installed inside Tally, so your TDLs and partner customisations stay as they are.
+- **Q: Can the AI change my books without asking me?**
+  A: No. Every entry and every WhatsApp message is shown to you as a preview first, and nothing is saved or sent until you reply confirm. An entry the assistant made can be undone: it is cancelled, the cancellation reaches Tally too, and nothing is deleted. Only the business admin of a company can connect it.
+- **Q: Can I import several bank statements or purchase bills at once?**
+  A: Yes. Attach them all in one chat: five banks for the month, or every supplier bill from the week. Each one becomes its own import against its own bank or supplier, a bill already in your books is skipped, and you answer only the rows or items it cannot place. A statement of more than 300 rows is split by month.
+- **Q: Can I ask in Hindi or Gujarati?**
+  A: Claude reads and replies in Hindi, Gujarati and other Indian languages, so you can ask "Sharma ji ka kitna baaki hai?" and get the answer in Hindi. Party and item names come back exactly as they are written in your Tally.
+- **Q: Does it work when the office computer is off?**
+  A: Yes for questions. The assistant reads the copy Takkada keeps, which is as fresh as the last sync from the office computer, and every answer says when that was. Entries you confirm wait in Takkada and reach Tally the next time the desktop connector runs.
+- **Q: Does Takkada store my chats or train an AI on my books?**
+  A: Takkada records which action was asked for, when, and whether it worked, for security and support. It does not store your conversation, and the assistant sees only what it fetched to answer the question you asked, for the companies you administer.
+
 ## Manual
 
 Step-by-step instructions for people using the app, each one checked against the app itself on the date it names. Index: https://takkada.com/guide/
@@ -1020,12 +1082,14 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Comparisons
 
+- [Barcode Billing for Wholesale: Counter Machine, USB Gun at Tally or Phone Camera](https://takkada.com/blog/barcode-billing-for-wholesale/)
 - [Best CredFlow Alternatives for Tally Users in India (2026)](https://takkada.com/blog/best-credflow-alternatives-india-2026/)
 - [Best Tally Mobile Add-On Apps for Distributors (2026)](https://takkada.com/blog/best-tally-add-on-apps-for-distributors-2026/)
 - [BharatPe for Distributors: Is the QR Really 0% MDR?](https://takkada.com/blog/bharatpe-for-distributors-mdr/)
 - [Bill Book App Alternative for Tally Distributors](https://takkada.com/blog/billbook-alternative-for-distributors/)
 - [BUSY Software Alternative for Tally Distributors Who Collect](https://takkada.com/blog/busy-software-alternative-for-distributors/)
 - [Calculating Compound Discount on a Calculator vs on the Invoice](https://takkada.com/blog/compound-discount-calculator-vs-invoice/)
+- [Code 128 vs EAN-13: Which Barcode Should a Distributor Use?](https://takkada.com/blog/code-128-vs-ean-13/)
 - [CredFlow Alternative for Indian Distributors: A Tally-Native View](https://takkada.com/blog/credflow-alternative-tally-native/)
 - [CredFlow vs Biz Analyst vs Takkada: Full Comparison (2026)](https://takkada.com/blog/credflow-vs-biz-analyst-vs-takkada/)
 - [Geo-tagged Visit Photo vs All-day GPS Tracking for Salesmen](https://takkada.com/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/)
@@ -1041,6 +1105,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Payment Collection Cost Comparison for Indian Distributors: What Each Tool Actually Costs](https://takkada.com/blog/payment-collection-cost-comparison-india/)
 - [Payment Gateway Charges: A Comparison for Distributors](https://takkada.com/blog/payment-gateway-charges-comparison-for-distributors/)
 - [Paytm for Business vs Takkada: UPI Collection on Tally](https://takkada.com/blog/paytm-for-business-vs-takkada/)
+- [QR Code vs Barcode for Inventory: Which One a Godown Should Print](https://takkada.com/blog/qr-code-vs-barcode-for-inventory/)
 - [Razorpay Payment Links vs Tally-Native Collection](https://takkada.com/blog/razorpay-vs-tally-native-collection/)
 - [Recovery Register in a Notebook vs a Recovery Dashboard](https://takkada.com/blog/recovery-register-notebook-vs-recovery-dashboard/)
 - [Refrens vs Takkada: Which Fits a Tally-Using Distributor](https://takkada.com/blog/refrens-vs-takkada/)
@@ -1104,6 +1169,10 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Aging Report in Tally: How Distributors Read It and Act On It](https://takkada.com/blog/aging-report-tally/)
 - [Auto Reconciliation Tally: The Full Mechanic](https://takkada.com/blog/auto-reconciliation-tally/)
 - [Bad Debt Write Off in Tally: When and How Distributors Should Do It](https://takkada.com/blog/bad-debt-write-off-tally/)
+- [Barcode Sticker Size List in mm: A4 Sheets, Thermal Rolls and What Fits](https://takkada.com/blog/barcode-sticker-size-list-in-mm/)
+- [Barcode TDL for Tally Prime: What It Adds and What to Check Before Installing](https://takkada.com/blog/barcode-tdl-for-tally-prime/)
+- [Can We Print Barcodes With a Normal Printer? Laser, Inkjet or Thermal for a Godown](https://takkada.com/blog/print-barcode-with-normal-printer/)
+- [Carton Barcode: One Scan for the Whole Box, With the Quantity Inside the Code](https://takkada.com/blog/carton-barcode/)
 - [Cheque Bounce Recovery for Distributors: The Section 138 Playbook](https://takkada.com/blog/cheque-bounce-recovery-distributors/)
 - [Create and Manage Godowns in Tally from Your Phone](https://takkada.com/blog/create-godown-in-tally-from-mobile/)
 - [Create Beats and Assign a Salesman from Your Phone](https://takkada.com/blog/create-beats-and-assign-salesman-mobile/)
@@ -1119,7 +1188,9 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How to Automate Payment Reminders in Tally (Smart Reminders)](https://takkada.com/blog/automate-payment-reminders-tally/)
 - [How to Build a Load from Pending Orders and Print the Loading Sheet](https://takkada.com/blog/how-to-build-load-print-loading-sheet/)
 - [How to Check Party Outstanding in Tally on Mobile](https://takkada.com/blog/how-to-check-party-outstanding-tally-mobile/)
+- [How to Create and Print Barcode in Tally Prime: Alias, Scanner and Sticker](https://takkada.com/blog/how-to-print-barcode-in-tally-prime/)
 - [How to Export a Tally Report to Excel from Your Phone](https://takkada.com/blog/export-tally-report-to-excel-from-mobile/)
+- [How to Get a Barcode for Products in India, and When a Distributor Does Not Need One](https://takkada.com/blog/how-to-get-barcode-for-products-in-india/)
 - [How to Log a Follow-up and Promise-to-Pay from the Collections Report](https://takkada.com/blog/how-to-log-follow-up-promise-to-pay/)
 - [How to Manage Multiple Branches in Tally with Godowns](https://takkada.com/blog/manage-multiple-branches-tally-godowns/)
 - [How to Photograph a Supplier Bill and Review the Entry Before It Reaches Tally](https://takkada.com/blog/how-to-photograph-supplier-bill-review-entry/)
@@ -1135,6 +1206,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [How to Share a Tally Report as PDF on WhatsApp](https://takkada.com/blog/share-tally-report-pdf-on-whatsapp/)
 - [How to Split One UPI Payment Across Multiple Tally Invoices](https://takkada.com/blog/how-to-split-upi-payment-across-tally-invoices/)
 - [How to Start AI Collection Calls from Send Reminders Now](https://takkada.com/blog/how-to-start-ai-collection-calls/)
+- [How to Use a Barcode Scanner in Tally Prime: USB Gun, Bluetooth or Phone](https://takkada.com/blog/barcode-scanner-in-tally-prime/)
 - [Keep a Follow-up Log Against Every Outstanding Customer](https://takkada.com/blog/customer-follow-up-log-for-collections/)
 - [Ledger Reconciliation in Tally: Match Your Books to the Party's](https://takkada.com/blog/ledger-reconciliation-tally-distributor/)
 - [Let a Salesman Raise Orders but Never an Invoice: Voucher-type Permissions](https://takkada.com/blog/voucher-type-permissions-for-team-members-tally/)
@@ -1260,6 +1332,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Season Scheme Calculation for Dealers: Settling Kharif and Rabi Without a Fight](https://takkada.com/blog/season-scheme-settlement-agri-input/)
 - [Spare Parts ka Rate Cost + Margin se Kaise Banaye](https://takkada.com/blog/spare-parts-rate-cost-plus-margin/)
 - [Spare Parts Pricing for Auto Parts Importers After Every Container](https://takkada.com/blog/spare-parts-pricing-importers-landed-cost/)
+- [What Is Ladder Discount? Meaning, Formula and Worked Example](https://takkada.com/blog/what-is-ladder-discount/)
 
 ### Tally Mobile
 

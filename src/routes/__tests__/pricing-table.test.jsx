@@ -100,7 +100,7 @@ describe('pricing comparison table', () => {
     expect(pricing.addons.map((a) => a.label)).toEqual([
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'WhatsApp 8,000-message pack', 'Payment Collection', 'Extra user',
+      'WhatsApp 8,000-message pack', 'Payment Collection', 'Barcode labels', 'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);

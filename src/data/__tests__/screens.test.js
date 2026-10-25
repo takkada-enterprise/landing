@@ -93,9 +93,20 @@ describe('screen registry', () => {
     const byPath = new Map(
       Object.values(provenance.images).map((record) => [record.path, record])
     );
+    // An operator exception (2026-10-25, the barcode page) carries no capture
+    // record by definition. It must sit on the unproven backlog instead, so
+    // the exception is visible in two places and never passes as evidence.
+    const backlogPaths = new Set(
+      Object.values(provenance.unprovenAllowlist).map((record) => record.path)
+    );
     for (const row of manifest) {
       for (const w of row.sheet ? [720, 1440] : [360, 720]) {
         const path = `public/assets/screens/${row.slug}-${w}.webp`;
+        if (row.operatorException) {
+          expect(backlogPaths.has(path), `${path} is an operator exception off the backlog`).toBe(true);
+          expect(byPath.has(path), `${path} claims both evidence and an exception`).toBe(false);
+          continue;
+        }
         const record = byPath.get(path);
         expect(record, path).toBeDefined();
         expect(record.kind).toBe('appScreenshot');

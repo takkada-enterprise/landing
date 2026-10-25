@@ -2044,6 +2044,15 @@
       "reviewedOn": "2026-09-25",
       "reviewedBy": "Ronak (schemes and discount handoff, demo company 143, no customer detail)",
       "origin": "WebP export at 720w of \"ladder-summary.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the ladder total on the line, amount and GST from the rounded aggregate"
+    },
+    "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785": {
+      "path": "public/assets/testimonials/Meet_Patel_thumbnail_square.jpg",
+      "kind": "photograph",
+      "sha256": "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785",
+      "reviewed": true,
+      "reviewedOn": "2026-10-25",
+      "reviewedBy": "agent classification pass 2026-10-25, opened and checked: a person on camera, no screen, numbers or names in frame",
+      "origin": "Still frame from the customer's video testimonial (siteContent.js testimonial section, PR #154): the customer seated in an office chair. A photograph of a person, not a picture of the application."
     }
   },
   "unprovenAllowlist": {
@@ -2366,6 +2375,214 @@
       "knownSensitive": false,
       "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
       "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
+    },
+    "8787645cf7ea9e1a029f34919789cf02dda95c9b90126b7b4989b0bf1c819d5c": {
+      "path": "public/assets/screens/barcode-batch-options-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Print labels, with the sheet body redrawn to show a batch line and the Show MRP / batch / dates options in the app's wording. Batch B-26 is invented; the demo companies carry no batches. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "b344f8a834110f21d9a3a48b43b4c0317be2964abeaf03f825d9fe325fd582d6": {
+      "path": "public/assets/screens/barcode-batch-options-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Print labels, with the sheet body redrawn to show a batch line and the Show MRP / batch / dates options in the app's wording. Batch B-26 is invented; the demo companies carry no batches. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "dc3e156dff71139b21daa36c692d18de3d439c20b8900dbd28f61ce543b913f6": {
+      "path": "public/assets/screens/barcode-grn-po-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone frame and status bar, with a New GRN screen drawn in the app's layout for stage demo items and supplier. Batch N-1009 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "0eebf1b03cb67351453fa33d3347f0c294cec2712b33e7376cc3ed3fc3b6be17": {
+      "path": "public/assets/screens/barcode-grn-po-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone frame and status bar, with a New GRN screen drawn in the app's layout for stage demo items and supplier. Batch N-1009 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "3f5b3114483ed5d85c50f6c019db210459eb8e89a3b44d0f9b1886b899654bfd": {
+      "path": "public/assets/screens/barcode-link-maker-code-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Scan labels on stage after scanning a book EAN (Not a Takkada label). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "cfeb764b15b0b56061965584c36521fcb9d7880c29cefef298a4b82ed6df4ba0": {
+      "path": "public/assets/screens/barcode-link-maker-code-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Scan labels on stage after scanning a book EAN (Not a Takkada label). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "4aeac685dd2e5d8452c6535a83fb328b4834620f2da01775c48bc9195ab610ef": {
+      "path": "public/assets/screens/barcode-overstock-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Scan labels, with the log redrawn to show the batch over-stock note the app shows. Batch B-26 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "46b5a3a38274b0e7470cabe0df03090c5566f3335f42fe37b7f4e03b0c2af7cf": {
+      "path": "public/assets/screens/barcode-overstock-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Scan labels, with the log redrawn to show the batch over-stock note the app shows. Batch B-26 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "5b7d9bd2b6570d028436a8826d6cddf1d74cf36d59e7370c724bb53a675219f8": {
+      "path": "public/assets/screens/barcode-purchase-print-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Print labels on a purchase in the stage demo company (demo seed items and party). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "d2570dd122219fea81afbce4d91e3b83e2e0788784435dcb2bd8069cb1e665f4": {
+      "path": "public/assets/screens/barcode-purchase-print-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Print labels on a purchase in the stage demo company (demo seed items and party). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "b72d5e2d4a24ef3e04929bda3e28ad8c0963befffe7855adf6b3aa4c8e6a524b": {
+      "path": "public/assets/screens/barcode-scan-bill-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's own phone capture of the Scan labels sheet on stage, with the scan log below the camera redrawn in the app's wording for stage demo items. Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "fcf9bb65867df5a08e4c8a687e781a83b69fc1e002a60fdfcbdd77749f592005": {
+      "path": "public/assets/screens/barcode-scan-bill-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's own phone capture of the Scan labels sheet on stage, with the scan log below the camera redrawn in the app's wording for stage demo items. Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "a8dafc204322efeeb4a4508760499cc0123cab980e477c7e9701dc9e2e195264": {
+      "path": "public/assets/screens/barcode-sticker-sheet-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "74c5120a23d73b6c467392df18fdf3cfeb2e92c0e960257668dbdd156d67da97": {
+      "path": "public/assets/screens/barcode-sticker-sheet-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "b41a303268d9f237ac9ed2241533ba55966a288e407d73f26b0c537fde64a711": {
+      "path": "public/assets/screens/ai-chat-brief-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "66962b9ce1f26c2b97c7247de3d94324bacf5c00e7a13dd596b7778d2945c60f": {
+      "path": "public/assets/screens/ai-chat-brief-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "fdce1064becfd91ee9e7e4dcb5c59198d114e49a5f95db03802b271bda194801": {
+      "path": "public/assets/screens/ai-chat-owes-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "97fb4c056af8ed9862ff17285d8efd0fe643bbcd3aa434f129098f6d0ec972e0": {
+      "path": "public/assets/screens/ai-chat-owes-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "ebfe8be247b6505e93a16d040f9b1eeb7c49548bbacf4232d88fa0539ec43b91": {
+      "path": "public/assets/screens/ai-chat-remindall-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "5082172c7ff69d7e684374636ef2d7983d0c1f56078ce0a6cdadd60521c856f0": {
+      "path": "public/assets/screens/ai-chat-remindall-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "46ccbc666862f07f339bff8e78fc99dc4082befba2278e431252b30e98d27422": {
+      "path": "public/assets/screens/ai-chat-statements-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "31adba8e312082a0a9ed10f0a676d8fd68271e851342508a7faa069574e8234b": {
+      "path": "public/assets/screens/ai-chat-statements-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "0fe5806d125c1fd90bd309bf5599172b5cfccf19c6803516b96ed1dc555860b3": {
+      "path": "public/assets/screens/ai-chat-bills-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome. The four supplier bills, their numbers, totals and the item question are invented for the picture; the flow (match, duplicate skip, needs_answer, confirm) paraphrases what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "5ee886830bb05145473e8fc679d48145561cd9c8ef796915d49d54e5d2218e0d": {
+      "path": "public/assets/screens/ai-chat-bills-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome. The four supplier bills, their numbers, totals and the item question are invented for the picture; the flow (match, duplicate skip, needs_answer, confirm) paraphrases what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "39ffbb55fea7f74b17067c0240841c1b4612337a4aeaa10593c104d971a11e43": {
+      "path": "public/assets/screens/ai-chat-banks-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome. The five statements, row counts, match counts and the UPI row are invented for the picture; the bank names are generic account labels. The flow paraphrases what import_bank_statement returns. Nothing was imported to draw it. No real account, party or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "133a3576e0c9964380677a951cee3e063162404083ef7a6842bc967b695297f7": {
+      "path": "public/assets/screens/ai-chat-banks-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat inside a drawn iPhone frame, rendered in headless Chrome. The five statements, row counts, match counts and the UPI row are invented for the picture; the bank names are generic account labels. The flow paraphrases what import_bank_statement returns. Nothing was imported to draw it. No real account, party or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
     }
   },
   "classes": [
