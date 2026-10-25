@@ -21,7 +21,7 @@ import FollowOneInvoice from '../components/FollowOneInvoice';
 import VideoTestimonials from '../components/VideoTestimonials';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
-import { softwareApplicationSchema, faqPageSchema } from '../data/schema';
+import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
 import { JOBS, HERO_HOME, jobHref } from '../data/heroHotspots';
 import {
   appLinks,
@@ -87,7 +87,7 @@ function Home({ seo = HOME_SEO }) {
         title={seo.title}
         description={seo.description}
         path={seo.path}
-        schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems)]}
+        schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems), ...videoObjectSchema()]}
       />
 
       {/* ── Hero: the real home screen in the middle, static copy on the left

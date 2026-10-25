@@ -2036,10 +2036,10 @@
       "reviewedBy": "Ronak (schemes and discount handoff, demo company 143, no customer detail)",
       "origin": "WebP export at 720w of \"ladder-summary.png\" in mockups/, written by scripts/exportScreens.mjs. Shows: Invoice Summary with the ladder total on the line, amount and GST from the rounded aggregate"
     },
-    "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785": {
+    "6bc9b9eeb0c20a8cf9802554a956a6b9d37df33a8d6969fb827752a3651f037a": {
       "path": "public/assets/testimonials/Meet_Patel_thumbnail_square.jpg",
       "kind": "photograph",
-      "sha256": "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785",
+      "sha256": "6bc9b9eeb0c20a8cf9802554a956a6b9d37df33a8d6969fb827752a3651f037a",
       "reviewed": true,
       "reviewedOn": "2026-10-25",
       "reviewedBy": "agent classification pass 2026-10-25, opened and checked: a person on camera, no screen, numbers or names in frame",

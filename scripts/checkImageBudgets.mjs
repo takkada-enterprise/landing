@@ -142,6 +142,11 @@ export const BUDGETS = [
   ['public/assets/screens/auto-inventory-720.webp', 64_000, 'feature-page hero (autoparts-billing-tally)'],
   ['public/assets/screens/ladder-cart-360.webp', 32_000, 'feature-page hero (ladder-discount-tally)'],
   ['public/assets/screens/ladder-cart-720.webp', 60_000, 'feature-page hero (ladder-discount-tally)'],
+  // Homepage customer video (2026-10-26). The poster is lazy, and the MP4 is
+  // preload="none", so it costs nothing until Watch Story is tapped; the
+  // ceiling stops a heavier re-export (or a non-faststart one) from slipping in.
+  ['public/assets/testimonials/Meet_Patel_thumbnail_square.jpg', 60_000, 'homepage testimonial poster'],
+  ['public/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4', 11_000_000, 'homepage testimonial video (1:57, 576x1024)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:
