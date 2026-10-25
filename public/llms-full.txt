@@ -1332,6 +1332,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Season Scheme Calculation for Dealers: Settling Kharif and Rabi Without a Fight](https://takkada.com/blog/season-scheme-settlement-agri-input/)
 - [Spare Parts ka Rate Cost + Margin se Kaise Banaye](https://takkada.com/blog/spare-parts-rate-cost-plus-margin/)
 - [Spare Parts Pricing for Auto Parts Importers After Every Container](https://takkada.com/blog/spare-parts-pricing-importers-landed-cost/)
+- [What Is Ladder Discount? Meaning, Formula and Worked Example](https://takkada.com/blog/what-is-ladder-discount/)
 
 ### Tally Mobile
 
