@@ -112,6 +112,8 @@ export const BUDGETS = [
   ['public/assets/screens/pending-orders-720.webp', 64_000, 'feature-page hero (pending-orders)'],
   ['public/assets/screens/barcode-scan-bill-360.webp', 32_000, 'feature-page hero (barcode-scan-bill)'],
   ['public/assets/screens/barcode-scan-bill-720.webp', 60_000, 'feature-page hero (barcode-scan-bill)'],
+  ['public/assets/screens/ai-chat-owes-360.webp', 32_000, 'feature-page hero (ai-chat-owes)'],
+  ['public/assets/screens/ai-chat-owes-720.webp', 60_000, 'feature-page hero (ai-chat-owes)'],
   ['public/assets/screens/dispatch-beats-360.webp', 32_000, 'feature-page hero (dispatch-beats)'],
   ['public/assets/screens/dispatch-beats-720.webp', 60_000, 'feature-page hero (dispatch-beats)'],
   ['public/assets/screens/party-selection-360.webp', 32_000, 'feature-page hero (party-selection)'],

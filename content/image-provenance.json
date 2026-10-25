@@ -2478,6 +2478,70 @@
       "knownSensitive": false,
       "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
       "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "57d40f3b3c313bc5ce9859d7fac7d99b08677a1d9e9b7c362eb4c17852355b3b": {
+      "path": "public/assets/screens/ai-chat-bill-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The supplier bill (Sunrise Foods Pvt Ltd, SF/2291, 48,720) is invented for the picture; the preview rows paraphrase what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "7b2e0e825a18a23bd328f726bcf9c7e9512f2fde4660979148f01ad52d5d153c": {
+      "path": "public/assets/screens/ai-chat-bill-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The supplier bill (Sunrise Foods Pvt Ltd, SF/2291, 48,720) is invented for the picture; the preview rows paraphrase what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "ebc35f4868304de608bd5667ac438ad64bd8205ca6e8c7756db99de0772f51f5": {
+      "path": "public/assets/screens/ai-chat-brief-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "b7215c6d90cd17d7ded640893af7e2da3a3ee17658e65c4af9daf9e66ea22a54": {
+      "path": "public/assets/screens/ai-chat-brief-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "7e3b928ec540c1e10c02aed6ab6ce9f5c1290dc12dbc7dcc734b4fa18684ae5b": {
+      "path": "public/assets/screens/ai-chat-owes-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "617c3b0d6f9f9db0e7a0e2463a9f5b1d8a5f0c27ad4c312ce5c5151b046b0bbc": {
+      "path": "public/assets/screens/ai-chat-owes-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "4d0a6db276399ca18f76f49309ca36b92117e3072df8c9245a92d98aea0a76f4": {
+      "path": "public/assets/screens/ai-chat-remind-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. Party and amount are demo company 143's prod MCP output read on 2026-10-25; the preview rows paraphrase what send_payment_reminder returns. No reminder was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "3eecd8fb6afeb37b666a10c355808a943ee1ddcd66fe598b2a9b67352d1f64cd": {
+      "path": "public/assets/screens/ai-chat-remind-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. Party and amount are demo company 143's prod MCP output read on 2026-10-25; the preview rows paraphrase what send_payment_reminder returns. No reminder was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
     }
   },
   "classes": [

@@ -481,5 +481,33 @@
     "alt": "A4 sticker sheet with item name, box quantity, MRP, batch and dates above each barcode",
     "sheet": true,
     "operatorException": "2026-10-25: published at the operator's direction without a demo-company-143 capture record; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-owes",
+    "source": "AI chat owes.png",
+    "shows": "AI assistant chat: 'Who owes me more than 1 lakh and hasn't paid in 30 days?' answered with five demo customers, amounts and oldest-overdue days",
+    "alt": "AI assistant answering who owes more than one lakh and has not paid in 30 days, with five customers, amounts and days overdue",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-brief",
+    "source": "AI chat brief.png",
+    "shows": "AI assistant chat: today's collections brief with promises due, missed promises, follow-ups and yesterday's receipts",
+    "alt": "AI assistant reading out today's collections brief: promises due, promises missed, follow-ups and yesterday's receipts",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-remind",
+    "source": "AI chat remind.png",
+    "shows": "AI assistant chat: WhatsApp reminder preview for one customer, 'Nothing goes out until you reply confirm', then confirm and Sent",
+    "alt": "AI assistant showing a payment reminder preview that waits for confirm before it goes out on WhatsApp",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-bill",
+    "source": "AI chat bill.png",
+    "shows": "AI assistant chat: photo of a supplier bill, purchase invoice preview with supplier, items matched and total, confirm, Saved with undo note",
+    "alt": "AI assistant turning a photo of a supplier bill into a purchase invoice preview, saved only after confirm",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
   }
 ]

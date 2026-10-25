@@ -307,6 +307,12 @@ export const SCREENS = {
   'barcode-link-maker-code': phone('barcode-link-maker-code', 'A maker barcode scanned, with the option to link it to an item'),
   'barcode-grn-po': phone('barcode-grn-po', 'Goods received against an order, with a notice for the ordered line that was not scanned'),
   'barcode-sticker-sheet': sheet('barcode-sticker-sheet', 'A4 sticker sheet with item name, box quantity, MRP, batch and dates above each barcode', 720, 617),
+  // AI assistant page (2026-10-25). Drawn chat illustrations, not app captures:
+  // see their unprovenAllowlist records in content/image-provenance.json.
+  'ai-chat-owes': phone('ai-chat-owes', 'AI assistant answering who owes more than one lakh and has not paid in 30 days, with five customers, amounts and days overdue'),
+  'ai-chat-brief': phone('ai-chat-brief', "AI assistant reading out today's collections brief: promises due, promises missed, follow-ups and yesterday's receipts"),
+  'ai-chat-remind': phone('ai-chat-remind', 'AI assistant showing a payment reminder preview that waits for confirm before it goes out on WhatsApp'),
+  'ai-chat-bill': phone('ai-chat-bill', 'AI assistant turning a photo of a supplier bill into a purchase invoice preview, saved only after confirm'),
 };
 
 export function screen(slug) {

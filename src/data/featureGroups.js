@@ -124,6 +124,7 @@ export const FEATURE_GROUPS = [
       'tally-on-mobile-without-remote-access',
       'tally-reports-on-mobile',
       'multi-company-tally-reports',
+      'ai-agent-for-tally-prime',
     ],
   },
   {
@@ -201,6 +202,8 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'ai-agent-for-tally-prime':
+    'Ask Claude who owes you, then send the reminder or post the bill, each one only after you say confirm.',
   'barcode-in-tally-prime':
     'Stickers with the box quantity printed from the purchase bill, scanned into bills by phone or gun.',
   'schemes-tally':
