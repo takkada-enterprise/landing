@@ -3,6 +3,15 @@
   "demoCompanyId": 143,
   "readMe": "See scripts/checkScreenshotProvenance.mjs. Records are keyed by the SHA-256 of the image bytes, so renaming a file does not move its provenance and replacing the bytes drops the review on the floor. Write records with scripts/capture-guide-evidence.mjs; do not hand-author an appScreenshot record in images.",
   "images": {
+    "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785": {
+      "path": "public/assets/testimonials/Meet_Patel_thumbnail_square.jpg",
+      "kind": "photograph",
+      "sha256": "965633e07bfd5bbc9854495a20a87b859b5a7b07496730ccde0aa29e6b924785",
+      "reviewed": true,
+      "reviewedOn": "2026-10-25",
+      "reviewedBy": "founder customer testimonial review",
+      "origin": "Customer portrait photograph of Meet Patel, Owner of Dhan Laxmi, for testimonial video."
+    },
     "4fb59f810d726da4e37066965fbe1917ef568a4b9eb3608ae860f074b4b77ba5": {
       "path": "public/assets/screenshots/takkada-logo.png",
       "kind": "logo",
