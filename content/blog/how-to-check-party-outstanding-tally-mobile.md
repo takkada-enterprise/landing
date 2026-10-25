@@ -5,7 +5,7 @@ meta_title: "Check Party Outstanding in Tally on Mobile: Steps"
 meta_description: "How to check party outstanding in Tally on mobile: the desktop steps, the faster phone way, and how to see partywise outstanding from the field."
 primary_keyword: "check party outstanding in tally"
 date: "2026-06-21"
-updated: "2026-10-23"
+updated: "2026-10-25"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati FMCG distributor is standing at a retailer's counter who wants ₹40,000 of fresh stock on credit. He needs to know the party already owes ₹1,75,000 before he loads the van. Here is how to check that party's outstanding balance in Tally, both the desktop way and the faster way from the phone."
@@ -77,6 +77,8 @@ A companion app installs a small connector on the office Tally machine, reads yo
 So the moment the retailer asks for ₹40,000 of fresh stock, you tap once, see the ₹1,75,000 already pending, and decide before the van is loaded. The number is on the phone, not waiting at the office. For the read side of this in detail, the breakdown of [how to view Tally reports on mobile](/blog/view-tally-reports-on-mobile/) maps which reports belong on a phone. And if you have not yet bridged Tally to your phone at all, start with [how to access Tally on mobile, step by step](/blog/how-to-access-tally-on-mobile-step-by-step/).
 
 The mobile view does more than show the number. From the same party screen you act on it. A [WhatsApp payment reminder for distributors](/blog/whatsapp-payment-reminder-for-distributors/) goes out with the bill reference and amount pre-filled, and when the retailer pays on the UPI link, the receipt matches the invoice and posts back through [Tally payment reconciliation on mobile](/blog/tally-payment-reconciliation-on-mobile/) without the accountant retyping it at night.
+
+If you would rather type the question than tap through screens, an [AI agent for Tally Prime](/ai-agent-for-tally-prime/) answers "what does Sharma Traders owe, and when did they last pay?" from the same synced books inside Claude, and sends the reminder only after you reply confirm.
 
 ## Desktop Versus Mobile: Where Each One Wins
 

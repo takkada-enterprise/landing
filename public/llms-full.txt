@@ -67,6 +67,7 @@ Add-ons (Ask your partner for pricing):
 - [AutoParts billing: cost-plus pricing on Tally](https://takkada.com/autoparts-billing-tally/): Cost-plus pricing for parts distributors on Tally. The latest purchase cost is read from Tally per base unit, ex-GST; a markup set at company, stock group or item level gives the selling price; a second markup gives a second price level. A Price Changes screen lists parts whose cost moved. Cost and markup are withheld from members without full access.
 - [Ladder discount on Tally invoices](https://takkada.com/ladder-discount-tally/): Stepped trade discounts for distributors on Tally. Up to three named discount steps per invoice line compound into a single aggregate percentage, rounded half-up to two decimals; the aggregate is what Tally receives and what the taxable value is computed from. The invoice PDF prints each step and the price after it. Works on sales orders too.
 - [Barcode labels on Tally](https://takkada.com/barcode-in-tally-prime/): Barcode stickers for Tally Prime businesses, printed from a purchase bill, an item or a picked list of items, each encoding the item and the quantity in that box. Scanned into sales invoices, purchases, delivery challans, GRNs and stock journals with a phone camera, a Bluetooth scanner or a USB gun; batch, MRP and expiry can print on the label; a maker barcode can be linked to an item. Bills reach Tally as normal vouchers.
+- [AI agent for Tally Prime (Claude connector)](https://takkada.com/ai-agent-for-tally-prime/): A Takkada connector for Claude, with ChatGPT under review. Reads the synced Tally books: receivables and payables with ageing, party statements, daybook, registers, trial balance, P&L and balance sheet, stock, item-wise party history and the daily collections brief. Proposes writes (receipts, payments, journals, sales and purchase invoices, orders, parties, items, purchase bill and bank statement import, e-invoice, e-way bill, WhatsApp reminders, payment links, ledger statements) that run only after the user confirms; entries can be undone by cancellation. Business admins only, on the AI assistant add-on.
 
 ## Company
 
@@ -931,6 +932,37 @@ Barcode in Tally Prime works through Takkada without a TDL: print stickers from 
   A: Any printer your computer or phone can print to. Pick A4 sticker sheets of 10, 12, 24, 40 or 65 labels, a thermal roll with its own label size, or type a custom size. The stickers are laid out to that sheet, so the barcode sits inside each label when it prints.
 - **Q: Can I scan the barcode already printed on the product?**
   A: Yes, once it is linked. Scan the maker's barcode, tap Link to an item, and choose the item and how many pieces that pack holds. After that, every scan of that barcode adds that quantity. Linking is kept to the business admin, so a salesman cannot point a code at the wrong item.
+
+### [An AI agent for Tally Prime that answers from your books and waits for your confirm.](https://takkada.com/ai-agent-for-tally-prime/)
+
+*You want to know who to call before ten, what came in yesterday, and whether that supplier bill is posted. Ask Claude in plain words, and the answer comes from your own Tally books.*
+
+**Core capability & workflow:**
+Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or what is due today, and it reads your synced Tally books. Ask it to remind every late party, post a week of supplier bills or five bank statements at once, and it shows a preview first. Nothing happens until you reply confirm.
+
+**How it works:**
+- **Ask who owes you, in your own words**: "Who owes more than 1 lakh and has not paid in 30 days?" comes back as a list of parties with the amount, the oldest bill and how many days it is late. Narrow it to one party, or ask for their full ledger statement with the items on each bill.
+- **The morning collections brief**: Ask what is on for today and it reads the brief the app builds each night: payments promised for today, promises missed, follow-ups due, dealers to chase and what came in yesterday.
+- **Remind every late party in one message**: Say "remind everyone more than 60 days late, with a pay link". You see every party and amount before anything goes, and anyone who has paid in full is left out. Reply confirm and the reminders go out on WhatsApp and land in the Reminders history.
+- **Statements with a Pay Now button to the top ten**: Ask for the ten biggest balances to get their ledger statement. Each dealer gets a PDF of their own ledger on WhatsApp, and the Pay Now button collects what they owe today. One confirm sends all ten.
+- **A week of supplier bills in one go**: Drop in every bill that came this week, PDFs and phone photos together. Each one is matched to its supplier and items and checked against its printed total. A bill already in your books is skipped, and an item it cannot place comes back as one question. Then confirm all.
+- **Five bank statements, one month, one chat**: Attach the month for every bank you run. Each statement posts to its own bank as receipts, payments and contra entries, rows are matched to parties you named before, and only the rows it cannot place come back to you. A wrong import is undone in one step: every entry in it is cancelled, never deleted.
+
+**Frequently Asked Questions:**
+- **Q: How do I connect Tally with ChatGPT or Claude?**
+  A: Tally does not connect to an AI on its own. Takkada keeps a copy of your books in step with Tally, and that copy is what the assistant reads. In Claude, add Takkada as a custom connector and sign in with your Takkada mobile number and a one-time code. The Takkada app is under review for ChatGPT’s app directory. Step-by-step setup is on our AI assistant guide.
+- **Q: Is there a Tally MCP server?**
+  A: Yes, through Takkada. MCP is the standard Claude and ChatGPT use to plug into outside tools, and the Takkada MCP server gives them your synced Tally books plus actions: entries, reminders, payment links, statements, e-invoice and e-way bill. Nothing is installed inside Tally, so your TDLs and partner customisations stay as they are.
+- **Q: Can the AI change my books without asking me?**
+  A: No. Every entry and every WhatsApp message is shown to you as a preview first, and nothing is saved or sent until you reply confirm. An entry the assistant made can be undone: it is cancelled, the cancellation reaches Tally too, and nothing is deleted. Only the business admin of a company can connect it.
+- **Q: Can I import several bank statements or purchase bills at once?**
+  A: Yes. Attach them all in one chat: five banks for the month, or every supplier bill from the week. Each one becomes its own import against its own bank or supplier, a bill already in your books is skipped, and you answer only the rows or items it cannot place. A statement of more than 300 rows is split by month.
+- **Q: Can I ask in Hindi or Gujarati?**
+  A: Claude reads and replies in Hindi, Gujarati and other Indian languages, so you can ask "Sharma ji ka kitna baaki hai?" and get the answer in Hindi. Party and item names come back exactly as they are written in your Tally.
+- **Q: Does it work when the office computer is off?**
+  A: Yes for questions. The assistant reads the copy Takkada keeps, which is as fresh as the last sync from the office computer, and every answer says when that was. Entries you confirm wait in Takkada and reach Tally the next time the desktop connector runs.
+- **Q: Does Takkada store my chats or train an AI on my books?**
+  A: Takkada records which action was asked for, when, and whether it worked, for security and support. It does not store your conversation, and the assistant sees only what it fetched to answer the question you asked, for the companies you administer.
 
 ## Manual
 
