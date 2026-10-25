@@ -311,8 +311,10 @@ export const SCREENS = {
   // see their unprovenAllowlist records in content/image-provenance.json.
   'ai-chat-owes': phone('ai-chat-owes', 'AI assistant answering who owes more than one lakh and has not paid in 30 days, with five customers, amounts and days overdue'),
   'ai-chat-brief': phone('ai-chat-brief', "AI assistant reading out today's collections brief: promises due, promises missed, follow-ups and yesterday's receipts"),
-  'ai-chat-remind': phone('ai-chat-remind', 'AI assistant showing a payment reminder preview that waits for confirm before it goes out on WhatsApp'),
-  'ai-chat-bill': phone('ai-chat-bill', 'AI assistant turning a photo of a supplier bill into a purchase invoice preview, saved only after confirm'),
+  'ai-chat-remindall': phone('ai-chat-remindall', "AI assistant preparing WhatsApp reminders for eleven late customers at once, sent only after confirm"),
+  'ai-chat-statements': phone('ai-chat-statements', "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm"),
+  'ai-chat-bills': phone('ai-chat-bills', "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm"),
+  'ai-chat-banks': phone('ai-chat-banks', "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered"),
 };
 
 export function screen(slug) {

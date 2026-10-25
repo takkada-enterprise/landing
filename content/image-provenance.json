@@ -2479,22 +2479,6 @@
       "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
       "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
     },
-    "57d40f3b3c313bc5ce9859d7fac7d99b08677a1d9e9b7c362eb4c17852355b3b": {
-      "path": "public/assets/screens/ai-chat-bill-360.webp",
-      "kind": "appScreenshot",
-      "allowlistedOn": "2026-10-25",
-      "knownSensitive": false,
-      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The supplier bill (Sunrise Foods Pvt Ltd, SF/2291, 48,720) is invented for the picture; the preview rows paraphrase what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
-      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
-    },
-    "7b2e0e825a18a23bd328f726bcf9c7e9512f2fde4660979148f01ad52d5d153c": {
-      "path": "public/assets/screens/ai-chat-bill-720.webp",
-      "kind": "appScreenshot",
-      "allowlistedOn": "2026-10-25",
-      "knownSensitive": false,
-      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The supplier bill (Sunrise Foods Pvt Ltd, SF/2291, 48,720) is invented for the picture; the preview rows paraphrase what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
-      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
-    },
     "ebc35f4868304de608bd5667ac438ad64bd8205ca6e8c7756db99de0772f51f5": {
       "path": "public/assets/screens/ai-chat-brief-360.webp",
       "kind": "appScreenshot",
@@ -2527,20 +2511,68 @@
       "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). The figures and party names are the real output of the prod Takkada MCP tools for demo company 143 \"Shreeji Distributors (Demo)\", read on 2026-10-25 (get_receivables, get_daily_brief); the assistant's sentences are written around them. No real customer.",
       "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
     },
-    "4d0a6db276399ca18f76f49309ca36b92117e3072df8c9245a92d98aea0a76f4": {
-      "path": "public/assets/screens/ai-chat-remind-360.webp",
+    "e64efc5444e1dd3222d02456684bec13d7420d8ae5f53e66fdc1abaf6a3666c1": {
+      "path": "public/assets/screens/ai-chat-remindall-360.webp",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-10-25",
       "knownSensitive": false,
-      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. Party and amount are demo company 143's prod MCP output read on 2026-10-25; the preview rows paraphrase what send_payment_reminder returns. No reminder was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
       "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
     },
-    "3eecd8fb6afeb37b666a10c355808a943ee1ddcd66fe598b2a9b67352d1f64cd": {
-      "path": "public/assets/screens/ai-chat-remind-720.webp",
+    "5861b69d3c91faa340a372584ee9b9583c458ba589ca25fd8b11232dc491ec92": {
+      "path": "public/assets/screens/ai-chat-remindall-720.webp",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-10-25",
       "knownSensitive": false,
-      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. Party and amount are demo company 143's prod MCP output read on 2026-10-25; the preview rows paraphrase what send_payment_reminder returns. No reminder was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "b5fd7ad9b49022c368ac701638261ba9ecf39ad6ba3202bcf5217ffabb447dda": {
+      "path": "public/assets/screens/ai-chat-statements-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "d394a7230a390859675b8ce86235b04eac3094060a8639a7841f5303e2d6a50c": {
+      "path": "public/assets/screens/ai-chat-statements-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome (no Claude or ChatGPT branding). Party names and amounts are demo company 143's prod MCP output read on 2026-10-25 (get_daily_brief dealers_to_chase); the preview rows paraphrase what the propose step returns. Nothing was proposed or sent to draw it. No real customer, and no phone number is shown.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "bf8631cd47e152145b17ef334b81f630b089bbd5d920f6cef39f553dfb92196e": {
+      "path": "public/assets/screens/ai-chat-bills-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The four supplier bills, their numbers, totals and the item question are invented for the picture; the flow (match, duplicate skip, needs_answer, confirm) paraphrases what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "e52e9ff015d948d6756c2850d68639dfac8c35c03106d9939fde27e96128c6d2": {
+      "path": "public/assets/screens/ai-chat-bills-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The four supplier bills, their numbers, totals and the item question are invented for the picture; the flow (match, duplicate skip, needs_answer, confirm) paraphrases what import_purchase_invoice returns. Nothing was imported to draw it. No real supplier or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "7f553ad21e248e53abc37e5ae96f0f6f1d6728c59b8987d4e5e94590819b9300": {
+      "path": "public/assets/screens/ai-chat-banks-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The five statements, row counts, match counts and the UPI row are invented for the picture; the bank names are generic account labels. The flow paraphrases what import_bank_statement returns. Nothing was imported to draw it. No real account, party or customer.",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
+    },
+    "06386f01dbf50894dc1f224b20b0b2f893e84cde16ee3a127384b996b47bcbe2": {
+      "path": "public/assets/screens/ai-chat-banks-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: an HTML chat frame rendered in headless Chrome. The five statements, row counts, match counts and the UPI row are invented for the picture; the bank names are generic account labels. The flow paraphrases what import_bank_statement returns. Nothing was imported to draw it. No real account, party or customer.",
       "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE. Replace with a real Claude capture against demo company 143 when this page is next touched."
     }
   },

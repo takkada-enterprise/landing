@@ -34,9 +34,8 @@ export const AI_AGENT = [
     headline: 'An AI agent for Tally Prime that answers from your books and waits for your confirm.',
     subheadline:
       'You want to know who to call before ten, what came in yesterday, and whether that supplier bill is posted. Ask Claude in plain words, and the answer comes from your own Tally books.',
-    // 53 words.
     answer:
-      'Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you, what sold, or what is due today, and it reads your synced Tally books. Ask it to send a reminder, record a receipt or post a supplier bill, and it shows a preview first. Nothing happens until you reply confirm.',
+      'Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or what is due today, and it reads your synced Tally books. Ask it to remind every late party, post a week of supplier bills or five bank statements at once, and it shows a preview first. Nothing happens until you reply confirm.',
     waContext: 'feature-ai-agent-for-tally-prime',
     waMessage:
       'Hi, I want to ask my Tally books questions from Claude or ChatGPT and send reminders from there. Can you show me how the Takkada AI assistant works?',
@@ -56,7 +55,7 @@ export const AI_AGENT = [
     author: 'founder',
     datePublished: '2026-10-25',
     updated: '2026-10-25',
-    walkthroughHeading: 'Four things owners ask it before lunch',
+    walkthroughHeading: 'Six jobs owners hand it, many at a time',
     walkthrough: [
       {
         icon: 'MessageCircle',
@@ -74,17 +73,31 @@ export const AI_AGENT = [
       },
       {
         icon: 'Send',
-        title: 'Remind on WhatsApp, after you say confirm',
+        title: 'Remind every late party in one message',
         body:
-          'Ask it to remind one party or every overdue party. You see who gets the message, the amount and who is left out because they already paid. Reply confirm and it goes out on WhatsApp and lands in the Reminders history. Payment links and ledger statements go the same way.',
-        screen: 'ai-chat-remind',
+          'Say "remind everyone more than 60 days late, with a pay link". You see every party and amount before anything goes, and anyone who has paid in full is left out. Reply confirm and the reminders go out on WhatsApp and land in the Reminders history.',
+        screen: 'ai-chat-remindall',
+      },
+      {
+        icon: 'Share2',
+        title: 'Statements with a Pay Now button to the top ten',
+        body:
+          'Ask for the ten biggest balances to get their ledger statement. Each dealer gets a PDF of their own ledger on WhatsApp, and the Pay Now button collects what they owe today. One confirm sends all ten.',
+        screen: 'ai-chat-statements',
       },
       {
         icon: 'FileCheck2',
-        title: 'A supplier bill photo becomes a purchase entry',
+        title: "A week of supplier bills in one go",
         body:
-          'Share the bill and say post it. The supplier and every item are matched against your books and the total is checked against the printed one. You see the preview, reply confirm, and it reaches Tally through the Takkada desktop connector. Say undo and it is cancelled, never deleted.',
-        screen: 'ai-chat-bill',
+          'Drop in every bill that came this week, PDFs and phone photos together. Each one is matched to its supplier and items and checked against its printed total. A bill already in your books is skipped, and an item it cannot place comes back as one question. Then confirm all.',
+        screen: 'ai-chat-bills',
+      },
+      {
+        icon: 'Wallet',
+        title: 'Five bank statements, one month, one chat',
+        body:
+          'Attach the month for every bank you run. Each statement posts to its own bank as receipts, payments and contra entries, rows are matched to parties you named before, and only the rows it cannot place come back to you. A wrong import is undone in one step: every entry in it is cancelled, never deleted.',
+        screen: 'ai-chat-banks',
       },
     ],
     comparison: {
@@ -102,9 +115,14 @@ export const AI_AGENT = [
           others: 'Export the statement, then send it from WhatsApp by hand.',
         },
         {
-          feature: 'Posting a supplier bill',
-          takkada: 'Share the photo or PDF, check the matched preview, reply confirm.',
-          others: 'Type each line into a purchase voucher.',
+          feature: 'A week of supplier bills',
+          takkada: 'Drop in all the photos and PDFs at once, answer the one or two questions, confirm all.',
+          others: 'Type each bill, line by line, into a purchase voucher.',
+        },
+        {
+          feature: 'Bank statements for five banks',
+          takkada: 'Attach the five statements; known parties are matched, you answer only the rest.',
+          others: 'Post each bank row by row, or import one bank at a time.',
         },
         {
           feature: 'Where you can ask from',
@@ -113,7 +131,7 @@ export const AI_AGENT = [
         },
       ],
       disclaimer:
-        'Comparison describes Tally Prime without an add-on. Answers are as of your last Tally sync. Purchase bill import needs Import from PDF, e-invoice and e-way bill need the Assurance plan, AI calls need AI calling, and reorder lists need Stock Control.',
+        'Comparison describes Tally Prime without an add-on. Answers are as of your last Tally sync. Purchase bill and bank statement import need the Copilot plan, statements with a Pay Now button need Payment Collection, e-invoice and e-way bill need the Assurance plan, AI calls need AI calling, and reorder lists need Stock Control.',
     },
     planPointer: {
       plan: 'Momentum',
@@ -132,6 +150,10 @@ export const AI_AGENT = [
       {
         q: 'Can the AI change my books without asking me?',
         a: 'No. Every entry and every WhatsApp message is shown to you as a preview first, and nothing is saved or sent until you reply confirm. An entry the assistant made can be undone: it is cancelled, the cancellation reaches Tally too, and nothing is deleted. Only the business admin of a company can connect it.',
+      },
+      {
+        q: 'Can I import several bank statements or purchase bills at once?',
+        a: 'Yes. Attach them all in one chat: five banks for the month, or every supplier bill from the week. Each one becomes its own import against its own bank or supplier, a bill already in your books is skipped, and you answer only the rows or items it cannot place. A statement of more than 300 rows is split by month.',
       },
       {
         q: 'Can I ask in Hindi or Gujarati?',

@@ -497,17 +497,31 @@
     "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
   },
   {
-    "slug": "ai-chat-remind",
-    "source": "AI chat remind.png",
-    "shows": "AI assistant chat: WhatsApp reminder preview for one customer, 'Nothing goes out until you reply confirm', then confirm and Sent",
-    "alt": "AI assistant showing a payment reminder preview that waits for confirm before it goes out on WhatsApp",
+    "slug": "ai-chat-remindall",
+    "source": "AI chat remindall.png",
+    "shows": "AI assistant chat: 'Remind everyone more than 60 days late, with a pay link', preview of 11 demo customers and totals, confirm, 11 reminders sent",
+    "alt": "AI assistant preparing WhatsApp reminders for eleven late customers at once, sent only after confirm",
     "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
   },
   {
-    "slug": "ai-chat-bill",
-    "source": "AI chat bill.png",
-    "shows": "AI assistant chat: photo of a supplier bill, purchase invoice preview with supplier, items matched and total, confirm, Saved with undo note",
-    "alt": "AI assistant turning a photo of a supplier bill into a purchase invoice preview, saved only after confirm",
+    "slug": "ai-chat-statements",
+    "source": "AI chat statements.png",
+    "shows": "AI assistant chat: ledger statements with a Pay Now button for the top 10 demo dealers, preview with amounts, confirm, 10 statements sent",
+    "alt": "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-bills",
+    "source": "AI chat bills.png",
+    "shows": "AI assistant chat: four supplier bill files attached, preview of three bills with totals and one skipped as already in Takkada, one item question, confirm all, 3 saved",
+    "alt": "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm",
+    "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "ai-chat-banks",
+    "source": "AI chat banks.png",
+    "shows": "AI assistant chat: five September bank statements attached (HDFC, SBI, ICICI, Axis, Kotak), rows and matched counts per bank, 8 rows need an answer",
+    "alt": "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered",
     "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
   }
 ]
