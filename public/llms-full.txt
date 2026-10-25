@@ -16,6 +16,7 @@ Add-ons (Ask your partner for pricing):
 - Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
 - WhatsApp 8,000-message pack: More WhatsApp messages for reminders and invoice dispatch.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
+- Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -65,6 +66,7 @@ Add-ons (Ask your partner for pricing):
 - [FMCG module: MRP-based billing on Tally](https://takkada.com/fmcg-module-tally/): MRP-driven billing for FMCG distributors on Tally. Each stock item carries printed MRP, retailer margin (a divisor), two sequential trade discounts (D1, D2) and an item-wise salesman commission. The rate is computed per line; any extra customer discount is checked against the line's break-even; Tally receives list rate and one discount percentage.
 - [AutoParts billing: cost-plus pricing on Tally](https://takkada.com/autoparts-billing-tally/): Cost-plus pricing for parts distributors on Tally. The latest purchase cost is read from Tally per base unit, ex-GST; a markup set at company, stock group or item level gives the selling price; a second markup gives a second price level. A Price Changes screen lists parts whose cost moved. Cost and markup are withheld from members without full access.
 - [Ladder discount on Tally invoices](https://takkada.com/ladder-discount-tally/): Stepped trade discounts for distributors on Tally. Up to three named discount steps per invoice line compound into a single aggregate percentage, rounded half-up to two decimals; the aggregate is what Tally receives and what the taxable value is computed from. The invoice PDF prints each step and the price after it. Works on sales orders too.
+- [Barcode labels on Tally](https://takkada.com/barcode-in-tally-prime/): Barcode stickers for Tally Prime businesses, printed from a purchase bill, an item or a picked list of items, each encoding the item and the quantity in that box. Scanned into sales invoices, purchases, delivery challans, GRNs and stock journals with a phone camera, a Bluetooth scanner or a USB gun; batch, MRP and expiry can print on the label; a maker barcode can be linked to an item. Bills reach Tally as normal vouchers.
 
 ## Company
 
@@ -901,6 +903,34 @@ A ladder discount in Tally through Takkada is up to three named discount steps o
   A: On a half boundary, Excel's floating point often rounds down where Tally rounds up. 10% + 5% + 3% is the common case: Excel says 17.06, Tally and the app say 17.07. The app is built to agree with Tally, since that is where the voucher lives.
 - **Q: Can the ladder be combined with the FMCG module's D1 and D2?**
   A: They solve different problems. The FMCG module sets the rate from MRP and margin per item; the ladder describes the discount on a line in steps. Which one a business uses depends on how its trade quotes prices, and the demo is the place to settle that for your setup.
+
+### [Barcode in Tally Prime, with the box quantity printed into every sticker.](https://takkada.com/barcode-in-tally-prime/)
+
+*Print stickers for what just came in, stick one on each box, and bill by scanning. One scan of a 6-carton box puts 6 cartons on the bill, and the bill reaches Tally like any other.*
+
+**Core capability & workflow:**
+Barcode in Tally Prime works through Takkada without a TDL: print stickers from a purchase bill or an item, each carrying the item and the quantity in that box. Scan them into a sales bill, challan, GRN or stock journal with the phone camera, a Bluetooth gun or a USB gun. The voucher reaches Tally as usual.
+
+**How it works:**
+- **Print from the purchase bill**: Open the purchase that just arrived and tap Print labels. Each line asks how many pieces go on one sticker and works out the count: 33 cartons at 6 a sticker is 6 stickers, with the last one saying 3. Print from one item, or tick several in the item list.
+- **Batch, MRP and expiry on the label**: For an item kept batch-wise, each batch gets its own row and its own barcode. Switch on Show MRP, Show batch and Show dates, and the sticker carries the MRP, the batch number and the Mfg and expiry month, so the godown picks the right box.
+- **Scan the box, the quantity lands**: Tap the scan icon on a sales bill, challan, GRN or stock journal and point the phone camera, or use a Bluetooth gun. On the computer, a USB gun does the same job. Scan past what a batch holds and the app says how many are left.
+- **The maker's barcode works too**: A box that already carries a company EAN does not need a second sticker. Scan it once, tap Link to an item, pick the item and the quantity in that pack, and every later scan of that barcode adds it. Only a business admin can link a code.
+- **Receive against the order by scanning**: Make the GRN from the purchase order and scan the boxes as they come off the truck. Each scan fills the received quantity, and the app tells you which ordered lines nobody scanned, so a short supply is caught at the gate, not at the supplier's next bill.
+
+**Frequently Asked Questions:**
+- **Q: Can we use barcode in Tally?**
+  A: Yes. Tally Prime can keep a barcode in the stock item alias and a USB scanner can type it into a voucher. What it does not do on its own is print sticker sheets or put the box quantity in the code. Takkada adds both on top of your Tally, and the bill still lands in Tally as a normal voucher.
+- **Q: How do I print barcode labels for Tally Prime items?**
+  A: Open a purchase bill, an item, or tick several items in the item list, and tap Print labels. Set the pieces per sticker, pick the sheet size and the sticker to start from, so a half-used sheet is not wasted, and print. The phone app opens the print dialog, and on the computer it goes to your printer.
+- **Q: How do I use a barcode scanner with Tally Prime?**
+  A: Any USB barcode gun that types like a keyboard works on the computer: scan into the bill and the line appears with its quantity. On the phone, pair a Bluetooth scanner or use the camera from the scan icon on the bill. Nothing needs to be installed in Tally for either.
+- **Q: Do I need a barcode TDL in Tally?**
+  A: No. Nothing is installed inside Tally. Takkada keeps its own copy of your items and stock in step with Tally, prints the stickers from that, and writes the bills you scan back into Tally as ordinary vouchers. Your Tally setup, your TDLs and your partner customisations stay as they are.
+- **Q: Which printer and sticker paper do I need?**
+  A: Any printer your computer or phone can print to. Pick A4 sticker sheets of 10, 12, 24, 40 or 65 labels, a thermal roll with its own label size, or type a custom size. The stickers are laid out to that sheet, so the barcode sits inside each label when it prints.
+- **Q: Can I scan the barcode already printed on the product?**
+  A: Yes, once it is linked. Scan the maker's barcode, tap Link to an item, and choose the item and how many pieces that pack holds. After that, every scan of that barcode adds that quantity. Linking is kept to the business admin, so a salesman cannot point a code at the wrong item.
 
 ## Manual
 

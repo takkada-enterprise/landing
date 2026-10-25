@@ -297,6 +297,16 @@ export const SCREENS = {
   ),
   'sheet-loading': sheet('sheet-loading', 'Printed loading sheet with load list by item', 720, 335),
   'sheet-salesman': sheet('sheet-salesman', 'Exported team sales sheet by member', 720, 440),
+  // Barcode labels page (2026-10-25). Captured on stage demo companies and
+  // composited from them, not from demo company 143; see the unproven
+  // backlog in content/image-provenance.json for why they ship anyway.
+  'barcode-scan-bill': phone('barcode-scan-bill', 'Scan labels sheet on a bill, each scanned sticker adding its box quantity'),
+  'barcode-purchase-print': phone('barcode-purchase-print', 'Print labels from a purchase bill, with pieces per sticker and the number of stickers for each line'),
+  'barcode-batch-options': phone('barcode-batch-options', 'Label options with Show MRP, Show batch and Show dates switched on for a batch line'),
+  'barcode-overstock': phone('barcode-overstock', 'Scanning past the stock in a batch shows how many are left in it'),
+  'barcode-link-maker-code': phone('barcode-link-maker-code', 'A maker barcode scanned, with the option to link it to an item'),
+  'barcode-grn-po': phone('barcode-grn-po', 'Goods received against an order, with a notice for the ordered line that was not scanned'),
+  'barcode-sticker-sheet': sheet('barcode-sticker-sheet', 'A4 sticker sheet with item name, box quantity, MRP, batch and dates above each barcode', 720, 617),
 };
 
 export function screen(slug) {

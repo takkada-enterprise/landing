@@ -2357,6 +2357,118 @@
       "knownSensitive": false,
       "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
       "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
+    },
+    "8787645cf7ea9e1a029f34919789cf02dda95c9b90126b7b4989b0bf1c819d5c": {
+      "path": "public/assets/screens/barcode-batch-options-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Print labels, with the sheet body redrawn to show a batch line and the Show MRP / batch / dates options in the app's wording. Batch B-26 is invented; the demo companies carry no batches. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "b344f8a834110f21d9a3a48b43b4c0317be2964abeaf03f825d9fe325fd582d6": {
+      "path": "public/assets/screens/barcode-batch-options-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Print labels, with the sheet body redrawn to show a batch line and the Show MRP / batch / dates options in the app's wording. Batch B-26 is invented; the demo companies carry no batches. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "dc3e156dff71139b21daa36c692d18de3d439c20b8900dbd28f61ce543b913f6": {
+      "path": "public/assets/screens/barcode-grn-po-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone frame and status bar, with a New GRN screen drawn in the app's layout for stage demo items and supplier. Batch N-1009 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "0eebf1b03cb67351453fa33d3347f0c294cec2712b33e7376cc3ed3fc3b6be17": {
+      "path": "public/assets/screens/barcode-grn-po-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone frame and status bar, with a New GRN screen drawn in the app's layout for stage demo items and supplier. Batch N-1009 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "3f5b3114483ed5d85c50f6c019db210459eb8e89a3b44d0f9b1886b899654bfd": {
+      "path": "public/assets/screens/barcode-link-maker-code-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Scan labels on stage after scanning a book EAN (Not a Takkada label). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "cfeb764b15b0b56061965584c36521fcb9d7880c29cefef298a4b82ed6df4ba0": {
+      "path": "public/assets/screens/barcode-link-maker-code-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Scan labels on stage after scanning a book EAN (Not a Takkada label). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "4aeac685dd2e5d8452c6535a83fb328b4834620f2da01775c48bc9195ab610ef": {
+      "path": "public/assets/screens/barcode-overstock-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Scan labels, with the log redrawn to show the batch over-stock note the app shows. Batch B-26 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "46b5a3a38274b0e7470cabe0df03090c5566f3335f42fe37b7f4e03b0c2af7cf": {
+      "path": "public/assets/screens/barcode-overstock-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's stage phone capture of Scan labels, with the log redrawn to show the batch over-stock note the app shows. Batch B-26 is invented. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "5b7d9bd2b6570d028436a8826d6cddf1d74cf36d59e7370c724bb53a675219f8": {
+      "path": "public/assets/screens/barcode-purchase-print-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Print labels on a purchase in the stage demo company (demo seed items and party). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "d2570dd122219fea81afbce4d91e3b83e2e0788784435dcb2bd8069cb1e665f4": {
+      "path": "public/assets/screens/barcode-purchase-print-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Operator's phone capture of Print labels on a purchase in the stage demo company (demo seed items and party). Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "b72d5e2d4a24ef3e04929bda3e28ad8c0963befffe7855adf6b3aa4c8e6a524b": {
+      "path": "public/assets/screens/barcode-scan-bill-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's own phone capture of the Scan labels sheet on stage, with the scan log below the camera redrawn in the app's wording for stage demo items. Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "fcf9bb65867df5a08e4c8a687e781a83b69fc1e002a60fdfcbdd77749f592005": {
+      "path": "public/assets/screens/barcode-scan-bill-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Composite: the operator's own phone capture of the Scan labels sheet on stage, with the scan log below the camera redrawn in the app's wording for stage demo items. Not captured from demo company 143. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "a8dafc204322efeeb4a4508760499cc0123cab980e477c7e9701dc9e2e195264": {
+      "path": "public/assets/screens/barcode-sticker-sheet-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
+    },
+    "74c5120a23d73b6c467392df18fdf3cfeb2e92c0e960257668dbdd156d67da97": {
+      "path": "public/assets/screens/barcode-sticker-sheet-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-10-25",
+      "knownSensitive": false,
+      "reason": "Rendered by the app's own label sheet generator from stage demo item ids and names, cropped to three rows. Batches and MRPs are invented. A printed output, not a screen. No real customer name, balance, phone or GSTIN on it. Published at the operator's direction on 2026-10-25 (\"just do it, ignore the rule\"), knowing it has no capture record.",
+      "note": "OPERATOR-DIRECTED, NOT CAPTURE EVIDENCE. Recapture from demo company 143 when the barcode screens are next touched."
     }
   },
   "classes": [
