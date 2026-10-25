@@ -151,7 +151,7 @@ export const videoTestimonials = [
     location: 'Gujarat, India',
     industry: 'Distribution & Wholesale',
     badge: 'Verified Takkada Customer',
-    duration: '1:56 min',
+    duration: '1:57 min',
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
     summary: 'How Dhan Laxmi solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
     takeaways: [
@@ -173,6 +173,15 @@ export const videoTestimonials = [
       src: '/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4',
       poster: '/assets/testimonials/Meet_Patel_thumbnail_square.jpg',
       title: 'Meet Patel, Owner of Dhan Laxmi sharing his Takkada experience',
+      // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
+      // and never rendered. The trade and city were supplied by the operator
+      // (2026-10-26) for search metadata; the visible card keeps "Distribution
+      // & Wholesale" and "Gujarat, India" on purpose.
+      uploadDate: '2026-10-26T00:05:55+05:30',
+      durationIso: 'PT1M57S',
+      schemaDescription:
+        'Meet Patel, owner of Dhan Laxmi, an agricultural seeds distributor in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
+      contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
 ];

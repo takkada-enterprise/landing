@@ -5,6 +5,7 @@ import {
   testimonials,
   appLinks,
   appRatingCount,
+  videoTestimonials,
 } from './siteContent';
 import { getAuthor } from './authors';
 
@@ -181,6 +182,27 @@ export function softwareApplicationSchema(reviews = testimonials) {
   }
 
   return schema;
+}
+
+// VideoObject for each customer video on the homepage. Gives crawlers the
+// title, thumbnail, length and upload date. Google shows video rich results
+// only where the video is the page's main content, so this is for indexing
+// and AI answers, not a homepage video snippet.
+export function videoObjectSchema(items = videoTestimonials) {
+  return items.map(({ name, company, video }) => ({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: video.title,
+    description: video.schemaDescription,
+    thumbnailUrl: [absoluteUrl(video.poster)],
+    contentUrl: absoluteUrl(video.src),
+    uploadDate: video.uploadDate,
+    duration: video.durationIso,
+    inLanguage: 'hi-IN',
+    contentLocation: { '@type': 'Place', name: video.contentLocation },
+    actor: { '@type': 'Person', name, worksFor: { '@type': 'Organization', name: company } },
+    publisher: { '@type': 'Organization', name: 'Takkada', url: SITE_URL },
+  }));
 }
 
 export function faqPageSchema(items = faqItems) {

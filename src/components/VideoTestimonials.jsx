@@ -127,18 +127,19 @@ function VideoTestimonials({ items = videoTestimonials }) {
                 </div>
               )}
 
+              {/* preload="none" and no poster attribute: the overlay above is the
+                  poster (and lazy), so the homepage fetches no video bytes until
+                  the visitor taps Watch Story. */}
               <video
                 ref={videoRef}
                 src={current.video.src}
-                poster={current.video.poster}
                 controls={isPlaying}
                 playsInline
-                preload="metadata"
+                preload="none"
                 className={`hv3-stories-video${isPlaying ? ' hv3-stories-video--active' : ''}`}
                 onPause={handlePause}
                 onEnded={handleVideoEnded}
               >
-                <track kind="captions" />
                 Your browser does not support the video tag.
               </video>
             </div>
