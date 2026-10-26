@@ -467,7 +467,11 @@ function Home({ seo = HOME_SEO }) {
       <section className="final-cta" id="final-cta">
         <div className="container">
           <div className="final-cta-content">
-            <h2>See your own Tally on the phone.</h2>
+            <h2>
+              Stop chasing.
+              <br />
+              Start collecting.
+            </h2>
             {/* The onboarding-speed line ships behind the operator eyeball
                 (open question 2 in the 2026-08-06 plan): KYC ~24h and
                 same-day Tally connect mirror the long-standing FAQ claim,

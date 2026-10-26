@@ -62,7 +62,7 @@ function BlogIndex() {
         <section className="blog-index-hero">
           <div className="container">
             <p className="overline">TAKKADA BLOG</p>
-            <h1 className="blog-index-title">Notes for distributors who run on Tally</h1>
+            <h1 className="blog-index-title">For distributors who want to get paid faster</h1>
             <p className="blog-index-subtitle">
               Practical notes on receivables, Tally workflows, and running a tighter collections operation.
             </p>

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 1. Product one-liner
 
-Takkada is Tally on your phone: reports, overdue reminders and salesman tracking for distributors. It sits on top of the distributor's existing Tally installation and adds mobile invoicing (including e-invoice and e-way bill), auto invoice dispatch on WhatsApp, UPI payment collection, and auto-reconciliation back into Tally.
+Takkada is a mobile-first SaaS layer for Tally that helps Indian distributors and wholesalers get paid without chasing customers. It sits on top of the distributor's existing Tally installation and adds mobile invoicing (including e-invoice and e-way bill), auto invoice dispatch on WhatsApp, UPI payment collection, and auto-reconciliation back into Tally.
 
 ## 2. Primary ICP
 
@@ -194,7 +194,7 @@ The craft bar is borrowed, with modification, from Stripe's website redesign pri
 
 Eleven craft commandments. Every component Claude Code writes must satisfy these, or the work is incomplete:
 
-1. **One coherent story, not a product snapshot list.** The site tells one story: "Tally On Mobile." Every page reinforces this. The chasing/collecting taglines ("Get paid without chasing", "Stop chasing. Start collecting.", "Get Paid On Time. Automatically.") were retired on 2026-10-26 (operator direction) and must not return. If a section feels like a feature dump, it's wrong. Rewrite to show the specific behavior that changes for the distributor. The reader should never feel like they're reading a product catalogue.
+1. **One coherent story, not a product snapshot list.** The site tells one story: "Get paid without chasing." Every page reinforces this. If a section feels like a feature dump, it's wrong. Rewrite to show the specific behavior that changes for the distributor. The reader should never feel like they're reading a product catalogue.
 
 2. **Progressive disclosure over long scrolls.** Modular sections (think "bento box") with depth available to those who want it. A section summarizes in two lines and offers "see how this works" for the curious. Users in "lean-back" discovery mode must not be punished with a 4000-word landing page. If a section exceeds 300 words of body copy, it splits into a summary and an expandable or linked detail view.
 

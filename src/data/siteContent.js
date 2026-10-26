@@ -49,7 +49,7 @@ export const heroContent = {
   overline: 'For Indian distributors on Tally',
   // The H1 and body are owned by src/data/heroHotspots.js (HERO_HOME) because
   // they swap as the visitor taps the phone. This object keeps what is static.
-  promise: 'Built on top of your Tally.',
+  promise: 'Get paid without chasing.',
   // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
   // rupee volume was retired on 2026-09-18 (operator direction) and
   // scripts/checkRetiredClaims.mjs keeps it out of the build.
@@ -210,7 +210,7 @@ export const proofStrip = {
 export const differentiators = {
   id: 'why-takkada',
   overline: 'Where The Others Stop',
-  heading: 'Plenty of apps show you Tally on a phone. The work after the invoice stays yours.',
+  heading: 'Plenty of apps show you Tally on a phone. The chasing stays yours.',
   intro:
     'The common pattern stops when the invoice PDF lands on your screen. Everything after that, the sending, the collecting, the matching, is still your evening. Here is where Takkada keeps going.',
   rows: [
