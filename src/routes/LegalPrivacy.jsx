@@ -19,7 +19,7 @@ function PrivacyPolicy() {
       />
       <article className="company-article">
         <h1>Privacy Policy</h1>
-        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: September 28, 2026 &bull; {contactInfo.company}</p>
+        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: October 28, 2026 &bull; {contactInfo.company}</p>
         <p className="company-lead">
           {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
         </p>
@@ -46,7 +46,12 @@ function PrivacyPolicy() {
 
         <h2>3. Information Sharing</h2>
         <p>
-          We do not share your data with any third parties for marketing or commercial purposes. Data is never sold. We do not share your business or financial information beyond what is strictly required to operate the platform (e.g. payment gateways to process transactions). Legal disclosures occur only when required by regulatory bodies and law enforcement under Indian law.
+          Apart from the advertising measurement described below, we do not share your data with any third parties for marketing or commercial purposes. Data is never sold. We do not share your business or financial information beyond what is strictly required to operate the platform (e.g. payment gateways to process transactions). Legal disclosures occur only when required by regulatory bodies and law enforcement under Indian law.
+        </p>
+
+        <h3>Advertising measurement on this website</h3>
+        <p>
+          This website uses the Meta Pixel to measure how our ads perform. If you enter your mobile number to try the demo or book a demo, that number is turned into a one-way hash in your browser and sent to Meta, so Meta can tell us whether the visit came from one of our ads. Meta receives the hash, never the number in readable form, and we do not share anything from the Takkada app or your Tally data this way. You can stop it by using a browser or extension that blocks the Meta Pixel, or by writing to us at the email below.
         </p>
 
         <h3>AI assistant connections</h3>
