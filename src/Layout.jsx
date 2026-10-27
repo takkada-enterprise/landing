@@ -442,7 +442,7 @@ function SiteFooter() {
                 loading="lazy"
               />
             </Link>
-            <p className="footer-tagline">Get Paid On Time. Automatically.</p>
+            <p className="footer-tagline">Your Tally, in your pocket.</p>
             <p className="footer-company">{contactInfo.company}</p>
             <p className="footer-contact tabular-nums">{contactInfo.phone}</p>
             <p className="footer-contact">{contactInfo.email}</p>

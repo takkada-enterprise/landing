@@ -9,7 +9,7 @@ function AboutUs() {
     <CompanyPageLayout>
       <Seo
         title="About Takkada. Built for Indian distributors on Tally"
-        description={`Takkada is built by ${contactInfo.company} in Guwahati. We help Indian distributors and wholesalers collect receivables without chasing.`}
+        description={`Takkada is built by ${contactInfo.company} in Guwahati. We help Indian distributors and wholesalers run their Tally from the phone.`}
         path="/about-us"
         schemas={[
           breadcrumbSchema([
