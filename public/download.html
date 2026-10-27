@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Download takkada</title>
+<script>
+  // takkada.com/download: one link for both stores. Phones jump straight to their store;
+  // desktops (and anything unrecognised) see both buttons below.
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    if (/Android/i.test(ua)) location.replace('https://play.google.com/store/apps/details?id=com.paysaathi.takkadaapp');
+    else if (ios) location.replace('https://apps.apple.com/in/app/takkada/id6755435132');
+  })();
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; font-family: system-ui, sans-serif; background: #F7FAFC; color: #0E1C2A; }
+  a { display: block; width: 240px; padding: 14px; border-radius: 10px; background: #006EA6; color: #fff; text-align: center; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+  <h1>Download takkada</h1>
+  <a href="https://play.google.com/store/apps/details?id=com.paysaathi.takkadaapp">Get it on Google Play</a>
+  <a href="https://apps.apple.com/in/app/takkada/id6755435132">Download on the App Store</a>
+</body>
+</html>
