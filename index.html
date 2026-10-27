@@ -77,7 +77,16 @@
         n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
         t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
         document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1485519606341338');
+        // Advanced matching for a returning visitor: the phone modal saves the
+        // number it captured (DEMO_PHONE_STORAGE_KEY in src/lib/demoBooking.js),
+        // so later page views carry it too. The pixel hashes it before sending.
+        // First-time visitors get it via setMetaUserPhone() in src/lib/track.js.
+        var takkadaMatch = {};
+        try {
+          var savedPhone = window.localStorage.getItem('takkada_demo_phone');
+          if (/^[6-9]\d{9}$/.test(savedPhone || '')) takkadaMatch.ph = '91' + savedPhone;
+        } catch (err) {}
+        fbq('init', '1485519606341338', takkadaMatch);
         fbq('track', 'PageView');
 
         document.addEventListener('click', function (e) {

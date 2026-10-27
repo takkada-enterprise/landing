@@ -30,6 +30,29 @@ export function track(eventName, tags = {}) {
   }
 }
 
+// Meta Pixel manual advanced matching. The pixel is initialised in index.html
+// before the visitor has typed anything, so once the phone modal holds a
+// validated number we call init again with it; Meta attaches it to every
+// event fired after that, the Lead included. Call it BEFORE trackMetaLead.
+// `ph` is digits only with the country code (91XXXXXXXXXX); the pixel hashes
+// it with SHA-256 in the browser before it leaves. The privacy policy
+// (src/routes/LegalPrivacy.jsx, section 3) discloses this; keep the two in
+// step. Same contract as track(): silent no-op without the pixel, never throws.
+export const META_PIXEL_ID = '1485519606341338';
+
+export function setMetaUserPhone(phone) {
+  if (typeof window === 'undefined') return;
+  const fbq = window.fbq;
+  if (typeof fbq !== 'function') return;
+  if (!/^[6-9]\d{9}$/.test(phone || '')) return;
+
+  try {
+    fbq('init', META_PIXEL_ID, { ph: `91${phone}` });
+  } catch {
+    // Telemetry failure is never a user-facing problem.
+  }
+}
+
 // Meta Pixel Lead for a conversion that is not a plain link click. Clicks on
 // calendar and wa.me links are already counted by the listener in index.html;
 // call this only where the conversion happens without a link (the phone

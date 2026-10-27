@@ -10,7 +10,7 @@ import {
   submitDemoBooking,
   validateIndianMobileNumber,
 } from '../lib/demoBooking';
-import { track, trackMetaLead } from '../lib/track';
+import { track, trackMetaLead, setMetaUserPhone } from '../lib/track';
 
 const INPUT_FOCUS_DELAY_MS = 150;
 const AUTO_CLOSE_DELAY_MS = 800;
@@ -144,6 +144,7 @@ function PhoneModal({
       // The OTP itself is sent by the demo app on another origin, so this
       // site never sees it succeed. A validated number that has just been
       // captured is the closest point we own, and it is a real lead.
+      setMetaUserPhone(phone);
       trackMetaLead('try_demo_otp');
       navigate(buildDemoHandoffUrl(phone, appLinks.demoApp));
       return;
@@ -156,6 +157,7 @@ function PhoneModal({
     // opens. Booking capture is secondary and continues in the background.
     window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
     track('calendar_open', { cta_context: 'phone-modal' });
+    setMetaUserPhone(phone);
     trackMetaLead('book_demo_click');
 
     setLoading(true);
