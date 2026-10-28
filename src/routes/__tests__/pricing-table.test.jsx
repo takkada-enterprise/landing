@@ -8,6 +8,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
+import { FEATURE_BLURBS } from '../../data/featureGroups';
 import {
   pricing,
   planPricing,
@@ -95,12 +96,31 @@ describe('pricing comparison table', () => {
     }
   });
 
+  // Every add-on card is clickable (Ronak, 2026-10-29): the ones with a
+  // feature page open it, the rest open the WhatsApp ask. A slug that is not
+  // a live feature page would be a dead card, so each one is checked.
+  it('links every add-on card: to its live feature page, else to WhatsApp', () => {
+    const container = renderHome();
+    const cards = [...container.querySelectorAll('.rate-addons-list a.rate-addon')];
+    expect(cards).toHaveLength(pricing.addons.length);
+    for (const [i, addon] of pricing.addons.entries()) {
+      const href = cards[i].getAttribute('href');
+      if (addon.slug) {
+        expect(FEATURE_BLURBS, `${addon.label}: /${addon.slug} is not a feature page`).toHaveProperty(addon.slug);
+        expect(href).toBe(`/${addon.slug}`);
+      } else {
+        expect(href, addon.label).toMatch(/wa\.me/);
+      }
+    }
+    expect(pricing.addons.filter((a) => a.slug).length).toBeGreaterThanOrEqual(9);
+  });
+
   it('lists every module as an add-on with no price — partners quote them (ruled 2026-10-04)', () => {
     const container = renderHome();
     expect(pricing.addons.map((a) => a.label)).toEqual([
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'WhatsApp 8,000-message pack', 'Payment Collection', 'Barcode labels', 'Extra user',
+      'Payment Collection', 'Barcode labels', 'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);

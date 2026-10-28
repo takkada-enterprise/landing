@@ -21,6 +21,8 @@ import FollowOneInvoice from '../components/FollowOneInvoice';
 import VideoTestimonials from '../components/VideoTestimonials';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
+import { whatsappHref } from '../lib/whatsapp';
+import { track } from '../lib/track';
 import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
 import { JOBS, HERO_HOME, jobHref } from '../data/heroHotspots';
 import {
@@ -337,9 +339,30 @@ function Home({ seo = HOME_SEO }) {
               <div className="rate-addons-title">Add-ons</div>
               <ul className="rate-addons-list">
                 {pricing.addons.map((addon) => (
-                  <li key={addon.label} className="rate-addon">
-                    <span className="rate-addon-label">{addon.label}</span>
-                    <span className="rate-addon-note">{addon.note}</span>
+                  <li key={addon.label}>
+                    {addon.slug ? (
+                      <Link to={`/${addon.slug}`} className="rate-addon">
+                        <span className="rate-addon-label">{addon.label}</span>
+                        <span className="rate-addon-note">{addon.note}</span>
+                        <span className="rate-addon-cta">
+                          See how it works <ArrowRight size={13} aria-hidden="true" />
+                        </span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={whatsappHref('pricing')}
+                        className="rate-addon"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => track('whatsapp_cta_click', { cta_context: `addon-${addon.label}` })}
+                      >
+                        <span className="rate-addon-label">{addon.label}</span>
+                        <span className="rate-addon-note">{addon.note}</span>
+                        <span className="rate-addon-cta">
+                          Ask on WhatsApp <ArrowRight size={13} aria-hidden="true" />
+                        </span>
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

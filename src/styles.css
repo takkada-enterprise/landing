@@ -3505,11 +3505,44 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
 .rate-addon {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 10px 12px;
+  gap: 4px;
+  height: 100%;
+  padding: 12px 12px 10px;
   border-radius: var(--radius-md);
   background: var(--color-white);
   box-shadow: var(--shadow-xs);
+  border: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+/* Every add-on card is a link (2026-10-29): to its feature page, or to the
+   WhatsApp ask when it has no page. The last line says which. */
+.rate-addon-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rate-addon:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.rate-addon:active {
+  transform: scale(0.98);
+}
+
+.rate-addon:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .rate-addon-label {

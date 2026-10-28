@@ -428,21 +428,23 @@ export const pricing = {
   // what it does, and NO `price` key. checkRateCardDrift fails the build if a
   // priced add-on comes back without a snapshot entry, and the rendered-page
   // scan fails on any rupee figure the plans cannot justify.
+  // Every card is clickable (Ronak, 2026-10-29): `slug` names the feature
+  // page the card opens; a card with no page opens the WhatsApp ask instead.
+  // Never invent a slug: feature-pages.test.js checks each one is routed.
   addons: [
-    { label: 'FMCG billing', note: 'A fast billing counter, with retail margin and discount set per item.' },
-    { label: 'Auto parts billing', note: 'Selling prices worked out from what the last container cost, plus your markup.' },
-    { label: 'Schemes', note: 'Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.' },
-    { label: 'Ladder discount', note: 'Named discounts in steps, with one aggregate on your invoice and in Tally.' },
+    { label: 'FMCG billing', slug: 'fmcg-module-tally', note: 'A fast billing counter, with retail margin and discount set per item.' },
+    { label: 'Auto parts billing', slug: 'autoparts-billing-tally', note: 'Selling prices worked out from what the last container cost, plus your markup.' },
+    { label: 'Schemes', slug: 'schemes-tally', note: 'Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.' },
+    { label: 'Ladder discount', slug: 'ladder-discount-tally', note: 'Named discounts in steps, with one aggregate on your invoice and in Tally.' },
     { label: 'Recovery dashboard', note: 'Log every follow-up and promise to pay, and see which promises were missed.' },
-    { label: 'Customer order link', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
-    { label: 'Personal party links', note: 'A link of its own for each party, so every order arrives already matched to them.' },
-    { label: 'AI calling', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
+    { label: 'Customer order link', slug: 'order-booking-app-tally', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
+    { label: 'Personal party links', slug: 'order-booking-app-tally', note: 'A link of its own for each party, so every order arrives already matched to them.' },
+    { label: 'AI calling', slug: 'ai-collection-calls', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
     // The rendered-page guard (home-v3.test.jsx) still requires "early access"
     // beside every own-number mention, so the note leads with it.
     { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
-    { label: 'WhatsApp 8,000-message pack', note: 'More WhatsApp messages for reminders and invoice dispatch.' },
-    { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
-    { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
+    { label: 'Payment Collection', slug: 'payment-collection-tally', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
+    { label: 'Barcode labels', slug: 'barcode-in-tally-prime', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
