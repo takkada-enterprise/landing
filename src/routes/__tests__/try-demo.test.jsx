@@ -13,6 +13,7 @@ import TryDemo from '../TryDemo';
 import { routeMetadata } from '../../data/siteMetadata';
 import { appLinks, demoEntryLive } from '../../data/siteContent';
 import { PhoneModalProvider, usePhoneModal } from '../../context/PhoneModalContext';
+import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 
 afterEach(cleanup);
 
@@ -43,6 +44,15 @@ function renderRoute() {
 }
 
 describe('TryDemo route (/demo/)', () => {
+  it('puts party-list in the hero picture slot, eager and high priority', () => {
+    const { container } = renderRoute();
+    const img = container.querySelector('#hero .ui-hero-stage img.ui-shot[data-screen="party-list"]');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('loading')).toBe('eager');
+    expect(img.getAttribute('fetchpriority')).toBe('high');
+    expect(BUDGETS.some(([p]) => p === `public${img.getAttribute('src')}`)).toBe(true);
+  });
+
   it('is registered in routeMetadata (sitemap) and the router', () => {
     expect(routeMetadata.some((r) => r.path === '/demo')).toBe(true);
   });

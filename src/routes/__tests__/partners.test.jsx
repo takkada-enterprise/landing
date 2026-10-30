@@ -13,6 +13,7 @@ vi.mock('vite-react-ssg', () => ({
 import Partners from '../Partners';
 import { PARTNER_EARN, PARTNER_WA_MESSAGE, partnerFaqs, clientWins, audienceList } from '../../data/partners';
 import { PhoneModalProvider, usePhoneModal } from '../../context/PhoneModalContext';
+import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 
 afterEach(cleanup);
 
@@ -37,6 +38,15 @@ function renderPage() {
 }
 
 describe('/partners', () => {
+  it('puts reminders in the hero picture slot, eager and high priority', () => {
+    const { container } = renderPage();
+    const img = container.querySelector('#hero .ui-hero-stage img.ui-shot[data-screen="reminders"]');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('loading')).toBe('eager');
+    expect(img.getAttribute('fetchpriority')).toBe('high');
+    expect(BUDGETS.some(([p]) => p === `public${img.getAttribute('src')}`)).toBe(true);
+  });
+
   it('opens on the dark band with the partner headline', () => {
     const { container } = renderPage();
     const hero = container.querySelector('section.ui-band--band');

@@ -104,6 +104,9 @@ function Features() {
               <WhatsAppCTA context={WA_CONTEXT} tone="ghost" />
             </div>
           </div>
+          <div className="ui-hero-stage">
+            <Shot screen="home" eager fetchPriority="high" sizes="(max-width: 767px) 70vw, 300px" />
+          </div>
         </div>
       </Band>
 

@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import Breadcrumb from '../components/Breadcrumb';
 import FAQItem from '../components/FAQItem';
 import WhatsAppCTA from '../components/WhatsAppCTA';
-import { Band, Pill, SectionHead, Card, CardGrid, AltRow, CloseBand } from '../ui';
+import { Band, Pill, SectionHead, Card, CardGrid, AltRow, Shot, CloseBand } from '../ui';
 // The feature-page skin carries the hero, text cards and FAQ rows this page
 // shares with it (every rule is prefixed .ui-feature).
 import '../ui/feature.css';
@@ -69,6 +69,9 @@ function Partners() {
             <div className="ui-hero-actions">
               <Pill onClick={openPartnerModal}>Book a meeting with the founder</Pill>
             </div>
+          </div>
+          <div className="ui-hero-stage">
+            <Shot screen="reminders" eager fetchPriority="high" sizes="(max-width: 767px) 70vw, 300px" />
           </div>
         </div>
       </Band>

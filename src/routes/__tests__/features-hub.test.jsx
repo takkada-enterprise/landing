@@ -54,6 +54,15 @@ const head = () => document.head;
 const cardLinks = (container) => [...container.querySelectorAll('a.features-hub-card')];
 
 describe('/features hub', () => {
+  it('puts home in the hero picture slot, eager and high priority', () => {
+    const { container } = renderHub();
+    const img = container.querySelector('#hero .ui-hero-stage img.ui-shot[data-screen="home"]');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('loading')).toBe('eager');
+    expect(img.getAttribute('fetchpriority')).toBe('high');
+    expect(BUDGETS.some(([p]) => p === `public${img.getAttribute('src')}`)).toBe(true);
+  });
+
   it('starts the hero copy with a breadcrumb back to Home', () => {
     const { container } = renderHub();
     const home = container.querySelector('section.ui-band--band nav[aria-label="Breadcrumb"] a');

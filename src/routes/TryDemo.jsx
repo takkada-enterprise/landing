@@ -4,7 +4,7 @@ import DemoTryCTA from '../components/DemoTryCTA';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import VideoEmbed from '../components/VideoEmbed';
-import { Band, Pill, SectionHead, Card, CardGrid, CloseBand } from '../ui';
+import { Band, Pill, SectionHead, Card, CardGrid, Shot, CloseBand } from '../ui';
 // The feature-page skin carries the hero this page shares with it (every
 // rule is prefixed .ui-feature).
 import '../ui/feature.css';
@@ -106,6 +106,9 @@ function TryDemo() {
               <Pill href={appLinks.playStore} tone="ghost" {...STORE_LINK}>Get it on Google Play</Pill>
               <Pill href={appLinks.appStore} tone="ghost" {...STORE_LINK}>Download on the App Store</Pill>
             </div>
+          </div>
+          <div className="ui-hero-stage">
+            <Shot screen="party-list" eager fetchPriority="high" sizes="(max-width: 767px) 70vw, 300px" />
           </div>
         </div>
       </Band>
