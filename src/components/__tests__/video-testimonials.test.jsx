@@ -20,10 +20,11 @@ function renderComponent(props = {}) {
 }
 
 describe('VideoTestimonials component', () => {
-  it('renders Meet Patel and Dhan Laxmi by default', () => {
+  it('renders Meet Patel and Dhanlaxmi Crop Science Limited by default', () => {
     const { container } = renderComponent();
     expect(container.textContent).toContain('Meet Patel');
-    expect(container.textContent).toContain('Dhan Laxmi');
+    expect(container.textContent).toContain('Dhanlaxmi Crop Science Limited');
+    expect(container.textContent).toContain('NSE listed');
     expect(container.textContent).toContain('Verified Takkada Customer');
   });
 
@@ -33,14 +34,14 @@ describe('VideoTestimonials component', () => {
     expect(section).toBeTruthy();
     expect(section.getAttribute('aria-label')).toBe('Customer Video Stories');
     expect(screen.getByRole('heading', { level: 2 }).textContent).toContain(
-      'Hear from distributors who run on Takkada'
+      'Customer Stories'
     );
   });
 
   it('renders the video poster, play button, and duration badge', () => {
     const { container } = renderComponent();
     const playBtn = screen.getByRole('button', {
-      name: /Play customer testimonial video of Meet Patel from Dhan Laxmi/i,
+      name: /Play customer testimonial video of Meet Patel from Dhanlaxmi Crop Science Limited/i,
     });
     expect(playBtn).toBeTruthy();
 
@@ -54,7 +55,7 @@ describe('VideoTestimonials component', () => {
   it('clicking the play button triggers playback and calls track', () => {
     renderComponent();
     const playBtn = screen.getByRole('button', {
-      name: /Play customer testimonial video of Meet Patel from Dhan Laxmi/i,
+      name: /Play customer testimonial video of Meet Patel from Dhanlaxmi Crop Science Limited/i,
     });
 
     fireEvent.click(playBtn);
@@ -63,7 +64,7 @@ describe('VideoTestimonials component', () => {
       expect.objectContaining({
         story_id: 'meet-patel-dhan-laxmi',
         story_name: 'Meet Patel',
-        company: 'Dhan Laxmi',
+        company: 'Dhanlaxmi Crop Science Limited',
       })
     );
   });

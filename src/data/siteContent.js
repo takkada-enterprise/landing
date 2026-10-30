@@ -114,13 +114,6 @@ export const homeFaqItems = [
     answer:
       'Yes. Every plan comes with a 7-day free trial, no card required. If you are being onboarded by one of our partners, they will walk you through the setup.',
   },
-  {
-    question: 'Is there a plan for a business with only one user?',
-    // Per-device pricing was withdrawn 2026-08-12 (it was drift, not an
-    // offer) \u2014 this answer must not quote a device price.
-    answer:
-      'Yes. Every plan includes one user, and you can add more. Your partner quotes extra users per year.',
-  },
 ];
 
 // Voice rule: real quotes only — every entry here renders on the wall AND
@@ -137,7 +130,7 @@ export const testimonials = [
   {
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import se auto-reconciliation ho jaata hai, aur pending payments ke liye smart WhatsApp reminders chale jaate hain. Hamara experience bohot hi achha raha hai.',
     name: 'Meet Patel',
-    role: 'Owner, Dhan Laxmi',
+    role: 'Owner, Dhanlaxmi Crop Science Limited',
   },
 ];
 
@@ -147,13 +140,15 @@ export const videoTestimonials = [
     id: 'meet-patel-dhan-laxmi',
     name: 'Meet Patel',
     role: 'Owner',
-    company: 'Dhan Laxmi',
-    location: 'Gujarat, India',
-    industry: 'Distribution & Wholesale',
+    // Prod company 169 (operator, 2026-10-29): the full registered name, and
+    // the NSE listing named on the card.
+    company: 'Dhanlaxmi Crop Science Limited',
+    location: 'Ahmedabad, Gujarat',
+    industry: 'Agri seeds distributor, NSE listed',
     badge: 'Verified Takkada Customer',
     duration: '1:57 min',
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
-    summary: 'How Dhan Laxmi solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
+    summary: 'How Dhanlaxmi Crop Science Limited solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
     takeaways: [
       {
         title: 'Auto-Reconciliation from Bank Statement',
@@ -172,7 +167,7 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4',
       poster: '/assets/testimonials/Meet_Patel_thumbnail_square.jpg',
-      title: 'Meet Patel, Owner of Dhan Laxmi sharing his Takkada experience',
+      title: 'Meet Patel, Owner of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
       // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
       // and never rendered. The trade and city were supplied by the operator
       // (2026-10-26) for search metadata; the visible card keeps "Distribution
@@ -180,7 +175,7 @@ export const videoTestimonials = [
       uploadDate: '2026-10-26T00:05:55+05:30',
       durationIso: 'PT1M57S',
       schemaDescription:
-        'Meet Patel, owner of Dhan Laxmi, an agricultural seeds distributor in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
+        'Meet Patel, owner of Dhanlaxmi Crop Science Limited, an NSE-listed agricultural seeds company in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
       contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
@@ -243,27 +238,26 @@ export const differentiators = {
 // a specific behavior, not a security superlative.
 export const trustSection = {
   overline: 'Data Safety',
-  heading: 'Your Tally stays exactly as it is',
-  subtitle:
-    'Connecting anything to your books is a trust decision. Here is precisely what Takkada does and does not touch.',
+  heading: 'Your data stays safe',
+  subtitle: 'Your Tally and your books stay on your own PC.',
   points: [
     {
       icon: 'database',
-      title: 'Your books never leave your Tally',
+      title: 'Data stays on your PC',
       body:
-        'Takkada syncs with the Tally installed on your own computer. Your data files stay where they are today. Stop using Takkada and your Tally keeps working exactly as before.',
+        'Your Tally stays on your computer. Stop Takkada any time and Tally works as before.',
     },
     {
       icon: 'shield',
-      title: 'Nothing writes to Tally without you',
+      title: 'Nothing changes without you',
       body:
-        'Receivables tracking and reminders are read-only. A voucher posts into Tally only when you or your team create it in the app, and every entry shows who made it.',
+        'Only entries you or your team make go into Tally. Every entry shows who made it.',
     },
     {
       icon: 'badge',
-      title: 'Official apps under a registered company',
+      title: 'Official app',
       body:
-        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP. No APK from a forwarded link, no sideloading.',
+        'On the Play Store and App Store under Pay Saathi Innovation LLP.',
       links: [
         { label: 'Play Store listing', hrefKey: 'playStore' },
         { label: 'App Store listing', hrefKey: 'appStore' },
@@ -271,9 +265,9 @@ export const trustSection = {
     },
     {
       icon: 'monitor',
-      title: 'The connector runs where you can see it',
+      title: 'You control the connector',
       body:
-        'A small Windows program sits next to Tally on your PC and does the syncing. You can open it, watch what it syncs, pause it, or remove it any time.',
+        'A small Windows program next to Tally. Pause or remove it any time.',
     },
   ],
   articleLink: {

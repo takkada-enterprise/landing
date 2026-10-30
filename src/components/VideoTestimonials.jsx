@@ -51,11 +51,9 @@ function VideoTestimonials({ items = videoTestimonials }) {
     <section className="hv3-stories" id="customer-stories" aria-label="Customer Video Stories">
       <div className="container">
         <div className="hv3-story-head reveal">
-          <span className="section-label">Real Distributor Stories</span>
-          <h2 className="hv3-story-title">Hear from distributors who run on Takkada</h2>
+          <h2 className="hv3-story-title">Customer Stories</h2>
           <p className="hv3-story-intro">
-            Real owners, real numbers. Watch how Meet Patel, Owner of Dhan Laxmi, uses Takkada to automate
-            bank statement reconciliation, send smart WhatsApp payment reminders, and track seasonal distribution.
+            Meet Patel of Dhanlaxmi Crop Science Limited, an NSE-listed company, on how they use Takkada.
           </p>
         </div>
 
@@ -96,7 +94,8 @@ function VideoTestimonials({ items = videoTestimonials }) {
                   {/* Top tags */}
                   <div className="hv3-stories-poster-top">
                     <span className="hv3-stories-chip">
-                      <Building2 size={13} /> {current.company}
+                      <Building2 size={13} aria-hidden="true" />
+                      <span className="hv3-stories-chip-text">{current.company}</span>
                     </span>
                     <span className="hv3-stories-chip hv3-stories-chip--time">
                       <Clock size={13} /> {current.duration}
@@ -168,7 +167,10 @@ function VideoTestimonials({ items = videoTestimonials }) {
 
               <blockquote className="hv3-stories-quote">
                 <span className="hv3-stories-quote-mark" aria-hidden="true">&ldquo;</span>
-                <p>{current.quote}</p>
+                {/* The English summary, not the verbatim quote: the owner ruled
+                    2026-10-29 that the site carries no Hinglish. The quote stays
+                    in the data for the Review schema. */}
+                <p>{current.summary}</p>
               </blockquote>
 
               {current.takeaways && current.takeaways.length > 0 && (
