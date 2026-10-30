@@ -173,20 +173,31 @@
   border-left: 2px solid var(--band);
   border-right: 2px solid var(--band);
 }
-/* Below 900px the table shows one plan column, a fixed 84px track at the
-   right edge (styles.css). The title goes back to a plain block so a wrapped
-   label keeps its indent, and the slice is painted on that track only while
-   the highlighted plan is the one on show. */
+/* Below 900px the table shows one plan at a time and the picker chip says
+   which. The navy bar exists to pick one column out of four, so with one
+   column it is noise: every edge, radius, slice and white fill of the
+   highlight goes, and the title goes back to a plain block so a wrapped
+   label keeps its indent. */
 @media (max-width: 900px) {
   .ui-home .rate-table .rate-group-title {
     display: block;
-    padding: 12px 104px 7px 16px;
+    padding: 12px 16px 7px;
     text-indent: 0;
     white-space: normal;
   }
   .ui-home .rate-table .rate-group-title::after { display: none; }
-  .ui-home .rate-table[data-active-plan='2'] .rate-group-title {
-    background: linear-gradient(to left, var(--band) 2px, #fff 2px 82px, var(--band) 82px 84px, transparent 84px);
+  .ui-home .rate-table .ui-pricing-highlight,
+  .ui-home .rate-table .rate-plan.ui-pricing-highlight,
+  .ui-home .rate-table .rate-matrix .rate-group:last-child .rate-row:last-child .ui-pricing-highlight {
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+  }
+  /* One class heavier than the desktop closing rule below, which would otherwise win on order. */
+  .ui-home .rate-table .rate-matrix .rate-group:last-child .rate-row:last-child .ui-pricing-highlight {
+    border-bottom: 0;
   }
 }
 /* The bar closes under the last capability row. */

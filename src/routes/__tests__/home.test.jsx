@@ -189,7 +189,19 @@ describe('pricing', () => {
     const home = readFileSync('src/ui/home.css', 'utf8');
     const col = pricing.plans.findIndex((p) => p.highlighted) + 2;
     expect(home).toMatch(new RegExp(`\\.rate-group-title::after\\s*\\{[^}]*grid-column:\\s*${col};`));
-    expect(home).toMatch(new RegExp(`data-active-plan='${col - 2}'\\] \\.rate-group-title \\{`));
+  });
+
+  // One plan shows at a time under 900px and the picker chip names it, so the
+  // navy column bar has nothing to pick out. Its edges, radius, white fill and
+  // the group-title slice all go (Ronak, 2026-10-30: the bar's borders landed
+  // mid-row on a phone).
+  it('drops every highlight-column decoration under 900px', () => {
+    const home = readFileSync('src/ui/home.css', 'utf8');
+    const phone = home.split(/@media\s*\(max-width:\s*900px\)/)[1];
+    expect(phone).toBeTruthy();
+    expect(phone).not.toMatch(/data-active-plan='\d'\]\s*\.rate-group-title\s*\{/);
+    expect(phone).toMatch(/\.ui-pricing-highlight[^{]*\{[^}]*border-left:\s*0;[^}]*border-right:\s*0;[^}]*border-top:\s*0;[^}]*border-radius:\s*0;/);
+    expect(phone).toMatch(/\.rate-row:last-child \.ui-pricing-highlight\s*\{\s*border-bottom:\s*0;/);
   });
 });
 
