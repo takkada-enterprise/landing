@@ -83,26 +83,26 @@ Lead-answer convention (blog posts): every `content/blog/*.md` post opens with a
 The Campfire rebuild (plan 2026-10-30-003) defines the page tokens in `src/ui/ui.css` `:root`. These values match it exactly. If they ever diverge, `:root` wins and this section must be re-synced. Typography is separate (section 7).
 
 Page tokens (`src/ui/ui.css`):
-- Ground #F8F8F6 (`--ground`): the default band behind cards
-- Card #F1F1EF (`--card`): the grey card fill
-- Band #0F1F3D (`--band`): deep navy. The hero band, the close band, the footer, the dark pill and the border of the highlighted pricing column
-- Accent #FCAF1B (`--accent`): marigold. The one accent phrase in a hero or close-band headline (`em.ui-accent`) and the `Pill` fill
-- Arrow #006EA6 (`--arrow`): Tally blue. The arrow disc on a pill, ticks and focus rings
+- Ground #F3F1EC (`--ground`): the warm paper band behind cards
+- Card #FFFFFF (`--card`) on ground bands; on white bands `--card` resolves to `var(--ground)`, so a card always takes the opposite surface of its band
+- Band #0F1F3D (`--band`): deep navy. The hero band, the close band, the footer and the border of the highlighted pricing column
+- Accent #FCAF1B (`--accent`): marigold. The fill of the primary (`accent`) `Pill` only, and its focus ring over the navy band
+- Arrow #006EA6 (`--arrow`): Tally blue. Focus rings, ticks and links (no disc)
 - Tint #DCF2FB (`--tint`): the pale wash behind the quote band
 - Ink #111418 (`--ink`) for text, muted #5B6670 (`--muted`) for secondary text
 - On band #FFFFFF (`--on-band`) and #C9D3E3 (`--on-band-muted`): text on the navy band
-- `--radius-card` 24px, `--radius-pill` 999px, `--max` 1180px content width
+- `--radius-card` 24px, `--radius-pill` 999px, `--radius-control` 12px (the `Pill`), `--max` 1180px content width
 
 Legacy Marine tokens live in `src/styles.css` `:root`, cut down to the ones the older rules still read: the pricing matrix (`src/ui/pricing.css`), the phone-number modal (`src/ui/modal.css`), and the video embed, FAQ rows, trust link and blog figures (`src/ui/parts.css`). `src/__tests__/brand-guard.test.js` pins seven of them: `--color-primary` #006EA6, `--color-navy` #1E3A6B, `--color-ink` #0F1F3D, `--color-wash` #DCF2FB, `--color-highlight` #FCAF1B, `--color-bg` #F7FAFC, `--color-text` #0E1C2A. The same test fails the suite if #344E41 or any of its sage family reappears anywhere under `src/`. New work reads the page tokens, never the legacy ones.
 
-Marigold rule: marigold fills the `Pill` and colours the accent phrase. It is never a card fill, a band or a text background.
+Marigold rule: marigold fills the primary Pill. It is never a card fill, a band, a text background or a headline colour.
 
-Hero: every page opens on a navy band (`Band tone="band"`) with a headline at weight 500 carrying one phrase in marigold, one lead line, a `Pill` and a text link. On the homepage and the feature pages a product picture from the screens registry sits on the right. The homepage hero adds two small floating cards cut from captures (`.ui-hero-float`), hidden under 900px. The nav (`src/ui/nav.css`) is a white, 64px, sticky bar with a hairline bottom border on every page, and it keeps its colours over the band.
+Hero: every page opens on a navy band (`Band tone="band"`) with a one-colour headline at weight 500, one lead line, a `Pill` and a text link. On the homepage, the feature pages, `/features`, `/partners` and `/demo` a product picture from the screens registry sits on the right (`.ui-hero-stage`). The homepage hero adds two small floating cards cut from captures (`.ui-hero-float`), hidden under 900px. The nav (`src/ui/nav.css`) is a white, 64px, sticky bar with a hairline bottom border on every page, and it keeps its colours over the band.
 
 Component patterns:
-- Cards: `--card` fill, 24px radius, flat, no shadow and no outline. A card's picture sits in `.ui-card-media` (16px radius) under its title and line; a text card has no media box
-- Pills: 52px tall, pill radius, weight 600, with a 36px arrow disc. Accent (marigold fill, ink text, Tally-blue disc), dark (navy fill, white text, white disc) and ghost (transparent, 1px `currentColor` border, no disc)
-- Bands: `--ground`, white, `--tint` or `--band`, padded 96px on desktop and 64px on a phone
+- Cards: the opposite surface of their band (`--card`), 24px radius, flat, no shadow and no outline. A card's picture sits in `.ui-card-media` (16px radius) under its title and line; a text card has no media box
+- Pills: 48px min height, 12px radius, weight 600, no disc. Accent (marigold fill, ink text) and ghost (transparent, 1px `currentColor` border). Text links are underlined and carry no icon
+- Bands: `--ground`, white, `--tint` or `--band`, padded 96px on desktop and 64px on a phone; two adjacent bands of the same tone share one top padding
 - Shadows: cards have none. The few floating layers that carry one (the hero floats, the nav's panels, the modal) use a navy tint, `rgba(10, 23, 48, …)`
 - No overlines or eyebrows above headings, and no icon tiles
 
@@ -112,7 +112,7 @@ The shipped site uses **two families**, both self-hosted from our own origin. Th
 
 - **Plus Jakarta Sans** (weights 400, 500, 600, 700, 800) carries everything: body, UI and every heading. It is the exact family the Takkada Flutter app uses via `google_fonts` (see `takkada/lib/theme/design_tokens.dart`). Exposed as `--font-sans`, and `--font-serif` is an alias that resolves to the same stack.
 - **IBM Plex Mono** (weights 400, 500, 600) is declared in `src/fonts.css`, required by `src/__tests__/fonts.test.js` and budgeted in `scripts/checkImageBudgets.mjs`, but no rule on the site uses it, so browsers never download it.
-- **Headings** get their size and weight from the type scale in `src/ui/ui.css`, not from a display face: the hero title (`.ui-hero-title`) is 64px on desktop and 40px on a phone, the section title (`.ui-section-title`) 44px and 32px, both at weight 500; the card title (`.ui-card-title`) is 22px at weight 600; body copy is 18px and 16px at weight 400. Display line-height is 1.15 and body 1.5. `src/data/__tests__/display-heading-weights.test.js` pins the three weights and fails if `src/styles.css` restyles a `ui-` heading.
+- **Headings** get their size and weight from the type scale in `src/ui/ui.css`, not from a display face: the hero title (`.ui-hero-title`) is `clamp(40px, 3.75vw, 64px)` (48px at 1280) and balanced, the section title (`.ui-section-title`) 44px and 32px, both at weight 500; the card title (`.ui-card-title`) is 22px at weight 600; display and card heads use `text-wrap: balance`; body copy is 18px and 16px at weight 400, tracking 0, with tabular lining figures by default (`body` sets `font-variant-numeric: tabular-nums lining-nums`). Display line-height is 1.15 and body 1.5. `src/data/__tests__/display-heading-weights.test.js` pins the three weights and fails if `src/styles.css` restyles a `ui-` heading.
 
 **Fraunces is retired** (2026-09-18 revamp). `src/__tests__/brand-guard.test.js` walks every `.css`, `.js` and `.jsx` file under `src/` and fails if the word "Fraunces" appears anywhere, comments included. Do not reintroduce it.
 
@@ -187,7 +187,7 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 5. **Motion serves meaning or it doesn't exist.** No decorative animations. If a button, card, or transition moves, the motion must reflect what the product actually does. A reconciliation card matching and snapping into place, an invoice PDF sliding toward a WhatsApp bubble. Motion that doesn't teach is deleted. Default state: no motion. Opt-in per-component with a reason documented in the component file header.
 
    Motion contract (its file-level statement is the header of `src/ui/ui.css`):
-   - Animate only `transform` and `opacity`. Never write `transition: all`; name the properties. The two `transition: all` rules left in `src/ui/modal.css` are debt to pay down, and they license nothing
+   - Animate only `transform` and `opacity`. Never write `transition: all`; name the properties
    - Easing is cubic-bezier(0.23, 1, 0.32, 1) unless a rule has a stated reason to differ
    - UI transitions run at 320ms or under, and an exit is faster than the matching enter
    - Press feedback is `scale(0.97)`
@@ -205,7 +205,7 @@ Eleven craft commandments. Every component Claude Code writes must satisfy these
 
 9. **Tabular numbers, always.** Every rupee amount, percentage, time span, and date uses tabular lining figures (see Section 7). Numbers aligning cleanly across rows is the smallest craft signal that compounds across the entire site.
 
-10. **Compose from a small, consistent component vocabulary.** Don't invent new patterns per section. Every page is built from the nine primitives in `src/ui/` (exported from `src/ui/index.js`): `Band`, `Pill` (accent, dark, ghost), `SectionHead`, `Card`, `CardGrid`, `Shot`, `AltRow`, `QuoteBand` and `CloseBand`, plus the FAQ rows (`FAQItem`), the breadcrumb, `DemoTryCTA` (the phone-number demo entry) and `CalendarCTA` (the "Book a 15-min demo" link). There is no overline. If a new pattern is needed, document why in the component file. Visual consistency across pages is how a small team fakes design-team scale.
+10. **Compose from a small, consistent component vocabulary.** Don't invent new patterns per section. Every page is built from the nine primitives in `src/ui/` (exported from `src/ui/index.js`): `Band`, `Pill` (accent, ghost), `SectionHead`, `Card`, `CardGrid`, `Shot`, `AltRow`, `QuoteBand` and `CloseBand`, plus the FAQ rows (`FAQItem`), the breadcrumb, `DemoTryCTA` (the phone-number demo entry) and `CalendarCTA` (the "Book a 15-min demo" link). There is no overline. If a new pattern is needed, document why in the component file. Visual consistency across pages is how a small team fakes design-team scale.
 
 11. **The hero of every page is the distributor, not Takkada.** Copy frames the distributor's world first ("you reach for your phone at 9 PM to check which retailer paid"), then shows what Takkada does for them. Takkada is a supporting character. If a section leads with "Takkada does X", rewrite to lead with "You need X, and here's what happens when you have it."
 

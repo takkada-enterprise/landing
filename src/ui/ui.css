@@ -1,3 +1,6 @@
+/* Hallmark · checked: 2026-10-30 · genre: modern-minimal (inferred)
+ * floor: 65 FAIL · fixed: restyle tier (audit 3, 4, 8, 9, 10, 11) + polish · structural: printed in the note
+ * built: the project · redesign: restyle · v2.0.0 */
 /* ═══════════════════════════════════════════════════
    src/ui: the Campfire-pattern tokens and the nine primitives
    (plan 2026-10-30-003). Every class here starts with `ui-`; later
@@ -303,3 +306,4 @@ ul.ui-card-line li + li { margin-top: 10px; }
   outline: 2px solid var(--arrow);
   outline-offset: 2px;
 }
+.ui-band--band .ui-textlink:focus-visible { outline-color: var(--accent); }

@@ -42,6 +42,9 @@ describe('button recipe (audit 8)', () => {
     expect(body(ui, '.ui-pill:focus-visible')).toMatch(/outline:\s*2px solid/);
     expect(body(ui, '.ui-band--band .ui-pill:focus-visible')).toMatch(/outline-color:\s*var\(--accent\)/);
   });
+  it('rings the text link marigold on the navy band (Tally blue reads 2.95:1 there)', () => {
+    expect(body(ui, '.ui-band--band .ui-textlink:focus-visible')).toMatch(/outline-color:\s*var\(--accent\)/);
+  });
   it('leaves no arrow disc and no dark tone in any stylesheet or component', () => {
     for (const [p, t] of allCss) expect(t, p).not.toMatch(/ui-pill-arrow|ui-pill--dark/);
     for (const [p, t] of allJs) expect(t, p).not.toMatch(/tone="dark"|ui-pill-arrow/);
