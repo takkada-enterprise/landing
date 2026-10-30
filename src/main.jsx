@@ -6,7 +6,6 @@ import './fonts.css';
 import './ui/ui.css';
 import './styles.css';
 import './premium.css';
-import './home.css';
 import './journey.css';
 import './feature-page.css';
 import './guide.css';

@@ -45,7 +45,7 @@ describe('VideoTestimonials component', () => {
     });
     expect(playBtn).toBeTruthy();
 
-    const poster = container.querySelector('.hv3-stories-poster-img');
+    const poster = container.querySelector('.ui-video-poster');
     expect(poster).toBeTruthy();
     expect(poster.getAttribute('src')).toBe(videoTestimonials[0].video.poster);
 

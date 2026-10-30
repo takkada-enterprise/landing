@@ -51,7 +51,7 @@ describe('proof strip (the testimonial moved ahead of pricing, 2026-08-06)', () 
 
   it('renders proof and the differentiator band before the pricing table (R3/R4)', () => {
     const { container } = renderHome();
-    const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
+    const ids = [...container.querySelectorAll('[id]')].map((s) => s.id);
     expect(ids.indexOf('testimonial')).toBeGreaterThan(-1);
     expect(ids.indexOf('why-takkada')).toBeGreaterThan(-1);
     expect(ids.indexOf('testimonial')).toBeLessThan(ids.indexOf('pricing'));

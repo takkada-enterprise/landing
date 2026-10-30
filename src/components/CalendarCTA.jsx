@@ -1,53 +1,29 @@
-import CTAButton from './CTAButton';
 import { appLinks } from '../data/siteContent';
 import { track } from '../lib/track';
 
-// The one calendar-booking action, everywhere it appears. Calendar booking
-// is the site-wide secondary path next to the WhatsApp CTA; keeping it a
-// single component means the URL, the rel attributes, and the
-// `calendar_open` event stay in lockstep across every surface (a missed
-// copy would silently corrupt the funnel metrics this overhaul measures).
-// U9 note: when the /demo/ share page ships and CTA hierarchies shift,
-// this is the only file the calendar action changes in.
-function CalendarCTA({
-  context,
-  variant = 'button',
-  buttonVariant = 'secondary',
-  className = '',
-  children,
-}) {
+// The one calendar-booking action, everywhere it appears, and the only
+// "Book a 15-min demo" renderer on the site. Keeping it a single component
+// means the URL, the rel attributes, and the `calendar_open` event stay in
+// lockstep across every surface (a missed copy would silently corrupt the
+// funnel metrics). Since the Campfire rebuild (plan 2026-10-30-003) it is
+// always a `ui-textlink` beside a Pill; the old `variant` and `buttonVariant`
+// props are ignored until the pages that pass them are re-templated.
+function CalendarCTA({ context, className = '', children }) {
   const label = children || (
     <>
-      Book a <span className="tabular-nums">15-min</span> demo
+      Book a <span className="tabular-nums">15-min</span> demo <span aria-hidden="true">→</span>
     </>
   );
-  const handleClick = () => track('calendar_open', { cta_context: context });
-
-  if (variant === 'link') {
-    return (
-      <a
-        href={appLinks.bookDemo}
-        className={className}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleClick}
-      >
-        {label}
-      </a>
-    );
-  }
-
   return (
-    <CTAButton
-      variant={buttonVariant}
-      className={className}
+    <a
       href={appLinks.bookDemo}
+      className={`ui-textlink${className ? ` ${className}` : ''}`}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
+      onClick={() => track('calendar_open', { cta_context: context })}
     >
       {label}
-    </CTAButton>
+    </a>
   );
 }
 

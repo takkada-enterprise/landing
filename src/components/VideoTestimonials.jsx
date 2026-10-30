@@ -1,212 +1,117 @@
-import { useState, useRef } from 'react';
-import { Play, Pause, BadgeCheck, Clock, Building2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Play, BadgeCheck, CheckCircle2 } from 'lucide-react';
 import { videoTestimonials } from '../data/siteContent';
+import { Card, CardGrid, SectionHead } from '../ui';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import { track } from '../lib/track';
 
-function VideoTestimonials({ items = videoTestimonials }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+// Verified customer video stories, one Card per story (plan 2026-10-30-003).
+// The poster is the overlay, so the page fetches no video bytes until the
+// visitor taps play. The caller places this inside a Band.
+function Story({ item }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  if (!items || items.length === 0) return null;
-
-  const current = items[activeIndex] || items[0];
-
-  const handlePlayClick = () => {
-    track('testimonial_video_play', {
-      story_id: current.id,
-      story_name: current.name,
-      company: current.company,
-    });
+  const play = () => {
+    track('testimonial_video_play', { story_id: item.id, story_name: item.name, company: item.company });
     setIsPlaying(true);
-    if (videoRef.current) {
-      const playPromise = videoRef.current.play?.();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {
-          // Autoplay may be restricted in some browsers without user interaction
-        });
-      }
-    }
-  };
-
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
-
-  const handleVideoEnded = () => {
-    setIsPlaying(false);
-  };
-
-  const handleSelectStory = (index) => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-    setIsPlaying(false);
-    setActiveIndex(index);
+    const p = videoRef.current?.play?.();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
   };
 
   return (
-    <section className="hv3-stories" id="customer-stories" aria-label="Customer Video Stories">
-      <div className="container">
-        <div className="hv3-story-head reveal">
-          <h2 className="hv3-story-title">Customer Stories</h2>
-          <p className="hv3-story-intro">
-            Meet Patel of Dhanlaxmi Crop Science Limited, an NSE-listed company, on how they use Takkada.
-          </p>
+    // The English summary, not the verbatim quote: the owner ruled 2026-10-29
+    // that the site carries no Hinglish. The quote stays in the data for the
+    // Review schema.
+    <Card title={item.company} line={item.summary}>
+      <div className="ui-video-body">
+        <div className="ui-video-frame">
+          {!isPlaying && (
+            <>
+              {item.video.poster && (
+                <img
+                  src={item.video.poster}
+                  alt={`${item.name}, ${item.role} of ${item.company}`}
+                  className="ui-video-poster"
+                  loading="lazy"
+                />
+              )}
+              <button
+                type="button"
+                className="ui-video-play"
+                onClick={play}
+                aria-label={`Play customer testimonial video of ${item.name} from ${item.company}`}
+              >
+                <span className="ui-video-play-disc" aria-hidden="true">
+                  <Play size={22} fill="currentColor" />
+                </span>
+                <span className="ui-video-duration tabular-nums">{item.duration}</span>
+              </button>
+            </>
+          )}
+          <video
+            ref={videoRef}
+            src={item.video.src}
+            controls={isPlaying}
+            playsInline
+            preload="none"
+            className={`ui-video-player${isPlaying ? ' ui-video-player--active' : ''}`}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
 
-        {items.length > 1 && (
-          <div className="hv3-stories-nav reveal" role="tablist" aria-label="Select customer story">
-            {items.map((item, idx) => (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={activeIndex === idx}
-                className={`hv3-stories-tab${activeIndex === idx ? ' hv3-stories-tab--active' : ''}`}
-                onClick={() => handleSelectStory(idx)}
-              >
-                <span className="hv3-stories-tab-name">{item.name}</span>
-                <span className="hv3-stories-tab-company">{item.company}</span>
-              </button>
-            ))}
-          </div>
-        )}
-
-        <div className="hv3-stories-grid reveal">
-          {/* ── Left Column: Video Player Card ── */}
-          <div className="hv3-stories-player-col">
-            <div className="hv3-stories-video-frame">
-              {!isPlaying && (
-                <div className="hv3-stories-poster-overlay">
-                  {current.video.poster && (
-                    <img
-                      src={current.video.poster}
-                      alt={`${current.name}, ${current.role} of ${current.company}`}
-                      className="hv3-stories-poster-img"
-                      loading="lazy"
-                    />
-                  )}
-                  <div className="hv3-stories-poster-gradient" />
-
-                  {/* Top tags */}
-                  <div className="hv3-stories-poster-top">
-                    <span className="hv3-stories-chip">
-                      <Building2 size={13} aria-hidden="true" />
-                      <span className="hv3-stories-chip-text">{current.company}</span>
-                    </span>
-                    <span className="hv3-stories-chip hv3-stories-chip--time">
-                      <Clock size={13} /> {current.duration}
-                    </span>
-                  </div>
-
-                  {/* Play button */}
-                  <button
-                    type="button"
-                    className="hv3-stories-play-btn"
-                    onClick={handlePlayClick}
-                    aria-label={`Play customer testimonial video of ${current.name} from ${current.company}`}
-                  >
-                    <span className="hv3-stories-play-ring" aria-hidden="true" />
-                    <span className="hv3-stories-play-icon" aria-hidden="true">
-                      <Play size={28} fill="currentColor" />
-                    </span>
-                    <span className="hv3-stories-play-label">Watch Story</span>
-                  </button>
-
-                  {/* Bottom caption on poster */}
-                  <div className="hv3-stories-poster-bottom">
-                    <span className="hv3-stories-poster-name">{current.name}</span>
-                    <span className="hv3-stories-poster-role">
-                      {current.role}, {current.company}
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {/* preload="none" and no poster attribute: the overlay above is the
-                  poster (and lazy), so the homepage fetches no video bytes until
-                  the visitor taps Watch Story. */}
-              <video
-                ref={videoRef}
-                src={current.video.src}
-                controls={isPlaying}
-                playsInline
-                preload="none"
-                className={`hv3-stories-video${isPlaying ? ' hv3-stories-video--active' : ''}`}
-                onPause={handlePause}
-                onEnded={handleVideoEnded}
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
-          {/* ── Right Column: Story Narrative & Proof ── */}
-          <div className="hv3-stories-details-col">
-            <div className="hv3-stories-card">
-              <div className="hv3-stories-company-badge">
-                <div className="hv3-stories-avatar" aria-hidden="true">
-                  {current.company.split(' ').map((w) => w[0]).join('').slice(0, 2)}
-                </div>
-                <div className="hv3-stories-meta">
-                  <div className="hv3-stories-company-row">
-                    <h3 className="hv3-stories-company-name">{current.company}</h3>
-                    <span className="hv3-stories-verified">
-                      <BadgeCheck size={16} /> {current.badge}
-                    </span>
-                  </div>
-                  <p className="hv3-stories-person">
-                    <strong>{current.name}</strong> • {current.role}
-                    {current.industry && <span className="hv3-stories-industry"> • {current.industry}</span>}
-                  </p>
-                </div>
-              </div>
-
-              <blockquote className="hv3-stories-quote">
-                <span className="hv3-stories-quote-mark" aria-hidden="true">&ldquo;</span>
-                {/* The English summary, not the verbatim quote: the owner ruled
-                    2026-10-29 that the site carries no Hinglish. The quote stays
-                    in the data for the Review schema. */}
-                <p>{current.summary}</p>
-              </blockquote>
-
-              {current.takeaways && current.takeaways.length > 0 && (
-                <div className="hv3-stories-takeaways">
-                  <h4 className="hv3-stories-takeaways-title">Key Operational Highlights</h4>
-                  <ul className="hv3-stories-takeaways-list">
-                    {current.takeaways.map((item) => (
-                      <li key={item.title} className="hv3-stories-takeaway-item">
-                        <CheckCircle2 size={18} className="hv3-stories-check-icon" />
-                        <div>
-                          <strong>{item.title}</strong>
-                          <p>{item.desc}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="hv3-stories-cta">
-                <WhatsAppCTA context="testimonial-video">
-                  Ask how Takkada works for your business
-                </WhatsAppCTA>
-                <CalendarCTA
-                  context="testimonial-video"
-                  variant="link"
-                  className="hv3-stories-calendar-link"
-                >
-                  or book a <span className="tabular-nums">15-min</span> personal demo <ArrowRight size={15} />
-                </CalendarCTA>
-              </div>
-            </div>
+        <div className="ui-video-details">
+          <p className="ui-video-person">
+            <strong>{item.name}</strong>, {item.role}
+            {item.industry && <>. {item.industry}</>}
+          </p>
+          <p className="ui-video-badge">
+            <BadgeCheck size={16} aria-hidden="true" /> {item.badge}
+          </p>
+          {item.takeaways?.length > 0 && (
+            <>
+              <h4 className="ui-video-takeaways-title">Key Operational Highlights</h4>
+              <ul className="ui-video-takeaways">
+                {item.takeaways.map((t) => (
+                  <li key={t.title}>
+                    <CheckCircle2 size={18} aria-hidden="true" />
+                    <div>
+                      <strong>{t.title}</strong>
+                      <p>{t.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          <div className="ui-video-cta">
+            <WhatsAppCTA context="testimonial-video">Ask how Takkada works for your business</WhatsAppCTA>
+            <CalendarCTA context="testimonial-video" />
           </div>
         </div>
       </div>
-    </section>
+    </Card>
+  );
+}
+
+function VideoTestimonials({ items = videoTestimonials }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="ui-video" id="customer-stories" role="region" aria-label="Customer Video Stories">
+      <SectionHead
+        title="Customer Stories"
+        lead="Meet Patel of Dhanlaxmi Crop Science Limited, an NSE-listed company, on how they use Takkada."
+      />
+      <CardGrid cols={2}>
+        {items.map((item) => (
+          <Story key={item.id} item={item} />
+        ))}
+      </CardGrid>
+    </div>
   );
 }
 

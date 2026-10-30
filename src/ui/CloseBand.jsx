@@ -2,7 +2,9 @@ import Band from './Band';
 import Pill from './Pill';
 
 // `title` contains `accent`; that phrase is wrapped in em.ui-accent.
-export default function CloseBand({ id, title, accent, cta }) {
+// `children`, when given, replaces the default Pill: a page passes DemoTryCTA
+// so "Try the demo" keeps its phone-number capture.
+export default function CloseBand({ id, title, accent, cta, children }) {
   const at = accent ? title.indexOf(accent) : -1;
   return (
     <Band tone="band" id={id} className="ui-close">
@@ -15,7 +17,7 @@ export default function CloseBand({ id, title, accent, cta }) {
           </>
         )}
       </h2>
-      <Pill to={cta.to}>{cta.label}</Pill>
+      {children || <Pill to={cta.to}>{cta.label}</Pill>}
     </Band>
   );
 }

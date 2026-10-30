@@ -1,0 +1,293 @@
+/* ═══════════════════════════════════════════════════
+   src/ui/home.css: the home page on the Campfire pattern (plan
+   2026-10-30-003, Task 4). Hero stage and floats, the used-for label,
+   and the skins for the kept .rate-* pricing matrix, the FAQ rows and
+   the video story cards. The motion contract is ui.css's.
+
+   Every rule here is prefixed with .ui-home: this file loads ahead of
+   styles.css (it is imported by Home.jsx, which main.jsx reaches before
+   its own stylesheet imports), so the prefix is what lets the skin win
+   over the legacy .rate-* and .faq-* rules there.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.ui-home .ui-hero {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  gap: 48px;
+  align-items: center;
+}
+.ui-home .ui-hero-title { color: var(--on-band); }
+.ui-home .ui-hero-lead {
+  margin: 24px 0 0;
+  max-width: 520px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--on-band-muted);
+}
+.ui-home .ui-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 40px;
+}
+.ui-home .ui-hero-stage {
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+/* A float is a fragment of a screen, not a second phone: the card shows the
+   top of the capture and clips the rest, so it never runs past the band. */
+.ui-home .ui-hero-float {
+  position: absolute;
+  width: 220px;
+  max-height: 260px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 48px rgba(10, 23, 48, 0.25);
+}
+
+/* ── Used for ── */
+.ui-home .ui-label {
+  margin: 0 0 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+}
+.ui-home .ui-center {
+  margin-top: 48px;
+  text-align: center;
+}
+.ui-home .ui-card-media .ui-shot,
+.ui-home .ui-altrow-media .ui-shot {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* ── Data safety ── */
+.ui-home .trust-store-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+.ui-home .trust-store-links a,
+.ui-home .trust-article-link a {
+  color: var(--arrow);
+  font-weight: 600;
+}
+.ui-home .trust-article-link {
+  margin: 40px 0 0;
+  text-align: center;
+}
+
+/* ── Pricing: the kept .rate-* matrix, re-skinned ── */
+.ui-home .rate-head .rate-title {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.ui-home .rate-head .rate-subtitle { margin-top: 12px; }
+.ui-home .rate-head .rate-term {
+  background: var(--card);
+  box-shadow: none;
+}
+.ui-home .rate-head .rate-term-badge,
+.ui-home .rate-picker .rate-picker-option--active {
+  background: var(--arrow);
+}
+.ui-home .rate-table {
+  background: var(--card);
+  border-radius: var(--radius-card);
+  box-shadow: none;
+}
+.ui-home .rate-table .rate-plan,
+.ui-home .rate-table .rate-table-corner {
+  background: var(--card);
+}
+.ui-home .rate-table .rate-plan-name,
+.ui-home .rate-table .rate-plan-badge,
+.ui-home .rate-table .rate-corner-title,
+.ui-home .rate-table .rate-group-title {
+  color: var(--ink);
+}
+.ui-home .rate-table .rate-group-title { background: transparent; }
+.ui-home .rate-table .rate-tick { color: var(--arrow); }
+.ui-home .rate-table .ui-pricing-highlight {
+  background: #fff;
+  border-left: 2px solid var(--band);
+  border-right: 2px solid var(--band);
+}
+.ui-home .rate-table .rate-plan.ui-pricing-highlight {
+  border-top: 2px solid var(--band);
+  border-radius: 16px 16px 0 0;
+}
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-name,
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-badge,
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-price,
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-period,
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-note,
+.ui-home .rate-table .ui-pricing-highlight .rate-plan-note s {
+  color: var(--ink);
+}
+.ui-home .rate-table .ui-pricing-highlight .rate-tick { color: var(--arrow); }
+.ui-home .home-pricing-strip-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+  margin-top: 48px;
+}
+
+/* ── FAQ: hairline rows ── */
+.ui-home .faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.ui-home .faq-list .faq-item {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(17, 20, 24, 0.12);
+}
+.ui-home .faq-list .faq-question {
+  font-size: 18px;
+  color: var(--ink);
+}
+.ui-home .faq-list .faq-answer {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ── Video story cards (VideoTestimonials) ── */
+/* One story per row: the card holds the video and its details side by side. */
+.ui-home .ui-video .ui-grid { grid-template-columns: 1fr; }
+.ui-home .ui-video-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.ui-home .ui-video .ui-card-media { overflow: visible; }
+.ui-home .ui-video-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+}
+.ui-home .ui-video-poster,
+.ui-home .ui-video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ui-home .ui-video-player { opacity: 0; }
+.ui-home .ui-video-player--active { opacity: 1; }
+.ui-home .ui-video-play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.ui-home .ui-video-play-disc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink);
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ui-home .ui-video-duration {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 23, 48, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+}
+.ui-home .ui-video-details p { margin: 0; }
+.ui-home .ui-video-person { font-size: 16px; }
+.ui-home .ui-video-details .ui-video-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--arrow);
+}
+.ui-home .ui-video-takeaways-title {
+  margin: 28px 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.ui-home .ui-video-takeaways {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-home .ui-video-takeaways li {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+}
+.ui-home .ui-video-takeaways svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--arrow);
+}
+.ui-home .ui-video-takeaways p {
+  color: var(--muted);
+}
+.ui-home .ui-video-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 32px;
+}
+@media (min-width: 900px) {
+  .ui-home .ui-video-body { grid-template-columns: 5fr 7fr; }
+}
+
+/* ── Hero stacks below 900px: copy first, floats go ── */
+@media (max-width: 899px) {
+  .ui-home .ui-hero { grid-template-columns: 1fr; }
+  .ui-home .ui-hero-stage { width: min(360px, 72vw); }
+  .ui-home .ui-hero-float { display: none; }
+}
+@media (max-width: 767px) {
+  .ui-home .ui-hero-lead { font-size: 18px; }
+  .ui-home .rate-head .rate-title { font-size: 32px; }
+}
+
+/* ── Motion ── */
+@media (hover: hover) and (pointer: fine) {
+  .ui-home .ui-video-play:hover .ui-video-play-disc { transform: scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-home .ui-video-play-disc { transition: none; }
+  .ui-home .ui-video-play:hover .ui-video-play-disc { transform: none; }
+}

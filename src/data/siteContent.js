@@ -528,8 +528,9 @@ export const footerColumns = [
     // removed (the AI band carried #pdf-import, the capability grid carried
     // #smart-reminders, #e-invoicing and #rbac). A footer link to an id that is
     // no longer rendered is a dead anchor (CLAUDE.md §11.6), so each now points
-    // at the feature page that covers the same ground. The two hashes that
-    // survive are the two sections the revamp kept.
+    // at the feature page that covers the same ground. Payment Collection
+    // followed in the Campfire rebuild (2026-10-30), which dropped
+    // #digital-collection; #tally is the one hash left.
     links: [
       { label: 'Import from PDF', page: 'import-purchase-from-pdf' },
       { label: 'Tally Connector', href: '#tally' },
@@ -538,7 +539,7 @@ export const footerColumns = [
       // apart both reading "Tally Connector", one scrolling and one starting a
       // download, is the collision this label exists to avoid.
       { label: 'Download for Windows', href: TALLY_CONNECTOR_URL, download: true },
-      { label: 'Payment Collection', href: '#digital-collection' },
+      { label: 'Payment Collection', page: 'payment-collection-tally' },
       { label: 'Smart Reminders', page: 'send-payment-reminders-automatically' },
       { label: 'E-Invoicing', page: 'e-invoice-from-phone' },
       // The salesman page is where role-based visibility is actually described

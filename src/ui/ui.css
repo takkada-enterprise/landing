@@ -276,3 +276,21 @@
   .ui-pill { transition: none; }
   .ui-pill:hover { transform: none; }
 }
+
+/* ── Text link: the quiet second action beside a Pill (CalendarCTA) ── */
+.ui-textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.ui-textlink:focus-visible {
+  outline: 2px solid var(--arrow);
+  outline-offset: 2px;
+}
