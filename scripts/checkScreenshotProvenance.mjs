@@ -69,8 +69,9 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, '..');
 
-/** The demo company. Nothing else may be photographed for the public site. */
-export const DEMO_COMPANY_ID = 143;
+/** The demo companies. Nothing else may be photographed for the public site. */
+// 7088 = stage dogfood book "Auto Spare &Race Industries - (25-26)"; owner ruling 2026-10-30 (prod demo 143 has no desktop module).
+export const DEMO_COMPANY_IDS = Object.freeze([143, 7088]);
 
 /** Site URL prefixes that resolve to a local asset rather than a third party. */
 const OWN_ORIGINS = ['https://takkada.com', 'http://takkada.com', 'https://www.takkada.com'];
@@ -126,7 +127,7 @@ export function isSafeRouteTemplate(route) {
 function evidenceFieldErrors(evidence, label) {
   const errors = [];
   if (evidence.kind !== 'appScreenshot') errors.push(`${label}not classified as app screenshot`);
-  if (evidence.companyId !== DEMO_COMPANY_ID) {
+  if (!DEMO_COMPANY_IDS.includes(evidence.companyId)) {
     errors.push(`${label}screenshot is not from demo company`);
   }
   if (
@@ -921,7 +922,7 @@ async function main() {
     for (const error of errors) console.error(`  ✗ ${error}`);
     console.error(
       '\nAn application screenshot ships only with a reviewed capture record from demo ' +
-        `company ${DEMO_COMPANY_ID}. Record one with:\n` +
+        'company 143 on prod, or 7088 on stage. Record one with:\n' +
         '  node scripts/capture-guide-evidence.mjs record --help\n'
     );
     process.exit(1);

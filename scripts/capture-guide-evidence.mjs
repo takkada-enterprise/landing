@@ -79,7 +79,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  DEMO_COMPANY_ID,
+  DEMO_COMPANY_IDS,
   canonicalManifestPath,
   findMetadataLeaks,
   isSafeRouteTemplate,
@@ -179,10 +179,10 @@ function readIdentity(args, image) {
       die(`identity artefact is missing "${field}"`);
     }
   }
-  if (identity.companyId !== DEMO_COMPANY_ID) {
+  if (!DEMO_COMPANY_IDS.includes(identity.companyId)) {
     die(
       `identity artefact records company ${identity.companyId}. Only the demo company ` +
-        `(${DEMO_COMPANY_ID}) may be photographed for the public site.`
+        '(143 on prod, or 7088 on stage) may be photographed for the public site.'
     );
   }
 
@@ -229,7 +229,7 @@ async function confirmReview(args, image) {
   console.log(`\nOpen and look at ${image.manifestPath} before answering.`);
   console.log('Check for: a real customer name, a real balance, an invoice number, a phone');
   console.log('number, a bank reference, and any control belonging to a dark feature.');
-  console.log(`Demo company ${DEMO_COMPANY_ID} holds dark feature keys, so being on the demo`);
+  console.log('Demo company 143 on prod, or 7088 on stage, holds dark feature keys, so being on the demo');
   console.log('company does not by itself make a screen publishable.\n');
   const rl = createInterface({ input: process.stdin, output: process.stdout });
   const typed = await rl.question(`Type exactly:\n  ${CONFIRMATION}\n> `);
