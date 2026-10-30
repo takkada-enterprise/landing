@@ -167,6 +167,10 @@ describe('placement polish (audit 5, 13, 15)', () => {
   it('sets the hero chips on the control radius, so they match the buttons beside them', () => {
     expect(body(read('ui/home.css'), '.ui-home .ui-hero-float')).toMatch(/border-radius:\s*var\(--radius-control\)/);
   });
+  it('windows the features-hub card screens to a fixed height instead of showing whole phones', () => {
+    const feature = read('ui/feature.css');
+    expect(body(feature, '.ui-feature .features-hub-card .ui-card-media')).toMatch(/height:\s*\d+px/);
+  });
   it('gives the footer one track per filled group', () => {
     expect(body(read('ui/footer.css'), '.ui-footer-top')).toMatch(/repeat\(var\(--footer-groups/);
   });

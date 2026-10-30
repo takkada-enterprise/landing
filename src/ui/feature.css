@@ -305,3 +305,18 @@
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+/* Features hub cards: a window onto the top of each screen, not the whole
+   phone. Thirty-five full devices in a column was visually paralysing
+   (Ronak, 2026-10-30). The window clips the phone below its header, so a
+   card shows the screen's name and first rows and the page stays scannable. */
+.ui-feature .features-hub-card .ui-card-media {
+  height: 200px;
+}
+.ui-feature .features-hub-card .ui-card-media .ui-shot {
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (max-width: 599px) {
+  .ui-feature .features-hub-card .ui-card-media { height: 160px; }
+}
