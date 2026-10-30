@@ -18,7 +18,7 @@ import { FEATURE_PAGES, featurePagePath, stepShot } from '../../data/featurePage
 import { SCREENS, screen } from '../../data/screens';
 import { routeMetadata } from '../../data/siteMetadata';
 import { routes } from '../index';
-import { pricing, planPricing, DEFAULT_PRICING_TERM } from '../../data/siteContent';
+import { pricing, planPricing, DEFAULT_PRICING_TERM, appLinks } from '../../data/siteContent';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -172,6 +172,11 @@ describe.each(PICKS)('%s renders on the Campfire template', (_slug, page) => {
     const close = container.querySelector('.ui-close');
     expect(close).not.toBeNull();
     expect(close.querySelector('.ui-pill').textContent).toContain('Try the demo');
+    // Owner ruling 2026-10-30: every feature page keeps a booking path.
+    const book = close.querySelector('a.ui-textlink');
+    expect(book).not.toBeNull();
+    expect(book.textContent).toContain('Book a 15-min demo');
+    expect(book.getAttribute('href')).toBe(appLinks.bookDemo);
     expect(container.querySelector('[class*="overline"], [class*="eyebrow"], [class*="section-label"]')).toBeNull();
   });
 });

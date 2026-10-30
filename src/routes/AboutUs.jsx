@@ -28,17 +28,17 @@ function AboutUs() {
 
       <h2>What We Do</h2>
       <p>
-        Takkada connects directly to your Tally installation and gives you a powerful mobile-first platform to manage receivables, send automated payment reminders via WhatsApp, collect payments digitally, and reconcile everything back to Tally automatically.
+        Takkada connects directly to your Tally installation and gives you a mobile app to manage receivables, send automated payment reminders via WhatsApp, collect payments digitally, and reconcile everything back to Tally automatically.
       </p>
 
       <h2>Why We Built Takkada</h2>
       <p>
-        After working closely with hundreds of businesses across India, we saw the same problems everywhere: owners stuck at their counters, hours lost to manual follow-ups, cash stuck in overdue receivables, and accounting teams drowning in repetitive data entry. We built Takkada to solve all of this.
+        After working closely with <span className="tabular-nums">100+</span> businesses across India, we saw the same problems everywhere: owners stuck at their counters, hours lost to manual follow-ups, cash stuck in overdue receivables, and accounting teams drowning in repetitive data entry. We built Takkada to solve all of this.
       </p>
 
       <h2>Our Approach</h2>
       <ul>
-        <li><strong>Tally-First:</strong> We don&apos;t replace Tally, we make it better. Your existing workflow stays exactly the same.</li>
+        <li><strong>Tally-First:</strong> Takkada runs on top of Tally. Your existing workflow stays exactly the same.</li>
         <li><strong>Mobile-First:</strong> Manage your entire receivables operation from your phone, anywhere.</li>
         <li><strong>Automation-First:</strong> Payment reminders, collection links, and reconciliation all happen automatically.</li>
         <li><strong>India-First:</strong> Built for Indian businesses with GST compliance, UPI payments, WhatsApp integration, and rupee-denominated workflows.</li>

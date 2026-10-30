@@ -28,7 +28,7 @@ const data = {
     {
       icon: Bell,
       title: 'Send a reminder in two taps',
-      body: 'Tap a party, send a reminder. Your name, your brand, the invoice number — already filled in.',
+      body: 'Tap a party, send a reminder. Your name, your brand and the invoice number are already filled in.',
     },
     {
       icon: FileText,
@@ -37,12 +37,12 @@ const data = {
     },
     {
       icon: Shield,
-      title: 'Read-only — your Tally stays untouched',
-      body: 'Read-only tracking does not write anything to Tally. Your data, your formats, your numbering — exactly as they are.',
+      title: 'Read-only, so your Tally stays untouched',
+      body: 'Read-only tracking does not write anything to Tally. Your data, your formats and your numbering stay exactly as they are.',
     },
   ],
   scenario:
-    'You are at a wedding in Jorhat. Your phone shows a UPI credit from a retailer in Nagaon — ₹38,000. You open Takkada, see his outstanding drop from ₹1.1 lakh to ₹72,000. You tap, send him a receipt on WhatsApp. Done. No call to the accountant, no laptop. When your office laptop opens Tally on Monday, the entry is already there.',
+    'You are at a wedding in Jorhat. Your phone shows a UPI credit from a retailer in Nagaon, ₹38,000. You open Takkada, see his outstanding drop from ₹1.1 lakh to ₹72,000. You tap, send him a receipt on WhatsApp. Done. No call to the accountant, no laptop. When your office laptop opens Tally on Monday, the entry is already there.',
   testimonial: {
     quote:
       'I used to call my accountant three times a day to check overdues. Now I check from the car. The calls stopped.',

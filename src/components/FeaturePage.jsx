@@ -5,6 +5,7 @@ import Seo from './Seo';
 import CallPlayer from './CallPlayer';
 import WhatsAppCTA from './WhatsAppCTA';
 import DemoTryCTA from './DemoTryCTA';
+import CalendarCTA from './CalendarCTA';
 import Breadcrumb from './Breadcrumb';
 import FAQItem from './FAQItem';
 import { Band, SectionHead, Card, CardGrid, Shot, AltRow, CloseBand } from '../ui';
@@ -197,7 +198,10 @@ function FeaturePage({ page }) {
       )}
 
       <CloseBand id="close" title={HOME_CLOSE.title} accent={HOME_CLOSE.accent} cta={HOME_CLOSE.cta}>
-        <DemoTryCTA context={page.waContext}>{HOME_CLOSE.cta.label}</DemoTryCTA>
+        <div className="ui-close-actions">
+          <DemoTryCTA context={page.waContext}>{HOME_CLOSE.cta.label}</DemoTryCTA>
+          <CalendarCTA context={page.waContext} />
+        </div>
       </CloseBand>
     </div>
   );

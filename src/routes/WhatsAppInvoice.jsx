@@ -40,7 +40,7 @@ const data = {
     },
   ],
   scenario:
-    "Your salesman is in Jorhat at a general store. He closes a ₹22,000 order at 6:45 PM. Your office shut at 6:30. He opens Takkada, raises the tax invoice from his phone, generates the e-way bill. The retailer's WhatsApp pings — invoice attached, payment link included. The entry sits in Tally. Your accountant sees it the next morning, reviews it, moves on. No re-entry. No backlog from yesterday's field work.",
+    "Your salesman is in Jorhat at a general store. He closes a ₹22,000 order at 6:45 PM. Your office shut at 6:30. He opens Takkada, raises the tax invoice from his phone, generates the e-way bill. The retailer's WhatsApp pings with the invoice attached and the payment link included. The entry sits in Tally. Your accountant sees it the next morning, reviews it, moves on. No re-entry. No backlog from yesterday's field work.",
   testimonial: {
     quote:
       "My salesman used to write the order on paper and the accountant would enter it the next day. Now it goes straight to Tally from the field. We close the day clean.",
@@ -49,7 +49,7 @@ const data = {
   faqs: [
     {
       q: 'Does the accountant need to do anything after the salesman raises an invoice from the field?',
-      a: 'Nothing. The voucher syncs to Tally directly. The accountant reviews it like any entry already in the system — no import, no re-entry.',
+      a: 'Nothing. The voucher syncs to Tally directly. The accountant reviews it like any entry already in the system, with no import and no re-entry.',
     },
     {
       q: 'What voucher types can the salesman raise from the phone?',

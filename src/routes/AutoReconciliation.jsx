@@ -75,11 +75,11 @@ const ACTORS = [
 ];
 
 const RELAY = [
-  { meta: '10:05 AM • WhatsApp → Owner', text: <>Pays and sends a screenshot.<br /><em>"Bhaiya, payment kar diya. Screenshot bheja hai."</em></> },
-  { meta: '10:20 AM • Forward → Accountant', text: <em>"Annapurna ka payment aaya hai, entry kar dena."</em> },
-  { meta: '11:40 AM • Call → Owner', text: <><strong className="tabular-nums">₹48,000</strong>. Four bills open. None of them is <strong className="tabular-nums">₹48,000</strong>.<br /><em>"Sir, kaunse bill ka hai?"</em></> },
-  { meta: '11:45 AM • Call → Customer', text: <><em>"Purane wale ka hai, baaki agle hafte."</em><br />Which old one? He has hung up.</> },
-  { meta: '12:30 PM • Call → Accountant', text: <><em>"Purane wale mein daal do."</em><br />The accountant guesses the split.</> },
+  { meta: '10:05 AM • WhatsApp → Owner', text: <>Pays and sends a screenshot.<br /><em>"Sir, the payment is done. I have sent the screenshot."</em></> },
+  { meta: '10:20 AM • Forward → Accountant', text: <em>"Annapurna's payment has come in. Please make the entry."</em> },
+  { meta: '11:40 AM • Call → Owner', text: <><strong className="tabular-nums">₹48,000</strong>. Four bills open. None of them is <strong className="tabular-nums">₹48,000</strong>.<br /><em>"Which bill is it for?"</em></> },
+  { meta: '11:45 AM • Call → Customer', text: <><em>"It is for the old one. The rest next week."</em><br />Which old one? He has hung up.</> },
+  { meta: '12:30 PM • Call → Accountant', text: <><em>"Put it against the old one."</em><br />The accountant guesses the split.</> },
   { meta: 'Next day • 10:00 AM', text: 'Reminded again for the bill he thinks he paid. He calls the owner, annoyed.' },
 ];
 
@@ -87,7 +87,7 @@ const STOPS = [
   { meta: 'Stop 1 • 10:00 AM • Reminded', head: 'The reminder carries the link', desc: 'Both open bills, one Pay now link tied to those exact invoices.' },
   { meta: 'Stop 2 • 4:12 PM • Paid', head: 'He pays the way he likes', desc: 'UPI, NEFT, RTGS, card or netbanking. No screenshot to send.' },
   { meta: 'Stop 3 • 4:12 PM • Split', head: 'The invoices mark themselves paid', desc: '₹1,86,420.16 clears 0032. ₹62,479.84 clears 0047.' },
-  { meta: 'Stop 4 • 4:12 PM • Receipt sent', head: 'The receipt reaches him', desc: '"₹2,48,900 prapt hue. Dhanyavaad."' },
+  { meta: 'Stop 4 • 4:12 PM • Receipt sent', head: 'The receipt reaches him', desc: '"₹2,48,900 received. Thank you."' },
   { meta: 'Stop 5 • 4:13 PM • In Tally ✓', head: 'Tally already knows', desc: "Receipt voucher against both bills. ₹0 due. Tomorrow's reminder skips him." },
 ];
 
@@ -134,11 +134,7 @@ function AutoReconciliation() {
         <div className="ui-hero">
           <div className="ui-hero-copy">
             <h1 className="ui-hero-title">
-              No screenshots.
-              <br />
-              No calls.
-              <br />
-              Payments update Tally on their own.
+              Payments update Tally on their own, with no screenshots and no calls.
             </h1>
             <p className="ui-hero-lead">
               Your customer pays from the link in your reminder, by UPI, NEFT, RTGS or card. Takkada marks the invoice paid, sends him the receipt, and posts it in Tally.
@@ -152,9 +148,9 @@ function AutoReconciliation() {
           <div className="ui-recon-stage">
             <Card title="Today, on your phone" line="Without Takkada" className="ui-recon-panel">
               <ul className="ui-recon-lines">
-                <li><span className="tabular-nums">₹2,48,900</span> Bhaiya, payment kar diya.</li>
+                <li><span className="tabular-nums">₹2,48,900</span> Sir, the payment is done.</li>
                 <li>Forwarded to Accountant</li>
-                <li>Sir, kaunse bill ka hai?</li>
+                <li>Which bill is it for?</li>
                 <li>Missed call &bull; Accountant</li>
                 <li>Missed call &bull; Annapurna</li>
                 <li>+2 more</li>
@@ -182,7 +178,7 @@ function AutoReconciliation() {
           </CardGrid>
         </div>
         <div className="ui-card ui-recon-pull">
-          <p className="ui-card-title">One payment. One screenshot. Four calls. And the ledger is still a guess.</p>
+          <p className="ui-card-title">One payment brought a screenshot and four calls, and the ledger is still a guess.</p>
           <p className="ui-card-line">Shreeji Distributors gets twenty a day.</p>
         </div>
       </Band>
