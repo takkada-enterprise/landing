@@ -164,6 +164,9 @@ describe('placement polish (audit 5, 13, 15)', () => {
       expect(stage - 40 + chip, `${vw}px`).toBeLessThanOrEqual(column);
     }
   });
+  it('sets the hero chips on the control radius, so they match the buttons beside them', () => {
+    expect(body(read('ui/home.css'), '.ui-home .ui-hero-float')).toMatch(/border-radius:\s*var\(--radius-control\)/);
+  });
   it('gives the footer one track per filled group', () => {
     expect(body(read('ui/footer.css'), '.ui-footer-top')).toMatch(/repeat\(var\(--footer-groups/);
   });
