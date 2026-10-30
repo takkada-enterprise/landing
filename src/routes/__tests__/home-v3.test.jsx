@@ -11,9 +11,8 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
+import { navLinks, footerColumns, demoEntryLive, homeFeatures } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
-import { STOPS, STORY } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -36,7 +35,7 @@ function renderHome() {
 }
 
 describe('Home v3 structure (AE1)', () => {
-  it('tells the page story through headings alone: the phone, then the invoice', () => {
+  it('tells the page story through headings alone: the phone, then the seven features', () => {
     const { container } = renderHome();
     const h1s = [...container.querySelectorAll('h1')];
     // The server render is the home state, so a crawler and a no-JS visitor
@@ -44,31 +43,59 @@ describe('Home v3 structure (AE1)', () => {
     expect(h1s.map((h) => h.textContent)).toEqual([HERO_HOME.headline]);
 
     const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
-    expect(h2s).toContain(STORY.title);
+    expect(h2s).toContain(homeFeatures.heading);
 
     const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
-    for (const stop of STOPS) {
-      expect(h3s, `no heading for the ${stop.id} stop`).toContain(stop.headline);
+    for (const item of homeFeatures.items) {
+      expect(h3s, `no heading for ${item.title}`).toContain(item.title);
     }
   });
 
-  it('renders the one story as seven stops inside #digital-collection', () => {
+  // The "Follow one invoice" scroll story was replaced on the homepage by
+  // seven plain feature cards (trial, 2026-10-31): no screenshots, 2-3 points.
+  it('renders seven feature cards inside #digital-collection, without screenshots', () => {
     const { container } = renderHome();
-    const stops = [...container.querySelectorAll('#digital-collection article')];
-    expect(stops).toHaveLength(STOPS.length);
-    expect(stops.map((s) => s.id)).toEqual(STOPS.map((s) => `stop-${s.id}`));
+    const cards = [...container.querySelectorAll('#digital-collection article')];
+    expect(cards).toHaveLength(7);
+    expect(cards).toHaveLength(homeFeatures.items.length);
+    expect(container.querySelectorAll('#digital-collection img')).toHaveLength(0);
+    cards.forEach((card, i) => {
+      expect(card.querySelector('.hv3-feature-tag').textContent).toBe(
+        `${String(i + 1).padStart(2, '0')} / ${homeFeatures.items[i].tag}`
+      );
+      expect(card.querySelector('.hv3-feature-line').textContent).toBe(homeFeatures.items[i].line);
+      const points = card.querySelectorAll('li').length;
+      expect(points).toBeGreaterThanOrEqual(3);
+      expect(points).toBeLessThanOrEqual(4);
+      expect(card.querySelector('a').getAttribute('href')).toMatch(/^\/[a-z0-9-]+$/);
+    });
   });
 
-  // The capability grid that used to carry #features is gone; the anchor moved
-  // to the station list so the id it left behind still lands on the story.
-  it('keeps the #features anchor on the journey station list', () => {
+  it('heads the section with one "Features" H2 and closes it on a link to /features', () => {
+    const { container } = renderHome();
+    const section = container.querySelector('#digital-collection');
+    expect([...section.querySelectorAll('h2')].map((h) => h.textContent)).toEqual(['Features']);
+    expect(section.querySelector('.section-label')).toBeNull();
+    const more = section.querySelector('.hv3-features-more');
+    expect(more.textContent).toContain(homeFeatures.more.text);
+    expect(more.querySelector('a').getAttribute('href')).toBe('/features');
+  });
+
+  it('lays the cards two to a row and one under 900px, under a divider line', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    expect(css).toMatch(/\.home-v3 \.hv3-feature \{\s*flex: 0 1 calc\(\(100% - 24px\) \/ 2\);/);
+    expect(css).toMatch(/@media \(max-width: 900px\) \{\s*\.home-v3 \.hv3-feature \{ flex-basis: 100%; \}/);
+    expect(css).toMatch(/\.home-v3 \.hv3-features-head \{[^}]*border-bottom: 1px solid/);
+  });
+
+  it('keeps the #features anchor on the feature grid', () => {
     const { container } = renderHome();
     const features = container.querySelector('[id="features"]');
     expect(features).toBeTruthy();
-    expect(features.className).toContain('foi-stations');
+    expect(features.className).toContain('hv3-features-grid');
   });
 
-  it('orders the sections hero → proof → journey → tally → pricing', () => {
+  it('orders the sections hero → proof → features → tally → pricing', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
     const order = ['product', 'testimonial', 'digital-collection', 'tally', 'pricing'];

@@ -1,0 +1,30 @@
+import { appLinks } from '../data/siteContent';
+import { demoBookingConfig } from '../config/demoBooking';
+import { BOOKING_SOURCE_CALENDAR, submitDemoBooking } from './demoBooking';
+import { track, trackMetaLead, setMetaUserPhone } from './track';
+
+// The "book a call" submit, shared by the phone modal and the inline +91 form
+// on the homepage feature cards, so the two cannot drift apart.
+//
+// Order matters. The calendar opens first, synchronously, inside the click
+// gesture: browsers only honor window.open('_blank') while transient user
+// activation is live, and awaiting the booking fetch first ends that gesture,
+// so the popup blocker would silently swallow the tab. This is an async
+// function, so everything up to the await runs synchronously on the call and a
+// synchronous throw from the capture arrives as a rejection the caller handles.
+// Meta matching runs before the Lead so the Lead carries the number.
+//
+// Pass a number that has already passed validateIndianMobileNumber().
+export async function startCalendarBooking({ phone, context, pageUrl = window.location.href }) {
+  window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
+  track('calendar_open', { cta_context: context });
+  setMetaUserPhone(phone);
+  trackMetaLead('book_demo_click');
+
+  await submitDemoBooking({
+    phone,
+    pageUrl,
+    config: demoBookingConfig,
+    source: BOOKING_SOURCE_CALENDAR,
+  });
+}

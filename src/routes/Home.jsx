@@ -11,14 +11,21 @@ import {
   ShieldCheck,
   BadgeCheck,
   Database,
+  BarChart3,
+  FileText,
+  FileCheck2,
+  Send,
+  BellRing,
+  Users,
+  LayoutGrid,
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
 import PlayablePhone from '../components/PlayablePhone';
-import FollowOneInvoice from '../components/FollowOneInvoice';
 import VideoTestimonials from '../components/VideoTestimonials';
+import InlineDemoForm from '../components/InlineDemoForm';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
@@ -37,12 +44,23 @@ import {
   trustSection,
   proofStrip,
   differentiators,
+  homeFeatures,
 } from '../data/siteContent';
 
 const tallyIconMap = {
   refresh: RefreshCw,
   shield: Shield,
   monitor: MonitorCheck,
+};
+
+const featureIconMap = {
+  reports: BarChart3,
+  invoice: FileText,
+  einvoice: FileCheck2,
+  whatsapp: Send,
+  reminders: BellRing,
+  salesman: Users,
+  reconcile: RefreshCw,
 };
 
 const trustIconMap = {
@@ -151,11 +169,65 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </section>
 
-      {/* ── The one story: follow one invoice from the counter to Tally. It
-             replaces the two story sections, the AI band and the capability
-             grid (2026-09-18): one invoice, seven true stops, and the feature
-             pages hanging off the stop each of them belongs to. ── */}
-      <FollowOneInvoice />
+      {/* ── Seven features in plain words (trial, 2026-10-31). Replaces the
+             "Follow one invoice" scroll story on the homepage only; the hub
+             and feature pages still read src/data/journey.js. ── */}
+      <section className="hv3-features" id="digital-collection" aria-labelledby="hv3-features-title">
+        <div className="container">
+          <div className="hv3-features-head reveal">
+            <h2 className="section-title" id="hv3-features-title">{homeFeatures.heading}</h2>
+          </div>
+          <div className="hv3-features-grid" id="features">
+            {homeFeatures.items.map((item, i) => {
+              const Icon = featureIconMap[item.icon] || FileText;
+              return (
+                <article
+                  key={item.title}
+                  className="hv3-feature reveal"
+                  // Cards in a row enter left then right, so the eye reads them
+                  // in order (see the motion inventory in src/home.css).
+                  style={{ '--delay': `${(i % 2) * 90}ms` }}
+                >
+                  <div className="hv3-feature-top">
+                    <span className="hv3-feature-icon" aria-hidden="true">
+                      <Icon size={22} />
+                    </span>
+                    <span className="hv3-feature-tag tabular-nums">
+                      {String(i + 1).padStart(2, '0')} / {item.tag}
+                    </span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p className="hv3-feature-line">{item.line}</p>
+                  <ul>
+                    {item.points.map((point, p) => (
+                      <li key={point} style={{ '--point': p }}>
+                        <span className="hv3-feature-check" aria-hidden="true">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="hv3-feature-actions">
+                    <InlineDemoForm context={`home-feature-${item.icon}`} />
+                    <Link to={item.href} className="hv3-feature-link">
+                      See how it works <ArrowRight size={15} aria-hidden="true" className="hv3-arrow" />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="hv3-features-more reveal">
+            <p>{homeFeatures.more.text}</p>
+            <Link to={homeFeatures.more.href} className="hv3-features-more-link">
+              <LayoutGrid size={17} aria-hidden="true" />
+              {homeFeatures.more.linkLabel}
+              <ArrowRight size={16} aria-hidden="true" className="hv3-arrow" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ── Compressed Tally trust band ── */}
       <section className="hv3-tally" id="tally">

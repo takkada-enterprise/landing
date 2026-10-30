@@ -3,7 +3,6 @@ import { X, Phone, ArrowRight, Loader2 } from 'lucide-react';
 import { appLinks } from '../data/siteContent';
 import { demoBookingConfig } from '../config/demoBooking';
 import {
-  BOOKING_SOURCE_CALENDAR,
   BOOKING_SOURCE_DEMO,
   buildDemoHandoffUrl,
   sanitizePhoneInput,
@@ -11,6 +10,7 @@ import {
   validateIndianMobileNumber,
 } from '../lib/demoBooking';
 import { track, trackMetaLead, setMetaUserPhone } from '../lib/track';
+import { startCalendarBooking } from '../lib/bookCall';
 
 const INPUT_FOCUS_DELAY_MS = 150;
 const AUTO_CLOSE_DELAY_MS = 800;
@@ -150,27 +150,16 @@ function PhoneModal({
       return;
     }
 
-    // Open the calendar synchronously, inside the click gesture, before any
-    // await. Browsers only honor window.open('_blank') while transient user
-    // activation is live; awaiting the booking fetch first ends that gesture,
-    // so the popup blocker silently swallows the tab and the calendar never
-    // opens. Booking capture is secondary and continues in the background.
-    window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
-    track('calendar_open', { cta_context: 'phone-modal' });
-    setMetaUserPhone(phone);
-    trackMetaLead('book_demo_click');
+    // The calendar opens synchronously inside this call, before any await (see
+    // src/lib/bookCall.js for why). Booking capture continues in the background.
+    const saving = startCalendarBooking({ phone, pageUrl, context: 'phone-modal' });
 
     setLoading(true);
     setError('');
     setStatus('');
 
     try {
-      await submitDemoBooking({
-        phone,
-        pageUrl,
-        config: demoBookingConfig,
-        source: BOOKING_SOURCE_CALENDAR,
-      });
+      await saving;
     } catch {
       setError('Could not save your number. Please try again.');
       setLoading(false);
