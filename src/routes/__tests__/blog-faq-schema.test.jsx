@@ -10,6 +10,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import BlogPost from '../BlogPost';
+import BlogIndex from '../BlogIndex';
 import { getAllPosts, getPostBySlug } from '../../lib/blogPosts';
 
 afterEach(cleanup);
@@ -75,5 +76,34 @@ describe('BlogPost FAQPage schema', () => {
     expect(withFaqs.length).toBeGreaterThan(0);
     // The known FAQ-less stub is empty.
     expect(getPostBySlug(FAQLESS_SLUG).faqs).toEqual([]);
+  });
+});
+
+describe('blog on the Campfire template', () => {
+  it('renders a post as dark hero, prose body and close band', () => {
+    const post = getPostBySlug(FAQ_SLUG);
+    const { container } = renderPost(FAQ_SLUG);
+    expect(container.querySelector('.ui-band--band h1.ui-hero-title').textContent).toBe(post.title);
+    expect(container.querySelector('.ui-band--band nav.ui-breadcrumb a[href="/blog"]')).not.toBeNull();
+    expect(container.querySelector('.ui-band--band time.tabular-nums')).not.toBeNull();
+    expect(container.querySelector('.ui-prose').querySelectorAll('p').length).toBeGreaterThan(3);
+    expect(container.querySelector('section.ui-close')).not.toBeNull();
+    expect(container.querySelector('[class*="overline"], [class*="eyebrow"]')).toBeNull();
+  });
+
+  it('lists every post on the index as one text card', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <BlogIndex />
+      </MemoryRouter>
+    );
+    const posts = getAllPosts();
+    const cards = [...container.querySelectorAll('a.ui-card')];
+    expect(cards.map((a) => a.getAttribute('href'))).toEqual(posts.map((p) => `/blog/${p.slug}`));
+    expect(cards[0].querySelector('h3.ui-card-title').textContent).toBe(posts[0].title);
+    expect(cards[0].querySelector('.tabular-nums')).not.toBeNull();
+    expect(container.querySelector('.ui-card img')).toBeNull();
+    expect(container.querySelector('section.ui-close')).not.toBeNull();
+    expect(container.querySelector('[class*="overline"], [class*="eyebrow"]')).toBeNull();
   });
 });

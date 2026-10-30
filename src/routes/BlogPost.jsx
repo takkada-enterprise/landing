@@ -2,6 +2,11 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import BlogCtaBand from '../components/BlogCtaBand';
+import Breadcrumb from '../components/Breadcrumb';
+import { Band, SectionHead, Card, CardGrid } from '../ui';
+import '../ui/feature.css';
+import '../ui/icp.css';
+import '../ui/prose.css';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
 import { articleSchema, breadcrumbSchema, faqPageSchema } from '../data/schema';
 import { getAuthor } from '../data/authors';
@@ -30,23 +35,14 @@ function RelatedPosts({ currentSlug }) {
   if (related.length === 0) return null;
 
   return (
-    <aside className="blog-related">
-      <h2 className="blog-related-heading">More from Takkada</h2>
-      <div className="blog-related-list">
+    <Band tone="ground" id="related">
+      <SectionHead title="More from Takkada" />
+      <CardGrid cols={3}>
         {related.map((post) => (
-          <article key={post.slug} className="blog-related-card">
-            <Link to={`/blog/${post.slug}`} className="blog-related-thumb" aria-hidden="true" tabIndex={-1}>
-              <img src={post.heroImage} alt="" loading="lazy" />
-            </Link>
-            <span className="blog-category-tag">{post.category}</span>
-            <h3 className="blog-related-title">
-              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-            </h3>
-            <p className="blog-related-excerpt">{post.excerpt}</p>
-          </article>
+          <Card key={post.slug} to={`/blog/${post.slug}`} title={post.title} line={post.excerpt} />
         ))}
-      </div>
-    </aside>
+      </CardGrid>
+    </Band>
   );
 }
 
@@ -55,7 +51,7 @@ function BlogPost() {
   const post = getPostBySlug(slug);
 
   useEffect(() => {
-    const container = document.querySelector('.blog-post-body');
+    const container = document.querySelector('.ui-prose');
     if (!container) return undefined;
     const handleClick = (e) => {
       const playBtn = e.target.closest('.call-player-play');
@@ -81,11 +77,13 @@ function BlogPost() {
 
   if (!post) {
     return (
-      <main className="blog-post-page">
-        <div className="container">
-          <h1>Post not found</h1>
-          <Link to="/blog">← Back to blog</Link>
-        </div>
+      <main className="ui-feature ui-icp">
+        <Band tone="band" id="hero">
+          <h1 className="ui-hero-title">Post not found</h1>
+          <p className="ui-hero-more">
+            <Link to="/blog" className="ui-textlink">← Back to blog</Link>
+          </p>
+        </Band>
       </main>
     );
   }
@@ -94,13 +92,15 @@ function BlogPost() {
   const authorName = author?.name ?? post.author;
   const authorHref = author?.linkedin || author?.url || null;
 
+  const trail = [
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ];
+
   const schemas = [
     articleSchema(post),
-    breadcrumbSchema([
-      { name: 'Home', path: '/' },
-      { name: 'Blog', path: '/blog' },
-      { name: post.title, path: `/blog/${post.slug}` },
-    ]),
+    breadcrumbSchema(trail),
     post.faqs?.length > 0 ? faqPageSchema(post.faqs) : null,
   ].filter(Boolean);
 
@@ -115,65 +115,34 @@ function BlogPost() {
         schemas={schemas}
       />
 
-      <main className="blog-post-page">
-        <article className="blog-post-article">
-          <header className="blog-post-header">
-            <div className="blog-prose">
-              <nav className="blog-breadcrumb">
-                <Link to="/">Home</Link>
-                <span aria-hidden="true">/</span>
-                <Link to="/blog">Blog</Link>
-                <span aria-hidden="true">/</span>
-                <span>{post.category}</span>
-              </nav>
-              <span className="blog-category-tag blog-category-tag--on-dark">
-                {post.category}
-              </span>
-              <h1 className="blog-post-title">{post.title}</h1>
-              <div className="blog-post-byline">
-                <span className="blog-author">
-                  {authorHref ? (
-                    <a
-                      className="blog-author-link"
-                      href={authorHref}
-                      target="_blank"
-                      rel="noopener noreferrer author"
-                    >
-                      {authorName}
-                    </a>
-                  ) : (
-                    authorName
-                  )}
-                </span>
-                <span className="blog-byline-sep" aria-hidden="true">·</span>
-                <time className="blog-date tabular-nums" dateTime={post.date}>
+      <main className="ui-feature ui-icp">
+        <Band tone="band" id="hero">
+          <div className="ui-hero">
+            <div className="ui-hero-copy">
+              <Breadcrumb trail={trail.map((t) => ({ name: t.name, url: t.path }))} />
+              <h1 className="ui-hero-title">{post.title}</h1>
+              <p className="ui-icp-meta">
+                {authorHref ? (
+                  <a href={authorHref} target="_blank" rel="noopener noreferrer author">
+                    {authorName}
+                  </a>
+                ) : (
+                  authorName
+                )}
+                {' · '}
+                <time className="tabular-nums" dateTime={post.date}>
                   {formatDate(post.date)}
                 </time>
-              </div>
+              </p>
             </div>
-          </header>
-
-          <figure className="blog-post-hero-image">
-            <img
-              src={post.heroImage}
-              alt={post.heroAlt}
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-
-          <div className="blog-prose">
-            <div
-              className="blog-post-body"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
           </div>
-        </article>
+        </Band>
 
-        <div className="blog-related-wrap">
-          <RelatedPosts currentSlug={slug} />
-        </div>
+        <Band tone="white" id="post">
+          <div className="ui-prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Band>
+
+        <RelatedPosts currentSlug={slug} />
 
         <BlogCtaBand />
       </main>

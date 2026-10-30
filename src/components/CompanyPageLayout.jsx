@@ -1,31 +1,25 @@
-import { ArrowRight, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import CTAButton from './CTAButton';
-import { appLinks } from '../data/siteContent';
-import { usePhoneModal } from '../context/PhoneModalContext';
+import { Band } from '../ui';
+import '../ui/feature.css';
+import '../ui/icp.css';
+import '../ui/prose.css';
 
-function CompanyPageLayout({ children }) {
-  const { setOpen } = usePhoneModal();
+// About, contact and the three legal pages on the Campfire pattern (plan
+// 2026-10-30-003, Task 8): a dark hero holding the h1, then the page's own
+// prose in a white band. The root carries .ui-feature .ui-icp so the
+// one-column hero is the ICP pages' own skin. Motion: none.
+function CompanyPageLayout({ title, children }) {
   return (
-    <div className="company-page">
-      <div className="container">
-        <Link to="/" className="company-back-btn">
-          <ArrowLeft size={18} /> Back to Home
-        </Link>
-        {children}
-        <div className="company-page-cta">
-          <h3>Ready to get started?</h3>
-          <p>See how Takkada can automate your payment collections.</p>
-          <div className="company-page-cta-actions">
-            <CTAButton variant="primary" type="button" onClick={() => setOpen(true)}>
-              Book a call <ArrowRight size={18} />
-            </CTAButton>
-            <CTAButton variant="secondary" href={appLinks.download}>
-              Download App
-            </CTAButton>
+    <div className="ui-feature ui-icp">
+      <Band tone="band" id="hero">
+        <div className="ui-hero">
+          <div className="ui-hero-copy">
+            <h1 className="ui-hero-title">{title}</h1>
           </div>
         </div>
-      </div>
+      </Band>
+      <Band tone="white" id="body">
+        <div className="ui-prose">{children}</div>
+      </Band>
     </div>
   );
 }

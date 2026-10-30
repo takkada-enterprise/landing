@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function BackHome() {
   return (
-    <Link to="/" className="back-home">
+    <Link to="/" className="ui-back-home">
       <span aria-hidden="true">←</span> Home
     </Link>
   );

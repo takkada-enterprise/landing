@@ -10,10 +10,10 @@ function toInternalPath(url) {
 
 function Breadcrumb({ trail }) {
   return (
-    <nav aria-label="Breadcrumb" className="icp-breadcrumb">
+    <nav aria-label="Breadcrumb" className="ui-breadcrumb">
       {trail.map((item, i) => (
         <span key={item.url}>
-          {i > 0 && <span className="icp-breadcrumb-sep" aria-hidden="true">/</span>}
+          {i > 0 && <span className="ui-breadcrumb-sep" aria-hidden="true">/</span>}
           {i === trail.length - 1 ? (
             <span aria-current="page">{item.name}</span>
           ) : (

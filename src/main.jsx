@@ -7,7 +7,6 @@ import './ui/ui.css';
 import './styles.css';
 import './premium.css';
 import './journey.css';
-import './guide.css';
 
 export const createRoot = ViteReactSSG(
   { routes },

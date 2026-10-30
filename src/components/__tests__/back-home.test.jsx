@@ -12,5 +12,6 @@ describe('BackHome', () => {
     );
     const a = ui.getByRole('link', { name: 'Home' });
     expect(a).toHaveAttribute('href', '/');
+    expect(a).toHaveClass('ui-back-home');
   });
 });

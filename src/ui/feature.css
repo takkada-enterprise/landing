@@ -43,13 +43,13 @@
   width: 100%;
   height: auto;
 }
-.ui-feature .icp-breadcrumb {
+.ui-feature .ui-breadcrumb {
   margin: 0 0 24px;
   font-size: 14px;
   color: var(--on-band-muted);
 }
-.ui-feature .icp-breadcrumb a { color: var(--on-band); }
-.ui-feature .icp-breadcrumb-sep { color: var(--on-band-muted); }
+.ui-feature .ui-breadcrumb a { color: var(--on-band); }
+.ui-feature .ui-breadcrumb-sep { color: var(--on-band-muted); }
 
 /* ── Answer ── */
 .ui-feature .ui-answer {

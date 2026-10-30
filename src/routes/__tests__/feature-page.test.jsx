@@ -79,7 +79,7 @@ describe.each(PICKS)('%s renders on the Campfire template', (_slug, page) => {
     expect(img.getAttribute('loading')).toBe('eager');
     expect(img.getAttribute('fetchpriority')).toBe('high');
     expect(img.getAttribute('src')).toBe(screen(page.hero.screen).src);
-    expect(container.querySelector('#hero .icp-breadcrumb')).not.toBeNull();
+    expect(container.querySelector('#hero .ui-breadcrumb')).not.toBeNull();
     expect(container.querySelector('#hero .ui-hero-lead').textContent).toBe(page.subheadline);
     expect(container.querySelector('#hero .ui-pill--accent').textContent).toContain('Try the demo');
   });

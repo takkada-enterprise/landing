@@ -5,7 +5,7 @@ import { contactInfo } from '../data/siteContent';
 
 function PrivacyPolicy() {
   return (
-    <CompanyPageLayout>
+    <CompanyPageLayout title="Privacy Policy">
       <Seo
         title="Privacy Policy. Takkada by Pay Saathi Innovations"
         description="How Takkada handles personal, financial, and technical data for its mobile Tally companion. Encryption, retention, sharing, and your rights."
@@ -17,80 +17,75 @@ function PrivacyPolicy() {
           ]),
         ]}
       />
-      <article className="company-article">
-        <h1>Privacy Policy</h1>
-        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: October 28, 2026 &bull; {contactInfo.company}</p>
-        <p className="company-lead">
-          {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
-        </p>
+      <p className="tabular-nums">Effective: September 16, 2025 &bull; Updated: October 28, 2026 &bull; {contactInfo.company}</p>
+      <p>
+        {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
+      </p>
 
-        <h2>1. Information We Collect</h2>
-        <h3>Personal Data</h3>
-        <p>Names, email addresses, phone numbers, business registration details, and GST identification numbers.</p>
-        <h3>Financial Data</h3>
-        <p>Tally records, invoices, payment details, and bank account information. All financial data is encrypted end-to-end.</p>
-        <h3>Technical Data</h3>
-        <p>Device information, IP addresses, usage patterns, and error logs collected to improve our services.</p>
-        <h3>Communication Data</h3>
-        <p>WhatsApp integration data, support tickets, and feedback submitted through the platform.</p>
+      <h2>1. Information We Collect</h2>
+      <h3>Personal Data</h3>
+      <p>Names, email addresses, phone numbers, business registration details, and GST identification numbers.</p>
+      <h3>Financial Data</h3>
+      <p>Tally records, invoices, payment details, and bank account information. All financial data is encrypted end-to-end.</p>
+      <h3>Technical Data</h3>
+      <p>Device information, IP addresses, usage patterns, and error logs collected to improve our services.</p>
+      <h3>Communication Data</h3>
+      <p>WhatsApp integration data, support tickets, and feedback submitted through the platform.</p>
 
-        <h2>2. How We Use Your Data</h2>
-        <ul>
-          <li>Payment processing and collection facilitation</li>
-          <li>Tally synchronization and data reconciliation</li>
-          <li>GST compliance and E-Invoicing</li>
-          <li>Business analytics dashboards and reporting</li>
-          <li>Credit assessment through payment pattern analysis</li>
-          <li>Product improvement and customer support</li>
-        </ul>
+      <h2>2. How We Use Your Data</h2>
+      <ul>
+        <li>Payment processing and collection facilitation</li>
+        <li>Tally synchronization and data reconciliation</li>
+        <li>GST compliance and E-Invoicing</li>
+        <li>Business analytics dashboards and reporting</li>
+        <li>Credit assessment through payment pattern analysis</li>
+        <li>Product improvement and customer support</li>
+      </ul>
 
-        <h2>3. Information Sharing</h2>
-        <p>
-          Apart from the advertising measurement described below, we do not share your data with any third parties for marketing or commercial purposes. Data is never sold. We do not share your business or financial information beyond what is strictly required to operate the platform (e.g. payment gateways to process transactions). Legal disclosures occur only when required by regulatory bodies and law enforcement under Indian law.
-        </p>
+      <h2>3. Information Sharing</h2>
+      <p>
+        Apart from the advertising measurement described below, we do not share your data with any third parties for marketing or commercial purposes. Data is never sold. We do not share your business or financial information beyond what is strictly required to operate the platform (e.g. payment gateways to process transactions). Legal disclosures occur only when required by regulatory bodies and law enforcement under Indian law.
+      </p>
 
-        <h3>Advertising measurement on this website</h3>
-        <p>
-          This website uses the Meta Pixel to measure how our ads perform. If you enter your mobile number to try the demo or book a demo, that number is turned into a one-way hash in your browser and sent to Meta, so Meta can tell us whether the visit came from one of our ads. Meta receives the hash, never the number in readable form, and we do not share anything from the Takkada app or your Tally data this way. You can stop it by using a browser or extension that blocks the Meta Pixel, or by writing to us at the email below.
-        </p>
+      <h3>Advertising measurement on this website</h3>
+      <p>
+        This website uses the Meta Pixel to measure how our ads perform. If you enter your mobile number to try the demo or book a demo, that number is turned into a one-way hash in your browser and sent to Meta, so Meta can tell us whether the visit came from one of our ads. Meta receives the hash, never the number in readable form, and we do not share anything from the Takkada app or your Tally data this way. You can stop it by using a browser or extension that blocks the Meta Pixel, or by writing to us at the email below.
+      </p>
 
-        <h3>AI assistant connections</h3>
-        <p>
-          If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
-        </p>
+      <h3>AI assistant connections</h3>
+      <p>
+        If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
+      </p>
 
-        <h2>4. Security Measures</h2>
-        <ul>
-          <li>End-to-end encryption for all financial data</li>
-          <li>AES-256 encryption for data at rest</li>
-          <li>Multi-factor authentication</li>
-          <li>SOC 2 compliant infrastructure</li>
-          <li>Regular security audits</li>
-        </ul>
+      <h2>4. Security Measures</h2>
+      <ul>
+        <li>End-to-end encryption for all financial data</li>
+        <li>AES-256 encryption for data at rest</li>
+        <li>Multi-factor authentication</li>
+        <li>SOC 2 compliant infrastructure</li>
+        <li>Regular security audits</li>
+      </ul>
 
-        <h2>5. Data Retention</h2>
-        <p>We do not retain your data beyond what is required to deliver the service. Upon account closure, your data is deleted within a reasonable period subject only to legal and regulatory obligations.</p>
-        <ul>
-          <li><strong>Financial records:</strong> Deleted upon account closure (except where retention is legally mandated)</li>
-          <li><strong>Personal data:</strong> Deleted upon account closure</li>
-          <li><strong>Technical logs:</strong> <span className="tabular-nums">12 months</span></li>
-        </ul>
+      <h2>5. Data Retention</h2>
+      <p>We do not retain your data beyond what is required to deliver the service. Upon account closure, your data is deleted within a reasonable period subject only to legal and regulatory obligations.</p>
+      <ul>
+        <li><strong>Financial records:</strong> Deleted upon account closure (except where retention is legally mandated)</li>
+        <li><strong>Personal data:</strong> Deleted upon account closure</li>
+        <li><strong>Technical logs:</strong> <span className="tabular-nums">12 months</span></li>
+      </ul>
 
-        <h2>6. Your Rights</h2>
-        <p>
-          You have the right to access, correct, and delete your personal data at any time. To exercise these rights, contact us at <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>.
-        </p>
+      <h2>6. Your Rights</h2>
+      <p>
+        You have the right to access, correct, and delete your personal data at any time. To exercise these rights, contact us at <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>.
+      </p>
 
-        <h2>7. Governing Law</h2>
-        <p>
-          This Privacy Policy is governed by Indian law, including the Information Technology Act 2000 and applicable RBI guidelines.
-        </p>
+      <h2>7. Governing Law</h2>
+      <p>
+        This Privacy Policy is governed by Indian law, including the Information Technology Act 2000 and applicable RBI guidelines.
+      </p>
 
-        <div className="company-contact-block">
-          <h3>Questions about your data?</h3>
-          <p>Contact us at <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> or call <span className="tabular-nums">{contactInfo.phone}</span>.</p>
-        </div>
-      </article>
+      <h2>Questions about your data?</h2>
+      <p>Contact us at <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> or call <span className="tabular-nums">{contactInfo.phone}</span>.</p>
     </CompanyPageLayout>
   );
 }

@@ -87,4 +87,20 @@ describe('BlogCtaBand', () => {
     renderBand({ heading: 'See how Takkada works for your business' });
     expect(screen.getByRole('heading', { name: /see how takkada works/i })).toBeInTheDocument();
   });
+
+  it('is a Campfire close band: WhatsApp as the pill, the secondary as a text link', () => {
+    for (const live of [false, true]) {
+      siteContentMock.demoEntryLive = live;
+      const { container } = renderBand();
+      const band = container.querySelector('section.ui-band.ui-close');
+      expect(band, `live=${live}`).not.toBeNull();
+      expect(band.querySelector('h2.ui-close-title').textContent).toBe(
+        'See this in action for your business'
+      );
+      expect(band.querySelector('a.ui-pill[href*="wa.me"]'), `live=${live}`).not.toBeNull();
+      const secondary = live ? 'a.ui-textlink[href="/demo"]' : 'a.ui-textlink[href*="calendar"]';
+      expect(band.querySelector(secondary), `live=${live}`).not.toBeNull();
+      cleanup();
+    }
+  });
 });
