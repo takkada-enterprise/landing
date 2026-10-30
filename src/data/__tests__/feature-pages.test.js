@@ -22,7 +22,7 @@ import {
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
-import { STOPS } from '../journey';
+import { HOME_USED_FOR, HOME_ROWS } from '../home';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -867,7 +867,7 @@ describe('round-two pages', () => {
     const texts = [
       FEATURE_BLURBS['ai-collection-calls'],
       ...page.walkthrough.map((s) => `${s.title} ${s.body}`),
-      STOPS.find((s) => s.id === 'recover').body,
+      ...[...HOME_USED_FOR, ...HOME_ROWS].map((c) => `${c.title} ${c.line}`),
     ];
     for (const t of texts) {
       if (/recovery board|follow-up log|same log/i.test(t)) expect(t).toMatch(/Recovery dashboard/);

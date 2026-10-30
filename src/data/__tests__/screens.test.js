@@ -8,6 +8,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SCREENS, screen } from '../screens';
+import { HOME_HERO, HOME_USED_FOR, HOME_IN_CHARGE, HOME_ROWS } from '../home';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const manifest = JSON.parse(readFileSync(resolve(root, 'scripts/screens.manifest.json'), 'utf8'));
@@ -143,5 +144,48 @@ describe('screen sources stay outside public/', () => {
     const sources = new Set(manifest.map((row) => row.source));
     const published = filesUnderPublic(resolve(root, 'public'));
     expect(published.filter((name) => sources.has(name))).toEqual([]);
+  });
+});
+
+// Moved here from journey.test.js (plan 2026-10-30-003, Task 3), which goes
+// with journey.js in Task 11.
+//
+// Two captures were published on the homepage for two days with a real number
+// printed on them: `einvoice-eway` said "Invoice will be sent to 9573440784"
+// under its WhatsApp toggle, and `van-loading` said "ronak / 919435977777" in
+// its header. Both sat behind the front phone, where a reader would not look
+// and a screenshot would.
+//
+// The rule they broke was already written down in the plan's constraints, and
+// nothing enforced it, so they shipped. This does. It is a tombstone by slug:
+// a re-capture that clears the number is welcome, but it arrives under a new
+// slug and gets looked at, rather than inheriting a reviewed name.
+describe('captures rejected for showing a real number stay out (2026-09-20)', () => {
+  // `van-loading` left this list on 2026-09-20: the number on it is Ronak's own
+  // and he chose to publish the Van screen as it is (registered under the same
+  // slug, reviewed again on that date). `einvoice-eway` stays out; its retouched
+  // successor is `invoice-summary-send`.
+  const REJECTED = ['einvoice-eway'];
+
+  it.each(REJECTED)('%s is not in the screen registry', (slug) => {
+    expect(Object.keys(SCREENS)).not.toContain(slug);
+  });
+
+  it.each(REJECTED)('%s is not in the export manifest', (slug) => {
+    expect(manifest.map((r) => r.slug)).not.toContain(slug);
+  });
+
+  // public/ is copied into dist verbatim, so a file nothing references is
+  // still a URL anybody can fetch. Unreferencing it is not removing it.
+  it.each(REJECTED)('%s has no exported file left under public/', (slug) => {
+    const dir = resolve(root, 'public/assets/screens');
+    expect(readdirSync(dir).filter((f) => f.startsWith(`${slug}-`))).toEqual([]);
+  });
+
+  it('leaves every home page card still naming screens that resolve', () => {
+    const named = [HOME_HERO, ...HOME_HERO.floats, ...HOME_USED_FOR, ...HOME_IN_CHARGE, ...HOME_ROWS];
+    for (const item of named) {
+      expect(() => screen(item.screen), `${item.id ?? item.title} names ${item.screen}`).not.toThrow();
+    }
   });
 });
