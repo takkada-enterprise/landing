@@ -53,12 +53,12 @@ export function setMetaUserPhone(phone) {
   }
 }
 
-// Meta Pixel Lead for a conversion that is not a plain link click. Clicks on
-// calendar and wa.me links are already counted by the listener in index.html;
-// call this only where the conversion happens without a link (the phone
-// modal's window.open), or the same click counts twice. Same contract as
-// track(): a silent no-op when the pixel is absent (tests, SSR, local hosts,
-// blockers) and never throws.
+// Meta Pixel Lead for captured phone submissions (try demo OTP entry and
+// calendar booking phone capture in PhoneModal.jsx). These represent real
+// contacts with captured phone numbers. Outbound link clicks on WhatsApp and
+// calendar links fire 'Contact' instead to avoid counting bounces as leads.
+// Same contract as track(): a silent no-op when the pixel is absent (tests,
+// SSR, local hosts, blockers) and never throws.
 export function trackMetaLead(contentName) {
   if (typeof window === 'undefined') return;
   const fbq = window.fbq;
@@ -70,3 +70,18 @@ export function trackMetaLead(contentName) {
     // Telemetry failure is never a user-facing problem.
   }
 }
+
+// Meta Pixel Contact for outbound intent interactions (e.g. WhatsApp clicks
+// and calendar opens). Same silent no-op contract.
+export function trackMetaContact(contentName) {
+  if (typeof window === 'undefined') return;
+  const fbq = window.fbq;
+  if (typeof fbq !== 'function') return;
+
+  try {
+    fbq('track', 'Contact', { content_name: contentName });
+  } catch {
+    // Telemetry failure is never a user-facing problem.
+  }
+}
+
