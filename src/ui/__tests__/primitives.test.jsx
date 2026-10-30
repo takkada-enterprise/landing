@@ -10,24 +10,16 @@ const R = ({ children }) => (
 const mount = (ui) => render(<R>{ui}</R>).container;
 
 describe('src/ui primitives', () => {
-  it('Pill renders a Link with the arrow disc and the tone class', () => {
-    const { container } = render(<MemoryRouter><Pill to="/demo">Try the demo</Pill></MemoryRouter>);
-    const a = container.querySelector('a.ui-pill.ui-pill--accent[href="/demo"]');
-    expect(a.textContent).toBe('Try the demo→');
-    expect(a.querySelector('.ui-pill-arrow').getAttribute('aria-hidden')).toBe('true');
+  it('Pill renders its label alone, no arrow disc, with the tone class', () => {
+    const a = mount(<Pill to="/demo">Try the demo</Pill>).querySelector('a.ui-pill.ui-pill--accent[href="/demo"]');
+    expect(a.textContent).toBe('Try the demo');
+    expect(a.querySelector('.ui-pill-arrow')).toBeNull();
   });
 
-  it('Pill renders an <a> for href, a button for onClick alone, and drops the disc when arrow=false', () => {
-    const c = mount(
-      <>
-        <Pill href="https://wa.me/1" tone="dark">Chat</Pill>
-        <Pill onClick={vi.fn()} tone="ghost" arrow={false}>Open</Pill>
-      </>
-    );
-    expect(c.querySelector('a.ui-pill.ui-pill--dark[href="https://wa.me/1"]')).toBeTruthy();
-    const b = c.querySelector('button.ui-pill.ui-pill--ghost[type="button"]');
-    expect(b.textContent).toBe('Open');
-    expect(b.querySelector('.ui-pill-arrow')).toBeNull();
+  it('Pill renders an <a> for href and a button for onClick alone', () => {
+    const c = mount(<><Pill href="https://wa.me/1" tone="ghost">Chat</Pill><Pill onClick={vi.fn()}>Open</Pill></>);
+    expect(c.querySelector('a.ui-pill.ui-pill--ghost[href="https://wa.me/1"]')).toBeTruthy();
+    expect(c.querySelector('button.ui-pill.ui-pill--accent[type="button"]').textContent).toBe('Open');
   });
 
   it('Band sets the tone class and wraps children in ui-max', () => {
@@ -100,7 +92,7 @@ describe('src/ui primitives', () => {
     expect(cap).toContain('Rajesh Sharma');
     expect(cap).toContain('FMCG Distributor, Pune');
     expect(fig.querySelector('p.ui-quote-note').textContent).toBe('100+ businesses');
-    expect(fig.querySelector('a.ui-pill.ui-pill--dark')).toBeTruthy();
+    expect(fig.querySelector('a.ui-pill.ui-pill--ghost')).toBeTruthy();
 
     const c = mount(<CloseBand id="close" title="See your Tally on your phone." accent="on your phone" cta={{ to: '/demo', label: 'Try the demo' }} />);
     const band = c.querySelector('section#close.ui-band.ui-band--band.ui-close');

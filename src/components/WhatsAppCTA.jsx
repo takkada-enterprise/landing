@@ -31,7 +31,7 @@ export function WhatsAppIcon({ size = 18 }) {
 // When no WhatsApp number is configured (the site-wide kill switch in
 // siteContent.js), this renders nothing — every surface already carries a
 // calendar CTA beside it, so a fallback button here would duplicate it.
-function WhatsAppCTA({ context = 'default', message, tone = 'dark', children, onClick }) {
+function WhatsAppCTA({ context = 'default', message, tone = 'ghost', children, onClick }) {
   const href = whatsappHref(context, message);
 
   if (!href) return null;

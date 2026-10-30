@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
 import DemoTryCTA from './DemoTryCTA';
 import CalendarCTA from './CalendarCTA';
@@ -116,7 +115,7 @@ function ICPTemplate({
           <ul className="ui-related">
             {relatedPosts.map((post) => (
               <li key={post.slug}>
-                <Link to={`/blog/${post.slug}`} className="ui-textlink">{post.title} <ArrowRight size={16} aria-hidden="true" /></Link>
+                <Link to={`/blog/${post.slug}`} className="ui-textlink">{post.title}</Link>
               </li>
             ))}
           </ul>

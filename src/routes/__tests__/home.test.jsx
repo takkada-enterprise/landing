@@ -232,10 +232,10 @@ describe('stylesheet guards', () => {
     expect(blocks.some((b) => /\.ui-hero-float\s*\{[^}]*display:\s*none/.test(b))).toBe(true);
   });
 
-  it('paints --band only on the band, the dark pill, the footer and the pricing highlight', () => {
+  it('paints --band only on the band, the footer and the pricing highlight', () => {
     // .rate-group-title paints the pricing highlight's slice across a group
     // title row (home.css), so it is the highlight, not a new use.
-    const allowed = ['.ui-band--band', '.ui-pill--dark', '.ui-footer', '.ui-pricing-highlight', '.rate-group-title'];
+    const allowed = ['.ui-band--band', '.ui-footer', '.ui-pricing-highlight', '.rate-group-title'];
     const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
     const users = rules.filter(([, , body]) => /var\(--band\)/.test(body));
     expect(users.length).toBeGreaterThan(0);

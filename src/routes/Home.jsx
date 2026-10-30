@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
@@ -155,7 +155,7 @@ function Home({ seo = HOME_SEO }) {
                 <p className="ui-store-links">
                   {point.links.map((link) => (
                     <a key={link.label} className="ui-textlink" href={appLinks[link.hrefKey]} target="_blank" rel="noopener noreferrer">
-                      {link.label} <ArrowUpRight size={16} aria-hidden="true" />
+                      {link.label}
                     </a>
                   ))}
                 </p>
@@ -165,7 +165,7 @@ function Home({ seo = HOME_SEO }) {
         </CardGrid>
         <p className="trust-article-link">
           <Link to={trustSection.articleLink.href}>
-            {trustSection.articleLink.label} <ArrowRight size={15} aria-hidden="true" />
+            {trustSection.articleLink.label}
           </Link>
         </p>
       </Band>
@@ -298,7 +298,7 @@ function Home({ seo = HOME_SEO }) {
                       <span className="rate-addon-label">{addon.label}</span>
                       <span className="rate-addon-note">{addon.note}</span>
                       <span className="rate-addon-cta">
-                        See how it works <ArrowRight size={13} aria-hidden="true" />
+                        See how it works
                       </span>
                     </Link>
                   ) : (
@@ -312,7 +312,7 @@ function Home({ seo = HOME_SEO }) {
                       <span className="rate-addon-label">{addon.label}</span>
                       <span className="rate-addon-note">{addon.note}</span>
                       <span className="rate-addon-cta">
-                        Ask on WhatsApp <ArrowRight size={13} aria-hidden="true" />
+                        Ask on WhatsApp
                       </span>
                     </a>
                   )}

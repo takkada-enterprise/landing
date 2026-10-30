@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
-import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import WhatsAppCTA from './components/WhatsAppCTA';
 import DemoTryCTA from './components/DemoTryCTA';
 import PhoneModal from './components/PhoneModal';
@@ -186,7 +186,7 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
           ))}
         </div>
         <Link to={href} className="ui-nav-features-all">
-          All features <ArrowRight size={14} aria-hidden="true" />
+          All features
         </Link>
       </div>
     </div>
@@ -277,7 +277,7 @@ function SiteHeader({ menuOpen, setMenuOpen, scrolled, featuresOpen, setFeatures
           </nav>
           <div className="ui-nav-actions">
             <DemoTryCTA context="header" tone="ghost" onClick={close} />
-            <WhatsAppCTA context="header" tone="dark" onClick={close} />
+            <WhatsAppCTA context="header" tone="ghost" onClick={close} />
           </div>
         </div>
         <button
@@ -417,7 +417,7 @@ function StickyMobileCTA({ menuOpen }) {
 
   return (
     <div className={`ui-nav-sticky${show && !menuOpen ? ' visible' : ''}`} aria-hidden={!show}>
-      <WhatsAppCTA context="sticky-bar" />
+      <WhatsAppCTA context="sticky-bar" tone="accent" />
     </div>
   );
 }

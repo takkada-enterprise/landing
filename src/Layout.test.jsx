@@ -205,13 +205,18 @@ describe('Features panel', () => {
 });
 
 describe('header actions', () => {
-  it('carries exactly two pills: the demo (ghost) and WhatsApp (dark)', () => {
+  it('carries exactly two pills, both the outline recipe', () => {
     const { actions } = renderLayout();
     const pills = [...actions().querySelectorAll('.ui-pill')];
-    expect(pills.map((p) => p.textContent.replace('→', '').trim())).toEqual(['Try the demo', 'Chat on WhatsApp']);
+    expect(pills.map((p) => p.textContent.trim())).toEqual(['Try the demo', 'Chat on WhatsApp']);
     expect(pills[0].classList.contains('ui-pill--ghost')).toBe(true);
-    expect(pills[1].classList.contains('ui-pill--dark')).toBe(true);
+    expect(pills[1].classList.contains('ui-pill--ghost')).toBe(true);
     expect(pills[1].getAttribute('href')).toContain('wa.me');
+  });
+
+  it('fills the phone sticky bar with the marigold primary', () => {
+    const { container } = renderLayout();
+    expect(container.querySelector('.ui-nav-sticky a.ui-pill').classList.contains('ui-pill--accent')).toBe(true);
   });
 
   it('renders exactly one WhatsApp link at either value of the flag', () => {

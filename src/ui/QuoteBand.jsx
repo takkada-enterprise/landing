@@ -8,7 +8,7 @@ export default function QuoteBand({ id, quote, name, role, note, cta }) {
         <strong>{name}</strong>, {role}
       </figcaption>
       {note && <p className="ui-quote-note">{note}</p>}
-      <Pill to={cta.to} tone="dark">{cta.label}</Pill>
+      <Pill to={cta.to} tone="ghost">{cta.label}</Pill>
     </figure>
   );
 }

@@ -22,6 +22,7 @@
   --on-band-muted: #C9D3E3;
   --radius-card: 24px;
   --radius-pill: 999px;
+  --radius-control: 12px;
   --max: 1180px;
 }
 
@@ -114,52 +115,40 @@
 .ui-section-head--left { text-align: left; }
 .ui-section-lead { margin-top: 16px; }
 
-/* ── Pill ── */
+/* ── Pill: one recipe, marigold fill (accent) or 1px outline (ghost) ── */
 .ui-pill {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  min-height: 52px;
-  padding: 8px 8px 8px 24px;
-  border: 0;
-  border-radius: var(--radius-pill);
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
   font: inherit;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
-  background: var(--accent);
-  color: var(--ink);
   transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.ui-pill-arrow {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--arrow);
-  color: #fff;
-}
-.ui-pill--dark {
-  background: var(--band);
-  color: #fff;
-}
-.ui-pill--dark .ui-pill-arrow {
-  background: #fff;
-  color: var(--band);
+.ui-pill--accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
 }
 .ui-pill--ghost {
   background: transparent;
+  border-color: currentColor;
   color: inherit;
-  border: 1px solid currentColor;
-  padding: 8px 24px;
 }
-.ui-pill--ghost .ui-pill-arrow { display: none; }
+.ui-pill:focus-visible {
+  outline: 2px solid var(--arrow);
+  outline-offset: 3px;
+}
+.ui-band--band .ui-pill:focus-visible { outline-color: var(--accent); }
 
 /* ── Card and CardGrid ── */
 .ui-card {
@@ -314,7 +303,6 @@ ul.ui-card-line li + li { margin-top: 10px; }
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
-.ui-textlink svg { vertical-align: -3px; }
 .ui-textlink:focus-visible {
   outline: 2px solid var(--arrow);
   outline-offset: 2px;

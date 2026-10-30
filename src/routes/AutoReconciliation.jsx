@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import Seo from '../components/Seo';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
@@ -270,7 +269,7 @@ function AutoReconciliation() {
         <ul className="ui-related">
           {RELATED_BLOG_POSTS.map((post) => (
             <li key={post.slug}>
-              <Link to={`/blog/${post.slug}`} className="ui-textlink">{post.title} <ArrowRight size={16} aria-hidden="true" /></Link>
+              <Link to={`/blog/${post.slug}`} className="ui-textlink">{post.title}</Link>
             </li>
           ))}
         </ul>

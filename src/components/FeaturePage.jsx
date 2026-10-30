@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
 import CallPlayer from './CallPlayer';
 import WhatsAppCTA from './WhatsAppCTA';
@@ -28,7 +27,7 @@ export const ICON_NAMES = [
 ];
 
 const CARD_SIZES = '(max-width: 899px) 80vw, 300px';
-const More = ({ to, children }) => <Link to={to} className="ui-textlink">{children} <ArrowRight size={16} aria-hidden="true" /></Link>;
+const More = ({ to, children }) => <Link to={to} className="ui-textlink">{children}</Link>;
 
 // A registry picture goes through Shot; a step still carrying a legacy
 // `image`/`screenshot` is a plain img with its own alt (Shot throws on it).

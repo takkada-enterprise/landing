@@ -35,7 +35,7 @@ body.lock-scroll {
 .ui-nav--minimal .ui-nav-inner { justify-content: space-between; gap: 12px; }
 .ui-nav--minimal .ui-pill { white-space: nowrap; }
 @media (max-width: 420px) {
-  .ui-nav--minimal .ui-pill { padding-left: 16px; gap: 10px; }
+  .ui-nav--minimal .ui-pill { padding: 0 16px; gap: 10px; }
   .ui-nav--minimal .ui-pill > svg { display: none; }
 }
 .ui-nav-logo { display: flex; flex-shrink: 0; }
@@ -65,9 +65,7 @@ body.lock-scroll {
   gap: 10px;
   white-space: nowrap;
 }
-.ui-nav .ui-pill { height: 44px; font-size: 15px; }
-.ui-nav .ui-pill-arrow { width: 30px; height: 30px; }
-.ui-nav .ui-pill--ghost { padding: 0 20px; }
+.ui-nav .ui-pill { height: 44px; padding: 0 20px; font-size: 15px; }
 
 /* ── Features disclosure ── */
 .ui-nav-features {
@@ -215,8 +213,7 @@ body.lock-scroll {
     align-items: stretch;
     gap: 12px;
   }
-  .ui-nav .ui-nav-actions .ui-pill { height: 52px; justify-content: space-between; }
-  .ui-nav .ui-nav-actions .ui-pill--ghost { justify-content: center; }
+  .ui-nav .ui-nav-actions .ui-pill { height: 52px; justify-content: center; }
 }
 
 /* ── Sticky WhatsApp bar, phones only ── */
@@ -239,7 +236,7 @@ body.lock-scroll {
   visibility: visible;
   transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.ui-nav-sticky .ui-pill { width: 100%; justify-content: space-between; }
+.ui-nav-sticky .ui-pill { width: 100%; justify-content: center; }
 @media (max-width: 767px) {
   .ui-nav-sticky { display: block; }
 }

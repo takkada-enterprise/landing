@@ -25,12 +25,12 @@ describe('WhatsAppCTA', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('renders a dark Pill by default and takes the caller tone', () => {
+  it('renders a ghost Pill by default and takes the caller tone', () => {
     const { container } = render(<WhatsAppCTA context="pricing" />);
-    expect(container.querySelector('a.ui-pill').className).toContain('ui-pill--dark');
+    expect(container.querySelector('a.ui-pill').className).toContain('ui-pill--ghost');
     cleanup();
-    const { container: ghost } = render(<WhatsAppCTA context="pricing" tone="ghost" />);
-    expect(ghost.querySelector('a.ui-pill').className).toContain('ui-pill--ghost');
+    const { container: accent } = render(<WhatsAppCTA context="pricing" tone="accent" />);
+    expect(accent.querySelector('a.ui-pill').className).toContain('ui-pill--accent');
   });
 
   it('falls back to the default message for an unknown context', () => {
