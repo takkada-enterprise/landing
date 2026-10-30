@@ -138,6 +138,18 @@
 .ui-icp-docs .ui-card-media a { color: var(--arrow); }
 .ui-icp-docs code { overflow-wrap: anywhere; }
 
+/* Blog index on a phone: ~280 posts in one column. Each excerpt shows two
+   lines (the full text stays in the markup), which takes a third or so off
+   the scroll without touching a word. */
+@media (max-width: 599px) {
+  .ui-icp #posts .ui-card > p.ui-card-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}
 @media (max-width: 767px) {
   .ui-icp .ui-icp-scenario { font-size: 18px; }
   .ui-icp .ui-icp-quote { padding: 32px 24px; }

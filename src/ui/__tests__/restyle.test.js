@@ -189,4 +189,20 @@ describe('phone widths (390px pass)', () => {
   it('paints the pricing head strip the table surface, not white', () => {
     expect(body(home, '.ui-home .rate-table .rate-table-head')).toMatch(/background:\s*var\(--card\)/);
   });
+  it('windows the home card and row screens on a phone instead of whole phones', () => {
+    expect(body(home, '.ui-home .ui-card-media:has(> .ui-shot)')).toMatch(/height:\s*\d+px/);
+    expect(body(home, '.ui-home .ui-altrow-media')).toMatch(/height:\s*\d+px/);
+  });
+  it('stretches every hero and close-band button to the full width on a phone', () => {
+    const b = body(phone(ui), '.ui-hero-actions > .ui-pill');
+    expect(b).toMatch(/width:\s*100%/);
+    expect(body(phone(ui), '.ui-close-actions > .ui-pill')).toBe(b);
+  });
+  it('gives walkthrough steps 3+ the same card as steps 1-2 once stacked', () => {
+    const below900 = read('ui/feature.css').split(/@media\s*\(max-width:\s*899px\)/).slice(1).join('');
+    expect(body(below900, '.ui-feature .ui-steps-rows .ui-altrow')).toMatch(/background:\s*var\(--card\)/);
+  });
+  it('clamps blog index excerpts to two lines on a phone', () => {
+    expect(body(read('ui/icp.css'), '.ui-icp #posts .ui-card > p.ui-card-line')).toMatch(/line-clamp:\s*2/);
+  });
 });

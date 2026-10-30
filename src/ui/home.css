@@ -413,6 +413,16 @@
   .ui-home .rate-head .rate-title { font-size: 32px; }
 }
 
+/* Phones: a window onto the top of each screen, as on the features hub.
+   Thirteen whole 592px phones stacked one per card made the page about
+   25 screens long. The store-links card holds text, not a screen. */
+@media (max-width: 599px) {
+  .ui-home .ui-card-media:has(> .ui-shot),
+  .ui-home .ui-altrow-media {
+    height: 240px;
+  }
+}
+
 /* ── Motion ── */
 @media (hover: hover) and (pointer: fine) {
   .ui-home .ui-video-play:hover .ui-video-play-disc { transform: scale(1.04); }

@@ -278,6 +278,11 @@ ul.ui-card-line li + li { margin-top: 10px; }
   .ui-quote { padding: 32px 24px; }
   .ui-quote blockquote { font-size: 22px; }
   .ui-close-title { font-size: 36px; }
+  /* Wrapped onto their own lines, buttons kept their label widths and
+     stacked ragged (149px over 223px over 261px). On a phone every button
+     in an action row takes the full width, like the menu sheet's. */
+  .ui-hero-actions > .ui-pill,
+  .ui-close-actions > .ui-pill { width: 100%; }
 }
 
 /* ── Motion ── */

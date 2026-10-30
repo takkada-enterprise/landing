@@ -281,6 +281,21 @@
 @media (max-width: 899px) {
   .ui-feature .ui-hero { grid-template-columns: 1fr; }
   .ui-feature .ui-hero-stage { width: min(300px, 70vw); }
+  /* Steps 3+ are AltRows; stacked, they lost the card steps 1-2 sit in (text
+     loose on the band, only the phone boxed). Below 900px each row is the
+     same card: one surface, 24px apart, the picture inside it. */
+  .ui-feature .ui-steps-rows { margin-top: 24px; }
+  .ui-feature .ui-steps-rows .ui-altrow {
+    gap: 24px;
+    padding: 28px;
+    background: var(--card);
+    border-radius: var(--radius-card);
+  }
+  .ui-feature .ui-steps-rows .ui-altrow + .ui-altrow { margin-top: 24px; }
+  .ui-feature .ui-steps-rows .ui-altrow-media {
+    padding: 0;
+    border-radius: 16px;
+  }
 }
 @media (max-width: 767px) {
   .ui-feature .ui-hero-lead,
