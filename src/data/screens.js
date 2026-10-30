@@ -315,6 +315,26 @@ export const SCREENS = {
   'ai-chat-statements': phone('ai-chat-statements', "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm"),
   'ai-chat-bills': phone('ai-chat-bills', "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm"),
   'ai-chat-banks': phone('ai-chat-banks', "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered"),
+  // Hero cards (2026-10-30), cut from the full-resolution 2026-10-30 captures; the
+  // rectangles live in mockups/captures-2026-10-30/ledger.json under `crops`.
+  'hero-card-outstanding': sheet(
+    'hero-card-outstanding',
+    '₹4,06,70,064 to collect from customers, with the time Tally last sent data',
+    720,
+    137
+  ),
+  'hero-card-overdue': sheet(
+    'hero-card-overdue',
+    'Rahi Motors marked overdue with ₹30,06,962 to collect',
+    720,
+    137
+  ),
+  'hero-card-ageing': sheet(
+    'hero-card-ageing',
+    'A J Enterprise owes ₹95,498.80, all overdue, split into ageing periods',
+    720,
+    661
+  ),
 };
 
 export function screen(slug) {

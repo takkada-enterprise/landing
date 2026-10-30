@@ -69,6 +69,22 @@ describe('screen registry', () => {
     }
   });
 
+  it('registers the 2026-10-30 hero cards with the sizes on disk', () => {
+    const slugs = [
+      'hero-card-outstanding',
+      'hero-card-overdue',
+      'hero-card-ageing',
+    ];
+    for (const slug of slugs) {
+      const s = SCREENS[slug];
+      expect(s, slug).toBeTruthy();
+      const url = `/assets/screens/${slug}-720.webp`;
+      expect(existsSync(resolve(root, 'public', url.slice(1))), url).toBe(true);
+      expect(s.src, slug).toBe(url);
+      expect(intrinsicSize(url), slug).toEqual({ width: s.width, height: s.height });
+    }
+  });
+
   it('throws on an unknown slug instead of rendering a broken image', () => {
     expect(() => screen('nope')).toThrow(/Unknown screen/);
   });
