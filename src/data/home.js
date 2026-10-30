@@ -5,7 +5,15 @@
 
 export const HOME_HERO = {
   headline: 'Your Tally, on your phone.',
-  lead: 'Outstanding, reminders, invoices and your salesmen, from anywhere. Tally stays on your PC and stays in charge.',
+  // Pointers, not a sentence (owner ruling 2026-10-31): the jobs the page
+  // goes on to show, one line each, ticked.
+  points: [
+    'Outstanding and reminders',
+    'E-invoicing and e-way bill',
+    'Salesman tracking',
+    'AI collection calls',
+    'Auto-reconciliation into Tally',
+  ],
   screen: 'home',
   // Cropped fragments, not whole screens (owner ruling 2026-10-30). Each card
   // hangs off one side of the phone and overlaps it by 40px at most.

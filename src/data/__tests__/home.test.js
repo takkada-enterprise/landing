@@ -8,7 +8,7 @@ import { SCREENS } from '../screens';
 import { FEATURE_PAGES } from '../featurePages';
 
 const EXPORTS = { HOME_HERO, HOME_USED_FOR, HOME_IN_CHARGE, HOME_ROWS, HOME_CLOSE };
-const COPY_KEYS = new Set(['headline', 'accent', 'lead', 'title', 'line', 'label']);
+const COPY_KEYS = new Set(['headline', 'accent', 'lead', 'points', 'title', 'line', 'label']);
 
 /** Every [path, key, value] pair reachable from a data export. */
 function walk(value, path = '', key = '') {

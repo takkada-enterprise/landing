@@ -62,6 +62,18 @@ describe('hero', () => {
     });
   });
 
+  // The hero carries ticked pointers, not a lead sentence (owner ruling
+  // 2026-10-31): one line per job, each with a tick icon.
+  it('lists the hero pointers with a tick each and no lead paragraph', () => {
+    const c = renderHome();
+    const hero = c.querySelector('#product');
+    expect(hero.querySelector('.ui-hero-lead')).toBeNull();
+    const items = [...hero.querySelectorAll('ul.ui-hero-points > li')];
+    expect(items.map((li) => li.textContent)).toEqual(HOME_HERO.points);
+    expect(HOME_HERO.points.length).toBeGreaterThanOrEqual(4);
+    for (const li of items) expect(li.querySelector('svg')).not.toBeNull();
+  });
+
   // The stage is the 360px phone; a float is a 260px landscape crop. Both
   // shrink with the viewport (home.css), the float in a smaller ratio, so the
   // full-size pair is the tallest case.

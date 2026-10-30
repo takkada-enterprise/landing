@@ -69,7 +69,14 @@ function Home({ seo = HOME_SEO }) {
         <div className="ui-hero">
           <div className="ui-hero-copy">
             <h1 className="ui-hero-title">{HOME_HERO.headline}</h1>
-            <p className="ui-hero-lead">{HOME_HERO.lead}</p>
+            <ul className="ui-hero-points">
+              {HOME_HERO.points.map((point) => (
+                <li key={point}>
+                  <Check size={18} aria-hidden="true" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
             <div className="ui-hero-actions">
               <DemoTryCTA context="home-hero" />
               <CalendarCTA context="home-hero" />

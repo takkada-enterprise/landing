@@ -18,12 +18,30 @@
   align-items: center;
 }
 .ui-home .ui-hero-title { color: var(--on-band); }
-.ui-home .ui-hero-lead {
-  margin: 24px 0 0;
+/* The hero's pointers: one ticked line per job, in place of a lead sentence
+   (owner ruling 2026-10-31). The tick is marigold, the one accent on the
+   band besides the primary button. */
+.ui-home .ui-hero-points {
+  margin: 28px 0 0;
+  padding: 0;
   max-width: 520px;
-  font-size: 20px;
-  line-height: 1.5;
-  color: var(--on-band-muted);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--on-band);
+}
+.ui-home .ui-hero-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.ui-home .ui-hero-points svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--accent);
 }
 .ui-home .ui-hero-actions {
   display: flex;
@@ -409,7 +427,7 @@
   .ui-home .ui-hero-float { display: none; }
 }
 @media (max-width: 767px) {
-  .ui-home .ui-hero-lead { font-size: 18px; }
+  .ui-home .ui-hero-points { font-size: 16px; gap: 10px; }
   .ui-home .rate-head .rate-title { font-size: 32px; }
 }
 
