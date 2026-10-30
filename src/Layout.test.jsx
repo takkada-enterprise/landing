@@ -386,8 +386,15 @@ describe('footer', () => {
     expect(contactInfo.company).toBe('Pay Saathi Innovation LLP');
   });
 
-  it('sets no inline style anywhere in the footer', () => {
-    expect(renderLayout().footer().querySelectorAll('[style]')).toHaveLength(0);
+  it('sizes the footer grid to its groups', () => {
+    const top = renderLayout().footer().querySelector('.ui-footer-top');
+    expect(top.getAttribute('style')).toMatch(/--footer-groups:\s*4\b/);
+  });
+
+  it('sets no inline style in the footer beyond the group count', () => {
+    const styled = [...renderLayout().footer().querySelectorAll('[style]')];
+    expect(styled.map((el) => el.className)).toEqual(['ui-footer-top']);
+    expect(styled[0].getAttribute('style').trim()).toMatch(/^--footer-groups:\s*\d+;?$/);
   });
 });
 

@@ -144,3 +144,24 @@ describe('type (audit 12, 13)', () => {
     expect(b).toMatch(/font-variant-numeric:\s*tabular-nums/);
   });
 });
+
+describe('placement polish (audit 5, 13, 15)', () => {
+  it('top-aligns zig-zag copy with its picture', () => {
+    expect(body(ui, '.ui-altrow')).toMatch(/align-items:\s*start/);
+  });
+  it('keeps the right hero chip inside the grid from 900px up', () => {
+    const home = read('ui/home.css');
+    const px = (sel) => body(home, sel).match(/width:\s*min\((\d+)px,\s*(\d+)vw\)/).slice(1).map(Number);
+    const [sMax, sVw] = px('.ui-home .ui-hero-stage');
+    const [fMax, fVw] = px('.ui-home .ui-hero-float');
+    for (let vw = 900; vw <= 1600; vw += 10) {
+      const stage = Math.min(sMax, (sVw * vw) / 100);
+      const chip = Math.min(fMax, (fVw * vw) / 100);
+      const column = (Math.min(vw, 1180) - 48 - 48) / 2;
+      expect(stage - 40 + chip, `${vw}px`).toBeLessThanOrEqual(column);
+    }
+  });
+  it('gives the footer one track per filled group', () => {
+    expect(body(read('ui/footer.css'), '.ui-footer-top')).toMatch(/repeat\(var\(--footer-groups/);
+  });
+});

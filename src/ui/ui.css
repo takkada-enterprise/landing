@@ -191,7 +191,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
-  align-items: center;
+  align-items: start;
 }
 .ui-altrow + .ui-altrow { margin-top: 64px; }
 .ui-altrow-media {

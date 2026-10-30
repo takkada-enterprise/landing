@@ -33,6 +33,8 @@ const FEATURE_MENU = menuFeatureGroups(FEATURE_PAGES).map((group) => ({
 }));
 
 const LOGO = '/assets/screenshots/takkada-logo.webp';
+// One footer track per group; a group past ten links spans two (.ui-footer-group--wide).
+const footerGroups = footerColumns.reduce((n, c) => n + (c.links.length > 10 ? 2 : 1), 0);
 
 function hashTargetFrom(href) {
   if (!href || !href.startsWith('#')) return null;
@@ -338,7 +340,7 @@ function SiteFooter() {
   return (
     <footer className="ui-footer">
       <div className="ui-max">
-        <div className="ui-footer-top">
+        <div className="ui-footer-top" style={{ '--footer-groups': footerGroups }}>
           <div className="ui-footer-brand">
             <FooterLogo />
             <p className="ui-footer-tagline">Your Tally, in your pocket.</p>
