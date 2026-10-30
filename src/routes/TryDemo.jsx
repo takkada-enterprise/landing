@@ -133,15 +133,19 @@ function TryDemo() {
       {/* The second action follows the same gate the hero used to carry: once
           the demo is live, WhatsApp; before that, the booking link. */}
       <CloseBand id="close" title="See it working, then make it yours." accent="make it yours">
-        {demoEntryLive ? (
-          <>
-            <DemoTryCTA context="demo-page-final" /> <WhatsAppCTA context="demo" tone="ghost" />
-          </>
-        ) : (
-          <>
-            <WhatsAppCTA context="demo" tone="accent" /> <CalendarCTA context="demo-page" />
-          </>
-        )}
+        <div className="ui-close-actions">
+          {demoEntryLive ? (
+            <>
+              <DemoTryCTA context="demo-page-final" />
+              <WhatsAppCTA context="demo" tone="ghost" />
+            </>
+          ) : (
+            <>
+              <WhatsAppCTA context="demo" tone="accent" />
+              <CalendarCTA context="demo-page" />
+            </>
+          )}
+        </div>
       </CloseBand>
     </div>
   );

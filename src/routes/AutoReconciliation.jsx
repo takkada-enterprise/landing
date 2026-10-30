@@ -162,8 +162,8 @@ function AutoReconciliation() {
             </Card>
             <Card title="Same payment, in Takkada" line="Matched itself" className="ui-recon-panel">
               <ul className="ui-recon-lines">
-                <li><span>Annapurna Kirana &bull; INV/26-27/0032</span><span className="tabular-nums">₹1,86,420.16 &check; In Tally</span></li>
-                <li><span>Annapurna Kirana &bull; INV/26-27/0047</span><span className="tabular-nums">₹62,479.84 &check; In Tally</span></li>
+                <li><span>Annapurna Kirana &bull; INV/26-27/0032</span><span className="tabular-nums">₹1,86,420.16 ✓ In Tally</span></li>
+                <li><span>Annapurna Kirana &bull; INV/26-27/0047</span><span className="tabular-nums">₹62,479.84 ✓ In Tally</span></li>
                 <li><span>Receipt sent on WhatsApp</span><span className="tabular-nums">₹2,48,900 &bull; 0 calls</span></li>
               </ul>
             </Card>

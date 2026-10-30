@@ -257,6 +257,25 @@
   letter-spacing: -0.02em;
   margin-bottom: 32px;
 }
+/* A lead line and two actions in place of the Pill (any page, not only ICP). */
+.ui-close-lead {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  font-size: 18px;
+  color: var(--on-band-muted);
+}
+.ui-close-lead a { color: var(--on-band); }
+.ui-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* A list in a card's line slot: one item per line, with air between. */
+ul.ui-card-line { padding-left: 20px; }
+ul.ui-card-line li + li { margin-top: 10px; }
 
 /* ── Phone widths ── */
 @media (max-width: 767px) {

@@ -32,7 +32,12 @@ body.lock-scroll {
   align-items: center;
   gap: 32px;
 }
-.ui-nav--minimal .ui-nav-inner { justify-content: space-between; }
+.ui-nav--minimal .ui-nav-inner { justify-content: space-between; gap: 12px; }
+.ui-nav--minimal .ui-pill { white-space: nowrap; }
+@media (max-width: 420px) {
+  .ui-nav--minimal .ui-pill { padding-left: 16px; gap: 10px; }
+  .ui-nav--minimal .ui-pill > svg { display: none; }
+}
 .ui-nav-logo { display: flex; flex-shrink: 0; }
 .ui-nav-logo img { display: block; width: 107px; height: auto; }
 

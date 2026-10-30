@@ -206,6 +206,33 @@
   font-size: 14px;
   color: var(--muted);
 }
+/* A phone has no room for three columns: each row's label takes the full
+   width and the answers sit side by side under the column heads, so nothing
+   hides behind a sideways scroll. */
+@media (max-width: 767px) {
+  .ui-feature .ui-compare { min-width: 0; }
+  .ui-feature .ui-compare,
+  .ui-feature .ui-compare thead,
+  .ui-feature .ui-compare tbody { display: block; }
+  .ui-feature .ui-compare tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    border-bottom: 1px solid rgba(17, 20, 24, 0.12);
+  }
+  .ui-feature .ui-compare th,
+  .ui-feature .ui-compare td {
+    flex: 1 1 0;
+    width: auto;
+    padding: 12px 0;
+    border-bottom: 0;
+  }
+  .ui-feature .ui-compare thead th:first-child { display: none; }
+  .ui-feature .ui-compare tbody th {
+    flex-basis: 100%;
+    padding-bottom: 0;
+  }
+}
 
 /* ── Plan pointer ── */
 .ui-feature .ui-plan { margin-top: 24px; }

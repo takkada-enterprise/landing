@@ -49,7 +49,7 @@
 .ui-icp .ui-icp-quote figcaption { margin-top: 24px; }
 
 /* ── Tables: scroll sideways inside the card on a phone ── */
-.ui-icp .ui-compare-scroll { overflow-x: auto; }
+.ui-icp .ui-compare-scroll { overflow-x: auto; position: relative; }
 .ui-icp .ui-compare--grid th[scope="col"]:not(:first-child),
 .ui-icp .ui-compare--grid td {
   width: 18%;
@@ -57,22 +57,6 @@
   vertical-align: middle;
 }
 .ui-icp .ui-compare--grid svg { display: inline-block; }
-
-/* ── Close band: a lead line and two actions in place of the Pill ── */
-.ui-icp .ui-close-lead {
-  max-width: 640px;
-  margin: 0 auto 32px;
-  font-size: 18px;
-  color: var(--on-band-muted);
-}
-.ui-icp .ui-close-lead a { color: var(--on-band); }
-.ui-icp .ui-close-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
 
 /* ── Text in a card's media slot: no clipping, no push to the bottom ── */
 .ui-icp-docs .ui-card-media,
@@ -97,7 +81,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink);
 }
 .ui-icp .ui-recon-lines li {
