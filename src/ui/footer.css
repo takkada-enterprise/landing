@@ -121,3 +121,8 @@
 @media (max-width: 767px) {
   .ui-footer { padding-bottom: 100px; }
 }
+
+.ui-footer-logo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}

@@ -300,3 +300,8 @@
   .ui-feature .call-player-play { transition: none; }
   .ui-feature .call-player-play:active { transform: none; }
 }
+
+.ui-feature .ui-breadcrumb a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
