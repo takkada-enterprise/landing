@@ -6,7 +6,12 @@ import { Band, SectionHead, Card, CardGrid, Shot, CloseBand } from '../ui';
 // The feature-page skin carries the hero this page shares with it (every
 // rule is prefixed .ui-feature).
 import '../ui/feature.css';
-import { FEATURE_PAGES, featurePagePath, getFeaturePage } from '../data/featurePages';
+import {
+  FEATURE_PAGES,
+  distinctCardScreens,
+  featurePagePath,
+  getFeaturePage,
+} from '../data/featurePages';
 import { FEATURE_BLURBS, FEATURE_GROUPS, retiredAnchorsFor } from '../data/featureGroups';
 import { HOME_CLOSE } from '../data/home';
 import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/schema';
@@ -27,10 +32,16 @@ import { absoluteUrl, breadcrumbSchema, collectionPageSchema } from '../data/sch
 
 const WA_CONTEXT = 'features-hub';
 const CARD_SIZES = '(max-width: 899px) 80vw, 300px';
+// No card shows the /features hero's own screen; within a group each card
+// shows a screen of its own page that no earlier card shows.
+const HUB_RESERVED = ['home'];
 
 // Every group with its pages, FEATURE_GROUPS order; an unknown slug drops out
 // (the hub test fails on it first).
-const GROUPS = FEATURE_GROUPS.map((g) => ({ ...g, pages: g.slugs.map(getFeaturePage).filter(Boolean) }));
+const GROUPS = FEATURE_GROUPS.map((g) => {
+  const pages = g.slugs.map(getFeaturePage).filter(Boolean);
+  return { ...g, pages, screens: distinctCardScreens(pages, HUB_RESERVED) };
+});
 
 const seo = {
   title: 'All Features for Distributors on Tally | Takkada',
@@ -105,7 +116,7 @@ function Features() {
           ))}
           <SectionHead title={group.title} lead={group.intro} />
           <CardGrid>
-            {group.pages.map((page) => (
+            {group.pages.map((page, j) => (
               <Card
                 key={page.slug}
                 to={featurePagePath(page)}
@@ -113,7 +124,7 @@ function Features() {
                 title={page.llms.title}
                 line={FEATURE_BLURBS[page.slug] ?? page.llms.summary}
               >
-                <Shot screen={page.hero.screen} sizes={CARD_SIZES} />
+                <Shot screen={group.screens[j]} sizes={CARD_SIZES} />
               </Card>
             ))}
           </CardGrid>

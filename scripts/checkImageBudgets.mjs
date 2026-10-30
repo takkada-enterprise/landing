@@ -133,6 +133,8 @@ export const BUDGETS = [
   // with a reason if q80 lands over 60_000.
   ['public/assets/screens/scheme-free-noodles-360.webp', 32_000, 'feature-page hero (schemes-tally)'],
   ['public/assets/screens/scheme-free-noodles-720.webp', 60_000, 'feature-page hero (schemes-tally)'],
+  ['public/assets/screens/scheme-buy-x-get-y-360.webp', 32_000, 'feature-page hero (schemes-tally)'],
+  ['public/assets/screens/scheme-buy-x-get-y-720.webp', 60_000, 'feature-page hero (schemes-tally)'],
   ['public/assets/screens/fmcg-margin-sheet-360.webp', 32_000, 'feature-page hero (fmcg-module-tally)'],
   ['public/assets/screens/fmcg-margin-sheet-720.webp', 60_000, 'feature-page hero (fmcg-module-tally)'],
   ['public/assets/screens/auto-inventory-360.webp', 32_000, 'feature-page hero (autoparts-billing-tally)'],

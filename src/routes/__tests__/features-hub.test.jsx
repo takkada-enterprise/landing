@@ -12,7 +12,13 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Features from '../Features';
-import { FEATURE_PAGES, featurePagePath, getFeaturePage, heroShot } from '../../data/featurePages';
+import {
+  FEATURE_PAGES,
+  featurePagePath,
+  getFeaturePage,
+  distinctCardScreens,
+} from '../../data/featurePages';
+import { SCREENS } from '../../data/screens';
 import { FEATURE_BLURBS, FEATURE_GROUPS, RETIRED_GROUP_ANCHORS } from '../../data/featureGroups';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 import { routeMetadata } from '../../data/siteMetadata';
@@ -229,18 +235,28 @@ describe('hub on the Campfire template', () => {
     );
   });
 
-  it("gives every card the page's title, its directory line and its hero screen", () => {
+  it("gives every card the page's title, its directory line and a screen of its own page, distinct within its group", () => {
     const { container } = renderHub();
     for (const page of FEATURE_PAGES) {
       const card = container.querySelector(`a.features-hub-card[href="${featurePagePath(page)}"]`);
       expect(card.querySelector('h3.ui-card-title').textContent).toBe(page.llms.title);
       expect(card.querySelector('p.ui-card-line').textContent).toBe(FEATURE_BLURBS[page.slug]);
       const img = card.querySelector('.ui-card-media img.ui-shot');
-      const shot = heroShot(page);
       expect(img, page.slug).not.toBeNull();
-      expect(img.getAttribute('src')).toBe(shot.src);
-      expect(img.getAttribute('alt')).toBe(shot.alt);
       expect(img.getAttribute('loading')).toBe('lazy');
+    }
+    for (const group of FEATURE_GROUPS) {
+      const pages = group.slugs.map(getFeaturePage).filter(Boolean);
+      const imgs = [
+        ...container.querySelectorAll(
+          `section[id="${group.id}"] a.features-hub-card .ui-card-media img.ui-shot`
+        ),
+      ];
+      const shown = imgs.map((img) => img.getAttribute('data-screen'));
+      expect(shown, group.id).toEqual(distinctCardScreens(pages, ['home']));
+      expect(new Set(shown).size, group.id).toBe(shown.length);
+      expect(shown, group.id).not.toContain('home');
+      imgs.forEach((img, j) => expect(img.getAttribute('alt'), shown[j]).toBe(SCREENS[shown[j]].alt));
     }
   });
 

@@ -11,6 +11,7 @@ import {
   getFeaturePage,
   heroShot,
   stepShot,
+  distinctCardScreens,
 } from '../featurePages';
 import { screen, SCREENS } from '../screens';
 import {
@@ -893,3 +894,33 @@ describe('call recording', () => {
   });
 });
 
+
+describe('distinct card screens', () => {
+  const pg = (hero, ...steps) => ({
+    hero: { screen: hero },
+    walkthrough: steps.map((screen) => ({ screen })),
+  });
+  it('picks each page its first screen not already taken', () => {
+    expect(distinctCardScreens([pg('a', 'a', 'b'), pg('a', 'a', 'c'), pg('d')])).toEqual([
+      'a',
+      'c',
+      'd',
+    ]);
+  });
+  it('skips reserved screens', () => {
+    expect(distinctCardScreens([pg('a', 'a', 'b')], ['a'])).toEqual(['b']);
+  });
+  it('reads tour stations when a page has no walkthrough', () => {
+    expect(
+      distinctCardScreens([pg('a'), { hero: { screen: 'a' }, tour: { stations: [{ screen: 'c' }] } }])
+    ).toEqual(['a', 'c']);
+  });
+  it('falls back to the hero when every screen is taken, never undefined', () => {
+    expect(distinctCardScreens([pg('a'), pg('a')])).toEqual(['a', 'a']);
+  });
+  it('gives /schemes-tally a hero no walkthrough step repeats', () => {
+    const page = getFeaturePage('schemes-tally');
+    expect(page.hero.screen).toBe('scheme-buy-x-get-y');
+    expect(page.walkthrough.map((s) => s.screen)).not.toContain(page.hero.screen);
+  });
+});
