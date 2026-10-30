@@ -282,7 +282,8 @@ ul.ui-card-line li + li { margin-top: 10px; }
      stacked ragged (149px over 223px over 261px). On a phone every button
      in an action row takes the full width, like the menu sheet's. */
   .ui-hero-actions > .ui-pill,
-  .ui-close-actions > .ui-pill { width: 100%; }
+  .ui-close-actions > .ui-pill,
+  .ui-close > .ui-max > .ui-pill { width: 100%; }
 }
 
 /* ── Motion ── */

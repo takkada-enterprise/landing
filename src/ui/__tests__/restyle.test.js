@@ -197,6 +197,9 @@ describe('phone widths (390px pass)', () => {
     const b = body(phone(ui), '.ui-hero-actions > .ui-pill');
     expect(b).toMatch(/width:\s*100%/);
     expect(body(phone(ui), '.ui-close-actions > .ui-pill')).toBe(b);
+    // A lone close-band button sits straight in the band's .ui-max, with no
+    // action row around it (home, features, partners).
+    expect(body(phone(ui), '.ui-close > .ui-max > .ui-pill')).toBe(b);
   });
   it('gives walkthrough steps 3+ the same card as steps 1-2 once stacked', () => {
     const below900 = read('ui/feature.css').split(/@media\s*\(max-width:\s*899px\)/).slice(1).join('');
