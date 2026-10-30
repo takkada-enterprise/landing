@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { SCREENS } from '../../data/screens';
 import { Band, Pill, SectionHead, Card, CardGrid, Shot, AltRow, QuoteBand, CloseBand } from '..';
+import { gridCols } from '../CardGrid';
 
 const R = ({ children }) => (
   <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>{children}</MemoryRouter>
@@ -60,8 +61,16 @@ describe('src/ui primitives', () => {
     expect(card.querySelector('.ui-card-media')).toBeNull();
   });
 
-  it('CardGrid sets the column class', () => {
-    expect(mount(<CardGrid cols={4}><div /></CardGrid>).querySelector('div.ui-grid.ui-grid--4')).toBeTruthy();
+  it.each([[1, 1], [2, 2], [3, 3], [4, 2], [5, 3], [6, 3], [7, 3], [8, 2], [10, 2], [12, 3], [336, 3]])(
+    'gridCols(%i) is %i', (n, c) => expect(gridCols(n)).toBe(c)
+  );
+  it('CardGrid derives its columns and leads an odd count', () => {
+    const kids = (n) => Array.from({ length: n }, (_, i) => <div key={i} />);
+    expect(mount(<CardGrid>{kids(4)}</CardGrid>).querySelector('.ui-grid').className).toBe('ui-grid ui-grid--2');
+    expect(mount(<CardGrid>{kids(5)}</CardGrid>).querySelector('.ui-grid').className).toBe('ui-grid ui-grid--3 ui-grid--lead');
+    expect(mount(<CardGrid>{kids(1)}</CardGrid>).querySelector('.ui-grid').className).toBe('ui-grid ui-grid--1');
+    expect(mount(<CardGrid cols={4}>{kids(4)}</CardGrid>).querySelector('.ui-grid').className).toBe('ui-grid ui-grid--4');
+    expect(mount(<CardGrid cols={3}>{kids(4)}</CardGrid>).querySelector('.ui-grid').className).toBe('ui-grid ui-grid--3 ui-grid--lead');
   });
 
   it('Shot renders the registry image whole', () => {

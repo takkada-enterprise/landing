@@ -80,7 +80,7 @@ function ICPTemplate({
       <Band tone="white" id="capabilities">
         <SectionHead title={capabilitiesHeading} />
         {/* Two columns for an even count, so four cards never leave an orphan. */}
-        <CardGrid cols={capabilities.length % 3 === 0 ? 3 : 2}>
+        <CardGrid>
           {capabilities.map((c) => <Card key={c.title} title={c.title} line={c.body} />)}
         </CardGrid>
       </Band>

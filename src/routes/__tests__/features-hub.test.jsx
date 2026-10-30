@@ -18,6 +18,7 @@ import { PhoneModalProvider } from '../../context/PhoneModalContext';
 import { routeMetadata } from '../../data/siteMetadata';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
+import { gridCols } from '../../ui/CardGrid';
 
 afterEach(cleanup);
 
@@ -240,6 +241,14 @@ describe('hub on the Campfire template', () => {
       expect(img.getAttribute('src')).toBe(shot.src);
       expect(img.getAttribute('alt')).toBe(shot.alt);
       expect(img.getAttribute('loading')).toBe('lazy');
+    }
+  });
+
+  it('derives each group grid from its page count', () => {
+    const { container } = renderHub();
+    for (const group of FEATURE_GROUPS) {
+      const grid = container.querySelector(`section[id="${group.id}"] .ui-grid`);
+      expect(grid.classList.contains(`ui-grid--${gridCols(group.slugs.filter(getFeaturePage).length)}`), group.id).toBe(true);
     }
   });
 

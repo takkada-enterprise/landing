@@ -65,6 +65,12 @@ describe('TryDemo route (/demo/)', () => {
     expect(container.textContent).toContain('A sandbox you cannot break');
   });
 
+  it('derives the see and how-it-works grids from their counts', () => {
+    const { container } = renderRoute();
+    expect(container.querySelector('#what-you-will-see .ui-grid--2')).not.toBeNull();
+    expect(container.querySelector('#how-it-works .ui-grid--3')).not.toBeNull();
+  });
+
   it('emits a BreadcrumbList resolving to the registered path', () => {
     const { schemas } = renderRoute();
     const breadcrumb = schemas.find((s) => s['@type'] === 'BreadcrumbList');

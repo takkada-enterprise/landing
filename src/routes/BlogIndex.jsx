@@ -50,7 +50,7 @@ function BlogIndex() {
         </Band>
 
         <Band tone="white" id="posts">
-          <CardGrid cols={3}>
+          <CardGrid>
             {posts.map((post) => (
               <Card key={post.slug} to={`/blog/${post.slug}`} title={post.title} line={post.excerpt}>
                 <time className="ui-card-line tabular-nums" dateTime={post.date}>

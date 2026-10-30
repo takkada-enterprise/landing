@@ -104,7 +104,7 @@ function Features() {
             <span key={id} id={id} aria-hidden="true" />
           ))}
           <SectionHead title={group.title} lead={group.intro} />
-          <CardGrid cols={3}>
+          <CardGrid>
             {group.pages.map((page) => (
               <Card
                 key={page.slug}

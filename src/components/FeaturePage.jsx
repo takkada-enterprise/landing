@@ -97,7 +97,7 @@ function FeaturePage({ page }) {
 
       <Band tone="white" id="how-it-works">
         <SectionHead title={page.walkthroughHeading ?? page.tour.heading} lead={page.tour?.intro} />
-        <CardGrid cols={2}>
+        <CardGrid>
           {steps.slice(0, 2).map((step) => (
             <Card key={step.title} title={step.title} line={step.body}>
               <StepPicture step={step} />
@@ -140,7 +140,7 @@ function FeaturePage({ page }) {
       {detail && (
         <Band tone="white" id="detail">
           <SectionHead title={detail.heading} lead={detail.intro} />
-          <CardGrid cols={3}>
+          <CardGrid>
             {detail.groups.map((group) => (
               <Card key={group.title} title={group.title} className="ui-detail">
                 <ul>

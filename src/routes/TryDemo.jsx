@@ -112,14 +112,14 @@ function TryDemo() {
 
       <Band id="what-you-will-see">
         <SectionHead title="What you&rsquo;ll be looking at" />
-        <CardGrid cols={2}>
+        <CardGrid>
           {whatYouWillSee.map((item) => <Card key={item.title} title={item.title} line={item.body} />)}
         </CardGrid>
       </Band>
 
       <Band tone="white" id="how-it-works">
         <SectionHead title="Three taps, then it&rsquo;s yours to explore" />
-        <CardGrid cols={3}>
+        <CardGrid>
           {steps.map((step) => <Card key={step.title} title={step.title} line={step.body} />)}
         </CardGrid>
       </Band>

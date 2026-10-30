@@ -96,6 +96,12 @@ describe('/partners', () => {
     );
   });
 
+  it('derives the earn and benefit grids from their counts', () => {
+    const { container } = renderPage();
+    expect(container.querySelector('#how-you-earn .ui-grid--3')).not.toBeNull();
+    expect(container.querySelector('#why-partner .ui-grid--2')).not.toBeNull();
+  });
+
   it('carries no overline or eyebrow', () => {
     const { container } = renderPage();
     expect(container.querySelector('[class*="overline"], [class*="section-label"]')).toBeNull();

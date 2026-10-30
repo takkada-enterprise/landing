@@ -116,3 +116,10 @@ describe('surface step (audit 11, 14)', () => {
       expect(body(ui, sel), sel).toMatch(/padding-top:\s*0/);
   });
 });
+
+describe('grid counts (audit 3)', () => {
+  it('widens the first card of a lead grid at the 3-column breakpoint', () => {
+    const after = ui.slice(ui.indexOf('@media (min-width: 900px)'));
+    expect(body(after, '.ui-grid--lead > :first-child')).toMatch(/grid-column:\s*span 2/);
+  });
+});

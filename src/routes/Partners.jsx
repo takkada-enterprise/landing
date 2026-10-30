@@ -75,14 +75,14 @@ function Partners() {
 
       <Band id="how-you-earn">
         <SectionHead title="How you earn" />
-        <CardGrid cols={3}>
+        <CardGrid>
           {PARTNER_EARN.map((c) => <Card key={c.title} title={c.title} line={c.line} />)}
         </CardGrid>
       </Band>
 
       <Band tone="white" id="why-partner">
         <SectionHead title="Same customer, deeper wallet share." />
-        <CardGrid cols={2}>
+        <CardGrid>
           {partnerBenefits.map((b) => <Card key={b.title} title={b.title} line={b.body} />)}
         </CardGrid>
       </Band>

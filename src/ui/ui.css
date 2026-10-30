@@ -171,6 +171,7 @@
 @media (min-width: 900px) {
   .ui-grid--2 { grid-template-columns: repeat(2, 1fr); }
   .ui-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .ui-grid--lead > :first-child { grid-column: span 2; }
 }
 @media (min-width: 1100px) {
   .ui-grid--4 { grid-template-columns: repeat(4, 1fr); }
