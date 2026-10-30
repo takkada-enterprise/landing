@@ -12,7 +12,7 @@ vi.mock('vite-react-ssg', () => ({
 import TryDemo from '../TryDemo';
 import { routeMetadata } from '../../data/siteMetadata';
 import { appLinks, demoEntryLive } from '../../data/siteContent';
-import { PhoneModalProvider } from '../../context/PhoneModalContext';
+import { PhoneModalProvider, usePhoneModal } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -21,11 +21,18 @@ const CANONICAL = 'https://takkada.com/demo/';
 // DemoTryCTA calls usePhoneModal(), which throws by design outside a
 // provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
 // so this render goes red at either flag value without the wrapper.
+// Shows what the phone modal would open with, so a test can see the click land.
+function ModalProbe() {
+  const { open, options } = usePhoneModal();
+  return open ? <output data-testid="phone-modal">{options.destination}</output> : null;
+}
+
 function renderRoute() {
   const { container } = render(
     <MemoryRouter>
       <PhoneModalProvider>
         <TryDemo />
+        <ModalProbe />
       </PhoneModalProvider>
     </MemoryRouter>
   );
@@ -64,6 +71,36 @@ describe('TryDemo route (/demo/)', () => {
     expect(breadcrumb.itemListElement.at(-1).item).toBe(CANONICAL);
   });
 
+  describe('on the Campfire template', () => {
+    it('opens on the dark band whose first pill is the demo action', () => {
+      const { container } = renderRoute();
+      const hero = container.querySelector('section.ui-band--band');
+      expect(hero.querySelector('h1.ui-hero-title')).not.toBeNull();
+      const first = hero.querySelector('.ui-pill');
+      expect(first.textContent).toMatch(/try the demo/i);
+    });
+
+    it('offers both store apps as pills that open in a new tab', () => {
+      const { container } = renderRoute();
+      for (const href of [appLinks.playStore, appLinks.appStore]) {
+        const a = container.querySelector(`a.ui-pill[href="${href}"]`);
+        expect(a, href).not.toBeNull();
+        expect(a.getAttribute('rel')).toContain('noopener');
+      }
+    });
+
+    it('holds the demo video in a card', () => {
+      const { container } = renderRoute();
+      expect(container.querySelector('.ui-card .video-embed')).not.toBeNull();
+    });
+
+    it('closes on the dark close band and carries no overline', () => {
+      const { container } = renderRoute();
+      expect(container.querySelector('.ui-close .ui-pill')).not.toBeNull();
+      expect(container.querySelector('[class*="overline"], [class*="section-label"]')).toBeNull();
+    });
+  });
+
   describe('flag-gated primary action (never a dead link)', () => {
     it('with the demo entry not yet live, the primary is WhatsApp and no app link renders', () => {
       // This is the shipped state until the app /demo route + anonymous
@@ -85,6 +122,7 @@ describe('TryDemo route (/demo/)', () => {
       fireEvent.click(cta);
 
       expect(window.clarity).toHaveBeenCalledWith('event', 'demo_try_click');
+      expect(screen.getByTestId('phone-modal').textContent).toBe('demo');
       delete window.clarity;
     });
 
