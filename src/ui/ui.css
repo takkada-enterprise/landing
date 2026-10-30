@@ -10,8 +10,8 @@
    ═══════════════════════════════════════════════════ */
 
 :root {
-  --ground: #F8F8F6;
-  --card: #F1F1EF;
+  --ground: #F3F1EC;
+  --card: #FFFFFF;
   --band: #0F1F3D;
   --accent: #FCAF1B;
   --arrow: #006EA6;
@@ -63,12 +63,15 @@
   line-height: 1.5;
 }
 .ui-band--ground { background: var(--ground); }
-.ui-band--white { background: #fff; }
+.ui-band--white { background: #fff; --card: var(--ground); }
 .ui-band--tint { background: var(--tint); }
 .ui-band--band {
   background: var(--band);
   color: var(--on-band);
 }
+/* Two same-tone bands in a row read as one section: one top padding, not two. */
+.ui-band--ground + .ui-band--ground,
+.ui-band--white + .ui-band--white { padding-top: 0; }
 
 /* ── Type scale ── */
 .ui-hero-title {

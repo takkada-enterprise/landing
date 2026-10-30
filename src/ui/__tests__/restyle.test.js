@@ -94,3 +94,25 @@ describe('one left axis (audit 10)', () => {
     expect(body(home, '.ui-home .trust-article-link')).toMatch(/text-align:\s*left/);
   });
 });
+
+describe('surface step (audit 11, 14)', () => {
+  const lum = (hex) => {
+    const [r, g, b] = hex.replace('#', '').match(/\w\w/g).map((h) => {
+      const c = parseInt(h, 16) / 255;
+      return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const token = (name) => body(ui, ':root').match(new RegExp(`--${name}:\\s*(#[0-9a-fA-F]{6})`))[1];
+  it('steps ground and white far enough apart to read at a seam', () => {
+    expect(lum('#FFFFFF') / lum(token('ground'))).toBeGreaterThanOrEqual(1.12);
+  });
+  it('gives a card the opposite surface of its band', () => {
+    expect(token('card').toUpperCase()).toBe('#FFFFFF');
+    expect(body(ui, '.ui-band--white')).toMatch(/--card:\s*var\(--ground\)/);
+  });
+  it('never stacks two same-tone bands at full padding', () => {
+    for (const sel of ['.ui-band--ground + .ui-band--ground', '.ui-band--white + .ui-band--white'])
+      expect(body(ui, sel), sel).toMatch(/padding-top:\s*0/);
+  });
+});
