@@ -30,14 +30,15 @@ describe('src/ui primitives', () => {
     expect(s.querySelector('.ui-max > p').textContent).toBe('hi');
   });
 
-  it('SectionHead renders title and lead, centred by default', () => {
+  it('SectionHead renders title and lead on the left axis', () => {
     const c = mount(<SectionHead title="Tally stays in charge." lead="A lead." />);
-    const h = c.querySelector('header.ui-section-head.ui-section-head--center');
+    const h = c.querySelector('header.ui-section-head');
+    expect(h).toBeTruthy();
+    expect(h.className).toBe('ui-section-head');
     expect(h.querySelector('h2.ui-section-title').textContent).toBe('Tally stays in charge.');
     expect(h.querySelector('p.ui-section-lead').textContent).toBe('A lead.');
-    const left = mount(<SectionHead title="T" align="left" />);
-    expect(left.querySelector('.ui-section-head--left')).toBeTruthy();
-    expect(left.querySelector('p.ui-section-lead')).toBeNull();
+    const bare = mount(<SectionHead title="T" />);
+    expect(bare.querySelector('p.ui-section-lead')).toBeNull();
   });
 
   it('Card with `to` is one Link holding title, line and media', () => {

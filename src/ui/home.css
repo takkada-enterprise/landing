@@ -58,11 +58,9 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--muted);
-  text-align: center;
 }
-.ui-home .ui-center {
+.ui-home .ui-after-grid {
   margin-top: 48px;
-  text-align: center;
 }
 .ui-home .ui-card-media .ui-shot,
 .ui-home .ui-altrow-media .ui-shot {
@@ -86,11 +84,14 @@
 .ui-home .trust-article-link a {
   color: var(--arrow);
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
+/* parts.css centres .trust-article-link; the home section starts it on the edge. */
 .ui-home .trust-article-link {
   margin: 40px 0 0;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
 }
 
 /* ── Pricing: the kept .rate-* matrix, re-skinned ── */
@@ -246,7 +247,7 @@
 /* ── FAQ: hairline rows ── */
 .ui-home .faq-list {
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0;
 }
 .ui-home .faq-list .faq-item {
   margin: 0;

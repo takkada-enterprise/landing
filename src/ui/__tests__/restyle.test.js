@@ -70,3 +70,27 @@ describe('one-colour headings (audit 9)', () => {
     }
   });
 });
+
+describe('one left axis (audit 10)', () => {
+  const home = read('ui/home.css');
+  it('has no centred section-head variant', () => {
+    expect(ui).not.toMatch(/\.ui-section-head--center/);
+  });
+  it.each([
+    ['ui/feature.css', '.ui-feature .ui-answer'], ['ui/feature.css', '.ui-feature .ui-footnote'], ['ui/feature.css', '.ui-feature .ui-detail-more'],
+    ['ui/feature.css', '.ui-feature .faq-list'], ['ui/feature.css', '.ui-feature .ui-related'],
+    ['ui/home.css', '.ui-home .ui-label'], ['ui/home.css', '.ui-home .ui-after-grid'], ['ui/home.css', '.ui-home .trust-article-link'], ['ui/home.css', '.ui-home .faq-list'],
+  ])('%s %s starts on the container edge', (file, sel) => {
+    const b = body(read(file), sel);
+    expect(b, sel).not.toBe('');
+    expect(b, sel).not.toMatch(/margin[^;]*\bauto\b/);
+    expect(b, sel).not.toMatch(/text-align:\s*center/);
+  });
+  it('underlines the trust article link', () => {
+    expect(body(home, '.ui-home .trust-article-link a')).toMatch(/text-decoration:\s*underline/);
+  });
+  it('overrides the centred .trust-article-link in parts.css', () => {
+    expect(body(read('ui/parts.css'), '.trust-article-link')).toMatch(/text-align:\s*center/);
+    expect(body(home, '.ui-home .trust-article-link')).toMatch(/text-align:\s*left/);
+  });
+});

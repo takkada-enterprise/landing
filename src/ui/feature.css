@@ -54,7 +54,7 @@
 /* ── Answer ── */
 .ui-feature .ui-answer {
   max-width: 820px;
-  margin: 0 auto;
+  margin: 0;
   font-size: 20px;
   line-height: 1.6;
   color: var(--ink);
@@ -72,10 +72,9 @@
 .ui-feature .ui-steps-rows { margin-top: 64px; }
 .ui-feature .ui-footnote {
   max-width: 760px;
-  margin: 48px auto 0;
+  margin: 48px 0 0;
   font-size: 16px;
   color: var(--muted);
-  text-align: center;
 }
 .ui-feature .ui-sheet .ui-card-media img { max-width: none; }
 
@@ -98,7 +97,6 @@
 .ui-feature .ui-detail strong { color: var(--ink); }
 .ui-feature .ui-detail-more {
   margin: 40px 0 0;
-  text-align: center;
 }
 .ui-feature .ui-detail-more .ui-textlink,
 .ui-feature .ui-plan .ui-textlink,
@@ -250,7 +248,7 @@
 /* ── FAQ: hairline rows ── */
 .ui-feature .faq-list {
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0;
 }
 .ui-feature .faq-list .faq-item {
   margin: 0;
@@ -274,7 +272,7 @@
   display: grid;
   gap: 4px;
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }

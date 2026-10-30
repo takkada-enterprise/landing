@@ -95,7 +95,7 @@ function Home({ seo = HOME_SEO }) {
             </Card>
           ))}
         </CardGrid>
-        <div className="ui-center">
+        <div className="ui-after-grid">
           <DemoTryCTA context="home-used-for" />
         </div>
       </Band>

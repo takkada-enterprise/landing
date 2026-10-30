@@ -103,12 +103,6 @@
   max-width: 760px;
   margin-bottom: 48px;
 }
-.ui-section-head--center {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.ui-section-head--left { text-align: left; }
 .ui-section-lead { margin-top: 16px; }
 
 /* ── Pill: one recipe, marigold fill (accent) or 1px outline (ghost) ── */
