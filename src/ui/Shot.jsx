@@ -1,7 +1,9 @@
 import { screen as lookup } from '../data/screens';
 
 // The registry image, whole. screen() throws on an unknown slug.
-export default function Shot({ screen, sizes, eager = false, className }) {
+// fetchPriority is for a page's LCP picture only (the feature hero):
+// stripImagePreloads keeps the preload of an img that asks for "high".
+export default function Shot({ screen, sizes, eager = false, fetchPriority, className }) {
   const s = lookup(screen);
   return (
     <img
@@ -14,6 +16,7 @@ export default function Shot({ screen, sizes, eager = false, className }) {
       height={s.height}
       alt={s.alt}
       loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={fetchPriority}
       decoding="async"
     />
   );

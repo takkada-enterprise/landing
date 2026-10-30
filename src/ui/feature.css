@@ -1,0 +1,277 @@
+/* ═══════════════════════════════════════════════════
+   src/ui/feature.css: the feature-page template on the Campfire pattern
+   (plan 2026-10-30-003, Task 5). The answer block, the comparison table
+   (.ui-compare*), the plan pointer card (.ui-plan*), plus what the page
+   needs that home.css keeps under .ui-home: the hero layout, the FAQ rows,
+   and the call player skin that lived in the old feature stylesheet.
+   The motion contract is ui.css's; no keyframes (the call player's
+   breathing bars are gone with the old sheet).
+
+   Every rule is prefixed with .ui-feature: this file loads ahead of
+   styles.css (FeaturePage imports it), so the prefix is what lets these
+   rules win over the legacy ones.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.ui-feature .ui-hero {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: center;
+}
+.ui-feature .ui-hero-title { color: var(--on-band); }
+.ui-feature .ui-hero-lead {
+  margin: 24px 0 0;
+  max-width: 560px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--on-band-muted);
+}
+.ui-feature .ui-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.ui-feature .ui-hero-stage {
+  width: min(300px, 26vw);
+  justify-self: center;
+}
+.ui-feature .ui-hero-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ui-feature .icp-breadcrumb {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--on-band-muted);
+}
+.ui-feature .icp-breadcrumb a { color: var(--on-band); }
+.ui-feature .icp-breadcrumb-sep { color: var(--on-band-muted); }
+
+/* ── Answer ── */
+.ui-feature .ui-answer {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* ── Pictures in cards and rows: the whole phone, centred ── */
+.ui-feature .ui-card-media img,
+.ui-feature .ui-altrow-media img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+.ui-feature .ui-steps-rows { margin-top: 64px; }
+.ui-feature .ui-footnote {
+  max-width: 760px;
+  margin: 48px auto 0;
+  font-size: 16px;
+  color: var(--muted);
+  text-align: center;
+}
+.ui-feature .ui-sheet .ui-card-media img { max-width: none; }
+
+/* ── Text cards: the media slot holds text, so nothing is clipped ── */
+.ui-feature .ui-listen .ui-card-media,
+.ui-feature .ui-detail .ui-card-media,
+.ui-feature .ui-compare-card .ui-card-media,
+.ui-feature .ui-plan .ui-card-media {
+  border-radius: 0;
+  overflow: visible;
+}
+.ui-feature .ui-detail ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  font-size: 16px;
+  color: var(--muted);
+}
+.ui-feature .ui-detail strong { color: var(--ink); }
+.ui-feature .ui-detail-more {
+  margin: 40px 0 0;
+  text-align: center;
+}
+.ui-feature .ui-detail-more .ui-textlink,
+.ui-feature .ui-plan .ui-textlink,
+.ui-feature .ui-related .ui-textlink { color: var(--arrow); }
+
+/* ── Call recording ── */
+.ui-feature .ui-listen { margin-top: 48px; }
+.ui-feature .call-player {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 16px;
+}
+.ui-feature .call-player-play {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--arrow);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ui-feature .call-player-play:active { transform: scale(0.97); }
+.ui-feature .call-player-wave {
+  position: relative;
+  flex: 1;
+  height: 56px;
+  cursor: pointer;
+}
+.ui-feature .call-player-wave:focus-visible {
+  outline: 2px solid var(--arrow);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+.ui-feature .call-player-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+/* The played half is the same bars in colour, clipped to the audio clock. */
+.ui-feature .call-player-track.played {
+  clip-path: inset(0 calc(100% - var(--played, 0%)) 0 0);
+}
+.ui-feature .call-player-bar {
+  flex: 1;
+  min-height: 3px;
+  border-radius: 2px;
+  background: rgba(91, 102, 112, 0.45);
+}
+.ui-feature .call-player-track.played .call-player-bar { background: var(--arrow); }
+.ui-feature .call-player-time {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.ui-feature .ui-listen-caption {
+  margin: 16px 0 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ── Comparison table ── */
+.ui-feature .ui-compare-card .ui-card-media { overflow-x: auto; }
+.ui-feature .ui-compare {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+.ui-feature .ui-compare th,
+.ui-feature .ui-compare td {
+  padding: 16px 16px 16px 0;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(17, 20, 24, 0.12);
+}
+.ui-feature .ui-compare thead th {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.ui-feature .ui-compare tbody th {
+  width: 30%;
+  font-weight: 600;
+  color: var(--ink);
+}
+.ui-feature .ui-compare td { color: var(--muted); }
+.ui-feature .ui-compare .ui-compare-us { color: var(--ink); }
+.ui-feature .ui-compare thead .ui-compare-us { color: var(--arrow); }
+.ui-feature .ui-compare-note {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ── Plan pointer ── */
+.ui-feature .ui-plan { margin-top: 24px; }
+.ui-feature .ui-plan-figure {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--muted);
+}
+.ui-feature .ui-plan-price {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── FAQ: hairline rows ── */
+.ui-feature .faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.ui-feature .faq-list .faq-item {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(17, 20, 24, 0.12);
+}
+.ui-feature .faq-list .faq-question {
+  font-size: 18px;
+  color: var(--ink);
+}
+.ui-feature .faq-list .faq-answer {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ── Related reading ── */
+.ui-feature .ui-related {
+  display: grid;
+  gap: 4px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* ── Hero stacks below 900px: copy first, picture under it ── */
+@media (max-width: 899px) {
+  .ui-feature .ui-hero { grid-template-columns: 1fr; }
+  .ui-feature .ui-hero-stage { width: min(300px, 70vw); }
+}
+@media (max-width: 767px) {
+  .ui-feature .ui-hero-lead,
+  .ui-feature .ui-answer { font-size: 18px; }
+  .ui-feature .call-player {
+    gap: 12px;
+    padding: 14px;
+  }
+  .ui-feature .call-player-play {
+    width: 46px;
+    height: 46px;
+  }
+  .ui-feature .call-player-wave { height: 46px; }
+  .ui-feature .call-player-track { gap: 1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-feature .call-player-play { transition: none; }
+  .ui-feature .call-player-play:active { transform: none; }
+}
