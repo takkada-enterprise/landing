@@ -94,10 +94,10 @@ describe('src/ui primitives', () => {
     expect(fig.querySelector('p.ui-quote-note').textContent).toBe('100+ businesses');
     expect(fig.querySelector('a.ui-pill.ui-pill--ghost')).toBeTruthy();
 
-    const c = mount(<CloseBand id="close" title="See your Tally on your phone." accent="on your phone" cta={{ to: '/demo', label: 'Try the demo' }} />);
+    const c = mount(<CloseBand id="close" title="See your Tally on your phone." cta={{ to: '/demo', label: 'Try the demo' }} />);
     const band = c.querySelector('section#close.ui-band.ui-band--band.ui-close');
     expect(band.querySelector('h2.ui-close-title').textContent).toBe('See your Tally on your phone.');
-    expect(band.querySelector('.ui-close-title em.ui-accent').textContent).toBe('on your phone');
+    expect(band.querySelector('h2 em')).toBeNull();
     expect(band.querySelector('a.ui-pill[href="/demo"]')).toBeTruthy();
   });
 });

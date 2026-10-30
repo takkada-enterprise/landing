@@ -132,7 +132,7 @@ function TryDemo() {
 
       {/* The second action follows the same gate the hero used to carry: once
           the demo is live, WhatsApp; before that, the booking link. */}
-      <CloseBand id="close" title="See it working, then make it yours." accent="make it yours">
+      <CloseBand id="close" title="See it working, then make it yours.">
         <div className="ui-close-actions">
           {demoEntryLive ? (
             <>

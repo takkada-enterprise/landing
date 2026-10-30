@@ -122,7 +122,7 @@ function ICPTemplate({
         </Band>
       )}
 
-      <CloseBand id="close" title={HOME_CLOSE.title} accent={HOME_CLOSE.accent} cta={HOME_CLOSE.cta}>
+      <CloseBand id="close" title={HOME_CLOSE.title} cta={HOME_CLOSE.cta}>
         <DemoTryCTA context={waContext}>{HOME_CLOSE.cta.label}</DemoTryCTA>
       </CloseBand>
     </div>

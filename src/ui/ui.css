@@ -97,10 +97,6 @@
   color: var(--muted);
 }
 .ui-band--band .ui-section-lead { color: var(--on-band-muted); }
-.ui-accent {
-  font-style: normal;
-  color: var(--accent);
-}
 
 /* ── SectionHead ── */
 .ui-section-head {

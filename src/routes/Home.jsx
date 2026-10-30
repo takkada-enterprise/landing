@@ -43,19 +43,6 @@ const HOME_SEO = {
   path: '/',
 };
 
-// The one phrase of the headline that takes the accent colour.
-function withAccent(text, accent) {
-  const at = text.indexOf(accent);
-  if (at < 0) return text;
-  return (
-    <>
-      {text.slice(0, at)}
-      <em className="ui-accent">{accent}</em>
-      {text.slice(at + accent.length)}
-    </>
-  );
-}
-
 // The Campfire home (plan 2026-10-30-003, Task 4): dark hero, used-for cards,
 // quote band, Tally-in-charge cards, alternating rows, data safety, video
 // stories, the rate matrix, FAQ and a dark close band. Copy lives in
@@ -81,7 +68,7 @@ function Home({ seo = HOME_SEO }) {
       <Band tone="band" id="product">
         <div className="ui-hero">
           <div className="ui-hero-copy">
-            <h1 className="ui-hero-title">{withAccent(HOME_HERO.headline, HOME_HERO.accent)}</h1>
+            <h1 className="ui-hero-title">{HOME_HERO.headline}</h1>
             <p className="ui-hero-lead">{HOME_HERO.lead}</p>
             <div className="ui-hero-actions">
               <DemoTryCTA context="home-hero" />
@@ -386,7 +373,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </Band>
 
-      <CloseBand id="close" title={HOME_CLOSE.title} accent={HOME_CLOSE.accent} cta={HOME_CLOSE.cta}>
+      <CloseBand id="close" title={HOME_CLOSE.title} cta={HOME_CLOSE.cta}>
         <DemoTryCTA context="home-close">{HOME_CLOSE.cta.label}</DemoTryCTA>
       </CloseBand>
     </div>

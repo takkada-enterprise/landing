@@ -275,7 +275,7 @@ function AutoReconciliation() {
         </ul>
       </Band>
 
-      <CloseBand id="final-cta" title="Close the shop. The books are already done." accent="The books are already done.">
+      <CloseBand id="final-cta" title="Close the shop. The books are already done.">
         <p className="ui-close-lead">
           Book a <span className="tabular-nums">15-minute</span> demo to see how Takkada automates payment reconciliation in your Tally, or chat with us on WhatsApp to learn more.
         </p>

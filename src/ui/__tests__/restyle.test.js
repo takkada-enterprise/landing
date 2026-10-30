@@ -62,3 +62,11 @@ describe('button recipe (audit 8)', () => {
     for (const [p, t] of allCss) expect(t, p).not.toMatch(/transition:\s*all\b/);
   });
 });
+
+describe('one-colour headings (audit 9)', () => {
+  it('leaves no ui-accent class and no accent prop anywhere in src', () => {
+    for (const p of walk(SRC, /\.(css|jsx?)$/)) {
+      expect(readFileSync(p, 'utf8'), p).not.toMatch(/ui-accent|\baccent=\{|\baccent="/);
+    }
+  });
+});

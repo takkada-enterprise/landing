@@ -43,11 +43,11 @@ function renderHome() {
 }
 
 describe('hero', () => {
-  it('sets the headline with the accent phrase', () => {
+  it('sets the headline in one colour', () => {
     const c = renderHome();
     const h1 = c.querySelector('h1.ui-hero-title');
     expect(h1.textContent).toBe(HOME_HERO.headline);
-    expect(h1.querySelector('em.ui-accent').textContent).toBe(HOME_HERO.accent);
+    expect(h1.querySelector('em')).toBeNull();
   });
 
   it('shows the home screen eagerly and the two floats where the data puts them', () => {

@@ -152,7 +152,7 @@ function TallyMobileComparison() {
         </CardGrid>
       </Band>
 
-      <CloseBand id="final-cta" title="See the difference on your own books." accent="on your own books">
+      <CloseBand id="final-cta" title="See the difference on your own books.">
         <p className="ui-close-lead">
           A <span className="tabular-nums">15-minute</span> walkthrough with your Tally version and your receivables,
           so the comparison stops being theoretical.

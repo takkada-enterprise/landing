@@ -5,7 +5,6 @@
 
 export const HOME_HERO = {
   headline: 'Your Tally, on your phone.',
-  accent: 'on your phone',
   lead: 'Outstanding, reminders, invoices and your salesmen, from anywhere. Tally stays on your PC and stays in charge.',
   screen: 'home',
   // Cropped fragments, not whole screens (owner ruling 2026-10-30). Each card
@@ -88,6 +87,5 @@ export const HOME_ROWS = [
 
 export const HOME_CLOSE = {
   title: 'See your Tally on your phone.',
-  accent: 'on your phone',
   cta: { to: '/demo', label: 'Try the demo' },
 };

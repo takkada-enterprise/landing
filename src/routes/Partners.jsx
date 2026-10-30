@@ -105,7 +105,7 @@ function Partners() {
         </div>
       </Band>
 
-      <CloseBand id="close" title="Sell Takkada alongside your Tally." accent="alongside your Tally">
+      <CloseBand id="close" title="Sell Takkada alongside your Tally.">
         <WhatsAppCTA context="partners" message={PARTNER_WA_MESSAGE} tone="accent">Become a partner</WhatsAppCTA>
       </CloseBand>
     </div>

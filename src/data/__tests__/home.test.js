@@ -46,9 +46,9 @@ describe('home page data', () => {
     }
   });
 
-  it('puts the accent phrase inside the headline', () => {
-    expect(HOME_HERO.headline).toContain(HOME_HERO.accent);
-    expect(HOME_CLOSE.title).toContain(HOME_CLOSE.accent);
+  it('carries no accent phrase (headlines are one colour)', () => {
+    expect(HOME_HERO).not.toHaveProperty('accent');
+    expect(HOME_CLOSE).not.toHaveProperty('accent');
   });
 
   it('keeps each float clear of the middle of the phone', () => {

@@ -196,7 +196,7 @@ function FeaturePage({ page }) {
         </Band>
       )}
 
-      <CloseBand id="close" title={HOME_CLOSE.title} accent={HOME_CLOSE.accent} cta={HOME_CLOSE.cta}>
+      <CloseBand id="close" title={HOME_CLOSE.title} cta={HOME_CLOSE.cta}>
         <div className="ui-close-actions">
           <DemoTryCTA context={page.waContext}>{HOME_CLOSE.cta.label}</DemoTryCTA>
           <CalendarCTA context={page.waContext} />
