@@ -51,6 +51,17 @@ describe('home page data', () => {
     expect(HOME_CLOSE).not.toHaveProperty('accent');
   });
 
+  it('gives every hero ticket an icon key, a title, a line and a side', () => {
+    expect(HOME_HERO.tickets).toHaveLength(4);
+    for (const t of HOME_HERO.tickets) {
+      expect(t.icon, t.id).toMatch(/^[a-z-]+$/);
+      expect(t.title.length, t.id).toBeGreaterThan(0);
+      expect(t.line.length, t.id).toBeGreaterThan(0);
+      expect(t.top, t.id).toMatch(/^\d+(\.\d+)?%$/);
+      expect([t.left, t.right].filter(Boolean), t.id).toHaveLength(1);
+    }
+  });
+
   it('keeps each float clear of the middle of the phone', () => {
     expect(HOME_HERO.floats).toHaveLength(2);
     for (const f of HOME_HERO.floats) {
