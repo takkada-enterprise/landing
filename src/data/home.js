@@ -8,9 +8,11 @@ export const HOME_HERO = {
   accent: 'on your phone',
   lead: 'Outstanding, reminders, invoices and your salesmen, from anywhere. Tally stays on your PC and stays in charge.',
   screen: 'home',
+  // Cropped fragments, not whole screens (owner ruling 2026-10-30). Each card
+  // hangs off one side of the phone and overlaps it by 40px at most.
   floats: [
-    { id: 'F1', screen: 'reminders', top: '8%', right: '-18%' },
-    { id: 'F2', screen: 'collections-outstanding', top: '72%', left: '-20%' },
+    { id: 'F1', screen: 'hero-card-overdue', top: '8%', left: 'calc(100% - 40px)' },
+    { id: 'F2', screen: 'hero-card-outstanding', top: '84%', right: 'calc(100% - 40px)' },
   ],
 };
 

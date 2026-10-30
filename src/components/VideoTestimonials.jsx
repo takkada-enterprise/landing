@@ -106,7 +106,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
         title="Customer Stories"
         lead="Meet Patel of Dhanlaxmi Crop Science Limited, an NSE-listed company, on how they use Takkada."
       />
-      <CardGrid cols={2}>
+      <CardGrid cols={Math.min(2, items.length)}>
         {items.map((item) => (
           <Story key={item.id} item={item} />
         ))}

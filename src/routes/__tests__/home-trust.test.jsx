@@ -80,7 +80,7 @@ describe('data-safety trust section', () => {
   it('links the real store listings with noopener', () => {
     const { container } = renderHome();
     const section = container.querySelector('#data-safety');
-    const links = [...section.querySelectorAll('.trust-store-links a')];
+    const links = [...section.querySelectorAll('.ui-store-links a')];
     const hrefs = links.map((a) => a.getAttribute('href'));
     expect(hrefs).toContain(appLinks.playStore);
     expect(hrefs).toContain(appLinks.appStore);

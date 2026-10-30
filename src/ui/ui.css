@@ -81,6 +81,7 @@
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 .ui-card-title {
   font-size: 22px;
@@ -118,14 +119,15 @@
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  height: 52px;
-  padding: 0 8px 0 24px;
+  min-height: 52px;
+  padding: 8px 8px 8px 24px;
   border: 0;
   border-radius: var(--radius-pill);
   font: inherit;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.25;
+  text-align: left;
   text-decoration: none;
   cursor: pointer;
   background: var(--accent);
@@ -133,6 +135,7 @@
   transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .ui-pill-arrow {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -154,13 +157,14 @@
   background: transparent;
   color: inherit;
   border: 1px solid currentColor;
-  padding: 0 24px;
+  padding: 8px 24px;
 }
 .ui-pill--ghost .ui-pill-arrow { display: none; }
 
 /* ── Card and CardGrid ── */
 .ui-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--card);
   border-radius: var(--radius-card);
   padding: 28px;
@@ -171,8 +175,9 @@
 .ui-card-media {
   overflow: hidden;
   border-radius: 16px;
-  margin-top: 24px;
+  margin-top: auto;
 }
+.ui-card > :has(+ .ui-card-media) { margin-bottom: 24px; }
 .ui-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -216,7 +221,7 @@
     gap: 64px;
   }
   .ui-altrow--flip { grid-template-columns: 7fr 5fr; }
-  .ui-altrow--flip .ui-altrow-media { order: -1; }
+  .ui-altrow--flip > :last-child { order: -1; }
 }
 
 /* ── QuoteBand ── */
@@ -278,18 +283,19 @@
 }
 
 /* ── Text link: the quiet second action beside a Pill (CalendarCTA) ── */
+/* inline-block, not flex: one underline under the whole label. */
 .ui-textlink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
+  display: inline-block;
+  padding: 10px 0;
   font-size: 16px;
+  line-height: 24px;
   font-weight: 600;
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
+.ui-textlink svg { vertical-align: -3px; }
 .ui-textlink:focus-visible {
   outline: 2px solid var(--arrow);
   outline-offset: 2px;

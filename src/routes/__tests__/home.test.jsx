@@ -61,6 +61,29 @@ describe('hero', () => {
       expect(floats[i].style.top).toBe(f.top);
     });
   });
+
+  // The stage is the 360px phone; a float is a 260px landscape crop. Both
+  // shrink with the viewport (home.css), the float in a smaller ratio, so the
+  // full-size pair is the tallest case.
+  it('keeps each cropped float inside the stage and overlapping the phone by 40px at most', () => {
+    const c = renderHome();
+    const phone = SCREENS[HOME_HERO.screen];
+    const stageH = (360 * phone.height) / phone.width;
+    const floats = [...c.querySelectorAll('.ui-hero-float')];
+    HOME_HERO.floats.forEach((f, i) => {
+      const s = SCREENS[f.screen];
+      expect(s.width, f.screen).toBeGreaterThan(s.height);
+      expect(floats[i].querySelector('img').getAttribute('src')).toBe(s.src);
+      const top = (Number.parseFloat(f.top) / 100) * stageH;
+      const height = (260 * s.height) / s.width;
+      expect(top, f.id).toBeGreaterThanOrEqual(0);
+      expect(top + height, f.id).toBeLessThanOrEqual(stageH);
+      const side = f.left ?? f.right;
+      const m = /^calc\(100% - (\d+)px\)$/.exec(side);
+      expect(m, `${f.id} ${side}`).toBeTruthy();
+      expect(Number(m[1]), f.id).toBeLessThanOrEqual(40);
+    });
+  });
 });
 
 describe('sections', () => {
@@ -89,6 +112,19 @@ describe('sections', () => {
     expect(rows.map((r) => r.classList.contains('ui-altrow--flip'))).toEqual([false, true, false]);
   });
 
+  // jsdom has no layout, so the flip is pinned as DOM plus the rule that
+  // moves it: the media is the row's last child (wrapped in a Link), and
+  // ui.css orders that child first on a flipped row, in the 7fr track.
+  it('puts the flipped row\'s media on the left, in the wide column', () => {
+    const flip = renderHome().querySelector('#rows .ui-altrow--flip');
+    expect(flip.firstElementChild.classList.contains('ui-altrow-copy')).toBe(true);
+    expect(flip.lastElementChild.querySelector('.ui-altrow-media')).toBeTruthy();
+    const ui = readFileSync('src/ui/ui.css', 'utf8');
+    expect(ui).toMatch(/\.ui-altrow--flip\s*>\s*:last-child\s*\{\s*order:\s*-1;?\s*\}/);
+    expect(ui).toMatch(/\.ui-altrow\s*\{\s*grid-template-columns:\s*5fr 7fr;/);
+    expect(ui).toMatch(/\.ui-altrow--flip\s*\{\s*grid-template-columns:\s*7fr 5fr;?\s*\}/);
+  });
+
   it('keeps the data-safety points, store links and explainer', () => {
     const s = renderHome().querySelector('#data-safety');
     for (const p of trustSection.points) {
@@ -103,10 +139,21 @@ describe('sections', () => {
     expect(s.querySelector(`a[href="${trustSection.articleLink.href}"]`)).toBeTruthy();
   });
 
-  it('gives every video story its own card', () => {
-    expect(renderHome().querySelectorAll('#customer-stories .ui-card')).toHaveLength(
-      videoTestimonials.length
-    );
+  it('gives every video story its own card, in no more columns than stories', () => {
+    const s = renderHome().querySelector('#customer-stories');
+    expect(s.querySelectorAll('.ui-card')).toHaveLength(videoTestimonials.length);
+    expect(s.querySelector('.ui-grid').classList.contains(`ui-grid--${Math.min(2, videoTestimonials.length)}`)).toBe(true);
+  });
+
+  // Separate inline children each got their own underline in a flex link.
+  it('renders every 15-min demo link as one text run plus the arrow', () => {
+    const links = [...renderHome().querySelectorAll('a.ui-textlink')].filter((a) => /15-min/.test(a.textContent));
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const a of links) {
+      const texts = [...a.childNodes].filter((n) => n.nodeType === 3 && n.textContent.trim());
+      expect(texts, a.textContent).toHaveLength(1);
+      expect([...a.children].map((el) => el.getAttribute('aria-hidden'))).toEqual(['true']);
+    }
   });
 
   it('orders the sections hero to close', () => {
@@ -133,6 +180,16 @@ describe('pricing', () => {
     const figures = renderHome().querySelector('#pricing').textContent.match(/₹[\d,]+/g) ?? [];
     expect(figures.length).toBeGreaterThan(0);
     for (const f of figures) expect(allowed, f).toContain(f);
+  });
+
+  // The group titles span the table; their ::after paints the highlighted
+  // column's slice so the white bar runs unbroken. Grid line = label column
+  // plus the highlighted plan's index.
+  it('paints the highlight slice in the highlighted plan\'s column', () => {
+    const home = readFileSync('src/ui/home.css', 'utf8');
+    const col = pricing.plans.findIndex((p) => p.highlighted) + 2;
+    expect(home).toMatch(new RegExp(`\\.rate-group-title::after\\s*\\{[^}]*grid-column:\\s*${col};`));
+    expect(home).toMatch(new RegExp(`data-active-plan='${col - 2}'\\] \\.rate-group-title \\{`));
   });
 });
 
@@ -176,7 +233,9 @@ describe('stylesheet guards', () => {
   });
 
   it('paints --band only on the band, the dark pill, the footer and the pricing highlight', () => {
-    const allowed = ['.ui-band--band', '.ui-pill--dark', '.ui-footer', '.ui-pricing-highlight'];
+    // .rate-group-title paints the pricing highlight's slice across a group
+    // title row (home.css), so it is the highlight, not a new use.
+    const allowed = ['.ui-band--band', '.ui-pill--dark', '.ui-footer', '.ui-pricing-highlight', '.rate-group-title'];
     const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
     const users = rules.filter(([, , body]) => /var\(--band\)/.test(body));
     expect(users.length).toBeGreaterThan(0);

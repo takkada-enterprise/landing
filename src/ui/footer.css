@@ -7,7 +7,7 @@
   background: var(--band);
   color: var(--on-band-muted);
   padding: 72px 0 32px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .ui-footer,
@@ -84,7 +84,9 @@
 }
 .ui-footer-group--wide .ui-footer-col li { margin-bottom: 10px; break-inside: avoid; }
 
-.ui-footer-contact {
+/* p.ui-footer-contact: `.ui-footer p { margin: 0 }` would otherwise win and
+   put the divider flush under the tallest column. */
+.ui-footer p.ui-footer-contact {
   margin-top: 56px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);

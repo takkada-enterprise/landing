@@ -32,18 +32,20 @@
   gap: 16px 28px;
   margin-top: 40px;
 }
+/* The stage sits at the start of its column so the top-right card has room
+   to hang off the phone without leaving the viewport; both scale with it. */
 .ui-home .ui-hero-stage {
   position: relative;
-  width: 360px;
+  width: min(360px, 30vw);
   max-width: 100%;
-  margin: 0 auto;
 }
-/* A float is a fragment of a screen, not a second phone: the card shows the
-   top of the capture and clips the rest, so it never runs past the band. */
+/* A float is a cropped fragment of a screen (owner ruling 2026-10-30), shown
+   whole at its own landscape aspect. home.js places each one so it overlaps
+   the phone by 40px at most and stays inside the stage height. */
 .ui-home .ui-hero-float {
   position: absolute;
-  width: 220px;
-  max-height: 260px;
+  z-index: 1;
+  width: min(260px, 20vw);
   overflow: hidden;
   background: #fff;
   border-radius: var(--radius-card);
@@ -69,19 +71,25 @@
 }
 
 /* ── Data safety ── */
-.ui-home .trust-store-links {
+/* The store links sit in the card's media slot; a text slot needs no clip. */
+.ui-home .ui-card-media:has(> .ui-store-links) {
+  overflow: visible;
+  border-radius: 0;
+}
+.ui-home .ui-store-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
   margin: 0;
 }
-.ui-home .trust-store-links a,
+.ui-home .ui-store-links .ui-textlink { color: var(--arrow); }
 .ui-home .trust-article-link a {
   color: var(--arrow);
   font-weight: 600;
 }
 .ui-home .trust-article-link {
   margin: 40px 0 0;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -135,6 +143,97 @@
   color: var(--ink);
 }
 .ui-home .rate-table .ui-pricing-highlight .rate-tick { color: var(--arrow); }
+/* The legacy hero dash was white-on-blue; on the white column it vanished. */
+.ui-home .rate-table .ui-pricing-highlight .rate-dash {
+  background: var(--color-outline, var(--color-border));
+}
+/* Group titles span the whole table, so the highlighted column would break at
+   each one. The title runs the table's own column grid and its ::after paints
+   that column's slice, keeping the white fill one unbroken bar. Column 4 is
+   the highlighted plan (index 2) after the label column; home.test.jsx pins it. */
+.ui-home .rate-table .rate-group-title {
+  display: grid;
+  grid-template-columns: var(--rate-cols);
+  padding-left: 0;
+  padding-right: 0;
+  text-indent: 20px;
+  /* One line: text-indent only moves the first. The rest of the title row is
+     empty, so a long label may run into the next column. */
+  white-space: nowrap;
+}
+.ui-home .rate-table .rate-group-title::after {
+  content: '';
+  grid-column: 4;
+  grid-row: 1;
+  margin: -12px 0 -7px;
+  background: #fff;
+  border-left: 2px solid var(--band);
+  border-right: 2px solid var(--band);
+}
+/* Below 900px the table shows one plan column, a fixed 84px track at the
+   right edge (styles.css). The title goes back to a plain block so a wrapped
+   label keeps its indent, and the slice is painted on that track only while
+   the highlighted plan is the one on show. */
+@media (max-width: 900px) {
+  .ui-home .rate-table .rate-group-title {
+    display: block;
+    padding: 12px 104px 7px 16px;
+    text-indent: 0;
+    white-space: normal;
+  }
+  .ui-home .rate-table .rate-group-title::after { display: none; }
+  .ui-home .rate-table[data-active-plan='2'] .rate-group-title {
+    background: linear-gradient(to left, var(--band) 2px, #fff 2px 82px, var(--band) 82px 84px, transparent 84px);
+  }
+}
+/* The bar closes under the last capability row. */
+.ui-home .rate-table .rate-group:has(+ .rate-addons) .rate-row:last-child .ui-pricing-highlight {
+  border-bottom: 2px solid var(--band);
+  border-radius: 0 0 16px 16px;
+}
+/* Legacy shadows off: cards here are flat. */
+.ui-home .rate-head .rate-term-option--active,
+.ui-home .rate-table .rate-addon {
+  box-shadow: none;
+}
+
+/* Type: 16px floor in the section; the small-caps labels and the plan badge
+   keep 13px. */
+.ui-home #pricing .rate-group-title,
+.ui-home #pricing .rate-corner-title,
+.ui-home #pricing .rate-addons-title,
+.ui-home #pricing .rate-bigger-title,
+.ui-home #pricing .rate-plan-badge {
+  font-size: 13px;
+}
+.ui-home #pricing .rate-term-option,
+.ui-home #pricing .rate-term-badge,
+.ui-home #pricing .rate-picker-option,
+.ui-home #pricing .rate-corner-note,
+.ui-home #pricing .rate-plan-period,
+.ui-home #pricing .rate-plan-note,
+.ui-home #pricing .rate-row-label,
+.ui-home #pricing .rate-addon-label,
+.ui-home #pricing .rate-addon-note,
+.ui-home #pricing .rate-addon-cta,
+.ui-home #pricing .rate-addons-cta,
+.ui-home #pricing .rate-bigger-intro,
+.ui-home #pricing .rate-bigger-card-body,
+.ui-home #pricing .rate-bigger-price-note,
+.ui-home #pricing .rate-bigger-note {
+  font-size: 16px;
+}
+.ui-home #pricing .rate-plan-name,
+.ui-home #pricing .rate-bigger-card-title,
+.ui-home #pricing .rate-bigger-amount {
+  font-size: 18px;
+}
+/* styles.css still styles .home-pricing-strip-link as a flex, 14px, bare link. */
+.ui-home .home-pricing-strip-cta .ui-textlink {
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: underline;
+}
 .ui-home .home-pricing-strip-cta {
   display: flex;
   flex-wrap: wrap;
@@ -168,7 +267,6 @@
 
 /* ── Video story cards (VideoTestimonials) ── */
 /* One story per row: the card holds the video and its details side by side. */
-.ui-home .ui-video .ui-grid { grid-template-columns: 1fr; }
 .ui-home .ui-video-body {
   display: grid;
   grid-template-columns: 1fr;
@@ -275,7 +373,10 @@
 /* ── Hero stacks below 900px: copy first, floats go ── */
 @media (max-width: 899px) {
   .ui-home .ui-hero { grid-template-columns: 1fr; }
-  .ui-home .ui-hero-stage { width: min(360px, 72vw); }
+  .ui-home .ui-hero-stage {
+    width: min(360px, 72vw);
+    margin: 0 auto;
+  }
   .ui-home .ui-hero-float { display: none; }
 }
 @media (max-width: 767px) {

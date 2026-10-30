@@ -92,7 +92,7 @@ function Home({ seo = HOME_SEO }) {
             <Shot screen={HOME_HERO.screen} eager sizes="(max-width: 767px) 72vw, 360px" />
             {HOME_HERO.floats.map(({ id, screen, ...pos }) => (
               <div key={id} className="ui-hero-float" style={pos}>
-                <Shot screen={screen} sizes="220px" />
+                <Shot screen={screen} sizes="260px" />
               </div>
             ))}
           </div>
@@ -152,10 +152,10 @@ function Home({ seo = HOME_SEO }) {
           {trustSection.points.map((point) => (
             <Card key={point.title} title={point.title} line={point.body}>
               {point.links && (
-                <p className="trust-store-links">
+                <p className="ui-store-links">
                   {point.links.map((link) => (
-                    <a key={link.label} href={appLinks[link.hrefKey]} target="_blank" rel="noopener noreferrer">
-                      {link.label} <ArrowUpRight size={13} aria-hidden="true" />
+                    <a key={link.label} className="ui-textlink" href={appLinks[link.hrefKey]} target="_blank" rel="noopener noreferrer">
+                      {link.label} <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   ))}
                 </p>
@@ -366,7 +366,7 @@ function Home({ seo = HOME_SEO }) {
         <div className="home-pricing-strip-cta">
           <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
           <CalendarCTA context="pricing" className="home-pricing-strip-link">
-            or get full pricing in a <span className="tabular-nums">15-min</span> demo <span aria-hidden="true">→</span>
+            or get full pricing in a 15-min demo <span aria-hidden="true">→</span>
           </CalendarCTA>
         </div>
       </Band>

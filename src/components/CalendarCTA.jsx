@@ -11,7 +11,7 @@ import { track } from '../lib/track';
 function CalendarCTA({ context, className = '', children }) {
   const label = children || (
     <>
-      Book a <span className="tabular-nums">15-min</span> demo <span aria-hidden="true">→</span>
+      Book a 15-min demo <span aria-hidden="true">→</span>
     </>
   );
   return (
