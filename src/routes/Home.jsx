@@ -211,6 +211,10 @@ function Home({ seo = HOME_SEO }) {
         </div>
 
         <div className="rate-table" data-active-plan={activePlan}>
+          {/* The plan head sticks for as long as this box lasts, so the box
+              holds exactly the head and the capability rows. The add-ons and
+              bigger-setups strips below have no plan columns to label. */}
+          <div className="rate-matrix">
           <div className="rate-table-head">
             <div className="rate-table-corner">
               <span className="rate-corner-title">What you get</span>
@@ -271,6 +275,7 @@ function Home({ seo = HOME_SEO }) {
               ))}
             </div>
           ))}
+          </div>
 
           {/* Add-ons close the table rather than sitting below it as an
               orphan block, because any plan can take them (Enterprise

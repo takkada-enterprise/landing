@@ -188,7 +188,7 @@
   }
 }
 /* The bar closes under the last capability row. */
-.ui-home .rate-table .rate-group:has(+ .rate-addons) .rate-row:last-child .ui-pricing-highlight {
+.ui-home .rate-matrix .rate-group:last-child .rate-row:last-child .ui-pricing-highlight {
   border-bottom: 2px solid var(--band);
   border-radius: 0 0 16px 16px;
 }

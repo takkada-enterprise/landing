@@ -86,6 +86,21 @@ describe('pricing comparison table', () => {
     }
   });
 
+  // The plan head is position: sticky and sticks for as long as its parent
+  // box lasts. With the add-ons and bigger-setups strips in that same box the
+  // four plan names rode over 1,100px of content that has no columns (Ronak,
+  // 2026-10-30). The head and the capability rows share their own box, so the
+  // stick ends with the last capability row.
+  it('keeps the sticky plan head in a box that ends with the capability rows', () => {
+    const container = renderHome();
+    const matrix = container.querySelector('.rate-table > .rate-matrix');
+    expect(matrix, 'the head and the capability rows need their own .rate-matrix box').toBeTruthy();
+    expect(matrix.querySelector('.rate-table-head')).toBeTruthy();
+    expect(matrix.querySelectorAll('.rate-group').length).toBe(pricing.matrix.length);
+    expect(matrix.querySelector('.rate-addons'), 'add-ons must sit outside the sticky box').toBeNull();
+    expect(matrix.querySelector('.rate-bigger'), 'bigger setups must sit outside the sticky box').toBeNull();
+  });
+
   it('shows every add-on inside the table, not as a block below it', () => {
     const container = renderHome();
     const addons = container.querySelector('.rate-addons');
