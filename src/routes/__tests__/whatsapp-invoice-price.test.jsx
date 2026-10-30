@@ -12,11 +12,13 @@ vi.mock('../../data/siteContent', async (importOriginal) => {
 });
 
 import WhatsAppInvoice from '../WhatsAppInvoice';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 describe('WhatsAppInvoice FAQ price', () => {
   it('is derived from the Momentum plan price, never hand-typed', () => {
-    const { container } = render(<MemoryRouter><WhatsAppInvoice /></MemoryRouter>);
+    const { container } = render(<MemoryRouter><PhoneModalProvider><WhatsAppInvoice /></PhoneModalProvider></MemoryRouter>);
     expect(container.textContent).toContain('Momentum plan (₹5,000/year)');
     expect(container.textContent).not.toContain('₹4,500/year');
+    expect(container.querySelectorAll('#capabilities .ui-card')).toHaveLength(4);
   });
 });

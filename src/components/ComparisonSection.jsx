@@ -1,4 +1,8 @@
+import { SectionHead } from '../ui';
 import { comparisonSection } from '../data/siteContent';
+
+// The named-competitor grid. Its only caller is /tally-mobile-app-comparison,
+// which wraps it in a Band; it renders the head and one .ui-compare table card.
 
 function CheckIcon() {
   return (
@@ -12,45 +16,36 @@ function CheckIcon() {
 function CrossIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-label="No" role="img">
-      <circle cx="10" cy="10" r="10" fill="#EEF5FA" />
-      <path d="M7 7L13 13M13 7L7 13" stroke="#8FB4C7" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="10" cy="10" r="10" fill="#E4E4E1" />
+      <path d="M7 7L13 13M13 7L7 13" stroke="#5B6670" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
 
-function ComparisonSection() {
-  const { overline, heading, rows, disclaimer } = comparisonSection;
-  const columns = ['Takkada', 'Biz Analyst', 'Livekeeping'];
+const COLUMNS = ['Takkada', 'Biz Analyst', 'Livekeeping'];
 
+function ComparisonSection() {
+  const { heading, rows, disclaimer } = comparisonSection;
   return (
-    <section className="comparison-section" id="comparison">
-      <div className="container">
-        <div className="section-header">
-          <span className="section-label">{overline}</span>
-          <h2 className="section-title">{heading}</h2>
-        </div>
-        <div className="comparison-table-wrapper">
-          <table className="comparison-table">
+    <>
+      <SectionHead title={heading} />
+      <div className="ui-card ui-compare-card">
+        <div className="ui-compare-scroll">
+          <table className="ui-compare ui-compare--grid">
             <thead>
               <tr>
-                <th className="comparison-th comparison-th--feature" scope="col">Feature</th>
-                {columns.map((col) => (
-                  <th
-                    key={col}
-                    className={`comparison-th comparison-th--col${col === 'Takkada' ? ' comparison-th--takkada' : ''}`}
-                    scope="col"
-                  >
-                    {col}
-                  </th>
+                <th scope="col">Feature</th>
+                {COLUMNS.map((col) => (
+                  <th key={col} scope="col" className={col === 'Takkada' ? 'ui-compare-us' : undefined}>{col}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {rows.map((row, i) => (
-                <tr key={i} className="comparison-row">
-                  <td className="comparison-td comparison-td--feature">{row.feature}</td>
-                  {columns.map((col) => (
-                    <td key={col} className="comparison-td comparison-td--value">
+              {rows.map((row) => (
+                <tr key={row.feature} className="ui-compare-row">
+                  <th scope="row">{row.feature}</th>
+                  {COLUMNS.map((col) => (
+                    <td key={col}>
                       {row[col] ? <CheckIcon /> : <CrossIcon />}
                       <span className="sr-only">{row[col] ? 'Yes' : 'No'}</span>
                     </td>
@@ -60,9 +55,9 @@ function ComparisonSection() {
             </tbody>
           </table>
         </div>
-        <p className="comparison-disclaimer">{disclaimer}</p>
+        <p className="ui-compare-note">{disclaimer}</p>
       </div>
-    </section>
+    </>
   );
 }
 

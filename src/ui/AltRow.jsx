@@ -6,7 +6,7 @@ export default function AltRow({ title, line, flip = false, to, children }) {
     <div className={`ui-altrow${flip ? ' ui-altrow--flip' : ''}`}>
       <div className="ui-altrow-copy">
         <h3 className="ui-card-title">{title}</h3>
-        <p className="ui-card-line">{line}</p>
+        {line && <p className="ui-card-line">{line}</p>}
       </div>
       {to ? <Link to={to} className="ui-altrow-link">{media}</Link> : media}
     </div>
