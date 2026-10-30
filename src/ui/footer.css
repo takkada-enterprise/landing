@@ -113,13 +113,31 @@
   .ui-footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 599px) {
-  .ui-footer { padding-top: 56px; }
   .ui-footer-top { grid-template-columns: 1fr; }
   .ui-footer-group--wide { grid-column: auto; }
 }
 /* Keep the last lines readable above the sticky WhatsApp bar (nav.css). */
 @media (max-width: 767px) {
-  .ui-footer { padding-bottom: 100px; }
+  .ui-footer {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    /* A closing band is the same navy: without a seam the footer reads as
+       more of it, after a ~120px empty run. */
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  /* 44px thumb targets: 24px line plus 10px above and below, no list gap. */
+  .ui-footer-col { gap: 0; }
+  .ui-footer-group--wide .ui-footer-col li { margin-bottom: 0; }
+  .ui-footer-col a {
+    display: block;
+    padding: 10px 0;
+  }
+  .ui-footer-contact a {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  /* `.ui-footer p { margin: 0 }` outranks .ui-footer-title's own margin. */
+  .ui-footer p.ui-footer-title { margin-bottom: 6px; }
 }
 
 .ui-footer-logo:focus-visible {

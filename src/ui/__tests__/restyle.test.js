@@ -202,6 +202,12 @@ describe('phone widths (390px pass)', () => {
     const below900 = read('ui/feature.css').split(/@media\s*\(max-width:\s*899px\)/).slice(1).join('');
     expect(body(below900, '.ui-feature .ui-steps-rows .ui-altrow')).toMatch(/background:\s*var\(--card\)/);
   });
+  it('makes footer links 44px tap targets and seams the footer off a navy band', () => {
+    const f = phone(read('ui/footer.css'));
+    expect(body(f, '.ui-footer-col a')).toMatch(/padding:\s*10px 0/);
+    expect(body(f, '.ui-footer-col')).toMatch(/gap:\s*0/);
+    expect(body(f, '.ui-footer')).toMatch(/border-top:\s*1px solid/);
+  });
   it('clamps blog index excerpts to two lines on a phone', () => {
     expect(body(read('ui/icp.css'), '.ui-icp #posts .ui-card > p.ui-card-line')).toMatch(/line-clamp:\s*2/);
   });
