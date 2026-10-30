@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { META_PIXEL_ID, setMetaUserPhone, trackMetaLead } from './track';
+import { META_PIXEL_ID, setMetaUserPhone, trackMetaLead, trackMetaContact } from './track';
 
 afterEach(() => {
   delete window.fbq;
@@ -41,3 +41,36 @@ describe('setMetaUserPhone', () => {
     expect(html).toContain(`fbq('init', '${META_PIXEL_ID}'`);
   });
 });
+
+describe('trackMetaLead', () => {
+  it('tracks Lead event on fbq with content_name', () => {
+    window.fbq = vi.fn();
+    trackMetaLead('try_demo_otp');
+    expect(window.fbq).toHaveBeenCalledWith('track', 'Lead', { content_name: 'try_demo_otp' });
+  });
+
+  it('is a silent no-op without the pixel and never throws', () => {
+    expect(() => trackMetaLead('try_demo_otp')).not.toThrow();
+    window.fbq = () => {
+      throw new Error('blocked');
+    };
+    expect(() => trackMetaLead('try_demo_otp')).not.toThrow();
+  });
+});
+
+describe('trackMetaContact', () => {
+  it('tracks Contact event on fbq with content_name', () => {
+    window.fbq = vi.fn();
+    trackMetaContact('whatsapp_click');
+    expect(window.fbq).toHaveBeenCalledWith('track', 'Contact', { content_name: 'whatsapp_click' });
+  });
+
+  it('is a silent no-op without the pixel and never throws', () => {
+    expect(() => trackMetaContact('whatsapp_click')).not.toThrow();
+    window.fbq = () => {
+      throw new Error('blocked');
+    };
+    expect(() => trackMetaContact('whatsapp_click')).not.toThrow();
+  });
+});
+

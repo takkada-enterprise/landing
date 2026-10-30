@@ -54,12 +54,14 @@
     <!-- Meta Pixel (Takkada dataset). Same local-host guard as Clarity so dev
          sessions never reach the ad account.
 
-         Leads: a click on any link to the demo calendar or to WhatsApp
-         (wa.me / api.whatsapp.com) counts once. Matching on the link target
+         Contacts: a click on any external link to the demo calendar or to WhatsApp
+         (wa.me / api.whatsapp.com) counts as 'Contact'. Matching on the link target
          rather than the button text keeps every page covered, the feature
-         pages included. The phone modal opens the calendar with window.open
-         instead of a link, so it fires its own Lead via trackMetaLead() in
-         src/lib/track.js.
+         pages included.
+
+         Leads: verified phone submissions captured via the phone modal fire a
+         true 'Lead' event via trackMetaLead() in src/lib/track.js, accompanied by
+         hashed advanced matching data.
 
          PageView: the pixel fires one on load and, by itself, one on every
          client-side route change (it listens to history.pushState), so the
@@ -93,9 +95,9 @@
           var a = e.target.closest && e.target.closest('a');
           if (!a || !a.href) return;
           if (a.href.indexOf('calendar.notion.so') > -1) {
-            fbq('track', 'Lead', { content_name: 'book_demo_click' });
+            fbq('track', 'Contact', { content_name: 'book_demo_click' });
           } else if (a.href.indexOf('wa.me/') > -1 || a.href.indexOf('api.whatsapp.com') > -1) {
-            fbq('track', 'Lead', { content_name: 'whatsapp_click' });
+            fbq('track', 'Contact', { content_name: 'whatsapp_click' });
           }
         }, true);
       }
