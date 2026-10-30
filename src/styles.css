@@ -85,7 +85,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
-  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
 a {

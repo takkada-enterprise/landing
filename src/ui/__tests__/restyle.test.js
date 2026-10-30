@@ -123,3 +123,24 @@ describe('grid counts (audit 3)', () => {
     expect(body(after, '.ui-grid--lead > :first-child')).toMatch(/grid-column:\s*span 2/);
   });
 });
+
+describe('type (audit 12, 13)', () => {
+  it('sets the hero head fluid: 48px or less at 1280, 40px at 390, never past 64px', () => {
+    const m = body(ui, '.ui-hero-title').match(/font-size:\s*clamp\((\d+)px,\s*([\d.]+)vw,\s*(\d+)px\)/);
+    expect(m).not.toBeNull();
+    const at = (vw) => Math.min(Number(m[3]), Math.max(Number(m[1]), (Number(m[2]) * vw) / 100));
+    expect(at(1280)).toBeLessThanOrEqual(48);
+    expect(at(390)).toBe(40);
+    expect(Number(m[3])).toBeLessThanOrEqual(64);
+    const phone = ui.split(/@media\s*\(max-width:\s*767px\)/).slice(1).join('');
+    expect(phone).not.toMatch(/\.ui-hero-title\s*\{/);
+  });
+  it.each(['.ui-hero-title', '.ui-section-title', '.ui-close-title', '.ui-card-title'])('%s balances its lines', (sel) => {
+    expect(body(ui, sel)).toMatch(/text-wrap:\s*balance/);
+  });
+  it('tracks body text at zero and sets figures tabular', () => {
+    const b = body(read('styles.css'), 'body');
+    expect(b).not.toMatch(/letter-spacing:\s*-/);
+    expect(b).toMatch(/font-variant-numeric:\s*tabular-nums/);
+  });
+});
