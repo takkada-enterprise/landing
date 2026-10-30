@@ -274,7 +274,7 @@
 }
 
 /* A list in a card's line slot: one item per line, with air between. */
-ul.ui-card-line { padding-left: 20px; }
+ul.ui-card-line { padding-left: 20px; list-style: disc; }
 ul.ui-card-line li + li { margin-top: 10px; }
 
 /* ── Phone widths ── */

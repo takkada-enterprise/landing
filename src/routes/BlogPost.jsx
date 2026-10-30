@@ -18,6 +18,23 @@ const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
   day: 'numeric',
 });
 
+// A phone stacks each blog table row as a card (prose.css, ≤480px), so every
+// cell carries its column head as data-label. marked emits one <thead> per
+// table; this is exact for its output, and the markdown files stay as they are.
+export function labelTableCells(html) {
+  return html.replace(/<table>[\s\S]*?<\/table>/g, (table) => {
+    const head = table.match(/<thead>[\s\S]*?<\/thead>/)?.[0] ?? '';
+    const labels = [...head.matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((m) =>
+      m[1].replace(/<[^>]+>/g, '').replace(/"/g, '&quot;').trim(),
+    );
+    if (!labels.length) return table;
+    return table.replace(/<tr>[\s\S]*?<\/tr>/g, (row) => {
+      let i = 0;
+      return row.replace(/<td(?=[\s>])/g, () => `<td data-label="${labels[i++] ?? ''}"`);
+    });
+  });
+}
+
 function formatDate(dateStr) {
   if (!dateStr) return '';
   return indianDateFormatter.format(new Date(dateStr));
@@ -139,7 +156,7 @@ function BlogPost() {
         </Band>
 
         <Band tone="white" id="post">
-          <div className="ui-prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="ui-prose" dangerouslySetInnerHTML={{ __html: labelTableCells(post.html ?? '') }} />
         </Band>
 
         <RelatedPosts currentSlug={slug} />

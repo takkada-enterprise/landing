@@ -40,7 +40,7 @@ describe('/partners', () => {
   it('opens on the dark band with the partner headline', () => {
     const { container } = renderPage();
     const hero = container.querySelector('section.ui-band--band');
-    expect(hero.querySelector('h1.ui-hero-title').textContent).toBe('One customer. Two products.');
+    expect(hero.querySelector('h1.ui-hero-title').textContent).toBe('One customer, two products, and you earn on both.');
   });
 
   it('leads with the three ways a partner earns, in order', () => {

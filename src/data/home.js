@@ -26,7 +26,7 @@ export const HOME_USED_FOR = [
   },
   {
     id: 'reminders',
-    title: 'WhatsApp reminders on a schedule',
+    title: 'Timed WhatsApp reminders',
     line: 'Before the due date, on the day and after it, each with a pay link.',
     screen: 'reminder-schedule',
     slug: 'send-payment-reminders-automatically',

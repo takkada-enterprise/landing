@@ -6,7 +6,7 @@
 // here (src/routes/__tests__/partners.test.jsx fails on any "N%" on the page).
 
 export const PARTNER_HERO = {
-  headline: 'One customer. Two products.',
+  headline: 'One customer, two products, and you earn on both.',
   lead:
     'Alongside your Tally, sell Takkada and earn recurring commission on every customer, on the first sale and on every renewal. They stay on the product because their reconciliation has gone away, so the renewals keep coming.',
 };

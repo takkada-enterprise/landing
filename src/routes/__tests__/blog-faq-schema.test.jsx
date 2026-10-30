@@ -9,7 +9,7 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
-import BlogPost from '../BlogPost';
+import BlogPost, { labelTableCells } from '../BlogPost';
 import BlogIndex from '../BlogIndex';
 import { getAllPosts, getPostBySlug } from '../../lib/blogPosts';
 
@@ -105,5 +105,20 @@ describe('blog on the Campfire template', () => {
     expect(container.querySelector('.ui-card img')).toBeNull();
     expect(container.querySelector('section.ui-close')).not.toBeNull();
     expect(container.querySelector('[class*="overline"], [class*="eyebrow"]')).toBeNull();
+  });
+});
+
+describe('blog tables on a phone', () => {
+  it('labels every body cell with its column head', () => {
+    const { container } = renderPost('accept-online-payment-on-tally-invoice');
+    const cells = [...container.querySelectorAll('.ui-prose table tbody tr:first-child td')];
+    expect(cells.map((td) => td.dataset.label)).toEqual([
+      'Annual UPI collections',
+      'At 0.5% MDR',
+      'At 1.0% MDR',
+      'At 1.5% MDR',
+      'At 0% MDR (Takkada)',
+    ]);
+    expect(labelTableCells('<p>no table</p>')).toBe('<p>no table</p>');
   });
 });

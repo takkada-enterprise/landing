@@ -160,3 +160,38 @@
   }
   .ui-prose .guide-prereq { padding: 20px; }
 }
+
+/* A blog table on a phone: each row becomes a small card and each cell
+   after the first carries its column head (BlogPost labelTableCells), so no figure hides
+   behind a sideways scroll. Guide tables keep their own scroll box. */
+@media (max-width: 480px) {
+  .ui-prose > table,
+  .ui-prose > table tbody,
+  .ui-prose > table tr { display: block; }
+  .ui-prose > table thead { display: none; }
+  .ui-prose > table tr {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(17, 20, 24, 0.12);
+  }
+  .ui-prose > table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0;
+    border-bottom: 0;
+    text-align: right;
+  }
+  .ui-prose > table td::before {
+    content: attr(data-label);
+    flex: 0 1 45%;
+    text-align: left;
+    color: var(--muted);
+  }
+  /* The first cell names the row: a heading line, as on the feature tables. */
+  .ui-prose > table td:first-child {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ui-prose > table td:first-child::before { content: none; }
+}
