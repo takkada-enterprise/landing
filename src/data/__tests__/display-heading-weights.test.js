@@ -4,7 +4,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Display weights on the Campfire pattern (plan 2026-10-30-003, Global
-// Constraints): hero and section heads at 500, card titles at 600, set once
+// Constraints, weights raised to 600 on 2026-10-31, owner: 500 read too light): hero,
+// section and close heads at 600, card titles at 600, set once
 // in src/ui/ui.css. styles.css loads after ui.css, so a rule there that
 // names one of these classes would win on equal specificity; none may.
 
@@ -23,8 +24,9 @@ describe('display heading weights (plan 2026-10-30-003)', () => {
   const ui = read('ui/ui.css');
 
   it.each([
-    ['.ui-hero-title', '500'],
-    ['.ui-section-title', '500'],
+    ['.ui-hero-title', '600'],
+    ['.ui-section-title', '600'],
+    ['.ui-close-title', '600'],
     ['.ui-card-title', '600'],
   ])('%s is weight %s in ui.css', (selector, weight) => {
     expect(weightOf(ui, selector)).toBe(weight);

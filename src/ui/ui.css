@@ -79,14 +79,14 @@
 /* ── Type scale ── */
 .ui-hero-title {
   font-size: clamp(40px, 3.75vw, 64px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
 .ui-section-title {
   font-size: 44px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.015em;
   text-wrap: balance;
@@ -104,6 +104,9 @@
   line-height: 1.5;
   color: var(--muted);
 }
+/* Card copy sits on the card, not under a 44px head; muted grey on the paper
+   ground faded (owner, 2026-10-31), so it reads in ink. */
+.ui-card-line { color: var(--ink); }
 .ui-band--band .ui-section-lead { color: var(--on-band-muted); }
 
 /* ── SectionHead ── */
@@ -240,7 +243,7 @@
 .ui-close { text-align: center; }
 .ui-close-title {
   font-size: 56px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 32px;
