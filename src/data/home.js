@@ -13,16 +13,6 @@ export const HOME_HERO = {
     { id: 'F1', screen: 'hero-card-overdue', top: '8%', left: 'calc(100% - 40px)' },
     { id: 'F2', screen: 'hero-card-outstanding', top: '84%', right: 'calc(100% - 40px)' },
   ],
-  // Tickets (owner ask 2026-10-31): four small typed cards around the phone
-  // naming the jobs the home screen itself cannot show. `icon` is a key in
-  // Home.jsx's TICKET_ICONS. Sample values come from the demo company, like
-  // the floats; they are not adoption claims. Hidden with the floats <900px.
-  tickets: [
-    { id: 'T1', icon: 'e-invoice', title: 'E-invoice generated', line: 'IRN and QR, from the phone', top: '26%', right: 'calc(100% - 16px)' },
-    { id: 'T2', icon: 'e-way-bill', title: 'E-way bill ready', line: 'Before the truck leaves', top: '38%', left: 'calc(100% - 16px)' },
-    { id: 'T3', icon: 'salesman', title: 'Amit Shah checked in', line: 'At Mahalaxmi Kirana Mart, on the beat', top: '56%', right: 'calc(100% - 16px)' },
-    { id: 'T4', icon: 'ai-call', title: 'AI call placed', line: 'Overdue bill, follow-up logged', top: '64%', left: 'calc(100% - 16px)' },
-  ],
 };
 
 export const HOME_USED_FOR = [

@@ -241,25 +241,9 @@ describe('stylesheet guards', () => {
     expect(css).not.toMatch(/transition:\s*all/);
   });
 
-  it('hides the hero floats and tickets once the hero stacks below 900px', () => {
+  it('hides the hero floats once the hero stacks below 900px', () => {
     const blocks = css.split(/@media\s*\(max-width:\s*899px\)/).slice(1);
-    expect(blocks.some((b) => /\.ui-hero-float,\s*\.ui-home \.ui-hero-ticket\s*\{[^}]*display:\s*none/.test(b))).toBe(true);
-  });
-
-  // Four typed tickets around the phone name the jobs the home screen cannot
-  // show (owner ask 2026-10-31): e-invoice, e-way bill, salesman tracking,
-  // AI call. Each is an icon plus a title and one line, placed like a float.
-  it('renders the four hero tickets with an icon, a title and a line', () => {
-    const c = renderHome();
-    const tickets = [...c.querySelectorAll('.ui-hero-stage .ui-hero-ticket')];
-    expect(tickets).toHaveLength(HOME_HERO.tickets.length);
-    expect(HOME_HERO.tickets.map((t) => t.icon)).toEqual(['e-invoice', 'e-way-bill', 'salesman', 'ai-call']);
-    HOME_HERO.tickets.forEach((t, i) => {
-      expect(tickets[i].querySelector('svg'), t.id).not.toBeNull();
-      expect(tickets[i].querySelector('.ui-hero-ticket-title').textContent).toBe(t.title);
-      expect(tickets[i].querySelector('.ui-hero-ticket-line').textContent).toBe(t.line);
-      expect(tickets[i].style.top).toBe(t.top);
-    });
+    expect(blocks.some((b) => /\.ui-hero-float\s*\{[^}]*display:\s*none/.test(b))).toBe(true);
   });
 
   it('paints --band only on the band, the footer and the pricing highlight', () => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, FileCheck, Truck, MapPinCheck, PhoneCall } from 'lucide-react';
+import { Check } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
@@ -28,14 +28,6 @@ import {
 // SEO defaults for the home route. Exposed as props so a sibling route can
 // reuse this exact page body under a different canonical URL without forking
 // the markup. One body, many entry points, no drift.
-// Hero tickets (home.js HOME_HERO.tickets) name their icon by key.
-const TICKET_ICONS = {
-  'e-invoice': FileCheck,
-  'e-way-bill': Truck,
-  salesman: MapPinCheck,
-  'ai-call': PhoneCall,
-};
-
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
   // The price range is derived from pricing.plans — this description ships in
@@ -90,18 +82,6 @@ function Home({ seo = HOME_SEO }) {
                 <Shot screen={screen} sizes="260px" />
               </div>
             ))}
-            {HOME_HERO.tickets.map(({ id, icon, title, line, ...pos }) => {
-              const Icon = TICKET_ICONS[icon];
-              return (
-                <div key={id} className="ui-hero-ticket" style={pos} data-ticket={icon}>
-                  <Icon size={18} aria-hidden="true" />
-                  <span className="ui-hero-ticket-text">
-                    <span className="ui-hero-ticket-title">{title}</span>
-                    <span className="ui-hero-ticket-line">{line}</span>
-                  </span>
-                </div>
-              );
-            })}
           </div>
         </div>
       </Band>
