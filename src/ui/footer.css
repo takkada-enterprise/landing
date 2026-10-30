@@ -1,0 +1,121 @@
+/* ═══════════════════════════════════════════════════
+   src/ui/footer.css: the dark footer on --band (plan 2026-10-30-003, Task 2).
+   No motion.
+   ═══════════════════════════════════════════════════ */
+
+.ui-footer {
+  background: var(--band);
+  color: var(--on-band-muted);
+  padding: 72px 0 32px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ui-footer,
+.ui-footer * {
+  box-sizing: border-box;
+}
+.ui-footer a {
+  color: var(--on-band-muted);
+  text-decoration: none;
+}
+.ui-footer p { margin: 0; }
+
+.ui-footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(5, minmax(0, 1fr));
+  gap: 40px 32px;
+}
+.ui-footer-logo img {
+  display: block;
+  width: 118px;
+  height: auto;
+  /* The wordmark is dark ink; on the band it reads white. */
+  filter: brightness(0) invert(1);
+}
+.ui-footer-tagline {
+  margin-top: 16px;
+  color: var(--on-band);
+}
+.ui-footer-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+}
+.ui-footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 240px;
+}
+.ui-footer-badge img,
+.ui-footer-badge-img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.ui-footer-title {
+  color: var(--on-band);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.ui-footer-col {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ui-footer-group--wide { grid-column: span 2; }
+.ui-footer-group--wide .ui-footer-col {
+  display: block;
+  columns: 2;
+  column-gap: 32px;
+}
+.ui-footer-group--wide .ui-footer-col li { margin-bottom: 10px; break-inside: avoid; }
+
+.ui-footer-contact {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.ui-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.ui-footer--minimal { padding: 32px 0; }
+.ui-footer--minimal .ui-footer-bottom { margin-top: 0; }
+.ui-footer-legal { display: flex; flex-wrap: wrap; gap: 24px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ui-footer a:hover { color: var(--on-band); }
+}
+
+@media (max-width: 1099px) {
+  .ui-footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ui-footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 599px) {
+  .ui-footer { padding-top: 56px; }
+  .ui-footer-top { grid-template-columns: 1fr; }
+  .ui-footer-group--wide { grid-column: auto; }
+}
+/* Keep the last lines readable above the sticky WhatsApp bar (nav.css). */
+@media (max-width: 767px) {
+  .ui-footer { padding-bottom: 100px; }
+}

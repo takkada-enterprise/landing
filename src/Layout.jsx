@@ -1,37 +1,38 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
-import { ArrowRight, ChevronDown, Download, Menu, PhoneCall, Plug, Smartphone, X } from 'lucide-react';
-import CTAButton from './components/CTAButton';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import WhatsAppCTA from './components/WhatsAppCTA';
 import DemoTryCTA from './components/DemoTryCTA';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
-import { navLinks, footerColumns, contactInfo, appLinks, demoEntryLive } from './data/siteContent';
+import { navLinks, footerColumns, contactInfo } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { menuFeatureGroups } from './data/featureGroups';
 import { organizationSchema, webSiteSchema } from './data/schema';
+import './ui/nav.css';
+import './ui/footer.css';
 
 const MOBILE_MENU_ID = 'mobile-menu';
 const FEATURES_PANEL_ID = 'nav-features-panel';
 
 // Hover has to be forgiving in both directions. Opening on the first pixel of
-// contact makes the panel flash at anyone sweeping the pointer across the nav
-// on their way to Book a call; closing on the first pixel of exit makes the
-// diagonal from "Features" down to the panel impossible to walk.
+// contact makes the panel flash at anyone sweeping the pointer across the nav;
+// closing on the first pixel of exit makes the diagonal from "Features" down
+// to the panel impossible to walk.
 const OPEN_INTENT_MS = 130;
 const CLOSE_DELAY_MS = 240;
 
 // Every feature page, under the same headings the hub files them under, so the
-// menu and the hub cannot drift (Ronak, 2026-09-20: the menu showed nine and
-// sent the rest to "All features", which is a page away). footerLabel rather
-// than llms.title: this is a menu, and "Payment collection on Tally" beside
-// "Tally on mobile" reads as a paragraph, not a list.
+// menu and the hub cannot drift (Ronak, 2026-09-20). footerLabel rather than
+// llms.title: this is a menu.
 const FEATURE_MENU = menuFeatureGroups(FEATURE_PAGES).map((group) => ({
   id: group.id,
   title: group.title,
   items: group.pages.map((page) => ({ label: page.footerLabel, path: featurePagePath(page) })),
 }));
+
+const LOGO = '/assets/screenshots/takkada-logo.webp';
 
 function hashTargetFrom(href) {
   if (!href || !href.startsWith('#')) return null;
@@ -104,19 +105,13 @@ function NavHashLink({ href, children, onClick, className }) {
 }
 
 // "Features" stays an ordinary link to the hub and a sibling chevron owns the
-// panel. Merging them into one button would have taken the hub's link out of
-// the top menu on every page, which is the crawlable parent the hub exists to
-// be, and would have left touch users with no way to reach the hub itself.
-//
-// The panel is always in the DOM. Closed, `inert` plus the CSS visibility step
-// keep its links out of the tab order and the accessibility tree, but a
-// crawler reads the HTML regardless — so every page of the site now carries
-// the lead-feature links, which is part of what pays for the footer's
-// long tail being curated down.
+// panel, so the hub keeps its crawlable parent in the top menu and touch users
+// can still reach it. The panel is always in the DOM; closed, `inert` plus the
+// CSS visibility step keep its links out of the tab order and the
+// accessibility tree, while a crawler still reads them on every page.
 //
 // Deliberately NOT opening on focus of the chevron: Escape closes the panel and
-// returns focus here, which would immediately reopen it. Enter or Space opens,
-// the same contract FAQItem.jsx keeps.
+// returns focus here, which would immediately reopen it.
 function NavFeaturesDisclosure({ label, href, open, setOpen }) {
   const wrapRef = useRef(null);
   const toggleRef = useRef(null);
@@ -160,15 +155,15 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
   return (
     <div
       ref={wrapRef}
-      className={`nav-features${open ? ' open' : ''}`}
+      className={`ui-nav-features${open ? ' open' : ''}`}
       onMouseEnter={() => schedule(true, OPEN_INTENT_MS)}
       onMouseLeave={() => schedule(false, CLOSE_DELAY_MS)}
     >
-      <Link to={href} className="nav-features-link">{label}</Link>
+      <Link to={href} className="ui-nav-link ui-nav-features-link">{label}</Link>
       <button
         type="button"
         ref={toggleRef}
-        className="nav-features-toggle"
+        className="ui-nav-features-toggle"
         aria-expanded={open}
         aria-controls={FEATURES_PANEL_ID}
         aria-label={`${label} menu`}
@@ -179,10 +174,10 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
       >
         <ChevronDown size={15} strokeWidth={2.4} aria-hidden="true" />
       </button>
-      <div id={FEATURES_PANEL_ID} className="nav-features-panel" inert={!open}>
-        <div className="nav-features-list">
+      <div id={FEATURES_PANEL_ID} className="ui-nav-features-panel" inert={!open}>
+        <div className="ui-nav-features-list">
           {FEATURE_MENU.map((group) => (
-            <div key={group.id} className="nav-features-group">
+            <div key={group.id} className="ui-nav-features-group">
               <h3>{group.title}</h3>
               {group.items.map((feature) => (
                 <Link key={feature.path} to={feature.path}>{feature.label}</Link>
@@ -190,209 +185,134 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
             </div>
           ))}
         </div>
-        <Link to={href} className="nav-features-all">
-          All features <ArrowRight size={14} />
+        <Link to={href} className="ui-nav-features-all">
+          All features <ArrowRight size={14} aria-hidden="true" />
         </Link>
       </div>
     </div>
   );
 }
 
-function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOpen, setFeaturesOpen }) {
-  const { setOpen } = usePhoneModal();
+function NavLogo({ onClick }) {
+  return (
+    <Link to="/" className="ui-nav-logo" onClick={onClick}>
+      {/* 360x128 WebP, not the 1172px PNG: it renders at 107x38 on every
+          page. width/height reserve the box. */}
+      <img src={LOGO} alt="Takkada" width="107" height="38" />
+    </Link>
+  );
+}
+
+// One set of links and pills serves every width. From 900px up the sheet is
+// the bar's right-hand side; under 900px it is a full-height sheet behind the
+// burger, opened as a modal dialog (labelled, Escape closes, focus moves in on
+// open and back to the burger on close).
+function SiteHeader({ menuOpen, setMenuOpen, scrolled, featuresOpen, setFeaturesOpen }) {
   const location = useLocation();
+  const burgerRef = useRef(null);
+  const sheetRef = useRef(null);
+  const wasOpen = useRef(false);
   const isAutoRecon = location.pathname === '/auto-reconciliation-tally' || location.pathname === '/reconciliation';
+
+  useEffect(() => {
+    if (menuOpen) {
+      sheetRef.current?.querySelector('a, button')?.focus();
+    } else if (wasOpen.current) {
+      // Only on a real close, or every mount would steal focus to the burger.
+      burgerRef.current?.focus();
+    }
+    wasOpen.current = menuOpen;
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen, setMenuOpen]);
 
   if (isAutoRecon) {
     return (
-      <header className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
-        <div className="nav-inner" style={{ justifyContent: 'space-between' }}>
-          <Link to="/" className="nav-logo">
-            <img
-              src="/assets/screenshots/takkada-logo.webp"
-              alt="Takkada"
-              className="nav-logo-img"
-              width="107"
-              height="38"
-            />
-          </Link>
-          <div className="nav-actions">
-            <WhatsAppCTA context="icp-auto-reconciliation">
-              Chat on WhatsApp
-            </WhatsAppCTA>
-          </div>
+      <header className={`ui-nav ui-nav--minimal${scrolled ? ' scrolled' : ''}`}>
+        <div className="ui-nav-inner">
+          <NavLogo />
+          <WhatsAppCTA context="icp-auto-reconciliation" />
         </div>
       </header>
     );
   }
 
-  return (
-    <header className={`site-nav ${scrolled ? 'scrolled' : ''}${menuOpen ? ' menu-open' : ''}`}>
-      <div className="nav-inner">
-        <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
-          {/* 360x128 WebP, not the 1172px PNG: this renders at 107x38 and sits
-              on every page, where the PNG cost 133KB of the throttled mobile
-              pipe the hero image needs. width/height reserve the box. */}
-          <img
-            src="/assets/screenshots/takkada-logo.webp"
-            alt="Takkada"
-            className="nav-logo-img"
-            width="107"
-            height="38"
-          />
-        </Link>
-        <nav className="nav-links desktop-only">
-          {navLinks.map((l) =>
-            l.disclosure === 'features' ? (
-              <NavFeaturesDisclosure
-                key={l.label}
-                label={l.label}
-                href={l.href}
-                open={featuresOpen}
-                setOpen={setFeaturesOpen}
-              />
-            ) : (
-              <NavHashLink key={l.label} href={l.href}>{l.label}</NavHashLink>
-            )
-          )}
-        </nav>
-        {/* Still two pills. The demo takes the slot the calendar held, because
-            the calendar and the live demo read as the same offer when they sit
-            side by side and only one of them converts without spending the
-            founder's morning. "Book a call" keeps the hero, the pricing
-            section, the footer and the mobile menu.
+  const close = () => setMenuOpen(false);
 
-            The branch is on the flag here rather than on DemoTryCTA's own
-            fallback: that fallback is a WhatsApp button, and dropping it beside
-            the header's WhatsApp button would put two identical green pills on
-            every page of the site the moment anyone flipped demoEntryLive
-            back. */}
-        <div className="nav-actions desktop-only">
-          {/* A plug, not a download arrow. The arrow was a call to action, which
-              is what made this read as a third pill beside the two real ones. A
-              plug says "this joins two things", which is what the connector is
-              and all the mark is here to mention. No border, no fill, nav-link
-              type: a first-time visitor's eye skips it, and the customer who
-              came back to reinstall finds it without scrolling to the footer.
-              The href and the installer are untouched, and the destination is
-              named in full where a screen reader will read it. */}
-          <a
-            href={appLinks.tallyConnector}
-            className="nav-connector-link"
-            download
-            aria-label="Download the Tally Connector for Windows"
-            title="Download the Tally Connector for Windows"
-          >
-            <Plug size={15} aria-hidden="true" /> Tally Connector
-          </a>
-          {demoEntryLive ? (
-            <DemoTryCTA context="header" variant="secondary" />
-          ) : (
-            <CTAButton variant="secondary" type="button" onClick={() => setOpen(true)}>Book a call</CTAButton>
-          )}
-          <WhatsAppCTA context="header" />
+  return (
+    <header className={`ui-nav${scrolled ? ' scrolled' : ''}${menuOpen ? ' menu-open' : ''}`}>
+      <div className="ui-nav-inner">
+        <NavLogo onClick={close} />
+        <div
+          id={MOBILE_MENU_ID}
+          ref={sheetRef}
+          className="ui-nav-sheet"
+          role={menuOpen ? 'dialog' : undefined}
+          aria-modal={menuOpen ? 'true' : undefined}
+          aria-label={menuOpen ? 'Menu' : undefined}
+        >
+          <nav className="ui-nav-links" aria-label="Main">
+            {navLinks.map((l) =>
+              l.disclosure === 'features' ? (
+                <NavFeaturesDisclosure
+                  key={l.label}
+                  label={l.label}
+                  href={l.href}
+                  open={featuresOpen}
+                  setOpen={setFeaturesOpen}
+                />
+              ) : (
+                <NavHashLink key={l.label} href={l.href} className="ui-nav-link" onClick={close}>
+                  {l.label}
+                </NavHashLink>
+              )
+            )}
+          </nav>
+          <div className="ui-nav-actions">
+            <DemoTryCTA context="header" tone="ghost" onClick={close} />
+            <WhatsAppCTA context="header" tone="dark" onClick={close} />
+          </div>
         </div>
         <button
           type="button"
-          className="mobile-menu-btn"
-          ref={menuButtonRef}
+          className="ui-nav-burger"
+          ref={burgerRef}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls={MOBILE_MENU_ID}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
       </div>
     </header>
   );
 }
 
-// The overlay is `position: fixed; inset: 0` at every width and is never
-// unmounted, so without `inert` its links sat in the tab order of every page
-// on the site, desktop included, where the menu cannot even be opened. `inert`
-// takes them out of the tab order and the accessibility tree; the CSS
-// visibility step does the same for the paint. Dialog semantics follow
-// PhoneModal.jsx: labelled, modal, Escape closes, focus moves in on open and
-// returns to the toggle on close.
-function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
-  const { setOpen } = usePhoneModal();
-  const overlayRef = useRef(null);
-  const wasOpen = useRef(false);
+function FooterLink({ link }) {
+  if (link.page) return <Link to={`/${link.page}`}>{link.label}</Link>;
+  if (link.href && link.href.startsWith('#')) return <NavHashLink href={link.href}>{link.label}</NavHashLink>;
+  // `download` is passed through rather than assumed from the href: the
+  // Connect column's mailto and social links share this branch.
+  return <a href={link.href} download={link.download}>{link.label}</a>;
+}
 
-  useEffect(() => {
-    if (menuOpen) {
-      overlayRef.current?.querySelector('a, button')?.focus();
-    } else if (wasOpen.current) {
-      // Only on a real close. Without the wasOpen guard every mount would
-      // steal focus to the hamburger before the visitor had touched anything.
-      menuButtonRef?.current?.focus();
-    }
-    wasOpen.current = menuOpen;
-  }, [menuOpen, menuButtonRef]);
-
-  useEffect(() => {
-    if (!menuOpen) return undefined;
-    const handleKey = (e) => {
-      if (e.key === 'Escape') setMenuOpen(false);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [menuOpen, setMenuOpen]);
-
+function FooterLogo() {
   return (
-    <div
-      id={MOBILE_MENU_ID}
-      ref={overlayRef}
-      className={`mobile-overlay ${menuOpen ? 'open' : ''}`}
-      role={menuOpen ? 'dialog' : undefined}
-      aria-modal={menuOpen ? 'true' : undefined}
-      aria-label={menuOpen ? 'Menu' : undefined}
-      inert={!menuOpen}
-    >
-      <nav className="mobile-nav-links">
-        {navLinks.map((l) => (
-          <NavHashLink key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
-            {l.label}
-          </NavHashLink>
-        ))}
-        <a
-          href={appLinks.tallyConnector}
-          className="mobile-connector-link"
-          download
-          onClick={() => setMenuOpen(false)}
-        >
-          <Download size={18} /> Tally Connector
-        </a>
-        {/* The phone is the surface the OTP handoff was built for, so the demo
-            goes first. Guarded by the flag for the same reason as the header:
-            DemoTryCTA's fallback is a WhatsApp button and the menu already has
-            one. Three actions, three chromes, an icon each, and "demo" appears
-            once: the two white pills read as "same thing" to Ronak on
-            2026-09-20, and they were not. */}
-        {demoEntryLive && (
-          <DemoTryCTA
-            context="mobile-menu"
-            variant="secondary"
-            fullWidth
-            onClick={() => setMenuOpen(false)}
-          >
-            <Smartphone size={18} aria-hidden="true" /> Try the demo
-          </DemoTryCTA>
-        )}
-        <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />
-        <CTAButton
-          variant="outline"
-          type="button"
-          fullWidth
-          onClick={() => { setMenuOpen(false); setOpen(true); }}
-        >
-          <PhoneCall size={18} aria-hidden="true" /> Book a call
-        </CTAButton>
-      </nav>
-    </div>
+    <Link to="/" className="ui-footer-logo">
+      <img src={LOGO} alt="Takkada" width="118" height="42" loading="lazy" />
+    </Link>
   );
 }
+
+const year = () => new Date().getFullYear();
 
 function SiteFooter() {
   const location = useLocation();
@@ -400,136 +320,70 @@ function SiteFooter() {
 
   if (isAutoRecon) {
     return (
-      <footer className="footer footer-minimal" style={{ borderTop: '1px solid var(--color-border)', padding: '32px 0', background: 'var(--color-surface)' }}>
-        <div className="container">
-          <div className="footer-minimal-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <Link to="/" className="footer-logo">
-                <img
-                  src="/assets/screenshots/takkada-logo.webp"
-                  alt="Takkada"
-                  width="96"
-                  height="34"
-                  loading="lazy"
-                />
-              </Link>
-              <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }} className="tabular-nums">&copy; {new Date().getFullYear()} {contactInfo.company}. All rights reserved.</span>
-            </div>
-            <div style={{ display: 'flex', gap: '24px', fontSize: '13px', fontWeight: 500 }}>
-              <Link to="/privacy-policy" style={{ color: 'var(--color-text-secondary)' }}>Privacy Policy</Link>
-              <Link to="/terms-and-conditions" style={{ color: 'var(--color-text-secondary)' }}>Terms &amp; Conditions</Link>
-              <Link to="/refund-policy" style={{ color: 'var(--color-text-secondary)' }}>Refund Policy</Link>
-              <Link to="/contact-us" style={{ color: 'var(--color-text-secondary)' }}>Contact</Link>
-            </div>
-          </div>
+      <footer className="ui-footer ui-footer--minimal">
+        <div className="ui-max ui-footer-bottom">
+          <FooterLogo />
+          <p className="tabular-nums">&copy; {year()} {contactInfo.company}. All rights reserved.</p>
+          <nav className="ui-footer-legal" aria-label="Legal">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
+            <Link to="/refund-policy">Refund Policy</Link>
+            <Link to="/contact-us">Contact</Link>
+          </nav>
         </div>
       </footer>
     );
   }
 
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <img
-                src="/assets/screenshots/takkada-logo.webp"
-                alt="Takkada"
-                className="footer-logo-img"
-                width="118"
-                height="42"
-                loading="lazy"
-              />
-            </Link>
-            <p className="footer-tagline">Your Tally, in your pocket.</p>
-            <p className="footer-company">{contactInfo.company}</p>
-            <p className="footer-contact tabular-nums">{contactInfo.phone}</p>
-            <p className="footer-contact">{contactInfo.email}</p>
-            <div className="footer-badges" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div
-                className="dpiit-badge-card"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  background: '#ffffff',
-                  padding: '6px 12px',
-                  borderRadius: '8px',
-                  width: 'fit-content',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
-                }}
-              >
+    <footer className="ui-footer">
+      <div className="ui-max">
+        <div className="ui-footer-top">
+          <div className="ui-footer-brand">
+            <FooterLogo />
+            <p className="ui-footer-tagline">Your Tally, in your pocket.</p>
+            <div className="ui-footer-badges">
+              <div className="ui-footer-badge">
                 <img
                   src="/assets/badges/dpiit-startup-india.png"
                   alt="DPIIT Recognized Startup India"
-                  style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
                   loading="lazy"
                   width="97"
                   height="36"
                 />
-                <span style={{ fontSize: '12px', fontWeight: 600, color: '#0f172a', lineHeight: '1.25' }}>
-                  DPIIT Recognized<br /><span style={{ color: '#ea580c', fontWeight: 700 }}>Startup India</span> Company
-                </span>
+                <span>DPIIT Recognized Startup India Company</span>
               </div>
-              <div className="directory-badges-card" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-               
-                <a
-                  href="https://www.indietools.app/products/takkada"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: 'inline-block' }}
-                >
-                  <img
-                    src="https://www.indietools.app/badges/listed-on-indietools-light.png"
-                    alt="Listed on IndieTools"
-                    style={{ height: '36px', width: 'auto' }}
-                    loading="lazy"
-                  />
-                </a>
-              </div>
+              <a href="https://www.indietools.app/products/takkada" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://www.indietools.app/badges/listed-on-indietools-light.png"
+                  alt="Listed on IndieTools"
+                  className="ui-footer-badge-img"
+                  loading="lazy"
+                />
+              </a>
             </div>
           </div>
-          <div className="footer-columns">
-            {footerColumns.map((col) => (
-              // The Features column is generated from FEATURE_PAGES, so it grows
-              // every time a landing page ships. Past ten links a single list
-              // makes the footer badly lopsided, so a long column spans the grid
-              // and flows its links into sub-columns instead.
-              <div
-                key={col.title}
-                className={`footer-col${col.links.length > 10 ? ' footer-col-wide' : ''}`}
-              >
-                <p className="footer-col-title">{col.title}</p>
-                <div className="footer-col-links">
-                  {col.links.map((link) => {
-                    if (link.page) {
-                      return (
-                        <Link to={`/${link.page}`} key={link.label}>{link.label}</Link>
-                      );
-                    }
-                    if (link.href && link.href.startsWith('#')) {
-                      return (
-                        <NavHashLink key={link.label} href={link.href}>{link.label}</NavHashLink>
-                      );
-                    }
-                    // `download` is passed through rather than assumed from the
-                    // href: the Connect column's mailto and social links live on
-                    // this same branch and must not acquire one.
-                    return (
-                      <a href={link.href} key={link.label} download={link.download}>
-                        {link.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
+          {footerColumns.map((col) => (
+            // The Features column grows with every feature page; past ten links
+            // it spans two grid columns and flows into sub-columns.
+            <div key={col.title} className={`ui-footer-group${col.links.length > 10 ? ' ui-footer-group--wide' : ''}`}>
+              <p className="ui-footer-title">{col.title}</p>
+              <ul className="ui-footer-col">
+                {col.links.map((link) => (
+                  <li key={link.label}><FooterLink link={link} /></li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} {contactInfo.company}. All rights reserved.</p>
-          <p className="footer-site">{contactInfo.website}</p>
+        <p className="ui-footer-contact">
+          {contactInfo.company} ·{' '}
+          <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="tabular-nums">{contactInfo.phone}</a> ·{' '}
+          <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+        </p>
+        <div className="ui-footer-bottom">
+          <p className="tabular-nums">&copy; {year()} {contactInfo.company}. All rights reserved.</p>
+          <p>{contactInfo.website}</p>
         </div>
       </div>
     </footer>
@@ -538,7 +392,7 @@ function SiteFooter() {
 
 // Sticky WhatsApp bar for phones: appears once the visitor scrolls past the
 // hero so the one conversion action is always a thumb-reach away. Hidden on
-// desktop (CSS) and while the mobile menu is open.
+// desktop (CSS) and while the sheet is open.
 function StickyMobileCTA({ menuOpen }) {
   const [show, setShow] = useState(false);
 
@@ -562,8 +416,8 @@ function StickyMobileCTA({ menuOpen }) {
   }, []);
 
   return (
-    <div className={`mobile-cta-bar${show && !menuOpen ? ' visible' : ''}`} aria-hidden={!show}>
-      <WhatsAppCTA context="sticky-bar" fullWidth />
+    <div className={`ui-nav-sticky${show && !menuOpen ? ' visible' : ''}`} aria-hidden={!show}>
+      <WhatsAppCTA context="sticky-bar" />
     </div>
   );
 }
@@ -588,7 +442,6 @@ function LayoutInner() {
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const menuButtonRef = useRef(null);
 
   useScrollToHash();
 
@@ -628,8 +481,6 @@ function LayoutInner() {
     return () => document.body.classList.remove('lock-scroll');
   }, [menuOpen]);
 
-  const forceLightNav = location.pathname.startsWith('/blog');
-
   return (
     <div className="site-root">
       <Head>
@@ -639,12 +490,10 @@ function LayoutInner() {
       <SiteHeader
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-        scrolled={scrolled || forceLightNav}
-        menuButtonRef={menuButtonRef}
+        scrolled={scrolled}
         featuresOpen={featuresOpen}
         setFeaturesOpen={setFeaturesOpen}
       />
-      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} menuButtonRef={menuButtonRef} />
       <Outlet />
       <SiteFooter />
       <StickyMobileCTA menuOpen={menuOpen} />

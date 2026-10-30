@@ -1,4 +1,4 @@
-import CTAButton from './CTAButton';
+import Pill from '../ui/Pill';
 import { whatsappHref } from '../lib/whatsapp';
 import { track } from '../lib/track';
 
@@ -31,15 +31,7 @@ export function WhatsAppIcon({ size = 18 }) {
 // When no WhatsApp number is configured (the site-wide kill switch in
 // siteContent.js), this renders nothing — every surface already carries a
 // calendar CTA beside it, so a fallback button here would duplicate it.
-function WhatsAppCTA({
-  context = 'default',
-  message,
-  variant = 'primary',
-  fullWidth = false,
-  className = '',
-  children,
-  onClick,
-}) {
+function WhatsAppCTA({ context = 'default', message, tone = 'dark', children, onClick }) {
   const href = whatsappHref(context, message);
 
   if (!href) return null;
@@ -50,17 +42,9 @@ function WhatsAppCTA({
   };
 
   return (
-    <CTAButton
-      variant={variant}
-      fullWidth={fullWidth}
-      className={className}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={handleClick}
-    >
+    <Pill tone={tone} href={href} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
       <WhatsAppIcon /> {children || 'Chat on WhatsApp'}
-    </CTAButton>
+    </Pill>
   );
 }
 

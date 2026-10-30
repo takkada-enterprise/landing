@@ -8,11 +8,9 @@ vi.mock('vite-react-ssg', () => ({
   ClientOnly: ({ children }) => children,
 }));
 
-// The header branches on demoEntryLive, and the branch it does not take today
-// is the one that ships two WhatsApp pills if it is written carelessly. Mocking
-// the module exercises both branches at whatever value the flag actually
-// carries, so neither assertion is vacuous and neither waits for a flip day to
-// start running.
+// The header branches on demoEntryLive. Mocking the module exercises both
+// branches at whatever value the flag actually carries, so neither assertion
+// is vacuous and neither waits for a flip day to start running.
 const siteContentMock = vi.hoisted(() => ({ demoEntryLive: true }));
 
 vi.mock('./data/siteContent', async (importOriginal) => {
@@ -27,7 +25,7 @@ vi.mock('./data/siteContent', async (importOriginal) => {
 
 import Layout from './Layout';
 import Home from './routes/Home';
-import { appLinks, contactInfo, navLinks } from './data/siteContent';
+import { contactInfo, footerColumns, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
 
@@ -37,41 +35,67 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
-function renderWith(child) {
+function renderLayout(at = '/', child = <div />) {
+  let go;
+  function Probe() {
+    go = useNavigate();
+    return null;
+  }
   const { container } = render(
-    <MemoryRouter initialEntries={['/']}>
+    <MemoryRouter initialEntries={[at]}>
+      <Probe />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={child} />
+          <Route path="blog" element={<div />} />
+          <Route path="partners" element={<div />} />
         </Route>
       </Routes>
     </MemoryRouter>
   );
-  return [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>
-    JSON.parse(s.textContent)
-  );
+  const header = container.querySelector('header.ui-nav');
+  return {
+    container,
+    header,
+    go: (to) => go(to),
+    links: () => header.querySelector('nav.ui-nav-links'),
+    actions: () => header.querySelector('.ui-nav-actions'),
+    sheet: () => header.querySelector('.ui-nav-sheet'),
+    burger: () => header.querySelector('button.ui-nav-burger'),
+    panel: () => header.querySelector('.ui-nav-features-panel'),
+    toggle: () => header.querySelector('.ui-nav-features-toggle'),
+    footer: () => container.querySelector('footer.ui-footer'),
+    byName: (root, name) =>
+      [...root.querySelectorAll('button, a')].filter((el) => name.test(el.textContent)),
+    whatsappHrefs: (root) =>
+      [...root.querySelectorAll('a')]
+        .map((a) => a.getAttribute('href') ?? '')
+        .filter((h) => h.includes('wa.me')),
+  };
 }
 
+const schemasIn = (container) =>
+  [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>
+    JSON.parse(s.textContent)
+  );
 const countType = (schemas, type) => schemas.filter((s) => s['@type'] === type).length;
 
 describe('Layout global entity', () => {
   it('emits exactly one Organization and one WebSite node on a minimal route', () => {
-    const schemas = renderWith(<div>minimal</div>);
+    const schemas = schemasIn(renderLayout().container);
     expect(countType(schemas, 'Organization')).toBe(1);
     expect(countType(schemas, 'WebSite')).toBe(1);
   });
 
   it('cross-links the WebSite publisher to the Organization @id', () => {
-    const schemas = renderWith(<div>minimal</div>);
+    const schemas = schemasIn(renderLayout().container);
     const org = schemas.find((s) => s['@type'] === 'Organization');
     const site = schemas.find((s) => s['@type'] === 'WebSite');
     expect(site.publisher).toEqual({ '@id': org['@id'] });
   });
 
   it('does not duplicate Organization when the page also sets schema', () => {
-    const schemas = renderWith(<Home />);
-    // Home contributes SoftwareApplication + FAQPage; the Organization stays
-    // single (global only) and WebSite stays single.
+    const schemas = schemasIn(renderLayout('/', <Home />).container);
     expect(countType(schemas, 'Organization')).toBe(1);
     expect(countType(schemas, 'WebSite')).toBe(1);
     expect(countType(schemas, 'SoftwareApplication')).toBe(1);
@@ -80,189 +104,85 @@ describe('Layout global entity', () => {
 });
 
 describe('brand logo assets', () => {
-  function renderLayout() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return container;
-  }
-
-  // The nav and footer logos render at ~107x38 and ~118x42 but were served the
-  // 1172px, 133KB source PNG on every page, starving the hero image of the
-  // throttled mobile pipe. They must stay on the 10KB WebP.
-  it('serves the nav and footer logos as the small WebP, never the source PNG', () => {
-    const logos = [...renderLayout().querySelectorAll('img[alt="Takkada"]')];
+  // The logos render at ~107x38 and ~118x42; the 1172px source PNG starved the
+  // hero image of the throttled mobile pipe. They stay on the 10KB WebP.
+  it('serves the nav and footer logos as the small WebP with a reserved box', () => {
+    const { container, header, footer } = renderLayout();
+    const logos = [...container.querySelectorAll('img[alt="Takkada"]')];
     expect(logos).toHaveLength(2);
+    expect(header.querySelector('a.ui-nav-logo img')).toBe(logos[0]);
+    expect(footer().contains(logos[1])).toBe(true);
+    const sourceRatio = 1172 / 417;
     for (const img of logos) {
       expect(img.getAttribute('src')).toBe('/assets/screenshots/takkada-logo.webp');
+      const w = Number(img.getAttribute('width'));
+      const h = Number(img.getAttribute('height'));
+      expect(w).toBeGreaterThan(0);
+      expect(Math.abs(w / h - sourceRatio)).toBeLessThan(0.1);
     }
-  });
-
-  it('gives every logo an intrinsic width and height so its box is reserved', () => {
-    const logos = [...renderLayout().querySelectorAll('img[alt="Takkada"]')];
-    for (const img of logos) {
-      expect(Number(img.getAttribute('width'))).toBeGreaterThan(0);
-      expect(Number(img.getAttribute('height'))).toBeGreaterThan(0);
-    }
-  });
-
-  it('keeps the logo aspect ratio the source image actually has', () => {
-    // 1172x417 source. A wrong ratio here would squash the wordmark.
-    const sourceRatio = 1172 / 417;
-    for (const img of [...renderLayout().querySelectorAll('img[alt="Takkada"]')]) {
-      const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
-      expect(Math.abs(ratio - sourceRatio)).toBeLessThan(0.1);
-    }
-  });
-  // The footer said "Pay Saathi Innovations LLP" and "© 2025"; the data-safety
-  // card two screens up said "Pay Saathi Innovation LLP" (2026-09-21 walk).
-  it('prints the current year and the one legal name in the footer', () => {
-    const footer = renderLayout().querySelector('.footer-bottom');
-    expect(footer.textContent).toContain(`© ${new Date().getFullYear()} ${contactInfo.company}.`);
-    expect(contactInfo.company).toBe('Pay Saathi Innovation LLP');
   });
 });
 
-// The nav "Features" slot used to scroll to the homepage #features section.
-// Repointed to /features (the hub) so the 26 feature landing pages have a
-// crawlable parent in the top menu instead of footer links alone. The homepage
-// section still exists; it just no longer owns the menu slot.
-describe('Features nav slot', () => {
-  function renderLayout(at = '/') {
-    const { container } = render(
-      <MemoryRouter initialEntries={[at]}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-            <Route path="blog" element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return container;
-  }
+describe('nav links', () => {
+  it('renders the four links in order with their hrefs', () => {
+    const { links } = renderLayout();
+    const top = [...links().querySelectorAll(':scope > a, :scope > .ui-nav-features > a')];
+    expect(top.map((a) => a.textContent)).toEqual(['Features', 'Pricing', 'Partners', 'Blog']);
+    expect(top.map((a) => a.getAttribute('href'))).toEqual(['/features', '/#pricing', '/partners', '/blog']);
+    expect(navLinks.map((l) => l.label)).toEqual(['Features', 'Pricing', 'Partners', 'Blog']);
+  });
 
-  const featuresLinkIn = (container, selector) =>
-    [...container.querySelectorAll(`${selector} a`)].find((a) => a.textContent === 'Features');
-
-  it('renders Features as a link to /features in the desktop nav', () => {
-    const link = featuresLinkIn(renderLayout(), '.nav-links');
-    expect(link).toBeDefined();
+  it('reaches the hub from a non-home route too', () => {
+    const link = renderLayout('/blog').header.querySelector('a.ui-nav-features-link');
     expect(link.getAttribute('href')).toBe('/features');
+    expect(link.textContent).toBe('Features');
   });
 
-  it('renders the same link in the mobile menu', () => {
-    const link = featuresLinkIn(renderLayout(), '.mobile-nav-links');
-    expect(link).toBeDefined();
-    expect(link.getAttribute('href')).toBe('/features');
-  });
-
-  it('reaches the hub from a non-home route too, not just the homepage', () => {
-    const link = featuresLinkIn(renderLayout('/blog'), '.nav-links');
-    expect(link.getAttribute('href')).toBe('/features');
-  });
-
-  it('leaves no navLinks entry pointing at a hash anchor named features', () => {
-    const hashed = navLinks.filter((l) => l.href === '#features');
-    expect(hashed).toEqual([]);
-  });
-
-  it('gives the footer Features column a way up to the hub', () => {
-    const hrefs = [...renderLayout().querySelectorAll('.footer-col-links a')].map((a) =>
-      a.getAttribute('href')
-    );
-    expect(hrefs).toContain('/features');
+  it('leaves #pricing as the only homepage anchor in the top level', () => {
+    expect(navLinks.filter((l) => l.href.startsWith('#')).map((l) => l.href)).toEqual(['#pricing']);
   });
 });
 
-// The header used to answer "what does this thing do?" with a "Product" item
-// that scrolled to a homepage section — so from any other page it was a link
-// home wearing the wrong label. It now answers with the features themselves.
-describe('Features disclosure in the desktop header', () => {
-  function renderLayout(at = '/blog') {
-    const { container } = render(
-      <MemoryRouter initialEntries={[at]}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-            <Route path="blog" element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return {
-      container,
-      panel: () => container.querySelector('.nav-features-panel'),
-      toggle: () => container.querySelector('.nav-features-toggle'),
-      panelLinks: () =>
-        [...container.querySelectorAll('.nav-features-panel a')].map((a) => a.getAttribute('href')),
-    };
-  }
+describe('Features panel', () => {
+  const panelLinks = (panel) => [...panel.querySelectorAll('a')].map((a) => a.getAttribute('href'));
 
-  // Ronak, 2026-09-20: the menu showed nine of the feature pages and sent the
-  // other twenty to "All features". Every page is in the menu now, under the
-  // journey heading the hub files it under, so nothing is reachable only from
-  // the hub.
   it('lists every feature page, grouped, plus a way to the hub', () => {
-    const { panelLinks } = renderLayout();
-    expect(panelLinks()).toEqual([
+    const { panel } = renderLayout('/blog');
+    expect(panelLinks(panel())).toEqual([
       ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map(featurePagePath)),
       '/features',
     ]);
-  });
-
-  it('names every group above its links, and files every page once', () => {
-    const { container } = renderLayout();
-    const groups = menuFeatureGroups(FEATURE_PAGES);
-    expect([...container.querySelectorAll('.nav-features-group > h3')].map((h) => h.textContent)).toEqual(
-      groups.map((group) => group.title)
+    expect([...panel().querySelectorAll('.ui-nav-features-group > h3')].map((h) => h.textContent)).toEqual(
+      menuFeatureGroups(FEATURE_PAGES).map((group) => group.title)
     );
-    const linked = groups.flatMap((group) => group.pages.map((page) => page.slug));
-    expect(new Set(linked).size).toBe(linked.length);
   });
 
-  // Ronak, 2026-09-20: the comparison pages are not features, and naming a
-  // competitor in the nav of every page is not what the header is for. They
-  // keep their place on the hub, which "All features" reaches.
   it('leaves the comparison pages out of the menu but not out of the hub', () => {
-    const { panelLinks } = renderLayout();
-    expect(panelLinks()).not.toContain('/biz-analyst-alternative');
-    expect(panelLinks()).not.toContain('/livekeeping-alternative');
-    expect(panelLinks()).toContain('/features');
+    const links = panelLinks(renderLayout().panel());
+    expect(links).not.toContain('/biz-analyst-alternative');
+    expect(links).not.toContain('/livekeeping-alternative');
     expect(FEATURE_GROUPS.find((g) => g.id === 'weighing-options').slugs).toEqual([
       'biz-analyst-alternative',
       'livekeeping-alternative',
     ]);
   });
 
-  // Reachable from any page without navigating away first — the whole point of
-  // putting it in the header rather than only on the hub.
-  it('carries the same links on a page that is not the homepage', () => {
-    const menuPages = menuFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
-    expect(renderLayout('/blog').panelLinks().length).toBe(menuPages + 1);
-  });
-
-  it('starts closed, inert, and out of the tab order', () => {
+  it('is inert until the toggle is clicked, and aria-expanded flips', () => {
     const { panel, toggle } = renderLayout();
     expect(panel().hasAttribute('inert')).toBe(true);
     expect(toggle().getAttribute('aria-expanded')).toBe('false');
     expect(toggle().getAttribute('aria-controls')).toBe(panel().id);
-  });
 
-  it('opens on the chevron and tracks state on aria-expanded', () => {
-    const { panel, toggle } = renderLayout();
     fireEvent.click(toggle());
     expect(panel().hasAttribute('inert')).toBe(false);
     expect(toggle().getAttribute('aria-expanded')).toBe('true');
+
+    fireEvent.click(toggle());
+    expect(panel().hasAttribute('inert')).toBe(true);
+    expect(toggle().getAttribute('aria-expanded')).toBe('false');
   });
 
-  it('closes on Escape and hands focus back to the chevron', () => {
+  it('closes on Escape and hands focus back to the toggle', () => {
     const { panel, toggle } = renderLayout();
     fireEvent.click(toggle());
     fireEvent.keyDown(window, { key: 'Escape' });
@@ -277,165 +197,23 @@ describe('Features disclosure in the desktop header', () => {
     expect(panel().hasAttribute('inert')).toBe(true);
   });
 
-  it('keeps Features a link to the hub, so touch and crawlers can still reach it', () => {
-    const { container } = renderLayout();
-    const link = container.querySelector('.nav-features-link');
-    expect(link.getAttribute('href')).toBe('/features');
-    expect(link.textContent).toBe('Features');
-  });
-
-  // The panel's links must never satisfy the hub's coverage guard: it counts
-  // anchors carrying features-hub-card in raw HTML, and these are in raw HTML
-  // on every page of the site.
+  // The hub's build guard counts anchors carrying features-hub-card in raw
+  // HTML; the panel is in the raw HTML of every page.
   it('gives no panel link the hub card class', () => {
-    const { container } = renderLayout();
-    expect(container.querySelectorAll('.nav-features-panel a.features-hub-card')).toHaveLength(0);
+    expect(renderLayout().panel().querySelectorAll('a.features-hub-card')).toHaveLength(0);
   });
 });
 
-describe('header top level', () => {
-  function renderLayout() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return container;
-  }
-
-  it('no longer offers Product as a top-level item', () => {
-    expect(navLinks.filter((l) => l.href === '#product')).toEqual([]);
-    expect(navLinks.map((l) => l.label)).not.toContain('Product');
-  });
-
-  it('leaves #pricing as the only homepage anchor in the top level', () => {
-    // Documented exception: no standalone pricing page exists to point at.
-    expect(navLinks.filter((l) => l.href.startsWith('#')).map((l) => l.href)).toEqual(['#pricing']);
-  });
-
-  // A Windows installer wearing pill chrome read as a peer of "Book a call" to
-  // someone who had never heard of Takkada. It is back in the bar, but as a
-  // nav-family mark: two pills, and a third thing that is not one.
-  it('keeps the button row at two pills however many actions the bar carries', () => {
-    const actions = renderLayout().querySelector('.nav-actions');
-    expect(actions.querySelectorAll('.cta-btn')).toHaveLength(2);
-  });
-
-  it('keeps the connector reachable from the mobile menu', () => {
-    const mobile = renderLayout().querySelector('.mobile-nav-links');
-    expect(mobile.querySelectorAll('a[download]').length).toBeGreaterThan(0);
-  });
-
-  // The data side of this is pinned in feature-pages.test.js; what is checked
-  // here is that SiteFooter's plain-anchor branch passes the flag through at
-  // all, and that it does not hand one to the mailto and social links that
-  // share the branch.
-  it('renders the footer connector as a download and nothing else in the footer', () => {
-    const footer = renderLayout().querySelector('.footer');
-    const downloads = [...footer.querySelectorAll('a[download]')];
-    expect(downloads).toHaveLength(1);
-    expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
-  });
-});
-
-// The connector was pulled out of the desktop header once already, and the
-// reason it had to go was the pill chrome, not the link. These assertions are
-// what stops a later edit from putting the chrome back.
-describe('Tally Connector mark in the header', () => {
-  function renderLayout() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return {
-      container,
-      mark: () => container.querySelector('.nav-actions .nav-connector-link'),
-    };
-  }
-
-  it('puts the installer one click from every page, on the real S3 href', () => {
-    const link = renderLayout().mark();
-    expect(link).not.toBeNull();
-    expect(link.getAttribute('href')).toBe(appLinks.tallyConnector);
-    expect(link.hasAttribute('download')).toBe(true);
-  });
-
-  // A muted 13px mark cannot say "Windows installer" in its visible label
-  // without becoming the loudest thing in the bar, so the honesty about what
-  // the click actually starts lives where a screen reader will read it.
-  it('names the connector and the platform in its accessible name', () => {
-    const name = renderLayout().mark().getAttribute('aria-label');
-    expect(name).toMatch(/tally connector/i);
-    expect(name).toMatch(/windows/i);
-    // WCAG 2.5.3: the accessible name has to contain the visible one, or voice
-    // control cannot address the link by what is written on it.
-    expect(name.toLowerCase()).toContain('tally connector');
-  });
-
-  it('carries no button class, so it cannot drift back into a third pill', () => {
-    const link = renderLayout().mark();
-    expect(link.className).toContain('nav-connector-link');
-    expect(link.className).not.toMatch(/cta-btn/);
-  });
-
-  it('leaves the mobile menu on its own full-size treatment', () => {
-    const { container } = renderLayout();
-    const mobile = container.querySelector('.mobile-overlay .mobile-connector-link');
-    expect(mobile).not.toBeNull();
-    expect(mobile.getAttribute('href')).toBe(appLinks.tallyConnector);
-  });
-});
-
-// The header is the only surface that reaches all 26 feature pages, the hub,
-// the pricing section and ~170 blog posts. Until now the live demo was on two
-// routes, so a curious reader anywhere else could only reach a conversation.
 describe('header actions', () => {
-  function renderLayout() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    const header = container.querySelector('.site-nav');
-    return {
-      container,
-      header,
-      actions: () => header.querySelector('.nav-actions'),
-      // Counted by href, not by label. DemoTryCTA's flag-off fallback is a
-      // WhatsApp button with the same visible text as the header's own, so a
-      // label-based count would read two pills as one.
-      whatsappHrefs: (root) =>
-        [...root.querySelectorAll('a')]
-          .map((a) => a.getAttribute('href') ?? '')
-          .filter((h) => h.includes('wa.me')),
-      byName: (root, name) =>
-        [...root.querySelectorAll('button, a')].filter((el) => name.test(el.textContent)),
-    };
-  }
-
-  it('puts the live demo in the button row', () => {
-    const { actions, byName } = renderLayout();
-    expect(byName(actions(), /try the demo/i)).toHaveLength(1);
-    expect(byName(actions(), /chat on whatsapp/i)).toHaveLength(1);
+  it('carries exactly two pills: the demo (ghost) and WhatsApp (dark)', () => {
+    const { actions } = renderLayout();
+    const pills = [...actions().querySelectorAll('.ui-pill')];
+    expect(pills.map((p) => p.textContent.replace('→', '').trim())).toEqual(['Try the demo', 'Chat on WhatsApp']);
+    expect(pills[0].classList.contains('ui-pill--ghost')).toBe(true);
+    expect(pills[1].classList.contains('ui-pill--dark')).toBe(true);
+    expect(pills[1].getAttribute('href')).toContain('wa.me');
   });
 
-  // The sharp edge of the whole change. DemoTryCTA falls back to a WhatsApp
-  // button when the flag is off, so a header that delegated to that fallback
-  // instead of branching itself would ship two identical green pills on every
-  // page of the site the moment anyone flipped demoEntryLive back.
   it('renders exactly one WhatsApp link at either value of the flag', () => {
     for (const live of [true, false]) {
       siteContentMock.demoEntryLive = live;
@@ -445,22 +223,9 @@ describe('header actions', () => {
     }
   });
 
-  it('gives the calendar its header slot up to the demo', () => {
-    const { actions, byName } = renderLayout();
-    expect(byName(actions(), /book a call/i)).toHaveLength(0);
-  });
-
-  it('falls all the way back to the calendar when the flag is off', () => {
-    siteContentMock.demoEntryLive = false;
-    const { actions, byName } = renderLayout();
-    expect(byName(actions(), /book a call/i)).toHaveLength(1);
-    expect(byName(actions(), /try the demo/i)).toHaveLength(0);
-  });
-
-  // A real button, not an anchor. An href into the app would let a middle-click
-  // or a copied link reach the demo with no number captured, which is the one
-  // thing this funnel exists to do.
-  it('opens the capture modal on the demo destination instead of navigating', () => {
+  // A real button, not an anchor: an href would let a middle-click or a copied
+  // link reach the demo with no number captured.
+  it('opens the phone modal on "Try the demo" instead of navigating', () => {
     const { container, actions, byName } = renderLayout();
     const cta = byName(actions(), /try the demo/i)[0];
     expect(cta.tagName).toBe('BUTTON');
@@ -471,12 +236,17 @@ describe('header actions', () => {
     expect(container.textContent).toMatch(/send code/i);
   });
 
-  // Matched on the parsed hostname, not on the href as a substring. A substring
-  // test answers "does this string appear anywhere in the URL", which is true of
-  // `https://evil.test/?next=app.takkada.com` and false of nothing that matters
-  // here. The host is the thing that decides where a click actually lands.
+  it('links "Try the demo" to /demo when the flag is off, with no modal', () => {
+    siteContentMock.demoEntryLive = false;
+    const { container, actions, byName } = renderLayout();
+    const cta = byName(actions(), /try the demo/i)[0];
+    expect(cta.tagName).toBe('A');
+    expect(cta.getAttribute('href')).toBe('/demo');
+    expect(container.textContent).not.toMatch(/open the live demo/i);
+  });
+
   it('points no header link at the app, at either value of the flag', () => {
-    const appHost = (href) => {
+    const host = (href) => {
       try {
         return new URL(href, 'https://takkada.com').hostname;
       } catch {
@@ -488,260 +258,131 @@ describe('header actions', () => {
       const { header } = renderLayout();
       const appHrefs = [...header.querySelectorAll('a')]
         .map((a) => a.getAttribute('href') ?? '')
-        .filter((h) => appHost(h) === 'app.takkada.com');
+        .filter((h) => host(h) === 'app.takkada.com');
       expect(appHrefs, `demoEntryLive=${live}`).toEqual([]);
       cleanup();
     }
   });
-
-  it('leaves the calendar in the mobile menu, where there is room for both', () => {
-    const { container, byName } = renderLayout();
-    const menu = container.querySelector('.mobile-overlay');
-    expect(byName(menu, /book a call/i)).toHaveLength(1);
-  });
 });
 
-// The phone is where the OTP handoff actually lands, so the menu carrying the
-// demo matters more than the header does. It is also the surface where the
-// two-WhatsApp-pills failure would be least visible in review: the menu is a
-// vertical stack, so two green pills read as a list rather than as a mistake.
-describe('mobile menu actions', () => {
-  function openMenu() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    fireEvent.click(container.querySelector('.mobile-menu-btn'));
-    const menu = container.querySelector('.mobile-overlay');
-    return {
-      container,
-      menu,
-      actions: () => [...menu.querySelectorAll('.cta-btn')],
-      whatsappHrefs: () =>
-        [...menu.querySelectorAll('a')]
-          .map((a) => a.getAttribute('href') ?? '')
-          .filter((h) => h.includes('wa.me')),
-    };
-  }
-
-  it('offers the demo, the conversation and the calendar, in that order', () => {
-    const labels = openMenu().actions().map((el) => el.textContent.trim());
-    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a call']);
+// The sheet is the phone menu: the same links and pills, behind the burger.
+describe('burger sheet at phone width', () => {
+  const realWidth = window.innerWidth;
+  beforeEach(() => {
+    window.innerWidth = 390;
+    window.dispatchEvent(new Event('resize'));
+  });
+  afterEach(() => {
+    window.innerWidth = realWidth;
+    document.body.classList.remove('lock-scroll');
   });
 
-  // Ronak, 2026-09-20 22:18, circling both white pills: "same thing". They
-  // were two full-width white pills both ending in "demo". Now the live demo
-  // keeps the white pill, the conversation keeps the filled one, and the call
-  // is a blue outline, each with its own icon and no shared word.
-  it('gives the three actions three different chromes and an icon each', () => {
-    const { actions } = openMenu();
-    const variants = actions().map((el) => el.className.match(/cta-btn--(primary|secondary|outline|dark)\b/)?.[1]);
-    expect(variants).toEqual(['secondary', 'primary', 'outline']);
-    for (const el of actions()) {
-      expect(el.querySelector('svg'), `${el.textContent.trim()} has no icon`).toBeTruthy();
-    }
-    expect(actions().map((el) => el.textContent.trim()).filter((t) => /demo/i.test(t))).toEqual([
-      'Try the demo',
-    ]);
+  it('starts closed, with the burger pointing at the sheet', () => {
+    const { header, burger, sheet } = renderLayout();
+    expect(header.classList.contains('menu-open')).toBe(false);
+    expect(sheet().getAttribute('role')).toBeNull();
+    expect(burger().getAttribute('aria-expanded')).toBe('false');
+    expect(burger().getAttribute('aria-controls')).toBe(sheet().id);
   });
 
-  it('renders exactly one WhatsApp link at either value of the flag', () => {
-    for (const live of [true, false]) {
-      siteContentMock.demoEntryLive = live;
-      expect(openMenu().whatsappHrefs(), `demoEntryLive=${live}`).toHaveLength(1);
-      cleanup();
-    }
+  it('locks body scroll only while open, and opens as a labelled dialog', () => {
+    const { header, burger, sheet } = renderLayout();
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
+
+    fireEvent.click(burger());
+    expect(document.body.classList.contains('lock-scroll')).toBe(true);
+    expect(header.classList.contains('menu-open')).toBe(true);
+    expect(sheet().getAttribute('role')).toBe('dialog');
+    expect(sheet().getAttribute('aria-modal')).toBe('true');
+    expect(sheet().getAttribute('aria-label')).toBeTruthy();
+    expect(burger().getAttribute('aria-expanded')).toBe('true');
+    expect(sheet().contains(document.activeElement)).toBe(true);
+
+    fireEvent.click(burger());
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
+    expect(header.classList.contains('menu-open')).toBe(false);
   });
 
-  it('falls back to the menu as it stands today when the flag is off', () => {
-    siteContentMock.demoEntryLive = false;
-    const labels = openMenu().actions().map((el) => el.textContent.trim());
-    expect(labels).toEqual(['Chat on WhatsApp', 'Book a call']);
+  it('holds the four links and both pills', () => {
+    const { sheet, byName } = renderLayout();
+    expect(byName(sheet(), /^features$/i)).toHaveLength(1);
+    expect(byName(sheet(), /try the demo/i)).toHaveLength(1);
+    expect(byName(sheet(), /chat on whatsapp/i)).toHaveLength(1);
   });
 
-  // A stack of full-width pills with one half-width one in it reads as broken.
-  // Asserted at both flag values because the fallback is a different component
-  // and has to be handed the prop separately.
-  it('keeps every action full width at either value of the flag', () => {
-    for (const live of [true, false]) {
-      siteContentMock.demoEntryLive = live;
-      const { actions } = openMenu();
-      expect(actions().length, `demoEntryLive=${live}`).toBeGreaterThan(0);
-      for (const el of actions()) {
-        expect(el.className, `${el.textContent} at demoEntryLive=${live}`).toContain('cta-btn--full');
-      }
-      cleanup();
-    }
+  it('closes on Escape and hands focus back to the burger', () => {
+    const { header, burger } = renderLayout();
+    fireEvent.click(burger());
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(header.classList.contains('menu-open')).toBe(false);
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
+    expect(document.activeElement).toBe(burger());
   });
 
-  // Two green pills in a vertical stack read as a pair with no order to them,
-  // which is the same confusion D1 took out of the header, arriving through a
-  // different door. The demo wears the header's treatment here too.
-  it('gives the stack one primary, so the eye has somewhere to land', () => {
-    const primaries = openMenu()
-      .actions()
-      .filter((el) => el.className.includes('cta-btn--primary'));
-    expect(primaries.map((el) => el.textContent.trim())).toEqual(['Chat on WhatsApp']);
-  });
-
-  it('closes the overlay before opening the modal, not behind it', () => {
-    const { container, menu, actions } = openMenu();
-    expect(menu.className).toContain('open');
-
-    fireEvent.click(actions()[0]);
-
-    expect(menu.className).not.toContain('open');
-    expect(menu.hasAttribute('inert')).toBe(true);
+  it('closes the sheet before opening the modal, not behind it', () => {
+    const { container, header, burger, sheet, byName } = renderLayout();
+    fireEvent.click(burger());
+    fireEvent.click(byName(sheet(), /try the demo/i)[0]);
+    expect(header.classList.contains('menu-open')).toBe(false);
+    expect(document.body.classList.contains('lock-scroll')).toBe(false);
     expect(container.textContent).toMatch(/open the live demo/i);
   });
 
-  it('leaves the hamburger holding focus after the menu closes', () => {
-    const { container, actions } = openMenu();
-    fireEvent.click(actions()[0]);
-    expect(document.activeElement).toBe(container.querySelector('.mobile-menu-btn'));
-  });
-});
-
-// The open menu read as a rendering bug on a phone: page text showed straight
-// through it. The paint half of that fix is CSS (the surface no longer fades),
-// which jsdom cannot see, so what is asserted here is the contract the CSS and
-// the assistive-technology tree both hang off: the open/inert/dialog state, and
-// the navigation paths that must put the menu back.
-describe('mobile menu overlay', () => {
-  function renderLayout() {
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-            <Route path="partners" element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    return {
-      container,
-      overlay: () => container.querySelector('.mobile-overlay'),
-      toggle: () => container.querySelector('.mobile-menu-btn'),
-    };
-  }
-
-  it('starts closed, inert, and out of the accessibility tree', () => {
-    const { overlay, toggle } = renderLayout();
-    expect(overlay().className).not.toContain('open');
-    // The overlay is fixed at inset 0 on every viewport and is never
-    // unmounted, so a closed menu that is merely transparent leaves its links
-    // tabbable on desktop, where the menu cannot even be opened.
-    expect(overlay().hasAttribute('inert')).toBe(true);
-    expect(overlay().getAttribute('role')).toBeNull();
-    expect(toggle().getAttribute('aria-expanded')).toBe('false');
-    expect(toggle().getAttribute('aria-controls')).toBe(overlay().id);
-  });
-
-  it('opens as a labelled modal dialog with focus inside it', () => {
-    const { overlay, toggle } = renderLayout();
-    fireEvent.click(toggle());
-
-    expect(overlay().className).toContain('open');
-    expect(overlay().hasAttribute('inert')).toBe(false);
-    expect(overlay().getAttribute('role')).toBe('dialog');
-    expect(overlay().getAttribute('aria-modal')).toBe('true');
-    expect(overlay().getAttribute('aria-label')).toBeTruthy();
-    expect(toggle().getAttribute('aria-expanded')).toBe('true');
-    expect(overlay().contains(document.activeElement)).toBe(true);
-  });
-
-  it('closes on Escape and hands focus back to the toggle', () => {
-    const { overlay, toggle } = renderLayout();
-    fireEvent.click(toggle());
-    fireEvent.keyDown(window, { key: 'Escape' });
-
-    expect(overlay().className).not.toContain('open');
-    expect(overlay().hasAttribute('inert')).toBe(true);
-    expect(document.activeElement).toBe(toggle());
-  });
-
-  it('locks body scroll only while the menu is open', () => {
-    const { toggle } = renderLayout();
-    expect(document.body.classList.contains('lock-scroll')).toBe(false);
-    fireEvent.click(toggle());
-    expect(document.body.classList.contains('lock-scroll')).toBe(true);
-    fireEvent.click(toggle());
-    expect(document.body.classList.contains('lock-scroll')).toBe(false);
-  });
-
-  // Back and forward are not link clicks, so the per-link closers never ran for
-  // them: the overlay stayed open over the new page with the body still
-  // scroll-locked, and nothing on screen said why.
+  // Back and forward are not link clicks, so a per-link closer never runs.
   it('closes on a route change that did not come from one of its links', () => {
-    let go;
-    function Probe() {
-      go = useNavigate();
-      return null;
-    }
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <Probe />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-            <Route path="partners" element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
-    const overlay = () => container.querySelector('.mobile-overlay');
-    fireEvent.click(container.querySelector('.mobile-menu-btn'));
-    expect(overlay().className).toContain('open');
-
+    const { header, burger, go } = renderLayout();
+    fireEvent.click(burger());
     act(() => go('/partners'));
-
-    expect(overlay().className).not.toContain('open');
+    expect(header.classList.contains('menu-open')).toBe(false);
     expect(document.body.classList.contains('lock-scroll')).toBe(false);
   });
 });
 
-// The bar is fixed and transparent until the page scrolls, and .blog-index-hero
-// and .blog-post-header are both navy — but Layout never lets the transparent
-// state happen there: forceLightNav puts the `scrolled` class on the bar for
-// every /blog route at scroll 0. That is what protects the blog, not the
-// nav-on-navy :has() list in styles.css, and it is worth pinning: drop
-// forceLightNav and the header becomes dark ink on dark navy on 170 posts.
-describe('the nav over the navy blog heroes', () => {
-  const renderAt = (at) =>
-    render(
-      <MemoryRouter initialEntries={[at]}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div />} />
-            <Route path="blog" element={<div />} />
-            <Route path="blog/:slug" element={<div />} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    ).container;
-
-  const navAt = (at) => renderAt(at).querySelector('.site-nav');
-
-  it('starts a blog index and a blog post in the opaque light state, unscrolled', () => {
-    expect(window.scrollY).toBe(0);
-    for (const route of ['/blog', '/blog/tally-on-mobile']) {
-      expect(
-        navAt(route).classList.contains('scrolled'),
-        `${route} renders the bar transparent over its navy hero`
-      ).toBe(true);
-    }
+describe('footer', () => {
+  it('renders every footerColumns heading and link', () => {
+    const footer = renderLayout().footer();
+    const cols = [...footer.querySelectorAll('ul.ui-footer-col')];
+    expect(cols).toHaveLength(footerColumns.length);
+    expect([...footer.querySelectorAll('.ui-footer-title')].map((t) => t.textContent)).toEqual(
+      footerColumns.map((c) => c.title)
+    );
+    footerColumns.forEach((col, i) => {
+      const anchors = [...cols[i].querySelectorAll('a')];
+      expect(anchors.map((a) => a.textContent)).toEqual(col.links.map((l) => l.label));
+      col.links.forEach((link, j) => {
+        const href = anchors[j].getAttribute('href');
+        if (link.page) expect(href).toBe(`/${link.page}`);
+        else if (link.href.startsWith('#')) expect(href).toBe(`/${link.href}`);
+        else expect(href).toBe(link.href);
+      });
+    });
   });
 
-  // The other half of the pin: the class is not simply always on, or the
-  // assertion above would hold however the nav behaved.
-  it('leaves the homepage bar transparent at the top, as the hero expects', () => {
-    expect(navAt('/').classList.contains('scrolled')).toBe(false);
+  it('carries the connector download and nothing else as a download', () => {
+    const downloads = [...renderLayout().footer().querySelectorAll('a[download]')];
+    expect(downloads).toHaveLength(1);
+    expect(downloads[0].getAttribute('href')).toMatch(/\.exe$/);
+  });
+
+  it('carries the phone and email from contactInfo as tel: and mailto: links', () => {
+    const footer = renderLayout().footer();
+    const tel = footer.querySelector('a[href^="tel:"]');
+    expect(tel.getAttribute('href')).toBe(`tel:${contactInfo.phone.replace(/\s/g, '')}`);
+    expect(tel.textContent).toBe(contactInfo.phone);
+    const mail = [...footer.querySelectorAll('a[href^="mailto:"]')].find(
+      (a) => a.textContent === contactInfo.email
+    );
+    expect(mail.getAttribute('href')).toBe(`mailto:${contactInfo.email}`);
+  });
+
+  it('prints the current year and the one legal name', () => {
+    const footer = renderLayout().footer();
+    expect(footer.textContent).toContain(`© ${new Date().getFullYear()} ${contactInfo.company}`);
+    expect(contactInfo.company).toBe('Pay Saathi Innovation LLP');
+  });
+
+  it('sets no inline style anywhere in the footer', () => {
+    expect(renderLayout().footer().querySelectorAll('[style]')).toHaveLength(0);
   });
 });
 
@@ -760,16 +401,7 @@ describe('hash scrolling answers the motion preference', () => {
     window.matchMedia = realMatchMedia;
   });
 
-  const renderAtHash = () =>
-    render(
-      <MemoryRouter initialEntries={['/#pricing']}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<div id="pricing">prices</div>} />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
+  const renderAtHash = () => renderLayout('/#pricing', <div id="pricing">prices</div>);
 
   it('glides to the anchor by default', () => {
     renderAtHash();
@@ -789,8 +421,6 @@ describe('hash scrolling answers the motion preference', () => {
     expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
   });
 
-  // SSG renders with no window and jsdom can be handed no matchMedia at all;
-  // neither may throw on the way to the anchor.
   it('still scrolls when matchMedia is missing entirely', () => {
     delete window.matchMedia;
     renderAtHash();
