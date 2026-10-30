@@ -129,8 +129,13 @@
 }
 .rate-table-head {
   position: sticky;
-  top: 68px;
+  /* The nav is 64px plus its 1px hairline. Anything taller leaves a strip
+     where the scrolling rows show through above the stuck head. */
+  top: 65px;
   z-index: 3;
+  /* Opaque, so the notches outside the highlighted head's rounded corners
+     do not let the column's side borders scroll through. */
+  background: var(--color-white);
 }
 .rate-table-corner {
   display: flex;
