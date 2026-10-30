@@ -47,8 +47,7 @@ export const navLinks = [
 
 export const heroContent = {
   overline: 'For Indian distributors on Tally',
-  // The H1 and body are owned by src/data/heroHotspots.js (HERO_HOME) because
-  // they swap as the visitor taps the phone. This object keeps what is static.
+  // The homepage H1 and lead are HOME_HERO in src/data/home.js.
   promise: 'Built on top of your Tally.',
   // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
   // rupee volume was retired on 2026-09-18 (operator direction) and
@@ -57,8 +56,8 @@ export const heroContent = {
 };
 
 // The two story objects (order-to-cash, team sales), the AI band and the
-// capability grid were retired on 2026-09-18: the homepage tells one story now,
-// and it is built from src/data/journey.js (STOPS) by FollowOneInvoice.
+// capability grid were retired on 2026-09-18. The homepage sections are built
+// from src/data/home.js.
 
 // Compressed Tally-trust block: the connector story in three specific
 // behaviors plus the download. The deep safety story lives in #data-safety.

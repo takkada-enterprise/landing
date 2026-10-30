@@ -10,7 +10,6 @@ const fontsCss = read('src/fonts.css');
 const indexHtml = read('index.html');
 const mainJsx = read('src/main.jsx');
 const styles = read('src/styles.css');
-const premium = read('src/premium.css');
 
 // CLAUDE.md §7 records the failure this file exists to prevent: a face that
 // stops resolving costs nothing loud. Text keeps rendering — in a system font,
@@ -95,7 +94,6 @@ describe('no Google Fonts dependency remains', () => {
     for (const [name, css] of [
       ['src/fonts.css', fontsCss],
       ['src/styles.css', styles],
-      ['src/premium.css', premium],
     ]) {
       for (const ref of cssResourceRefs(css)) {
         expect(ref, `${name} still loads from Google Fonts`).not.toMatch(GOOGLE_FONT_HOST);
@@ -140,7 +138,7 @@ describe('the dead Inter font is gone', () => {
   });
 
   it('references no Inter family anywhere in the styles', () => {
-    for (const content of [fontsCss, styles, premium, indexHtml]) {
+    for (const content of [fontsCss, styles, indexHtml]) {
       expect(content).not.toMatch(/['"]Inter['"]/);
     }
   });

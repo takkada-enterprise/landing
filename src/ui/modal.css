@@ -1,0 +1,268 @@
+/* The phone-number modal (PhoneModal.jsx), loaded through styles.css. */
+
+:root .phone-modal-header h3 {
+  font-weight: var(--weight-display);
+}
+
+/* ═══════════════════════════════════════════════════
+   PHONE MODAL — Book a call popup
+   ═══════════════════════════════════════════════════ */
+
+.phone-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modalFadeIn 0.25s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.phone-modal {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.phone-modal-close:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.phone-modal-header {
+  padding: 36px 32px 0;
+  text-align: center;
+}
+
+.phone-modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-sage-bg);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.phone-modal-header h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.phone-modal-header p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.phone-modal-body {
+  padding: 24px 32px 0;
+}
+
+.phone-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.phone-input-wrapper:focus-within {
+  border-color: var(--color-primary);
+}
+
+.phone-input-wrapper.phone-input-error {
+  border-color: #dc3545;
+}
+
+.phone-country-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-right: 2px solid var(--color-border);
+  user-select: none;
+}
+
+.phone-input-wrapper input {
+  flex: 1;
+  height: 48px;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0 16px;
+  letter-spacing: 0.04em;
+  background: transparent;
+}
+
+.phone-input-wrapper input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.phone-error {
+  font-size: 13px;
+  color: #dc3545;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.phone-success {
+  font-size: 13px;
+  color: var(--color-primary);
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.phone-consent-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-top: 12px;
+}
+
+.phone-consent-note a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
+.phone-modal-footer {
+  padding: 24px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.phone-btn-submit:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.phone-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.phone-btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.phone-btn-cancel:hover {
+  color: var(--color-text);
+}
+
+/* Spin animation for loader */
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .phone-modal {
+    border-radius: var(--radius-lg);
+  }
+
+  .phone-modal-header {
+    padding: 28px 20px 0;
+  }
+
+  .phone-modal-body {
+    padding: 20px 20px 0;
+  }
+
+  .phone-modal-footer {
+    padding: 20px 20px 24px;
+  }
+}

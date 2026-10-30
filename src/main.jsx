@@ -5,8 +5,6 @@ import { routes } from './routes';
 import './fonts.css';
 import './ui/ui.css';
 import './styles.css';
-import './premium.css';
-import './journey.css';
 
 export const createRoot = ViteReactSSG(
   { routes },

@@ -40,7 +40,7 @@ export const SCREENS = {
   // real number on a public page: "Invoice will be sent to 9573440784", and
   // "ronak / 919435977777". Deleted, not just unreferenced, because public/ is
   // copied into dist verbatim and an unreferenced file there is still a URL.
-  // src/data/__tests__/journey.test.js holds the tombstone.
+  // src/data/__tests__/screens.test.js holds the tombstone.
   reminders: phone(
     'reminders',
     "Reminders tab listing each party's last WhatsApp reminder as sent or failed"
@@ -319,19 +319,19 @@ export const SCREENS = {
   // rectangles live in mockups/captures-2026-10-30/ledger.json under `crops`.
   'hero-card-outstanding': sheet(
     'hero-card-outstanding',
-    '₹4,06,70,064 to collect from customers, with the time Tally last sent data',
+    'The total to collect from customers, with the time Tally last sent data',
     720,
     137
   ),
   'hero-card-overdue': sheet(
     'hero-card-overdue',
-    'Rahi Motors marked overdue with ₹30,06,962 to collect',
+    'A customer marked overdue with the amount to collect',
     720,
     137
   ),
   'hero-card-ageing': sheet(
     'hero-card-ageing',
-    'A J Enterprise owes ₹95,498.80, all overdue, split into ageing periods',
+    "A customer's balance, all overdue, split into ageing periods",
     720,
     661
   ),

@@ -608,21 +608,15 @@ describe('hub tiers partition the feature pages', () => {
     expect(all.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
   });
 
-  // The seven stops are the page's spine, so a stop group survives the lead
-  // subtraction even with nothing left; only a group outside the journey is
-  // dropped when it is empty. Every group is a section since the compact index
-  // went (2026-09-18), so today nothing is dropped at all.
-  it('renders every group as a section, in journey order', () => {
+  // Every group is a section since the compact index went (2026-09-18). A
+  // group the lead tier empties is dropped, so today nothing may be empty.
+  it('renders every group as a section, in hub order', () => {
     expect(sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id)).toEqual(SECTION_GROUP_IDS);
     expect(SECTION_GROUP_IDS).toEqual(FEATURE_GROUPS.map((g) => g.id));
   });
 
-  it('keeps a stop section even when the lead tier takes all of its pages', () => {
-    const stops = new Set(FEATURE_GROUPS.filter((g) => g.stop).map((g) => g.id));
-    const rendered = sectionFeatureGroups(FEATURE_PAGES);
-    expect([...stops].filter((id) => !rendered.some((g) => g.id === id))).toEqual([]);
-    // And no section outside the journey heads nothing.
-    for (const group of rendered.filter((g) => !g.stop)) {
+  it('heads no empty section', () => {
+    for (const group of sectionFeatureGroups(FEATURE_PAGES)) {
       expect(group.pages.length, group.id).toBeGreaterThan(0);
     }
   });

@@ -1,0 +1,189 @@
+/* Video embed, trust article link, FAQ rows and blog figures, loaded
+   through styles.css. */
+
+.video-embed {
+  /* Fixed ratio reserves the box before any media loads (CLS guard). */
+  aspect-ratio: 16 / 9;
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-ink);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.video-embed video,
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.video-embed-poster {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-embed-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-embed-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.video-embed-poster:hover .video-embed-play,
+.video-embed-poster:focus-visible .video-embed-play {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-embed-poster:hover .video-embed-play,
+  .video-embed-poster:focus-visible .video-embed-play {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.trust-article-link {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.trust-article-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.trust-article-link a:hover,
+.trust-article-link a:focus-visible {
+  text-decoration: underline;
+}
+
+.faq-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: none;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 12px;
+  padding: 0 22px;
+  transition: box-shadow var(--dur) var(--ease-out);
+}
+
+.faq-item.open {
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
+  gap: 16px;
+  /* Press feedback: a wide row gets the barest scale so the tap reads. */
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.faq-trigger:active {
+  transform: scale(0.99);
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.faq-toggle.open {
+  transform: rotate(180deg);
+  background: var(--color-sage-bg);
+  color: var(--color-primary);
+}
+
+.faq-answer-wrap {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  padding-bottom: 20px;
+}
+
+.blog-figure {
+  margin: 32px 0 28px;
+}
+
+.blog-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+
+.blog-figure figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.blog-figure figcaption a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 // Display weights on the Campfire pattern (plan 2026-10-30-003, Global
 // Constraints): hero and section heads at 500, card titles at 600, set once
-// in src/ui/ui.css. The legacy sheets load after ui.css, so a rule there that
+// in src/ui/ui.css. styles.css loads after ui.css, so a rule there that
 // names one of these classes would win on equal specificity; none may.
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -30,7 +30,7 @@ describe('display heading weights (plan 2026-10-30-003)', () => {
     expect(weightOf(ui, selector)).toBe(weight);
   });
 
-  it.each(['styles.css', 'premium.css'])('%s never restyles a ui- heading', (file) => {
-    expect(read(file)).not.toMatch(/\.ui-(hero|section|card|close)-title\b/);
+  it('styles.css never restyles a ui- heading', () => {
+    expect(read('styles.css')).not.toMatch(/\.ui-(hero|section|card|close)-title\b/);
   });
 });
