@@ -116,6 +116,9 @@
   border-radius: var(--radius-card);
   box-shadow: none;
 }
+/* The head strip too: pricing.css paints it white, which on the white
+   section hid the table's rounded top and left the grey rows starting square. */
+.ui-home .rate-table .rate-table-head,
 .ui-home .rate-table .rate-plan,
 .ui-home .rate-table .rate-table-corner {
   background: var(--card);
@@ -192,12 +195,24 @@
     background: transparent;
     border-left: 0;
     border-right: 0;
-    border-top: 0;
     border-radius: 0;
   }
+  /* Only the head carried the navy top edge. A tick cell keeps the row
+     hairline, in the label's colour (the hero recipe tints it white for the
+     old blue column), so each divider runs the full row. */
+  .ui-home .rate-table .rate-plan.ui-pricing-highlight { border-top: 0; }
+  .ui-home .rate-table .rate-cell.ui-pricing-highlight { border-top-color: var(--color-hairline); }
   /* One class heavier than the desktop closing rule below, which would otherwise win on order. */
   .ui-home .rate-table .rate-matrix .rate-group:last-child .rate-row:last-child .ui-pricing-highlight {
     border-bottom: 0;
+  }
+}
+/* Four plan chips at the 16px floor do not fit one 390px row ("Enterprise"
+   clipped to "Enter"), so a phone lays them out two by two. */
+@media (max-width: 599px) {
+  .ui-home .rate-picker {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 /* The bar closes under the last capability row. */

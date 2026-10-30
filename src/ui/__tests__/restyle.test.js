@@ -175,3 +175,18 @@ describe('placement polish (audit 5, 13, 15)', () => {
     expect(body(read('ui/footer.css'), '.ui-footer-top')).toMatch(/repeat\(var\(--footer-groups/);
   });
 });
+
+describe('phone widths (390px pass)', () => {
+  const home = read('ui/home.css');
+  const phone = (css) => css.split(/@media\s*\(max-width:\s*767px\)/).slice(1).join('');
+  it('keeps the pricing row hairline on the tick cell: only the plan head drops its top edge', () => {
+    expect(body(home, '.ui-home .rate-table .ui-pricing-highlight')).not.toMatch(/border-top:\s*0/);
+    expect(body(home, '.ui-home .rate-table .rate-cell.ui-pricing-highlight')).toMatch(/border-top-color:\s*var\(--color-hairline\)/);
+  });
+  it('lays the four plan chips two by two on a phone so "Enterprise" is never clipped', () => {
+    expect(body(home, '.ui-home .rate-picker')).toMatch(/grid-template-columns:\s*1fr 1fr/);
+  });
+  it('paints the pricing head strip the table surface, not white', () => {
+    expect(body(home, '.ui-home .rate-table .rate-table-head')).toMatch(/background:\s*var\(--card\)/);
+  });
+});

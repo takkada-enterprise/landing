@@ -200,7 +200,9 @@ describe('pricing', () => {
     const phone = home.split(/@media\s*\(max-width:\s*900px\)/)[1];
     expect(phone).toBeTruthy();
     expect(phone).not.toMatch(/data-active-plan='\d'\]\s*\.rate-group-title\s*\{/);
-    expect(phone).toMatch(/\.ui-pricing-highlight[^{]*\{[^}]*border-left:\s*0;[^}]*border-right:\s*0;[^}]*border-top:\s*0;[^}]*border-radius:\s*0;/);
+    expect(phone).toMatch(/\.ui-pricing-highlight[^{]*\{[^}]*border-left:\s*0;[^}]*border-right:\s*0;[^}]*border-radius:\s*0;/);
+    // Only the head loses its top edge; a tick cell keeps the row hairline.
+    expect(phone).toMatch(/\.rate-plan\.ui-pricing-highlight\s*\{\s*border-top:\s*0;\s*\}/);
     expect(phone).toMatch(/\.rate-row:last-child \.ui-pricing-highlight\s*\{\s*border-bottom:\s*0;/);
   });
 });
