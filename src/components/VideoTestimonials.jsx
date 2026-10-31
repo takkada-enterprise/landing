@@ -95,7 +95,8 @@ function VideoTestimonials({ items = videoTestimonials }) {
                   {/* Top tags */}
                   <div className="hv3-stories-poster-top">
                     <span className="hv3-stories-chip">
-                      <Building2 size={13} /> {current.company}
+                      <Building2 size={13} />
+                      <span className="hv3-stories-chip-text">{current.company}</span>
                     </span>
                     <span className="hv3-stories-chip hv3-stories-chip--time">
                       <Clock size={13} /> {current.duration}
