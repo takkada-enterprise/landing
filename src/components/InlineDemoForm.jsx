@@ -3,13 +3,13 @@ import { CalendarDays, CheckCircle2, Loader2, Phone } from 'lucide-react';
 import { sanitizePhoneInput, validateIndianMobileNumber } from '../lib/demoBooking';
 import { requestDemoCall } from '../lib/bookCall';
 
-// The "+91 | Mobile number | Book Demo" row on the homepage feature cards. A
+// The "+91 | Mobile number | Explore demo" row on the homepage feature cards. A
 // new pattern on purpose (craft #10): the visitor reading one feature books a
 // demo about it in place (owner, 2026-10-31). Nothing opens, neither the modal
 // nor a calendar tab: the number is saved through requestDemoCall() and the
 // card confirms that the team will call. `context` names the card, so Clarity
 // can tell which feature drove the booking.
-function InlineDemoForm({ context, label = 'Book Demo' }) {
+function InlineDemoForm({ context, label = 'Explore demo' }) {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const [status, setStatus] = useState('');

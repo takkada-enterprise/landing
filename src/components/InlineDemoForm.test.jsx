@@ -21,13 +21,13 @@ describe('InlineDemoForm', () => {
 
   const type = (value) =>
     fireEvent.change(screen.getByLabelText('Mobile number'), { target: { value } });
-  const submit = () => fireEvent.click(screen.getByRole('button', { name: /book demo/i }));
+  const submit = () => fireEvent.click(screen.getByRole('button', { name: /explore demo/i }));
 
-  it('shows +91, a labelled number field and a Book Demo button', () => {
+  it('shows +91, a labelled number field and an Explore demo button', () => {
     render(<InlineDemoForm context="home-feature-reports" />);
     expect(screen.getByText('+91')).toBeTruthy();
     expect(screen.getByLabelText('Mobile number').getAttribute('inputmode')).toBe('numeric');
-    expect(screen.getByRole('button', { name: /book demo/i })).toBeTruthy();
+    expect(screen.getByRole('button', { name: /explore demo/i })).toBeTruthy();
   });
 
   it('refuses an invalid number without capturing anything', () => {
@@ -80,6 +80,6 @@ describe('InlineDemoForm', () => {
     await waitFor(() =>
       expect(screen.getByRole('status').textContent).toBe('Could not save your number. Please try again.')
     );
-    expect(screen.getByRole('button', { name: /book demo/i }).disabled).toBe(false);
+    expect(screen.getByRole('button', { name: /explore demo/i }).disabled).toBe(false);
   });
 });
