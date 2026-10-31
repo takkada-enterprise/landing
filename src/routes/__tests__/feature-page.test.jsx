@@ -73,7 +73,12 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
   it('renders the answer block ahead of the story section', () => {
     const { container } = renderPage(page);
     const answer = container.querySelector('.feature-answer');
-    expect(answer.textContent).toBe(page.answer);
+    if (page.answerPoints) {
+      const items = [...answer.querySelectorAll('li')].map((li) => li.textContent);
+      expect(items).toEqual(page.answerPoints);
+    } else {
+      expect(answer.textContent).toBe(page.answer);
+    }
     // The story is a walk-through grid or a tour, never both (2026-08-12).
     const story = container.querySelector('#walkthrough') ?? container.querySelector('#tour');
     expect(story).not.toBeNull();

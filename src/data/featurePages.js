@@ -570,25 +570,30 @@ const FIRST_BATCH = [
 
   {
     slug: 'e-invoice-from-phone',
-    searchPhrase: 'E-invoice from the phone',
+    searchPhrase: 'GST e-invoices',
     overline: 'E-INVOICING',
-    headline: 'E-invoice from the phone, IRN on the same Tally voucher.',
+    headline: 'Generate GST e-invoices directly from Tally.',
     subheadline:
-      'The buyer wants the bill now. Your accountant with the portal login is an hour away from his desk.',
-    // 49 words.
+      'Create and generate GST-compliant e-invoices directly from your phone. Get the IRN and signed QR added instantly.',
+    answerPoints: [
+      'Generate the IRN and signed QR in one tap',
+      'Download the invoice PDF and share it on WhatsApp',
+      'Cancel and re-issue an e-invoice within 24 hours',
+    ],
+    // 50 words.
     answer:
-      'You can raise an e-invoice from the phone and the IRN with its signed QR comes back onto the same Tally voucher. No portal login, no desktop, no second entry. Cancel it from the app inside the government window when a buyer changes his mind, and Tally stays in step.',
+      'You can generate GST e-invoices from your phone, and the IRN with its signed QR comes back onto the same Tally voucher. No portal login, no desktop, no second entry. Cancel it from the app inside the government window when a buyer changes his mind, and Tally stays in step.',
     waContext: 'feature-e-invoice-from-phone',
     waMessage:
       'Hi, I want to generate e-invoices with IRN from my phone and have them written back into Tally. Can you show me how that works?',
     seo: {
-      title: 'E-Invoice From the Phone, IRN on Tally | Takkada',
+      title: 'GST E-Invoices From Your Phone, Into Tally | Takkada',
       description:
         'Generate an e-invoice from the phone with IRN and signed QR, written back onto the same Tally voucher. No portal login, and cancel from the app in the window.',
     },
     llms: {
       section: 'Features',
-      title: 'E-invoice from the phone',
+      title: 'GST e-invoices from your phone',
       summary:
         'GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.',
     },
@@ -599,7 +604,7 @@ const FIRST_BATCH = [
     hero: { screen: 'invoice-summary-send' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-10-31',
     walkthroughHeading: 'From the item lines to a signed IRN',
     walkthrough: [
       {
@@ -719,25 +724,31 @@ const FIRST_BATCH = [
 
   {
     slug: 'e-way-bill-from-phone',
-    searchPhrase: 'E-way bill from the phone',
+    searchPhrase: 'E-way bills from your phone',
     overline: 'E-WAY BILLS',
-    headline: 'E-way bill from the phone, before the truck leaves the gate.',
+    headline: 'Generate e-way bills from your phone before the truck leaves.',
     subheadline:
-      'The loading is done and the driver is waiting. The only thing missing is a document somebody has to generate on a laptop in the office.',
+      'The loading is done and the driver is waiting. Raise the e-way bill where you stand, with no portal login and no trip to the office laptop.',
+    answerPoints: [
+      'Generate e-way bills from existing invoices or delivery challans',
+      'Get party, item and distance details pre-filled',
+      'Download the e-way bill PDF and share it on WhatsApp',
+      'Cancel it from the app within the permitted time limit',
+    ],
     // 45 words.
     answer:
-      'An e-way bill from the phone comes off the invoice you just raised, with no portal login and no desktop. Vehicle and distance details are prefilled, the number writes back into Tally against the same voucher, and you can cancel from the app inside the government window.',
+      'E-way bills from your phone come off the invoice you just raised, with no portal login and no desktop. Vehicle and distance details are prefilled, the number writes back into Tally against the same voucher, and you can cancel from the app inside the government window.',
     waContext: 'feature-e-way-bill-from-phone',
     waMessage:
       'Hi, I want to generate e-way bills from my phone against my Tally invoices instead of doing it on the portal. Can you show me?',
     seo: {
-      title: 'E-Way Bill From the Phone, No Portal Login | Takkada',
+      title: 'E-Way Bills From Your Phone, No Portal Login | Takkada',
       description:
         'Generate an e-way bill from the phone off the invoice you just raised. Distance prefilled, the number written back into Tally, cancellation from the app.',
     },
     llms: {
       section: 'Features',
-      title: 'E-way bill from the phone',
+      title: 'E-way bills from your phone',
       summary:
         'E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.',
     },
@@ -745,7 +756,7 @@ const FIRST_BATCH = [
     hero: { screen: 'van-loading' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-10-31',
     walkthroughHeading: 'Gate pass to government document',
     walkthrough: [
       {
@@ -1033,25 +1044,31 @@ const FIRST_BATCH = [
 
   {
     slug: 'import-purchase-from-pdf',
-    searchPhrase: 'Import purchase from PDF',
+    searchPhrase: 'Import purchase bills from PDF',
     overline: 'AI ENTRY',
-    headline: 'Import purchase from PDF into Tally, without typing the lines.',
+    headline: 'Import purchase bills from PDF into Tally without typing every line.',
     subheadline:
-      'The supplier bills arrive as PDFs and photos. Somebody sits down at seven in the evening and types them in, one line at a time.',
-    // 48 words.
+      'Supplier bills arrive as PDFs or photos, and keying in each item by hand takes the whole evening. Takkada reads the bill, matches every line to your stock list and prepares a purchase voucher for you to review.',
+    answerPoints: [
+      'Upload a supplier bill as a PDF or a photo',
+      'Extract item names, quantities, rates and GST',
+      'Match each line to your existing stock items',
+      'Review the draft and post it to Tally as a purchase voucher',
+    ],
+    // 49 words.
     answer:
-      'To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.',
+      'To import purchase bills from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.',
     waContext: 'feature-import-purchase-from-pdf',
     waMessage:
       'Hi, I want to stop typing supplier purchase bills into Tally by hand. Can you show me how the PDF and photo import works?',
     seo: {
-      title: 'Import Purchase From PDF Into Tally | Takkada',
+      title: 'Import Purchase Bills From PDF Into Tally | Takkada',
       description:
         'Import a purchase from PDF or a photo into Tally. Items, quantity, rate and GST are matched to your masters, then posted as a voucher after you review it.',
     },
     llms: {
       section: 'Features',
-      title: 'Import purchase from PDF',
+      title: 'Import purchase bills from PDF',
       summary:
         'Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.',
     },
@@ -1059,7 +1076,7 @@ const FIRST_BATCH = [
     hero: { screen: 'document-import' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-10-31',
     walkthroughHeading: 'A supplier bill, without the typing',
     detail: {
       overline: 'IN DETAIL',

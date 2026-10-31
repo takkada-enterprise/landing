@@ -50,6 +50,28 @@
   color: var(--color-on-container);
 }
 
+.feature-answer-points {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.feature-answer-points li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.feature-answer-points li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+
 .feature-hero .hero-ctas {
   margin-top: 32px;
 }
