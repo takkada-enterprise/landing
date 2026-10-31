@@ -58,9 +58,10 @@ const WA_CONTEXT = 'features-hub';
 // visitor who has just read the story recognises where he is rather than
 // reading a second name for it.
 //
-// A stop may have no screen — Send has none, because no capture of a delivered
-// invoice exists — so the image is conditional and the stamp is not. Reading
-// screens[0] unconditionally took the whole hub down with it.
+// A stop may have no screen on the homepage — Send shows a WhatsApp message
+// there instead — so the hub falls back to the stop's `hubScreen`, and the
+// image stays conditional while the stamp is not. Reading screens[0]
+// unconditionally took the whole hub down with it.
 //
 // Both are decoration. The heading and intro beside them already say what the
 // section is, so the stamp is hidden from assistive tech and the screen carries
@@ -87,7 +88,8 @@ function LeadShot({ page, loading, fetchPriority }) {
 function StopMark({ stopId }) {
   const stop = STOPS.find((s) => s.id === stopId);
   if (!stop) return null;
-  const shot = stop.screens.length > 0 ? screen(stop.screens[0]) : null;
+  const slug = stop.screens[0] ?? stop.hubScreen;
+  const shot = slug ? screen(slug) : null;
 
   return (
     <div className="features-hub-stop" aria-hidden="true">
