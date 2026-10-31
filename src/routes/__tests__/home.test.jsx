@@ -70,7 +70,8 @@ describe('hero', () => {
     const hero = c.querySelector('#product');
     expect(hero.querySelector('.ui-hero-lead')).toBeNull();
     const items = [...hero.querySelectorAll('ul.ui-hero-points > li')];
-    expect(items.map((li) => li.textContent)).toEqual(HOME_HERO.points);
+    HOME_HERO.points.forEach((p, i) => expect(items[i].textContent.startsWith(p), p).toBe(true));
+    expect(items[0].querySelector('.ui-hero-badge').textContent).toBe('WhatsApp');
     expect(HOME_HERO.points.length).toBeGreaterThanOrEqual(4);
     for (const li of items) expect(li.querySelector('svg')).not.toBeNull();
   });
@@ -100,15 +101,15 @@ describe('hero', () => {
 });
 
 describe('sections', () => {
-  // Seven text cards from siteContent.homeFeatures (the cofounder's copy,
+  // Six text cards from siteContent.homeFeatures (the cofounder's copy,
   // 2026-10-31): title, line, every point ticked, a Try-the-demo button and
   // the page link. No screenshot in any card: the hero phone is the page's
   // one picture.
-  it('renders the seven feature cards as text, each with Try the demo and its page link', () => {
+  it('renders the six feature cards as text, each with Try the demo and its page link', () => {
     const section = renderHome().querySelector('#features');
     const cards = [...section.querySelectorAll('.ui-card')];
     expect(cards).toHaveLength(homeFeatures.items.length);
-    expect(cards).toHaveLength(7);
+    expect(cards).toHaveLength(6);
     homeFeatures.items.forEach((f, i) => {
       expect(cards[i].querySelector('h3').textContent).toBe(f.title);
       expect(cards[i].querySelector('p.ui-card-line').textContent).toBe(f.line);

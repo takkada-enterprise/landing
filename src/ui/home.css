@@ -17,7 +17,24 @@
   gap: 48px;
   align-items: center;
 }
+.ui-home #product { background: var(--band-hero); }
 .ui-home .ui-hero-title { color: var(--on-band); }
+/* A small WhatsApp tag beside the pointer it applies to. */
+.ui-home .ui-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px;
+  padding: 2px 9px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--on-band);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-pill);
+  vertical-align: middle;
+}
+.ui-home .ui-hero-badge svg { color: var(--whatsapp); }
 /* The hero's pointers: one ticked line per job, in place of a lead sentence
    (owner ruling 2026-10-31). The tick is marigold, the one accent on the
    band besides the primary button. */
@@ -488,14 +505,15 @@
   margin-top: 24px;
 }
 @media (min-width: 900px) {
-  /* Seven cards, two to a row: the last one takes the whole row. */
-  .ui-home #features .ui-grid--2 > .home-feature:last-child { grid-column: 1 / -1; }
-  .ui-home #features .ui-grid--2 > .home-feature:last-child .home-feature-points {
+  /* Two to a row: with an odd count the last card takes the whole row and
+     its points run in two columns, so nothing sits alone on a last row. */
+  .ui-home #features .ui-grid--2 > .home-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .ui-home #features .ui-grid--2 > .home-feature:last-child:nth-child(odd) .home-feature-points {
     display: block;
     columns: 2;
     column-gap: 32px;
   }
-  .ui-home #features .ui-grid--2 > .home-feature:last-child .home-feature-points li {
+  .ui-home #features .ui-grid--2 > .home-feature:last-child:nth-child(odd) .home-feature-points li {
     break-inside: avoid;
     margin-bottom: 10px;
   }

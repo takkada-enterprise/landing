@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
-import WhatsAppCTA from '../components/WhatsAppCTA';
+import WhatsAppCTA, { WhatsAppIcon } from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
@@ -74,7 +74,15 @@ function Home({ seo = HOME_SEO }) {
               {HOME_HERO.points.map((point) => (
                 <li key={point}>
                   <Check size={18} aria-hidden="true" />
-                  <span>{point}</span>
+                  <span>
+                    {point}
+                    {HOME_HERO.pointBadges?.[point] && (
+                      <span className="ui-hero-badge">
+                        <WhatsAppIcon size={13} />
+                        {HOME_HERO.pointBadges[point]}
+                      </span>
+                    )}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -94,7 +102,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </Band>
 
-      {/* ── Seven features in plain words (copy from feat/seven-features-section,
+      {/* ── Six features in plain words (copy from feat/seven-features-section,
              2026-10-31). Replaces the used-for cards, the in-charge cards and
              the alternating rows: the hero phone is the page's one screenshot.
              Each card: title, line, ticked points, Try the demo, page link.
@@ -103,8 +111,7 @@ function Home({ seo = HOME_SEO }) {
         <span id="tally" aria-hidden="true" />
         <span id="digital-collection" aria-hidden="true" />
         <SectionHead title={homeFeatures.heading} />
-        {/* Two to a row so the points have room; the seventh card spans both
-            columns (home.css) instead of sitting alone on a last row. */}
+        {/* Two to a row so the points have room. */}
         <CardGrid cols={2}>
           {homeFeatures.items.map((f) => (
             <Card key={f.href} title={f.title} line={f.line} className="home-feature">

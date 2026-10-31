@@ -14,6 +14,8 @@ export const HOME_HERO = {
     'AI collection calls',
     'Auto-reconciliation into Tally',
   ],
+  // A small tag after the pointer it belongs to (owner, 2026-10-31).
+  pointBadges: { 'Outstanding and reminders': 'WhatsApp' },
   screen: 'home',
   // Cropped fragments, not whole screens (owner ruling 2026-10-30). Each card
   // hangs off one side of the phone and overlaps it by 40px at most.

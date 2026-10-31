@@ -16,6 +16,10 @@
   --ground: #F3F1EC;
   --card: #FFFFFF;
   --band: #0F1F3D;
+  /* The hero only: two steps lighter than the band, which read too heavy
+     as the first thing on the page (owner, 2026-10-31). */
+  --band-hero: #1B3160;
+  --whatsapp: #25D366;
   --accent: #FCAF1B;
   --arrow: #006EA6;
   --tint: #DCF2FB;
