@@ -850,7 +850,7 @@ export const homeFeatures = {
       points: [
         'When a customer pays on the UPI link, the payment matches itself to the right invoice.',
         'The receipt entry is posted in Tally automatically.',
-        'Import your bank statement and each entry is matched for you.',
+        'Import your bank statement, PDF or CSV, and AI reads every line and matches each entry to a party and a bill for you.',
       ],
       href: '/auto-reconciliation-tally',
     },
