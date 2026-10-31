@@ -13,7 +13,6 @@ import {
   Database,
   ChartColumnIncreasing,
   ReceiptText,
-  BellRing,
   MapPinned,
   PackageCheck,
   BadgePercent,
@@ -23,6 +22,7 @@ import {
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
+import { WhatsAppIcon } from '../components/WhatsAppCTA';
 import FAQItem from '../components/FAQItem';
 import PlayablePhone from '../components/PlayablePhone';
 import VideoTestimonials from '../components/VideoTestimonials';
@@ -57,7 +57,7 @@ const tallyIconMap = {
 const featureIconMap = {
   reports: ChartColumnIncreasing,
   invoice: ReceiptText,
-  reminders: BellRing,
+  reminders: WhatsAppIcon,
   salesman: MapPinned,
   delivery: PackageCheck,
   selling: BadgePercent,

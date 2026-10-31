@@ -377,7 +377,7 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
             fullWidth
             onClick={() => setMenuOpen(false)}
           >
-            <Smartphone size={18} aria-hidden="true" /> Try the demo
+            <Smartphone size={18} aria-hidden="true" /> Try demo
           </DemoTryCTA>
         )}
         <WhatsAppCTA context="header" fullWidth onClick={() => setMenuOpen(false)} />

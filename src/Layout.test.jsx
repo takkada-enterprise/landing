@@ -428,7 +428,7 @@ describe('header actions', () => {
 
   it('puts the live demo in the button row', () => {
     const { actions, byName } = renderLayout();
-    expect(byName(actions(), /try the demo/i)).toHaveLength(1);
+    expect(byName(actions(), /try demo/i)).toHaveLength(1);
     expect(byName(actions(), /chat on whatsapp/i)).toHaveLength(1);
   });
 
@@ -454,7 +454,7 @@ describe('header actions', () => {
     siteContentMock.demoEntryLive = false;
     const { actions, byName } = renderLayout();
     expect(byName(actions(), /book a call/i)).toHaveLength(1);
-    expect(byName(actions(), /try the demo/i)).toHaveLength(0);
+    expect(byName(actions(), /try demo/i)).toHaveLength(0);
   });
 
   // A real button, not an anchor. An href into the app would let a middle-click
@@ -462,7 +462,7 @@ describe('header actions', () => {
   // thing this funnel exists to do.
   it('opens the capture modal on the demo destination instead of navigating', () => {
     const { container, actions, byName } = renderLayout();
-    const cta = byName(actions(), /try the demo/i)[0];
+    const cta = byName(actions(), /try demo/i)[0];
     expect(cta.tagName).toBe('BUTTON');
 
     fireEvent.click(cta);
@@ -531,7 +531,7 @@ describe('mobile menu actions', () => {
 
   it('offers the demo, the conversation and the calendar, in that order', () => {
     const labels = openMenu().actions().map((el) => el.textContent.trim());
-    expect(labels).toEqual(['Try the demo', 'Chat on WhatsApp', 'Book a call']);
+    expect(labels).toEqual(['Try demo', 'Chat on WhatsApp', 'Book a call']);
   });
 
   // Ronak, 2026-09-20 22:18, circling both white pills: "same thing". They
@@ -546,7 +546,7 @@ describe('mobile menu actions', () => {
       expect(el.querySelector('svg'), `${el.textContent.trim()} has no icon`).toBeTruthy();
     }
     expect(actions().map((el) => el.textContent.trim()).filter((t) => /demo/i.test(t))).toEqual([
-      'Try the demo',
+      'Try demo',
     ]);
   });
 
