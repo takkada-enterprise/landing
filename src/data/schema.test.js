@@ -124,13 +124,22 @@ describe('pricing data (rate card, July 2026)', () => {
     expect(addonLabels).not.toContain('Salesman module');
 
     // Copilot carries them; Enterprise inherits them as the column above it.
+    // Auto Invoice Dispatch moved down to Assurance on the partner price list
+    // of 2026-10-25 (site aligned 2026-11-01).
     const topTier = pricing.plans.findIndex((p) => p.plan === 'Copilot');
+    const assurance = pricing.plans.findIndex((p) => p.plan === 'Assurance');
     const allRows = pricing.matrix.flatMap((g) => g.rows);
-    for (const capability of [/Import from PDF/, /Auto Invoice Dispatch/, /Reports \+/, /salesman/i]) {
+    for (const capability of [/Import from PDF/, /Reports \+/, /salesman/i]) {
       const row = allRows.find((r) => capability.test(r.label));
       expect(row, `no matrix row for ${capability}`).toBeDefined();
       expect(row.from).toBe(topTier);
     }
+    const dispatch = allRows.find((r) => /Auto Invoice Dispatch/.test(r.label));
+    expect(dispatch).toBeDefined();
+    expect(dispatch.from).toBe(assurance);
+    const webView = allRows.find((r) => /Web view/.test(r.label));
+    expect(webView, 'the web view row from the price list').toBeDefined();
+    expect(webView.from).toBe(assurance);
   });
 });
 
