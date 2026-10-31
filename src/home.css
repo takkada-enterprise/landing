@@ -1052,18 +1052,26 @@ html.js .home-v3 .hv3-feature.reveal {
 .home-v3 .hv3-stories-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  font-size: 12px;
+  gap: 5px;
+  padding: 6px 10px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-white);
   background: rgba(15, 31, 61, 0.65);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-full, 9999px);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.home-v3 .hv3-stories-chip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .home-v3 .hv3-stories-chip--time {
+  flex-shrink: 0;
   background: rgba(0, 110, 166, 0.85);
   border-color: rgba(255, 255, 255, 0.2);
 }

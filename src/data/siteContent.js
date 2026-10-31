@@ -270,7 +270,7 @@ export const videoTestimonials = [
     location: 'Gujarat, India',
     industry: 'Distribution & Wholesale',
     badge: 'Verified Takkada Customer',
-    duration: '1:57 min',
+    duration: '1:57',
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
     summary: 'How Dhanlaxmi Crop Science Limited solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
     takeaways: [
