@@ -100,7 +100,7 @@ describe('pricing comparison table', () => {
     expect(pricing.addons.map((a) => a.label)).toEqual([
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'WhatsApp 8,000-message pack', 'Payment Collection', 'Barcode labels', 'Extra user',
+      'Payment Collection', 'Barcode labels', 'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);
@@ -109,8 +109,8 @@ describe('pricing comparison table', () => {
   });
 
   it('never claims Enterprise carries every module (final review 2026-10-04)', () => {
-    // Enterprise leaves out Payment Collection, the own WhatsApp number, the
-    // message pack, extra users and two of the three billing engines, so
+    // Enterprise leaves out Payment Collection, the own WhatsApp number,
+    // extra users and two of the three billing engines, so
     // "every module" and "Add to any plan" (AI calling is included in
     // Enterprise) overstate it.
     const container = renderHome();

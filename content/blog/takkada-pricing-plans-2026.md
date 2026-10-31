@@ -5,7 +5,7 @@ meta_title: "Takkada Pricing and Plans (2026)"
 meta_description: "Takkada pricing for 2026: four annual plans from Momentum to Enterprise, 25% off on a 3-year term, and 0% MDR on UPI collection."
 primary_keyword: "takkada pricing"
 date: "2026-06-06"
-updated: "2026-10-04"
+updated: "2026-11-01"
 author: "founder"
 category: "Market Reality"
 excerpt: "A distributor comparing collection tools usually finds the real cost hidden in the MDR, not the sticker price. Takkada pricing is built the other way around: a flat annual subscription you can read off a table, and 0% MDR on UPI so the collection rail itself adds nothing per transaction."
@@ -66,7 +66,6 @@ Beyond the base plans, the add-ons extend the tool to a team and to collection, 
 |---|---|
 | Payment Collection | UPI links on every invoice at 0% MDR, auto-reconciled into Tally |
 | Extra user | A login for each person beyond the one user every plan includes |
-| WhatsApp 8,000-message pack | More WhatsApp messages for reminders and invoice dispatch |
 
 Payment Collection sits on top of any plan, so a distributor on Momentum who only wants reminders today can turn on collection later without moving tier. Import from PDF, Auto Invoice Dispatch, Reports +, and role-based salesman access are no longer sold separately; they are part of Copilot.
 
@@ -98,7 +97,7 @@ A: A distributor whose work is invoicing in the field usually needs Assurance (â
 
 **Q: What does an extra user cost?**
 
-A: Extra users and the WhatsApp 8,000-message pack are flat annual add-ons, not per-transaction charges, and your Tally partner quotes the price of each. Every plan includes one user.
+A: Extra users are a flat annual add-on, not a per-transaction charge, and your Tally partner quotes the price. Every plan includes one user.
 
 **Q: Do I pay extra to run more than one business?**
 
