@@ -54,7 +54,8 @@ export function setMetaUserPhone(phone) {
 }
 
 // Meta Pixel Lead for captured phone submissions (try demo OTP entry and
-// calendar booking phone capture in PhoneModal.jsx). These represent real
+// calendar booking phone capture in PhoneModal.jsx, and the homepage feature
+// cards' Book Demo form, content_name 'feature_demo_request'). These represent real
 // contacts with captured phone numbers. Outbound link clicks on WhatsApp and
 // calendar links fire 'Contact' instead to avoid counting bounces as leads.
 // Same contract as track(): a silent no-op when the pixel is absent (tests,

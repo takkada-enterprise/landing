@@ -56,9 +56,128 @@ export const heroContent = {
   stats: [{ value: 100, prefix: '', suffix: '+', label: 'Businesses' }],
 };
 
-// The two story objects (order-to-cash, team sales), the AI band and the
-// capability grid were retired on 2026-09-18: the homepage tells one story now,
-// and it is built from src/data/journey.js (STOPS) by FollowOneInvoice.
+// Seven features in plain words, on the homepage where "Follow one invoice"
+// used to sit (trial, 2026-10-31). No screenshots and no scroll story: a
+// numbered tag, a title, one summary line, three to six short points, a
+// "+91 | Mobile number | Book Demo" form that books the demo in place, and the
+// page that explains it. The card shape follows
+// Livekeeping's features section. The seven features and their wording are
+// owner-supplied (2026-10-31), so they are the owner's capability claims, not
+// re-derived from the rate card. The own-number line keeps "early access"
+// (home-v3.test.jsx and schema.test.js require it). The section keeps the
+// #digital-collection id the footer links to and the #features id. Layout
+// (2026-10-31, owner): a divider line, one H2 "Features", two cards to a row
+// (one on smaller screens), and a closing link to the full list at /features.
+export const homeFeatures = {
+  heading: 'Features',
+  // Closes the section: the hub at /features lists every feature page, and
+  // the add-ons are linked from there and from the pricing strip.
+  more: {
+    text: 'Takkada provides more features and add-ons.',
+    linkLabel: 'Explore all features',
+    href: '/features',
+  },
+  items: [
+    {
+      icon: 'reports',
+      tag: 'Reports',
+      title: 'Tally Reports on Your Phone',
+      line: 'Your Tally books, open on your phone wherever you are.',
+      points: [
+        'Sales and purchases by item, and item-wise pending orders.',
+        'Item-wise customer churn: which party stopped buying what.',
+        'Inventory reports, sales analytics and purchase analytics.',
+        'Ageing report: who owes you and for how long, party by party.',
+        'Payment follow-up logs: every reminder and call, in one place.',
+        'And 20+ other reports, for every company you run in Tally.',
+      ],
+      href: '/tally-reports-on-mobile',
+    },
+    {
+      icon: 'invoice',
+      tag: 'Billing',
+      title: 'Invoices From Your Phone',
+      line: 'Sales invoices, orders, delivery challans, credit notes and other voucher types.',
+      points: [
+        'Batch-wise billing: batch number, batch-wise price, mfg. date, expiry date and item description on the bill.',
+        'E-invoice and e-way bill raised on the same bill.',
+        'Every entry lands in your Tally as the same voucher, so nobody types it again.',
+        'Turn a batch of pending orders into invoices in one go.',
+      ],
+      href: '/tally-on-mobile',
+    },
+    {
+      icon: 'reminders',
+      tag: 'Reminders',
+      title: 'Automatic Payment Reminders',
+      line: 'Overdue parties get reminded without you picking up the phone.',
+      points: [
+        'Automated WhatsApp reminders on the days you choose, bill-date wise or due-date wise.',
+        'Each reminder carries the pending bills and the ledger as attachments, with a pay link.',
+        // "early access" stays in this sentence: home-v3.test.jsx and
+        // schema.test.js require it beside every own-number mention.
+        'Sent from your own WhatsApp number (early access).',
+        'A party that has paid drops out of the next reminder.',
+        'Set a cap so no party is messaged too often.',
+      ],
+      href: '/send-payment-reminders-automatically',
+    },
+    {
+      icon: 'salesman',
+      tag: 'Sales team',
+      title: 'Salesman Module',
+      line: 'Know what each salesman booked and which shops he visited today.',
+      points: [
+        'Orders on the phone against live stock and the right price; each salesman sees only his own parties.',
+        'Live tracking: where he is, battery percentage and kilometres travelled.',
+        'Check-ins with a geo-tagged photo, saved without signal and uploaded when it returns.',
+        'Salesman-wise sales report and receipt report.',
+        'Targets and commission, with product-wise targets.',
+      ],
+      href: '/salesman-app-tally',
+    },
+    {
+      icon: 'delivery',
+      tag: 'Delivery',
+      title: 'Proof of Delivery',
+      line: 'The driver\u2019s phone closes the loop on every delivery.',
+      points: [
+        'Driver login with the day\u2019s loading sheet; the route sets itself after the first drop.',
+        'A geo-tagged delivery photo against each invoice.',
+        'Item-wise returns recorded at the door.',
+        'Cash or UPI collected on delivery, posted only after office approval.',
+      ],
+      // No feature page of its own yet: the hub's "load" section is where
+      // dispatch and delivery sit.
+      href: '/features#load',
+    },
+    {
+      icon: 'selling',
+      tag: 'Selling',
+      title: 'Order Links, Schemes and Discounts',
+      line: 'Modules for the way distributors actually sell.',
+      points: [
+        'A customer order link and personal party links: retailers order from your catalogue at your rates, with nothing installed.',
+        'Trade schemes, buy X get Y or slab discounts, applied on every bill that qualifies, with scheme credit notes.',
+        'Ladder discount by quantity or bill value.',
+        'FMCG billing and auto parts billing engines, one included in Enterprise.',
+      ],
+      href: '/order-booking-app-tally',
+    },
+    {
+      icon: 'reconcile',
+      tag: 'Reconciliation',
+      title: 'Auto-Reconciliation in Tally',
+      line: 'Payments match themselves to invoices and post into Tally.',
+      points: [
+        'When a customer pays on the UPI link, the payment matches itself to the right invoice.',
+        'The receipt entry is posted in Tally automatically.',
+        'Import your bank statement as CSV, and AI reads every line and matches each entry to a party and a bill for you.',
+      ],
+      href: '/auto-reconciliation-tally',
+    },
+  ],
+};
 
 // Compressed Tally-trust block: the connector story in three specific
 // behaviors plus the download. The deep safety story lives in #data-safety.

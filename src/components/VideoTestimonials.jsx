@@ -7,7 +7,10 @@ import { track } from '../lib/track';
 
 function VideoTestimonials({ items = videoTestimonials }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // Started, not playing: once the visitor presses Watch Story the poster stays
+  // gone, so a pause leaves the frame and the scrub bar in place. The poster
+  // only returns when the video ends or another story is picked.
+  const [started, setStarted] = useState(false);
   const videoRef = useRef(null);
 
   if (!items || items.length === 0) return null;
@@ -20,7 +23,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
       story_name: current.name,
       company: current.company,
     });
-    setIsPlaying(true);
+    setStarted(true);
     if (videoRef.current) {
       const playPromise = videoRef.current.play?.();
       if (playPromise && typeof playPromise.catch === 'function') {
@@ -31,19 +34,15 @@ function VideoTestimonials({ items = videoTestimonials }) {
     }
   };
 
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
-
   const handleVideoEnded = () => {
-    setIsPlaying(false);
+    setStarted(false);
   };
 
   const handleSelectStory = (index) => {
     if (videoRef.current) {
       videoRef.current.pause();
     }
-    setIsPlaying(false);
+    setStarted(false);
     setActiveIndex(index);
   };
 
@@ -81,7 +80,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
           {/* ── Left Column: Video Player Card ── */}
           <div className="hv3-stories-player-col">
             <div className="hv3-stories-video-frame">
-              {!isPlaying && (
+              {!started && (
                 <div className="hv3-stories-poster-overlay">
                   {current.video.poster && (
                     <img
@@ -133,11 +132,10 @@ function VideoTestimonials({ items = videoTestimonials }) {
               <video
                 ref={videoRef}
                 src={current.video.src}
-                controls={isPlaying}
+                controls={started}
                 playsInline
                 preload="none"
-                className={`hv3-stories-video${isPlaying ? ' hv3-stories-video--active' : ''}`}
-                onPause={handlePause}
+                className={`hv3-stories-video${started ? ' hv3-stories-video--active' : ''}`}
                 onEnded={handleVideoEnded}
               >
                 Your browser does not support the video tag.

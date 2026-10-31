@@ -1586,24 +1586,30 @@ export const SECOND_BATCH = [
 
   {
     slug: 'credit-note-from-phone',
-    searchPhrase: 'Credit note from phone',
+    searchPhrase: 'Credit and debit notes from your phone',
     overline: 'NOTES',
-    headline: 'Credit note from phone, and debit notes too, into Tally.',
+    headline: 'Create credit and debit notes from your phone, synced to Tally.',
     subheadline:
-      'The retailer hands back six damaged cases. Everyone agrees what is owed. The entry still sits in someone’s head until they next open Tally.',
+      'Record a return, discount or extra charge the day it happens, without waiting to reach the desktop.',
+    answerPoints: [
+      'Create credit notes for sales returns, discounts and adjustments',
+      'Create debit notes for purchase returns and additional charges',
+      'Raise either note against the original invoice and party',
+      'Sync every note to Tally as a voucher',
+    ],
     answer:
-      'A credit note from phone is raised against the original invoice and written into your Tally as a voucher. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Debit notes work the same way.',
+      'Credit and debit notes from your phone are raised against the original invoice and written into your Tally as vouchers. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Purchase returns and extra charges go through as debit notes.',
     waContext: 'feature-credit-note-from-phone',
     waMessage:
       'Hi, I want my team raising credit and debit notes from the phone against the original invoice, going into Tally. Can you show me how Takkada does it?',
     seo: {
-      title: 'Credit Note From Phone, Into Tally | Takkada',
+      title: 'Credit and Debit Notes From Your Phone | Takkada',
       description:
         'Raise credit and debit notes on the phone against the original invoice. Returns, rate differences and scheme payouts recorded in Tally the day they happen.',
     },
     llms: {
       section: 'Features',
-      title: 'Credit note from phone',
+      title: 'Credit and debit notes from your phone',
       summary:
         'Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.',
     },
@@ -1611,7 +1617,7 @@ export const SECOND_BATCH = [
     hero: { screen: 'credit-note' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-10-31',
     walkthroughHeading: 'Settling the adjustment where it was agreed',
     walkthrough: [
       {

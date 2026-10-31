@@ -68,6 +68,20 @@ describe('VideoTestimonials component', () => {
     );
   });
 
+  it('keeps the player and its controls on screen when the visitor pauses', () => {
+    const { container } = renderComponent();
+    fireEvent.click(
+      screen.getByRole('button', { name: /Play customer testimonial video of Meet Patel/i })
+    );
+    const video = container.querySelector('video');
+    fireEvent.pause(video);
+    expect(container.querySelector('.hv3-stories-poster-overlay')).toBeNull();
+    expect(video.hasAttribute('controls')).toBe(true);
+
+    fireEvent.ended(video);
+    expect(container.querySelector('.hv3-stories-poster-overlay')).toBeTruthy();
+  });
+
   it('renders all key operational highlights', () => {
     const { container } = renderComponent();
     for (const highlight of videoTestimonials[0].takeaways) {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -78,6 +78,16 @@ const BREADCRUMB_TRAIL = [
 
 function AutoReconciliation() {
   const [faqIndex, setFaqIndex] = useState(-1);
+  const demoRef = useRef(null);
+
+  // The demo loops muted on its own, except for a visitor who has asked for
+  // reduced motion: they get the first frame and the controls, and press play.
+  useEffect(() => {
+    const video = demoRef.current;
+    if (!video || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    video.muted = true;
+    video.play?.()?.catch?.(() => {});
+  }, []);
 
   const faqItems = FAQS.map((f) => ({ question: f.q, answer: f.a }));
 
@@ -316,8 +326,8 @@ function AutoReconciliation() {
             <div className="recon-video-wrapper">
               <video
                 className="recon-video-player"
+                ref={demoRef}
                 src="/assets/videos/takkada-reconciliation-music.mp4"
-                autoPlay
                 muted
                 loop
                 playsInline
@@ -330,7 +340,7 @@ function AutoReconciliation() {
             </div>
             <div className="recon-video-caption">
               <span className="recon-live-badge">REAL DEMO</span>
-              <span>Watch link payment &rarr; auto-split &rarr; instant WhatsApp receipt &rarr; automatic Tally entry</span>
+              <span>Watch link payment &rarr; auto-split &rarr; WhatsApp receipt &rarr; automatic Tally entry</span>
             </div>
           </div>
 

@@ -41,10 +41,10 @@ Add-ons (Ask your partner for pricing):
 - [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
 - [Payment collection on Tally](https://takkada.com/payment-collection-tally/): UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.
 - [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
-- [E-invoice from the phone](https://takkada.com/e-invoice-from-phone/): GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.
-- [E-way bill from the phone](https://takkada.com/e-way-bill-from-phone/): E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.
+- [GST e-invoices from your phone](https://takkada.com/e-invoice-from-phone/): GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.
+- [E-way bills from your phone](https://takkada.com/e-way-bill-from-phone/): E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.
 - [Tally reports on mobile](https://takkada.com/tally-reports-on-mobile/): Over twenty Tally reports readable on a phone: receivables and payables by age, party-wise and item-wise sales, purchase register, stock summary, cash and bank book, profit, trial balance and GST summaries, each shareable as PDF or Excel on WhatsApp without opening a laptop.
-- [Import purchase from PDF](https://takkada.com/import-purchase-from-pdf/): Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.
+- [Import purchase bills from PDF](https://takkada.com/import-purchase-from-pdf/): Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.
 - [Tally on mobile](https://takkada.com/tally-on-mobile/): What a distributor can actually do with Tally from a phone: read live outstanding and over twenty reports, raise invoices and other vouchers in the existing numbering series, dispatch them on WhatsApp, collect by UPI at 0% MDR, and have every entry write back into the same Tally company.
 - [Outstanding receivables on mobile](https://takkada.com/outstanding-receivables-on-mobile/): Party-wise outstanding read live from Tally on a phone: balance per party, overdue invoices with the age of each, statement and payment link from the same screen, and receipts that reconcile against the invoice they settle.
 - [Share ledger statement on WhatsApp](https://takkada.com/share-ledger-statement-whatsapp/): Send any party a ledger statement for any date range as a PDF on WhatsApp, generated from Tally, with a payment link attached so the retailer can check the entries and settle from the same message.
@@ -56,7 +56,7 @@ Add-ons (Ask your partner for pricing):
 - [Multi-company Tally reports](https://takkada.com/multi-company-tally-reports/): Several Tally companies held in one mobile app: switch between businesses without logging out, each keeping its own books, parties, reports and user permissions, with sales, receipts, purchase and outstanding read live for whichever is open.
 - [Sales order on mobile](https://takkada.com/sales-order-on-mobile/): Sales orders booked from a phone against live stock and written into Tally as vouchers, with the pending quantity tracked against each line until it is dispatched and converted into an invoice.
 - [Delivery challan from mobile](https://takkada.com/delivery-challan-from-mobile/): Delivery challans raised from a phone at the loading point and written into Tally as vouchers, carrying the godown the goods left from, raisable in bulk for a whole dispatch round, and convertible into an invoice without re-entry.
-- [Credit note from phone](https://takkada.com/credit-note-from-phone/): Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.
+- [Credit and debit notes from your phone](https://takkada.com/credit-note-from-phone/): Credit and debit notes raised on a phone against the original invoice and written into Tally as vouchers, covering goods returns, rate differences and scheme payouts, with the party ledger and receivables moving at the same time.
 - [Custom invoice template](https://takkada.com/custom-invoice-template-tally/): Invoice PDFs sent in the distributor’s own format: logo, terms, bank and UPI details laid out to match what the business already prints, delivered on WhatsApp as soon as the invoice is saved in Tally.
 - [Handwritten order to Tally](https://takkada.com/handwritten-order-to-tally/): A photograph of a handwritten order book page turned into draft voucher lines: items, quantities and rates read off the page, matched against the item masters, checked by a person, and only then written into Tally.
 - [Order booking app for Tally](https://takkada.com/order-booking-app-tally/): Customer ordering link for distributors on Tally: the retailer opens a WhatsApp link, browses the priced catalogue and places an order without installing an app or logging in. Prices are resolved from the merchant’s own books, per-buyer links carry that party’s rates, and the merchant approves each order into Tally as a sales order.
@@ -149,12 +149,12 @@ A payment reminder from Tally goes out on WhatsApp on its own, on a schedule you
 - **Q: Can I send a reminder myself instead of waiting for the schedule?**
   A: Yes. Open the party, tap send, and the same message goes out with the invoice and ledger attached. Distributors normally run the automatic schedule for the whole book and use the manual send for the handful of parties where they want to pick the timing themselves.
 
-### [E-invoice from the phone, IRN on the same Tally voucher.](https://takkada.com/e-invoice-from-phone/)
+### [Generate GST e-invoices directly from Tally.](https://takkada.com/e-invoice-from-phone/)
 
-*The buyer wants the bill now. Your accountant with the portal login is an hour away from his desk.*
+*Create and generate GST-compliant e-invoices directly from your phone. Get the IRN and signed QR added instantly.*
 
 **Core capability & workflow:**
-You can raise an e-invoice from the phone and the IRN with its signed QR comes back onto the same Tally voucher. No portal login, no desktop, no second entry. Cancel it from the app inside the government window when a buyer changes his mind, and Tally stays in step.
+You can generate GST e-invoices from your phone, and the IRN with its signed QR comes back onto the same Tally voucher. No portal login, no desktop, no second entry. Cancel it from the app inside the government window when a buyer changes his mind, and Tally stays in step.
 
 **How it works:**
 - **Raise the invoice where you are standing**: Party, items, quantity, rate and GST, in your own numbering series. It is a Tally voucher from the moment you save it, not a note you copy over later.
@@ -174,12 +174,12 @@ You can raise an e-invoice from the phone and the IRN with its signed QR comes b
 - **Q: What if my turnover has not crossed the e-invoicing threshold yet?**
   A: Then you simply do not use it, and everything else in the app works the same way. Distributors usually turn it on in the year they expect to cross the limit, so the workflow is already familiar to the team before it becomes mandatory rather than being learned in a hurry.
 
-### [E-way bill from the phone, before the truck leaves the gate.](https://takkada.com/e-way-bill-from-phone/)
+### [Generate e-way bills from your phone before the truck leaves.](https://takkada.com/e-way-bill-from-phone/)
 
-*The loading is done and the driver is waiting. The only thing missing is a document somebody has to generate on a laptop in the office.*
+*You can create e-way bills easily from your mobile with no extra portal login.*
 
 **Core capability & workflow:**
-An e-way bill from the phone comes off the invoice you just raised, with no portal login and no desktop. Vehicle and distance details are prefilled, the number writes back into Tally against the same voucher, and you can cancel from the app inside the government window.
+E-way bills from your phone come off the invoice you just raised, with no portal login and no desktop. Vehicle and distance details are prefilled, the number writes back into Tally against the same voucher, and you can cancel from the app inside the government window.
 
 **How it works:**
 - **It starts from the dispatch you already made**: The invoice or the delivery challan is the source. Party, items and value are already there, so nobody is retyping a consignment into a second screen while a driver waits.
@@ -224,12 +224,12 @@ Tally reports on mobile means the registers you open every day, on your phone. O
 - **Q: Does it handle more than one company?**
   A: Yes, unlimited companies on every plan, and you switch between them inside the app. Family businesses that run three or four entities in Tally see each one separately rather than needing a different licence or a different login for each.
 
-### [Import purchase from PDF into Tally, without typing the lines.](https://takkada.com/import-purchase-from-pdf/)
+### [Import purchase bills from PDF into Tally without typing every line.](https://takkada.com/import-purchase-from-pdf/)
 
-*The supplier bills arrive as PDFs and photos. Somebody sits down at seven in the evening and types them in, one line at a time.*
+*Supplier bills arrive as PDFs or photos, and keying in each item by hand takes the whole evening. Takkada reads the bill, matches every line to your stock list and prepares a purchase voucher for you to review.*
 
 **Core capability & workflow:**
-To import purchase from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.
+To import purchase bills from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.
 
 **How it works:**
 - **Send it the bill however it arrived**: A PDF from the supplier, or a photo of the paper copy taken at the godown. Both go in the same way, which matters because half of them still come as paper.
@@ -534,12 +534,12 @@ A delivery challan from mobile is raised at the loading point and written into y
 - **Q: Can I control who is allowed to raise a challan?**
   A: Yes. Create rights are set per register and per person, so a godown supervisor can be allowed to raise challans without being able to raise invoices or credit notes. You can also restrict which stock groups and locations he sees at all, so his access matches the warehouse he works in.
 
-### [Credit note from phone, and debit notes too, into Tally.](https://takkada.com/credit-note-from-phone/)
+### [Create credit and debit notes from your phone, synced to Tally.](https://takkada.com/credit-note-from-phone/)
 
-*The retailer hands back six damaged cases. Everyone agrees what is owed. The entry still sits in someone’s head until they next open Tally.*
+*Record a return, discount or extra charge the day it happens, without waiting to reach the desktop.*
 
 **Core capability & workflow:**
-A credit note from phone is raised against the original invoice and written into your Tally as a voucher. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Debit notes work the same way.
+Credit and debit notes from your phone are raised against the original invoice and written into your Tally as vouchers. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Purchase returns and extra charges go through as debit notes.
 
 **How it works:**
 - **Start from the invoice it adjusts**: The note is raised against the original bill rather than as a loose entry, so the party ledger shows what was reduced and which invoice it belonged to.

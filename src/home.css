@@ -20,6 +20,15 @@
      1. Section reveal (.reveal, shared IntersectionObserver): sections appear
         in the order the day happens.
      2. Press feedback on every pressable: scale 0.97 at 160ms.
+     3. Feature cards (#digital-collection): each card rises in with the
+        shared reveal, the right card of a row 90ms after the left, so a row
+        reads left to right.
+     4. Feature points: the ticks follow their card in one after another
+        (70ms apart), so the list reads as a list, not a block.
+     5. Feature card hover (fine pointer only): a 4px lift with a deeper
+        shadow, the icon tile tilts 6deg, arrows nudge 3px the way they point.
+        It says "this card opens something".
+     6. The cards' Book Demo button and the closing pill press at 0.97.
    ═══════════════════════════════════════════════════ */
 
 /* ═══════════ Hero: the playable phone on navy ═══════════
@@ -89,7 +98,6 @@
   line-height: 1.3;
   letter-spacing: -0.01em;
   color: #fff;
-  margin-bottom: 8px;
 }
 
 .home-v3 .hv3-hero-tap-dot {
@@ -101,6 +109,35 @@
   box-shadow: 0 0 0 4px rgba(252, 175, 27, 0.22);
   margin-right: 10px;
   vertical-align: 1px;
+}
+
+/* The owner's positioning line (2026-10-31), under the tap instruction. It
+   sits a step below the H1 and above the body: semibold, accent blue (clears
+   AA on the navy band), with a short accent rule above it so it reads as its
+   own line rather than a second instruction. Scales from 18px on a phone to
+   24px on desktop. */
+.home-v3 .hv3-hero-tagline {
+  position: relative;
+  max-width: 440px;
+  margin: 22px 0 0;
+  padding-top: 18px;
+  font-size: clamp(18px, 1.1vw + 10px, 24px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-accent);
+  text-wrap: balance;
+}
+
+.home-v3 .hv3-hero-tagline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: rgba(156, 203, 234, 0.45);
 }
 
 .home-v3 .hv3-hero-cta {
@@ -217,6 +254,16 @@
   }
   .home-v3 .hv3-hero .hero-subtitle {
     margin-inline: auto;
+  }
+  /* Centred with the rest of the copy on a phone, rule included. */
+  .home-v3 .hv3-hero-tagline {
+    margin-inline: auto;
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+  .home-v3 .hv3-hero-tagline::before {
+    left: 50%;
+    transform: translateX(-50%);
   }
   .home-v3 .hv3-hero-cta {
     justify-content: center;
@@ -440,6 +487,396 @@
   .home-v3 .hv3-diff { padding: 72px 0; }
   .home-v3 .hv3-diff-row { grid-template-columns: 1fr; }
   .home-v3 .hv3-diff-cell { padding: 20px 22px; }
+}
+
+/* ═══════════ Features (trial, 2026-10-31) ═══════════
+   Replaces the "Follow one invoice" scroll story on the homepage. One H2 over
+   a full-width divider line with a short primary-blue accent at its left end.
+   Two cards to a row, the odd seventh centred; one to a row under 900px. Each
+   card follows Livekeeping's feature row: numbered tag pill, title, one line,
+   3-6 ticked points, then a "+91 | Mobile number | Book Demo" form
+   (InlineDemoForm) that books the demo in place, and the link to the
+   feature page. A closing pill links to
+   the full list at /features.
+
+   Motion (inventory items 3-6 in this file's header): transform and opacity
+   only, the shared ease-out, 320ms or under, hover behind a fine pointer, and
+   under prefers-reduced-motion the fades stay and every transform drops. */
+.home-v3 .hv3-features {
+  padding: 104px 0;
+  border-top: 1px solid var(--color-border);
+  background:
+    radial-gradient(720px 420px at 100% 0%, rgba(220, 242, 251, 0.7) 0%, transparent 70%),
+    var(--color-bg);
+}
+
+.home-v3 .hv3-features-head {
+  position: relative;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 40px;
+}
+
+.home-v3 .hv3-features-head::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  width: 72px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+
+.home-v3 .hv3-features-head .section-title {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 800;
+  color: #06101c;
+}
+
+.home-v3 .hv3-features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* The card. Its hover shadow is a pre-painted ::after whose opacity fades in,
+   so the lift animates transform and opacity only. */
+.home-v3 .hv3-feature {
+  flex: 0 1 calc((100% - 24px) / 2);
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-v3 .hv3-feature::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms var(--ease-out);
+}
+
+.home-v3 .hv3-feature-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.home-v3 .hv3-feature-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--i-from) 0%, var(--i-to) 100%);
+  /* A light top edge and a glow in the tile's own colour lift it off the card. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 24px -10px var(--i-glow),
+    0 2px 6px -2px var(--i-glow);
+  color: #fff;
+  transition: transform 280ms var(--ease-out);
+}
+
+/* One colour per feature, so each card is told apart at a glance. All of them
+   stay inside the marine palette; reconciliation takes the success green
+   because a matched payment is the one "done" state in the set. */
+.home-v3 .hv3-feature-icon--reports   { --i-from: var(--color-primary-light); --i-to: var(--color-primary); --i-glow: rgba(0, 110, 166, 0.55); }
+.home-v3 .hv3-feature-icon--invoice   { --i-from: var(--color-navy-lift); --i-to: var(--color-navy); --i-glow: rgba(30, 58, 107, 0.55); }
+.home-v3 .hv3-feature-icon--reminders { --i-from: var(--color-navy); --i-to: var(--color-primary-dark); --i-glow: rgba(15, 31, 61, 0.5); }
+.home-v3 .hv3-feature-icon--salesman  { --i-from: var(--color-primary-light); --i-to: var(--color-navy-lift); --i-glow: rgba(43, 82, 144, 0.55); }
+.home-v3 .hv3-feature-icon--delivery  { --i-from: var(--color-primary); --i-to: var(--color-navy); --i-glow: rgba(0, 110, 166, 0.5); }
+.home-v3 .hv3-feature-icon--selling   { --i-from: #3FB6D6; --i-to: var(--color-primary-light); --i-glow: rgba(20, 158, 194, 0.55); }
+.home-v3 .hv3-feature-icon--reconcile { --i-from: #10B981; --i-to: var(--color-success); --i-glow: rgba(5, 150, 105, 0.5); }
+
+/* The reminder bell carries a marigold notification dot: the accent-dot use
+   the palette allows marigold for. */
+.home-v3 .hv3-feature-icon-dot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-highlight);
+  box-shadow: 0 0 0 2px var(--color-primary-dark);
+}
+
+/* Livekeeping's tag is a pill; ours is the tint pill with the primary ink. */
+.home-v3 .hv3-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: var(--tint-mint);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.home-v3 .hv3-feature h3 {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #06101c;
+  margin: 0 0 8px;
+}
+
+.home-v3 .hv3-feature-line {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #122232;
+  margin: 0 0 16px;
+}
+
+.home-v3 .hv3-feature ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 11px;
+}
+
+.home-v3 .hv3-feature li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #162a3a;
+}
+
+.home-v3 .hv3-feature-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: var(--radius-full);
+  background: var(--tint-mint);
+  color: var(--color-primary);
+}
+
+/* Points follow their card in, one after another, so the list reads as a list. */
+html.js .home-v3 .hv3-feature li {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 280ms var(--ease-out), transform 280ms var(--ease-out);
+  transition-delay: calc(var(--delay, 0ms) + 180ms + var(--point, 0) * 70ms);
+}
+
+html.js .home-v3 .hv3-feature.is-visible li {
+  opacity: 1;
+  transform: none;
+}
+
+.home-v3 .hv3-feature-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+
+.home-v3 .hv3-feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.home-v3 .hv3-arrow { transition: transform 200ms var(--ease-out); }
+
+/* ── The inline "+91 | Mobile number | Book Demo" form ── */
+/* Its own row (the link wraps under it), so the number field is never cut
+   short by the link beside it. */
+.home-v3 .inline-demo { flex: 1 1 100%; min-width: 0; max-width: 440px; }
+
+.home-v3 .inline-demo-row {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-xs);
+}
+
+.home-v3 .inline-demo-row:focus-within { border-color: var(--color-primary); }
+.home-v3 .inline-demo-row.has-error { border-color: var(--color-danger); }
+
+.home-v3 .inline-demo-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+  height: 100%;
+  padding: 0 10px 0 12px;
+  border-right: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.home-v3 .inline-demo-code svg { color: var(--color-primary); }
+
+/* width: 0 drops the input's built-in ~20-character width from the row's
+   minimum, which otherwise pushes Book Demo out of the card on a phone. */
+.home-v3 .inline-demo input {
+  flex: 1 1 auto;
+  width: 0;
+  min-width: 0;
+  height: 100%;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.home-v3 .inline-demo input:focus { outline: none; }
+.home-v3 .inline-demo input::placeholder { color: var(--color-text-secondary); opacity: 0.7; }
+
+.home-v3 .inline-demo button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  height: 100%;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.home-v3 .inline-demo button:active { transform: scale(0.97); }
+.home-v3 .inline-demo button:disabled { cursor: default; }
+/* The busy cursor belongs to the save only. Once booked the button stays
+   disabled, and a progress cursor there read as still loading. */
+.home-v3 .inline-demo button[aria-busy='true'] { opacity: 0.75; cursor: progress; }
+.home-v3 .inline-demo button.is-booked { background: var(--color-success); }
+.home-v3 .inline-demo button:focus-visible { outline: 2px solid var(--color-highlight); outline-offset: 2px; }
+
+.home-v3 .inline-demo-message {
+  margin: 8px 0 0 16px;
+  font-size: 13px;
+  color: var(--color-success);
+}
+
+.home-v3 .inline-demo-message.is-error { color: var(--color-danger); }
+
+/* ── Closing line and pill to the full list ── */
+.home-v3 .hv3-features-more {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 18px;
+  text-align: center;
+}
+
+.home-v3 .hv3-features-more p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #122232;
+}
+
+.home-v3 .hv3-features-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.home-v3 .hv3-features-more-link:active { transform: scale(0.97); }
+
+/* Hover: the card lifts and its shadow deepens, the icon tile tilts toward
+   the reader, and every arrow nudges the way it points. */
+/* The lift rides the separate `translate` property: the shared reveal owns the
+   card's `transform` (550ms, staggered), and a hover on that would inherit its
+   delay. The reveal's transition list is restated here with translate added,
+   at a specificity that beats html.js .reveal. */
+.home-v3 .hv3-feature { transition: translate 280ms var(--ease-out); }
+
+html.js .home-v3 .hv3-feature.reveal {
+  transition:
+    opacity var(--dur-reveal) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    transform var(--dur-reveal) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    translate 280ms var(--ease-out) 0ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-feature:hover { translate: 0 -4px; }
+  .home-v3 .hv3-feature:hover::after { opacity: 1; }
+  .home-v3 .hv3-feature:hover .hv3-feature-icon { transform: rotate(-6deg) scale(1.06); }
+  .home-v3 .hv3-feature-link:hover { text-decoration: underline; }
+  .home-v3 .hv3-feature-link:hover .hv3-arrow,
+  .home-v3 .hv3-features-more-link:hover .hv3-arrow { transform: translateX(3px); }
+}
+
+/* Reduced motion for the features cards sits at the end of this file, after
+   the hero's block (tests read the first reduced-motion block as the hero's). */
+
+
+@media (max-width: 900px) {
+  .home-v3 .hv3-feature { flex-basis: 100%; }
+}
+
+@media (max-width: 767px) {
+  .home-v3 .hv3-features { padding: 72px 0; }
+  .home-v3 .hv3-feature { padding: 22px; }
+  .home-v3 .inline-demo { max-width: none; flex-basis: 100%; }
+  .home-v3 .inline-demo-code { padding: 0 8px 0 10px; }
+  .home-v3 .inline-demo-code svg { display: none; }
+  .home-v3 .inline-demo button { padding: 0 13px; }
 }
 
 /* ═══════════ Compressed Tally trust band ═══════════ */
@@ -943,4 +1380,15 @@
     transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out),
       color 180ms var(--ease-out);
   }
+}
+
+/* Features cards under reduced motion: the fades stay, every transform drops. */
+@media (prefers-reduced-motion: reduce) {
+  html.js .home-v3 .hv3-feature li { transform: none; transition: opacity 200ms linear; transition-delay: 0ms; }
+  .home-v3 .hv3-feature:hover { translate: none; }
+  .home-v3 .hv3-feature-icon,
+  .home-v3 .hv3-arrow { transition: none; transform: none !important; }
+  /* The press drops its animation, never the press itself. */
+  .home-v3 .inline-demo button,
+  .home-v3 .hv3-features-more-link { transition: none; }
 }

@@ -11,9 +11,8 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { navLinks, footerColumns, demoEntryLive } from '../../data/siteContent';
+import { navLinks, footerColumns, demoEntryLive, homeFeatures } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
-import { STOPS, STORY } from '../../data/journey';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
@@ -36,7 +35,7 @@ function renderHome() {
 }
 
 describe('Home v3 structure (AE1)', () => {
-  it('tells the page story through headings alone: the phone, then the invoice', () => {
+  it('tells the page story through headings alone: the phone, then the seven features', () => {
     const { container } = renderHome();
     const h1s = [...container.querySelectorAll('h1')];
     // The server render is the home state, so a crawler and a no-JS visitor
@@ -44,31 +43,66 @@ describe('Home v3 structure (AE1)', () => {
     expect(h1s.map((h) => h.textContent)).toEqual([HERO_HOME.headline]);
 
     const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
-    expect(h2s).toContain(STORY.title);
+    expect(h2s).toContain(homeFeatures.heading);
 
     const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
-    for (const stop of STOPS) {
-      expect(h3s, `no heading for the ${stop.id} stop`).toContain(stop.headline);
+    for (const item of homeFeatures.items) {
+      expect(h3s, `no heading for ${item.title}`).toContain(item.title);
     }
   });
 
-  it('renders the one story as seven stops inside #digital-collection', () => {
+  // The "Follow one invoice" scroll story was replaced on the homepage by
+  // seven plain feature cards (trial, 2026-10-31): no screenshots, 3-6 points.
+  it('renders seven feature cards inside #digital-collection, without screenshots', () => {
     const { container } = renderHome();
-    const stops = [...container.querySelectorAll('#digital-collection article')];
-    expect(stops).toHaveLength(STOPS.length);
-    expect(stops.map((s) => s.id)).toEqual(STOPS.map((s) => `stop-${s.id}`));
+    const cards = [...container.querySelectorAll('#digital-collection article')];
+    expect(cards).toHaveLength(7);
+    expect(cards).toHaveLength(homeFeatures.items.length);
+    expect(container.querySelectorAll('#digital-collection img')).toHaveLength(0);
+    cards.forEach((card, i) => {
+      expect(card.querySelector('.hv3-feature-tag').textContent).toBe(
+        `${String(i + 1).padStart(2, '0')} / ${homeFeatures.items[i].tag}`
+      );
+      expect(card.querySelector('.hv3-feature-line').textContent).toBe(homeFeatures.items[i].line);
+      const points = card.querySelectorAll('li').length;
+      expect(points).toBeGreaterThanOrEqual(3);
+      expect(points).toBeLessThanOrEqual(6);
+      expect(card.querySelector('.hv3-feature-link').getAttribute('href')).toMatch(
+        /^\/[a-z0-9-]+(#[a-z0-9-]+)?$/
+      );
+      // Each card books the demo in place: a number field and Book Demo, and
+      // no link out to the calendar.
+      expect(card.querySelector('.inline-demo input[type="tel"]')).toBeTruthy();
+      expect(card.querySelector('.inline-demo button').textContent).toMatch(/book demo/i);
+      expect(card.querySelector('a[href*="calendar.notion.so"]')).toBeNull();
+    });
   });
 
-  // The capability grid that used to carry #features is gone; the anchor moved
-  // to the station list so the id it left behind still lands on the story.
-  it('keeps the #features anchor on the journey station list', () => {
+  it('heads the section with one "Features" H2 and closes it on a link to /features', () => {
+    const { container } = renderHome();
+    const section = container.querySelector('#digital-collection');
+    expect([...section.querySelectorAll('h2')].map((h) => h.textContent)).toEqual(['Features']);
+    expect(section.querySelector('.section-label')).toBeNull();
+    const more = section.querySelector('.hv3-features-more');
+    expect(more.textContent).toContain(homeFeatures.more.text);
+    expect(more.querySelector('a').getAttribute('href')).toBe('/features');
+  });
+
+  it('lays the cards two to a row and one under 900px, under a divider line', () => {
+    const css = readFileSync('src/home.css', 'utf8');
+    expect(css).toMatch(/\.home-v3 \.hv3-feature \{\s*flex: 0 1 calc\(\(100% - 24px\) \/ 2\);/);
+    expect(css).toMatch(/@media \(max-width: 900px\) \{\s*\.home-v3 \.hv3-feature \{ flex-basis: 100%; \}/);
+    expect(css).toMatch(/\.home-v3 \.hv3-features-head \{[^}]*border-bottom: 1px solid/);
+  });
+
+  it('keeps the #features anchor on the feature grid', () => {
     const { container } = renderHome();
     const features = container.querySelector('[id="features"]');
     expect(features).toBeTruthy();
-    expect(features.className).toContain('foi-stations');
+    expect(features.className).toContain('hv3-features-grid');
   });
 
-  it('orders the sections hero → proof → journey → tally → pricing', () => {
+  it('orders the sections hero → proof → features → tally → pricing', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
     const order = ['product', 'testimonial', 'digital-collection', 'tally', 'pricing'];
@@ -158,32 +192,17 @@ describe('the hero links directly to feature pages', () => {
   });
 });
 
-// Ronak, 2026-09-20 22:18, on his phone: "Highlight tap any tile, bold it
-// increase the size, otherwise most people will ignore". The instruction was
-// body copy at 17px / 72% white. It is now the lead line, and the dot in front
-// of it is the same marigold as the dots on the phone it points at.
-describe('the tap instruction is the hero lead', () => {
-  it('renders the instruction as a bold lead with a marigold dot, then the rest as body', () => {
+// Hero (owner, 2026-10-31): "Your Tally, in your pocket." stays the h1, the
+// tap instruction keeps its own bold line, and the positioning line sits
+// under it as a tagline, never the h1.
+describe('the hero: headline, tap line, tagline', () => {
+  it('renders the headline as the h1, then the tap instruction, then the tagline', () => {
     const { container } = renderHome();
-    const sub = container.querySelector('.hv3-hero .hero-subtitle');
-    const lead = sub.querySelector('strong.hv3-hero-tap');
-    expect(lead).toBeTruthy();
-    expect(lead.textContent.trim()).toBe(HERO_HOME.tap);
-    expect(lead.querySelector('.hv3-hero-tap-dot[aria-hidden="true"]')).toBeTruthy();
-    expect(sub.textContent).toContain(HERO_HOME.body);
-    expect(HERO_HOME.body).not.toMatch(/tap any tile/i);
-  });
-
-  it('sets the lead at 20px / 700 in white, and paints the dot in the highlight token', () => {
-    const css = readFileSync('src/home.css', 'utf8');
-    const lead = cssBlock(css, '.home-v3 .hv3-hero-tap {');
-    expect(lead, 'no .hv3-hero-tap rule').not.toBe('');
-    expect(Number(lead.match(/font-size:\s*(\d+)px/)?.[1])).toBeGreaterThanOrEqual(20);
-    expect(Number(lead.match(/font-weight:\s*(\d+)/)?.[1])).toBeGreaterThanOrEqual(700);
-    expect(lead).toMatch(/color:\s*#fff\b/i);
-    const dot = cssBlock(css, '.home-v3 .hv3-hero-tap-dot {');
-    expect(dot).toMatch(/background:\s*var\(--color-highlight\)/);
-    expect(dot).toMatch(/border-radius:\s*50%/);
+    const hero = container.querySelector('.hv3-hero');
+    expect(hero.querySelectorAll('h1')).toHaveLength(1);
+    expect(hero.querySelector('h1').textContent).toBe('Your Tally, in your pocket.');
+    expect(hero.querySelector('.hv3-hero-tap').textContent.trim()).toBe(HERO_HOME.tap);
+    expect(hero.querySelector('.hv3-hero-tagline').textContent).toBe(HERO_HOME.tagline);
   });
 });
 

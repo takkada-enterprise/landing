@@ -173,7 +173,17 @@ function FeaturePage({ page }) {
               <span className="section-label hero-overline">{page.overline}</span>
               <h1 className="hero-title icp-hero-title">{page.headline}</h1>
               <p className="hero-subtitle icp-hero-subtitle">{page.subheadline}</p>
-              <p className="feature-answer">{page.answer}</p>
+              {/* A page with answerPoints shows them as an action list in the
+                  answer slot; its prose answer still feeds llms.txt. */}
+              {page.answerPoints ? (
+                <ul className="feature-answer feature-answer-points">
+                  {page.answerPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="feature-answer">{page.answer}</p>
+              )}
               <div className="hero-ctas">
                 <WhatsAppCTA context={page.waContext} />
                 <CalendarCTA context={page.waContext} />
