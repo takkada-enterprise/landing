@@ -1,28 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  Download,
-  MonitorCheck,
-  RefreshCw,
-  Shield,
-  ShieldCheck,
-  BadgeCheck,
-  Database,
-} from 'lucide-react';
-import WhatsAppCTA from '../components/WhatsAppCTA';
+import { Check } from 'lucide-react';
+import WhatsAppCTA, { WhatsAppIcon } from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
 import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
-import PlayablePhone from '../components/PlayablePhone';
-import FollowOneInvoice from '../components/FollowOneInvoice';
 import VideoTestimonials from '../components/VideoTestimonials';
 import Seo from '../components/Seo';
-import { useScrollReveal } from '../hooks/useScrollFx';
+import { Band, SectionHead, Card, CardGrid, Shot, QuoteBand, CloseBand } from '../ui';
+import '../ui/home.css';
+import { whatsappHref } from '../lib/whatsapp';
+import { track } from '../lib/track';
 import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
-import { JOBS, HERO_HOME, jobHref } from '../data/heroHotspots';
+import { HOME_HERO, HOME_CLOSE } from '../data/home';
+import { homeFeatures } from '../data/siteContent';
 import {
   appLinks,
   pricing,
@@ -30,32 +21,14 @@ import {
   planPricing,
   planPriceRange,
   formatInr,
-  heroContent,
-  tallyTrust,
   homeFaqItems,
   testimonials,
   trustSection,
-  proofStrip,
-  differentiators,
 } from '../data/siteContent';
 
-const tallyIconMap = {
-  refresh: RefreshCw,
-  shield: Shield,
-  monitor: MonitorCheck,
-};
-
-const trustIconMap = {
-  database: Database,
-  shield: ShieldCheck,
-  badge: BadgeCheck,
-  monitor: MonitorCheck,
-};
-
 // SEO defaults for the home route. Exposed as props so a sibling route can
-// reuse this exact page body under a different canonical URL (e.g. the
-// exact-match /tally-on-mobile landing) without forking the markup. One body,
-// many entry points, no drift.
+// reuse this exact page body under a different canonical URL without forking
+// the markup. One body, many entry points, no drift.
 const HOME_SEO = {
   title: 'Takkada | Mobile Tally App for Indian Distributors',
   // The price range is derived from pricing.plans — this description ships in
@@ -71,6 +44,10 @@ const HOME_SEO = {
   path: '/',
 };
 
+// The Campfire home (plan 2026-10-30-003, Task 4): dark hero, used-for cards,
+// quote band, Tally-in-charge cards, alternating rows, data safety, video
+// stories, the rate matrix, FAQ and a dark close band. Copy lives in
+// src/data/home.js and siteContent.js; nothing here types a figure.
 function Home({ seo = HOME_SEO }) {
   const [faqIndex, setFaqIndex] = useState(-1);
   const [pricingTerm, setPricingTerm] = useState(pricing.defaultTerm);
@@ -79,10 +56,9 @@ function Home({ seo = HOME_SEO }) {
   const [activePlan, setActivePlan] = useState(
     Math.max(0, pricing.plans.findIndex((p) => p.highlighted))
   );
-  useScrollReveal();
 
   return (
-    <div className="home-v3">
+    <div className="ui-home">
       <Seo
         title={seo.title}
         description={seo.description}
@@ -90,401 +66,335 @@ function Home({ seo = HOME_SEO }) {
         schemas={[softwareApplicationSchema(), faqPageSchema(homeFaqItems), ...videoObjectSchema()]}
       />
 
-      {/* ── Hero: the real home screen in the middle, static copy on the left
-             and direct feature-page links on every marked tile and job. ── */}
-      <section className="hv3-hero" id="product">
-        <div className="hv3-hero-grid">
-          <div className="hv3-hero-copy">
-            <span className="hv3-hero-overline">{heroContent.overline}</span>
-            <h1 className="hero-title">{HERO_HOME.headline}</h1>
-            <p className="hero-subtitle">
-              <strong className="hv3-hero-tap">
-                <span className="hv3-hero-tap-dot" aria-hidden="true" />
-                {HERO_HOME.tap}
-              </strong>{' '}
-              {HERO_HOME.body}
-            </p>
-            <div className="hv3-hero-cta">
-              <DemoTryCTA context="home-hero" />
-            </div>
-            <p className="hv3-hero-promise">{heroContent.promise}</p>
-          </div>
-          <PlayablePhone />
-          <nav className="hv3-hero-jobs" aria-label="Go to a feature">
-            <span className="hv3-hero-jobs-label">Or pick a job</span>
-            {JOBS.map((j) => (
-              <Link key={j.label} to={jobHref(j)} className="hv3-job">
-                {j.label}<small>{j.hint}</small>
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </section>
-
-      {/* ── Proof strip: the customer's voice + the confirmed scale figure,
-             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The stat
-             renders static: the hero is a phone to play with now, not a wall of
-             figures, and this is the page's only place for the number. ── */}
-      <section className="hv3-proof" id={proofStrip.id}>
-        <div className="container">
-          <div className="hv3-proof-card reveal">
-            <figure className="hv3-proof-quote">
-              <blockquote className="hv3-proof-text">{testimonials[0].quote}</blockquote>
-              <figcaption className="hv3-proof-attrib">
-                <span className="hv3-proof-name">{testimonials[0].name}</span>
-                <span className="hv3-proof-role">{testimonials[0].role}</span>
-              </figcaption>
-            </figure>
-            <div className="hv3-proof-stats">
-              {heroContent.stats.map((s) => (
-                <div key={s.label} className="hv3-stat">
-                  <span className="hv3-stat-value tabular-nums">
-                    {s.prefix}
-                    {s.value}
-                    {s.suffix}
+      <Band tone="band" id="product">
+        <div className="ui-hero">
+          <div className="ui-hero-copy">
+            <h1 className="ui-hero-title">{HOME_HERO.headline}</h1>
+            <ul className="ui-hero-points">
+              {HOME_HERO.points.map((point) => (
+                <li key={point}>
+                  <Check size={18} aria-hidden="true" />
+                  <span>
+                    {point}
+                    {HOME_HERO.pointBadges?.[point] && (
+                      <span className="ui-hero-badge">
+                        <WhatsAppIcon size={13} />
+                        {HOME_HERO.pointBadges[point]}
+                      </span>
+                    )}
                   </span>
-                  <span className="hv3-stat-label">{s.label}</span>
-                </div>
+                </li>
               ))}
+            </ul>
+            <div className="ui-hero-actions">
+              <DemoTryCTA context="home-hero" />
+              <CalendarCTA context="home-hero" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── The one story: follow one invoice from the counter to Tally. It
-             replaces the two story sections, the AI band and the capability
-             grid (2026-09-18): one invoice, seven true stops, and the feature
-             pages hanging off the stop each of them belongs to. ── */}
-      <FollowOneInvoice />
-
-      {/* ── Compressed Tally trust band ── */}
-      <section className="hv3-tally" id="tally">
-        <div className="container">
-          <div className="reveal">
-            <span className="section-label">{tallyTrust.overline}</span>
-            <h2 className="hv3-tally-title">{tallyTrust.heading}</h2>
-            <p className="hv3-tally-sub">{tallyTrust.subtitle}</p>
-          </div>
-          <div className="hv3-tally-points reveal">
-            {tallyTrust.points.map((point) => {
-              const Icon = tallyIconMap[point.icon] || RefreshCw;
-              return (
-                <div key={point.title} className="hv3-tally-point">
-                  <Icon size={22} />
-                  <h3>{point.title}</h3>
-                  <p>{point.description}</p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="hv3-tally-download reveal">
-            <a href={appLinks.tallyConnector} className="cta-btn cta-btn--outline-light" download>
-              <Download size={16} /> Download Tally Connector
-            </a>
-            <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Differentiator band: what only Takkada does, competitors
-             unnamed (2026-08-06 conversion pass, R4). Claims contract lives
-             in siteContent.js + differentiators.test.js. ── */}
-      <section className="hv3-diff" id={differentiators.id}>
-        <div className="container">
-          <div className="hv3-story-head reveal">
-            <span className="section-label">{differentiators.overline}</span>
-            <h2 className="hv3-story-title">{differentiators.heading}</h2>
-            <p className="hv3-story-intro">{differentiators.intro}</p>
-          </div>
-          <div className="hv3-diff-rows">
-            {differentiators.rows.map((row) => (
-              <div key={row.stop} className="hv3-diff-row reveal">
-                <div className="hv3-diff-cell hv3-diff-cell--others">
-                  <span className="hv3-diff-tag">{row.stop}</span>
-                  <p className="tabular-nums">{row.others}</p>
-                </div>
-                <div className="hv3-diff-cell hv3-diff-cell--takkada">
-                  <span className="hv3-diff-tag hv3-diff-tag--takkada">Takkada keeps going</span>
-                  <p className="tabular-nums">{row.takkada}</p>
-                </div>
+          <div className="ui-hero-stage">
+            <Shot screen={HOME_HERO.screen} eager sizes="(max-width: 767px) 72vw, 360px" />
+            {HOME_HERO.floats.map(({ id, screen, ...pos }) => (
+              <div key={id} className="ui-hero-float" style={pos}>
+                <Shot screen={screen} sizes="260px" />
               </div>
             ))}
           </div>
-          <p className="hv3-story-footnote reveal">{differentiators.footnote}</p>
         </div>
-      </section>
+      </Band>
 
-      {/* ── Verified Customer Stories / Video Testimonials ── */}
-      <VideoTestimonials />
-
-      {/* ── Pricing (ported intact from the pre-v3 page; .rate-* DOM is
-             pinned by pricing-table.test.jsx — restyle only via .home-v3) ── */}
-      <section className="pricing-section" id="pricing">
-        <div className="container">
-          {/* Header and term switch share one row so the title is still on
-              screen when the first price is. The old stacked header pushed
-              the table 450px down and the section lost its own heading. */}
-          <div className="rate-head reveal">
-            <div className="rate-head-copy">
-              <span className="section-label">Pricing</span>
-              <h2 className="section-title rate-title tabular-nums">
-                {planPriceRange()} per year. GST extra.
-              </h2>
-              <p className="section-subtitle rate-subtitle">
-                7-day free trial on every plan. No card required.
-              </p>
-            </div>
-            {/* The 3-year saving is the one number a distributor does the maths
-                on before calling, so the switch is the section's only control. */}
-            <div className="rate-term" role="group" aria-label="Billing term">
-              {pricing.terms.map((term) => (
-                <button
-                  key={term.id}
-                  type="button"
-                  className={`rate-term-option${pricingTerm === term.id ? ' rate-term-option--active' : ''}`}
-                  aria-pressed={pricingTerm === term.id}
-                  onClick={() => setPricingTerm(term.id)}
-                >
-                  <span>{term.label}</span>
-                  {term.badge && <span className="rate-term-badge tabular-nums">{term.badge}</span>}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Plan picker. Desktop shows all four columns at once; below 900px
-              a table cannot, so this selects the single column on show. */}
-          <div className="rate-picker" role="group" aria-label="Choose a plan to compare">
-            {pricing.plans.map((plan, i) => (
-              <button
-                key={plan.plan}
-                type="button"
-                className={`rate-picker-option${activePlan === i ? ' rate-picker-option--active' : ''}`}
-                aria-pressed={activePlan === i}
-                onClick={() => setActivePlan(i)}
-              >
-                {plan.plan}
-              </button>
-            ))}
-          </div>
-
-          <div className="rate-table" data-active-plan={activePlan}>
-            <div className="rate-table-head">
-              <div className="rate-table-corner">
-                <span className="rate-corner-title">What you get</span>
-                <span className="rate-corner-note">
-                  Every plan carries the one below it. Prices are per business, per year, GST extra.
-                </span>
-              </div>
-              {pricing.plans.map((plan, i) => {
-                const quote = planPricing(plan, pricingTerm);
-                return (
-                  <div
-                    key={plan.plan}
-                    className={`rate-col rate-col--${i} rate-plan${plan.highlighted ? ' rate-plan--hero' : ''}`}
-                  >
-                    {plan.badge && <span className="rate-plan-badge">{plan.badge}</span>}
-                    <span className="rate-plan-name">{plan.plan}</span>
-                    <span className="rate-plan-price tabular-nums">{quote.price}</span>
-                    <span className="rate-plan-period">per year</span>
-                    <span className="rate-plan-note tabular-nums">
-                      {quote.term.discount > 0 ? (
-                        <>
-                          <s>{quote.listPrice}</s> · {formatInr(quote.total)} upfront
-                        </>
-                      ) : (
-                        'Billed yearly'
-                      )}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {pricing.matrix.map((group) => (
-              <div className="rate-group" key={group.group}>
-                <div className="rate-group-title">{group.group}</div>
-                {group.rows.map((row) => (
-                  <div className="rate-row" key={row.label}>
-                    <div className="rate-row-label">{row.label}</div>
-                    {pricing.plans.map((plan, i) => (
-                      <div
-                        key={plan.plan}
-                        className={`rate-col rate-col--${i} rate-cell${plan.highlighted ? ' rate-cell--hero' : ''}`}
-                      >
-                        {i >= row.from ? (
-                          <>
-                            <Check size={16} className="rate-tick" aria-hidden="true" />
-                            <span className="sr-only">{`Included in ${plan.plan}`}</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="rate-dash" aria-hidden="true" />
-                            <span className="sr-only">{`Not in ${plan.plan}`}</span>
-                          </>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            ))}
-
-            {/* Add-ons close the table rather than sitting below it as an
-                orphan block, because any plan can take them (Enterprise
-                already includes some of them). */}
-            <div className="rate-addons">
-              <div className="rate-addons-title">Add-ons</div>
-              <ul className="rate-addons-list">
-                {pricing.addons.map((addon) => (
-                  <li key={addon.label} className="rate-addon">
-                    <span className="rate-addon-label">{addon.label}</span>
-                    <span className="rate-addon-note">{addon.note}</span>
+      {/* ── Seven features in plain words (copy from feat/seven-features-section,
+             2026-10-31). Replaces the used-for cards, the in-charge cards and
+             the alternating rows: the hero phone is the page's one screenshot.
+             Each card: title, line, ticked points, Try the demo, page link.
+             #tally and #digital-collection stay as anchors for old links. ── */}
+      <Band id="features">
+        <span id="tally" aria-hidden="true" />
+        <span id="digital-collection" aria-hidden="true" />
+        <SectionHead title={homeFeatures.heading} />
+        {/* Two to a row so the points have room. */}
+        <CardGrid cols={2}>
+          {homeFeatures.items.map((f) => (
+            <Card key={f.href} title={f.title} line={f.line} className="home-feature">
+              <ul className="home-feature-points">
+                {f.points.map((p) => (
+                  <li key={p}>
+                    <Check size={16} aria-hidden="true" />
+                    <span>{p}</span>
                   </li>
                 ))}
               </ul>
-              {/* Add-ons carry no price on the site: partners quote them
-                  (ruled 2026-10-04). One shared line, not a figure per pill. */}
-              <div className="rate-addons-foot">
-                <p className="rate-addons-cta">{pricing.addonsCta}</p>
-                <WhatsAppCTA context="pricing" variant="outline">
-                  Ask about add-ons on WhatsApp
-                </WhatsAppCTA>
+              <div className="home-feature-actions">
+                <DemoTryCTA context={`home-feature-${f.icon}`} tone="ghost" />
+                <Link className="ui-textlink" to={f.href}>See how it works</Link>
               </div>
-            </div>
+            </Card>
+          ))}
+        </CardGrid>
+        <p className="home-feature-more">
+          {homeFeatures.more.text}{' '}
+          <Link className="ui-textlink" to={homeFeatures.more.href}>{homeFeatures.more.linkLabel}</Link>
+        </p>
+      </Band>
 
-            {/* Bigger setups close the table for the same reason add-ons do:
-                they sit outside the plan columns and none of them is a plan.
-                A card rather than a pill, so the custom-pricing line can carry
-                its own note beside the price. */}
-            <div className="rate-bigger">
-              <div className="rate-bigger-head">
-                <div className="rate-bigger-title">{biggerSetups.title}</div>
-                <p className="rate-bigger-intro">{biggerSetups.intro}</p>
-              </div>
-              <div className="rate-bigger-cards">
-                {biggerSetups.items.map((item) => (
-                  <div className="rate-bigger-card" key={item.id}>
-                    <h3 className="rate-bigger-card-title">{item.title}</h3>
-                    <p className="rate-bigger-card-body">{item.body}</p>
-                    <div className="rate-bigger-prices">
-                      {item.price.map((line) => (
-                        <div className="rate-bigger-price" key={line.amount}>
-                          <span className="rate-bigger-amount tabular-nums">{line.amount}</span>
-                          <span className="rate-bigger-price-note">{line.note}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="rate-bigger-foot">
-                <p className="rate-bigger-note">{biggerSetups.note}</p>
-                <WhatsAppCTA context="bigger-setups" variant="outline">
-                  {biggerSetups.ctaLabel}
-                </WhatsAppCTA>
-              </div>
-            </div>
+      <Band>
+        <QuoteBand
+          id="testimonial"
+          quote={testimonials[0].quote}
+          name={testimonials[0].name}
+          role={testimonials[0].role}
+          note="100+ businesses run their Tally on Takkada."
+          cta={{ to: '/#pricing', label: 'See pricing' }}
+        />
+      </Band>
+
+      <Band tone="white" id="data-safety">
+        <SectionHead title={trustSection.heading} lead={trustSection.subtitle} />
+        <CardGrid cols={4}>
+          {trustSection.points.map((point) => (
+            <Card key={point.title} title={point.title} line={point.body}>
+              {point.links && (
+                <p className="ui-store-links">
+                  {point.links.map((link) => (
+                    <a key={link.label} className="ui-textlink" href={appLinks[link.hrefKey]} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                    </a>
+                  ))}
+                </p>
+              )}
+            </Card>
+          ))}
+        </CardGrid>
+        <p className="trust-article-link">
+          <Link to={trustSection.articleLink.href}>
+            {trustSection.articleLink.label}
+          </Link>
+        </p>
+      </Band>
+
+      <Band>
+        <VideoTestimonials />
+      </Band>
+
+      {/* ── Pricing: the .rate-* matrix, markup and data flow as before
+           (pinned by pricing-table.test.jsx); src/ui/home.css re-skins it. ── */}
+      <Band tone="white" id="pricing">
+        {/* Header and term switch share one row so the title is still on
+            screen when the first price is. The old stacked header pushed
+            the table 450px down and the section lost its own heading. */}
+        <div className="rate-head">
+          <div className="rate-head-copy">
+            <h2 className="ui-section-title rate-title tabular-nums">
+              {planPriceRange()} per year. GST extra.
+            </h2>
+            <p className="ui-section-lead rate-subtitle">
+              7-day free trial on every plan. No card required.
+            </p>
           </div>
-
-          <div className="home-pricing-strip-cta">
-            <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
-            <CalendarCTA context="pricing" variant="link" className="home-pricing-strip-link">
-              or get full pricing in a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
-            </CalendarCTA>
+          {/* The 3-year saving is the one number a distributor does the maths
+              on before calling, so the switch is the section's only control. */}
+          <div className="rate-term" role="group" aria-label="Billing term">
+            {pricing.terms.map((term) => (
+              <button
+                key={term.id}
+                type="button"
+                className={`rate-term-option${pricingTerm === term.id ? ' rate-term-option--active' : ''}`}
+                aria-pressed={pricingTerm === term.id}
+                onClick={() => setPricingTerm(term.id)}
+              >
+                <span>{term.label}</span>
+                {term.badge && <span className="rate-term-badge tabular-nums">{term.badge}</span>}
+              </button>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* ── Data safety / legitimacy (ported; pinned by home-trust.test.jsx).
-             The testimonial wall that sat here moved up into the proof strip
-             (2026-08-06): proof now lands before the pricing decision. ── */}
-      <section className="tally-section trust-section" id="data-safety">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">{trustSection.overline}</span>
-            <h2 className="section-title">{trustSection.heading}</h2>
-            <p className="section-subtitle">{trustSection.subtitle}</p>
-          </div>
-          <div className="tally-grid">
-            {trustSection.points.map((point) => {
-              const Icon = trustIconMap[point.icon] || Shield;
+        {/* Plan picker. Desktop shows all four columns at once; below 900px
+            a table cannot, so this selects the single column on show. */}
+        <div className="rate-picker" role="group" aria-label="Choose a plan to compare">
+          {pricing.plans.map((plan, i) => (
+            <button
+              key={plan.plan}
+              type="button"
+              className={`rate-picker-option${activePlan === i ? ' rate-picker-option--active' : ''}`}
+              aria-pressed={activePlan === i}
+              onClick={() => setActivePlan(i)}
+            >
+              {plan.plan}
+            </button>
+          ))}
+        </div>
+
+        <div className="rate-table" data-active-plan={activePlan}>
+          {/* The plan head sticks for as long as this box lasts, so the box
+              holds exactly the head and the capability rows. The add-ons and
+              bigger-setups strips below have no plan columns to label. */}
+          <div className="rate-matrix">
+          <div className="rate-table-head">
+            <div className="rate-table-corner">
+              <span className="rate-corner-title">What you get</span>
+              <span className="rate-corner-note">
+                Every plan carries the one below it. Prices are per business, per year, GST extra.
+              </span>
+            </div>
+            {pricing.plans.map((plan, i) => {
+              const quote = planPricing(plan, pricingTerm);
               return (
-                <div key={point.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={22} />
-                  </div>
-                  <h3>{point.title}</h3>
-                  <p>{point.body}</p>
-                  {point.links && (
-                    <p className="trust-store-links">
-                      {point.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={appLinks[link.hrefKey]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {link.label} <ArrowUpRight size={13} />
-                        </a>
-                      ))}
-                    </p>
-                  )}
+                <div
+                  key={plan.plan}
+                  className={`rate-col rate-col--${i} rate-plan${plan.highlighted ? ' rate-plan--hero ui-pricing-highlight' : ''}`}
+                >
+                  {plan.badge && <span className="rate-plan-badge">{plan.badge}</span>}
+                  <span className="rate-plan-name">{plan.plan}</span>
+                  <span className="rate-plan-price tabular-nums">{quote.price}</span>
+                  <span className="rate-plan-period">per year</span>
+                  <span className="rate-plan-note tabular-nums">
+                    {quote.term.discount > 0 ? (
+                      <>
+                        <s>{quote.listPrice}</s> · {formatInr(quote.total)} upfront
+                      </>
+                    ) : (
+                      'Billed yearly'
+                    )}
+                  </span>
                 </div>
               );
             })}
           </div>
-          <p className="trust-article-link">
-            <Link to={trustSection.articleLink.href}>
-              {trustSection.articleLink.label} <ArrowRight size={15} />
-            </Link>
-          </p>
-        </div>
-      </section>
 
-      {/* ── FAQ (ported; feeds faqPageSchema above) ── */}
-      <section className="faq-section" id="faq">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="section-label">Questions</span>
-            <h2 className="section-title">What distributors ask before signing up</h2>
+          {pricing.matrix.map((group) => (
+            <div className="rate-group" key={group.group}>
+              <div className="rate-group-title">{group.group}</div>
+              {group.rows.map((row) => (
+                <div className="rate-row" key={row.label}>
+                  <div className="rate-row-label">{row.label}</div>
+                  {pricing.plans.map((plan, i) => (
+                    <div
+                      key={plan.plan}
+                      className={`rate-col rate-col--${i} rate-cell${plan.highlighted ? ' rate-cell--hero ui-pricing-highlight' : ''}`}
+                    >
+                      {i >= row.from ? (
+                        <>
+                          <Check size={16} className="rate-tick" aria-hidden="true" />
+                          <span className="sr-only">{`Included in ${plan.plan}`}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="rate-dash" aria-hidden="true" />
+                          <span className="sr-only">{`Not in ${plan.plan}`}</span>
+                        </>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
           </div>
-          <div className="faq-list">
-            {homeFaqItems.map((item, i) => (
-              <FAQItem
-                key={item.question}
-                item={item}
-                isOpen={faqIndex === i}
-                onToggle={() => setFaqIndex(i === faqIndex ? -1 : i)}
-                delay={i * 50}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── Footer CTA band (ported) ── */}
-      <section className="final-cta" id="final-cta">
-        <div className="container">
-          <div className="final-cta-content">
-            <h2>See your own Tally on the phone.</h2>
-            {/* The onboarding-speed line ships behind the operator eyeball
-                (open question 2 in the 2026-08-06 plan): KYC ~24h and
-                same-day Tally connect mirror the long-standing FAQ claim,
-                but the operator confirms before merge. */}
-            <p className="tabular-nums">
-              Talk to us for 15 minutes. Leave with a clear picture of whether Takkada fits your
-              business. KYC clears in about 24 hours, and Tally connects the same day.
-            </p>
-            <div className="final-cta-actions">
-              <WhatsAppCTA context="final-cta" variant="dark" />
-              <CalendarCTA context="final-cta" variant="link" className="final-cta-secondary-link">
-                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
-              </CalendarCTA>
+          {/* Add-ons close the table rather than sitting below it as an
+              orphan block, because any plan can take them (Enterprise
+              already includes some of them). */}
+          <div className="rate-addons">
+            <div className="rate-addons-title">Add-ons</div>
+            <ul className="rate-addons-list">
+              {pricing.addons.map((addon) => (
+                <li key={addon.label}>
+                  {addon.slug ? (
+                    <Link to={`/${addon.slug}`} className="rate-addon">
+                      <span className="rate-addon-label">{addon.label}</span>
+                      <span className="rate-addon-note">{addon.note}</span>
+                      <span className="rate-addon-cta">
+                        See how it works
+                      </span>
+                    </Link>
+                  ) : (
+                    <a
+                      href={whatsappHref('pricing')}
+                      className="rate-addon"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => track('whatsapp_cta_click', { cta_context: `addon-${addon.label}` })}
+                    >
+                      <span className="rate-addon-label">{addon.label}</span>
+                      <span className="rate-addon-note">{addon.note}</span>
+                      <span className="rate-addon-cta">
+                        Ask on WhatsApp
+                      </span>
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+            {/* Add-ons carry no price on the site: partners quote them
+                (ruled 2026-10-04). One shared line, not a figure per pill. */}
+            <div className="rate-addons-foot">
+              <p className="rate-addons-cta">{pricing.addonsCta}</p>
+              <WhatsAppCTA context="pricing" tone="ghost">
+                Ask about add-ons on WhatsApp
+              </WhatsAppCTA>
+            </div>
+          </div>
+
+          {/* Bigger setups close the table for the same reason add-ons do:
+              they sit outside the plan columns and none of them is a plan.
+              A card rather than a pill, so the custom-pricing line can carry
+              its own note beside the price. */}
+          <div className="rate-bigger">
+            <div className="rate-bigger-head">
+              <div className="rate-bigger-title">{biggerSetups.title}</div>
+              <p className="rate-bigger-intro">{biggerSetups.intro}</p>
+            </div>
+            <div className="rate-bigger-cards">
+              {biggerSetups.items.map((item) => (
+                <div className="rate-bigger-card" key={item.id}>
+                  <h3 className="rate-bigger-card-title">{item.title}</h3>
+                  <p className="rate-bigger-card-body">{item.body}</p>
+                  <div className="rate-bigger-prices">
+                    {item.price.map((line) => (
+                      <div className="rate-bigger-price" key={line.amount}>
+                        <span className="rate-bigger-amount tabular-nums">{line.amount}</span>
+                        <span className="rate-bigger-price-note">{line.note}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rate-bigger-foot">
+              <p className="rate-bigger-note">{biggerSetups.note}</p>
+              <WhatsAppCTA context="bigger-setups" tone="ghost">
+                {biggerSetups.ctaLabel}
+              </WhatsAppCTA>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="home-pricing-strip-cta">
+          <WhatsAppCTA context="pricing">Ask about pricing on WhatsApp</WhatsAppCTA>
+          <CalendarCTA context="pricing" className="home-pricing-strip-link">
+            or get full pricing in a 15-min demo <span aria-hidden="true">→</span>
+          </CalendarCTA>
+        </div>
+      </Band>
+
+
+      <Band id="faq">
+        <SectionHead title="What distributors ask before signing up" />
+        <div className="faq-list">
+          {homeFaqItems.map((item, i) => (
+            <FAQItem
+              key={item.question}
+              item={item}
+              isOpen={faqIndex === i}
+              onToggle={() => setFaqIndex(i === faqIndex ? -1 : i)}
+            />
+          ))}
+        </div>
+      </Band>
+
+      <CloseBand id="close" title={HOME_CLOSE.title} cta={HOME_CLOSE.cta}>
+        <DemoTryCTA context="home-close">{HOME_CLOSE.cta.label}</DemoTryCTA>
+      </CloseBand>
     </div>
   );
 }

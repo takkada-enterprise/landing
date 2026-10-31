@@ -25,6 +25,14 @@ describe('WhatsAppCTA', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
+  it('renders a ghost Pill by default and takes the caller tone', () => {
+    const { container } = render(<WhatsAppCTA context="pricing" />);
+    expect(container.querySelector('a.ui-pill').className).toContain('ui-pill--ghost');
+    cleanup();
+    const { container: accent } = render(<WhatsAppCTA context="pricing" tone="accent" />);
+    expect(accent.querySelector('a.ui-pill').className).toContain('ui-pill--accent');
+  });
+
   it('falls back to the default message for an unknown context', () => {
     expect(whatsappHref('no-such-context')).toBe(
       `https://wa.me/${originalNumber}?text=${encodeURIComponent(WHATSAPP_MESSAGES.default)}`

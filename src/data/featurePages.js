@@ -1437,6 +1437,22 @@ export function heroShot(page) {
   return { src: image, srcSet: undefined, alt, width, height };
 }
 
+// The /features hub shows one picture per card. A page's candidates are its
+// hero, then its walkthrough steps (or tour stations) in order; each card takes
+// the first candidate no earlier card in the group, and no reserved screen,
+// already shows, and falls back to its hero only when every one is taken.
+export function distinctCardScreens(pages, reserved = []) {
+  const taken = new Set(reserved);
+  return pages.map((page) => {
+    const steps = page.walkthrough ?? page.tour?.stations ?? [];
+    const pick = [page.hero.screen, ...steps.map((s) => s.screen)]
+      .filter(Boolean)
+      .find((slug) => !taken.has(slug));
+    taken.add(pick);
+    return pick ?? page.hero.screen;
+  });
+}
+
 // A walkthrough step or tour station names its screen by registry slug, like
 // the hero. Until Ronak's remaining captures land (WhatsApp chat, permissions,
 // beats, visit photo, order link; 2026-09-20) a step may still carry the old

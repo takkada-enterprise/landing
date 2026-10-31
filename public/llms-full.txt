@@ -14,7 +14,6 @@ Add-ons (Ask your partner for pricing):
 - Personal party links: A link of its own for each party, so every order arrives already matched to them.
 - AI calling: AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.
 - Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
-- WhatsApp 8,000-message pack: More WhatsApp messages for reminders and invoice dispatch.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
 - Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
 - Extra user: Every plan comes with one user. Add a login for each extra person.

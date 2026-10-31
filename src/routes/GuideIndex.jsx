@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { Band, SectionHead, Card, CardGrid } from '../ui';
+import '../ui/feature.css';
+import '../ui/icp.css';
 import { getAllGuides } from '../lib/guidePosts';
 import { breadcrumbSchema, collectionPageSchema } from '../data/schema';
 
@@ -100,15 +102,6 @@ const HUB_TITLE = 'Takkada guides: how to use the app';
 const HUB_DESCRIPTION =
   'Step-by-step guides for Takkada: connecting Tally, mapping ledgers, making bills, recording receipts, loading a van, e-invoices and WhatsApp reminders.';
 
-function GuideCard({ guide }) {
-  return (
-    <Link className="guide-hub-card" to={`/guide/${guide.slug}`}>
-      <h3>{guide.title}</h3>
-      <p>{guide.meta_description}</p>
-    </Link>
-  );
-}
-
 function GuideIndex() {
   const guides = getAllGuides();
   const groups = groupGuides(guides);
@@ -140,34 +133,37 @@ function GuideIndex() {
         schemas={schemas}
       />
 
-      <main className="guide-hub-page">
-        <div className="guide-container">
-          <header className="guide-hub-header">
-            <p className="overline">TAKKADA GUIDES</p>
-            <h1>{HUB_H1}</h1>
-            <p className="guide-hub-subtitle">
-              Every screen, in the order you would actually use it. Each guide says what your
-              company and your login need before you start, then gives you the steps.
-            </p>
-          </header>
+      <main className="ui-feature ui-icp">
+        <Band tone="band" id="hero">
+          <div className="ui-hero">
+            <div className="ui-hero-copy">
+              <h1 className="ui-hero-title">{HUB_H1}</h1>
+              <p className="ui-hero-lead">
+                Every screen, in the order you would actually use it. Each guide says what your
+                company and your login need before you start, then gives you the steps.
+              </p>
+            </div>
+          </div>
+        </Band>
 
-          {groups.map((group) => (
-            <section
-              className="guide-hub-group"
-              key={group.id}
-              id={group.id}
-              aria-labelledby={`${group.id}-heading`}
-            >
-              <h2 id={`${group.id}-heading`}>{group.title}</h2>
-              <p className="guide-hub-group-blurb">{group.description}</p>
-              <div className="guide-hub-grid">
-                {group.guides.map((guide) => (
-                  <GuideCard key={guide.slug} guide={guide} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
+        {/* `guide-hub-card` is a build contract: scripts/checkGuideHub.mjs finds
+            the cards by that class in the raw HTML. */}
+        {groups.map((group, i) => (
+          <Band key={group.id} id={group.id} tone={i % 2 ? 'ground' : 'white'}>
+            <SectionHead title={group.title} lead={group.description} />
+            <CardGrid cols={3}>
+              {group.guides.map((guide) => (
+                <Card
+                  key={guide.slug}
+                  className="guide-hub-card"
+                  to={`/guide/${guide.slug}`}
+                  title={guide.title}
+                  line={guide.meta_description}
+                />
+              ))}
+            </CardGrid>
+          </Band>
+        ))}
       </main>
     </>
   );

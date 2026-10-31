@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, Phone, ArrowRight, Loader2 } from 'lucide-react';
+import { X, Phone, Loader2 } from 'lucide-react';
 import { appLinks } from '../data/siteContent';
 import { demoBookingConfig } from '../config/demoBooking';
 import {
@@ -258,7 +258,7 @@ function PhoneModal({
             {loading ? (
               <><Loader2 size={18} className="spin" /> Submitting...</>
             ) : (
-              <>{submitLabel} <ArrowRight size={18} /></>
+              submitLabel
             )}
           </button>
           <button type="button" className="phone-btn-cancel" onClick={onClose}>

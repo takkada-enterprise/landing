@@ -49,7 +49,7 @@ export const SCHEMES_DISCOUNT = [
         'Four kinds of billing-time scheme for distributors on Tally: buy X get X free, buy X get Y free, quantity slab discount and invoice value discount. Set up once with items, parties and dates; applied automatically in the cart; the free item reaches Tally as a zero-rate line; a Scheme cost report totals what each scheme gave away per party.',
     },
     footerLabel: 'Schemes',
-    hero: { screen: 'scheme-free-noodles' },
+    hero: { screen: 'scheme-buy-x-get-y' },
     author: 'founder',
     datePublished: '2026-09-25',
     updated: '2026-09-25',

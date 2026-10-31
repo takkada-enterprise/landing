@@ -1,0 +1,157 @@
+/* ═══════════════════════════════════════════════════
+   src/ui/icp.css: the ICP, comparison, auto-reconciliation and AI
+   assistant pages on the Campfire pattern (plan 2026-10-30-003, Task 7).
+   These pages also carry .ui-feature, so the hero, answer, comparison,
+   FAQ and related skins are feature.css's; this file holds only what
+   they add: a hero without a picture, the scenario and quote cards, the
+   competitor grid, the close band's lead line, the recon story cards and
+   the docs cards. Motion: none (ui.css owns the contract).
+
+   Every rule is prefixed with .ui-icp: this file loads ahead of
+   styles.css, so the prefix is what lets these rules win.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Hero without a picture: one column, copy kept readable ── */
+.ui-icp .ui-hero { grid-template-columns: 1fr; }
+.ui-icp .ui-hero-copy,
+.ui-icp-docs .ui-hero-title { max-width: 880px; }
+.ui-icp-docs .ui-hero-lead { max-width: 720px; }
+.ui-icp .ui-hero-more {
+  margin: 8px 0 0;
+  color: var(--on-band);
+}
+.ui-icp .ui-icp-meta {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--on-band-muted);
+}
+
+/* ── Scenario (AltRow media side) and quote cards ── */
+.ui-icp .ui-icp-scenario {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.ui-icp .ui-icp-quote {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px;
+  background: var(--tint);
+}
+.ui-icp .ui-icp-quote blockquote {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.ui-icp .ui-icp-quote figcaption { margin-top: 24px; }
+
+/* ── Tables: scroll sideways inside the card on a phone ── */
+.ui-icp .ui-compare-scroll { overflow-x: auto; position: relative; }
+.ui-icp .ui-compare--grid th[scope="col"]:not(:first-child),
+.ui-icp .ui-compare--grid td {
+  width: 18%;
+  text-align: center;
+  vertical-align: middle;
+}
+.ui-icp .ui-compare--grid svg { display: inline-block; }
+
+/* ── Text in a card's media slot: no clipping, no push to the bottom ── */
+.ui-icp-docs .ui-card-media,
+.ui-icp .ui-recon-panel .ui-card-media {
+  margin-top: 0;
+  overflow: visible;
+  border-radius: 0;
+}
+
+/* ── Auto-reconciliation story ── */
+.ui-icp .ui-recon-gap { margin-top: 24px; }
+.ui-icp .ui-recon-trust {
+  margin: 24px 0 0;
+  font-size: 14px;
+  color: var(--on-band-muted);
+}
+.ui-icp .ui-recon-stage {
+  display: grid;
+  gap: 16px;
+}
+.ui-icp .ui-recon-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  color: var(--ink);
+}
+.ui-icp .ui-recon-lines li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(17, 20, 24, 0.12);
+}
+.ui-icp .ui-recon-pull {
+  margin-top: 24px;
+  background: var(--tint);
+  text-align: center;
+}
+.ui-icp .ui-recon-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ui-icp .ui-recon-meta {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--arrow);
+}
+.ui-icp .ui-recon-zero {
+  margin-top: 48px;
+  text-align: center;
+}
+.ui-icp .ui-recon-zero .ui-hero-actions {
+  justify-content: center;
+  margin-top: 24px;
+}
+@media (min-width: 900px) {
+  .ui-icp.ui-recon .ui-hero { grid-template-columns: 7fr 5fr; }
+}
+
+/* ── AI assistant docs cards ── */
+.ui-icp-docs .ui-card-media {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.ui-icp-docs .ui-card-media ul,
+.ui-icp-docs .ui-card-media ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.ui-icp-docs .ui-card-media li + li { margin-top: 8px; }
+.ui-icp-docs .ui-card-media p { margin: 12px 0 0; }
+.ui-icp-docs .ui-card-media p:first-child { margin-top: 0; }
+.ui-icp-docs .ui-card-media strong { color: var(--ink); }
+.ui-icp-docs .ui-card-media a { color: var(--arrow); }
+.ui-icp-docs code { overflow-wrap: anywhere; }
+
+/* Blog index on a phone: ~280 posts in one column. Each excerpt shows two
+   lines (the full text stays in the markup), which takes a third or so off
+   the scroll without touching a word. */
+@media (max-width: 599px) {
+  .ui-icp #posts .ui-card > p.ui-card-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}
+@media (max-width: 767px) {
+  .ui-icp .ui-icp-scenario { font-size: 18px; }
+  .ui-icp .ui-icp-quote { padding: 32px 24px; }
+  .ui-icp .ui-icp-quote blockquote { font-size: 22px; }
+}

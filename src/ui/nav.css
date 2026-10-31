@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════════════
+   src/ui/nav.css: the Campfire-pattern bar (plan 2026-10-30-003, Task 2).
+   White, 64px, hairline bottom border, sticky. From 900px up the sheet is
+   the bar's right-hand side; under 900px it is a full-height sheet behind the
+   burger that scrolls on its own while the page body is locked.
+   Motion: opacity and transform only, ui.css easing, 240ms or under.
+   ═══════════════════════════════════════════════════ */
+
+body.lock-scroll {
+  overflow: hidden;
+}
+
+.ui-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(17, 20, 24, 0.08);
+  font-size: 15px;
+}
+.ui-nav,
+.ui-nav * {
+  box-sizing: border-box;
+}
+.ui-nav-inner {
+  max-width: var(--max);
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.ui-nav--minimal .ui-nav-inner { justify-content: space-between; gap: 12px; }
+.ui-nav--minimal .ui-pill { white-space: nowrap; }
+@media (max-width: 420px) {
+  .ui-nav--minimal .ui-pill { padding: 0 16px; gap: 10px; }
+  .ui-nav--minimal .ui-pill > svg { display: none; }
+}
+.ui-nav-logo { display: flex; flex-shrink: 0; }
+.ui-nav-logo img { display: block; width: 107px; height: auto; }
+
+.ui-nav-sheet {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.ui-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+}
+.ui-nav-link {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+.ui-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.ui-nav .ui-pill { height: 44px; padding: 0 20px; font-size: 15px; }
+
+/* ── Features disclosure ── */
+.ui-nav-features {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ui-nav-features-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.ui-nav-features-toggle svg {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ui-nav-features.open .ui-nav-features-toggle svg { transform: rotate(180deg); }
+.ui-nav-features-panel {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -24px;
+  width: min(760px, calc(100vw - 48px));
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 48px rgba(10, 23, 48, 0.16);
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 180ms cubic-bezier(0.23, 1, 0.32, 1),
+              visibility 0s linear 180ms;
+}
+.ui-nav-features.open .ui-nav-features-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ui-nav-features-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.ui-nav-features-group { display: flex; flex-direction: column; gap: 8px; }
+.ui-nav-features-group h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.ui-nav-features-group a,
+.ui-nav-features-all {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+}
+.ui-nav-features-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-weight: 600;
+}
+
+/* ── Burger: hidden from 900px up ── */
+.ui-nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+@media (max-width: 899px) {
+  .ui-nav-burger { display: inline-flex; }
+  .ui-nav-sheet {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 32px;
+    padding: 24px 24px calc(32px + env(safe-area-inset-bottom, 0px));
+    background: #fff;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 180ms;
+  }
+  .ui-nav.menu-open .ui-nav-sheet {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .ui-nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    white-space: normal;
+  }
+  .ui-nav-links > .ui-nav-link,
+  .ui-nav-features {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(17, 20, 24, 0.08);
+    font-size: 18px;
+  }
+  .ui-nav-features { flex-wrap: wrap; justify-content: space-between; }
+  .ui-nav-features-toggle { width: 44px; height: 44px; }
+  /* In the sheet the panel opens in place, in flow, so the sheet's own
+     scroll carries it and nothing overflows sideways. */
+  .ui-nav-features-panel {
+    position: static;
+    width: 100%;
+    padding: 8px 0 0;
+    box-shadow: none;
+    border-radius: 0;
+    transform: none;
+    display: none;
+  }
+  .ui-nav-features.open .ui-nav-features-panel { display: block; }
+  .ui-nav-features-list { grid-template-columns: 1fr; gap: 20px; }
+  .ui-nav-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .ui-nav .ui-nav-actions .ui-pill { height: 52px; justify-content: center; }
+}
+
+/* ── Sticky WhatsApp bar, phones only ── */
+.ui-nav-sticky {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -6px 24px rgba(10, 23, 48, 0.14);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 280ms;
+}
+.ui-nav-sticky.visible {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.ui-nav-sticky .ui-pill { width: 100%; justify-content: center; }
+@media (max-width: 767px) {
+  .ui-nav-sticky { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-nav-features-toggle svg,
+  .ui-nav-features-panel,
+  .ui-nav-features.open .ui-nav-features-panel,
+  .ui-nav-sticky,
+  .ui-nav-sticky.visible { transition: none; }
+  .ui-nav-features-panel { transform: none; }
+}

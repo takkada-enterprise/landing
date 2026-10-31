@@ -26,7 +26,13 @@ describe('AI assistant docs page', () => {
   it('is in the sitemap and shows the live server URL', () => {
     expect(routeMetadata.some((r) => r.path === '/ai-assistant')).toBe(true);
     expect(MCP_SERVER_URL).toBe('https://mcp.takkada.com/functions/v1/mcp-server');
-    expect(renderIn(<AiAssistant />).textContent).toContain(MCP_SERVER_URL);
+    const page = renderIn(<AiAssistant />);
+    expect(page.textContent).toContain(MCP_SERVER_URL);
+    // On the Campfire primitives (plan 2026-10-30-003, Task 7): navy hero, text cards, close band.
+    expect(page.querySelector('.ui-band--band h1.ui-hero-title')).not.toBeNull();
+    expect(page.querySelectorAll('.ui-card').length).toBeGreaterThan(0);
+    expect(page.querySelector('.ui-close')).not.toBeNull();
+    expect(page.querySelector('.company-article')).toBeNull();
     expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
       'https://takkada.com/ai-assistant/'
     );

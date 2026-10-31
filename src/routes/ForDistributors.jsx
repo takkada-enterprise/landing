@@ -6,7 +6,7 @@ const data = {
   overline: 'FOR INDIAN DISTRIBUTORS',
   headline: 'The mobile Tally app built for distributors.',
   subheadline:
-    'If you serve 30 to 300 retailers on 30-90 day terms, raise 20+ invoices a day, and lose two evening hours to reconciliation — Takkada is built for exactly your business.',
+    'If you serve 30 to 300 retailers on 30-90 day terms, raise 20+ invoices a day, and lose two evening hours to reconciliation, Takkada is built for exactly your business.',
   waContext: 'icp-for-distributors',
   ctaPrimary: {
     text: 'Book a 15-min demo',
@@ -23,7 +23,7 @@ const data = {
     {
       icon: MessageCircle,
       title: 'WhatsApp auto-dispatch of every invoice',
-      body: 'Invoice created in Tally or on mobile — customer receives the PDF and a payment link immediately. No copy-paste, no forwarding.',
+      body: 'Invoice created in Tally or on mobile. The customer receives the PDF and a payment link immediately. No copy-paste, no forwarding.',
     },
     {
       icon: IndianRupee,
@@ -50,7 +50,7 @@ const data = {
     },
     {
       q: 'Can distributor software integrate with Tally?',
-      a: 'Yes. Takkada uses a real-time two-way Tally Connector to synchronize information seamlessly between your existing Tally Prime or Tally ERP 9 installation and the application.',
+      a: 'Yes. Takkada uses a real-time two-way Tally Connector to keep your existing Tally Prime or Tally ERP 9 installation and the app in step, without re-entry.',
     },
     {
       q: 'Can salesmen use Takkada?',
@@ -62,7 +62,7 @@ const data = {
     },
     {
       q: 'Which industries do you work with?',
-      a: 'Any Tally-using distributor or wholesaler. Most of our customers are in FMCG, pharma, hardware, stationery, auto parts, and agri-inputs. The product is industry-agnostic — if your books are in Tally, Takkada fits.',
+      a: 'Any Tally-using distributor or wholesaler. Most of our customers are in FMCG, pharma, hardware, stationery, auto parts, and agri-inputs. The product is industry-agnostic. If your books are in Tally, Takkada fits.',
     },
     {
       q: 'How long does onboarding take?',
@@ -74,7 +74,7 @@ const data = {
     },
     {
       q: 'Can I try before I pay?',
-      a: 'Every plan has a 7-day free trial, no card required. You can also see a 15-minute live demo — book using the button below.',
+      a: 'Every plan has a 7-day free trial, no card required. You can also see a 15-minute live demo. Book it using the button below.',
     },
   ],
   breadcrumb: [

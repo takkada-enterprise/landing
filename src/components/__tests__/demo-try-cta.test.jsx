@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -36,9 +37,11 @@ vi.mock('../../context/PhoneModalContext', async (importOriginal) => {
 
 function renderCta() {
   return render(
-    <PhoneModalProvider>
-      <DemoTryCTA context="demo-page" />
-    </PhoneModalProvider>
+    <MemoryRouter>
+      <PhoneModalProvider>
+        <DemoTryCTA context="demo-page" />
+      </PhoneModalProvider>
+    </MemoryRouter>
   );
 }
 
@@ -89,12 +92,13 @@ describe('DemoTryCTA with the demo entry live', () => {
 });
 
 describe('DemoTryCTA with the demo entry not yet live', () => {
-  it('falls back to WhatsApp and opens no modal', () => {
+  it('falls back to a link to /demo and opens no modal', () => {
     siteContentMock.demoEntryLive = false;
     renderCta();
 
-    const wa = screen.getByRole('link', { name: /chat on whatsapp/i });
-    expect(wa.getAttribute('href')).toContain('wa.me');
+    const link = screen.getByRole('link', { name: /try the demo/i });
+    expect(link.getAttribute('href')).toBe('/demo');
+    fireEvent.click(link);
     expect(openWith).not.toHaveBeenCalled();
     expect(screen.queryByRole('button', { name: /try the demo/i })).toBeNull();
   });
@@ -107,16 +111,33 @@ describe('DemoTryCTA with the demo entry not yet live', () => {
 describe('DemoTryCTA passes its caller through both branches', () => {
   function renderWith(props) {
     return render(
-      <PhoneModalProvider>
-        <DemoTryCTA context="mobile-menu" {...props} />
-      </PhoneModalProvider>
+      <MemoryRouter>
+        <PhoneModalProvider>
+          <DemoTryCTA context="mobile-menu" {...props} />
+        </PhoneModalProvider>
+      </MemoryRouter>
     );
   }
 
-  it.each([true, false])('honours fullWidth at demoEntryLive=%s', (live) => {
+  it.each([true, false])('renders a Pill in the caller tone at demoEntryLive=%s', (live) => {
     siteContentMock.demoEntryLive = live;
-    const { container } = renderWith({ fullWidth: true });
-    expect(container.querySelector('.cta-btn').className).toContain('cta-btn--full');
+    const { container } = renderWith({ tone: 'ghost' });
+    expect(container.querySelector('.ui-pill').className).toContain('ui-pill--ghost');
+  });
+
+  it.each([true, false])('defaults to the accent Pill at demoEntryLive=%s', (live) => {
+    siteContentMock.demoEntryLive = live;
+    const { container } = renderWith({});
+    expect(container.querySelector('.ui-pill').className).toContain('ui-pill--accent');
+  });
+
+  it.each([true, false])('tracks the click at demoEntryLive=%s', (live) => {
+    siteContentMock.demoEntryLive = live;
+    window.clarity = vi.fn();
+    renderWith({});
+    fireEvent.click(document.querySelector('.ui-pill'));
+    expect(window.clarity).toHaveBeenCalledWith('event', 'demo_try_click');
+    delete window.clarity;
   });
 
   it.each([true, false])('runs the caller onClick at demoEntryLive=%s', (live) => {
@@ -124,7 +145,7 @@ describe('DemoTryCTA passes its caller through both branches', () => {
     const onClick = vi.fn();
     renderWith({ onClick });
 
-    fireEvent.click(document.querySelector('.cta-btn'));
+    fireEvent.click(document.querySelector('.ui-pill'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

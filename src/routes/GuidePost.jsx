@@ -1,5 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import Breadcrumb from '../components/Breadcrumb';
+import DemoTryCTA from '../components/DemoTryCTA';
+import { Band, SectionHead, Card, CardGrid, CloseBand } from '../ui';
+import '../ui/feature.css';
+import '../ui/icp.css';
+import '../ui/prose.css';
+import { HOME_CLOSE } from '../data/home';
 import { getGuideBySlug } from '../lib/guidePosts';
 import { pageTitle } from '../lib/pageTitle';
 import { articlePageSchema, breadcrumbSchema, DEFAULT_OG_IMAGE } from '../data/schema';
@@ -56,38 +63,48 @@ export function prepareGuideHtml(html) {
   return wrapTables(highlightPrerequisites(html ?? ''));
 }
 
+// Related guides as text cards. `.guide-related` stays on the band: the route
+// test finds the related links by it.
 function RelatedGuides({ slugs }) {
   const related = (slugs ?? []).map(getGuideBySlug).filter(Boolean);
   if (related.length === 0) return null;
 
   return (
-    <aside className="guide-related" aria-labelledby="guide-related-heading">
-      <h2 id="guide-related-heading">Related guides</h2>
-      <ul>
+    <Band tone="ground" id="related" className="guide-related">
+      <SectionHead title="Related guides" />
+      <CardGrid cols={3}>
         {related.map((guide) => (
-          <li key={guide.slug}>
-            <Link to={`/guide/${guide.slug}`}>{guide.title}</Link>
-            {guide.meta_description ? <span>{guide.meta_description}</span> : null}
-          </li>
+          <Card
+            key={guide.slug}
+            to={`/guide/${guide.slug}`}
+            title={guide.title}
+            line={guide.meta_description}
+          />
         ))}
-      </ul>
-    </aside>
+      </CardGrid>
+    </Band>
   );
 }
 
 function GuideNotFound() {
   return (
-    <main className="guide-page guide-page--missing">
-      <div className="guide-container">
-        <h1>Guide not found</h1>
-        <p>
-          That guide has moved or does not exist. The full manual is one page away, and every
-          topic is listed on it.
-        </p>
-        <Link className="guide-back" to="/guide">
-          All guides
-        </Link>
-      </div>
+    <main className="ui-feature ui-icp">
+      <Band tone="band" id="hero">
+        <div className="ui-hero">
+          <div className="ui-hero-copy">
+            <h1 className="ui-hero-title">Guide not found</h1>
+            <p className="ui-hero-lead">
+              That guide has moved or does not exist. The full manual is one page away, and every
+              topic is listed on it.
+            </p>
+            <p className="ui-hero-more">
+              <Link className="ui-textlink" to="/guide">
+                All guides
+              </Link>
+            </p>
+          </div>
+        </div>
+      </Band>
     </main>
   );
 }
@@ -99,6 +116,11 @@ function GuidePost() {
   if (!guide) return <GuideNotFound />;
 
   const path = `/guide/${guide.slug}`;
+  const trail = [
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guide' },
+    { name: guide.title, path },
+  ];
   const schemas = [
     articlePageSchema({
       headline: guide.title,
@@ -111,11 +133,7 @@ function GuidePost() {
       author: 'Takkada',
       path,
     }),
-    breadcrumbSchema([
-      { name: 'Home', path: '/' },
-      { name: 'Guides', path: '/guide' },
-      { name: guide.title, path },
-    ]),
+    breadcrumbSchema(trail),
   ];
 
   return (
@@ -128,32 +146,33 @@ function GuidePost() {
         schemas={schemas}
       />
 
-      <main className="guide-page" data-guide-slug={guide.slug}>
-        <div className="guide-container">
-          <nav className="guide-breadcrumb" aria-label="Breadcrumb">
-            <Link to="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <Link to="/guide">Guides</Link>
-          </nav>
+      <main className="ui-feature ui-icp" data-guide-slug={guide.slug}>
+        <Band tone="band" id="hero">
+          <div className="ui-hero">
+            <div className="ui-hero-copy">
+              <Breadcrumb trail={trail.map((t) => ({ name: t.name, url: t.path }))} />
+              <h1 className="ui-hero-title">{guide.title}</h1>
+              <p className="ui-icp-meta tabular-nums">{`${CHECKED_PREFIX}${guide.checkedAgainstAppOn}`}</p>
+            </div>
+          </div>
+        </Band>
 
-          <article className="guide-article">
-            <header className="guide-article-header">
-              <h1>{guide.title}</h1>
-              <p className="guide-checked">{`${CHECKED_PREFIX}${guide.checkedAgainstAppOn}`}</p>
-            </header>
+        <Band tone="white" id="guide">
+          <div className="ui-prose">
+            <div dangerouslySetInnerHTML={{ __html: prepareGuideHtml(guide.html) }} />
+            <p>
+              <Link className="ui-textlink" to="/guide">
+                All guides
+              </Link>
+            </p>
+          </div>
+        </Band>
 
-            <div
-              className="guide-prose"
-              dangerouslySetInnerHTML={{ __html: prepareGuideHtml(guide.html) }}
-            />
-          </article>
+        <RelatedGuides slugs={guide.relatedGuides} />
 
-          <RelatedGuides slugs={guide.relatedGuides} />
-
-          <Link className="guide-back" to="/guide">
-            All guides
-          </Link>
-        </div>
+        <CloseBand id="close" title={HOME_CLOSE.title} cta={HOME_CLOSE.cta}>
+          <DemoTryCTA context="guide">{HOME_CLOSE.cta.label}</DemoTryCTA>
+        </CloseBand>
       </main>
     </>
   );

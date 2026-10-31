@@ -4,18 +4,21 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // jsdom applies no media queries, so nothing in the component tests can see the
-// width at which the header changes shape. These two numbers were measured
-// against the built site in `npm run preview`, and getting either of them wrong
-// ships a visibly broken bar that every jsdom test still calls green.
+// width at which the header changes shape. Getting the handover wrong ships a
+// visibly broken bar that every jsdom test still calls green.
 
 const css = readFileSync(
-  resolve(dirname(fileURLToPath(import.meta.url)), '..', 'styles.css'),
+  resolve(dirname(fileURLToPath(import.meta.url)), '..', 'ui', 'nav.css'),
   'utf-8'
 );
 
-// The narrowest width at which the logo, four nav items and two pills fit
-// inside .nav-inner without clipping. Re-measure before lowering anything here.
+// The narrowest width at which the old bar (logo, four nav items, two pills)
+// fitted without clipping. The Campfire bar carries the same items, so the
+// handover may not drop below it. Re-measure before lowering anything here.
 const MEASURED_HEADER_FIT_PX = 845;
+
+const BURGER_SHOWN = '.ui-nav-burger { display: inline-flex; }';
+const SHEET_RULE = '.ui-nav-sheet {\n    position: fixed;';
 
 function maxWidthGuarding(declaration) {
   const upTo = css.slice(0, css.indexOf(declaration));
@@ -25,22 +28,23 @@ function maxWidthGuarding(declaration) {
 
 describe('header breakpoints', () => {
   it('finds both rules, so neither assertion can pass by matching nothing', () => {
-    expect(css).toContain('.desktop-only { display: none !important; }');
-    expect(css).toContain('.nav-actions .nav-connector-link');
+    expect(css).toContain(BURGER_SHOWN);
+    expect(css).toContain(SHEET_RULE);
   });
 
-  // Below this the bar clipped its WhatsApp pill off the right edge for every
-  // width from 768 to 844 — iPad portrait included.
-  it('hands over to the hamburger before the bar runs out of room', () => {
-    const handover = maxWidthGuarding('.desktop-only { display: none !important; }');
-    expect(handover).toBeGreaterThanOrEqual(MEASURED_HEADER_FIT_PX);
+  it('hands over to the burger before the bar runs out of room', () => {
+    expect(maxWidthGuarding(BURGER_SHOWN)).toBeGreaterThanOrEqual(MEASURED_HEADER_FIT_PX);
   });
 
-  // The connector mark yields at the tightest desktop widths. If its gate ever
-  // dropped below the hamburger handover it would have no band left to show in.
-  it('leaves the connector mark a band of its own to appear in', () => {
-    const markGate = maxWidthGuarding('.nav-actions .nav-connector-link');
-    const handover = maxWidthGuarding('.desktop-only { display: none !important; }');
-    expect(markGate).toBeGreaterThan(handover);
+  it('turns the links into the sheet at the same width the burger appears', () => {
+    expect(maxWidthGuarding(SHEET_RULE)).toBe(maxWidthGuarding(BURGER_SHOWN));
+  });
+
+  // Review Focus 2: a phone with the Features panel open must be able to
+  // scroll the sheet, and the page under it must not scroll.
+  it('lets the sheet scroll on its own and locks the page body', () => {
+    const sheet = css.slice(css.indexOf(SHEET_RULE), css.indexOf('}', css.indexOf(SHEET_RULE)));
+    expect(sheet).toMatch(/overflow-y: auto;/);
+    expect(css).toMatch(/body\.lock-scroll \{\s*overflow: hidden;\s*\}/);
   });
 });

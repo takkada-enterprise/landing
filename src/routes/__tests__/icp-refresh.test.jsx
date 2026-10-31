@@ -11,6 +11,7 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import MobileTally from '../MobileTally';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
@@ -19,7 +20,9 @@ afterEach(cleanup);
 function renderPage() {
   return render(
     <MemoryRouter>
-      <MobileTally />
+      <PhoneModalProvider>
+        <MobileTally />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
 }
@@ -32,7 +35,7 @@ function renderPage() {
 describe('/mobile-tally after the Phase 3 refresh', () => {
   it('opens with a front-loaded answer directly under the h1', () => {
     const { container } = renderPage();
-    const answer = container.querySelector('.feature-answer');
+    const answer = container.querySelector('.ui-answer');
     expect(answer).not.toBeNull();
 
     // It must actually answer, not tease. The band matches the feature pages.
@@ -50,7 +53,7 @@ describe('/mobile-tally after the Phase 3 refresh', () => {
 
   it('links out to blog posts that exist, under the titles they really carry', () => {
     const { container } = renderPage();
-    const links = [...container.querySelectorAll('.feature-related-list a')];
+    const links = [...container.querySelectorAll('.ui-related a')];
     expect(links.length).toBeGreaterThanOrEqual(3);
 
     for (const link of links) {
@@ -60,6 +63,18 @@ describe('/mobile-tally after the Phase 3 refresh', () => {
       const title = readFileSync(file, 'utf-8').match(/^title:\s*"?(.+?)"?\s*$/m)?.[1];
       expect(link.textContent).toContain(title);
     }
+  });
+
+  // The Campfire template (plan 2026-10-30-003, Task 7): capabilities are text
+  // cards, the scenario is an alternating row, and nothing carries an overline.
+  it('renders on the Campfire primitives', () => {
+    const { container } = renderPage();
+    expect(container.querySelectorAll('#capabilities .ui-card')).toHaveLength(4);
+    expect(container.querySelectorAll('#capabilities .ui-card-media')).toHaveLength(0);
+    expect(container.querySelector('#scenario .ui-altrow')).not.toBeNull();
+    expect(container.querySelector('.ui-close')).not.toBeNull();
+    const labelled = [...container.querySelectorAll('[class]')].filter((el) => /overline|eyebrow|section-label/.test(el.className));
+    expect(labelled).toHaveLength(0);
   });
 
   // Both of these shipped in the page's FAQ copy and were live on takkada.com.

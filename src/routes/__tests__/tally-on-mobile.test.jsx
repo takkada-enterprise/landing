@@ -11,6 +11,7 @@ import FeaturePage from '../../components/FeaturePage';
 import { getFeaturePage } from '../../data/featurePages';
 import { routeMetadata } from '../../data/siteMetadata';
 import { heroContent } from '../../data/siteContent';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -35,7 +36,9 @@ const PAGE = getFeaturePage('tally-on-mobile');
 function renderRoute() {
   return render(
     <MemoryRouter>
-      <FeaturePage page={PAGE} />
+      <PhoneModalProvider>
+        <FeaturePage page={PAGE} />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
 }
@@ -52,9 +55,9 @@ describe('/tally-on-mobile', () => {
     expect(text).not.toContain('₹2,900 to ₹8,500 per year. GST extra.');
 
     // And it carries the things a feature page has and the home clone did not.
-    expect(container.querySelector('.feature-answer')).not.toBeNull();
-    expect(container.querySelector('.feature-comparison-table')).not.toBeNull();
-    expect(container.querySelectorAll('.feature-related-list a').length).toBeGreaterThan(0);
+    expect(container.querySelector('.ui-answer')).not.toBeNull();
+    expect(container.querySelector('.ui-compare')).not.toBeNull();
+    expect(container.querySelectorAll('.ui-related a').length).toBeGreaterThan(0);
   });
 
   it('keeps the exact-match route registered, now via the page engine', () => {

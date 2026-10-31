@@ -47,8 +47,7 @@ export const navLinks = [
 
 export const heroContent = {
   overline: 'For Indian distributors on Tally',
-  // The H1 and body are owned by src/data/heroHotspots.js (HERO_HOME) because
-  // they swap as the visitor taps the phone. This object keeps what is static.
+  // The homepage H1 and lead are HOME_HERO in src/data/home.js.
   promise: 'Built on top of your Tally.',
   // The one founder-confirmed public scale figure (CLAUDE.md \u00A75). The monthly
   // rupee volume was retired on 2026-09-18 (operator direction) and
@@ -57,8 +56,8 @@ export const heroContent = {
 };
 
 // The two story objects (order-to-cash, team sales), the AI band and the
-// capability grid were retired on 2026-09-18: the homepage tells one story now,
-// and it is built from src/data/journey.js (STOPS) by FollowOneInvoice.
+// capability grid were retired on 2026-09-18. The homepage sections are built
+// from src/data/home.js.
 
 // Compressed Tally-trust block: the connector story in three specific
 // behaviors plus the download. The deep safety story lives in #data-safety.
@@ -114,13 +113,6 @@ export const homeFaqItems = [
     answer:
       'Yes. Every plan comes with a 7-day free trial, no card required. If you are being onboarded by one of our partners, they will walk you through the setup.',
   },
-  {
-    question: 'Is there a plan for a business with only one user?',
-    // Per-device pricing was withdrawn 2026-08-12 (it was drift, not an
-    // offer) \u2014 this answer must not quote a device price.
-    answer:
-      'Yes. Every plan includes one user, and you can add more. Your partner quotes extra users per year.',
-  },
 ];
 
 // Voice rule: real quotes only — every entry here renders on the wall AND
@@ -137,7 +129,7 @@ export const testimonials = [
   {
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import se auto-reconciliation ho jaata hai, aur pending payments ke liye smart WhatsApp reminders chale jaate hain. Hamara experience bohot hi achha raha hai.',
     name: 'Meet Patel',
-    role: 'Owner, Dhan Laxmi',
+    role: 'Owner, Dhanlaxmi Crop Science Limited',
   },
 ];
 
@@ -147,13 +139,15 @@ export const videoTestimonials = [
     id: 'meet-patel-dhan-laxmi',
     name: 'Meet Patel',
     role: 'Owner',
-    company: 'Dhan Laxmi',
-    location: 'Gujarat, India',
-    industry: 'Distribution & Wholesale',
+    // Prod company 169 (operator, 2026-10-29): the full registered name, and
+    // the NSE listing named on the card.
+    company: 'Dhanlaxmi Crop Science Limited',
+    location: 'Ahmedabad, Gujarat',
+    industry: 'Agri seeds distributor, NSE listed',
     badge: 'Verified Takkada Customer',
     duration: '1:57 min',
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
-    summary: 'How Dhan Laxmi solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
+    summary: 'How Dhanlaxmi Crop Science Limited solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
     takeaways: [
       {
         title: 'Auto-Reconciliation from Bank Statement',
@@ -172,7 +166,7 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4',
       poster: '/assets/testimonials/Meet_Patel_thumbnail_square.jpg',
-      title: 'Meet Patel, Owner of Dhan Laxmi sharing his Takkada experience',
+      title: 'Meet Patel, Owner of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
       // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
       // and never rendered. The trade and city were supplied by the operator
       // (2026-10-26) for search metadata; the visible card keeps "Distribution
@@ -180,7 +174,7 @@ export const videoTestimonials = [
       uploadDate: '2026-10-26T00:05:55+05:30',
       durationIso: 'PT1M57S',
       schemaDescription:
-        'Meet Patel, owner of Dhan Laxmi, an agricultural seeds distributor in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
+        'Meet Patel, owner of Dhanlaxmi Crop Science Limited, an NSE-listed agricultural seeds company in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
       contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
@@ -243,27 +237,26 @@ export const differentiators = {
 // a specific behavior, not a security superlative.
 export const trustSection = {
   overline: 'Data Safety',
-  heading: 'Your Tally stays exactly as it is',
-  subtitle:
-    'Connecting anything to your books is a trust decision. Here is precisely what Takkada does and does not touch.',
+  heading: 'Your data stays safe',
+  subtitle: 'Your Tally and your books stay on your own PC.',
   points: [
     {
       icon: 'database',
-      title: 'Your books never leave your Tally',
+      title: 'Data stays on your PC',
       body:
-        'Takkada syncs with the Tally installed on your own computer. Your data files stay where they are today. Stop using Takkada and your Tally keeps working exactly as before.',
+        'Your Tally stays on your computer. Stop Takkada any time and Tally works as before.',
     },
     {
       icon: 'shield',
-      title: 'Nothing writes to Tally without you',
+      title: 'Nothing changes without you',
       body:
-        'Receivables tracking and reminders are read-only. A voucher posts into Tally only when you or your team create it in the app, and every entry shows who made it.',
+        'Only entries you or your team make go into Tally. Every entry shows who made it.',
     },
     {
       icon: 'badge',
-      title: 'Official apps under a registered company',
+      title: 'Official app',
       body:
-        'Takkada is listed on the Play Store and App Store under Pay Saathi Innovation LLP. No APK from a forwarded link, no sideloading.',
+        'On the Play Store and App Store under Pay Saathi Innovation LLP.',
       links: [
         { label: 'Play Store listing', hrefKey: 'playStore' },
         { label: 'App Store listing', hrefKey: 'appStore' },
@@ -271,9 +264,9 @@ export const trustSection = {
     },
     {
       icon: 'monitor',
-      title: 'The connector runs where you can see it',
+      title: 'You control the connector',
       body:
-        'A small Windows program sits next to Tally on your PC and does the syncing. You can open it, watch what it syncs, pause it, or remove it any time.',
+        'A small Windows program next to Tally. Pause or remove it any time.',
     },
   ],
   articleLink: {
@@ -428,21 +421,23 @@ export const pricing = {
   // what it does, and NO `price` key. checkRateCardDrift fails the build if a
   // priced add-on comes back without a snapshot entry, and the rendered-page
   // scan fails on any rupee figure the plans cannot justify.
+  // Every card is clickable (Ronak, 2026-10-29): `slug` names the feature
+  // page the card opens; a card with no page opens the WhatsApp ask instead.
+  // Never invent a slug: feature-pages.test.js checks each one is routed.
   addons: [
-    { label: 'FMCG billing', note: 'A fast billing counter, with retail margin and discount set per item.' },
-    { label: 'Auto parts billing', note: 'Selling prices worked out from what the last container cost, plus your markup.' },
-    { label: 'Schemes', note: 'Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.' },
-    { label: 'Ladder discount', note: 'Named discounts in steps, with one aggregate on your invoice and in Tally.' },
+    { label: 'FMCG billing', slug: 'fmcg-module-tally', note: 'A fast billing counter, with retail margin and discount set per item.' },
+    { label: 'Auto parts billing', slug: 'autoparts-billing-tally', note: 'Selling prices worked out from what the last container cost, plus your markup.' },
+    { label: 'Schemes', slug: 'schemes-tally', note: 'Buy X get Y free, quantity slabs and invoice-value discounts, applied as you bill.' },
+    { label: 'Ladder discount', slug: 'ladder-discount-tally', note: 'Named discounts in steps, with one aggregate on your invoice and in Tally.' },
     { label: 'Recovery dashboard', note: 'Log every follow-up and promise to pay, and see which promises were missed.' },
-    { label: 'Customer order link', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
-    { label: 'Personal party links', note: 'A link of its own for each party, so every order arrives already matched to them.' },
-    { label: 'AI calling', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
+    { label: 'Customer order link', slug: 'order-booking-app-tally', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
+    { label: 'Personal party links', slug: 'order-booking-app-tally', note: 'A link of its own for each party, so every order arrives already matched to them.' },
+    { label: 'AI calling', slug: 'ai-collection-calls', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
     // The rendered-page guard (home-v3.test.jsx) still requires "early access"
     // beside every own-number mention, so the note leads with it.
     { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
-    { label: 'WhatsApp 8,000-message pack', note: 'More WhatsApp messages for reminders and invoice dispatch.' },
-    { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
-    { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
+    { label: 'Payment Collection', slug: 'payment-collection-tally', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
+    { label: 'Barcode labels', slug: 'barcode-in-tally-prime', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
@@ -532,8 +527,9 @@ export const footerColumns = [
     // removed (the AI band carried #pdf-import, the capability grid carried
     // #smart-reminders, #e-invoicing and #rbac). A footer link to an id that is
     // no longer rendered is a dead anchor (CLAUDE.md §11.6), so each now points
-    // at the feature page that covers the same ground. The two hashes that
-    // survive are the two sections the revamp kept.
+    // at the feature page that covers the same ground. Payment Collection
+    // followed in the Campfire rebuild (2026-10-30), which dropped
+    // #digital-collection; #tally is the one hash left.
     links: [
       { label: 'Import from PDF', page: 'import-purchase-from-pdf' },
       { label: 'Tally Connector', href: '#tally' },
@@ -542,7 +538,7 @@ export const footerColumns = [
       // apart both reading "Tally Connector", one scrolling and one starting a
       // download, is the collision this label exists to avoid.
       { label: 'Download for Windows', href: TALLY_CONNECTOR_URL, download: true },
-      { label: 'Payment Collection', href: '#digital-collection' },
+      { label: 'Payment Collection', page: 'payment-collection-tally' },
       { label: 'Smart Reminders', page: 'send-payment-reminders-automatically' },
       { label: 'E-Invoicing', page: 'e-invoice-from-phone' },
       // The salesman page is where role-based visibility is actually described
@@ -749,4 +745,114 @@ export const contactInfo = {
   phone: '+91 94359 77777',
   email: 'admin@paysaathi.com',
   website: 'www.takkada.com',
+};
+
+// Seven features in plain words, carried verbatim from feat/seven-features-section
+// (cofounder, 2026-10-31) so the two branches say the same thing. Rendered by
+// src/routes/Home.jsx as text cards with a Try-the-demo action; no screenshots.
+export const homeFeatures = {
+  heading: 'Features',
+  // Closes the section: the hub at /features lists every feature page, and
+  // the add-ons are linked from there and from the pricing strip.
+  more: {
+    text: 'Takkada provides more features and add-ons.',
+    linkLabel: 'Explore all features',
+    href: '/features',
+  },
+  items: [
+    {
+      icon: 'reports',
+      tag: 'Reports',
+      title: 'Tally Reports on Your Phone',
+      line: 'Your Tally books, open on your phone wherever you are.',
+      points: [
+        'Sales and purchases by item, and item-wise pending orders.',
+        'Item-wise customer churn: which party stopped buying what.',
+        'Inventory reports, sales analytics and purchase analytics.',
+        'Ageing report: who owes you and for how long, party by party.',
+        'Payment follow-up logs: every reminder and call, in one place.',
+        'And 20+ other reports, for every company you run in Tally.',
+      ],
+      href: '/tally-reports-on-mobile',
+    },
+    {
+      icon: 'invoice',
+      tag: 'Billing',
+      title: 'Invoices From Your Phone',
+      line: 'Sales invoices, orders, delivery challans, credit notes and other voucher types.',
+      points: [
+        'Batch-wise billing: batch number, batch-wise price, mfg. date, expiry date and item description on the bill.',
+        'E-invoice and e-way bill raised on the same bill.',
+        'Every entry lands in your Tally as the same voucher, so nobody types it again.',
+        'Turn a batch of pending orders into invoices in one go.',
+      ],
+      href: '/tally-on-mobile',
+    },
+    {
+      icon: 'reminders',
+      tag: 'Reminders',
+      title: 'Automatic Payment Reminders',
+      line: 'Overdue parties get reminded without you picking up the phone.',
+      points: [
+        'Automated WhatsApp reminders on the days you choose, bill-date wise or due-date wise.',
+        'Each reminder carries the pending bills and the ledger as attachments, with a pay link.',
+        'Sent from your own WhatsApp number (early access).',
+        'A party that has paid drops out of the next reminder.',
+        'Set a cap so no party is messaged too often.',
+      ],
+      href: '/send-payment-reminders-automatically',
+    },
+    {
+      icon: 'salesman',
+      tag: 'Sales team',
+      title: 'Salesman Module',
+      line: 'Know what each salesman booked and which shops he visited today.',
+      points: [
+        'Orders on the phone against live stock and the right price; each salesman sees only his own parties.',
+        'Live tracking: where he is, battery percentage and kilometres travelled.',
+        'Check-ins with a geo-tagged photo, saved without signal and uploaded when it returns.',
+        'Salesman-wise sales report and receipt report.',
+        'Targets and commission, with product-wise targets.',
+      ],
+      href: '/salesman-app-tally',
+    },
+    {
+      icon: 'pod',
+      tag: 'Delivery',
+      title: 'Proof of Delivery',
+      line: 'The driver\u2019s phone closes the loop on every delivery.',
+      points: [
+        'Driver login with the day\u2019s loading sheet; the route sets itself after the first drop.',
+        'A geo-tagged delivery photo against each invoice.',
+        'Item-wise returns recorded at the door.',
+        'Cash or UPI collected on delivery, posted only after office approval.',
+      ],
+      href: '/delivery-challan-from-mobile',
+    },
+    {
+      icon: 'modules',
+      tag: 'Modules',
+      title: 'Order Links, Schemes and Discounts',
+      line: 'Modules for the way distributors actually sell.',
+      points: [
+        'A customer order link and personal party links: retailers order from your catalogue at your rates, with nothing installed.',
+        'Trade schemes, buy X get Y or slab discounts, applied on every bill that qualifies, with scheme credit notes.',
+        'Ladder discount by quantity or bill value.',
+        'FMCG billing and auto parts billing engines, one included in Enterprise.',
+      ],
+      href: '/dealer-scheme-management-tally',
+    },
+    {
+      icon: 'reconcile',
+      tag: 'Reconciliation',
+      title: 'Auto-Reconciliation in Tally',
+      line: 'Payments match themselves to invoices and post into Tally.',
+      points: [
+        'When a customer pays on the UPI link, the payment matches itself to the right invoice.',
+        'The receipt entry is posted in Tally automatically.',
+        'Import your bank statement as CSV, and AI reads every line and matches each entry to a party and a bill for you.',
+      ],
+      href: '/auto-reconciliation-tally',
+    },
+  ],
 };

@@ -19,8 +19,7 @@ import {
   tallyTrust,
   homeFaqItems,
 } from './siteContent';
-import { HERO_HOME, HOTSPOTS } from './heroHotspots';
-import { STOPS, STORY } from './journey';
+import { HOME_HERO, HOME_USED_FOR, HOME_IN_CHARGE, HOME_ROWS, HOME_CLOSE } from './home';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -180,17 +179,18 @@ describe('pricing matrix', () => {
     }
   });
 
-  // Every string the homepage renders from data. The two story objects, the AI
-  // band and the capability grid were retired on 2026-09-18 and their copy now
-  // comes from the hero hotspots and the journey stops, so those replace them
-  // here. `pricing` joins the set because it renders on this same page and
-  // carries the own-number add-on line the guard below must keep honest.
+  // Every string the homepage renders from data. The Campfire rebuild
+  // (2026-10-30) moved the page's own copy into src/data/home.js, so its five
+  // exports replace the hero hotspots and the journey stops here. `pricing`
+  // joins the set because it renders on this same page and carries the
+  // own-number add-on line the guard below must keep honest.
   const HOME_COPY = {
     heroContent,
-    HERO_HOME,
-    HOTSPOTS,
-    STOPS,
-    STORY,
+    HOME_HERO,
+    HOME_USED_FOR,
+    HOME_IN_CHARGE,
+    HOME_ROWS,
+    HOME_CLOSE,
     tallyTrust,
     homeFaqItems,
     // An add-on renders as its label with its note beside it, so the guard

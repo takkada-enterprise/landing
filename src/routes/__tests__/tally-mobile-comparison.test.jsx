@@ -12,6 +12,7 @@ vi.mock('vite-react-ssg', () => ({
 import TallyMobileComparison from '../TallyMobileComparison';
 import { routeMetadata } from '../../data/siteMetadata';
 import { comparisonSection } from '../../data/siteContent';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -20,7 +21,9 @@ const CANONICAL = 'https://takkada.com/tally-mobile-app-comparison/';
 function renderRoute() {
   const { container } = render(
     <MemoryRouter>
-      <TallyMobileComparison />
+      <PhoneModalProvider>
+        <TallyMobileComparison />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
   const schemas = [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>
@@ -57,7 +60,7 @@ describe('TallyMobileComparison route', () => {
 
   it('renders the shared matrix with all three columns and the enriched rows', () => {
     const { container } = renderRoute();
-    const table = container.querySelector('.comparison-table');
+    const table = container.querySelector('.ui-compare');
     expect(table).not.toBeNull();
 
     for (const col of ['Takkada', 'Biz Analyst', 'Livekeeping']) {
@@ -70,14 +73,14 @@ describe('TallyMobileComparison route', () => {
     expect(table.textContent).toContain('Yes');
     expect(table.textContent).toContain('No');
     // One row per data entry — page and home render the same matrix.
-    expect(container.querySelectorAll('.comparison-row')).toHaveLength(
+    expect(container.querySelectorAll('.ui-compare-row')).toHaveLength(
       comparisonSection.rows.length
     );
   });
 
   it('keeps the dated fairness disclaimer', () => {
     const { container } = renderRoute();
-    expect(container.querySelector('.comparison-disclaimer')?.textContent).toContain(
+    expect(container.querySelector('.ui-compare-note')?.textContent).toContain(
       comparisonSection.disclaimer
     );
   });
@@ -130,7 +133,7 @@ describe('TallyMobileComparison route', () => {
   // split, or it reads as a claim rather than an answer.
   it('opens with a front-loaded answer that concedes what all three do', () => {
     const { container } = renderRoute();
-    const answer = container.querySelector('.feature-answer');
+    const answer = container.querySelector('.ui-answer');
     expect(answer).not.toBeNull();
     expect(answer.textContent).toMatch(/all (show|three)/i);
     expect(answer.textContent).toMatch(/zero MDR/i);
@@ -141,6 +144,8 @@ describe('TallyMobileComparison route', () => {
   it('does not tell a reader that only some of the three generate GST documents', () => {
     const { container } = renderRoute();
     const guide = container.querySelector('#how-to-choose').textContent;
+    expect(container.querySelectorAll('#how-to-choose .ui-card')).toHaveLength(4);
+    expect(container.querySelectorAll('#head-to-head a.ui-card')).toHaveLength(5);
     expect(guide).toMatch(/all three (create|generate)/i);
   });
 });

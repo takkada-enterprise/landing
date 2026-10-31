@@ -523,5 +523,26 @@
     "shows": "AI assistant chat: five September bank statements attached (HDFC, SBI, ICICI, Axis, Kotak), rows and matched counts per bank, 8 rows need an answer",
     "alt": "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered",
     "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hero-card-outstanding",
+    "source": "captures-2026-10-30/crops/hero-card-outstanding.png",
+    "shows": "Parties header card cut from cap-outstanding-phone: chart icon, 'To collect', 'Rs 4,06,70,064', and 'Tally last sent data 30/10/2026, 1:31 am' under it; the card's own white edges, no search bar.",
+    "alt": "The total to collect from customers, with the time Tally last sent data",
+    "sheet": true
+  },
+  {
+    "slug": "hero-card-overdue",
+    "source": "captures-2026-10-30/crops/hero-card-overdue.png",
+    "shows": "First customer row cut from cap-outstanding-phone: RM avatar, 'Rahi Motors', red 'Overdue', red amount 'Rs 30,06,962'; stops at the divider above Shree Shyam Enterprises (Rewari).",
+    "alt": "A customer marked overdue with the amount to collect",
+    "sheet": true
+  },
+  {
+    "slug": "hero-card-ageing",
+    "source": "captures-2026-10-30/crops/hero-card-ageing.png",
+    "shows": "Right-hand party panel cut from cap-outstanding-desktop: 'A J Enterprise', Balance They owe Rs 95,498.80, Overdue Rs 95,498.80, Ageing periods box (Not due Rs 3,246, 0-30 Rs 15,750, 30-60 Rs 88,112, 60-90 Rs 0, 90+ Rs 0, Edit); panel border on top and sides, open at the bottom where it stops above 'Last receipt'.",
+    "alt": "A customer's balance, all overdue, split into ageing periods",
+    "sheet": true
   }
 ]

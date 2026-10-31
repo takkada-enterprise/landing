@@ -80,6 +80,7 @@ vi.mock('../../lib/guidePosts', () => ({
 }));
 
 import GuidePost from '../GuidePost';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 import GuideIndex, { GUIDE_GROUPS, groupGuides } from '../GuideIndex';
 import { GUIDE_HUB } from '../../../scripts/checkGuidePrerender.mjs';
 import topics from '../../../content/guide/topics.json';
@@ -88,11 +89,14 @@ afterEach(cleanup);
 
 function renderPost(slug) {
   const { container } = render(
-    <MemoryRouter initialEntries={[`/guide/${slug}`]}>
-      <Routes>
-        <Route path="/guide/:slug" element={<GuidePost />} />
-      </Routes>
-    </MemoryRouter>
+    // The close band's "Try the demo" is DemoTryCTA, which needs the modal provider.
+    <PhoneModalProvider>
+      <MemoryRouter initialEntries={[`/guide/${slug}`]}>
+        <Routes>
+          <Route path="/guide/:slug" element={<GuidePost />} />
+        </Routes>
+      </MemoryRouter>
+    </PhoneModalProvider>
   );
   return { container, schemas: schemasIn(container) };
 }
@@ -155,6 +159,18 @@ describe('guide reader', () => {
     const table = container.querySelector('table');
     expect(table).not.toBeNull();
     expect(table.closest('.guide-table-wrap')).not.toBeNull();
+    expect(table.closest('.ui-prose')).not.toBeNull();
+  });
+
+  it('sits on the Campfire template: dark hero, prose body, close band', () => {
+    const { container } = renderPost('dispatch');
+    expect(container.querySelector('.ui-band--band h1.ui-hero-title').textContent).toBe(
+      'How to load and dispatch goods'
+    );
+    expect(container.querySelector('.ui-band--band nav.ui-breadcrumb a[href="/guide"]')).not.toBeNull();
+    expect(container.querySelector('.ui-prose').textContent).toContain('Open Dispatch for your company.');
+    expect(container.querySelector('.ui-close a.ui-pill, .ui-close button.ui-pill')).not.toBeNull();
+    expect(container.querySelector('[class*="overline"], [class*="eyebrow"]')).toBeNull();
   });
 
   it('labels the prerequisites section instead of leaving it as body prose', () => {
@@ -228,7 +244,7 @@ describe('guide reader', () => {
 describe('guide hub', () => {
   it('renders exactly one card per guide', () => {
     const { container } = renderHub();
-    const hrefs = [...container.querySelectorAll('a.guide-hub-card')].map((a) =>
+    const hrefs = [...container.querySelectorAll('a.ui-card.guide-hub-card')].map((a) =>
       a.getAttribute('href')
     );
     expect(hrefs.sort()).toEqual(GUIDES.map((g) => `/guide/${g.slug}`).sort());
@@ -237,17 +253,19 @@ describe('guide hub', () => {
   it('gives every card its title and a short description', () => {
     const { container } = renderHub();
     for (const g of GUIDES) {
-      const card = container.querySelector(`a.guide-hub-card[href="/guide/${g.slug}"]`);
+      const card = container.querySelector(`a.ui-card.guide-hub-card[href="/guide/${g.slug}"]`);
       expect(card, g.slug).not.toBeNull();
-      expect(card.textContent).toContain(g.title);
-      expect(card.textContent).toContain(g.meta_description);
+      expect(card.querySelector('h3.ui-card-title').textContent).toBe(g.title);
+      expect(card.querySelector('p.ui-card-line').textContent).toBe(g.meta_description);
+      // Text cards: no media box, no picture.
+      expect(card.querySelector('.ui-card-media, img')).toBeNull();
     }
   });
 
   it('groups the cards by task and heads each group that has cards', () => {
     const { container } = renderHub();
     const rendered = groupGuides(GUIDES);
-    const headings = [...container.querySelectorAll('.guide-hub-group h2')].map(
+    const headings = [...container.querySelectorAll('section.ui-band h2.ui-section-title')].map(
       (h) => h.textContent
     );
     expect(headings).toEqual(rendered.map((group) => group.title));
@@ -264,6 +282,8 @@ describe('guide hub', () => {
     const { container } = renderHub();
     expect(container.querySelectorAll('h1')).toHaveLength(1);
     expect(container.querySelector('h1').textContent).toBe(GUIDE_HUB.h1);
+    expect(container.querySelector('h1').closest('.ui-band--band')).not.toBeNull();
+    expect(container.querySelector('[class*="overline"], [class*="eyebrow"]')).toBeNull();
   });
 
   it('meets the title, description and canonical limits', () => {

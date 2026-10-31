@@ -40,7 +40,7 @@ export const SCREENS = {
   // real number on a public page: "Invoice will be sent to 9573440784", and
   // "ronak / 919435977777". Deleted, not just unreferenced, because public/ is
   // copied into dist verbatim and an unreferenced file there is still a URL.
-  // src/data/__tests__/journey.test.js holds the tombstone.
+  // src/data/__tests__/screens.test.js holds the tombstone.
   reminders: phone(
     'reminders',
     "Reminders tab listing each party's last WhatsApp reminder as sent or failed"
@@ -315,6 +315,26 @@ export const SCREENS = {
   'ai-chat-statements': phone('ai-chat-statements', "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm"),
   'ai-chat-bills': phone('ai-chat-bills', "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm"),
   'ai-chat-banks': phone('ai-chat-banks', "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered"),
+  // Hero cards (2026-10-30), cut from the full-resolution 2026-10-30 captures; the
+  // rectangles live in mockups/captures-2026-10-30/ledger.json under `crops`.
+  'hero-card-outstanding': sheet(
+    'hero-card-outstanding',
+    'The total to collect from customers, with the time Tally last sent data',
+    720,
+    137
+  ),
+  'hero-card-overdue': sheet(
+    'hero-card-overdue',
+    'A customer marked overdue with the amount to collect',
+    720,
+    137
+  ),
+  'hero-card-ageing': sheet(
+    'hero-card-ageing',
+    "A customer's balance, all overdue, split into ageing periods",
+    720,
+    661
+  ),
 };
 
 export function screen(slug) {

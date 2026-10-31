@@ -15,7 +15,7 @@ import { describe, it, expect } from 'vitest';
 import { createHash } from 'node:crypto';
 
 import {
-  DEMO_COMPANY_ID,
+  DEMO_COMPANY_IDS,
   validateScreenshot,
   checkReferences,
   normalizeAssetPath,
@@ -58,6 +58,17 @@ describe('demo image evidence', () => {
     ).toBeGreaterThan(0);
   });
 
+  it('accepts the stage dogfood book 7088 beside prod demo 143', () => {
+    expect(validateScreenshot({ bytes, evidence: { ...evidence, companyId: 7088 } })).toEqual([]);
+    expect(validateScreenshot({ bytes, evidence: { ...evidence, companyId: 143 } })).toEqual([]);
+  });
+
+  it('still rejects any other company', () => {
+    expect(validateScreenshot({ bytes, evidence: { ...evidence, companyId: 144 } })).toContain(
+      'screenshot is not from demo company'
+    );
+  });
+
   it('rejects image replacement after review', () => {
     expect(
       validateScreenshot({ bytes: Buffer.from('changed'), evidence }).length
@@ -72,7 +83,7 @@ describe('demo image evidence', () => {
 describe('capture evidence must be complete', () => {
   it('accepts a complete record', () => {
     expect(validateScreenshot({ bytes, evidence })).toEqual([]);
-    expect(DEMO_COMPANY_ID).toBe(143);
+    expect([...DEMO_COMPANY_IDS].sort((a, b) => a - b)).toEqual([143, 7088]);
   });
 
   it.each(['captureRecord', 'capturedAt', 'appRevision', 'route'])(

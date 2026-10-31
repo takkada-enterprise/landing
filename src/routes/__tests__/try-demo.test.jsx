@@ -12,7 +12,8 @@ vi.mock('vite-react-ssg', () => ({
 import TryDemo from '../TryDemo';
 import { routeMetadata } from '../../data/siteMetadata';
 import { appLinks, demoEntryLive } from '../../data/siteContent';
-import { PhoneModalProvider } from '../../context/PhoneModalContext';
+import { PhoneModalProvider, usePhoneModal } from '../../context/PhoneModalContext';
+import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 
 afterEach(cleanup);
 
@@ -21,11 +22,18 @@ const CANONICAL = 'https://takkada.com/demo/';
 // DemoTryCTA calls usePhoneModal(), which throws by design outside a
 // provider -- and it throws BEFORE the `if (!demoEntryLive)` early return,
 // so this render goes red at either flag value without the wrapper.
+// Shows what the phone modal would open with, so a test can see the click land.
+function ModalProbe() {
+  const { open, options } = usePhoneModal();
+  return open ? <output data-testid="phone-modal">{options.destination}</output> : null;
+}
+
 function renderRoute() {
   const { container } = render(
     <MemoryRouter>
       <PhoneModalProvider>
         <TryDemo />
+        <ModalProbe />
       </PhoneModalProvider>
     </MemoryRouter>
   );
@@ -36,6 +44,15 @@ function renderRoute() {
 }
 
 describe('TryDemo route (/demo/)', () => {
+  it('puts party-list in the hero picture slot, eager and high priority', () => {
+    const { container } = renderRoute();
+    const img = container.querySelector('#hero .ui-hero-stage img.ui-shot[data-screen="party-list"]');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('loading')).toBe('eager');
+    expect(img.getAttribute('fetchpriority')).toBe('high');
+    expect(BUDGETS.some(([p]) => p === `public${img.getAttribute('src')}`)).toBe(true);
+  });
+
   it('is registered in routeMetadata (sitemap) and the router', () => {
     expect(routeMetadata.some((r) => r.path === '/demo')).toBe(true);
   });
@@ -58,10 +75,46 @@ describe('TryDemo route (/demo/)', () => {
     expect(container.textContent).toContain('A sandbox you cannot break');
   });
 
+  it('derives the see and how-it-works grids from their counts', () => {
+    const { container } = renderRoute();
+    expect(container.querySelector('#what-you-will-see .ui-grid--2')).not.toBeNull();
+    expect(container.querySelector('#how-it-works .ui-grid--3')).not.toBeNull();
+  });
+
   it('emits a BreadcrumbList resolving to the registered path', () => {
     const { schemas } = renderRoute();
     const breadcrumb = schemas.find((s) => s['@type'] === 'BreadcrumbList');
     expect(breadcrumb.itemListElement.at(-1).item).toBe(CANONICAL);
+  });
+
+  describe('on the Campfire template', () => {
+    it('opens on the dark band whose first pill is the demo action', () => {
+      const { container } = renderRoute();
+      const hero = container.querySelector('section.ui-band--band');
+      expect(hero.querySelector('h1.ui-hero-title')).not.toBeNull();
+      const first = hero.querySelector('.ui-pill');
+      expect(first.textContent).toMatch(/try the demo/i);
+    });
+
+    it('offers both store apps as pills that open in a new tab', () => {
+      const { container } = renderRoute();
+      for (const href of [appLinks.playStore, appLinks.appStore]) {
+        const a = container.querySelector(`a.ui-pill[href="${href}"]`);
+        expect(a, href).not.toBeNull();
+        expect(a.getAttribute('rel')).toContain('noopener');
+      }
+    });
+
+    it('holds the demo video in a card', () => {
+      const { container } = renderRoute();
+      expect(container.querySelector('.ui-card .video-embed')).not.toBeNull();
+    });
+
+    it('closes on the dark close band and carries no overline', () => {
+      const { container } = renderRoute();
+      expect(container.querySelector('.ui-close .ui-pill')).not.toBeNull();
+      expect(container.querySelector('[class*="overline"], [class*="section-label"]')).toBeNull();
+    });
   });
 
   describe('flag-gated primary action (never a dead link)', () => {
@@ -85,6 +138,7 @@ describe('TryDemo route (/demo/)', () => {
       fireEvent.click(cta);
 
       expect(window.clarity).toHaveBeenCalledWith('event', 'demo_try_click');
+      expect(screen.getByTestId('phone-modal').textContent).toBe('demo');
       delete window.clarity;
     });
 

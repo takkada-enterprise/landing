@@ -11,6 +11,7 @@ import {
   getFeaturePage,
   heroShot,
   stepShot,
+  distinctCardScreens,
 } from '../featurePages';
 import { screen, SCREENS } from '../screens';
 import {
@@ -22,7 +23,7 @@ import {
   sectionFeatureGroups,
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
-import { STOPS } from '../journey';
+import { HOME_USED_FOR, HOME_ROWS } from '../home';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -608,21 +609,15 @@ describe('hub tiers partition the feature pages', () => {
     expect(all.sort()).toEqual(FEATURE_PAGES.map((p) => p.slug).sort());
   });
 
-  // The seven stops are the page's spine, so a stop group survives the lead
-  // subtraction even with nothing left; only a group outside the journey is
-  // dropped when it is empty. Every group is a section since the compact index
-  // went (2026-09-18), so today nothing is dropped at all.
-  it('renders every group as a section, in journey order', () => {
+  // Every group is a section since the compact index went (2026-09-18). A
+  // group the lead tier empties is dropped, so today nothing may be empty.
+  it('renders every group as a section, in hub order', () => {
     expect(sectionFeatureGroups(FEATURE_PAGES).map((g) => g.id)).toEqual(SECTION_GROUP_IDS);
     expect(SECTION_GROUP_IDS).toEqual(FEATURE_GROUPS.map((g) => g.id));
   });
 
-  it('keeps a stop section even when the lead tier takes all of its pages', () => {
-    const stops = new Set(FEATURE_GROUPS.filter((g) => g.stop).map((g) => g.id));
-    const rendered = sectionFeatureGroups(FEATURE_PAGES);
-    expect([...stops].filter((id) => !rendered.some((g) => g.id === id))).toEqual([]);
-    // And no section outside the journey heads nothing.
-    for (const group of rendered.filter((g) => !g.stop)) {
+  it('heads no empty section', () => {
+    for (const group of sectionFeatureGroups(FEATURE_PAGES)) {
       expect(group.pages.length, group.id).toBeGreaterThan(0);
     }
   });
@@ -867,7 +862,7 @@ describe('round-two pages', () => {
     const texts = [
       FEATURE_BLURBS['ai-collection-calls'],
       ...page.walkthrough.map((s) => `${s.title} ${s.body}`),
-      STOPS.find((s) => s.id === 'recover').body,
+      ...[...HOME_USED_FOR, ...HOME_ROWS].map((c) => `${c.title} ${c.line}`),
     ];
     for (const t of texts) {
       if (/recovery board|follow-up log|same log/i.test(t)) expect(t).toMatch(/Recovery dashboard/);
@@ -899,3 +894,33 @@ describe('call recording', () => {
   });
 });
 
+
+describe('distinct card screens', () => {
+  const pg = (hero, ...steps) => ({
+    hero: { screen: hero },
+    walkthrough: steps.map((screen) => ({ screen })),
+  });
+  it('picks each page its first screen not already taken', () => {
+    expect(distinctCardScreens([pg('a', 'a', 'b'), pg('a', 'a', 'c'), pg('d')])).toEqual([
+      'a',
+      'c',
+      'd',
+    ]);
+  });
+  it('skips reserved screens', () => {
+    expect(distinctCardScreens([pg('a', 'a', 'b')], ['a'])).toEqual(['b']);
+  });
+  it('reads tour stations when a page has no walkthrough', () => {
+    expect(
+      distinctCardScreens([pg('a'), { hero: { screen: 'a' }, tour: { stations: [{ screen: 'c' }] } }])
+    ).toEqual(['a', 'c']);
+  });
+  it('falls back to the hero when every screen is taken, never undefined', () => {
+    expect(distinctCardScreens([pg('a'), pg('a')])).toEqual(['a', 'a']);
+  });
+  it('gives /schemes-tally a hero no walkthrough step repeats', () => {
+    const page = getFeaturePage('schemes-tally');
+    expect(page.hero.screen).toBe('scheme-buy-x-get-y');
+    expect(page.walkthrough.map((s) => s.screen)).not.toContain(page.hero.screen);
+  });
+});

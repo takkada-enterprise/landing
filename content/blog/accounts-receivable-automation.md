@@ -57,7 +57,7 @@ For distributors, this is particularly important because payment collection happ
 
 Takkada is designed around businesses that already run their accounts on Tally.
 
-The business owner can see receivables on the phone, send customer reminders, collect payments through UPI, and have receipts flow back into Tally seamlessly. Read our guide [for distributors](/for-distributors/) to see how it fits your business model.
+The business owner can see receivables on the phone, send customer reminders, collect payments through UPI, and have receipts flow back into Tally on their own. Read our guide [for distributors](/for-distributors/) to see how it fits your business model.
 
 ## Frequently Asked Questions
 

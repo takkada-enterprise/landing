@@ -18,39 +18,25 @@
 // thing the page covers rather than repeating the SEO sentence (CLAUDE.md
 // craft rules 1 and 3).
 
-import { STOPS } from './journey.js';
-
 /**
  * @typedef {object} FeatureGroup
  * @property {string} id     stable key, also the section's DOM id
- * @property {string} [stop] the journey stop this group is, a `STOPS` id
  * @property {string} title  group heading
  * @property {string} intro  one line under the heading
  * @property {string[]} slugs  feature page slugs, in display order
  */
 
-// ── Grouped by the invoice's journey (2026-09-18) ──
+// ── Grouped by the invoice's life (2026-09-18) ──
 //
-// The nine themes here used to be names invented for the directory alone:
-// "Getting paid", "Entries without typing", "Billing, stock and godowns". They
-// were honest, but they were a second taxonomy sitting beside the one the
-// homepage tells, so a visitor who arrived having just followed one invoice
-// through seven stops landed on a page that re-sorted the same product into
-// words he had not seen. The first seven groups are now those stops, in that
-// order, carrying `stop` so the hub can show each one's stamp and Task 10 can
-// draw the strip on the feature pages themselves.
-//
-// The two groups after them have no stop on purpose. Comparing Takkada with
-// Biz Analyst, or checking it was built for pharma, is not a moment in the
-// invoice's life; it is the reading somebody does before any of this starts.
-// Forcing them onto the story would have been the taxonomy problem again, in
-// the other direction.
+// The first seven groups follow one invoice from the order to Tally, in that
+// order. The groups after them are the reading somebody does before any of
+// this starts (schemes, weighing, comparisons and trade pages), so they close
+// the hub.
 
 /** @type {FeatureGroup[]} */
 export const FEATURE_GROUPS = [
   {
     id: 'order',
-    stop: 'order',
     title: 'Taking the order',
     intro: "What your salesman does at the retailer's counter, and what you see of it.",
     slugs: [
@@ -62,7 +48,6 @@ export const FEATURE_GROUPS = [
   },
   {
     id: 'bill',
-    stop: 'bill',
     title: 'Making the bill',
     intro: 'Invoices, e-invoice, e-way bill and entries that fill themselves in.',
     slugs: [
@@ -80,28 +65,24 @@ export const FEATURE_GROUPS = [
   },
   {
     id: 'load',
-    stop: 'load',
     title: 'Loading and stock',
     intro: 'Godowns, challans and what is actually on the shelf.',
     slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile', 'barcode-in-tally-prime'],
   },
   {
     id: 'send',
-    stop: 'send',
     title: 'Sending it to the customer',
     intro: 'The invoice and the statement reach WhatsApp without anyone pressing send.',
     slugs: ['custom-invoice-template-tally', 'share-ledger-statement-whatsapp'],
   },
   {
     id: 'remind',
-    stop: 'remind',
     title: 'Reminding and collecting',
     intro: 'Reminders on your schedule, with a pay link in every one.',
     slugs: ['payment-reminder-tally', 'send-payment-reminders-automatically'],
   },
   {
     id: 'recover',
-    stop: 'recover',
     title: 'Recovering what is overdue',
     intro: 'Who owes you, for how long, and who in your team is chasing it.',
     // The UPI link belongs to the stop whose pill names it. The Recover stop is
@@ -116,7 +97,6 @@ export const FEATURE_GROUPS = [
   },
   {
     id: 'tally',
-    stop: 'tally',
     title: 'Back in Tally',
     intro: 'Receipts matched, reports on your phone, nothing typed twice.',
     slugs: [
@@ -329,16 +309,10 @@ export const LEAD_FEATURE_SLUGS = [
  * stops into the main body, and with the stops out of it the index had nothing
  * left to hold, so it went rather than shipping as an empty heading.
  *
- * Derived from STOPS so the seven stay in journey order and a new stop cannot
- * be added to the story without appearing here.
+ * Derived from FEATURE_GROUPS, so a new group is a new section.
  * @type {string[]}
  */
-export const SECTION_GROUP_IDS = [
-  ...STOPS.map((stop) => stop.id),
-  'schemes-discount',
-  'weighing-options',
-  'built-for-your-trade',
-];
+export const SECTION_GROUP_IDS = FEATURE_GROUPS.map((group) => group.id);
 
 const withBlurb = (page) => ({
   ...page,
@@ -419,10 +393,8 @@ export function menuFeatureGroups(pages) {
  * pages are lead cards at the top, and a section repeating them would be the
  * same link twice on one page.
  *
- * A stop group emptied by that subtraction still comes back. The seven stops are
- * the page's spine and a missing one reads as a hole in the story, so it renders
- * its header and says where its pages went; only a group outside the journey is
- * dropped when it has nothing left. No stop is empty today.
+ * A group emptied by that subtraction is dropped rather than shipped as an
+ * empty heading. No group is empty today.
  */
 export function sectionFeatureGroups(pages) {
   checkPagesCache(pages);
@@ -432,6 +404,6 @@ export function sectionFeatureGroups(pages) {
   cachedSections = groupFeaturePages(pages)
     .filter((group) => SECTION_GROUP_IDS.includes(group.id))
     .map((group) => ({ ...group, pages: group.pages.filter((page) => !lead.has(page.slug)) }))
-    .filter((group) => group.stop || group.pages.length > 0);
+    .filter((group) => group.pages.length > 0);
   return cachedSections;
 }

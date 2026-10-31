@@ -1,11 +1,15 @@
-import { ArrowRight, Users, FileText, BarChart2, ShieldCheck } from 'lucide-react';
 import Seo from '../components/Seo';
 import Breadcrumb from '../components/Breadcrumb';
 import DemoTryCTA from '../components/DemoTryCTA';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import CalendarCTA from '../components/CalendarCTA';
+import VideoEmbed from '../components/VideoEmbed';
+import { Band, Pill, SectionHead, Card, CardGrid, Shot, CloseBand } from '../ui';
+// The feature-page skin carries the hero this page shares with it (every
+// rule is prefixed .ui-feature).
+import '../ui/feature.css';
 import { softwareApplicationSchema, breadcrumbSchema } from '../data/schema';
-import { demoEntryLive } from '../data/siteContent';
+import { appLinks, demoEntryLive, demoVideo } from '../data/siteContent';
 
 // The shareable demo landing (plan 2026-07-06-001, U9): referrers forward
 // takkada.com/demo/ on WhatsApp (the OG card below owns the unfurl), and the
@@ -13,6 +17,11 @@ import { demoEntryLive } from '../data/siteContent';
 // entry. Copy explains what the visitor will see — a real distributor's
 // books, shared sandbox, nightly reset — so the demo is never mistaken for
 // their own data (R10 context).
+//
+// Campfire template since plan 2026-10-30-003 (Task 6): the primary pill is
+// DemoTryCTA under the demoEntryLive gate, the store apps sit beside it, the
+// demo video is one card. No link into the web app: the number is captured
+// first (try-demo.test.jsx). Motion: none of its own.
 const SEO = {
   title: 'Try Takkada on a Live Demo Company',
   description:
@@ -22,22 +31,18 @@ const SEO = {
 
 const whatYouWillSee = [
   {
-    icon: Users,
     title: 'A full book of parties',
-    body: 'Retailers with real balances, overdues, and payment history — the receivables screen a distributor actually opens at 9 PM.',
+    body: 'Retailers with real balances, overdues, and payment history: the receivables screen a distributor actually opens at 9 PM.',
   },
   {
-    icon: FileText,
     title: 'A year of invoices',
     body: 'Sales invoices, receipts, and vouchers across a full financial year. Open any invoice, see the PDF, follow the money.',
   },
   {
-    icon: BarChart2,
     title: 'Reports on real data',
-    body: 'Outstanding by age, customer analytics, daybook, stock — every report populated the way it would be on your own books.',
+    body: 'Outstanding by age, customer analytics, daybook and stock, every report populated the way it would be on your own books.',
   },
   {
-    icon: ShieldCheck,
     title: 'A sandbox you cannot break',
     body: 'The demo is shared and resets to the same clean dataset every night. Create, edit, explore, nothing you do is permanent. Owner-only screens like team management and salesman tracking sit outside it.',
   },
@@ -61,9 +66,11 @@ const steps = [
   },
 ];
 
+const STORE_LINK = { target: '_blank', rel: 'noopener noreferrer' };
+
 function TryDemo() {
   return (
-    <>
+    <div className="ui-feature">
       <Seo
         title={SEO.title}
         description={SEO.description}
@@ -78,110 +85,72 @@ function TryDemo() {
         ]}
       />
 
-      {/* ── Hero ── */}
-      <section className="hero icp-hero" id="hero">
-        <div className="container">
-          <div className="hero-content icp-hero-content">
+      <Band tone="band" id="hero">
+        <div className="ui-hero">
+          <div className="ui-hero-copy">
             <Breadcrumb
               trail={[
                 { name: 'Home', url: 'https://takkada.com/' },
                 { name: 'Live Demo', url: 'https://takkada.com/demo/' },
               ]}
             />
-            <span className="section-label hero-overline">Live Demo</span>
-            <h1 className="hero-title icp-hero-title">
-              Open a real distributor&rsquo;s books.
-            </h1>
-            <p className="hero-subtitle icp-hero-subtitle">
+            <h1 className="ui-hero-title">Open a real distributor&rsquo;s books.</h1>
+            <p className="ui-hero-lead">
               The demo company is a full year of a distributor&rsquo;s business running
               in Takkada: parties, invoices, receivables, reports. Walk through it
               from your phone{demoEntryLive ? '. Enter your number, we text you a code, and it opens' : ''}.
-            </p>
-            <div className="hero-ctas">
-              <DemoTryCTA context="demo-page" />
-              {demoEntryLive ? (
-                <WhatsAppCTA context="demo" variant="secondary" />
-              ) : (
-                <CalendarCTA context="demo-page" />
-              )}
-            </div>
-            <p className="hero-tertiary-line">
               Explore freely. The demo resets to a clean state every night.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── What you'll see ── */}
-      <section className="tally-section" id="what-you-will-see">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Inside the Demo</span>
-            <h2 className="section-title">What you&rsquo;ll be looking at</h2>
-          </div>
-          <div className="tally-grid">
-            {whatYouWillSee.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="tally-card">
-                  <div className="tally-card-icon">
-                    <Icon size={22} />
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── How it works ── */}
-      <section className="how-section" id="how-it-works">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">How It Works</span>
-            <h2 className="section-title">Three taps, then it&rsquo;s yours to explore</h2>
-          </div>
-          <div className="how-grid">
-            {steps.map((step) => (
-              <div key={step.title} className="how-card">
-                <span className="how-step-num tabular-nums">{step.step}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA band ── */}
-      <section className="final-cta" id="final-cta">
-        <div className="container">
-          <div className="final-cta-content">
-            <h2>
-              See it working.
-              <br />
-              Then make it yours.
-            </h2>
-            <p>
-              The demo shows the product. A conversation connects it to your own
-              Tally and your own retailers.
-            </p>
-            <div className="final-cta-actions">
-              {demoEntryLive ? (
-                <DemoTryCTA context="demo-page-final" variant="dark" />
-              ) : (
-                <WhatsAppCTA context="demo" variant="dark" />
-              )}
-              <CalendarCTA context="demo-page" variant="link" className="final-cta-secondary-link">
-                or book a <span className="tabular-nums">15-min</span> demo <ArrowRight size={16} />
-              </CalendarCTA>
+            <div className="ui-hero-actions">
+              <DemoTryCTA context="demo-page" />
+              <Pill href={appLinks.playStore} tone="ghost" {...STORE_LINK}>Get it on Google Play</Pill>
+              <Pill href={appLinks.appStore} tone="ghost" {...STORE_LINK}>Download on the App Store</Pill>
             </div>
           </div>
+          <div className="ui-hero-stage">
+            <Shot screen="party-list" eager fetchPriority="high" sizes="(max-width: 767px) 70vw, 300px" />
+          </div>
         </div>
-      </section>
-    </>
+      </Band>
+
+      <Band id="what-you-will-see">
+        <SectionHead title="What you&rsquo;ll be looking at" />
+        <CardGrid>
+          {whatYouWillSee.map((item) => <Card key={item.title} title={item.title} line={item.body} />)}
+        </CardGrid>
+      </Band>
+
+      <Band tone="white" id="how-it-works">
+        <SectionHead title="Three taps, then it&rsquo;s yours to explore" />
+        <CardGrid>
+          {steps.map((step) => <Card key={step.title} title={step.title} line={step.body} />)}
+        </CardGrid>
+      </Band>
+
+      <Band id="video">
+        <Card title={demoVideo.title}>
+          <VideoEmbed />
+        </Card>
+      </Band>
+
+      {/* The second action follows the same gate the hero used to carry: once
+          the demo is live, WhatsApp; before that, the booking link. */}
+      <CloseBand id="close" title="See it working, then make it yours.">
+        <div className="ui-close-actions">
+          {demoEntryLive ? (
+            <>
+              <DemoTryCTA context="demo-page-final" />
+              <WhatsAppCTA context="demo" tone="ghost" />
+            </>
+          ) : (
+            <>
+              <WhatsAppCTA context="demo" tone="accent" />
+              <CalendarCTA context="demo-page" />
+            </>
+          )}
+        </div>
+      </CloseBand>
+    </div>
   );
 }
 

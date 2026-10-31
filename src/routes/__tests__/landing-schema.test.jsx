@@ -14,6 +14,7 @@ import AutoReconciliation from '../AutoReconciliation';
 import WhatsAppInvoice from '../WhatsAppInvoice';
 import ForDistributors from '../ForDistributors';
 import { routeMetadata } from '../../data/siteMetadata';
+import { PhoneModalProvider } from '../../context/PhoneModalContext';
 
 afterEach(cleanup);
 
@@ -29,7 +30,9 @@ const KNOWN_ROUTES = new Set(routeMetadata.map((r) => r.path));
 function renderRoute(Comp) {
   const { container } = render(
     <MemoryRouter>
-      <Comp />
+      <PhoneModalProvider>
+        <Comp />
+      </PhoneModalProvider>
     </MemoryRouter>
   );
   const schemas = [...container.querySelectorAll('script[type="application/ld+json"]')].map((s) =>

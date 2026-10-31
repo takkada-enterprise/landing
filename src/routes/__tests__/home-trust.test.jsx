@@ -49,13 +49,15 @@ describe('proof strip (the testimonial moved ahead of pricing, 2026-08-06)', () 
     expect(section.textContent).toContain(testimonials[0].role);
   });
 
-  it('renders proof and the differentiator band before the pricing table (R3/R4)', () => {
+  // The differentiator band is the seven-feature section since 2026-10-31
+  // (#why-takkada, "Tally stays in charge", left the home page with it).
+  it('renders proof and the features section before the pricing table (R3/R4)', () => {
     const { container } = renderHome();
-    const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
+    const ids = [...container.querySelectorAll('[id]')].map((s) => s.id);
     expect(ids.indexOf('testimonial')).toBeGreaterThan(-1);
-    expect(ids.indexOf('why-takkada')).toBeGreaterThan(-1);
+    expect(ids.indexOf('features')).toBeGreaterThan(-1);
     expect(ids.indexOf('testimonial')).toBeLessThan(ids.indexOf('pricing'));
-    expect(ids.indexOf('why-takkada')).toBeLessThan(ids.indexOf('pricing'));
+    expect(ids.indexOf('features')).toBeLessThan(ids.indexOf('pricing'));
   });
 
   it('never renders placeholder copy (real quotes only)', () => {
@@ -80,7 +82,7 @@ describe('data-safety trust section', () => {
   it('links the real store listings with noopener', () => {
     const { container } = renderHome();
     const section = container.querySelector('#data-safety');
-    const links = [...section.querySelectorAll('.trust-store-links a')];
+    const links = [...section.querySelectorAll('.ui-store-links a')];
     const hrefs = links.map((a) => a.getAttribute('href'));
     expect(hrefs).toContain(appLinks.playStore);
     expect(hrefs).toContain(appLinks.appStore);
