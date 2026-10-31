@@ -746,3 +746,105 @@ export const contactInfo = {
   email: 'admin@paysaathi.com',
   website: 'www.takkada.com',
 };
+
+// Seven features in plain words, carried verbatim from feat/seven-features-section
+// (cofounder, 2026-10-31) so the two branches say the same thing. Rendered by
+// src/routes/Home.jsx as text cards with a Try-the-demo action; no screenshots.
+export const homeFeatures = {
+  heading: 'Features',
+  // Closes the section: the hub at /features lists every feature page, and
+  // the add-ons are linked from there and from the pricing strip.
+  more: {
+    text: 'Takkada provides more features and add-ons.',
+    linkLabel: 'Explore all features',
+    href: '/features',
+  },
+  items: [
+    {
+      icon: 'reports',
+      tag: 'Reports',
+      title: 'Tally Reports on Your Phone',
+      line: 'Your Tally books, open on your phone wherever you are.',
+      points: [
+        'See outstanding, sales, stock and ledgers, straight from your Tally.',
+        'Over 20 reports, for every company you run in Tally.',
+        'Check who owes you and for how long, party by party.',
+      ],
+      href: '/tally-reports-on-mobile',
+    },
+    {
+      icon: 'invoice',
+      tag: 'Billing',
+      title: 'Invoices From Your Phone',
+      line: 'Make bills and entries on the phone, and they land in your Tally.',
+      points: [
+        'Create sales invoices, sales orders, delivery challans and credit notes from your phone.',
+        'Every entry is saved straight into your Tally, so nobody types it again.',
+        'Turn a batch of pending orders into invoices in one go.',
+      ],
+      href: '/tally-on-mobile',
+    },
+    {
+      icon: 'einvoice',
+      tag: 'GST',
+      title: 'E-Invoice & E-Way Bill',
+      line: 'GST e-invoices and e-way bills from the phone, written back to Tally.',
+      points: [
+        'Generate the e-invoice (IRN and QR code) and the e-way bill from your phone.',
+        'Both numbers are saved against the same invoice in Tally.',
+        'Cancel a wrong e-invoice or e-way bill from the phone too.',
+      ],
+      href: '/e-invoice-from-phone',
+    },
+    {
+      icon: 'whatsapp',
+      tag: 'WhatsApp',
+      title: 'Invoices on WhatsApp',
+      line: 'Every bill reaches the customer on WhatsApp on its own.',
+      points: [
+        'The invoice PDF goes to your customer on WhatsApp as soon as it is saved in Tally.',
+        'The message carries the amount and a Pay now link.',
+        'Share a ledger statement with any party on WhatsApp.',
+      ],
+      href: '/whatsapp-invoice-tally',
+    },
+    {
+      icon: 'reminders',
+      tag: 'Reminders',
+      title: 'Automatic Payment Reminders',
+      line: 'Overdue parties get reminded without you picking up the phone.',
+      points: [
+        'Send WhatsApp reminders to overdue parties automatically, on the days you choose.',
+        'Each reminder carries the amount, the bill and a pay link.',
+        'A party that has paid drops out of the next reminder.',
+        'Set a cap so no party is messaged too often.',
+      ],
+      href: '/send-payment-reminders-automatically',
+    },
+    {
+      icon: 'salesman',
+      tag: 'Sales team',
+      title: 'Salesman Module',
+      line: 'Know what each salesman booked and which shops he visited today.',
+      points: [
+        'Your salesmen take orders on their phone, against live stock and the right price.',
+        'Each salesman sees only his own parties.',
+        'Track every visit with a check-in and a geo-tagged photo.',
+        'Check-ins save without signal and upload when it returns.',
+      ],
+      href: '/salesman-app-tally',
+    },
+    {
+      icon: 'reconcile',
+      tag: 'Reconciliation',
+      title: 'Auto-Reconciliation in Tally',
+      line: 'Payments match themselves to invoices and post into Tally.',
+      points: [
+        'When a customer pays on the UPI link, the payment matches itself to the right invoice.',
+        'The receipt entry is posted in Tally automatically.',
+        'Import your bank statement and each entry is matched for you.',
+      ],
+      href: '/auto-reconciliation-tally',
+    },
+  ],
+};

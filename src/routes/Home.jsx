@@ -7,12 +7,13 @@ import DemoTryCTA from '../components/DemoTryCTA';
 import FAQItem from '../components/FAQItem';
 import VideoTestimonials from '../components/VideoTestimonials';
 import Seo from '../components/Seo';
-import { Band, SectionHead, Card, CardGrid, Shot, AltRow, QuoteBand, CloseBand } from '../ui';
+import { Band, SectionHead, Card, CardGrid, Shot, QuoteBand, CloseBand } from '../ui';
 import '../ui/home.css';
 import { whatsappHref } from '../lib/whatsapp';
 import { track } from '../lib/track';
 import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
-import { HOME_HERO, HOME_USED_FOR, HOME_IN_CHARGE, HOME_ROWS, HOME_CLOSE } from '../data/home';
+import { HOME_HERO, HOME_CLOSE } from '../data/home';
+import { homeFeatures } from '../data/siteContent';
 import {
   appLinks,
   pricing,
@@ -93,18 +94,39 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </Band>
 
-      <Band id="used-for">
-        <p className="ui-label">Distributors use Takkada for:</p>
-        <CardGrid cols={4}>
-          {HOME_USED_FOR.map((c) => (
-            <Card key={c.id} title={c.title} line={c.line} to={`/${c.slug}`}>
-              <Shot screen={c.screen} sizes="(max-width: 599px) 90vw, (max-width: 1099px) 45vw, 260px" />
+      {/* ── Seven features in plain words (copy from feat/seven-features-section,
+             2026-10-31). Replaces the used-for cards, the in-charge cards and
+             the alternating rows: the hero phone is the page's one screenshot.
+             Each card: title, line, ticked points, Try the demo, page link.
+             #tally and #digital-collection stay as anchors for old links. ── */}
+      <Band id="features">
+        <span id="tally" aria-hidden="true" />
+        <span id="digital-collection" aria-hidden="true" />
+        <SectionHead title={homeFeatures.heading} />
+        {/* Two to a row so the points have room; the seventh card spans both
+            columns (home.css) instead of sitting alone on a last row. */}
+        <CardGrid cols={2}>
+          {homeFeatures.items.map((f) => (
+            <Card key={f.href} title={f.title} line={f.line} className="home-feature">
+              <ul className="home-feature-points">
+                {f.points.map((p) => (
+                  <li key={p}>
+                    <Check size={16} aria-hidden="true" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="home-feature-actions">
+                <DemoTryCTA context={`home-feature-${f.icon}`} tone="ghost" />
+                <Link className="ui-textlink" to={f.href}>See how it works</Link>
+              </div>
             </Card>
           ))}
         </CardGrid>
-        <div className="ui-after-grid">
-          <DemoTryCTA context="home-used-for" />
-        </div>
+        <p className="home-feature-more">
+          {homeFeatures.more.text}{' '}
+          <Link className="ui-textlink" to={homeFeatures.more.href}>{homeFeatures.more.linkLabel}</Link>
+        </p>
       </Band>
 
       <Band>
@@ -116,28 +138,6 @@ function Home({ seo = HOME_SEO }) {
           note="100+ businesses run their Tally on Takkada."
           cta={{ to: '/#pricing', label: 'See pricing' }}
         />
-      </Band>
-
-      <Band tone="white" id="tally">
-        <div id="why-takkada">
-          <SectionHead title="Tally stays in charge." />
-          <CardGrid cols={3}>
-            {HOME_IN_CHARGE.map((c) => (
-              <Card key={c.title} title={c.title} line={c.line}>
-                <Shot screen={c.screen} sizes="(max-width: 899px) 90vw, 340px" />
-              </Card>
-            ))}
-          </CardGrid>
-        </div>
-      </Band>
-
-      <Band id="rows">
-        <SectionHead title="Built for a distributor's day." />
-        {HOME_ROWS.map((r, i) => (
-          <AltRow key={r.title} title={r.title} line={r.line} flip={i % 2 === 1} to={`/${r.slug}`}>
-            <Shot screen={r.screen} sizes="(max-width: 899px) 80vw, 320px" />
-          </AltRow>
-        ))}
       </Band>
 
       <Band tone="white" id="data-safety">

@@ -12,7 +12,8 @@ vi.mock('vite-react-ssg', () => ({
 }));
 
 import Home from '../Home';
-import { HOME_HERO, HOME_USED_FOR, HOME_ROWS } from '../../data/home';
+import { HOME_HERO } from '../../data/home';
+import { homeFeatures } from '../../data/siteContent';
 import { SCREENS } from '../../data/screens';
 import {
   navLinks,
@@ -99,15 +100,35 @@ describe('hero', () => {
 });
 
 describe('sections', () => {
-  it('renders the four used-for cards from home.js', () => {
-    const cards = [...renderHome().querySelectorAll('#used-for .ui-card')];
-    expect(cards).toHaveLength(4);
-    HOME_USED_FOR.forEach((d, i) => {
-      expect(cards[i].querySelector('h3').textContent).toBe(d.title);
-      expect(cards[i].querySelector('p.ui-card-line').textContent).toBe(d.line);
-      expect(cards[i].querySelector('img').getAttribute('src')).toBe(SCREENS[d.screen].src);
-      expect(cards[i].getAttribute('href')).toBe(`/${d.slug}`);
+  // Seven text cards from siteContent.homeFeatures (the cofounder's copy,
+  // 2026-10-31): title, line, every point ticked, a Try-the-demo button and
+  // the page link. No screenshot in any card: the hero phone is the page's
+  // one picture.
+  it('renders the seven feature cards as text, each with Try the demo and its page link', () => {
+    const section = renderHome().querySelector('#features');
+    const cards = [...section.querySelectorAll('.ui-card')];
+    expect(cards).toHaveLength(homeFeatures.items.length);
+    expect(cards).toHaveLength(7);
+    homeFeatures.items.forEach((f, i) => {
+      expect(cards[i].querySelector('h3').textContent).toBe(f.title);
+      expect(cards[i].querySelector('p.ui-card-line').textContent).toBe(f.line);
+      const points = [...cards[i].querySelectorAll('.home-feature-points li')];
+      expect(points.map((li) => li.textContent)).toEqual(f.points);
+      for (const li of points) expect(li.querySelector('svg')).not.toBeNull();
+      expect(cards[i].querySelector('img')).toBeNull();
+      expect(cards[i].querySelector('button.ui-pill').textContent).toMatch(/Try the demo/);
+      expect(cards[i].querySelector(`a.ui-textlink[href="${f.href}"]`).textContent).toBe('See how it works');
     });
+    expect(section.querySelector(`a.ui-textlink[href="${homeFeatures.more.href}"]`).textContent).toBe(homeFeatures.more.linkLabel);
+    expect(section.querySelector('#tally')).toBeTruthy();
+    expect(section.querySelector('#digital-collection')).toBeTruthy();
+  });
+
+  it('shows exactly one app screenshot on the page: the hero phone', () => {
+    const shots = [...renderHome().querySelectorAll('img.ui-shot')];
+    const whole = shots.filter((img) => !img.closest('.ui-hero-float'));
+    expect(whole).toHaveLength(1);
+    expect(whole[0].closest('.ui-hero-stage')).toBeTruthy();
   });
 
   it('quotes the lead testimonial beside the one scale figure', () => {
@@ -116,21 +137,10 @@ describe('sections', () => {
     expect(band.textContent).toContain('100+ businesses');
   });
 
-  it('carries three in-charge cards and three alternating rows', () => {
-    const c = renderHome();
-    expect(c.querySelectorAll('#tally .ui-card')).toHaveLength(3);
-    const rows = [...c.querySelectorAll('#rows .ui-altrow')];
-    expect(rows).toHaveLength(HOME_ROWS.length);
-    expect(rows.map((r) => r.classList.contains('ui-altrow--flip'))).toEqual([false, true, false]);
-  });
-
-  // jsdom has no layout, so the flip is pinned as DOM plus the rule that
-  // moves it: the media is the row's last child (wrapped in a Link), and
-  // ui.css orders that child first on a flipped row, in the 7fr track.
-  it('puts the flipped row\'s media on the left, in the wide column', () => {
-    const flip = renderHome().querySelector('#rows .ui-altrow--flip');
-    expect(flip.firstElementChild.classList.contains('ui-altrow-copy')).toBe(true);
-    expect(flip.lastElementChild.querySelector('.ui-altrow-media')).toBeTruthy();
+  // The alternating rows left the home page on 2026-10-31 (feature pages
+  // still use AltRow), so only the shared rule is pinned here: ui.css orders
+  // a flipped row's media first, in the 7fr track.
+  it('keeps the flipped alt-row rule for the pages that still use it', () => {
     const ui = readFileSync('src/ui/ui.css', 'utf8');
     expect(ui).toMatch(/\.ui-altrow--flip\s*>\s*:last-child\s*\{\s*order:\s*-1;?\s*\}/);
     expect(ui).toMatch(/\.ui-altrow\s*\{\s*grid-template-columns:\s*5fr 7fr;/);
@@ -169,7 +179,7 @@ describe('sections', () => {
   });
 
   it('orders the sections hero to close', () => {
-    const order = ['product', 'used-for', 'testimonial', 'tally', 'rows', 'data-safety', 'customer-stories', 'pricing', 'faq', 'close'];
+    const order = ['product', 'features', 'testimonial', 'data-safety', 'customer-stories', 'pricing', 'faq', 'close'];
     const ids = [...renderHome().querySelectorAll('[id]')].map((el) => el.id).filter((id) => order.includes(id));
     expect(ids).toEqual(order);
   });
