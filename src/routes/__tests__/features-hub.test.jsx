@@ -375,9 +375,9 @@ describe('the hub is grouped by the invoice journey', () => {
     }
   });
 
-  it('shows the stamp alone for a stop that has no screen', () => {
+  it('shows the hub screen for a stop whose homepage card has no phone (Send)', () => {
     const screenless = STOPS.filter((s) => s.screens.length === 0);
-    expect(screenless.map((s) => s.id), 'Send has no capture of a delivered invoice').toContain(
+    expect(screenless.map((s) => s.id), 'Send shows a WhatsApp message on the homepage').toContain(
       'send'
     );
 
@@ -386,7 +386,12 @@ describe('the hub is grouped by the invoice journey', () => {
       const group = FEATURE_GROUPS.find((g) => g.stop === stop.id);
       const el = marker(container, group);
       expect(el.querySelector('.features-hub-stamp').textContent).toBe(stop.stamp.text);
-      expect(el.querySelector('img'), `${stop.id} has no screen to show`).toBeNull();
+      // The 2026-10-31 walk found the Send section the only one without a
+      // mockup. The hub falls back to `hubScreen`, so every section shows one.
+      expect(stop.hubScreen, `${stop.id} needs a hubScreen so its section has a mockup`).toBeTruthy();
+      const img = el.querySelector('img.features-hub-stop-shot');
+      expect(img, `${stop.id} shows no mockup`).not.toBeNull();
+      expect(img.getAttribute('src')).toBe(screen(stop.hubScreen).src);
     }
   });
 

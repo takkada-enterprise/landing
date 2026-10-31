@@ -13,6 +13,8 @@
 //     stamp: { text, tone: 'blue'|'ink'|'green'|'red', size?: 'lg' },
 //     status, features: [{ label, slug }],
 //     message?: { from, lines: string[], attachment, cta },  // Send only
+//     hubScreen?: string,       // features hub only: the screen its directory
+//                               // section shows when `screens` is empty
 //     note?: string }
 //
 // Every `screens` entry has been opened: a stop never claims something its own
@@ -158,6 +160,10 @@ export const STOPS = [
       cta: 'Pay now',
     },
     sheet: null,
+    // The homepage shows the retailer's WhatsApp message here, not a phone.
+    // The features hub has no room for that bubble at thumbnail size, so its
+    // Send section shows the invoice summary with the WhatsApp switch on.
+    hubScreen: 'invoice-summary-send',
     stamp: { text: 'WHATSAPP ✓✓', tone: 'green' },
     status: 'DELIVERED ON WHATSAPP',
     features: [
