@@ -601,13 +601,13 @@
    because a matched payment is the one "done" state in the set. */
 .home-v3 .hv3-feature-icon--reports   { --i-from: var(--color-primary-light); --i-to: var(--color-primary); --i-glow: rgba(0, 110, 166, 0.55); }
 .home-v3 .hv3-feature-icon--invoice   { --i-from: var(--color-navy-lift); --i-to: var(--color-navy); --i-glow: rgba(30, 58, 107, 0.55); }
-.home-v3 .hv3-feature-icon--reminders { --i-from: var(--color-navy); --i-to: var(--color-primary-dark); --i-glow: rgba(15, 31, 61, 0.5); }
+.home-v3 .hv3-feature-icon--reminders { --i-from: #25D366; --i-to: #128C7E; --i-glow: rgba(37, 211, 102, 0.5); }
 .home-v3 .hv3-feature-icon--salesman  { --i-from: var(--color-primary-light); --i-to: var(--color-navy-lift); --i-glow: rgba(43, 82, 144, 0.55); }
 .home-v3 .hv3-feature-icon--delivery  { --i-from: var(--color-primary); --i-to: var(--color-navy); --i-glow: rgba(0, 110, 166, 0.5); }
 .home-v3 .hv3-feature-icon--selling   { --i-from: #3FB6D6; --i-to: var(--color-primary-light); --i-glow: rgba(20, 158, 194, 0.55); }
 .home-v3 .hv3-feature-icon--reconcile { --i-from: #10B981; --i-to: var(--color-success); --i-glow: rgba(5, 150, 105, 0.5); }
 
-/* The reminder bell carries a marigold notification dot: the accent-dot use
+/* The reminder WhatsApp glyph carries a marigold notification dot: the accent-dot use
    the palette allows marigold for. */
 .home-v3 .hv3-feature-icon-dot {
   position: absolute;

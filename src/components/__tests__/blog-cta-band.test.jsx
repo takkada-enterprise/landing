@@ -65,7 +65,7 @@ describe('BlogCtaBand', () => {
     siteContentMock.demoEntryLive = true;
     renderBand();
 
-    const demo = screen.getByRole('link', { name: /try the demo/i });
+    const demo = screen.getByRole('link', { name: /try demo/i });
     // Internal, so the visitor lands on the landing page's own /demo and meets
     // the capture modal there. An anchor straight into the app would skip the
     // capture entirely, which is the one thing this funnel exists to do.

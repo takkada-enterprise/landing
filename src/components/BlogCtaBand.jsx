@@ -6,7 +6,7 @@ import { demoEntryLive } from '../data/siteContent';
 // The one conversion band under every blog surface (~118 posts + index).
 // Being a single component is the point: changing it moves every article
 // into the current funnel at once. WhatsApp leads (context 'blog'); the
-// secondary is "Try the demo" once the app entry is live (U9), calendar
+// secondary is "Try demo" once the app entry is live (U9), calendar
 // booking until then.
 function BlogCtaBand({
   heading = 'See this in action for your business',
@@ -27,7 +27,7 @@ function BlogCtaBand({
             <WhatsAppCTA context="blog" />
             {demoEntryLive ? (
               <Link to="/demo" className="cta-btn cta-btn--secondary">
-                Try the demo
+                Try demo
               </Link>
             ) : (
               <CalendarCTA context="blog" />

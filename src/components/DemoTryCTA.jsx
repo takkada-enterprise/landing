@@ -42,7 +42,7 @@ function DemoTryCTA({ context = 'demo', variant = 'primary', fullWidth = false, 
         });
       }}
     >
-      {children || 'Try the demo'}
+      {children || 'Try demo'}
     </CTAButton>
   );
 }
