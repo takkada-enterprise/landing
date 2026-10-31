@@ -559,7 +559,6 @@ export const pricing = {
     // The rendered-page guard (home-v3.test.jsx) still requires "early access"
     // beside every own-number mention, so the note leads with it.
     { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
-    { label: 'WhatsApp 8,000-message pack', note: 'More WhatsApp messages for reminders and invoice dispatch.' },
     { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
     { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
