@@ -192,15 +192,17 @@ describe('the hero links directly to feature pages', () => {
   });
 });
 
-// The tap instruction ("Tap any tile with a yellow dot.") and the line under
-// it were removed on 2026-10-31 (owner): the hero is the headline alone.
-describe('the hero is the headline alone', () => {
-  it('renders the owner headline with no tap instruction under it', () => {
+// Hero (owner, 2026-10-31): "Your Tally, in your pocket." stays the h1, the
+// tap instruction keeps its own bold line, and the positioning line sits
+// under it as a tagline, never the h1.
+describe('the hero: headline, tap line, tagline', () => {
+  it('renders the headline as the h1, then the tap instruction, then the tagline', () => {
     const { container } = renderHome();
     const hero = container.querySelector('.hv3-hero');
-    expect(hero.querySelector('h1').textContent).toBe('All in one Business Accounting Software');
-    expect(hero.querySelector('.hv3-hero-tap')).toBeNull();
-    expect(hero.textContent).not.toMatch(/tap any tile/i);
+    expect(hero.querySelectorAll('h1')).toHaveLength(1);
+    expect(hero.querySelector('h1').textContent).toBe('Your Tally, in your pocket.');
+    expect(hero.querySelector('.hv3-hero-tap').textContent.trim()).toBe(HERO_HOME.tap);
+    expect(hero.querySelector('.hv3-hero-tagline').textContent).toBe(HERO_HOME.tagline);
   });
 });
 
