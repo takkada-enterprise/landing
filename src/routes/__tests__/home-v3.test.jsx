@@ -70,10 +70,10 @@ describe('Home v3 structure (AE1)', () => {
       expect(card.querySelector('.hv3-feature-link').getAttribute('href')).toMatch(
         /^\/[a-z0-9-]+(#[a-z0-9-]+)?$/
       );
-      // Each card books the demo in place: a number field and Book Demo, and
+      // Each card books the demo in place: a number field and Explore demo, and
       // no link out to the calendar.
       expect(card.querySelector('.inline-demo input[type="tel"]')).toBeTruthy();
-      expect(card.querySelector('.inline-demo button').textContent).toMatch(/book demo/i);
+      expect(card.querySelector('.inline-demo button').textContent).toMatch(/explore demo/i);
       expect(card.querySelector('a[href*="calendar.notion.so"]')).toBeNull();
     });
   });
