@@ -17,12 +17,13 @@
 // Sync and Notices are deliberately not hotspots: there is no screenshot behind
 // them, and a dot that opens nothing is worse than no dot.
 //
+// Hero copy (owner, 2026-10-31): the headline, then the tap instruction on
+// its own line as before (Ronak, 2026-09-20: at body weight "most people will
+// ignore" it), then the owner's positioning line.
 export const HERO_HOME = {
   headline: 'Your Tally, in your pocket.',
-  // The one instruction on the page, on its own line so it cannot be read past
-  // (Ronak, 2026-09-20: at body weight "most people will ignore" it).
   tap: 'Tap any tile with a yellow dot.',
-  body: 'This is the real home screen. Each dot opens how that part works, then brings you back here.',
+  tagline: 'All in one Business Accounting Software',
 };
 
 const tile = (col, row) => ({

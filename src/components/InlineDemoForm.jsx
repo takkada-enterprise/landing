@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { CalendarDays, Loader2, Phone } from 'lucide-react';
+import { CalendarDays, CheckCircle2, Loader2, Phone } from 'lucide-react';
 import { sanitizePhoneInput, validateIndianMobileNumber } from '../lib/demoBooking';
-import { startCalendarBooking } from '../lib/bookCall';
+import { requestDemoCall } from '../lib/bookCall';
 
 // The "+91 | Mobile number | Book Demo" row on the homepage feature cards. A
-// new pattern on purpose (craft #10): the visitor reading one feature can ask
-// for a call about it without opening the modal. It is the modal's calendar
-// flow inline, through the same startCalendarBooking(), so the popup-safe
-// ordering, Clarity, Meta matching and the booking capture stay identical.
-// `context` names the card, so Clarity can tell which feature drove the call.
+// new pattern on purpose (craft #10): the visitor reading one feature books a
+// demo about it in place (owner, 2026-10-31). Nothing opens, neither the modal
+// nor a calendar tab: the number is saved through requestDemoCall() and the
+// card confirms that the team will call. `context` names the card, so Clarity
+// can tell which feature drove the booking.
 function InlineDemoForm({ context, label = 'Book Demo' }) {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
@@ -25,7 +25,7 @@ function InlineDemoForm({ context, label = 'Book Demo' }) {
     setError('');
     setStatus('saving');
     try {
-      await startCalendarBooking({ phone, context });
+      await requestDemoCall({ phone, context });
       setStatus('saved');
     } catch {
       setStatus('');
@@ -35,7 +35,8 @@ function InlineDemoForm({ context, label = 'Book Demo' }) {
 
   const inputId = `demo-phone-${context}`;
   const messageId = `${inputId}-message`;
-  const message = error || (status === 'saved' ? 'Number saved. Pick a time in the calendar tab.' : '');
+  const booked = status === 'saved';
+  const message = error || (booked ? 'Demo booked. We will call you on this number to fix a time.' : '');
 
   return (
     <form className="inline-demo" onSubmit={handleSubmit} noValidate>
@@ -63,13 +64,16 @@ function InlineDemoForm({ context, label = 'Book Demo' }) {
           aria-invalid={Boolean(error)}
           aria-describedby={message ? messageId : undefined}
         />
-        <button type="submit" disabled={status === 'saving'}>
-          {status === 'saving' ? (
-            <Loader2 size={15} className="spin" aria-hidden="true" />
-          ) : (
-            <CalendarDays size={15} aria-hidden="true" />
-          )}
-          {label}
+        <button
+          type="submit"
+          disabled={status === 'saving' || booked}
+          aria-busy={status === 'saving'}
+          className={booked ? 'is-booked' : undefined}
+        >
+          {status === 'saving' && <Loader2 size={15} className="spin" aria-hidden="true" />}
+          {booked && <CheckCircle2 size={15} aria-hidden="true" />}
+          {!status && <CalendarDays size={15} aria-hidden="true" />}
+          {booked ? 'Booked' : label}
         </button>
       </div>
       {message && (

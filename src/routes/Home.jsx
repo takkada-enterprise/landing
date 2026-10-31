@@ -11,12 +11,13 @@ import {
   ShieldCheck,
   BadgeCheck,
   Database,
-  BarChart3,
-  FileText,
-  FileCheck2,
-  Send,
+  ChartColumnIncreasing,
+  ReceiptText,
   BellRing,
-  Users,
+  MapPinned,
+  PackageCheck,
+  BadgePercent,
+  ArrowLeftRight,
   LayoutGrid,
 } from 'lucide-react';
 import WhatsAppCTA from '../components/WhatsAppCTA';
@@ -54,13 +55,13 @@ const tallyIconMap = {
 };
 
 const featureIconMap = {
-  reports: BarChart3,
-  invoice: FileText,
-  einvoice: FileCheck2,
-  whatsapp: Send,
+  reports: ChartColumnIncreasing,
+  invoice: ReceiptText,
   reminders: BellRing,
-  salesman: Users,
-  reconcile: RefreshCw,
+  salesman: MapPinned,
+  delivery: PackageCheck,
+  selling: BadgePercent,
+  reconcile: ArrowLeftRight,
 };
 
 const trustIconMap = {
@@ -119,9 +120,9 @@ function Home({ seo = HOME_SEO }) {
               <strong className="hv3-hero-tap">
                 <span className="hv3-hero-tap-dot" aria-hidden="true" />
                 {HERO_HOME.tap}
-              </strong>{' '}
-              {HERO_HOME.body}
+              </strong>
             </p>
+            <p className="hv3-hero-tagline">{HERO_HOME.tagline}</p>
             <div className="hv3-hero-cta">
               <DemoTryCTA context="home-hero" />
             </div>
@@ -179,7 +180,7 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <div className="hv3-features-grid" id="features">
             {homeFeatures.items.map((item, i) => {
-              const Icon = featureIconMap[item.icon] || FileText;
+              const Icon = featureIconMap[item.icon] || ReceiptText;
               return (
                 <article
                   key={item.title}
@@ -189,8 +190,9 @@ function Home({ seo = HOME_SEO }) {
                   style={{ '--delay': `${(i % 2) * 90}ms` }}
                 >
                   <div className="hv3-feature-top">
-                    <span className="hv3-feature-icon" aria-hidden="true">
-                      <Icon size={22} />
+                    <span className={`hv3-feature-icon hv3-feature-icon--${item.icon}`} aria-hidden="true">
+                      <Icon size={26} strokeWidth={2} />
+                      {item.icon === 'reminders' && <span className="hv3-feature-icon-dot" />}
                     </span>
                     <span className="hv3-feature-tag tabular-nums">
                       {String(i + 1).padStart(2, '0')} / {item.tag}
@@ -209,6 +211,8 @@ function Home({ seo = HOME_SEO }) {
                     ))}
                   </ul>
                   <div className="hv3-feature-actions">
+                    {/* Books the demo in place: number in, saved, confirmed on
+                        the card. The context names the card for Clarity. */}
                     <InlineDemoForm context={`home-feature-${item.icon}`} />
                     <Link to={item.href} className="hv3-feature-link">
                       See how it works <ArrowRight size={15} aria-hidden="true" className="hv3-arrow" />

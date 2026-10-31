@@ -15,6 +15,24 @@ import { track, trackMetaLead, setMetaUserPhone } from './track';
 // Meta matching runs before the Lead so the Lead carries the number.
 //
 // Pass a number that has already passed validateIndianMobileNumber().
+// The inline "+91 | Mobile number | Book Demo" form on the homepage feature
+// cards (owner, 2026-10-31): the number is the booking, so nothing opens and
+// the visitor stays on the card. It records the same capture as the calendar
+// path (source landing_page) and the team calls back to fix the slot. Meta
+// matching runs before the Lead so the Lead carries the number.
+export async function requestDemoCall({ phone, context, pageUrl = window.location.href }) {
+  track('demo_request', { cta_context: context });
+  setMetaUserPhone(phone);
+  trackMetaLead('feature_demo_request');
+
+  await submitDemoBooking({
+    phone,
+    pageUrl,
+    config: demoBookingConfig,
+    source: BOOKING_SOURCE_CALENDAR,
+  });
+}
+
 export async function startCalendarBooking({ phone, context, pageUrl = window.location.href }) {
   window.open(appLinks.bookDemo, '_blank', 'noopener,noreferrer');
   track('calendar_open', { cta_context: context });
