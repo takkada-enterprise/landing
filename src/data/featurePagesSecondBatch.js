@@ -1377,7 +1377,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Sales orders and delivery challans start at this plan, alongside voucher creation from mobile and web.',
+      note: 'Sales orders and delivery challans start at this plan, alongside voucher creation from the phone.',
     },
     faqs: [
       {
@@ -1539,7 +1539,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Delivery challans and sales orders start at this plan, alongside voucher creation from mobile and web.',
+      note: 'Delivery challans and sales orders start at this plan, alongside voucher creation from the phone.',
     },
     faqs: [
       {
@@ -1691,7 +1691,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Creating and editing vouchers from mobile and web, including credit and debit notes, starts at this plan.',
+      note: 'Creating and editing vouchers from the phone, including credit and debit notes, starts at this plan.',
     },
     faqs: [
       {
@@ -1842,7 +1842,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Copilot.',
+      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Assurance.',
     },
     faqs: [
       {

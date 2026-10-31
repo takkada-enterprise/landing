@@ -494,7 +494,7 @@ export const pricing = {
       rows: [
         { label: 'Live receivables and payables from Tally', from: 0 },
         { label: 'Automatic WhatsApp payment reminders', from: 0 },
-        { label: 'Share ledgers and invoice PDFs', from: 0 },
+        { label: 'Share ledgers and invoices on WhatsApp and email by hand', from: 0 },
         { label: '20+ business reports', from: 0 },
         { label: 'Works when the Tally laptop is off', from: 0 },
       ],
@@ -502,10 +502,11 @@ export const pricing = {
     {
       group: 'Raise entries from anywhere',
       rows: [
-        { label: 'Vouchers from mobile and web', from: 0 },
-        { label: 'Edit vouchers from anywhere', from: 0 },
+        { label: 'Vouchers from the phone', from: 0 },
+        { label: 'Edit vouchers from the phone', from: 0 },
         { label: 'Delivery challans and sales orders', from: 0 },
         { label: 'Your own invoice PDF template', from: 0 },
+        { label: 'Web view: use Takkada in a computer browser', from: 1 },
       ],
     },
     {
@@ -514,6 +515,7 @@ export const pricing = {
         { label: 'E-Invoice with IRN and QR from your phone', from: 1 },
         { label: 'E-Way Bill in one tap, no portal login', from: 1 },
         { label: 'Both write back into Tally', from: 1 },
+        { label: 'Auto Invoice Dispatch: every Tally invoice goes to the customer on WhatsApp', from: 1 },
       ],
     },
     {
@@ -521,9 +523,10 @@ export const pricing = {
       rows: [
         { label: 'Import from PDF for supplier bills', from: 2 },
         { label: 'Bank statement import with auto-matching', from: 2 },
-        { label: 'Auto Invoice Dispatch on every Tally invoice', from: 2 },
         { label: 'Reports + advanced reporting', from: 2 },
         { label: 'Role-based access for salesman teams', from: 2 },
+        { label: 'Dispatch Load: build a van load, print the loading sheet, bill it', from: 2 },
+        { label: 'Team Sales: field visit check-in and check-out', from: 2 },
       ],
     },
     // Enterprise's own rows. Without them its column would tick exactly what
