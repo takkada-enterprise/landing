@@ -830,6 +830,19 @@ export const homeFeatures = {
       href: '/delivery-challan-from-mobile',
     },
     {
+      icon: 'modules',
+      tag: 'Modules',
+      title: 'Order Links, Schemes and Discounts',
+      line: 'Modules for the way distributors actually sell.',
+      points: [
+        'A customer order link and personal party links: retailers order from your catalogue at your rates, with nothing installed.',
+        'Trade schemes, buy X get Y or slab discounts, applied on every bill that qualifies, with scheme credit notes.',
+        'Ladder discount by quantity or bill value.',
+        'FMCG billing and auto parts billing engines, one included in Enterprise.',
+      ],
+      href: '/dealer-scheme-management-tally',
+    },
+    {
       icon: 'reconcile',
       tag: 'Reconciliation',
       title: 'Auto-Reconciliation in Tally',

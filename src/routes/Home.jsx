@@ -102,7 +102,7 @@ function Home({ seo = HOME_SEO }) {
         </div>
       </Band>
 
-      {/* ── Six features in plain words (copy from feat/seven-features-section,
+      {/* ── Seven features in plain words (copy from feat/seven-features-section,
              2026-10-31). Replaces the used-for cards, the in-charge cards and
              the alternating rows: the hero phone is the page's one screenshot.
              Each card: title, line, ticked points, Try the demo, page link.
