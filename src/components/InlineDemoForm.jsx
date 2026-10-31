@@ -41,29 +41,31 @@ function InlineDemoForm({ context, label = 'Explore demo' }) {
   return (
     <form className="inline-demo" onSubmit={handleSubmit} noValidate>
       <div className={`inline-demo-row${error ? ' has-error' : ''}`}>
-        <span className="inline-demo-code" aria-hidden="true">
-          <Phone size={14} />
-          +91
-        </span>
-        <label className="sr-only" htmlFor={inputId}>
-          Mobile number
-        </label>
-        <input
-          id={inputId}
-          type="tel"
-          inputMode="numeric"
-          autoComplete="tel-national"
-          maxLength={10}
-          placeholder="Mobile number"
-          value={phone}
-          onChange={(e) => {
-            setPhone(sanitizePhoneInput(e.target.value));
-            if (error) setError('');
-            if (status === 'saved') setStatus('');
-          }}
-          aria-invalid={Boolean(error)}
-          aria-describedby={message ? messageId : undefined}
-        />
+        <div className="inline-demo-field">
+          <span className="inline-demo-code" aria-hidden="true">
+            <Phone size={14} />
+            +91
+          </span>
+          <label className="sr-only" htmlFor={inputId}>
+            Mobile number
+          </label>
+          <input
+            id={inputId}
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel-national"
+            maxLength={10}
+            placeholder="Mobile number"
+            value={phone}
+            onChange={(e) => {
+              setPhone(sanitizePhoneInput(e.target.value));
+              if (error) setError('');
+              if (status === 'saved') setStatus('');
+            }}
+            aria-invalid={Boolean(error)}
+            aria-describedby={message ? messageId : undefined}
+          />
+        </div>
         <button
           type="submit"
           disabled={status === 'saving' || booked}
