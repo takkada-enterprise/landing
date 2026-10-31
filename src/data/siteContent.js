@@ -256,7 +256,7 @@ export const testimonials = [
   {
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import se auto-reconciliation ho jaata hai, aur pending payments ke liye smart WhatsApp reminders chale jaate hain. Hamara experience bohot hi achha raha hai.',
     name: 'Meet Patel',
-    role: 'Owner, Dhan Laxmi',
+    role: 'Owner, Dhanlaxmi Crop Science Limited',
   },
 ];
 
@@ -266,13 +266,13 @@ export const videoTestimonials = [
     id: 'meet-patel-dhan-laxmi',
     name: 'Meet Patel',
     role: 'Owner',
-    company: 'Dhan Laxmi',
+    company: 'Dhanlaxmi Crop Science Limited',
     location: 'Gujarat, India',
     industry: 'Distribution & Wholesale',
     badge: 'Verified Takkada Customer',
     duration: '1:57 min',
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai. Aur party-wise pending payments track karke smart WhatsApp reminders aur notices bhej sakte hain.',
-    summary: 'How Dhan Laxmi solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
+    summary: 'How Dhanlaxmi Crop Science Limited solved seasonal stock calculations, bank statement auto-reconciliation, and payment follow-ups on Tally.',
     takeaways: [
       {
         title: 'Auto-Reconciliation from Bank Statement',
@@ -291,7 +291,7 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/meet-patel-dhan-laxmi.mp4',
       poster: '/assets/testimonials/Meet_Patel_thumbnail_square.jpg',
-      title: 'Meet Patel, Owner of Dhan Laxmi sharing his Takkada experience',
+      title: 'Meet Patel, Owner of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
       // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
       // and never rendered. The trade and city were supplied by the operator
       // (2026-10-26) for search metadata; the visible card keeps "Distribution
@@ -299,7 +299,7 @@ export const videoTestimonials = [
       uploadDate: '2026-10-26T00:05:55+05:30',
       durationIso: 'PT1M57S',
       schemaDescription:
-        'Meet Patel, owner of Dhan Laxmi, an agricultural seeds distributor in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
+        'Meet Patel, owner of Dhanlaxmi Crop Science Limited, an NSE-listed agricultural seeds company in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
       contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
