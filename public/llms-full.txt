@@ -176,7 +176,7 @@ You can generate GST e-invoices from your phone, and the IRN with its signed QR 
 
 ### [Generate e-way bills from your phone before the truck leaves.](https://takkada.com/e-way-bill-from-phone/)
 
-*The loading is done and the driver is waiting. Raise the e-way bill where you stand, with no portal login and no trip to the office laptop.*
+*You can create e-way bills easily from your mobile with no extra portal login.*
 
 **Core capability & workflow:**
 E-way bills from your phone come off the invoice you just raised, with no portal login and no desktop. Vehicle and distance details are prefilled, the number writes back into Tally against the same voucher, and you can cancel from the app inside the government window.

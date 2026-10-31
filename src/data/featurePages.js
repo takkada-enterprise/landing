@@ -728,7 +728,7 @@ const FIRST_BATCH = [
     overline: 'E-WAY BILLS',
     headline: 'Generate e-way bills from your phone before the truck leaves.',
     subheadline:
-      'The loading is done and the driver is waiting. Raise the e-way bill where you stand, with no portal login and no trip to the office laptop.',
+      'You can create e-way bills easily from your mobile with no extra portal login.',
     answerPoints: [
       'Generate e-way bills from existing invoices or delivery challans',
       'Get party, item and distance details pre-filled',
