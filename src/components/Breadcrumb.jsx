@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 
 // Visible breadcrumb trail. Takes the same [{ name, url }] shape the pages
 // already feed to breadcrumbSchema(), so the markup and the JSON-LD can

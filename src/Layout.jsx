@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import Link from './components/SiteLink.jsx';
 import { Head } from 'vite-react-ssg';
 import { ArrowRight, ChevronDown, Download, Menu, PhoneCall, Plug, Smartphone, X } from 'lucide-react';
 import CTAButton from './components/CTAButton';

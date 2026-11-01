@@ -69,7 +69,7 @@ describe('BlogCtaBand', () => {
     // Internal, so the visitor lands on the landing page's own /demo and meets
     // the capture modal there. An anchor straight into the app would skip the
     // capture entirely, which is the one thing this funnel exists to do.
-    expect(demo.getAttribute('href')).toBe('/demo');
+    expect(demo.getAttribute('href')).toBe('/demo/');
     expect(screen.queryByRole('link', { name: /book a 15-min demo/i })).toBeNull();
   });
 

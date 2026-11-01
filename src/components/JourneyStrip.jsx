@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import { STOPS } from '../data/journey';
 import { FEATURE_GROUPS } from '../data/featureGroups';
 

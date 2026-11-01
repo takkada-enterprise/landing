@@ -30,6 +30,7 @@ import Home from './routes/Home';
 import { appLinks, contactInfo, navLinks } from './data/siteContent';
 import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
 import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
+import { withTrailingSlash } from './lib/sitePath.js';
 
 beforeEach(() => {
   siteContentMock.demoEntryLive = true;
@@ -154,18 +155,18 @@ describe('Features nav slot', () => {
   it('renders Features as a link to /features in the desktop nav', () => {
     const link = featuresLinkIn(renderLayout(), '.nav-links');
     expect(link).toBeDefined();
-    expect(link.getAttribute('href')).toBe('/features');
+    expect(link.getAttribute('href')).toBe('/features/');
   });
 
   it('renders the same link in the mobile menu', () => {
     const link = featuresLinkIn(renderLayout(), '.mobile-nav-links');
     expect(link).toBeDefined();
-    expect(link.getAttribute('href')).toBe('/features');
+    expect(link.getAttribute('href')).toBe('/features/');
   });
 
   it('reaches the hub from a non-home route too, not just the homepage', () => {
     const link = featuresLinkIn(renderLayout('/blog'), '.nav-links');
-    expect(link.getAttribute('href')).toBe('/features');
+    expect(link.getAttribute('href')).toBe('/features/');
   });
 
   it('leaves no navLinks entry pointing at a hash anchor named features', () => {
@@ -177,7 +178,7 @@ describe('Features nav slot', () => {
     const hrefs = [...renderLayout().querySelectorAll('.footer-col-links a')].map((a) =>
       a.getAttribute('href')
     );
-    expect(hrefs).toContain('/features');
+    expect(hrefs).toContain('/features/');
   });
 });
 
@@ -212,8 +213,8 @@ describe('Features disclosure in the desktop header', () => {
   it('lists every feature page, grouped, plus a way to the hub', () => {
     const { panelLinks } = renderLayout();
     expect(panelLinks()).toEqual([
-      ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map(featurePagePath)),
-      '/features',
+      ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map((p) => withTrailingSlash(featurePagePath(p)))),
+      '/features/',
     ]);
   });
 
@@ -232,9 +233,9 @@ describe('Features disclosure in the desktop header', () => {
   // keep their place on the hub, which "All features" reaches.
   it('leaves the comparison pages out of the menu but not out of the hub', () => {
     const { panelLinks } = renderLayout();
-    expect(panelLinks()).not.toContain('/biz-analyst-alternative');
-    expect(panelLinks()).not.toContain('/livekeeping-alternative');
-    expect(panelLinks()).toContain('/features');
+    expect(panelLinks()).not.toContain('/biz-analyst-alternative/');
+    expect(panelLinks()).not.toContain('/livekeeping-alternative/');
+    expect(panelLinks()).toContain('/features/');
     expect(FEATURE_GROUPS.find((g) => g.id === 'weighing-options').slugs).toEqual([
       'biz-analyst-alternative',
       'livekeeping-alternative',
@@ -280,7 +281,7 @@ describe('Features disclosure in the desktop header', () => {
   it('keeps Features a link to the hub, so touch and crawlers can still reach it', () => {
     const { container } = renderLayout();
     const link = container.querySelector('.nav-features-link');
-    expect(link.getAttribute('href')).toBe('/features');
+    expect(link.getAttribute('href')).toBe('/features/');
     expect(link.textContent).toBe('Features');
   });
 

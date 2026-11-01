@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import { demoEntryLive } from '../data/siteContent';

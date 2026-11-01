@@ -54,7 +54,7 @@ describe('/mobile-tally after the Phase 3 refresh', () => {
     expect(links.length).toBeGreaterThanOrEqual(3);
 
     for (const link of links) {
-      const slug = link.getAttribute('href').replace('/blog/', '');
+      const slug = link.getAttribute('href').replace('/blog/', '').replace(/\/$/, '');
       const file = resolve(repoRoot, `content/blog/${slug}.md`);
       expect(existsSync(file), `${slug} has no post on disk`).toBe(true);
       const title = readFileSync(file, 'utf-8').match(/^title:\s*"?(.+?)"?\s*$/m)?.[1];

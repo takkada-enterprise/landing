@@ -176,7 +176,7 @@ describe('FollowOneInvoice', () => {
   it('renders pills only as links to real pages', () => {
     mount();
     for (const a of ui.getAllByTestId('stop-pill')) {
-      expect(a.getAttribute('href')).toMatch(/^\/[a-z0-9-]+$/);
+      expect(a.getAttribute('href')).toMatch(/^\/[a-z0-9-]+\/$/);
     }
   });
 

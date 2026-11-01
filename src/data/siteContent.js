@@ -670,6 +670,13 @@ export const footerColumns = [
       // ("each salesman sees only his own parties"), so the label says that
       // rather than keeping an acronym over a page about the team.
       { label: 'Role-based access', page: 'salesman-app-tally' },
+      // These three were in the sitemap with no page linking to them (Search
+      // Console audit, 2026-10-23). The footer is their crawlable parent;
+      // scripts/checkInternalLinks.mjs fails the build if any page loses its
+      // last inbound link again.
+      { label: 'Tally on mobile', page: 'mobile-tally' },
+      { label: 'WhatsApp invoicing', page: 'whatsapp-invoice-tally' },
+      { label: 'Tally mobile app comparison', page: 'tally-mobile-app-comparison' },
     ],
   },
   {

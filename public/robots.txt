@@ -14,39 +14,54 @@
 # it measures edge blocking by IP and reported all-clear the whole time
 # ClaudeBot was being disallowed here.
 #
-# Each user-agent appears exactly once with one intentional directive.
+# Each user-agent appears exactly once with one intentional policy.
+#
+# /cdn-cgi/ is Cloudflare's own path (email obfuscation, challenge scripts),
+# never a page. Crawling /cdn-cgi/l/email-protection showed up as a 404 in
+# Search Console (2026-10-23). The Disallow sits in EVERY group because a
+# crawler with a group of its own ignores the `*` group entirely.
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /cdn-cgi/
 
 # AI-search / citation crawlers. We want takkada.com cited in AI answers, so
 # these are allowed. The matching Cloudflare dashboard setting must agree.
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /cdn-cgi/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /cdn-cgi/
 
 Sitemap: https://takkada.com/sitemap.xml

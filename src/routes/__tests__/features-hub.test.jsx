@@ -26,6 +26,7 @@ import { screen } from '../../data/screens';
 import { routeMetadata } from '../../data/siteMetadata';
 import { BUDGETS } from '../../../scripts/checkImageBudgets.mjs';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
+import { withTrailingSlash } from '../../lib/sitePath.js';
 
 afterEach(cleanup);
 
@@ -68,7 +69,7 @@ describe('/features hub', () => {
     const hrefs = cardLinks(container).map((a) => a.getAttribute('href'));
     // Derived from the array, never hardcoded: a new feature page moves this on
     // its own. Set-equality also covers the count and rules out a duplicate card.
-    expect(hrefs.sort()).toEqual(FEATURE_PAGES.map(featurePagePath).sort());
+    expect(hrefs.sort()).toEqual(FEATURE_PAGES.map((p) => withTrailingSlash(featurePagePath(p))).sort());
   });
 
   it('points every rendered href at a registered route', () => {
@@ -186,7 +187,7 @@ describe('feature grouping', () => {
   it('renders each page under its own title, whichever tier it lands in', () => {
     const { container } = renderHub();
     for (const page of FEATURE_PAGES) {
-      const card = container.querySelector(`a.features-hub-card[href="${featurePagePath(page)}"]`);
+      const card = container.querySelector(`a.features-hub-card[href="${withTrailingSlash(featurePagePath(page))}"]`);
       expect(card, page.slug).not.toBeNull();
       expect(card.textContent).toContain(page.llms.title);
     }
@@ -216,14 +217,14 @@ describe('hub tiers render', () => {
   it('leads with the approved features in the approved order', () => {
     const { container } = renderHub();
     const hrefs = inTier(container, 'lead').map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual(leadFeaturePages(FEATURE_PAGES).map(featurePagePath));
+    expect(hrefs).toEqual(leadFeaturePages(FEATURE_PAGES).map((p) => withTrailingSlash(featurePagePath(p))));
   });
 
   it('gives every lead card a title, its directory line and its own hero image', () => {
     const { container } = renderHub();
     for (const page of leadFeaturePages(FEATURE_PAGES)) {
       const card = container.querySelector(
-        `a.features-hub-card--lead[href="${featurePagePath(page)}"]`
+        `a.features-hub-card--lead[href="${withTrailingSlash(featurePagePath(page))}"]`
       );
       expect(card, page.slug).not.toBeNull();
       expect(card.querySelector('h3').textContent).toBe(page.llms.title);

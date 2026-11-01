@@ -228,7 +228,7 @@ function PhoneModal({
             {isDemo
               ? 'We will use this number to send your code and to contact you about Takkada. '
               : 'We will use this number to contact you about Takkada. '}
-            <a href="/privacy-policy">Privacy policy</a>.
+            <a href="/privacy-policy/">Privacy policy</a>.
           </p>
           {isDemo && (
             <p className="phone-consent-note">

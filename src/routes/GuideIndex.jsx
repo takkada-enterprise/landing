@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '../components/SiteLink.jsx';
 import Seo from '../components/Seo';
 import { getAllGuides } from '../lib/guidePosts';
 import { breadcrumbSchema, collectionPageSchema } from '../data/schema';
