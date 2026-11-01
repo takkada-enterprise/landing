@@ -4,7 +4,7 @@
 // and the feature page carries a "Home" link back.
 // Motion: the marigold hint dot's ping is the only ambient motion (transform +
 // opacity, off under prefers-reduced-motion). A tile presses to scale(0.97).
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import { HOTSPOTS } from '../data/heroHotspots';
 import { screen } from '../data/screens';
 

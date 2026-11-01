@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '../components/SiteLink.jsx';
 import { ArrowRight } from 'lucide-react';
 import Seo from '../components/Seo';
 import Breadcrumb from '../components/Breadcrumb';

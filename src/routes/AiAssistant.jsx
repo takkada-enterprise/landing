@@ -90,7 +90,7 @@ function AiAssistant() {
           <li>The assistant sees only what it fetches to answer the question you asked, and only for companies you administer.</li>
           <li>Answers are as of your last Tally sync, and every answer says when that was.</li>
           <li>Takkada records which action was requested, when, and whether it worked, for security and support. We do not store your conversation.</li>
-          <li>To disconnect, remove the Takkada connector in your assistant, or write to us and we will revoke its access. See our <a href="/privacy-policy">privacy policy</a>.</li>
+          <li>To disconnect, remove the Takkada connector in your assistant, or write to us and we will revoke its access. See our <a href="/privacy-policy/">privacy policy</a>.</li>
         </ul>
 
         <h2>If something goes wrong</h2>

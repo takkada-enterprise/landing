@@ -35,6 +35,6 @@ describe('AI assistant docs page', () => {
   it('is covered by the privacy policy', () => {
     const privacy = renderIn(<LegalPrivacy />);
     expect(privacy.textContent).toContain('AI assistant connections');
-    expect(privacy.querySelector('a[href="/ai-assistant"]')).not.toBeNull();
+    expect(privacy.querySelector('a[href="/ai-assistant/"]')).not.toBeNull();
   });
 });

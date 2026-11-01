@@ -1,4 +1,5 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Link from '../components/SiteLink.jsx';
 import Seo from '../components/Seo';
 import { getGuideBySlug } from '../lib/guidePosts';
 import { pageTitle } from '../lib/pageTitle';

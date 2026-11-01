@@ -133,7 +133,7 @@ describe('guide reader', () => {
 
   it('links back to the hub under the words the guard looks for', () => {
     renderPost('dispatch');
-    expect(screen.getByRole('link', { name: 'All guides' })).toHaveAttribute('href', '/guide');
+    expect(screen.getByRole('link', { name: 'All guides' })).toHaveAttribute('href', '/guide/');
   });
 
   it('marks the page with its slug so the prerender guard can identify it', () => {
@@ -171,7 +171,7 @@ describe('guide reader', () => {
     const hrefs = [...container.querySelectorAll('.guide-related a')].map((a) =>
       a.getAttribute('href')
     );
-    expect(hrefs).toEqual(['/guide/sales-orders']);
+    expect(hrefs).toEqual(['/guide/sales-orders/']);
   });
 
   it('does not pretend to know the visitor’s access with a role selector', () => {
@@ -220,7 +220,7 @@ describe('guide reader', () => {
   it('gives an unknown slug a useful not-found state with a way back', () => {
     const { container } = renderPost('no-such-guide');
     expect(screen.getByRole('heading', { level: 1, name: 'Guide not found' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'All guides' })).toHaveAttribute('href', '/guide');
+    expect(screen.getByRole('link', { name: 'All guides' })).toHaveAttribute('href', '/guide/');
     expect(container.querySelector('[data-guide-slug]')).toBeNull();
   });
 });
@@ -231,13 +231,13 @@ describe('guide hub', () => {
     const hrefs = [...container.querySelectorAll('a.guide-hub-card')].map((a) =>
       a.getAttribute('href')
     );
-    expect(hrefs.sort()).toEqual(GUIDES.map((g) => `/guide/${g.slug}`).sort());
+    expect(hrefs.sort()).toEqual(GUIDES.map((g) => `/guide/${g.slug}/`).sort());
   });
 
   it('gives every card its title and a short description', () => {
     const { container } = renderHub();
     for (const g of GUIDES) {
-      const card = container.querySelector(`a.guide-hub-card[href="/guide/${g.slug}"]`);
+      const card = container.querySelector(`a.guide-hub-card[href="/guide/${g.slug}/"]`);
       expect(card, g.slug).not.toBeNull();
       expect(card.textContent).toContain(g.title);
       expect(card.textContent).toContain(g.meta_description);

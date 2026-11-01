@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import { ArrowRight } from 'lucide-react';
 import Seo from './Seo';
 import WhatsAppCTA from './WhatsAppCTA';

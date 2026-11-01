@@ -6,7 +6,7 @@
 // that follow the station the reader has scrolled into, so scrolling back up
 // takes the story apart again in the same order it was built. Nothing moves
 // unless the reader moves it.
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import { STOPS, STORY, liveFeatures } from '../data/journey';
 import { FEATURE_PAGES } from '../data/featurePages';
 import { screen } from '../data/screens';

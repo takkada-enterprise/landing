@@ -14,6 +14,7 @@ import Home from '../Home';
 import { navLinks, footerColumns, demoEntryLive, homeFeatures } from '../../data/siteContent';
 import { HERO_HOME, HOTSPOTS, JOBS, jobHref } from '../../data/heroHotspots';
 import { PhoneModalProvider } from '../../context/PhoneModalContext';
+import { withTrailingSlash } from '../../lib/sitePath.js';
 
 afterEach(cleanup);
 
@@ -68,7 +69,7 @@ describe('Home v3 structure (AE1)', () => {
       expect(points).toBeGreaterThanOrEqual(3);
       expect(points).toBeLessThanOrEqual(6);
       expect(card.querySelector('.hv3-feature-link').getAttribute('href')).toMatch(
-        /^\/[a-z0-9-]+(#[a-z0-9-]+)?$/
+        /^\/[a-z0-9-]+\/(#[a-z0-9-]+)?$/
       );
       // Each card books the demo in place: a number field and Explore demo, and
       // no link out to the calendar.
@@ -85,7 +86,7 @@ describe('Home v3 structure (AE1)', () => {
     expect(section.querySelector('.section-label')).toBeNull();
     const more = section.querySelector('.hv3-features-more');
     expect(more.textContent).toContain(homeFeatures.more.text);
-    expect(more.querySelector('a').getAttribute('href')).toBe('/features');
+    expect(more.querySelector('a').getAttribute('href')).toBe('/features/');
   });
 
   it('lays the cards two to a row and one under 900px, under a divider line', () => {
@@ -127,7 +128,7 @@ describe('the hero links directly to feature pages', () => {
     const links = [...nav.querySelectorAll('a.hv3-job')];
     expect(links).toHaveLength(JOBS.length);
     for (const [index, job] of JOBS.entries()) {
-      expect(links[index].getAttribute('href')).toBe(jobHref(job));
+      expect(links[index].getAttribute('href')).toBe(withTrailingSlash(jobHref(job)));
       expect(links[index].textContent).toContain(job.label);
     }
   });

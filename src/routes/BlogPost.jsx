@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Link from '../components/SiteLink.jsx';
 import Seo from '../components/Seo';
 import BlogCtaBand from '../components/BlogCtaBand';
 import { getAllPosts, getPostBySlug, getSlugs } from '../lib/blogPosts';
@@ -22,10 +23,33 @@ export function getStaticPaths() {
   return getSlugs().map((slug) => `/blog/${slug}`);
 }
 
+// Related posts walk a ring: every post, grouped by category and newest first
+// within it, links to the next three on the ring. Each post therefore links to
+// its nearest same-topic neighbours and is linked FROM three others. This used
+// to be "the three newest posts", which put ~676 links on three posts and none
+// on the other ~330; Search Console left 86 of them "Discovered, currently not
+// indexed" (2026-10-23). scripts/checkInternalLinks.mjs warns on any page with
+// fewer than three inbound pages.
+const RELATED_COUNT = 3;
+function buildRing(posts) {
+  return [...posts].sort(
+    (a, b) =>
+      String(a.category ?? '').localeCompare(String(b.category ?? '')) ||
+      new Date(b.date) - new Date(a.date) ||
+      a.slug.localeCompare(b.slug)
+  );
+}
+let siteRing;
+export function relatedPostsFor(currentSlug, posts) {
+  const ring = posts ? buildRing(posts) : (siteRing ??= buildRing(getAllPosts()));
+  const at = ring.findIndex((p) => p.slug === currentSlug);
+  if (at === -1) return ring.slice(0, RELATED_COUNT);
+  const count = Math.min(RELATED_COUNT, ring.length - 1);
+  return Array.from({ length: count }, (_, i) => ring[(at + 1 + i) % ring.length]);
+}
+
 function RelatedPosts({ currentSlug }) {
-  const related = getAllPosts()
-    .filter((p) => p.slug !== currentSlug)
-    .slice(0, 3);
+  const related = relatedPostsFor(currentSlug);
 
   if (related.length === 0) return null;
 

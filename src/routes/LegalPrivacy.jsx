@@ -56,7 +56,7 @@ function PrivacyPolicy() {
 
         <h3>AI assistant connections</h3>
         <p>
-          If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
+          If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant/">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
         </p>
 
         <h2>4. Security Measures</h2>

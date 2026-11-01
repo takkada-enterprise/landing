@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { parseFaqs } from './src/lib/parseFaqs.js';
+import { slashInternalHrefs } from './src/lib/sitePath.js';
 import { stripBlanketImagePreloads } from './scripts/stripImagePreloads.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -18,7 +19,9 @@ function markdownPlugin() {
       const { data, content } = matter(code);
       const filename = id.split('/').pop().replace(/\.md$/, '');
       const slug = data.slug || filename;
-      const html = marked(content);
+      // Internal links in post bodies get the canonical trailing slash, so a
+      // body link does not cost Googlebot a 301 (src/lib/sitePath.js).
+      const html = slashInternalHrefs(marked(content));
       const faqs = parseFaqs(content);
       // Surface a malformed FAQ section (heading present but nothing parsed)
       // as a non-fatal build warning so it shows up in the log without

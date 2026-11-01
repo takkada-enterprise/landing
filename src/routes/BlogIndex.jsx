@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '../components/SiteLink.jsx';
 import Seo from '../components/Seo';
 import BlogCtaBand from '../components/BlogCtaBand';
 import { getAllPosts } from '../lib/blogPosts';

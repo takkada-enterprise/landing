@@ -264,7 +264,7 @@ describe('PhoneModal', () => {
     expect(screen.getByText(/use this number to send your code/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute(
       'href',
-      '/privacy-policy'
+      '/privacy-policy/'
     );
     expect(screen.getByText(/few seconds to open on mobile/i)).toBeInTheDocument();
   });

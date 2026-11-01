@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import PlayablePhone from '../PlayablePhone';
 import { HOTSPOTS } from '../../data/heroHotspots';
 import { FEATURE_PAGES, featurePagePath } from '../../data/featurePages';
+import { withTrailingSlash } from '../../lib/sitePath.js';
 
 const FUTURE = { v7_startTransition: true, v7_relativeSplatPath: true };
 const mount = () => render(<MemoryRouter future={FUTURE}><PlayablePhone /></MemoryRouter>);
@@ -22,7 +23,7 @@ describe('PlayablePhone', () => {
     expect(links).toHaveLength(HOTSPOTS.length);
     for (const h of HOTSPOTS) {
       const a = ui.getByRole('link', { name: `${h.label}: see how it works` });
-      expect(a).toHaveAttribute('href', h.href);
+      expect(a).toHaveAttribute('href', withTrailingSlash(h.href));
       expect(paths.has(h.href), h.href).toBe(true);
     }
   });

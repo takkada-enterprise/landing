@@ -1,4 +1,5 @@
-import { writeFileSync, statSync, existsSync, readdirSync, readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { writeFileSync, existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { routeMetadata } from '../src/data/siteMetadata.js';
@@ -7,12 +8,47 @@ import { INTERNAL_TOPIC_IDS, readGuides, readTopics, toIsoDateString } from './l
 const SITE_URL = 'https://takkada.com';
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-function lastmodFor(relPath) {
-  try {
-    return statSync(resolve(repoRoot, relPath)).mtime.toISOString().slice(0, 10);
-  } catch {
-    return new Date().toISOString().slice(0, 10);
+// A lastmod is only worth sending if it moves when the page's content moves.
+// This used to be the source file's mtime, which on a fresh CI checkout is the
+// build time, so 387 of 409 URLs advertised the same build date and Google
+// stopped trusting the field (Search Console audit, 2026-10-23). The order now:
+//   1. an explicit content date on the entry (blog `updated`/`date`, feature
+//      page `updated`/`datePublished`, guide `checkedAgainstAppOn`);
+//   2. the last commit that touched the source file, when full git history is
+//      available;
+//   3. nothing. A missing lastmod is valid and honest; a fake one is not.
+// changefreq and priority are no longer written: Google ignores both.
+let historyAvailable;
+function gitHistoryAvailable() {
+  if (historyAvailable === undefined) {
+    try {
+      // A shallow clone would date every file to the one fetched commit.
+      historyAvailable =
+        execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: repoRoot, encoding: 'utf-8' })
+          .trim() === 'false';
+    } catch {
+      historyAvailable = false;
+    }
   }
+  return historyAvailable;
+}
+
+function lastCommitDate(relPath) {
+  if (!relPath || !gitHistoryAvailable()) return undefined;
+  try {
+    const date = execFileSync('git', ['log', '-1', '--format=%cs', '--', relPath], {
+      cwd: repoRoot,
+      encoding: 'utf-8',
+    }).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function frontmatterDate(raw, key) {
+  const m = raw.match(new RegExp(`^${key}:\\s*"?(\\d{4}-\\d{2}-\\d{2})`, 'm'));
+  return m ? m[1] : undefined;
 }
 
 export function loc(path) {
@@ -34,8 +70,7 @@ function getBlogPostEntries() {
       return {
         path: `/blog/${slug}`,
         sourceFile: `content/blog/${f}`,
-        changefreq: 'monthly',
-        priority: 0.7,
+        lastmod: frontmatterDate(raw, 'updated') ?? frontmatterDate(raw, 'date'),
       };
     });
 }
@@ -64,8 +99,6 @@ export function guideSitemapEntries(topics, guides) {
     .map((topic) => ({
       path: `/guide/${topic.slug}`,
       lastmod: toIsoDateString(bySlug.get(topic.slug).checkedAgainstAppOn),
-      changefreq: 'monthly',
-      priority: 0.7,
     }));
 
   if (pages.length === 0) return [];
@@ -74,7 +107,7 @@ export function guideSitemapEntries(topics, guides) {
   const hubLastmod = pages.map((page) => page.lastmod).sort().at(-1);
 
   return [
-    { path: '/guide', lastmod: hubLastmod, changefreq: 'weekly', priority: 0.8 },
+    { path: '/guide', lastmod: hubLastmod },
     ...pages,
   ];
 }
@@ -82,14 +115,11 @@ export function guideSitemapEntries(topics, guides) {
 /** One `<url>` block per entry, in the order given. */
 export function buildSitemapXml(entries) {
   const urls = entries
-    .map(({ path, sourceFile, changefreq, priority, lastmod }) => (
-      `  <url>
-    <loc>${loc(path)}</loc>
-    <lastmod>${lastmod ?? lastmodFor(sourceFile)}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority.toFixed(1)}</priority>
-  </url>`
-    ))
+    .map(({ path, sourceFile, lastmod }) => {
+      const date = lastmod ?? lastCommitDate(sourceFile);
+      const dateLine = date ? `\n    <lastmod>${date}</lastmod>` : '';
+      return `  <url>\n    <loc>${loc(path)}</loc>${dateLine}\n  </url>`;
+    })
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -100,11 +130,11 @@ ${urls}
 }
 
 export function siteEntries(root = repoRoot) {
+  const posts = getBlogPostEntries();
+  // The blog index is as fresh as the most recently edited post on it.
   const blogIndex = {
     path: '/blog',
-    sourceFile: 'content/blog',
-    changefreq: 'weekly',
-    priority: 0.8,
+    lastmod: posts.map((post) => post.lastmod).filter(Boolean).sort().at(-1),
   };
 
   return [
@@ -112,7 +142,7 @@ export function siteEntries(root = repoRoot) {
     // routable but are kept out of the sitemap.
     ...routeMetadata.filter((r) => r.sitemap !== false),
     blogIndex,
-    ...getBlogPostEntries(),
+    ...posts,
     ...guideSitemapEntries(readTopics(root), readGuides(root)),
   ];
 }

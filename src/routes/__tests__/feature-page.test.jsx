@@ -150,7 +150,7 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
     const links = [...container.querySelectorAll('.feature-related-list a')];
     expect(links).toHaveLength(page.relatedPosts.length);
     page.relatedPosts.forEach((post, i) => {
-      expect(links[i].getAttribute('href')).toBe(`/blog/${post.slug}`);
+      expect(links[i].getAttribute('href')).toBe(`/blog/${post.slug}/`);
       expect(links[i].textContent).toContain(post.title);
     });
   });
@@ -412,7 +412,7 @@ describe('in-detail section', () => {
         });
       });
       const link = section.querySelector('.feature-detail-more a');
-      expect(link.getAttribute('href')).toBe(`/guide/${page.detail.guide.slug}`);
+      expect(link.getAttribute('href')).toBe(`/guide/${page.detail.guide.slug}/`);
     }
   );
   it('a page without detail data renders no detail section', () => {

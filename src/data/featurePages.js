@@ -1433,6 +1433,9 @@ export const featureRouteMetadata = FEATURE_PAGES.map((page) => ({
   path: featurePagePath(page),
   llms: page.llms,
   sourceFile: SOURCE_FILES.get(page.slug),
+  // The page's own edit date, so the sitemap lastmod moves only when this
+  // page's copy does, not whenever a sibling in the same data file changes.
+  lastmod: page.updated ?? page.datePublished,
   changefreq: 'monthly',
   priority: page.priority,
 }));

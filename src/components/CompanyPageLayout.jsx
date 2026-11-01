@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from './SiteLink.jsx';
 import CTAButton from './CTAButton';
 import { appLinks } from '../data/siteContent';
 import { usePhoneModal } from '../context/PhoneModalContext';
