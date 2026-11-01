@@ -23,7 +23,7 @@ const data = {
     {
       icon: MessageCircle,
       title: 'WhatsApp auto-dispatch of every invoice',
-      body: 'Invoice created in Tally or on mobile — customer receives the PDF and a payment link immediately. No copy-paste, no forwarding.',
+      body: 'Invoice created in Tally or on mobile — customer receives the PDF and a payment link immediately. No copy-paste, no forwarding. Needs your own WhatsApp number, a paid add-on in early access.',
     },
     {
       icon: IndianRupee,

@@ -84,7 +84,7 @@ A: The decisions. Whether to extend credit to a late retailer, whether a dispute
 
 **Q: Is every automation available on every plan?**
 
-A: No. Some pieces are plan gated. Auto Invoice Dispatch and Import-from-PDF are both part of the Copilot plan. Reminders run from the entry plan up. UPI collection is an add-on that sits on top of any plan, priced by your partner. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows what each plan carries.
+A: No. Some pieces are plan gated. Auto Invoice Dispatch comes in with Assurance and Import-from-PDF with Copilot. Automatic reminders and dispatch both need your own WhatsApp number, a paid add-on in early access. UPI collection is an add-on that sits on top of any plan, priced by your partner. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) shows what each plan carries.
 
 **Q: How much of the day does this actually save?**
 

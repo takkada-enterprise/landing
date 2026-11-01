@@ -125,7 +125,7 @@ export const ALTERNATIVES = [
         },
         {
           feature: 'Automated WhatsApp and SMS reminders',
-          takkada: 'Yes, with per-party caps and pre-due schedules',
+          takkada: 'Yes, on your own WhatsApp number (paid add-on), with per-party caps and pre-due schedules',
           others: 'Yes',
         },
         {
@@ -170,7 +170,7 @@ export const ALTERNATIVES = [
     planPointer: {
       plan: 'Copilot',
       note:
-        'Collection, compliance and the salesman module sit together on one plan. If you only need the receivables view and reminders, the entry plan covers that.',
+        'Collection, compliance and the salesman module sit together on one plan. If you only need the receivables view, the entry plan covers that. Automatic reminders need your own WhatsApp number, a paid add-on.',
     },
     faqs: [
       {
@@ -322,7 +322,7 @@ export const ALTERNATIVES = [
         },
         {
           feature: 'Invoice dispatched to the retailer automatically',
-          takkada: 'Yes, on WhatsApp as the voucher is saved',
+          takkada: 'Yes, on your own WhatsApp number (paid add-on), as the voucher is saved',
           others: 'Reminders on outstanding bills, not dispatch on save',
         },
         {

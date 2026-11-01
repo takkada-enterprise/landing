@@ -433,7 +433,7 @@ const FIRST_BATCH = [
       'Chasing is the part nobody wants to do. So it slips, and a bill that was thirty days old quietly becomes ninety.',
     // 46 words.
     answer:
-      'A payment reminder from Tally goes out on WhatsApp on its own, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.',
+      'A payment reminder from Tally goes out on your own WhatsApp number, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.',
     waContext: 'feature-payment-reminder-tally',
     waMessage:
       'Hi, I want automatic WhatsApp payment reminders going out against my Tally outstanding. Can you show me how the schedules and the caps work?',
@@ -446,7 +446,7 @@ const FIRST_BATCH = [
       section: 'Features',
       title: 'Payment reminders from Tally',
       summary:
-        'Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
+        'Automated WhatsApp payment reminders from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
     },
     footerLabel: 'Payment reminders',
     hero: { screen: 'reminders' },
@@ -523,12 +523,12 @@ const FIRST_BATCH = [
     planPointer: {
       plan: 'Momentum',
       note:
-        'Automatic WhatsApp reminders are in every plan, starting with the entry one. Nothing here needs a higher tier.',
+        'Reminders are set up from the entry plan. Sending them automatically on WhatsApp needs your own WhatsApp number, a paid add-on in early access, on any plan.',
     },
     faqs: [
       {
         q: 'Do reminders go from my own WhatsApp number?',
-        a: 'By default they go from the Takkada business sender, which is what most distributors use. Sending from your own WhatsApp Business number is available as an early access add-on, so ask for it if the number your retailers already recognise matters to you. The reminder content and schedule are the same either way.',
+        a: 'Yes, automatic reminders need your own WhatsApp Business number, a paid add-on in early access, so ask your partner for it. Without it you can still share a ledger or invoice by hand from your phone, free.',
       },
       {
         q: 'How do I stop a good customer from being pestered?',

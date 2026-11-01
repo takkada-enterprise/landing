@@ -30,7 +30,7 @@ const partnerBenefits = [
 ];
 
 const clientWins = [
-  'Higher collection rates from automatic reminders',
+  'Higher collection rates from automatic reminders on their own WhatsApp number',
   'Auto reconciliation directly into Tally',
   'No manual follow ups, no screenshot verification',
   'T+1 settlement to the bank account',

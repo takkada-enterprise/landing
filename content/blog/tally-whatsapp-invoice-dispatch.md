@@ -123,4 +123,4 @@ A: Meta charges per conversation on the API. A conversation is any exchange with
 
 A: Full-stack apps that support e-invoice generation from mobile also support auto-dispatch of the IRN-stamped invoice. The flow is: invoice created → IRN fetched from GSTN → IRN embedded in invoice → invoice auto-dispatched to WhatsApp. The retailer receives the compliant invoice, including the QR code with embedded IRN, before goods are even unloaded.
 
-The Takkada Assurance plan auto-dispatches every Tally invoice to the buyer's WhatsApp the moment it is saved — including e-invoices, with UPI payment links, and delivery confirmation logged against each voucher. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+With your own WhatsApp number as a paid add-on, the Takkada Assurance plan auto-dispatches every Tally invoice to the buyer's WhatsApp the moment it is saved — including e-invoices, with UPI payment links, and delivery confirmation logged against each voucher. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
