@@ -160,7 +160,7 @@ export const homeFeatures = {
         'A customer order link and personal party links: retailers order from your catalogue at your rates, with nothing installed.',
         'Trade schemes, buy X get Y or slab discounts, applied on every bill that qualifies, with scheme credit notes.',
         'Ladder discount by quantity or bill value.',
-        'FMCG billing and auto parts billing engines, one included in Enterprise.',
+        'FMCG billing and auto parts billing engines, each one of the modules you can pick in Enterprise.',
       ],
       href: '/order-booking-app-tally',
     },
@@ -478,7 +478,7 @@ export const pricing = {
       annualPrice: 24000,
       price: '\u20B924,000',
       period: '/year + GST',
-      description: 'Schemes, recovery, order links, AI calling and one billing engine, in one price.',
+      description: 'Everything in Copilot, plus any 4 small modules you pick, in one price.',
       badge: 'Most complete',
     },
   ],
@@ -529,20 +529,13 @@ export const pricing = {
         { label: 'Team Sales: field visit check-in and check-out', from: 2 },
       ],
     },
-    // Enterprise's own rows. Without them its column would tick exactly what
-    // Copilot ticks at nearly three times the price. The capability behind
-    // each row exists on prod (entitlements checked 2026-10-04); its for-sale
-    // status depends on the plan 2026-10-04-002 backend. Capability claims
-    // only, never adoption claims.
+    // Enterprise's own row. Without it its column would tick exactly what
+    // Copilot ticks at nearly three times the price. Partner price list of
+    // 2026-10-25: the customer picks any 4 small modules; it is not a fixed set,
+    // and big modules such as the Customer order link are not among them.
     {
-      group: 'Modules switched on',
-      rows: [
-        { label: 'One billing engine: FMCG, Auto parts or Ladder discount', from: 3 },
-        { label: 'Trade schemes and scheme credit notes', from: 3 },
-        { label: 'Recovery dashboard with promise-to-pay follow-ups', from: 3 },
-        { label: 'Customer order link and personal party links', from: 3 },
-        { label: 'AI collection calls, billed per connected minute', from: 3 },
-      ],
+      group: 'Modules you pick',
+      rows: [{ label: 'Any 4 small modules you pick with your partner', from: 3 }],
     },
   ],
   // Add-ons never show a price on the site: partners quote them (ruled

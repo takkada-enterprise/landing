@@ -11,7 +11,7 @@ category: "Market Reality"
 excerpt: "A distributor comparing collection tools usually finds the real cost hidden in the MDR, not the sticker price. Takkada pricing is built the other way around: a flat annual subscription you can read off a table, and 0% MDR on UPI so the collection rail itself adds nothing per transaction."
 ---
 
-Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, MIS reports, automatic reminders, role-based access and voucher creation from the phone in your pocket. Assurance is ₹6,480 and adds the web view, Auto Invoice Dispatch, and E-Invoice and E-Way Bill generation from the phone. Copilot is ₹9,000 and adds PDF purchase import, bank statement import, Dispatch Load and Team Sales. Enterprise is ₹24,000 and adds schemes, recovery, order links, AI calling and one billing engine, in one price. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
+Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, MIS reports, automatic reminders, role-based access and voucher creation from the phone in your pocket. Assurance is ₹6,480 and adds the web view, Auto Invoice Dispatch, and E-Invoice and E-Way Bill generation from the phone. Copilot is ₹9,000 and adds PDF purchase import, bank statement import, Dispatch Load and Team Sales. Enterprise is ₹24,000 and adds any 4 small modules you pick, in one price. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
 
 ## Key Highlights
 
@@ -42,7 +42,7 @@ The principle behind the structure: the price you read is the price you pay. The
 | Momentum | ₹4,500 | ₹3,375 | Seeing the books, sending reminders, and creating vouchers from anywhere |
 | Assurance | ₹6,480 | ₹4,860 | Web view, Auto Invoice Dispatch, E-Invoice and E-Way Bill from the phone |
 | Copilot | ₹9,000 | ₹6,750 | PDF and bank statement import, Dispatch Load, Team Sales |
-| Enterprise | ₹24,000 | ₹18,000 | Schemes, recovery, order links, AI calling and one billing engine |
+| Enterprise | ₹24,000 | ₹18,000 | Everything in Copilot, plus any 4 small modules you pick |
 
 ## What Each Plan Is For
 
@@ -52,7 +52,7 @@ The principle behind the structure: the price you read is the price you pay. The
 
 **Copilot (₹9,000).** For the business where the evening is spent typing. Import from PDF turns a supplier bill into a purchase entry and bank statement import matches receipts against your ledgers. Dispatch Load (build a load from pending orders, print the loading sheet, bill it) and Team Sales field visit check-in and check-out are included.
 
-**Enterprise (₹24,000).** For the distributor who runs trade schemes, works a recovery list and takes orders over links. Everything in Copilot, plus trade schemes and scheme credit notes, the recovery dashboard, the customer order link and personal party links, AI collection calls billed per connected minute, and one billing engine of your choice: FMCG billing, Auto parts billing or Ladder discount.
+**Enterprise (₹24,000).** For the distributor who wants several modules at once. Everything in Copilot, plus any 4 small modules you pick with your partner, such as schemes, the recovery dashboard, personal party links, AI calling (minutes billed separately) or a billing engine.
 
 ## The 3-Year Term
 

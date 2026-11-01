@@ -111,15 +111,14 @@ describe('pricing comparison table', () => {
 
   it('never claims Enterprise carries every module (final review 2026-10-04)', () => {
     // Enterprise leaves out Payment Collection, the own WhatsApp number,
-    // extra users and two of the three billing engines, so
-    // "every module" and "Add to any plan" (AI calling is included in
-    // Enterprise) overstate it.
+    // extra users and the big modules unless picked or bought, so "every
+    // module" overstates it. It carries any 4 small modules the customer picks.
     const container = renderHome();
-    expect(container.textContent).not.toMatch(/every module|all modules/i);
+    expect(container.textContent).not.toMatch(/\bevery module|\ball modules/i);
     expect(container.querySelector('.rate-addons-title').textContent).toBe('Add-ons');
-    expect(pricing.matrix.map((g) => g.group)).toContain('Modules switched on');
+    expect(pricing.matrix.map((g) => g.group)).toContain('Modules you pick');
     expect(pricing.plans.find((p) => p.plan === 'Enterprise').description).toMatch(
-      /one billing engine/
+      /any 4 small modules/
     );
   });
 

@@ -2448,7 +2448,7 @@ export const SECOND_BATCH = [
       section: 'Features',
       title: 'AI collection calls',
       summary:
-        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and one of the modules you can pick in Enterprise, with calls charged on connected minutes.",
     },
     footerLabel: 'AI collection calls',
     hero: { screen: 'followup-log' },
@@ -2532,7 +2532,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'AI calling is an add-on on any plan, starting here, and comes included in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
+      note: 'AI calling is an add-on on any plan, starting here, and can be one of the 4 modules you pick in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
     },
     faqs: [
       {

@@ -55,4 +55,4 @@ The forty small parties get the same call as the big ones, on the same day.
 
 ## What it costs
 
-Calling is charged per connected minute, and the cost is shown before you confirm. Compare that with a salary for someone whose whole job is dialling. AI calling is switched on per company on request. It is an add-on on any plan, priced by your partner, and it is included in Enterprise.
+Calling is charged per connected minute, and the cost is shown before you confirm. Compare that with a salary for someone whose whole job is dialling. AI calling is switched on per company on request. It is an add-on on any plan, priced by your partner, and it can be one of the 4 modules you pick in Enterprise.

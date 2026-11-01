@@ -62,4 +62,4 @@ That is the difference between making calls and running collections.
 
 ## What it costs
 
-Charged per connected minute, with the cost shown before you confirm. Switched on per company on request, as an add-on on any plan or included in Enterprise.
+Charged per connected minute, with the cost shown before you confirm. Switched on per company on request, as an add-on on any plan, or as one of the 4 modules you pick in Enterprise.
