@@ -2382,8 +2382,8 @@ export const SECOND_BATCH = [
         'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Copilot',
-      note: 'Voucher approval comes with role-based access for your team on the Copilot plan.',
+      plan: 'Momentum',
+      note: 'Voucher approval is a paid module you can add to any plan, starting here. Role-based access comes with every plan. Ask your partner for the module price.',
     },
     faqs: [
       {

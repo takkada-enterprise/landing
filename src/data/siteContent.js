@@ -496,6 +496,8 @@ export const pricing = {
         { label: 'Automatic WhatsApp payment reminders', from: 0 },
         { label: 'Share ledgers and invoices on WhatsApp and email by hand', from: 0 },
         { label: '20+ business reports', from: 0 },
+        { label: 'MIS reports (Reports +)', from: 0 },
+        { label: 'Role-based access for your team', from: 0 },
         { label: 'Works when the Tally laptop is off', from: 0 },
       ],
     },
@@ -523,8 +525,6 @@ export const pricing = {
       rows: [
         { label: 'Import from PDF for supplier bills', from: 2 },
         { label: 'Bank statement import with auto-matching', from: 2 },
-        { label: 'Reports + advanced reporting', from: 2 },
-        { label: 'Role-based access for salesman teams', from: 2 },
         { label: 'Dispatch Load: build a van load, print the loading sheet, bill it', from: 2 },
         { label: 'Team Sales: field visit check-in and check-out', from: 2 },
       ],
@@ -564,6 +564,9 @@ export const pricing = {
     { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
     { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
     { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
+    { label: 'Proof of Delivery', note: 'Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).' },
+    { label: 'Voucher names', note: 'Name your voucher types, each with a separate number series, in the app and in Tally.' },
+    { label: 'Manufacturing', note: 'Bill of materials, production runs and job work, posted to Tally.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
@@ -593,7 +596,8 @@ export function planPriceRange(plans = pricing.plans) {
 // 2026-08-11. No adoption language ("customers run this", "used by") is
 // permitted anywhere near it (CLAUDE.md \u00A73, \u00A75).
 //
-// It carries no rupee figure ("Custom pricing"); if one is ever added, route it
+// It carries no rupee figure ("Per additional company"; the partner price list
+// holds the number, add-ons never show one here); if one is ever added, route it
 // through formatInr and pin it in src/routes/__tests__/pricing-table.test.jsx.
 export const biggerSetups = {
   title: 'Bigger setups',
@@ -604,9 +608,9 @@ export const biggerSetups = {
   items: [
     {
       id: 'multi-company',
-      title: 'Consolidated reports across companies',
+      title: 'Grouped companies: consolidated reports across companies',
       body: 'The second company keeps its own books, and somebody adds the two together by hand every month end. Receivables, sales and reports arrive as one view across every company you run.',
-      price: [{ amount: 'Custom pricing', note: 'quoted against your company list' }],
+      price: [{ amount: 'Per additional company', note: 'ask your partner for pricing' }],
     },
   ],
   note: 'GST extra, same as every price on this page.',

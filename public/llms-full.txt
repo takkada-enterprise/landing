@@ -16,6 +16,9 @@ Add-ons (Ask your partner for pricing):
 - Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
 - Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
+- Proof of Delivery: Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).
+- Voucher names: Name your voucher types, each with a separate number series, in the app and in Tally.
+- Manufacturing: Bill of materials, production runs and job work, posted to Tally.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages

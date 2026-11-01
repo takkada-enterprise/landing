@@ -11,7 +11,7 @@ category: "How-To"
 excerpt: "Owner Fancy Bazaar par khada hai, CA ne TB maanga. Tally ki report mobile par Reports screen se khulti hai, do groups mein. Share sheet se WhatsApp jaati hai, Excel un reports par jahan chooser hai."
 ---
 
-Tally ki report mobile par kaise dekhe, yeh seedha jawab hai: phone par Reports screen kholiye, do groups mein. Financial Statements mein Trial Balance, Profit and Loss, Balance Sheet aur MIS Reports hain. Action Reports mein Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics aur Daybook hain. Numbers wahi Tally books se aate hain jo phone par sync hain. Guwahati ka FMCG owner Fancy Bazaar par 9:10 baje CA ka message dekhta hai, "TB bhej do", aur Trial Balance phone par khol leta hai. Har exported PDF ya Excel phone ki share sheet se jaati hai, jahan WhatsApp, email ya Drive choose karte ho. Receivables Ageing aur Customer Analytics sirf PDF hain. Daybook PDF ya CSV hai. Stock aur godown screens par export nahi hai. Reports+ Copilot mein bundled add-on hai, MIS aur analytics ke liye.
+Tally ki report mobile par kaise dekhe, yeh seedha jawab hai: phone par Reports screen kholiye, do groups mein. Financial Statements mein Trial Balance, Profit and Loss, Balance Sheet aur MIS Reports hain. Action Reports mein Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics aur Daybook hain. Numbers wahi Tally books se aate hain jo phone par sync hain. Guwahati ka FMCG owner Fancy Bazaar par 9:10 baje CA ka message dekhta hai, "TB bhej do", aur Trial Balance phone par khol leta hai. Har exported PDF ya Excel phone ki share sheet se jaati hai, jahan WhatsApp, email ya Drive choose karte ho. Receivables Ageing aur Customer Analytics sirf PDF hain. Daybook PDF ya CSV hai. Stock aur godown screens par export nahi hai. Reports+ har plan mein shamil hai, MIS aur analytics ke liye.
 
 ## Key Highlights
 
@@ -43,7 +43,7 @@ Desktop band hai, Tally usi machine par hai jahan accountant baitha tha. Owner r
 
 Financial Statements: Trial Balance, Profit and Loss, Balance Sheet, MIS Reports. Trial Balance, P&L aur Balance Sheet synced Tally books se seedha padhte hain. Trial Balance flat list hai. Line se ledger mein drill nahi. Group se sub-group se ledger Balance Sheet ka kaam hai. Jab synced books foot nahi karti, Balance Sheet par Difference row aati hai. [Trial Balance phone par](/blog/trial-balance-tally-mobile/) yahi list hai.
 
-MIS Reports 12-month grid hai, total column ke saath. Cell se voucher ya ledger mein drill nahi. MIS Reports+ ka hissa hai. Reports+ Copilot plan mein bundled paid add-on hai. Uske bina bhi Trial Balance, P&L, Balance Sheet khulte hain.
+MIS Reports 12-month grid hai, total column ke saath. Cell se voucher ya ledger mein drill nahi. MIS Reports+ ka hissa hai. Reports+ har plan mein shamil hai. Uske bina bhi Trial Balance, P&L, Balance Sheet khulte hain.
 
 Action Reports: Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook. Collections ke do tabs: Outstanding aur Payment behaviour. Payment behaviour, Sales Analytics, Cross-sell Gaps, Purchase Analytics aur Inventory ka Velocity tab Reports+ se khulte hain.
 
@@ -113,7 +113,7 @@ A: Nahi. Trial Balance flat list hai. Group se sub-group se ledger Balance Sheet
 
 **Q: Reports+ ke bina kaun si Tally reports phone par khulti hain?**
 
-A: Collections Outstanding, Daybook, Bills Receivable, Bills Payable, Trial Balance, Profit and Loss aur Balance Sheet khulti hain. Reports+ Copilot mein bundled paid add-on hai. Woh MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, Collections ka Payment behaviour tab aur Inventory ka Velocity tab kholta hai.
+A: Collections Outstanding, Daybook, Bills Receivable, Bills Payable, Trial Balance, Profit and Loss aur Balance Sheet khulti hain. Reports+ har plan mein shamil hai. Woh MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, Collections ka Payment behaviour tab aur Inventory ka Velocity tab kholta hai.
 
 **Q: Kya salesman har Tally report dekh sakta hai?**
 

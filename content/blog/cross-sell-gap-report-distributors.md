@@ -11,7 +11,7 @@ category: "Reports"
 excerpt: "Sharma Kirana takes rice and oil and has never lifted the new atta SKU. The cross sell report distributor view on the phone is that gap, ready for tomorrow's counter conversation."
 ---
 
-You find which items a customer is not buying from you in Cross-sell Gaps, the Action Report that lists the catalogue holes per party, which is the cross sell report distributor view on the phone. Cross-sell Gaps unlocks with Reports+, a paid add-on bundled into the Copilot plan. PDF and Excel export sit behind a chooser sheet. A Guwahati FMCG owner types Sharma at 9 PM, sees Sharma Kirana of Fancy Bazaar lifting rice and oil, and sees the new atta SKU sitting in the gap. Sharma already tickets around ₹22,000 twice a week. Das Stores two shops down has the same atta gap. The owner sends Raju three names, not a scheme SMS to eighty parties. Party search is a search box. You type a name. There is no salesman filter and no godown filter.
+You find which items a customer is not buying from you in Cross-sell Gaps, the Action Report that lists the catalogue holes per party, which is the cross sell report distributor view on the phone. Cross-sell Gaps unlocks with Reports+, which comes with every plan. PDF and Excel export sit behind a chooser sheet. A Guwahati FMCG owner types Sharma at 9 PM, sees Sharma Kirana of Fancy Bazaar lifting rice and oil, and sees the new atta SKU sitting in the gap. Sharma already tickets around ₹22,000 twice a week. Das Stores two shops down has the same atta gap. The owner sends Raju three names, not a scheme SMS to eighty parties. Party search is a search box. You type a name. There is no salesman filter and no godown filter.
 
 ## Key Highlights
 

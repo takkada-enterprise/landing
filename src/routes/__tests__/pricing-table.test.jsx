@@ -100,7 +100,8 @@ describe('pricing comparison table', () => {
     expect(pricing.addons.map((a) => a.label)).toEqual([
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'Payment Collection', 'Barcode labels', 'Extra user',
+      'Payment Collection', 'Barcode labels', 'Proof of Delivery', 'Voucher names', 'Manufacturing',
+      'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);
@@ -220,7 +221,7 @@ describe('bigger setups block', () => {
       /across companies/i.test(el.textContent)
     );
     expect(card, 'no multi-company card rendered').toBeTruthy();
-    expect(card.textContent).toContain('Custom pricing');
+    expect(card.textContent).toContain('Per additional company');
     expect(card.textContent).not.toContain('₹');
   });
 

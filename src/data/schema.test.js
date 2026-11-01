@@ -129,10 +129,16 @@ describe('pricing data (rate card, July 2026)', () => {
     const topTier = pricing.plans.findIndex((p) => p.plan === 'Copilot');
     const assurance = pricing.plans.findIndex((p) => p.plan === 'Assurance');
     const allRows = pricing.matrix.flatMap((g) => g.rows);
-    for (const capability of [/Import from PDF/, /Reports \+/, /salesman/i]) {
+    for (const capability of [/Import from PDF/, /Dispatch Load/, /Team Sales/]) {
       const row = allRows.find((r) => capability.test(r.label));
       expect(row, `no matrix row for ${capability}`).toBeDefined();
       expect(row.from).toBe(topTier);
+    }
+    // MIS and role-based access are open on every plan (plan 2026-11-01-002 R6).
+    for (const capability of [/Reports \+/, /Role-based access/]) {
+      const row = allRows.find((r) => capability.test(r.label));
+      expect(row, `no matrix row for ${capability}`).toBeDefined();
+      expect(row.from).toBe(0);
     }
     const dispatch = allRows.find((r) => /Auto Invoice Dispatch/.test(r.label));
     expect(dispatch).toBeDefined();

@@ -55,7 +55,7 @@ Receivables Ageing and Customer Analytics export to PDF, then the same share she
 
 Tally-format export, the layout Tally itself prints, exists for Trial Balance, Balance Sheet, Profit and Loss, Bills Payable and Bills Receivable. Profit and Loss and Balance Sheet export in that format only for the current period. That file also goes through the share sheet. The [Tally-format export from the phone](/blog/tally-format-export-trial-balance-balance-sheet/) post is when the CA wants that layout rather than a PDF of the phone screen.
 
-Reports+ is a paid add-on bundled into the Copilot plan. MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity stay dark without it. You cannot share a report the member cannot open.
+Reports+ comes with every plan. MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity all sit inside it. You cannot share a report the member cannot open.
 
 Most action reports have no date filter. Ageing is always as of today. Daybook has Today, Yesterday, Last 7 days, Last 30 days and Custom, plus a voucher-type chip. Sharing Daybook for Today is a different file from Last 7 days. Sharing Bills Receivable is always today's ageing.
 
@@ -109,7 +109,7 @@ A: No. A report PDF leaves from the report screen through the share sheet. A par
 
 **Q: Do I need Reports+ to share a Trial Balance PDF on WhatsApp?**
 
-A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable, Bills Payable and Payments export without Reports+. Reports+ is a paid add-on bundled into the Copilot plan. It unlocks MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity. You can only share a report the member can open.
+A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable, Bills Payable and Payments export without Reports+. Reports+ comes with every plan. It unlocks MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity. You can only share a report the member can open.
 
 **Q: Who can share Tally reports on WhatsApp from the team phone?**
 

@@ -227,7 +227,7 @@ const FIRST_BATCH = [
     },
     planPointer: {
       plan: 'Copilot',
-      note: 'Role-based salesman access is part of the Copilot plan. It is no longer sold as a separate add-on.',
+      note: 'Role-based access comes with every plan. Team Sales and field visit check-in are part of the Copilot plan.',
     },
     faqs: [
       {
