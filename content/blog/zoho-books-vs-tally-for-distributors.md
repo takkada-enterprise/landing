@@ -104,7 +104,7 @@ A: Cloud access helps visibility, but faster collection comes from invoice-linke
 
 ## Internal Links
 
-- What Is Takkada? The Tally-Native Receivables App, Explained
+- What Is Takkada? Tally on Mobile for Distributors, Explained
 - Tally Cloud: What It Means for Distributors
 - View Tally Reports on Mobile
 

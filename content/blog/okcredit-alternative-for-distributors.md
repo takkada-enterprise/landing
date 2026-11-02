@@ -15,7 +15,7 @@ OkCredit is a digital khata for recording who owes what, which suits a shop trac
 
 ## Key Highlights
 
-- OkCredit is a digital khata app for tracking who owes what, while Takkada is a Tally-integrated collection layer where every balance ties to a real GST invoice in your books
+- OkCredit is a digital khata app for tracking who owes what, while Takkada is Tally on mobile, where every balance ties to a real GST invoice in your books
 - A digital ledger of balances does not reconcile with Tally, file GST, or collect the money; for a distributor it is a memory aid, not a receivables system
 - Takkada collects on UPI at 0% MDR with no per-transaction fee, links each payment to the right invoice, and posts the receipt back into Tally automatically, so the udhaar and the books are the same number
 
@@ -53,7 +53,7 @@ That is the difference between remembering a debt and running a receivables oper
 
 ## Capability comparison
 
-| Capability | OkCredit (digital khata) | Takkada (Tally collection layer) |
+| Capability | OkCredit (digital khata) | Takkada (Tally on mobile) |
 | --- | --- | --- |
 | Track who owes what | ✓ | ✓ |
 | Payment reminders | ✓ | ✓ (invoice-referenced) |

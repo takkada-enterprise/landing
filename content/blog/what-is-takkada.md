@@ -1,23 +1,23 @@
 ---
-title: "What Is Takkada? The Tally-Native Receivables App, Explained"
+title: "What Is Takkada? Tally on Mobile for Distributors, Explained"
 slug: "what-is-takkada"
-meta_title: "What Is Takkada? Tally Receivables & Collection App"
-meta_description: "What is Takkada: a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch."
+meta_title: "What Is Takkada? Tally on Mobile for Distributors"
+meta_description: "What is Takkada: Tally on mobile for Indian distributors. Billing with e-invoice, 20+ reports, stock, orders, salesmen, dispatch, reminders and UPI collection."
 primary_keyword: "what is takkada"
 date: "2026-06-06"
-updated: "2026-10-04"
+updated: "2026-11-03"
 author: "founder"
 category: "Tally Mobile"
-excerpt: "A Guwahati FMCG distributor with 180 retail parties spends his evenings asking the same question: which retailer paid today, and which invoice did the money settle. Takkada is the app that answers it from his phone, and posts the receipt back into Tally before he gets home."
+excerpt: "A Guwahati FMCG distributor with 180 retail parties runs his business from Tally on a desktop he leaves at 7 PM. Takkada puts that Tally on his phone: the bills, the reports, the stock, the salesmen and the money, with every entry going back into the same books."
 ---
 
-Takkada is a Tally-native mobile app that helps Indian distributors and wholesalers get paid without chasing their retailers. It sits on top of an existing Tally Prime installation and adds the four things the desktop cannot do from the field: raising a GST invoice from the phone with the e-invoice IRN and e-way bill, dispatching that invoice to the retailer on WhatsApp the moment it is saved, collecting payment on a UPI link at 0% MDR with no transaction cap, and posting each receipt back into Tally automatically so the 9 PM reconciliation goes away. Tally stays the system of record. Takkada is the layer that lives on the phone, in the field, and in the retailer's WhatsApp. A distributor running ₹2 crore to ₹200 crore of turnover, with receivables spread across 30 to 300 retail parties on 30 to 90 day terms, uses it to see live outstanding and collect faster.
+Takkada is Tally on mobile: an app for Indian distributors, wholesalers and manufacturers that puts their existing Tally on the phone and in a browser. It sits on top of the TallyPrime or Tally ERP 9 installation the business already runs and covers the work of the whole day from the phone. Raise a GST invoice with the e-invoice IRN and e-way bill, check 20+ reports and stock, book sales orders and delivery challans, give each salesman his own parties and record his visits, build the van load, send invoices and payment reminders on WhatsApp, and collect on a UPI link at 0% MDR. Every entry made in Takkada posts back into Tally, so there is one set of books. Tally stays the system of record. A distributor with 30 to 300 retail parties uses Takkada so that the books, the team and the customers are all reachable from the phone, not only from the office desktop.
 
 ## Key Highlights
 
-- Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors and wholesalers, built on top of an existing Tally Prime installation, not as a replacement for it
-- Takkada collects payments on UPI at 0% MDR, with no transaction cap and no monthly fee, and auto-reconciles each receipt back into Tally so the 9 PM matching ritual goes away
-- A distributor can raise GST invoices, e-invoice IRNs, and e-way bills from a phone in the field, then dispatch them on WhatsApp the moment they are saved
+- Takkada is Tally on mobile for Indian distributors and wholesalers, built on top of an existing Tally installation, not as a replacement for it
+- Billing, reports, stock, orders, salesmen and dispatch all run from the phone, and every entry posts back into Tally
+- WhatsApp reminders, UPI collection at 0% MDR and automatic matching of receipts into Tally are part of the same app
 
 ## In This Article
 
@@ -30,17 +30,17 @@ Takkada is a Tally-native mobile app that helps Indian distributors and wholesal
 
 ## What Is Takkada, in One Paragraph
 
-What is Takkada: it is a mobile-first software layer for Tally that helps Indian distributors and wholesalers get paid without chasing customers. It sits on top of the distributor's existing Tally installation and adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection at 0% MDR, and [auto-reconciliation back into Tally](/blog/auto-reconciliation-tally/). The distributor keeps Tally as the system of record. Takkada is the part that lives on the phone, in the field, and in the retailer's WhatsApp.
+What is Takkada: it is Tally on mobile, a layer that puts a distributor's existing Tally on the phone and in a browser. It adds mobile invoicing (including e-invoice and e-way bill), 20+ reports, stock and orders, a salesman module, dispatch loading, WhatsApp invoices and reminders, UPI payment collection at 0% MDR, and [automatic matching of receipts back into Tally](/blog/auto-reconciliation-tally/). The distributor keeps Tally as the system of record. Takkada is the part that lives on the phone, in the field, and in the retailer's WhatsApp.
 
-The one-line version a distributor would repeat to another distributor: "Tally toh wahi hai, bas ab phone se invoice ban jaata hai, WhatsApp pe chala jaata hai, aur paisa aate hi Tally mein chadh jaata hai."
+The one-line version a distributor would repeat to another distributor: "Tally toh wahi hai, bas ab poora kaam phone se ho jaata hai: bill, report, stock, salesman, aur paisa bhi."
 
 ## The Problem Takkada Was Built To Solve
 
-An Indian distributor running ₹2 crore to ₹200 crore of turnover carries receivables across 30 to 300 retail parties, on 30 to 90 day terms. The money does not arrive on its own. Someone has to track who owes what, send the reminder, take the payment, and then match that payment back to the right invoice inside Tally.
+An Indian distributor running ₹2 crore to ₹200 crore of turnover runs the whole business on Tally, and Tally lives on one desktop in the office. Every job that happens away from that desktop waits for it.
 
-In most distribution businesses this work is split across three painful places. The salesman is in the field with no way to raise an invoice, so goods move on Monday and the bill reaches the retailer on Thursday. The owner reaches for his phone at 9 PM to check which retailer paid, and Tally is on a desktop in the office that he left hours ago. The accountant spends the last hour of the day matching bank receipts to open invoices by hand, guessing which payment settled which bill.
+The salesman is in the field with no way to raise an invoice, so goods move on Monday and the bill reaches the retailer on Thursday. The owner wants to check a party's outstanding or a stock level at 9 PM, and the books are on a computer he left hours ago. The godown loads the van from a paper list. The accountant spends the last hour of the day typing purchase bills and matching bank receipts by hand.
 
-Takkada collapses those three jobs into one app. The salesman invoices from the phone. The owner sees live outstanding on the phone. The accountant stops matching by hand because [reconciliation happens automatically](/blog/auto-reconciliation-tally/).
+Takkada puts all of that on the phone. The salesman invoices at the counter. The owner sees reports, stock and outstanding wherever he is. The van is loaded from a list built in the app. Purchase bills come in from a PDF, and [receipts match themselves](/blog/auto-reconciliation-tally/) to the right invoice.
 
 ## What Takkada Actually Does
 
@@ -49,25 +49,27 @@ Feature by feature, here is what the app does for a distributor.
 | Capability | What it means on the ground |
 |---|---|
 | Mobile invoicing | Raise a GST invoice from the phone at the counter, including e-invoice IRN and e-way bill |
-| WhatsApp auto-dispatch | Every Tally invoice fires on the retailer's WhatsApp the moment it is created |
-| 0% MDR UPI collection | The retailer pays via a UPI link straight to the distributor's own handle, no gateway cut |
-| Smart payment reminders | Reminder copy changes by due date and overdue status, sent on WhatsApp with a UPI link |
-| Auto-reconciliation | Each receipt matches to its open invoice and posts back into Tally automatically |
-| Live outstanding | Partywise and consolidated outstanding visible on the phone, anywhere |
-| Role-based access | Owners, accountants, and salesmen each see only what their role needs |
+| Reports and stock | 20+ Tally reports, outstanding and stock on the phone, for every company you run |
+| Orders and challans | Sales orders and delivery challans from the phone, posted into Tally |
+| Salesman module | Each salesman sees only his own parties, with geo-tagged visit check-ins |
+| Dispatch loading | Build the van load, print the loading sheet, and bill it |
+| Purchase and bank imports | Supplier bills from a PDF and bank statements, matched and posted into Tally |
+| WhatsApp invoices and reminders | Invoices and payment reminders go out on WhatsApp, from Takkada's number or your own |
+| UPI collection at 0% MDR | The retailer pays on a UPI link, and the receipt matches to its invoice in Tally |
+| Role-based access | Owners, accountants and salesmen each see only what their role needs |
 
-The two features distributors notice first are usually [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/) and the [0% MDR UPI collection](/blog/zero-mdr-upi-collection-for-distributors-india/). The one that changes their evenings is auto-reconciliation, because that is the work that used to keep the accountant at the desk until 9 PM.
+Some of these are in the higher plans and some are add-ons. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which is which.
 
 ## Who Takkada Is For
 
 Takkada is built for Indian offline distributors and wholesalers using Tally, typically 5 to 50 person businesses, often family-run. Within that, four kinds of users get the most out of it:
 
-- Owners who want visibility and reminders only, no voucher creation
+- Owners who want their reports, stock and outstanding on the phone
 - Accountants and operators who need to create vouchers on mobile
-- Collections-heavy distributors for whom e-invoicing, e-way bill, and payment links are the whole point
+- Distributors who bill in the field and need e-invoice, e-way bill and WhatsApp dispatch from the phone
 - Team-based distributors who need role-based access for several salesmen
 
-Honest scope on who it is not for. Takkada is not built for pure service businesses with no inventory, not built for companies that do not run on Tally, and not a general-purpose accounting replacement. Tally stays. Takkada is the layer on top.
+Honest scope on who it is not for. Takkada is not built for pure service businesses with no inventory, not built for companies that do not run on Tally, and not a replacement for Tally. Tally stays. Takkada is the layer on top.
 
 ## How Takkada Sits On Top Of Tally
 
@@ -79,26 +81,26 @@ The distributor does not maintain two sets of books. There is one set, in Tally,
 
 **Q: What is Takkada in simple terms?**
 
-A: Takkada is a Tally-integrated receivables and collection app for Indian distributors. It lets a distributor raise invoices from the phone, send them on WhatsApp, collect payment on UPI at 0% MDR, and have every receipt reconcile back into Tally automatically. Tally stays as the books; Takkada is the mobile and collection layer on top.
+A: Takkada is Tally on mobile for Indian distributors. It lets a distributor raise invoices from the phone, see reports and stock, book orders, run a sales team, load the van, send invoices and reminders on WhatsApp, and collect payment on UPI at 0% MDR, with every entry going back into Tally. Tally stays as the books; Takkada is the mobile layer on top.
 
 **Q: Does Takkada replace Tally?**
 
-A: No. Takkada runs on top of an existing Tally installation and treats Tally as the system of record. Nothing is migrated off Tally. The distributor keeps the same company data, the same ledgers, and the same accountant workflow, with a phone-based layer added for invoicing, dispatch, collection, and reconciliation.
+A: No. Takkada runs on top of an existing Tally installation and treats Tally as the system of record. Nothing is migrated off Tally. The distributor keeps the same company data, the same ledgers, and the same accountant workflow, with a phone and browser layer added on top.
 
 **Q: How does Takkada collect payments at 0% MDR?**
 
-A: The retailer pays through a UPI link that points to the distributor's own UPI handle, so the money moves directly on the UPI rail with no payment gateway taking a percentage in the middle. Takkada earns from a flat annual subscription, not from a cut of each transaction, which is why the [0% MDR on UPI](/blog/zero-mdr-upi-collection-for-distributors-india/) holds with no transaction cap and no monthly fee.
+A: With the Payment Collection add-on, the retailer pays through a UPI link that points to the distributor's own UPI handle, so the money moves directly on the UPI rail with no payment gateway taking a percentage in the middle. Takkada earns from a flat annual subscription, not from a cut of each transaction, which is why the [0% MDR on UPI](/blog/zero-mdr-upi-collection-for-distributors-india/) holds with no transaction cap and no monthly fee.
 
 **Q: Can salesmen use Takkada in the field?**
 
-A: Yes. A salesman with the right role can raise a GST invoice at the counter from the phone, generate the e-invoice IRN and e-way bill, and have it dispatched to the retailer on WhatsApp. This is the same-day invoicing that compresses [days sales outstanding](/blog/days-sales-outstanding-distributor-india/) because the retailer's credit clock starts on delivery day, not three days later.
+A: Yes. A salesman with the right role can raise a GST invoice at the counter from the phone, generate the e-invoice IRN and e-way bill, book an order, and record his visit with a geo-tagged check-in. The invoice can go to the retailer on WhatsApp the moment it is saved, so the retailer's credit clock starts on delivery day, not three days later.
 
 **Q: Who is behind Takkada?**
 
-A: Takkada is built by Pay Saathi Innovation LLP, registered in Guwahati, Assam, for Indian distributors and wholesalers running on Tally. It is sold through the Tally partner network as well as directly, and is designed around the real collection workflow of distributors in Tier 2 and Tier 3 markets.
+A: Takkada is built by Pay Saathi Innovation LLP, registered in Guwahati, Assam, for Indian distributors and wholesalers running on Tally. It is sold through the Tally partner network as well as directly, and is designed around the real working day of distributors in Tier 2 and Tier 3 markets.
 
 **Q: What does Takkada cost?**
 
-A: Takkada is priced as a flat annual per-customer subscription across four plans, from Momentum at ₹4,500 through Enterprise at ₹24,000 (GST extra), with a 3-year term billed once at 25% off. The UPI collection rail carries 0% MDR. Full pricing is broken down in the [Takkada pricing and plans guide](/blog/takkada-pricing-plans-2026/).
+A: Takkada is priced as a flat annual per-customer subscription across four plans, from Momentum at ₹4,500 through Enterprise at ₹24,000 (GST extra), with a 3-year term billed once at 25% off. Full pricing is broken down in the [Takkada pricing and plans guide](/blog/takkada-pricing-plans-2026/).
 
-Takkada is the Tally-native, 0% MDR receivables and reconciliation app for Indian distributors. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

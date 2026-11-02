@@ -17,7 +17,7 @@ UPI AutoPay lets a payer set up a mandate once so recurring debits up to ₹15,0
 
 - UPI AutoPay is an e-mandate framework where a payer pre-authorises recurring debits up to ₹15,000 without re-entering a UPI PIN each time, designed for fixed-cycle billing like subscriptions and EMIs
 - Distribution receivables are variable in amount and timing, so most distributors collect on a one-time payment link per invoice rather than a fixed AutoPay mandate
-- Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, sending payment links on every invoice and auto-reconciling receipts back into Tally with no transaction cap and no monthly fee
+- Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, sending payment links on every invoice and auto-reconciling receipts back into Tally with no transaction cap and no monthly fee
 
 ## In This Article
 
@@ -75,7 +75,7 @@ For a distributor reading this and wondering what to actually do on Monday morni
 
 This is where Takkada sits in the distributor's world. Takkada is a mobile layer on top of the Tally you already run, and it sends a UPI payment link on every invoice, then auto-reconciles the receipt into Tally automatically. The collection runs at 0% MDR on UPI collections, no transaction cap, no monthly fee, which matters because a 2% gateway cut on a ₹50,000 invoice is ₹1,000 gone on a single bill. To see how that MDR math compounds across a year, read [why MDR matters for distributors](/blog/what-is-mdr-and-why-it-matters-for-distributors/), and for the mechanics of the link itself, see [how a payment link connects to Tally](/blog/payment-link-tally-integration/).
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI. It does not offer UPI AutoPay mandates today, and that is a deliberate fit decision rather than a gap. Variable trade invoices on shifting due dates are served better by an exact-amount link per bill than by a fixed standing instruction, and the link path is what is shipped and working for distributors right now. For the reconciliation side of that flow, [auto-reconciliation back into Tally](/blog/auto-reconciliation-tally/) closes the loop so the receipt matches its invoice without manual entry.
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR. It does not offer UPI AutoPay mandates today, and that is a deliberate fit decision rather than a gap. Variable trade invoices on shifting due dates are served better by an exact-amount link per bill than by a fixed standing instruction, and the link path is what is shipped and working for distributors right now. For the reconciliation side of that flow, [auto-reconciliation back into Tally](/blog/auto-reconciliation-tally/) closes the loop so the receipt matches its invoice without manual entry.
 
 ## Frequently Asked Questions
 

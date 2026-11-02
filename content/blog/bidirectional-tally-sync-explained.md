@@ -102,4 +102,4 @@ A: Because the number of manual steps between "retailer pays" and "Tally is upda
 
 A: Yes. Takkada treats Tally as the primary read-write surface, so invoices raised on the phone and UPI receipts collected from retailers post back into Tally automatically. That return path is what powers auto-reconciliation and same-day field invoicing.
 
-Takkada is the Tally-native receivables app built on real two-way Tally sync. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile, built on real two-way Tally sync. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

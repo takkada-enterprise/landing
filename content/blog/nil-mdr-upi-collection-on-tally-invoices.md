@@ -88,4 +88,4 @@ A: No. You raise invoices in Tally as you do now. The companion app attaches a U
 
 A: Yes. Standard peer-to-merchant UPI, where a retailer pays from their bank account, carries no merchant discount rate. That is what makes nil MDR UPI collection genuine rather than a promotional rate. The cost of the software is a flat subscription, not a cut of each payment.
 
-Takkada is the only Tally-native distributor collection app in India with genuine nil MDR UPI collection, no per-transaction fee, and UTR auto-matching that posts receipts straight onto your Tally invoices. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, no per-transaction fee, and UTR auto-matching that posts receipts straight onto your Tally invoices. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

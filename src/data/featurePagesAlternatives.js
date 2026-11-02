@@ -46,27 +46,27 @@ export const ALTERNATIVES = [
     namesCompetitor: 'Biz Analyst',
     searchPhrase: 'Biz Analyst alternative',
     overline: 'COMPARISON',
-    headline: 'Biz Analyst alternative for distributors who have to collect the money.',
+    headline: 'Biz Analyst alternative for distributors who run the whole day from the phone.',
     subheadline:
-      'Seeing the outstanding on your phone stopped being the hard part a while ago. The hard part is that seeing it does not collect it, and at month end you are still on the phone asking the same forty retailers for the same money.',
+      'Reading your Tally on a phone stopped being the hard part a while ago. The hard part is everything after it: the bill at the counter, the van load, the salesman\'s visit, the reminder and the receipt, all landing back in the same books.',
     // 56 words. Entity-first, answers in sentence one, and concedes the two
     // real Biz Analyst strengths inside the citation-eligible passage rather
     // than burying them further down.
     answer:
-      'Takkada is the Biz Analyst alternative distributors pick when collection, not reporting, is the bottleneck. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a zero-MDR UPI link on every invoice, posts the receipt into Tally itself, and names the customers who have quietly stopped ordering.',
+      'Takkada is the Biz Analyst alternative for distributors who want the whole working day on the phone, not only the reports. Both apps read your Tally on a phone, create vouchers and send reminders. Takkada adds a browser version, e-invoice cancellation, credit and debit notes, a dispatch loading sheet, and UPI collection matched back into Tally.',
     waContext: 'feature-biz-analyst-alternative',
     waMessage:
-      'Hi, I am on Biz Analyst right now and the collection side is the gap. Can you show me how Takkada handles UPI collection and reconciliation back into Tally?',
+      'Hi, I am on Biz Analyst right now. Can you show me what Takkada adds, from billing and dispatch to UPI collection back into Tally?',
     seo: {
       title: 'Biz Analyst Alternative for Distributors | Takkada',
       description:
-        'Biz Analyst alternative for Tally distributors: zero-MDR UPI collection on every invoice, receipts posted into Tally on their own, e-invoice cancel from mobile.',
+        'Biz Analyst alternative for Tally distributors: billing, e-invoice cancel, credit notes, dispatch loading, salesmen and UPI collection, on mobile and web.',
     },
     llms: {
       section: 'Key pages',
       title: 'Biz Analyst alternative',
       summary:
-        'Takkada compared with Biz Analyst for Indian distributors on Tally. Both read Tally on mobile, create vouchers and send reminders. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone. Biz Analyst bills per device and is offline-capable, which Takkada is not.',
+        'Takkada compared with Biz Analyst for Indian distributors on Tally. Both read Tally on mobile, create vouchers and send reminders. Takkada adds a browser version, credit and debit notes, cancellation of an e-invoice or e-way bill from the phone, dispatch loading, and UPI collection matched back into Tally. Biz Analyst bills per device and is offline-capable, which Takkada is not.',
     },
     footerLabel: 'Biz Analyst alternative',
     hero: { screen: 'customer-analytics' },
@@ -75,6 +75,20 @@ export const ALTERNATIVES = [
     updated: '2026-08-08',
     walkthroughHeading: 'Where the two apps stop being the same',
     walkthrough: [
+      {
+        icon: 'FileCheck2',
+        title: 'The compliance panic is handled from the phone',
+        body:
+          'Raise the IRN and the e-way bill at the counter, and when the buyer changes his mind an hour later, cancel the e-invoice or the e-way bill from the same screen with the reason code the portal wants. Cancellation is the part nobody else in the category has.',
+        screen: 'invoice-summary-send',
+      },
+      {
+        icon: 'Lock',
+        title: 'Your salesman sees his parties, not your books',
+        body:
+          'Access is set per person, down to the warehouse his stock movements may touch. He sees his own retailers, his own targets and his own collections. Your margins and your other territories stay out of his phone.',
+        screen: 'member-permissions-scope',
+      },
       {
         icon: 'Wallet',
         title: 'The retailer pays from the invoice itself',
@@ -91,20 +105,6 @@ export const ALTERNATIVES = [
         body:
           'When the money lands, the receipt entry goes into Tally against that invoice on its own. Partial payments, one payment covering three bills, and payments with no reference all get matched. The nine o\'clock reconciliation stops being a job.',
         screen: 'party-detail',
-      },
-      {
-        icon: 'FileCheck2',
-        title: 'The compliance panic is handled from the phone',
-        body:
-          'Raise the IRN and the e-way bill at the counter, and when the buyer changes his mind an hour later, cancel the e-invoice or the e-way bill from the same screen with the reason code the portal wants. Cancellation is the part nobody else in the category has.',
-        screen: 'invoice-summary-send',
-      },
-      {
-        icon: 'Lock',
-        title: 'Your salesman sees his parties, not your books',
-        body:
-          'Access is set per person, down to the warehouse his stock movements may touch. He sees his own retailers, his own targets and his own collections. Your margins and your other territories stay out of his phone.',
-        screen: 'member-permissions-scope',
       },
       {
         icon: 'Activity',
@@ -125,7 +125,7 @@ export const ALTERNATIVES = [
         },
         {
           feature: 'Automated WhatsApp and SMS reminders',
-          takkada: 'Yes, on your own WhatsApp number (paid add-on), with per-party caps and pre-due schedules',
+          takkada: 'Yes, from Takkada\'s number or your own (paid add-on), with per-party caps and pre-due schedules',
           others: 'Yes',
         },
         {
@@ -170,12 +170,12 @@ export const ALTERNATIVES = [
     planPointer: {
       plan: 'Copilot',
       note:
-        'Collection, compliance and the salesman module sit together on one plan. If you only need the receivables view, the entry plan covers that. Automatic reminders need your own WhatsApp number, a paid add-on.',
+        'Collection, compliance and the salesman module sit together on one plan. If you only need the receivables view, the entry plan covers that. Automatic reminders go out from Takkada\'s number, or from your own WhatsApp number with a paid add-on.',
     },
     faqs: [
       {
         q: 'Is Takkada actually better than Biz Analyst?',
-        a: 'It depends on what you are buying. Biz Analyst has a far larger user base, a mature Tally partner network, and an offline-capable app that keeps working in a weak-signal market, which Takkada cannot claim. If your problem is seeing the books and reminding parties, they solve it. Takkada is the better fit when the money itself is the problem, because collection, reconciliation and e-invoice cancellation live inside the app rather than outside it.',
+        a: 'It depends on what you are buying. Biz Analyst has a far larger user base, a mature Tally partner network, and an offline-capable app that keeps working in a weak-signal market, which Takkada cannot claim. If your problem is seeing the books and reminding parties, they solve it. Takkada is the better fit when you want more of the day on the phone: billing with e-invoice cancellation, a browser version, dispatch, and collection that matches back into Tally.',
       },
       {
         q: 'Can I keep my Tally exactly as it is if I switch?',
@@ -195,6 +195,10 @@ export const ALTERNATIVES = [
       },
     ],
     relatedPosts: [
+      {
+        slug: 'takkada-vs-biz-analyst',
+        title: 'Takkada vs Biz Analyst: Tally Mobile App Feature Comparison (2026)',
+      },
       {
         slug: 'best-tally-add-on-apps-for-distributors-2026',
         title: 'Best Tally Mobile Add-On Apps for Distributors (2026)',
@@ -220,33 +224,47 @@ export const ALTERNATIVES = [
     namesCompetitor: 'Livekeeping',
     searchPhrase: 'Livekeeping alternative',
     overline: 'COMPARISON',
-    headline: 'Livekeeping alternative for distributors whose problem is the collection.',
+    headline: 'Livekeeping alternative for distributors who need more than mobile invoicing.',
     subheadline:
-      'You can raise the invoice from your phone, put the IRN on it and get it to the retailer in a minute. Then the money takes forty days, and every rupee of it comes back through a bank statement somebody has to match by hand.',
+      'You can raise the invoice from your phone, put the IRN on it and get it to the retailer in a minute. The rest of the day still runs off paper and the office desktop: the van load, the supplier bills, the reminders and the bank statement somebody matches by hand.',
     // 55 words.
     answer:
-      'Takkada is the Livekeeping alternative for distributors who need the payment, not just the invoice. Both apps create Tally vouchers from mobile and generate e-invoices and e-way bills. Takkada carries a zero-MDR UPI link on every invoice, posts the receipt into Tally automatically, and cancels an IRN or e-way bill from the phone.',
+      'Takkada is the Livekeeping alternative for distributors who want the whole day on the phone, not only the invoice. Both apps create Tally vouchers from mobile and generate e-invoices and e-way bills. Takkada adds e-invoice cancellation, delivery challans, dispatch loading, purchase bills from PDF, and UPI collection matched back into Tally.',
     waContext: 'feature-livekeeping-alternative',
     waMessage:
-      'Hi, we use Livekeeping for mobile invoicing and e-invoice. The collection and reconciliation side is still manual. Can you show me how Takkada closes that?',
+      'Hi, we use Livekeeping for mobile invoicing and e-invoice. Can you show me what Takkada adds, from dispatch and purchase bills to UPI collection back into Tally?',
     seo: {
       title: 'Livekeeping Alternative for Distributors | Takkada',
       description:
-        'Livekeeping alternative for Tally distributors: zero-MDR UPI collection on every invoice, receipts posted into Tally on their own, e-invoice cancel from mobile.',
+        'Livekeeping alternative for Tally distributors: e-invoice cancel, delivery challans, dispatch loading, purchase bill import and UPI collection.',
     },
     llms: {
       section: 'Key pages',
       title: 'Livekeeping alternative',
       summary:
-        'Takkada compared with Livekeeping for Indian distributors on Tally. Both create vouchers from mobile and generate e-invoices and e-way bills. Livekeeping has no payment collection of any kind and sells compliance as a paid tier. Takkada adds invoice-linked UPI collection at zero MDR, automatic receipt reconciliation into Tally, credit and debit notes, and cancellation of an e-invoice or e-way bill from the phone.',
+        'Takkada compared with Livekeeping for Indian distributors on Tally. Both create vouchers from mobile and generate e-invoices and e-way bills. Livekeeping sells e-invoice and e-way bill as a paid add-on tier. Takkada adds cancellation of an e-invoice or e-way bill from the phone, credit and debit notes, delivery challans, dispatch loading, purchase bill import, and UPI collection matched back into Tally.',
     },
     footerLabel: 'Livekeeping alternative',
     hero: { screen: 'payment-behaviour' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-08-08',
-    walkthroughHeading: 'What happens after the invoice is raised',
+    walkthroughHeading: 'What the rest of the day looks like',
     walkthrough: [
+      {
+        icon: 'FileCheck2',
+        title: 'The cancel button exists on this side',
+        body:
+          'Both apps raise the IRN and the e-way bill from the phone. When the buyer cancels the order or the truck never leaves, Takkada cancels the e-invoice or the e-way bill from the same screen, with the portal reason code, and writes the status back against the voucher.',
+        screen: 'invoice-summary-send',
+      },
+      {
+        icon: 'BookOpen',
+        title: 'The purchase side comes in from a photo',
+        body:
+          'Photograph the supplier bill or drop the PDF in, and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way. It is the data-entry hour nobody wants at the end of the day.',
+        screen: 'import-detect',
+      },
       {
         icon: 'Send',
         title: 'The invoice leaves with a way to pay it',
@@ -270,20 +288,6 @@ export const ALTERNATIVES = [
         body:
           'The receipt entry posts against the correct invoice on its own, including when one payment covers three bills or arrives with no reference at all. That is the work Livekeeping leaves on the desk, because it has no collection rail to reconcile from.',
         screen: 'party-detail',
-      },
-      {
-        icon: 'FileCheck2',
-        title: 'The cancel button exists on this side',
-        body:
-          'Both apps raise the IRN and the e-way bill from the phone. When the buyer cancels the order or the truck never leaves, Takkada cancels the e-invoice or the e-way bill from the same screen, with the portal reason code, and writes the status back against the voucher.',
-        screen: 'invoice-summary-send',
-      },
-      {
-        icon: 'BookOpen',
-        title: 'The purchase side comes in from a photo',
-        body:
-          'Photograph the supplier bill or drop the PDF in, and the purchase voucher is built with its item lines ready to check. Bank statements import and match the same way. It is the data-entry hour nobody wants at the end of the day.',
-        screen: 'import-detect',
       },
     ],
     comparison: {
@@ -322,7 +326,7 @@ export const ALTERNATIVES = [
         },
         {
           feature: 'Invoice dispatched to the retailer automatically',
-          takkada: 'Yes, on your own WhatsApp number (paid add-on), as the voucher is saved',
+          takkada: 'Yes, as the voucher is saved, from Takkada\'s number or your own (paid add-on)',
           others: 'Reminders on outstanding bills, not dispatch on save',
         },
         {
@@ -347,7 +351,7 @@ export const ALTERNATIVES = [
     faqs: [
       {
         q: 'What does Livekeeping not do that Takkada does?',
-        a: 'The whole of the collection. Livekeeping has no UPI links, no payment rail and no automatic receipt reconciliation, so once the invoice is raised the money still has to be chased, received and entered by hand. It also stops at generating an e-invoice or e-way bill, with no way to cancel either from the phone. Takkada carries both, which is the reason most people arrive on this page.',
+        a: 'Three things a distributor notices. Takkada cancels an e-invoice or e-way bill from the phone, where Livekeeping stops at generating them. It builds the van load and brings supplier bills in from a PDF. And it carries UPI collection with each receipt matched back into Tally, which Livekeeping does not offer.',
       },
       {
         q: 'Livekeeping sells e-invoicing as a separate tier. How is it priced here?',
@@ -367,6 +371,10 @@ export const ALTERNATIVES = [
       },
     ],
     relatedPosts: [
+      {
+        slug: 'takkada-vs-livekeeping',
+        title: 'Takkada vs Livekeeping: Tally Mobile App Feature Comparison (2026)',
+      },
       {
         slug: 'gst-compliance-on-mobile-for-distributors',
         title:

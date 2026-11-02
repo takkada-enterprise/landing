@@ -63,8 +63,7 @@ export const heroContent = {
 // page that explains it. The card shape follows
 // Livekeeping's features section. The seven features and their wording are
 // owner-supplied (2026-10-31), so they are the owner's capability claims, not
-// re-derived from the rate card. The own-number line keeps "early access"
-// (home-v3.test.jsx and schema.test.js require it). The section keeps the
+// re-derived from the rate card. The section keeps the
 // #digital-collection id the footer links to and the #features id. Layout
 // (2026-10-31, owner): a divider line, one H2 "Features", two cards to a row
 // (one on smaller screens), and a closing link to the full list at /features.
@@ -114,9 +113,7 @@ export const homeFeatures = {
       points: [
         'Automated WhatsApp reminders on the days you choose, bill-date wise or due-date wise.',
         'Each reminder carries the pending bills and the ledger as attachments, with a pay link.',
-        // "early access" stays in this sentence: home-v3.test.jsx and
-        // schema.test.js require it beside every own-number mention.
-        'Needs your own WhatsApp number (paid add-on, early access).',
+        'Goes out from Takkada\'s WhatsApp number, or from your own number with a paid add-on.',
         'A party that has paid drops out of the next reminder.',
         'Set a cap so no party is messaged too often.',
       ],
@@ -336,7 +333,7 @@ export const differentiators = {
     {
       stop: 'The pattern stops at the invoice PDF',
       others: 'The invoice is on your phone, and sending it is still your job. Party by party, attachment by attachment.',
-      takkada: 'With your own WhatsApp number (paid add-on, early access), the PDF reaches the customer the moment the invoice posts in Tally, with a Pay now link attached. You send nothing.',
+      takkada: 'The PDF reaches the customer on WhatsApp the moment the invoice posts in Tally, from Takkada\'s number or from your own (paid add-on), with a Pay now link attached. You send nothing.',
     },
     {
       stop: 'The pattern stops at showing what is due',
@@ -493,7 +490,7 @@ export const pricing = {
       group: 'See the books',
       rows: [
         { label: 'Live receivables and payables from Tally', from: 0 },
-        { label: 'Automatic WhatsApp payment reminders: needs your own WhatsApp number (paid add-on, early access)', from: 0 },
+        { label: 'Automatic WhatsApp payment reminders, from Takkada\'s number or your own (paid add-on)', from: 0 },
         { label: 'Share ledgers and invoices on WhatsApp and email by hand', from: 0 },
         { label: '20+ business reports', from: 0 },
         { label: 'MIS reports (Reports +)', from: 0 },
@@ -517,7 +514,7 @@ export const pricing = {
         { label: 'E-Invoice with IRN and QR from your phone', from: 1 },
         { label: 'E-Way Bill in one tap, no portal login', from: 1 },
         { label: 'Both write back into Tally', from: 1 },
-        { label: 'Auto Invoice Dispatch: every Tally invoice goes to the customer on WhatsApp. Needs your own WhatsApp number (paid add-on, early access)', from: 1 },
+        { label: 'Auto Invoice Dispatch: every Tally invoice goes to the customer on WhatsApp, from Takkada\'s number or your own (paid add-on)', from: 1 },
       ],
     },
     {
@@ -552,9 +549,7 @@ export const pricing = {
     { label: 'Customer order link', note: 'Customers order from a link to your item list, and you approve each one into Tally.' },
     { label: 'Personal party links', note: 'A link of its own for each party, so every order arrives already matched to them.' },
     { label: 'AI calling', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
-    // The rendered-page guard (home-v3.test.jsx) still requires "early access"
-    // beside every own-number mention, so the note leads with it.
-    { label: 'Your own WhatsApp number', note: 'Early access: automatic reminders and invoices need this add-on. They go out from your WhatsApp Business number, and Meta bills the messages to you directly.' },
+    { label: 'Your own WhatsApp number', note: 'You can send reminders from your own number.' },
     { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
     { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
     { label: 'Proof of Delivery', note: 'Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).' },

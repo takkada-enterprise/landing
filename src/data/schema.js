@@ -32,7 +32,7 @@ const SAME_AS = [
 ];
 
 const ORGANIZATION_DESCRIPTION =
-  'Takkada is a mobile app for Indian distributors, wholesalers and manufacturers who use Tally. It lets them view Tally reports on their phone, send WhatsApp payment reminders, collect UPI payments and reconcile them back into Tally automatically.';
+  'Takkada is Tally on mobile: a mobile app, with a web version, for Indian distributors, wholesalers and manufacturers who run their books on Tally. It covers billing with e-invoice and e-way bill, 20+ reports, stock, orders, salesman visits, dispatch, WhatsApp invoices and reminders, and UPI payment collection, with every entry posting back into Tally.';
 
 export function absoluteUrl(path = '/') {
   if (path.startsWith('http')) return path;
@@ -123,7 +123,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
     name: 'Takkada',
     alternateName: ALTERNATE_NAMES,
     description:
-      'Mobile-first collections, e-invoicing, and reconciliation layer for businesses running on Tally.',
+      'Tally on mobile: billing, reports, stock, orders, field sales, dispatch and payments for businesses running on Tally.',
     url: SITE_URL,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Android, iOS, Windows, Web',
@@ -132,18 +132,20 @@ export function softwareApplicationSchema(reviews = testimonials) {
     inLanguage: ['en', 'hi'],
     featureList: [
       'Mobile data entry with two-way Tally write-back',
+      'Multi-company Tally reports on mobile and web',
       'GST e-invoice generation and cancellation from mobile',
       'E-way bill generation and cancellation from mobile',
-      'Automated WhatsApp payment reminders (needs own number)',
-      'Auto invoice dispatch on WhatsApp (needs own number)',
+      'Credit note and debit note creation from mobile',
+      'Sales orders and delivery challans from mobile',
+      'Salesman beat tracking with geo-tagged check-ins',
+      'Dispatch loading sheet for van loads',
+      'Purchase bill import from PDF with OCR',
+      'Bank statement import with auto-matching',
+      'Live receivables and debtor ageing on mobile',
+      'Auto invoice dispatch on WhatsApp, from Takkada\'s number or your own',
+      'Automated WhatsApp payment reminders, from Takkada\'s number or your own',
       'Invoice-linked UPI payment collection at zero MDR',
       'Automatic payment reconciliation back into Tally',
-      'Live receivables and debtor ageing on mobile',
-      'Credit note and debit note creation from mobile',
-      'Bank statement import with auto-matching',
-      'Purchase bill import from PDF with OCR',
-      'Salesman beat tracking with geo-tagged check-ins',
-      'Multi-company Tally reports',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
     sameAs: [appLinks.playStore, appLinks.appStore],

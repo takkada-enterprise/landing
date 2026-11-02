@@ -85,4 +85,4 @@ A: A UPI payment link lets a chemist pay in under a minute, instead of postponin
 
 A: By matching on the UTR, the unique reference each UPI payment carries, tied to the specific invoice. Two ₹14,320 chemist payments have different UTRs, so they post to the right invoices automatically without relying on identical WhatsApp screenshots.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, built for thin-margin pharma distribution with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, built for thin-margin pharma distribution with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

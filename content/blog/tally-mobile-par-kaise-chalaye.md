@@ -121,4 +121,4 @@ A: Takkada par 0% MDR on UPI collections, no transaction cap, no monthly fee. Ya
 
 A: Companion app aapke Tally data ka ek working slice sync service ke through phone pe laata hai. Connect karne se pehle vendor se teen cheez poochein: data kis India region mein store hota hai, unki taraf se kaun padh sakta hai, aur band karne pe deletion policy kya hai.
 
-Takkada the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, jo distributor ko phone se invoice banane, WhatsApp reminder bhejne, aur Tally mein auto-reconcile karne deta hai. [Free demo book karein](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada Tally on mobile hai, UPI collection 0% MDR par, jo distributor ko phone se invoice banane, WhatsApp reminder bhejne, aur Tally mein auto-reconcile karne deta hai. [Free demo book karein](https://calendar.notion.so/meet/ronakmalu/takkada).

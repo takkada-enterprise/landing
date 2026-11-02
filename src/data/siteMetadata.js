@@ -23,7 +23,7 @@ export const routeMetadata = [
       section: 'Key pages',
       title: 'Home',
       summary:
-        "What Takkada does for a distributor running Tally: mobile invoicing, WhatsApp dispatch, UPI collection at 0% MDR, and auto-reconciliation back into Tally. Pricing and FAQs.",
+        "Takkada is Tally on mobile for distributors: billing with e-invoice, 20+ reports, stock, orders, field sales, dispatch, WhatsApp reminders and UPI collection. Pricing and FAQs.",
     },
     sourceFile: 'src/routes/Home.jsx',
     changefreq: 'weekly',
@@ -81,9 +81,9 @@ export const routeMetadata = [
     path: '/mobile-tally',
     llms: {
       section: 'Features',
-      title: 'Tally on mobile (receivables view)',
+      title: 'Tally on mobile',
       summary:
-        "See Tally outstanding from a phone, send WhatsApp reminders and share ledger statements. Works with TallyPrime and Tally ERP 9.",
+        "See Tally reports, outstanding and ledgers from a phone, send WhatsApp reminders and share statements. Works with TallyPrime and Tally ERP 9.",
     },
     sourceFile: 'src/routes/MobileTally.jsx',
     changefreq: 'monthly',
@@ -126,7 +126,7 @@ export const routeMetadata = [
       section: 'Key pages',
       title: 'Distributor management software for Tally',
       summary:
-        "The collections-heavy distributor workflow, for businesses carrying 30-300 retailer receivables on Tally.",
+        "The whole distributor day on Tally from a phone: orders, billing, stock, salesmen, dispatch, reminders and collection, for businesses serving 30-300 retailers.",
     },
     sourceFile: 'src/routes/ForDistributors.jsx',
     changefreq: 'monthly',
@@ -162,7 +162,7 @@ export const routeMetadata = [
       section: 'Key pages',
       title: 'All features',
       summary:
-        "Directory of every Takkada feature page, grouped by job: getting paid, receivables, Tally on the phone, field sales, GST documents, billing and stock, imports, and comparisons.",
+        "Directory of every Takkada feature page, grouped by the distributor's day: taking the order, billing, loading and stock, sending, reminding and collecting, and back in Tally.",
     },
     sourceFile: 'src/routes/Features.jsx',
     changefreq: 'monthly',

@@ -87,4 +87,4 @@ A: Not always. Some apps advertise 0% MDR but charge a flat per-transaction fee,
 
 A: Takkada collects over peer-to-merchant UPI, where there is no card network taking a percentage, and funds the software through a flat annual subscription instead of a cut of each payment. That is why it is 0% MDR on UPI collections, no transaction cap, no monthly fee, and why the rate does not rise as you collect more.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, no per-transaction fee, no monthly fee, with receipts auto-matched back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, no per-transaction fee, no monthly fee, with receipts auto-matched back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

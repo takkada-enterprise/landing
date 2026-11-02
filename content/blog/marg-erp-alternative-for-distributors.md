@@ -103,7 +103,7 @@ A: Invoices can be raised and dispatched on WhatsApp from the field, retailers c
 
 ## Internal Links
 
-- What Is Takkada? The Tally-Native Receivables App, Explained
+- What Is Takkada? Tally on Mobile for Distributors, Explained
 - Tally Payment Reconciliation on Mobile
 - BUSY Software Alternative for Tally Distributors
 

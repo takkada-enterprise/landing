@@ -94,6 +94,7 @@ const LINK_FLOORS = {
   'tally-on-mobile': 3,
   'bank-statement-import-tally': 2,
   'debtor-ageing-report-on-phone': 2,
+  'livekeeping-alternative': 2,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

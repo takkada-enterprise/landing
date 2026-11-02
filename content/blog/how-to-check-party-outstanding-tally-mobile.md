@@ -94,7 +94,7 @@ Both routes show the same underlying figure. They differ in where you can stand 
 | Share a UPI payment link | No | Yes, at 0% MDR |
 | Stays current without the accountant retyping | Only after manual entry | Yes, receipts auto-reconcile |
 
-If your whole need is a number you can look at when you are already sitting in the office, the desktop report is fine. If the question lands while you are standing at a retailer's counter, the phone is the only route that answers in time. Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, so the same screen that shows you the outstanding also collects it.
+If your whole need is a number you can look at when you are already sitting in the office, the desktop report is fine. If the question lands while you are standing at a retailer's counter, the phone is the only route that answers in time. Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, so the same screen that shows you the outstanding also collects it.
 
 ## Frequently Asked Questions
 

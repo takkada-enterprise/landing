@@ -145,10 +145,6 @@ describe('the committed public/llms.txt', () => {
     expect(addonsBlock).not.toMatch(/₹/);
   });
 
-  it('keeps the mandatory early-access wording on the WhatsApp-number add-on', () => {
-    expect(committed).toMatch(/Your own WhatsApp number: Early access/);
-  });
-
   it('uses apex URLs with no www subdomain', () => {
     expect(committed).not.toMatch(/https:\/\/www\./);
   });

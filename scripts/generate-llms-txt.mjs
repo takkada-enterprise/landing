@@ -149,7 +149,7 @@ export function buildDoc({ priceData, routes, guides, manual = [] }) {
   const lines = [
     '# Takkada',
     '',
-    "> Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.",
+    "> Takkada is Tally on mobile: a mobile app, with a web version, for Indian distributors, wholesalers and manufacturers who run their books on Tally. It covers billing with e-invoice and e-way bill, 20+ reports, stock, orders, salesman visits, dispatch, WhatsApp invoices and reminders, and UPI payment collection, with every entry posting back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.",
     '',
     buildPricingBlock(priceData),
     '',
@@ -208,7 +208,7 @@ export function buildFullDoc({ priceData, routes, guides, manual = [], featurePa
   const lines = [
     '# Takkada (Full Capability & Documentation Reference)',
     '',
-    "> Takkada is a mobile app for Indian distributors and wholesalers who run their books on Tally. It adds mobile invoicing (including e-invoice and e-way bill), automatic invoice dispatch on WhatsApp, UPI payment collection with zero MDR, automated payment reminders, and auto-reconciliation of payments back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.",
+    "> Takkada is Tally on mobile: a mobile app, with a web version, for Indian distributors, wholesalers and manufacturers who run their books on Tally. It covers billing with e-invoice and e-way bill, 20+ reports, stock, orders, salesman visits, dispatch, WhatsApp invoices and reminders, and UPI payment collection, with every entry posting back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.",
     '',
     buildPricingBlock(priceData),
     '',

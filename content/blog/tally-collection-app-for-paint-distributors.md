@@ -101,4 +101,4 @@ A: By matching on the UTR, the unique reference each UPI payment carries, tied t
 
 A: No. Takkada sits on top of your current Tally as a mobile layer. Tally stays your books of record; the app adds invoicing, the UPI pay link, WhatsApp dispatch, and auto-reconciliation, then writes the receipt voucher back into Tally for you.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, built for the brand-scheme cash squeeze and contractor tail of paint distribution, with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, built for the brand-scheme cash squeeze and contractor tail of paint distribution, with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

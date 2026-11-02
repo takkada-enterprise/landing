@@ -116,4 +116,4 @@ A: Yes. UPI in India supports transactions up to ₹2 lakh per transaction for r
 
 A: UPI is real-time. The money is in the distributor's bank account within seconds of the retailer completing the payment. Settlement is not T+1 or T+2 as it is with some card gateways.
 
-Takkada is the only Tally-native distributor collection app in India with 0% MDR on UPI. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

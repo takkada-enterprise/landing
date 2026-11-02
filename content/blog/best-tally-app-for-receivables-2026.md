@@ -49,7 +49,7 @@ A reporting app does none of these. The best Tally app for receivables does all 
 
 ## The Best Tally App for Receivables, by Capability
 
-**Takkada** is built as a receivables app first. As described in the [what is Takkada](/blog/what-is-takkada/) overview, it sits on top of Tally and runs the whole loop: phone invoicing with e-invoice and e-way bill, [WhatsApp auto-dispatch](/blog/tally-whatsapp-invoice-dispatch/), [0% MDR UPI collection](/blog/zero-mdr-upi-collection-for-distributors-india/), smart reminders that change with due date and overdue status, and [auto-reconciliation](/blog/auto-reconciliation-tally/) back into Tally. For receivables specifically, this is the full set.
+**Takkada** is Tally on mobile, and receivables are one part of it. As described in the [what is Takkada](/blog/what-is-takkada/) overview, it sits on top of Tally and runs the whole loop: phone invoicing with e-invoice and e-way bill, [WhatsApp auto-dispatch](/blog/tally-whatsapp-invoice-dispatch/), [0% MDR UPI collection](/blog/zero-mdr-upi-collection-for-distributors-india/), smart reminders that change with due date and overdue status, and [auto-reconciliation](/blog/auto-reconciliation-tally/) back into Tally. For receivables specifically, this is the full set.
 
 **Biz Analyst** is strong for mobile Tally reporting and light data entry, so an owner who wants to read receivables on the phone is well served. It is less of a collection engine.
 
@@ -104,4 +104,4 @@ A: Yes. The best Tally receivables apps, including Takkada and Biz Analyst, are 
 
 A: A good receivables app gives salesmen a role-limited view so they can raise invoices and take collections at the counter without seeing the full books. Takkada's [salesman app for Tally](/salesman-app-tally/) is built around exactly this field workflow.
 
-Takkada is the Tally-native, 0% MDR receivables app for Indian distributors. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

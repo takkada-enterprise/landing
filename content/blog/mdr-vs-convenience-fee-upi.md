@@ -99,4 +99,4 @@ A: At 1.8% MDR (a card-style rail) it is ₹72,000 a month, ₹8.64 lakh a year.
 
 A: Yes. A [payment link with Tally integration](/blog/payment-link-tally-integration/) puts a UPI link on the invoice itself, the retailer pays into the distributor's account on a 0% MDR rail, and the receipt reconciles back into Tally automatically, so the amount collected matches the invoice to the rupee.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, so the full invoice amount lands in your account and reconciles itself back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, so the full invoice amount lands in your account and reconciles itself back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

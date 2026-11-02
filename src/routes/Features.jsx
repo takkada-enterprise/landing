@@ -175,8 +175,8 @@ function Features() {
               Your Tally, opened from wherever the work is happening.
             </h1>
             <p className="hero-subtitle icp-hero-subtitle">
-              The outstanding you were about to start chasing, the e-way bill the driver is waiting
-              on, the order your salesman just booked at a counter forty kilometres away. The ones
+              The order your salesman just booked at a counter forty kilometres away, the e-way bill
+              the driver is waiting on, the stock you need to check before you promise a delivery. The ones
               below are where most distributors start, and everything else is further down.
             </p>
           </div>

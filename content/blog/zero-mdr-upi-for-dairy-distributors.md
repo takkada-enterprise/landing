@@ -99,4 +99,4 @@ A: Yes. A UPI payment link lets a retailer pay in seconds at the doorstep while 
 
 A: It needs it more, not less. Short 7 to 30 day credit means very high collection frequency, so the cost compounds faster than in a long-credit channel. The faster and more often you collect, the more a per-rupee or per-receipt fee adds up across the year.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI and no per-transaction fee, built for fast, thin-margin dairy distributor collection with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR and no per-transaction fee, built for fast, thin-margin dairy distributor collection with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

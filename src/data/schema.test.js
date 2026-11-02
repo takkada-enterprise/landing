@@ -209,8 +209,7 @@ describe('pricing matrix', () => {
     tallyTrust,
     homeFaqItems,
     // An add-on renders as its label with its note beside it, so the guard
-    // reads them as the one line a visitor sees (the own-number label carries
-    // no qualifier; its note leads with "Early access").
+    // reads them as the one line a visitor sees.
     pricing: { ...pricing, addons: pricing.addons.map((a) => `${a.label}. ${a.note}`) },
   };
 
@@ -219,28 +218,12 @@ describe('pricing matrix', () => {
     // prod company_feature_entitlements on 2026-08-03; re-verify on publish day.
     // - Auto-send credit notes DOES NOT EXIST (manual share only): copy may
     //   say "share credit notes in a tap", never "auto" anything.
-    // - Reminders from the distributor's own WhatsApp number are built with
-    //   ZERO enabled customers: only "early access" wording is allowed.
+    // The own-number "early access" requirement was lifted on 2026-11-03
+    // (operator direction): the add-on is described plainly now.
     const v3Copy = JSON.stringify(HOME_COPY);
 
     expect(v3Copy).not.toMatch(/auto[- ]?(send|dispatch)\w*[^.]{0,60}credit note/i);
     expect(v3Copy).not.toMatch(/credit note[^.]{0,60}automatic/i);
-
-    // Wide trigger ("own ... whatsapp|number") so a reworded footnote cannot
-    // slip past the guard, and non-empty so the guard cannot go vacuously
-    // green: the copy deliberately carries exactly this early-access mention.
-    const ownNumberMentions =
-      v3Copy.match(/[^"]*\bown\b[^"]*(whatsapp|number)[^"]*/gi) ?? [];
-    expect(
-      ownNumberMentions.length,
-      'expected the own-number early-access mention to exist (guard must not be vacuous)'
-    ).toBeGreaterThan(0);
-    for (const mention of ownNumberMentions) {
-      expect(mention, 'own-number sending may only be described as early access').toMatch(
-        /early access/i
-      );
-      expect(mention).not.toMatch(/\blive\b/i);
-    }
   });
 
   it('keeps banned superlatives out of the Home v3 copy', () => {

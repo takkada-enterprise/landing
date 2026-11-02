@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "appRevision": "8444b1e82e199f3b5767f74cb201c8ca8a8cff9b",
-  "siteRevision": "f9e01c3fd2efd7d1cf7eebb378f13de2c97c39c0",
+  "siteRevision": "cd94ca570a061558f22395cd55c672aa25a368e9",
   "guides": [
     {
       "id": "bills-and-outstanding",
@@ -161,7 +161,7 @@
       "path": "/guide/whatsapp-invoice-delivery",
       "featureKey": "auto_invoice_dispatch",
       "checkedAgainstAppOn": "2026-09-07",
-      "contentSha256": "8d93ee81906aded2e7af6e75e136fc0abd163cbe2e6e3e1d5e9579a5bd112e1a"
+      "contentSha256": "22cfba346c4f0d007fc15516e2a80ab4027783fffd26677f282f22ac7f760e59"
     },
     {
       "id": "whatsapp-reminders",

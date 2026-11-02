@@ -118,4 +118,4 @@ A: When a retailer pays an invoice through the UPI link Takkada generates, the f
 
 A: Tally already holds the party master and the invoice register. Takkada reads from Tally, generates per-party statements, sends WhatsApp reminders with embedded UPI links, and posts receipts back into Tally. The distributor never re-types a party name or an amount. Adding the 151st retailer is a matter of seconds, not a new workflow.
 
-Takkada is the Tally-native collection app for Indian distributors, with 0% MDR on UPI receipts and statement-grade WhatsApp reminders. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with 0% MDR on UPI receipts and statement-grade WhatsApp reminders. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

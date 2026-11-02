@@ -87,4 +87,4 @@ A: Yes. When several retailers pay the same amount and send WhatsApp screenshots
 
 A: The full variable cost. At ₹6 crore and 1% MDR, that is ₹6,00,000 a year, plus any per-transaction fee avoided and the reconciliation hour recovered. Takkada's 0% MDR on UPI collections, no transaction cap, no monthly fee replaces the variable loss with a flat subscription.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI and no per-transaction fee, so how much you lose to MDR every year drops to zero. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR and no per-transaction fee, so how much you lose to MDR every year drops to zero. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -64,7 +64,7 @@ A bare ledger PDF answers the question and stops there. The party reads ₹2,40,
 
 When the statement goes out with a UPI payment link carrying the exact amount, the party taps the link and clears the balance in about 45 seconds, while the number is fresh in front of them. The statement stops being a record and becomes a request that is easy to act on. This is the same logic behind a structured [WhatsApp payment reminder for distributors](/blog/whatsapp-payment-reminder-for-distributors/), where the reminder and the pay button live in the same message. The faster a party can pay, the lower your [days sales outstanding](/blog/days-sales-outstanding-distributor-india/) drifts over a quarter, because friction in the payment step is measurable delay in the money reaching your bank.
 
-The one thing to watch is the cost of collecting on that link. Many payment rails charge a merchant discount rate on every UPI rupee, which quietly eats the margin on a collection-heavy month. Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, so the link you attach to a statement costs nothing to collect through, however many you send.
+The one thing to watch is the cost of collecting on that link. Many payment rails charge a merchant discount rate on every UPI rupee, which quietly eats the margin on a collection-heavy month. Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, so the link you attach to a statement costs nothing to collect through, however many you send.
 
 ## A Side-by-Side Comparison of the Two Routes
 

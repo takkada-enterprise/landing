@@ -92,4 +92,4 @@ A: Match on the UTR, the unique reference each UPI payment carries, tied to the 
 
 A: Yes. A UPI payment link lets a kirana store pay in seconds at the counter, which suits FMCG's fast turn. On a zero MDR rail with no per-transaction fee, that speed costs nothing per receipt, so it scales with the high daily count FMCG runs.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI and no per-transaction fee, built for high-volume FMCG collection with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR and no per-transaction fee, built for high-volume FMCG collection with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

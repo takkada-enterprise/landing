@@ -100,7 +100,7 @@ states in between.
   sees "Only full-access members can change this setting."
 - The customer needs a mobile number saved. No number, no automatic send — the
   switch is not even offered on that invoice.
-- Automatic sending needs your own WhatsApp number, a paid add-on in early access. Meta bills those messages to you directly.
+- Automatic sending goes out from Takkada's WhatsApp number, or from your own WhatsApp number with a paid add-on. On your own number, Meta bills those messages to you directly.
 - Sharing the PDF yourself always works and costs no credits.
 
 ## Turn automatic sending on

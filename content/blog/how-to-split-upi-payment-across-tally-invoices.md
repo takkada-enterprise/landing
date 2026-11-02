@@ -112,4 +112,4 @@ A: Yes. When the payment is collected on a UPI link tied to the open invoices, t
 
 A: Yes. If the retailer pays ₹1,00,000 against ₹1,15,000 of bills, you allocate the full ₹1,00,000 across the invoices and leave the remaining ₹15,000 open on whichever bill you choose. That bill shows its reduced open balance in the outstanding report, and the rest stays clear.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, collecting on UPI links and auto-reconciling each receipt to the right bills back in Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, collecting on UPI links and auto-reconciling each receipt to the right bills back in Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
