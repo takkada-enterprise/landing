@@ -95,7 +95,7 @@ A: That is exactly the friction a standalone app creates. GST is filed from your
 
 ## Internal Links
 
-- What Is Takkada? The Tally-Native Receivables App, Explained
+- What Is Takkada? Tally on Mobile for Distributors, Explained
 - Khatabook Alternative for Distributors in India
 - Tally WhatsApp Invoice Dispatch
 

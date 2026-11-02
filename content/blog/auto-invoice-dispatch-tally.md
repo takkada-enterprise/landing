@@ -5,7 +5,7 @@ meta_title: "Auto Invoice Dispatch from Tally to WhatsApp"
 meta_description: "Automatic invoice dispatch on WhatsApp: every Tally invoice fires to the retailer the moment it is saved, with a UPI link, so the payment clock starts at once."
 primary_keyword: "automatic invoice dispatch whatsapp"
 date: "2026-07-21"
-updated: "2026-10-04"
+updated: "2026-11-03"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor saves an invoice in Tally at 2 PM and it reaches the retailer's WhatsApp the next morning, when someone finally gets around to forwarding it. Auto invoice dispatch closes that gap to seconds and lets the invoice send itself."
@@ -52,7 +52,7 @@ For a distributor who invoices from the field, the invoice can be the [GST-compl
 
 ## Where It Fits in the Plans
 
-Auto Invoice Dispatch comes with the Assurance plan and every plan above it. It sends from your own WhatsApp number, so it also needs that add-on, which is paid and in early access. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out what each plan carries.
+Auto Invoice Dispatch comes with the Assurance plan and every plan above it. It sends from Takkada's WhatsApp number, or from your own number with a paid add-on. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out what each plan carries.
 
 That flexibility matters because dispatch volume varies. A distributor doing fifty invoices a day feels it instantly; one doing eight might add it later. Either way, it is a switch, not a rebuild.
 

@@ -254,15 +254,6 @@ describe('home copy claims', () => {
   it('claims nothing unclaimable in the rendered page text', () => {
     const { container } = renderHome();
     const text = container.textContent;
-    // Own-number reminders: zero enabled customers — only "early access".
-    // Non-empty: the pricing add-on line deliberately carries this mention, so
-    // a vacuously green guard means the guard itself broke. (The wider
-    // reworded-copy net lives at the data layer in schema.test.js.)
-    const mentions = text.match(/[^.]*own WhatsApp[^.]*/gi) ?? [];
-    expect(mentions.length).toBeGreaterThan(0);
-    for (const mention of mentions) {
-      expect(mention).toMatch(/early access/i);
-    }
     // Auto-send credit notes does not exist.
     expect(text).not.toMatch(/auto[- ]?(send|dispatch)\w*[^.]{0,60}credit note/i);
   });

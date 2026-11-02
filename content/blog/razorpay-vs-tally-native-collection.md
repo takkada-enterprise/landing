@@ -51,7 +51,7 @@ A Tally-native layer is built around exactly that accounting. [Payment collectio
 
 ## Capability comparison
 
-| Capability | Razorpay payment links | Takkada (Tally collection layer) |
+| Capability | Razorpay payment links | Takkada (Tally on mobile) |
 | --- | --- | --- |
 | Online payment links and checkout | ✓ | Invoice-linked links |
 | Developer API and integrations | ✓ | n/a (built for Tally distributors) |

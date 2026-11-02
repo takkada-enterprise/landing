@@ -84,7 +84,7 @@ const HOME_SEO = {
   // AI summaries read one definition of what Takkada is. The snippet's range
   // stops at Copilot and leaves Enterprise out (operator call, 2026-10-21);
   // the pricing section still shows the full ladder.
-  description: `Takkada is a mobile app for Tally. See reports, send WhatsApp payment reminders and collect UPI from your phone. ${planPriceRange(
+  description: `Takkada is Tally on mobile. Bill with e-invoice, see 20+ reports, manage stock, orders and salesmen from your phone. ${planPriceRange(
     pricing.plans.filter((p) => p.plan !== 'Enterprise')
   )}/year.`,
   path: '/',

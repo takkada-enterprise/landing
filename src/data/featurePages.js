@@ -446,7 +446,7 @@ const FIRST_BATCH = [
       section: 'Features',
       title: 'Payment reminders from Tally',
       summary:
-        'Automated WhatsApp payment reminders from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
+        'Automated WhatsApp payment reminders, from Takkada\'s number or from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.',
     },
     footerLabel: 'Payment reminders',
     hero: { screen: 'reminders' },
@@ -523,12 +523,12 @@ const FIRST_BATCH = [
     planPointer: {
       plan: 'Momentum',
       note:
-        'Reminders are set up from the entry plan. Sending them automatically on WhatsApp needs your own WhatsApp number, a paid add-on in early access, on any plan.',
+        'Reminders are set up from the entry plan and go out automatically on WhatsApp from Takkada\'s number. Sending them from your own WhatsApp number is a paid add-on, on any plan.',
     },
     faqs: [
       {
         q: 'Do reminders go from my own WhatsApp number?',
-        a: 'Yes, automatic reminders need your own WhatsApp Business number, a paid add-on in early access, so ask your partner for it. Without it you can still share a ledger or invoice by hand from your phone, free.',
+        a: 'Yes, with your own WhatsApp Business number, a paid add-on, so ask your partner for it. Without it, automatic reminders go out from Takkada\'s WhatsApp number, and you can still share a ledger or invoice by hand from your phone, free.',
       },
       {
         q: 'How do I stop a good customer from being pestered?',

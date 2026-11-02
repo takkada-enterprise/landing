@@ -117,4 +117,4 @@ A: The payment link is a tap-to-pay wrapper around your VPA with the amount and 
 
 A: UPI collection from a VPA does not carry a merchant discount rate the way cards or gateways do. With the right setup, a distributor collects at 0% MDR on UPI collections, no transaction cap, no monthly fee. The savings on a few crore of annual collection are meaningful compared with a 1 to 2 percent gateway charge.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, putting your business VPA on every invoice as a payment link and auto-reconciling receipts back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, putting your business VPA on every invoice as a payment link and auto-reconciling receipts back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

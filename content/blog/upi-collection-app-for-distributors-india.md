@@ -17,7 +17,7 @@ A UPI collection app for a distributor in India should do four things: create a 
 
 - A UPI collection app for distributors in India must do four things: generate per-invoice UPI payment links, push them into WhatsApp at the right intervals, auto-reconcile receipts back into Tally, and charge 0% MDR
 - Generic payment-gateway tools repackaged as "UPI collection apps" carry 0.5%–1.5% MDR. On ₹10 crore of annual UPI collection, that is ₹5–15 lakh leaving the distributor's bank account
-- Takkada is a UPI collection app for distributors in India built around 0% MDR, two-way Tally sync, and statement-grade WhatsApp reminders. No per-transaction fee on UPI receipts
+- Takkada is Tally on mobile for distributors in India, and its UPI collection is built around 0% MDR, two-way Tally sync, and statement-grade WhatsApp reminders. No per-transaction fee on UPI receipts
 
 ## In This Article
 
@@ -129,4 +129,4 @@ A: The reconciliation flow flags the mismatch, links the partial receipt to the 
 
 A: Yes, that is the design point. A UPI collection app for distributors in India is built for many small retailers, not a few large customers. Adding a new retailer is a sync operation, not a configuration project.
 
-Takkada is the Tally-native UPI collection app for Indian distributors with 0% MDR on every receipt. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with 0% MDR on every UPI receipt. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -98,4 +98,4 @@ A: A 0% MDR UPI rail with no per-transaction fee removes both the percentage and
 
 A: Compare four numbers: the MDR, any per-transaction fee, any monthly or platform fee, and settlement or setup charges. Add them across your actual annual volume. The cheapest plan at your scale is often a flat subscription with no variable fees, like Takkada's 0% MDR on UPI collections, no transaction cap, no monthly fee.
 
-Takkada is the only Tally-native distributor collection app in India with 0% MDR on UPI and no per-transaction fee, so payment gateway charges stop scaling with your volume. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR and no per-transaction fee, so payment gateway charges stop scaling with your volume. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

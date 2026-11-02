@@ -1,4 +1,4 @@
-import { CheckCircle2, IndianRupee, MessageCircle, Smartphone } from 'lucide-react';
+import { BarChart3, MessageCircle, Smartphone, Truck } from 'lucide-react';
 import ICPTemplate from '../components/ICPTemplate';
 import { appLinks } from '../data/siteContent';
 
@@ -6,7 +6,7 @@ const data = {
   overline: 'FOR INDIAN DISTRIBUTORS',
   headline: 'The mobile Tally app built for distributors.',
   subheadline:
-    'If you serve 30 to 300 retailers on 30-90 day terms, raise 20+ invoices a day, and lose two evening hours to reconciliation — Takkada is built for exactly your business.',
+    'If you serve 30 to 300 retailers, raise 20+ invoices a day and run a team in the field, Takkada puts your Tally on every phone in the business.',
   waContext: 'icp-for-distributors',
   ctaPrimary: {
     text: 'Book a 15-min demo',
@@ -21,23 +21,23 @@ const data = {
       body: 'Raise any voucher type from your phone. Generate IRN and e-way bill in seconds. The truck does not wait.',
     },
     {
+      icon: BarChart3,
+      title: 'Reports, stock and outstanding on your phone',
+      body: '20+ Tally reports, godown-wise stock and party outstanding, for every company you run. Check them at the counter or at dinner, without the office desktop.',
+    },
+    {
+      icon: Truck,
+      title: 'Salesmen and dispatch from the same app',
+      body: 'Each salesman sees only his own parties, books orders and checks in at each visit with a geo-tagged photo. The godown builds the van load and prints the loading sheet from the app.',
+    },
+    {
       icon: MessageCircle,
-      title: 'WhatsApp auto-dispatch of every invoice',
-      body: 'Invoice created in Tally or on mobile — customer receives the PDF and a payment link immediately. No copy-paste, no forwarding. Needs your own WhatsApp number, a paid add-on in early access.',
-    },
-    {
-      icon: IndianRupee,
-      title: 'UPI collection with zero platform charges',
-      body: 'Customers tap a payment link. Money lands in your bank account. Takkada does not take a cut on UPI transactions.',
-    },
-    {
-      icon: CheckCircle2,
-      title: 'Auto-reconciliation back to Tally',
-      body: 'Payments auto-match against invoices. Accounting entries post in Tally without your accountant doing anything after 7 PM.',
+      title: 'WhatsApp invoices, reminders and UPI collection',
+      body: 'Invoices and payment reminders go out on WhatsApp, from Takkada\'s number or from your own with a paid add-on. With Payment Collection, the retailer pays on a UPI link at 0% MDR and the receipt matches back into Tally.',
     },
   ],
   scenario:
-    'You run a ₹12 crore annual distribution across three districts in Assam. You cover 140 retailers, have four salesmen and one senior accountant. Before Takkada: your accountant stayed until 9:30 PM every day matching payments. Now he leaves at 7. The reconciliation is already done. You check the outstanding report at dinner, send one reminder to the one retailer who has not paid in 50 days, close the phone, eat.',
+    'You run a ₹12 crore annual distribution across three districts in Assam. You cover 140 retailers, have four salesmen and one senior accountant. Before Takkada, every bill, stock check and outstanding question waited for the office desktop. Now your salesmen bill at the counter, the van is loaded from a list built in the app, and you check stock and outstanding at dinner. Receipts match themselves, so your accountant leaves at 7.',
   testimonial: {
     quote:
       'We did not need a new accounting system. We needed Tally to reach our phones. Takkada did that, and then some.',
@@ -46,11 +46,11 @@ const data = {
   faqs: [
     {
       q: 'What is the best software for distributors using Tally?',
-      a: 'The right software depends on your workflow. Takkada is specifically built for Indian distributors that want to extend Tally into mobile operations, payment collections, field sales, and auto-reconciliation.',
+      a: 'The right software depends on your workflow. Takkada is built for Indian distributors who want their Tally on the phone: billing, reports, stock, field sales and dispatch, with WhatsApp reminders and UPI collection built in.',
     },
     {
       q: 'Can distributor software integrate with Tally?',
-      a: 'Yes. Takkada uses a real-time two-way Tally Connector to synchronize information seamlessly between your existing Tally Prime or Tally ERP 9 installation and the application.',
+      a: 'Yes. Takkada uses a two-way Tally Connector that keeps your existing TallyPrime or Tally ERP 9 installation and the app in step, so an entry made on either side shows up on the other.',
     },
     {
       q: 'Can salesmen use Takkada?',
@@ -62,7 +62,7 @@ const data = {
     },
     {
       q: 'Which industries do you work with?',
-      a: 'Any Tally-using distributor or wholesaler. Most of our customers are in FMCG, pharma, hardware, stationery, auto parts, and agri-inputs. The product is industry-agnostic — if your books are in Tally, Takkada fits.',
+      a: 'Any Tally-using distributor or wholesaler. Most of our customers are in FMCG, pharma, hardware, stationery, auto parts, and agri-inputs. The product is industry-agnostic: if your books are in Tally, Takkada fits.',
     },
     {
       q: 'How long does onboarding take?',
@@ -74,7 +74,7 @@ const data = {
     },
     {
       q: 'Can I try before I pay?',
-      a: 'Every plan has a 7-day free trial, no card required. You can also see a 15-minute live demo — book using the button below.',
+      a: 'Every plan has a 7-day free trial, no card required. You can also see a 15-minute live demo. Book it using the button below.',
     },
   ],
   breadcrumb: [
@@ -84,7 +84,7 @@ const data = {
   seo: {
     title: 'Distributor Management Software for Tally | Takkada',
     description:
-      'Software for Indian distributors using Tally. Manage orders, invoices, receivables, WhatsApp reminders, UPI collections and reconciliation from your phone.',
+      'Software for Indian distributors using Tally. Manage orders, invoices, stock, reports, salesmen, WhatsApp reminders and UPI collection from your phone.',
     canonical: 'https://takkada.com/for-distributors/',
   },
 };

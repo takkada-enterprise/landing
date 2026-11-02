@@ -5,7 +5,7 @@ meta_title: "Statement from Own WhatsApp Number vs Business"
 meta_description: "A statement from your own WhatsApp number opens your chat with text pre-filled. The PDF rides the share sheet. From the business number the app shows queued."
 primary_keyword: "statement from own whatsapp number"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-03"
 author: "founder"
 category: "Collections"
 excerpt: "At 9:40 Sharma wants his statement. Send from my WhatsApp opens your chat with the message pre-filled. The PDF rides the share sheet. From the business number the app shows queued."
@@ -81,7 +81,7 @@ A salesman standing next to you can queue on the business number while you keep 
 
 ## Reminders from your own number are a separate setup
 
-Send from my WhatsApp on a statement opens the WhatsApp already on the phone. Moving the shop number onto the WhatsApp Business API so reminders leave as that number is a different product path, early access, with the honest cost that the number then leaves the ordinary handset app. Read [payment reminders from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) before anyone treats statement-send and reminder-API as one switch.
+Send from my WhatsApp on a statement opens the WhatsApp already on the phone. Moving the shop number onto the WhatsApp Business API so reminders leave as that number is a different product path, a paid add-on, with the honest cost that the number then leaves the ordinary handset app. Read [payment reminders from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) before anyone treats statement-send and reminder-API as one switch.
 
 A statement from your own WhatsApp number, in this post, means Send from my WhatsApp plus the share sheet. A reminder from your own API number is the add-on in that other post. Both care about whose name Sharma sees. They are set up in different places.
 
@@ -111,6 +111,6 @@ A: From the party page, the bills page and the ageing report. Those three screen
 
 **Q: Is the reminder add-on the same as sending a statement from my own WhatsApp?**
 
-A: No. Send from my WhatsApp opens the WhatsApp already on your phone, with the statement PDF on the share sheet. Putting your shop number on the WhatsApp Business API so reminders leave as that number is a separate early-access setup, and that number then leaves the ordinary handset app.
+A: No. Send from my WhatsApp opens the WhatsApp already on your phone, with the statement PDF on the share sheet. Putting your shop number on the WhatsApp Business API so reminders leave as that number is a separate paid add-on, and that number then leaves the ordinary handset app.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -101,4 +101,4 @@ A: Maintain ledgers bill-by-bill, raise each invoice as a New Reference, and set
 
 A: Yes. A Tally-native mobile layer can capture a UPI receipt, match it to the correct open bill, and write it back into Tally as an Against Reference entry, so the bill-by-bill ledger updates without manual end-of-day matching. This is how distributors close the collection loop without adding accounting headcount.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, and it tags every receipt against the right bill so your bill-by-bill ledger stays clean on its own. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, and it tags every receipt against the right bill so your bill-by-bill ledger stays clean on its own. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

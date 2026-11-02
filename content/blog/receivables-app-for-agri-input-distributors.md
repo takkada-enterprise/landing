@@ -108,4 +108,4 @@ A: It does not chase a farmer who genuinely has no cash until harvest. A UPI pay
 
 A: Yes. It is a mobile layer on top of the Tally you already run. Invoices, UPI receipts, and the reconciliation post back into Tally, so a season's bunched collection stays on the books cleanly without a separate ledger to maintain.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, built for the long crop-cycle DSO of seed and fertilizer distribution with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, built for the long crop-cycle DSO of seed and fertilizer distribution with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

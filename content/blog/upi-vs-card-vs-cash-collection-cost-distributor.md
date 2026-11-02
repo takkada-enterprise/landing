@@ -87,4 +87,4 @@ A: When the app adds a per-transaction fee, say ₹3 a receipt, or lacks UTR mat
 
 A: By removing the reconciliation tax. Matching on the UTR, the unique reference each payment carries, lets three same-amount payments post to the right invoices automatically, with no screenshots and no nightly guessing. That recovered time is part of why correctly-run UPI is the cheapest rail overall.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, no per-transaction fee, and UTR auto-matching, so UPI is the cheapest rail in practice, not just on paper. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, no per-transaction fee, and UTR auto-matching, so UPI is the cheapest rail in practice, not just on paper. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -76,7 +76,7 @@ The reminder still goes out on WhatsApp, the channel your retailers already use,
 | Reconcile the receipt | Match by hand at night in Tally | Auto-matched and posted back |
 | Cost per UPI collection | Your time, plus any MDR on the gateway | 0% MDR on UPI collections, no transaction cap, no monthly fee |
 
-If you remind one or two parties a week, the manual loop is fine and costs you nothing but a few minutes. If you are chasing 30 to 300 parties on credit, the automated path is the only one that actually holds up across a full working day. Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, which is why the cost-per-collection row matters as your volume grows.
+If you remind one or two parties a week, the manual loop is fine and costs you nothing but a few minutes. If you are chasing 30 to 300 parties on credit, the automated path is the only one that actually holds up across a full working day. Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, which is why the cost-per-collection row matters as your volume grows.
 
 ## What a Good Reminder Message Actually Says
 
@@ -114,4 +114,4 @@ A: With many payment gateways, UPI collections carry an MDR. Takkada offers 0% M
 
 A: Manually you check the UTR or amount against the pending bill and pass a receipt voucher in Tally. Understanding the [UTR number for Tally payments](/blog/what-is-utr-number-tally-payment/) helps here. With auto-reconciliation, the receipt matches the bill and posts the voucher into Tally for you, which removes the nightly matching session.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, sending WhatsApp payment reminders with UPI links and auto-reconciling receipts back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, sending WhatsApp payment reminders with UPI links and auto-reconciling receipts back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

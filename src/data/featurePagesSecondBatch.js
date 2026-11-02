@@ -285,7 +285,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Sending from your own WhatsApp Business number',
-          takkada: 'Available as an early-access add-on',
+          takkada: 'Available as a paid add-on',
           others: 'Usually a shared sender',
         },
       ],
@@ -311,7 +311,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Does the statement go from my own WhatsApp number?',
-        a: 'Shared by hand, it goes from the WhatsApp on your phone, free. Sending it automatically needs your own WhatsApp Business number, a paid early-access add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.',
+        a: 'Shared by hand, it goes from the WhatsApp on your phone, free. Sent automatically, it goes from Takkada\'s WhatsApp number, or from your own WhatsApp Business number with a paid add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.',
       },
       {
         q: 'Does sending a statement change anything in my Tally?',
@@ -739,7 +739,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Who the message appears to come from',
-          takkada: 'Your own WhatsApp Business number, a paid early-access add-on',
+          takkada: 'Takkada\'s number, or your own WhatsApp Business number as a paid add-on',
           others: 'Usually a shared sender only',
         },
       ],
@@ -748,7 +748,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Automated WhatsApp reminders need your own WhatsApp number, a paid add-on in early access. Payment collection is also an add-on, available on every plan.',
+      note: 'Automated WhatsApp reminders go out from Takkada\'s number, or from your own number with a paid add-on. Payment collection is also an add-on, available on every plan.',
     },
     faqs: [
       {
@@ -769,7 +769,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Can reminders come from my own WhatsApp number?',
-        a: 'Automatic reminders need your own WhatsApp Business number, a paid early-access add-on. It matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. Without it you can still share a reminder by hand from your phone.',
+        a: 'Yes, with your own WhatsApp Business number, a paid add-on. Without it, automatic reminders go out from Takkada\'s WhatsApp number. Your own number matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. Without it you can still share a reminder by hand from your phone.',
       },
     ],
     relatedPosts: [
@@ -1793,7 +1793,7 @@ export const SECOND_BATCH = [
         icon: 'Send',
         title: 'It reaches him on WhatsApp',
         body:
-          'Within seconds of the invoice being saved, on the number he actually reads. With your own WhatsApp number, a paid add-on, auto dispatch can send every invoice this way without anyone pressing send.',
+          'Within seconds of the invoice being saved, on the number he actually reads. Auto dispatch can send every invoice this way without anyone pressing send, from Takkada\'s number or from your own WhatsApp number with a paid add-on.',
         image: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
         alt: 'An invoice PDF and a pay-now link delivered to a customer on WhatsApp',
         width: 600,
@@ -1828,7 +1828,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Sending every invoice without pressing send',
-          takkada: 'Auto dispatch on save, with your own WhatsApp number (paid add-on)',
+          takkada: 'Auto dispatch on save, from Takkada\'s number or your own (paid add-on)',
           others: 'Usually manual',
         },
         {
@@ -1842,7 +1842,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Assurance and needs your own WhatsApp number, a paid add-on in early access.',
+      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Assurance and sends from Takkada\'s number, or from your own WhatsApp number with a paid add-on.',
     },
     faqs: [
       {
@@ -1859,7 +1859,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Can every invoice go out automatically in this format?',
-        a: 'Yes, with auto invoice dispatch switched on and your own WhatsApp number, a paid add-on in early access. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still share the PDF by hand from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.',
+        a: 'Yes, with auto invoice dispatch switched on. It sends from Takkada\'s WhatsApp number, or from your own number with a paid add-on. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still share the PDF by hand from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.',
       },
       {
         q: 'How much can the template be changed?',

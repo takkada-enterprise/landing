@@ -147,7 +147,7 @@ export const STOPS = [
     label: 'Send',
     when: "1:31 PM · On the retailer's phone",
     headline: 'The invoice reaches the customer on WhatsApp without anyone pressing send.',
-    body: 'The PDF, the amount and a pay link go out in one message, on their own. Needs your own WhatsApp number (paid add-on, early access).',
+    body: 'The PDF, the amount and a pay link go out in one message, on their own, from Takkada\'s number or from your own WhatsApp number (paid add-on).',
     screens: [],
     message: {
       from: 'Shreeji Distributors',
@@ -177,7 +177,7 @@ export const STOPS = [
     label: 'Remind',
     when: 'Day 28 · 10:00 AM',
     headline: "The reminder goes out. You don't make the call.",
-    body: 'Overdue parties get a WhatsApp reminder with the amount and a pay link, on the schedule you set. Needs your own WhatsApp number (paid add-on, early access).',
+    body: 'Overdue parties get a WhatsApp reminder with the amount and a pay link, on the schedule you set, from Takkada\'s number or from your own (paid add-on).',
     screens: ['reminders', 'reminder-schedule'],
     sheet: null,
     stamp: { text: 'REMINDED', tone: 'ink' },

@@ -21,7 +21,7 @@ function AboutUs() {
       <article className="company-article">
         <h1>About Takkada</h1>
         <p className="company-lead">
-          Takkada is a mobile app that connects to Tally, so distributors and wholesalers can see their reports, send payment reminders on WhatsApp and collect UPI payments from their phone. It is built by <strong>{contactInfo.company}</strong> in Guwahati.
+          Takkada is Tally on mobile: an app that connects to Tally, so distributors and wholesalers can bill, see their reports, manage stock and orders, run their sales team and collect payments from their phone. It is built by <strong>{contactInfo.company}</strong> in Guwahati.
         </p>
 
         <h2>Our Mission</h2>
@@ -31,7 +31,7 @@ function AboutUs() {
 
         <h2>What We Do</h2>
         <p>
-          Takkada connects directly to your Tally installation and gives you a powerful mobile-first platform to manage receivables, send automated payment reminders via WhatsApp, collect payments digitally, and reconcile everything back to Tally automatically.
+          Takkada connects directly to your Tally installation and gives you one app for the whole business day: invoices with e-invoice and e-way bill, 20+ reports, stock, orders, salesman visits, dispatch, WhatsApp invoices and reminders, and UPI collection, with every entry posting back to Tally.
         </p>
 
         <h2>Why We Built Takkada</h2>

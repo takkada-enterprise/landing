@@ -40,7 +40,7 @@ Before comparing names, fix the criteria. For an Indian distributor, the credflo
 
 ## Takkada: The Tally-Native, 0% MDR Option
 
-Takkada is a [Tally-integrated receivables and collection app](/blog/what-is-takkada/) for Indian distributors. It sits on top of an existing Tally installation and adds phone invoicing, WhatsApp dispatch, [0% MDR UPI collection](/blog/zero-mdr-upi-collection-for-distributors-india/), and [auto-reconciliation](/blog/auto-reconciliation-tally/) back into Tally.
+Takkada is [Tally on mobile](/tally-on-mobile/) for Indian distributors. It sits on top of an existing Tally installation and adds phone invoicing, WhatsApp dispatch, [0% MDR UPI collection](/blog/zero-mdr-upi-collection-for-distributors-india/), and [auto-reconciliation](/blog/auto-reconciliation-tally/) back into Tally.
 
 **Best for:** Tally-anchored distributors and wholesalers who collect heavily on UPI and have salesmen in the field.
 

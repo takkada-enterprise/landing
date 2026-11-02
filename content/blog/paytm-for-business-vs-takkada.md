@@ -51,7 +51,7 @@ A Tally-native layer carries it the rest of the way. Takkada presents an invoice
 
 ## Capability comparison
 
-| Capability | Paytm for Business | Takkada (Tally collection layer) |
+| Capability | Paytm for Business | Takkada (Tally on mobile) |
 | --- | --- | --- |
 | 0% MDR on UPI | ✓ | ✓ |
 | Accepts cards and wallets | ✓ | Focused on UPI |

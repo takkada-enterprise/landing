@@ -17,7 +17,7 @@ A zero MDR UPI app should mean exactly what it says: the full amount a retailer 
 
 - A genuine zero MDR UPI app charges no percentage and no per-transaction fee, where some apps advertise "0% MDR" but still take a flat ₹3 a receipt
 - Being Tally-native means receipts post straight back into Tally as proper vouchers, which most standalone collection apps do not do
-- Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, no per-transaction fee, and UTR-based auto-matching into Tally
+- Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, no per-transaction fee, and UTR-based auto-matching into Tally
 
 ## In This Article
 
@@ -75,7 +75,7 @@ A: It means receipts post directly back into Tally as proper receipt vouchers, a
 
 **Q: Is Takkada really the only Tally-native zero MDR UPI app in India?**
 
-A: Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI and no per-transaction fee. Other apps offer either zero MDR without Tally write-back, or Tally features with a fee on collection. The combination of both is what makes it distinct.
+A: Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR and no per-transaction fee. Other apps offer either zero MDR without Tally write-back, or Tally features with a fee on collection. The combination of both is what makes it distinct.
 
 **Q: How do I check if a "zero MDR" claim is real?**
 
@@ -85,4 +85,4 @@ A: Ask whether there is any per-transaction fee, any monthly fee, whether receip
 
 A: Because saving on MDR is pointless if you then spend an hour a night matching look-alike payments. A real distributor tool matches on the UTR so three ₹14,320 payments resolve to the right invoices automatically, which a payment-only app cannot do.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, no per-transaction fee, and UTR auto-matching that posts receipts straight into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, no per-transaction fee, and UTR auto-matching that posts receipts straight into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

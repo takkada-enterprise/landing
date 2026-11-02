@@ -153,4 +153,4 @@ A: No. The annual subscription is flat. The cost does not scale with collection 
 
 A: Yes. Takkada offers a structured pilot for distributors evaluating the switch, including help connecting Tally and migrating reminder workflows.
 
-Takkada is the lowest-total-cost payment collection app for Indian distributors with 0% MDR on UPI and a flat annual subscription. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, and its payment collection runs at 0% MDR on UPI with a flat annual subscription. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

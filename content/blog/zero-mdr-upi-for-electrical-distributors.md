@@ -105,4 +105,4 @@ A: Match on the UTR, the unique reference each UPI payment carries, tied to the 
 
 A: Yes. The collection layer adds mobile invoicing, UPI links, and reconciliation on top of your existing Tally, and posts receipt vouchers back into it. Tally stays the system of record for an electrical and hardware distributor, with collection and reconciliation handled on the phone.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, built for the long-credit electrical and hardware trade with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, built for the long-credit electrical and hardware trade with UTR auto-matching into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -55,7 +55,7 @@ So the comparison is not 0% MDR versus a fee. Both are 0% MDR on UPI. The compar
 
 ## Capability comparison
 
-| Capability | BharatPe QR | Takkada (Tally collection layer) |
+| Capability | BharatPe QR | Takkada (Tally on mobile) |
 | --- | --- | --- |
 | 0% MDR on UPI | ✓ | ✓ |
 | Accepts payment from any UPI app | ✓ | ✓ |

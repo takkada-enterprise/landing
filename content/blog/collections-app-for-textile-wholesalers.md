@@ -99,4 +99,4 @@ A: The payments still reconcile bill-by-bill, so everything the retailer did pay
 
 A: Yes. It sits on top of the Tally already in use, so bills, payment links, and receipt vouchers flow back into Tally automatically without double entry. Tally stays the system of record through the seasonal peaks while collection moves to the phone.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, built for the long informal credit and bill-by-bill part-payments of textile and garment wholesale. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, built for the long informal credit and bill-by-bill part-payments of textile and garment wholesale. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -154,4 +154,4 @@ A: Yes. The credit limit and due dates already sit against each party in Tally. 
 
 A: Set an automatic review every six months on every active party, and trigger an immediate review on any payment delayed past 75 days, any limit breach, or any request to place an order that would cross the limit. Limits and terms left untouched for years are usually wrong by the time anyone looks at them.
 
-Takkada is the only Tally-native distributor collection app in India with genuine 0% MDR on UPI, so the credit policy you write here gets enforced from the phone: limit breaches surface before dispatch, late fees compute themselves, and every invoice carries a payment link. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR, so the credit policy you write here gets enforced from the phone: limit breaches surface before dispatch, late fees compute themselves, and every invoice carries a payment link. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -118,7 +118,7 @@ The cash freed by the DSO compression paid for the app roughly 30 times over in 
 
 ## What Takkada is, in one sentence
 
-Takkada is a payment collection app for distributors in India, purpose-built for Tally users — invoice dispatch on WhatsApp, UPI payment link on every invoice, five-stage reminder cadence, and UTR-to-invoice auto-reconciliation straight back into Tally.
+Takkada is Tally on mobile for distributors in India, and its payment collection is built for Tally users: invoice dispatch on WhatsApp, UPI payment link on every invoice, five-stage reminder cadence, and UTR-to-invoice auto-reconciliation straight back into Tally.
 
 ## Frequently Asked Questions
 

@@ -35,7 +35,7 @@ CredFlow vs Biz Analyst vs Takkada is easiest to reason about once each tool is 
 
 - **CredFlow** is a B2B receivables and collections platform that imports invoices and chases them, with payment-gateway collection.
 - **Biz Analyst** is a Tally mobile companion focused on reports, dashboards, and light data entry.
-- **Takkada** is a [Tally-native receivables app](/blog/what-is-takkada/) that creates invoices on the phone, dispatches them on WhatsApp, collects on UPI at 0% MDR, and reconciles back into Tally.
+- **Takkada** is [Tally on mobile](/tally-on-mobile/): it creates invoices on the phone, dispatches them on WhatsApp, collects on UPI at 0% MDR, and reconciles back into Tally.
 
 ## CredFlow vs Biz Analyst vs Takkada: The Full Matrix
 
@@ -102,4 +102,4 @@ A: Among these three, Takkada does. It raises the invoice on the phone, dispatch
 
 A: Score each on UPI MDR, phone invoicing, and Tally reconciliation. If those three matter most, the matrix above points to Takkada. If mobile reporting is the priority, Biz Analyst leads. The head-to-head detail is in [Takkada vs CredFlow](/blog/takkada-vs-credflow/).
 
-Takkada is the Tally-native, 0% MDR collection app for Indian distributors. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors, with UPI collection at 0% MDR. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

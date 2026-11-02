@@ -4,16 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 1. Product one-liner
 
-Takkada is Tally on your phone: reports, overdue reminders and salesman tracking for distributors. It sits on top of the distributor's existing Tally installation and adds mobile invoicing (including e-invoice and e-way bill), auto invoice dispatch on WhatsApp, UPI payment collection, and auto-reconciliation back into Tally.
+Takkada is Tally on mobile: the distributor's existing Tally on the phone and in a browser, covering the whole business-accounting day. Billing with e-invoice and e-way bill, 20+ reports, stock, orders and challans, salesman visits, dispatch loading, WhatsApp invoices and reminders, and UPI collection, with every entry posting back into Tally.
+
+Positioning rule (operator, 2026-11-03): lead with Tally on mobile and the whole day of work. Payments and collection are one feature, never the defining one. Do not describe Takkada as a "collection app", "receivables app" or "collection layer", and do not lead a page, title, meta description or schema description with getting paid, collections or reconciliation. A page *about* reminders or UPI may stay on that topic; it still defines Takkada as Tally on mobile. The canonical one-line definition lives in `ORGANIZATION_DESCRIPTION` in `src/data/schema.js` and the `llms.txt` header in `scripts/generate-llms-txt.mjs`.
 
 ## 2. Primary ICP
 
-Indian offline distributors and wholesalers using Tally. Typically 5–50 person businesses, family-run, ₹2cr to ₹200cr annual turnover, with receivables scattered across 30–300 retail parties on 30–90 day terms.
+Indian offline distributors and wholesalers using Tally. Typically 5–50 person businesses, family-run, ₹2cr to ₹200cr annual turnover, serving 30–300 retail parties, typically on 30–90 day credit terms.
 
 Four sub-ICPs:
-- Owners who want visibility and reminders only (no voucher creation, no collection)
+- Owners who want reports, stock and outstanding on the phone (no voucher creation)
 - Accountants and operators who need voucher creation on mobile
-- Collections-heavy distributors (e-invoicing + e-way bill + payment links are the whole point)
+- Field-billing distributors (e-invoice, e-way bill and WhatsApp dispatch from the phone)
 - Team-based distributors needing role-based access for multiple salesmen
 
 ## 3. Pricing (GST extra on all prices, annual per-customer MRP)
@@ -33,7 +35,7 @@ Retired plan names — do not reintroduce; `src/data/schema.test.js` asserts eac
 **3-year term: 25% off, billed once.** Per-year effective rates ₹3,375 / ₹4,860 / ₹6,750 / ₹18,000 (Copilot ₹20,250 billed once). The site defaults to the 3-year column (`pricing.defaultTerm`).
 
 Add-ons: **add-ons never show a price on the site — partners quote them (ruled 2026-10-04).** `pricing.addons` items are `{ label, note }` with no `price` key, and the strip closes on one shared line, `pricing.addonsCta` ("Ask your partner for pricing"), plus a WhatsApp CTA. `src/data/rateCardSnapshot.json` carries `addons: {}` and lists every add-on key under `dashboardOnlyKeys`; `scripts/checkRateCardDrift.mjs` fails the build on any rupee figure on the homepage or refund policy that a plan cannot justify, so a typed add-on price anywhere there goes red. The list, in order: FMCG billing, Auto parts billing, Schemes, Ladder discount, Recovery dashboard, Customer order link, Personal party links, AI calling, Your own WhatsApp number, Payment Collection, Barcode labels (added 2026-10-25, operator-confirmed add-on on every plan), Proof of Delivery, Voucher names, Manufacturing (these three added 2026-11-01, partner plan 2026-11-01-002 U8), Extra user. Grouped companies is not in this list: it is the `biggerSetups` card, "Per additional company". The WhatsApp 8,000-message pack was removed from the site on 2026-11-01 (operator direction); do not re-add it.
-- Your own WhatsApp number: the rendered-page guard (`src/routes/__tests__/home-v3.test.jsx`) and the data guard in `src/data/schema.test.js` still require "early access" beside every own-number mention, so the note leads with it. The guards date from zero enabled customers (2026-08-03); prod showed 24 active companies on 2026-10-04, so dropping the wording is an operator call, not a cleanup.
+- Your own WhatsApp number: the note reads "You can send reminders from your own number." The "early access" wording and the guards that required it (`home-v3.test.jsx`, `schema.test.js`, `generate-llms-txt.test.mjs`) were removed on 2026-11-03 (operator direction); do not reintroduce them. Automatic WhatsApp reminders and Auto Invoice Dispatch go out from Takkada's common number as well as from the customer's own number (operator, 2026-11-03); never write that either one needs the own-number add-on.
 - Extra device: removed 2026-08-12 — nothing in the product or the partner rate card sells a per-device price; it was drift, not an offer. Do not re-add without asking
 - Extra business: removed from the public rate card 2026-08-04 (operator direction) — do not re-add without asking
 
