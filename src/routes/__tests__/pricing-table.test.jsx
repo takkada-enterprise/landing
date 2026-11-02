@@ -100,7 +100,8 @@ describe('pricing comparison table', () => {
     expect(pricing.addons.map((a) => a.label)).toEqual([
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'Payment Collection', 'Barcode labels', 'Extra user',
+      'Payment Collection', 'Barcode labels', 'Proof of Delivery', 'Voucher names', 'Manufacturing',
+      'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);
@@ -110,15 +111,14 @@ describe('pricing comparison table', () => {
 
   it('never claims Enterprise carries every module (final review 2026-10-04)', () => {
     // Enterprise leaves out Payment Collection, the own WhatsApp number,
-    // extra users and two of the three billing engines, so
-    // "every module" and "Add to any plan" (AI calling is included in
-    // Enterprise) overstate it.
+    // extra users and the big modules unless picked or bought, so "every
+    // module" overstates it. It carries any 4 small modules the customer picks.
     const container = renderHome();
-    expect(container.textContent).not.toMatch(/every module|all modules/i);
+    expect(container.textContent).not.toMatch(/\bevery module|\ball modules/i);
     expect(container.querySelector('.rate-addons-title').textContent).toBe('Add-ons');
-    expect(pricing.matrix.map((g) => g.group)).toContain('Modules switched on');
+    expect(pricing.matrix.map((g) => g.group)).toContain('Modules you pick');
     expect(pricing.plans.find((p) => p.plan === 'Enterprise').description).toMatch(
-      /one billing engine/
+      /any 4 small modules/
     );
   });
 
@@ -220,7 +220,7 @@ describe('bigger setups block', () => {
       /across companies/i.test(el.textContent)
     );
     expect(card, 'no multi-company card rendered').toBeTruthy();
-    expect(card.textContent).toContain('Custom pricing');
+    expect(card.textContent).toContain('Per additional company');
     expect(card.textContent).not.toContain('₹');
   });
 

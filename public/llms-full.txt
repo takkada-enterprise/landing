@@ -13,9 +13,12 @@ Add-ons (Ask your partner for pricing):
 - Customer order link: Customers order from a link to your item list, and you approve each one into Tally.
 - Personal party links: A link of its own for each party, so every order arrives already matched to them.
 - AI calling: AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.
-- Your own WhatsApp number: Early access: reminders and invoices go out from your WhatsApp Business number.
+- Your own WhatsApp number: Early access: automatic reminders and invoices need this add-on. They go out from your WhatsApp Business number, and Meta bills the messages to you directly.
 - Payment Collection: UPI links on every invoice at zero MDR, matched back into Tally.
 - Barcode labels: Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.
+- Proof of Delivery: Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).
+- Voucher names: Name your voucher types, each with a separate number series, in the app and in Tally.
+- Manufacturing: Bill of materials, production runs and job work, posted to Tally.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -39,7 +42,7 @@ Add-ons (Ask your partner for pricing):
 - [Payment reconciliation software for Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
 - [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
 - [Payment collection on Tally](https://takkada.com/payment-collection-tally/): UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.
-- [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
+- [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
 - [GST e-invoices from your phone](https://takkada.com/e-invoice-from-phone/): GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.
 - [E-way bills from your phone](https://takkada.com/e-way-bill-from-phone/): E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.
 - [Tally reports on mobile](https://takkada.com/tally-reports-on-mobile/): Over twenty Tally reports readable on a phone: receivables and payables by age, party-wise and item-wise sales, purchase register, stock summary, cash and bank book, profit, trial balance and GST summaries, each shareable as PDF or Excel on WhatsApp without opening a laptop.
@@ -60,7 +63,7 @@ Add-ons (Ask your partner for pricing):
 - [Handwritten order to Tally](https://takkada.com/handwritten-order-to-tally/): A photograph of a handwritten order book page turned into draft voucher lines: items, quantities and rates read off the page, matched against the item masters, checked by a person, and only then written into Tally.
 - [Order booking app for Tally](https://takkada.com/order-booking-app-tally/): Customer ordering link for distributors on Tally: the retailer opens a WhatsApp link, browses the priced catalogue and places an order without installing an app or logging in. Prices are resolved from the merchant’s own books, per-buyer links carry that party’s rates, and the merchant approves each order into Tally as a sales order.
 - [Voucher approval before Tally](https://takkada.com/voucher-approval-before-tally/): Maker-checker approval for distributors on Tally: the owner ticks which voucher kinds need a checker, a team member's save becomes a request, the approver reviews the party's dues and every line on the phone, edits if needed, and approves, sends back with a note or declines; only the approver's save is written into Tally, and every request keeps its history.
-- [AI collection calls](https://takkada.com/ai-collection-calls/): Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.
+- [AI collection calls](https://takkada.com/ai-collection-calls/): Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and one of the modules you can pick in Enterprise, with calls charged on connected minutes.
 - [Schemes on Tally billing](https://takkada.com/schemes-tally/): Four kinds of billing-time scheme for distributors on Tally: buy X get X free, buy X get Y free, quantity slab discount and invoice value discount. Set up once with items, parties and dates; applied automatically in the cart; the free item reaches Tally as a zero-rate line; a Scheme cost report totals what each scheme gave away per party.
 - [FMCG module: MRP-based billing on Tally](https://takkada.com/fmcg-module-tally/): MRP-driven billing for FMCG distributors on Tally. Each stock item carries printed MRP, retailer margin (a divisor), two sequential trade discounts (D1, D2) and an item-wise salesman commission. The rate is computed per line; any extra customer discount is checked against the line's break-even; Tally receives list rate and one discount percentage.
 - [AutoParts billing: cost-plus pricing on Tally](https://takkada.com/autoparts-billing-tally/): Cost-plus pricing for parts distributors on Tally. The latest purchase cost is read from Tally per base unit, ex-GST; a markup set at company, stock group or item level gives the selling price; a second markup gives a second price level. A Price Changes screen lists parts whose cost moved. Cost and markup are withheld from members without full access.
@@ -128,7 +131,7 @@ Takkada adds payment collection on Tally without changing how you bill. Every in
 *Chasing is the part nobody wants to do. So it slips, and a bill that was thirty days old quietly becomes ninety.*
 
 **Core capability & workflow:**
-A payment reminder from Tally goes out on WhatsApp on its own, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.
+A payment reminder from Tally goes out on your own WhatsApp number, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.
 
 **How it works:**
 - **You set the cadence, not the messages**: Decide how many days before the due date the first nudge goes, and how often one follows after. The app picks the wording for where that bill stands, so nobody is drafting anything.
@@ -138,7 +141,7 @@ A payment reminder from Tally goes out on WhatsApp on its own, on a schedule you
 
 **Frequently Asked Questions:**
 - **Q: Do reminders go from my own WhatsApp number?**
-  A: By default they go from the Takkada business sender, which is what most distributors use. Sending from your own WhatsApp Business number is available as an early access add-on, so ask for it if the number your retailers already recognise matters to you. The reminder content and schedule are the same either way.
+  A: Yes, automatic reminders need your own WhatsApp Business number, a paid add-on in early access, so ask your partner for it. Without it you can still share a ledger or invoice by hand from your phone, free.
 - **Q: How do I stop a good customer from being pestered?**
   A: Two ways. A cap limits how many messages one party can receive in a day no matter how many of his bills came due together, and you can hold specific parties back from the automatic run entirely. For those you keep the manual send, which is two taps when you decide the moment is right.
 - **Q: What does the retailer actually receive?**
@@ -321,7 +324,7 @@ Takkada lets you share a ledger statement on WhatsApp for any party and any peri
 - **Q: Can the retailer pay from the statement I send?**
   A: If payment collection is switched on for your business, a pay-now link goes with the statement. He settles by UPI from the same message, and you receive it at zero MDR with no transaction cap and no monthly fee. The receipt then posts into your Tally against the invoices it clears.
 - **Q: Does the statement go from my own WhatsApp number?**
-  A: By default it goes from the platform sender with your business name on the message. Sending from your own WhatsApp Business number is available as an early-access add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.
+  A: Shared by hand, it goes from the WhatsApp on your phone, free. Sending it automatically needs your own WhatsApp Business number, a paid early-access add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.
 - **Q: Does sending a statement change anything in my Tally?**
   A: No. Generating and sending a ledger is a read. Nothing is written back, no voucher is created and no balance is touched. The only entries the app writes into your Tally are the ones you deliberately create, such as a receipt when the retailer pays or an invoice when you raise one.
 
@@ -382,7 +385,7 @@ You can run Tally on mobile without remote access by syncing your books to an ap
 *Ringing thirty retailers to ask for money is a full morning. Most of them would have paid on a message, and the rest are the ones worth calling.*
 
 **Core capability & workflow:**
-Takkada can send payment reminders automatically against every open invoice in your Tally. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.
+Takkada can send payment reminders automatically against every open invoice in your Tally, from your own WhatsApp number. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.
 
 **How it works:**
 - **A schedule, not a blast**: Steps that run before the due date as a nudge and after it as a follow-up. The retailer hears from you at the moment it changes what he does, rather than on the day you happened to remember him.
@@ -401,7 +404,7 @@ Takkada can send payment reminders automatically against every open invoice in y
 - **Q: Can the customer pay straight from the reminder?**
   A: Yes, if payment collection is switched on for your business. The message carries a UPI pay-now link, and you receive the money at zero MDR with no transaction cap and no monthly fee. The receipt then posts into your Tally against the invoices it settles, so the ledger closes itself.
 - **Q: Can reminders come from my own WhatsApp number?**
-  A: Sending from your own WhatsApp Business number is available as an early-access add-on. It matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. By default reminders go from the platform sender with your business name on them.
+  A: Automatic reminders need your own WhatsApp Business number, a paid early-access add-on. It matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. Without it you can still share a reminder by hand from your phone.
 
 ### [Bank statement import into Tally, from the file your bank already gives you.](https://takkada.com/bank-statement-import-tally/)
 
@@ -570,7 +573,7 @@ A custom invoice template puts your own format on every bill the app sends. Your
 - **Your format, not a default one**: Logo, business details, terms and the layout your customers already recognise from the bills you print in the office.
 - **The lines as you enter them**: Items, quantities, rates and GST come from the voucher in your Tally, so the PDF and your books say the same thing.
 - **Your bank and UPI details on the bill**: The retailer does not have to ask where to send money. Where payment collection is on, a pay-now link goes with the PDF as well.
-- **It reaches him on WhatsApp**: Within seconds of the invoice being saved, on the number he actually reads. Auto dispatch can send every invoice this way without anyone pressing send.
+- **It reaches him on WhatsApp**: Within seconds of the invoice being saved, on the number he actually reads. With your own WhatsApp number, a paid add-on, auto dispatch can send every invoice this way without anyone pressing send.
 - **What went out, and when**: The sales register by month with totals and counts, so you can see the billing that actually left the building rather than what you assume did.
 
 **Frequently Asked Questions:**
@@ -581,7 +584,7 @@ A custom invoice template puts your own format on every bill the app sends. Your
 - **Q: Does the PDF match what is in my Tally?**
   A: The items, quantities, rates and tax come from the voucher in your Tally, so the customer copy and your books cannot drift apart. This is the failure worth avoiding, because a PDF built from a separate copy held inside an app is how a retailer ends up holding a bill your ledger does not recognise.
 - **Q: Can every invoice go out automatically in this format?**
-  A: Yes, with auto invoice dispatch switched on. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still send from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.
+  A: Yes, with auto invoice dispatch switched on and your own WhatsApp number, a paid add-on in early access. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still share the PDF by hand from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.
 - **Q: How much can the template be changed?**
   A: The template is set up for your business rather than edited by you screen by screen, so tell us the format you print today and it gets matched. Distributors usually want their letterhead, their terms and their bank block in the places their customers are used to, and that is what the setup covers.
 

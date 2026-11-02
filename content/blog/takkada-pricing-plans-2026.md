@@ -11,7 +11,7 @@ category: "Market Reality"
 excerpt: "A distributor comparing collection tools usually finds the real cost hidden in the MDR, not the sticker price. Takkada pricing is built the other way around: a flat annual subscription you can read off a table, and 0% MDR on UPI so the collection rail itself adds nothing per transaction."
 ---
 
-Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, automatic reminders and voucher creation from the phone in your pocket. Assurance is ₹6,480 and adds the web view, Auto Invoice Dispatch, and E-Invoice and E-Way Bill generation from the phone. Copilot is ₹9,000 and adds PDF purchase import, bank statement import, Reports +, Dispatch Load and Team Sales. Enterprise is ₹24,000 and adds schemes, recovery, order links, AI calling and one billing engine, in one price. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
+Takkada pricing is a flat annual subscription per customer, quoted as MRP with GST extra, with no percentage taken on collections and no monthly creep. A distributor picks a plan by how much of the daily loop they want to run from the phone. Momentum is the entry plan at ₹4,500 and puts the Tally numbers, MIS reports, role-based access and voucher creation from the phone in your pocket. Assurance is ₹6,480 and adds the web view, Auto Invoice Dispatch, and E-Invoice and E-Way Bill generation from the phone. Copilot is ₹9,000 and adds PDF purchase import, bank statement import, Dispatch Load and Team Sales. Enterprise is ₹24,000 and adds any 4 small modules you pick, in one price. Automatic WhatsApp reminders and Auto Invoice Dispatch need your own WhatsApp number, a paid add-on in early access. A 3-year subscription is billed once at 25% off the yearly rate. Payment Collection is an add-on on any plan, priced by your partner, and once it is on, UPI receipts carry 0% MDR with no per-transaction cut on top of the subscription.
 
 ## Key Highlights
 
@@ -39,24 +39,24 @@ The principle behind the structure: the price you read is the price you pay. The
 
 | Plan | Annual MRP (GST extra) | 3-year rate, per year | Built for |
 |---|---|---|---|
-| Momentum | ₹4,500 | ₹3,375 | Seeing the books, sending reminders, and creating vouchers from anywhere |
-| Assurance | ₹6,480 | ₹4,860 | Web view, Auto Invoice Dispatch, E-Invoice and E-Way Bill from the phone |
-| Copilot | ₹9,000 | ₹6,750 | PDF and bank statement import, Reports +, Dispatch Load |
-| Enterprise | ₹24,000 | ₹18,000 | Schemes, recovery, order links, AI calling and one billing engine |
+| Momentum | ₹4,500 | ₹3,375 | Seeing the books, sharing ledgers by hand, and creating vouchers from anywhere |
+| Assurance | ₹6,480 | ₹4,860 | Web view, Auto Invoice Dispatch (needs your own WhatsApp number), E-Invoice and E-Way Bill from the phone |
+| Copilot | ₹9,000 | ₹6,750 | PDF and bank statement import, Dispatch Load, Team Sales |
+| Enterprise | ₹24,000 | ₹18,000 | Everything in Copilot, plus any 4 small modules you pick |
 
 ## What Each Plan Is For
 
-**Momentum (₹4,500).** The entry plan, for owners who want to see what is outstanding and have reminders go out on their own, and for the accountants and operators who raise the entries. The Tally numbers sit on the phone: [partywise outstanding](/blog/partywise-outstanding-statement-tally/), aging, [days sales outstanding](/blog/days-sales-outstanding-distributor-india/), and 20+ reports, with WhatsApp reminders running on schedule. It also carries sales, purchase and receipt vouchers from the phone, edits from wherever you are, delivery challans, sales orders, and your own invoice PDF template.
+**Momentum (₹4,500).** The entry plan, for owners who want to see what is outstanding, and for the accountants and operators who raise the entries. The Tally numbers sit on the phone: [partywise outstanding](/blog/partywise-outstanding-statement-tally/), aging, [days sales outstanding](/blog/days-sales-outstanding-distributor-india/), 20+ reports and MIS reports, with role-based access for your team. WhatsApp reminders run on schedule once you add your own WhatsApp number, a paid add-on in early access. It also carries sales, purchase and receipt vouchers from the phone, edits from wherever you are, delivery challans, sales orders, and your own invoice PDF template.
 
-**Assurance (₹6,480).** For distributors whose trucks wait on paperwork. [E-invoice IRN](/blog/e-invoice-on-phone-tally/) with QR and [e-way bill](/blog/e-way-bill-on-phone/) generate from the phone and land back in Tally against the same voucher, without a portal login. Auto Invoice Dispatch fires every Tally invoice on WhatsApp the moment it is saved, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/), and the web view opens Takkada in a computer browser.
+**Assurance (₹6,480).** For distributors whose trucks wait on paperwork. [E-invoice IRN](/blog/e-invoice-on-phone-tally/) with QR and [e-way bill](/blog/e-way-bill-on-phone/) generate from the phone and land back in Tally against the same voucher, without a portal login. With your own WhatsApp number, a paid add-on in early access, Auto Invoice Dispatch fires every Tally invoice on WhatsApp the moment it is saved, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/), and the web view opens Takkada in a computer browser.
 
-**Copilot (₹9,000).** For the business where the evening is spent typing. Import from PDF turns a supplier bill into a purchase entry and bank statement import matches receipts against your ledgers. Reports +, role-based access for field salesman teams, Dispatch Load (build a load from pending orders, print the loading sheet, bill it) and Team Sales field visit check-in and check-out are included.
+**Copilot (₹9,000).** For the business where the evening is spent typing. Import from PDF turns a supplier bill into a purchase entry and bank statement import matches receipts against your ledgers. Dispatch Load (build a load from pending orders, print the loading sheet, bill it) and Team Sales field visit check-in and check-out are included.
 
-**Enterprise (₹24,000).** For the distributor who runs trade schemes, works a recovery list and takes orders over links. Everything in Copilot, plus trade schemes and scheme credit notes, the recovery dashboard, the customer order link and personal party links, AI collection calls billed per connected minute, and one billing engine of your choice: FMCG billing, Auto parts billing or Ladder discount.
+**Enterprise (₹24,000).** For the distributor who wants several modules at once. Everything in Copilot, plus any 4 small modules you pick with your partner, such as schemes, the recovery dashboard, personal party links, AI calling (minutes billed separately) or a billing engine.
 
 ## The 3-Year Term
 
-A 3-year subscription is billed once at 25% off the yearly rate. On Copilot that is ₹20,250 for three years instead of ₹27,000, so the effective rate is ₹6,750 a year. The plan contents do not change with the term. The only thing the longer term buys is the lower rate.
+Automatic WhatsApp reminders and Auto Invoice Dispatch need your own WhatsApp number, a paid add-on in early access. A 3-year subscription is billed once at 25% off the yearly rate. On Copilot that is ₹20,250 for three years instead of ₹27,000, so the effective rate is ₹6,750 a year. The plan contents do not change with the term. The only thing the longer term buys is the lower rate.
 
 ## Add-Ons
 
@@ -67,7 +67,7 @@ Beyond the base plans, the add-ons extend the tool to a team and to collection, 
 | Payment Collection | UPI links on every invoice at 0% MDR, auto-reconciled into Tally |
 | Extra user | A login for each person beyond the one user every plan includes |
 
-Payment Collection sits on top of any plan, so a distributor on Momentum who only wants reminders today can turn on collection later without moving tier. Import from PDF, Reports +, and role-based salesman access are no longer sold separately; they are part of Copilot. Auto Invoice Dispatch is part of Assurance, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/).
+Payment Collection sits on top of any plan, so a distributor on Momentum who only wants reminders today can turn on collection later without moving tier. Import from PDF is no longer sold separately; it is part of Copilot. Reports + and role-based access come with every plan. Auto Invoice Dispatch is part of Assurance and needs your own WhatsApp number, a paid add-on in early access, covered in [WhatsApp invoice dispatch](/blog/tally-whatsapp-invoice-dispatch/).
 
 ## Why 0% MDR Changes the Real Cost
 
@@ -85,7 +85,7 @@ Against numbers like these, the gap between the ₹4,500 entry plan and the ₹2
 
 **Q: How much does Takkada cost?**
 
-A: Takkada is priced as a flat annual subscription per customer (GST extra): Momentum ₹4,500, Assurance ₹6,480, Copilot ₹9,000, and Enterprise ₹24,000. A 3-year subscription is billed once at 25% off the yearly rate.
+A: Takkada is priced as a flat annual subscription per customer (GST extra): Momentum ₹4,500, Assurance ₹6,480, Copilot ₹9,000, and Enterprise ₹24,000. Automatic WhatsApp reminders and Auto Invoice Dispatch need your own WhatsApp number, a paid add-on in early access. A 3-year subscription is billed once at 25% off the yearly rate.
 
 **Q: Is there an MDR or transaction fee on UPI collection?**
 
@@ -93,7 +93,7 @@ A: No. On the Payment Collection add-on, UPI receipts carry 0% MDR with no trans
 
 **Q: Which plan should a collections-focused distributor pick?**
 
-A: A distributor whose work is invoicing in the field usually needs Assurance (₹6,480): e-invoice and e-way bill from the phone, and every invoice auto-dispatched on WhatsApp the moment it is created. Copilot (₹9,000) adds the imports, Dispatch Load and Team Sales. Add Payment Collection on either one to collect on a UPI link. Your partner quotes the add-on price.
+A: A distributor whose work is invoicing in the field usually needs Assurance (₹6,480): e-invoice and e-way bill from the phone, and every invoice auto-dispatched on WhatsApp the moment it is created. Dispatch needs your own WhatsApp number, a paid add-on. Copilot (₹9,000) adds the imports, Dispatch Load and Team Sales. Add Payment Collection on either one to collect on a UPI link. Your partner quotes the add-on price.
 
 **Q: What does an extra user cost?**
 

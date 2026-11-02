@@ -17,7 +17,7 @@ A profitability report for a distributor in Tally shows the margin left after th
 
 - Gross profit in Tally is sales minus cost of goods, read from the Profit and Loss Account, and can be sliced by stock group or item to show where margin actually comes from
 - For a thin-margin distributor, the profit report catches a slipping buying rate or an over-generous discount before the year-end statement does
-- Takkada surfaces profitability figures on mobile through Reports + (part of the Copilot and Enterprise plans), reading from Tally, so the owner watches margin alongside turnover instead of waiting for the accountant
+- Takkada surfaces profitability figures on mobile through Reports + (part of every plan), reading from Tally, so the owner watches margin alongside turnover instead of waiting for the accountant
 
 ## In This Article
 
@@ -62,7 +62,7 @@ This is why the profit report reads best next to the [item-wise sales report](/b
 
 The profit report is the one an owner reviews least often, precisely because it feels like a month-end job on the office machine. That distance is what lets a margin slip run for a quarter before anyone notices.
 
-Takkada surfaces the numbers behind profitability on the phone through Reports + (part of the Copilot and Enterprise plans), reading from Tally and kept current through the sync, so the owner can watch margin alongside the turnover he already checks. The gross profit line, and the sales and purchase figures that build it, sit next to the daily numbers instead of waiting for a year-end review. Tally stays the system of record; the phone just brings the number that matters most into the owner's daily view.
+Takkada surfaces the numbers behind profitability on the phone through Reports + (part of every plan), reading from Tally and kept current through the sync, so the owner can watch margin alongside the turnover he already checks. The gross profit line, and the sales and purchase figures that build it, sit next to the daily numbers instead of waiting for a year-end review. Tally stays the system of record; the phone just brings the number that matters most into the owner's daily view.
 
 ## Frequently Asked Questions
 
@@ -76,7 +76,7 @@ A: Open the Profit and Loss Account from Gateway of Tally and set the period you
 
 **Q: Can I see profitability on my phone?**
 
-A: The figures behind profitability are available on mobile through Takkada's Reports + (part of the Copilot and Enterprise plans), which reads from Tally and stays in sync. It brings the gross profit line and the sales and purchase numbers that build it into the same view where an owner already checks turnover, so margin is watched routinely rather than only at year-end.
+A: The figures behind profitability are available on mobile through Takkada's Reports + (part of every plan), which reads from Tally and stays in sync. It brings the gross profit line and the sales and purchase numbers that build it into the same view where an owner already checks turnover, so margin is watched routinely rather than only at year-end.
 
 **Q: Why is turnover a poor measure of how a distribution business is doing?**
 

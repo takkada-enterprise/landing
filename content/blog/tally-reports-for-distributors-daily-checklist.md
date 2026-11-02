@@ -63,7 +63,7 @@ Nine PM, the godown locked, the owner still in the car. Sales Analytics goes pas
 
 Customer Analytics answers who buys, how often, how much. Sharma Kirana lifts twice a week and tickets around ₹22,000. A party that used to lift weekly and has gone quiet shows up here before Outstanding does. Customer Analytics exports to PDF, with no Excel.
 
-Cross-sell Gaps, also Reports+, lists items a customer should be buying and is not. Sharma takes rice and oil and has never lifted the new atta SKU. PDF and Excel export exist. Inventory is the stock-on-hand action report; its Velocity tab is the Reports+ piece, next to the [stock summary report](/blog/stock-summary-report-tally-mobile/). Purchase Analytics, Reports+, is the buying-side pair, with PDF and Excel, next to the [purchase report on mobile](/blog/purchase-report-tally-mobile/). Reports+ is a paid add-on bundled into the Copilot plan. Without it, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab and Inventory Velocity stay dark. The morning and midday stack, Trial Balance, Profit & Loss and Balance Sheet still open.
+Cross-sell Gaps, also Reports+, lists items a customer should be buying and is not. Sharma takes rice and oil and has never lifted the new atta SKU. PDF and Excel export exist. Inventory is the stock-on-hand action report; its Velocity tab is the Reports+ piece, next to the [stock summary report](/blog/stock-summary-report-tally-mobile/). Purchase Analytics, Reports+, is the buying-side pair, with PDF and Excel, next to the [purchase report on mobile](/blog/purchase-report-tally-mobile/). Reports+ comes with every plan. Without it, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab and Inventory Velocity stay dark. The morning and midday stack, Trial Balance, Profit & Loss and Balance Sheet still open.
 
 ## Month-end: Trial Balance, Profit & Loss, and MIS Reports
 
@@ -103,7 +103,7 @@ A: Every exported PDF or Excel goes through the phone's share sheet, where you p
 
 **Q: What does Reports+ add to Tally reports on the phone?**
 
-A: Reports+ is a paid add-on bundled into the Copilot plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. A company without Reports+ still has Collections Outstanding, Daybook, Bills Receivable, Trial Balance, Profit and Loss and Balance Sheet.
+A: Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. A company without Reports+ still has Collections Outstanding, Daybook, Bills Receivable, Trial Balance, Profit and Loss and Balance Sheet.
 
 **Q: Does the Trial Balance on the phone drill down to a ledger?**
 

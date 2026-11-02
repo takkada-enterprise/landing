@@ -858,7 +858,7 @@ describe('round-two pages', () => {
     const { planPointer, answer } = getFeaturePage('ai-collection-calls');
     expect(planPointer.plan).toBe('Momentum');
     expect(planPointer.note).toMatch(/add-on on any plan/);
-    expect(planPointer.note).toMatch(/included in Enterprise/);
+    expect(planPointer.note).toMatch(/4 modules you pick in Enterprise/);
     // The recovery board needs the Recovery dashboard module; the copy says so.
     expect(answer).toMatch(/when the Recovery dashboard is on/);
   });

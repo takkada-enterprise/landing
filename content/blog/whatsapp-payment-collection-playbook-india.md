@@ -82,7 +82,7 @@ A: Yes. The payment itself happens on the UPI rail through the retailer's own UP
 
 **Q: Does WhatsApp collection cost anything per transaction?**
 
-A: The UPI collection itself is 0% MDR with no transaction cap on Takkada, because the link points at the distributor's own handle with no gateway in the middle. WhatsApp message volume is covered by a flat message pack, not a per-rupee fee on collections.
+A: The UPI collection itself is 0% MDR with no transaction cap on Takkada, because the link points at the distributor's own handle with no gateway in the middle. Automatic WhatsApp messages go from your own number, a paid add-on, and Meta bills them at actuals, not as a per-rupee fee on collections.
 
 **Q: How are reminders kept from annoying retailers?**
 

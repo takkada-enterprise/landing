@@ -55,7 +55,7 @@ These reports offer a PDF and Excel chooser. Pick Excel, then the file goes thro
 | Cross-sell Gaps | Action Reports | Yes |
 | Inventory Velocity | Action Reports | Yes |
 
-Reports+ is a paid add-on bundled into the Copilot plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections and the Velocity tab of Inventory. Without Reports+, those five Excel paths stay dark. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments still offer the chooser.
+Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections and the Velocity tab of Inventory. Without Reports+, those five Excel paths stay dark. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments still offer the chooser.
 
 The [Trial Balance on the phone](/blog/trial-balance-tally-mobile/) is a flat list. There is no drill from a line into a ledger. Group to sub-group to ledger is the Balance Sheet. Exporting the Trial Balance to Excel gives the CA that same flat list as a sheet. It does not invent a drill-down the screen does not have.
 
@@ -127,7 +127,7 @@ A: Every exported PDF or Excel goes through the phone's share sheet, where you p
 
 **Q: Do I need Reports+ to export a Tally Trial Balance to Excel?**
 
-A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments offer the chooser without Reports+. Reports+ is a paid add-on bundled into the Copilot plan. It unlocks MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity, which is why those five Excel paths need it.
+A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments offer the chooser without Reports+. Reports+ comes with every plan. It unlocks MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity, which is why those five Excel paths need it.
 
 **Q: Is Tally-format export the same as Excel export from the phone?**
 

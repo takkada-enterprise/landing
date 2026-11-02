@@ -311,7 +311,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Does the statement go from my own WhatsApp number?',
-        a: 'By default it goes from the platform sender with your business name on the message. Sending from your own WhatsApp Business number is available as an early-access add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.',
+        a: 'Shared by hand, it goes from the WhatsApp on your phone, free. Sending it automatically needs your own WhatsApp Business number, a paid early-access add-on. Distributors ask for it because a message from a number the retailer already has saved gets opened, and an unknown sender often does not.',
       },
       {
         q: 'Does sending a statement change anything in my Tally?',
@@ -652,7 +652,7 @@ export const SECOND_BATCH = [
     subheadline:
       'Ringing thirty retailers to ask for money is a full morning. Most of them would have paid on a message, and the rest are the ones worth calling.',
     answer:
-      'Takkada can send payment reminders automatically against every open invoice in your Tally. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.',
+      'Takkada can send payment reminders automatically against every open invoice in your Tally, from your own WhatsApp number. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.',
     waContext: 'feature-send-payment-reminders-automatically',
     waMessage:
       'Hi, I want payment reminders going out to my parties automatically instead of me calling everyone. Can you show me how Takkada sets that up?',
@@ -739,7 +739,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Who the message appears to come from',
-          takkada: 'Platform sender by default, your own WhatsApp Business number as an early-access add-on',
+          takkada: 'Your own WhatsApp Business number, a paid early-access add-on',
           others: 'Usually a shared sender only',
         },
       ],
@@ -748,7 +748,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'Automated WhatsApp reminders are in the entry plan. Payment collection is an add-on available on every plan.',
+      note: 'Automated WhatsApp reminders need your own WhatsApp number, a paid add-on in early access. Payment collection is also an add-on, available on every plan.',
     },
     faqs: [
       {
@@ -769,7 +769,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Can reminders come from my own WhatsApp number?',
-        a: 'Sending from your own WhatsApp Business number is available as an early-access add-on. It matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. By default reminders go from the platform sender with your business name on them.',
+        a: 'Automatic reminders need your own WhatsApp Business number, a paid early-access add-on. It matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. Without it you can still share a reminder by hand from your phone.',
       },
     ],
     relatedPosts: [
@@ -1793,7 +1793,7 @@ export const SECOND_BATCH = [
         icon: 'Send',
         title: 'It reaches him on WhatsApp',
         body:
-          'Within seconds of the invoice being saved, on the number he actually reads. Auto dispatch can send every invoice this way without anyone pressing send.',
+          'Within seconds of the invoice being saved, on the number he actually reads. With your own WhatsApp number, a paid add-on, auto dispatch can send every invoice this way without anyone pressing send.',
         image: '/assets/screenshots/whatsapp-dispatch-mockup.webp',
         alt: 'An invoice PDF and a pay-now link delivered to a customer on WhatsApp',
         width: 600,
@@ -1828,7 +1828,7 @@ export const SECOND_BATCH = [
         },
         {
           feature: 'Sending every invoice without pressing send',
-          takkada: 'Auto dispatch on save',
+          takkada: 'Auto dispatch on save, with your own WhatsApp number (paid add-on)',
           others: 'Usually manual',
         },
         {
@@ -1842,7 +1842,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Assurance.',
+      note: 'The custom invoice PDF template starts at this plan. Auto invoice dispatch comes in with Assurance and needs your own WhatsApp number, a paid add-on in early access.',
     },
     faqs: [
       {
@@ -1859,7 +1859,7 @@ export const SECOND_BATCH = [
       },
       {
         q: 'Can every invoice go out automatically in this format?',
-        a: 'Yes, with auto invoice dispatch switched on. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still send from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.',
+        a: 'Yes, with auto invoice dispatch switched on and your own WhatsApp number, a paid add-on in early access. Each invoice is sent to the party on WhatsApp as it is saved, without anyone pressing send. Without it you still share the PDF by hand from the app in a tap, which most distributors start with before turning the automatic dispatch on for the whole book.',
       },
       {
         q: 'How much can the template be changed?',
@@ -2382,8 +2382,8 @@ export const SECOND_BATCH = [
         'Checked on 20 September 2026 against the two Tally mobile apps distributors most often weigh against Takkada. We re-check this every fortnight, because their products move.',
     },
     planPointer: {
-      plan: 'Copilot',
-      note: 'Voucher approval comes with role-based access for your team on the Copilot plan.',
+      plan: 'Momentum',
+      note: 'Voucher approval is a paid module you can add to any plan, starting here. Role-based access comes with every plan. Ask your partner for the module price.',
     },
     faqs: [
       {
@@ -2448,7 +2448,7 @@ export const SECOND_BATCH = [
       section: 'Features',
       title: 'AI collection calls',
       summary:
-        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and included in Enterprise, with calls charged on connected minutes.",
+        "Owner-triggered AI voice follow-up for overdue parties on Tally: pick parties from the outstanding list, the agent calls each in the party's language, asks for the payment and records the outcome (promise with date, dispute, callback, escalation) as a follow-up, shown on the recovery board and the party's timeline when the Recovery dashboard module is on; an add-on on any plan and one of the modules you can pick in Enterprise, with calls charged on connected minutes.",
     },
     footerLabel: 'AI collection calls',
     hero: { screen: 'followup-log' },
@@ -2532,7 +2532,7 @@ export const SECOND_BATCH = [
     },
     planPointer: {
       plan: 'Momentum',
-      note: 'AI calling is an add-on on any plan, starting here, and comes included in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
+      note: 'AI calling is an add-on on any plan, starting here, and can be one of the 4 modules you pick in Enterprise. Calls are charged on connected minutes. Ask your partner for the add-on price.',
     },
     faqs: [
       {

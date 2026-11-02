@@ -116,7 +116,7 @@ export const homeFeatures = {
         'Each reminder carries the pending bills and the ledger as attachments, with a pay link.',
         // "early access" stays in this sentence: home-v3.test.jsx and
         // schema.test.js require it beside every own-number mention.
-        'Sent from your own WhatsApp number (early access).',
+        'Needs your own WhatsApp number (paid add-on, early access).',
         'A party that has paid drops out of the next reminder.',
         'Set a cap so no party is messaged too often.',
       ],
@@ -160,7 +160,7 @@ export const homeFeatures = {
         'A customer order link and personal party links: retailers order from your catalogue at your rates, with nothing installed.',
         'Trade schemes, buy X get Y or slab discounts, applied on every bill that qualifies, with scheme credit notes.',
         'Ladder discount by quantity or bill value.',
-        'FMCG billing and auto parts billing engines, one included in Enterprise.',
+        'FMCG billing and auto parts billing engines, each one of the modules you can pick in Enterprise.',
       ],
       href: '/order-booking-app-tally',
     },
@@ -336,7 +336,7 @@ export const differentiators = {
     {
       stop: 'The pattern stops at the invoice PDF',
       others: 'The invoice is on your phone, and sending it is still your job. Party by party, attachment by attachment.',
-      takkada: 'The PDF reaches the customer on WhatsApp the moment the invoice posts in Tally, with a Pay now link attached. You send nothing.',
+      takkada: 'With your own WhatsApp number (paid add-on, early access), the PDF reaches the customer the moment the invoice posts in Tally, with a Pay now link attached. You send nothing.',
     },
     {
       stop: 'The pattern stops at showing what is due',
@@ -478,7 +478,7 @@ export const pricing = {
       annualPrice: 24000,
       price: '\u20B924,000',
       period: '/year + GST',
-      description: 'Schemes, recovery, order links, AI calling and one billing engine, in one price.',
+      description: 'Everything in Copilot, plus any 4 small modules you pick, in one price.',
       badge: 'Most complete',
     },
   ],
@@ -493,9 +493,11 @@ export const pricing = {
       group: 'See the books',
       rows: [
         { label: 'Live receivables and payables from Tally', from: 0 },
-        { label: 'Automatic WhatsApp payment reminders', from: 0 },
+        { label: 'Automatic WhatsApp payment reminders: needs your own WhatsApp number (paid add-on, early access)', from: 0 },
         { label: 'Share ledgers and invoices on WhatsApp and email by hand', from: 0 },
         { label: '20+ business reports', from: 0 },
+        { label: 'MIS reports (Reports +)', from: 0 },
+        { label: 'Role-based access for your team', from: 0 },
         { label: 'Works when the Tally laptop is off', from: 0 },
       ],
     },
@@ -515,7 +517,7 @@ export const pricing = {
         { label: 'E-Invoice with IRN and QR from your phone', from: 1 },
         { label: 'E-Way Bill in one tap, no portal login', from: 1 },
         { label: 'Both write back into Tally', from: 1 },
-        { label: 'Auto Invoice Dispatch: every Tally invoice goes to the customer on WhatsApp', from: 1 },
+        { label: 'Auto Invoice Dispatch: every Tally invoice goes to the customer on WhatsApp. Needs your own WhatsApp number (paid add-on, early access)', from: 1 },
       ],
     },
     {
@@ -523,26 +525,17 @@ export const pricing = {
       rows: [
         { label: 'Import from PDF for supplier bills', from: 2 },
         { label: 'Bank statement import with auto-matching', from: 2 },
-        { label: 'Reports + advanced reporting', from: 2 },
-        { label: 'Role-based access for salesman teams', from: 2 },
         { label: 'Dispatch Load: build a van load, print the loading sheet, bill it', from: 2 },
         { label: 'Team Sales: field visit check-in and check-out', from: 2 },
       ],
     },
-    // Enterprise's own rows. Without them its column would tick exactly what
-    // Copilot ticks at nearly three times the price. The capability behind
-    // each row exists on prod (entitlements checked 2026-10-04); its for-sale
-    // status depends on the plan 2026-10-04-002 backend. Capability claims
-    // only, never adoption claims.
+    // Enterprise's own row. Without it its column would tick exactly what
+    // Copilot ticks at nearly three times the price. Partner price list of
+    // 2026-10-25: the customer picks any 4 small modules; it is not a fixed set,
+    // and big modules such as the Customer order link are not among them.
     {
-      group: 'Modules switched on',
-      rows: [
-        { label: 'One billing engine: FMCG, Auto parts or Ladder discount', from: 3 },
-        { label: 'Trade schemes and scheme credit notes', from: 3 },
-        { label: 'Recovery dashboard with promise-to-pay follow-ups', from: 3 },
-        { label: 'Customer order link and personal party links', from: 3 },
-        { label: 'AI collection calls, billed per connected minute', from: 3 },
-      ],
+      group: 'Modules you pick',
+      rows: [{ label: 'Any 4 small modules you pick with your partner', from: 3 }],
     },
   ],
   // Add-ons never show a price on the site: partners quote them (ruled
@@ -561,9 +554,12 @@ export const pricing = {
     { label: 'AI calling', note: 'AI voice calls to overdue parties, with the promise logged back. Billed per connected minute.' },
     // The rendered-page guard (home-v3.test.jsx) still requires "early access"
     // beside every own-number mention, so the note leads with it.
-    { label: 'Your own WhatsApp number', note: 'Early access: reminders and invoices go out from your WhatsApp Business number.' },
+    { label: 'Your own WhatsApp number', note: 'Early access: automatic reminders and invoices need this add-on. They go out from your WhatsApp Business number, and Meta bills the messages to you directly.' },
     { label: 'Payment Collection', note: 'UPI links on every invoice at zero MDR, matched back into Tally.' },
     { label: 'Barcode labels', note: 'Stickers with the box quantity built in, scanned into bills by phone camera or barcode gun.' },
+    { label: 'Proof of Delivery', note: 'Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).' },
+    { label: 'Voucher names', note: 'Name your voucher types, each with a separate number series, in the app and in Tally.' },
+    { label: 'Manufacturing', note: 'Bill of materials, production runs and job work, posted to Tally.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
@@ -593,7 +589,8 @@ export function planPriceRange(plans = pricing.plans) {
 // 2026-08-11. No adoption language ("customers run this", "used by") is
 // permitted anywhere near it (CLAUDE.md \u00A73, \u00A75).
 //
-// It carries no rupee figure ("Custom pricing"); if one is ever added, route it
+// It carries no rupee figure ("Per additional company"; the partner price list
+// holds the number, add-ons never show one here); if one is ever added, route it
 // through formatInr and pin it in src/routes/__tests__/pricing-table.test.jsx.
 export const biggerSetups = {
   title: 'Bigger setups',
@@ -604,9 +601,9 @@ export const biggerSetups = {
   items: [
     {
       id: 'multi-company',
-      title: 'Consolidated reports across companies',
+      title: 'Grouped companies: consolidated reports across companies',
       body: 'The second company keeps its own books, and somebody adds the two together by hand every month end. Receivables, sales and reports arrive as one view across every company you run.',
-      price: [{ amount: 'Custom pricing', note: 'quoted against your company list' }],
+      price: [{ amount: 'Per additional company', note: 'ask your partner for pricing' }],
     },
   ],
   note: 'GST extra, same as every price on this page.',

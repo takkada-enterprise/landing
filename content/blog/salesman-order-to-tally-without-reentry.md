@@ -96,7 +96,7 @@ The second half of the discipline is measurement. If orders are being taken in t
 
 ## Taking the Order Once, Into Tally
 
-In Takkada, the salesman opens the party on his phone, picks stock items from the live Tally list, and saves the order. It syncs into Tally as a sales order, so the office does not retype it. Order creation from the phone comes in from the Momentum plan at ₹4,500 a year, and role-based salesman access sits in Copilot at ₹9,000, both annual and before GST.
+In Takkada, the salesman opens the party on his phone, picks stock items from the live Tally list, and saves the order. It syncs into Tally as a sales order, so the office does not retype it. Order creation from the phone and role-based salesman access both come in from the Momentum plan at ₹4,500 a year, before GST.
 
 Team access controls are the part worth setting up carefully on day one. Per team member you decide which screens open, which ledgers and ledger groups are visible, which stock groups, and which registers, so a salesman can be limited to his own parties.
 

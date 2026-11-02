@@ -11,13 +11,13 @@ category: "Reports"
 excerpt: "On the second of the month the CA wants the Profit and Loss. The owner also opens the 12-month MIS grid, because August versus July is a different question from whether the period made money."
 ---
 
-The difference between an MIS report and a profit and loss statement is that MIS is a month-by-month movement view and the P&L is a period result, so a distributor needs both. The mis report vs profit and loss split on the phone is a 12-month grid with a total column against income versus expense for the period, both read from the Tally books. On the second of the month the CA asks for the P&L while the owner, still at Fancy Bazaar, also wants to know whether August sales had the same shape as July. The MIS total and the P&L can legitimately differ on closing stock. MIS has no drill-down from a cell into a voucher or a ledger. MIS Reports is part of Reports+, a paid add-on bundled into the Copilot plan. The P&L still opens without it.
+The difference between an MIS report and a profit and loss statement is that MIS is a month-by-month movement view and the P&L is a period result, so a distributor needs both. The mis report vs profit and loss split on the phone is a 12-month grid with a total column against income versus expense for the period, both read from the Tally books. On the second of the month the CA asks for the P&L while the owner, still at Fancy Bazaar, also wants to know whether August sales had the same shape as July. The MIS total and the P&L can legitimately differ on closing stock. MIS has no drill-down from a cell into a voucher or a ledger. MIS Reports is part of Reports+, which comes with every plan. The P&L still opens without it.
 
 ## Key Highlights
 
 - MIS Reports show a 12-month grid with a total column. Profit & Loss is income against expense for a period
 - The MIS total and the P&L can legitimately differ on closing stock
-- MIS has no drill-down. Reports+ is a paid add-on bundled into the Copilot plan
+- MIS has no drill-down. Reports+ comes with every plan
 
 ## In This Article
 
@@ -110,7 +110,7 @@ A: No. MIS Reports show a 12-month grid with a total column and have no drill-do
 
 **Q: Is MIS Reports part of Reports+?**
 
-A: Yes. Reports+ is a paid add-on bundled into the Copilot plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. Profit and Loss, Trial Balance and Balance Sheet still open without it.
+A: Yes. Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. Profit and Loss, Trial Balance and Balance Sheet still open without it.
 
 **Q: Can I export MIS and Profit and Loss from the phone?**
 

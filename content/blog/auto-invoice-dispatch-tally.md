@@ -52,7 +52,7 @@ For a distributor who invoices from the field, the invoice can be the [GST-compl
 
 ## Where It Fits in the Plans
 
-Auto Invoice Dispatch is the feature the Copilot plan is built around, so a distributor on that plan has it on by default and pays nothing extra for it. It used to be sold as a separate module on top of a lower plan; it is now part of Copilot. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out what each plan carries.
+Auto Invoice Dispatch comes with the Assurance plan and every plan above it. It sends from your own WhatsApp number, so it also needs that add-on, which is paid and in early access. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out what each plan carries.
 
 That flexibility matters because dispatch volume varies. A distributor doing fifty invoices a day feels it instantly; one doing eight might add it later. Either way, it is a switch, not a rebuild.
 
