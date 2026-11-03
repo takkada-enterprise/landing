@@ -94,4 +94,86 @@ describe('VideoTestimonials component', () => {
     const { container } = renderComponent({ items: [] });
     expect(container.firstChild).toBeNull();
   });
+
+  describe('Multiple testimonials support', () => {
+    const multiItems = [
+      videoTestimonials[0],
+      {
+        id: 'rajesh-sharma-pune',
+        name: 'Rajesh Sharma',
+        role: 'Director',
+        company: 'Sharma Trading Co.',
+        location: 'Pune, Maharashtra',
+        industry: 'FMCG Distribution',
+        badge: 'Verified Takkada Customer',
+        duration: '1:30',
+        quote: 'Takkada changed how our salesmen take orders at retailer counters.',
+        summary: 'How Sharma Trading Co scaled FMCG delivery and billing with Takkada.',
+        takeaways: [
+          {
+            title: 'Counter billing',
+            desc: 'Instant delivery challans and WhatsApp invoice dispatch.',
+          },
+        ],
+        video: {
+          type: 'mp4',
+          src: '/assets/videos/testimonials/sample-video.mp4',
+          poster: '/assets/testimonials/sample-thumb.jpg',
+          title: 'Rajesh Sharma sharing experience',
+          uploadDate: '2026-11-03T00:00:00+05:30',
+          durationIso: 'PT1M30S',
+          schemaDescription: 'Rajesh Sharma testimonial',
+          contentLocation: 'Pune, Maharashtra, India',
+        },
+      },
+    ];
+
+    it('renders story counter and tabs when multiple testimonials exist', () => {
+      const { container } = renderComponent({ items: multiItems });
+      expect(container.textContent).toContain('Story 1 of 2');
+
+      const tabs = screen.getAllByRole('tab');
+      expect(tabs.length).toBe(2);
+      expect(tabs[0].getAttribute('aria-selected')).toBe('true');
+      expect(tabs[1].getAttribute('aria-selected')).toBe('false');
+    });
+
+    it('switches story when a tab is clicked', () => {
+      const { container } = renderComponent({ items: multiItems });
+      const tabs = screen.getAllByRole('tab');
+
+      fireEvent.click(tabs[1]);
+      expect(container.textContent).toContain('Story 2 of 2');
+      expect(container.textContent).toContain('Sharma Trading Co.');
+      expect(tabs[1].getAttribute('aria-selected')).toBe('true');
+      expect(tabs[0].getAttribute('aria-selected')).toBe('false');
+
+      const video = container.querySelector('video');
+      expect(video.getAttribute('src')).toBe('/assets/videos/testimonials/sample-video.mp4');
+    });
+
+    it('switches story using Next and Previous buttons', () => {
+      const { container } = renderComponent({ items: multiItems });
+      const nextBtn = screen.getByRole('button', { name: /Next customer story/i });
+      const prevBtn = screen.getByRole('button', { name: /Previous customer story/i });
+
+      fireEvent.click(nextBtn);
+      expect(container.textContent).toContain('Story 2 of 2');
+      expect(container.textContent).toContain('Sharma Trading Co.');
+
+      fireEvent.click(prevBtn);
+      expect(container.textContent).toContain('Story 1 of 2');
+      expect(container.textContent).toContain('Dhanlaxmi Crop Science Limited');
+    });
+
+    it('switches story using Up next button', () => {
+      const { container } = renderComponent({ items: multiItems });
+      const upNextBtn = screen.getByRole('button', { name: /Rajesh Sharma · Sharma Trading Co./i });
+      expect(upNextBtn).toBeTruthy();
+
+      fireEvent.click(upNextBtn);
+      expect(container.textContent).toContain('Story 2 of 2');
+      expect(container.textContent).toContain('Sharma Trading Co.');
+    });
+  });
 });
