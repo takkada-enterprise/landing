@@ -146,7 +146,7 @@ export const BUDGETS = [
   // preload="none", so it costs nothing until Watch Story is tapped; the
   // ceiling stops a heavier re-export (or a non-faststart one) from slipping in.
   ['public/assets/testimonials/MeetPatelLatestThumbnail.jpeg', 160_000, 'homepage testimonial poster'],
-  ['public/assets/videos/testimonials/Meet_Patel_Latest.mp4', 11_000_000, 'homepage testimonial video (1:50, 576x1024)'],
+  ['public/assets/videos/testimonials/MP_F.mp4', 12_500_000, 'homepage testimonial video (1:50, 576x1024)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:

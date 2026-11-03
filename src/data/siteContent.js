@@ -286,7 +286,7 @@ export const videoTestimonials = [
     ],
     video: {
       type: 'mp4',
-      src: '/assets/videos/testimonials/Meet_Patel_Latest.mp4',
+      src: '/assets/videos/testimonials/MP_F.mp4',
       poster: '/assets/testimonials/MeetPatelLatestThumbnail.jpeg',
       title: 'Meet Patel, Owner of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
       // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
