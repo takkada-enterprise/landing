@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Play, Pause, BadgeCheck, Clock, Building2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Play, Pause, BadgeCheck, Clock, Building2, CheckCircle2, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { videoTestimonials } from '../data/siteContent';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
@@ -15,7 +15,9 @@ function VideoTestimonials({ items = videoTestimonials }) {
 
   if (!items || items.length === 0) return null;
 
-  const current = items[activeIndex] || items[0];
+  const safeIndex = activeIndex >= items.length ? 0 : activeIndex;
+  const current = items[safeIndex] || items[0];
+  const hasMultiple = items.length > 1;
 
   const handlePlayClick = () => {
     track('testimonial_video_play', {
@@ -39,11 +41,28 @@ function VideoTestimonials({ items = videoTestimonials }) {
   };
 
   const handleSelectStory = (index) => {
+    if (index === safeIndex) return;
     if (videoRef.current) {
       videoRef.current.pause();
     }
     setStarted(false);
     setActiveIndex(index);
+  };
+
+  const handlePrev = () => {
+    if (safeIndex > 0) {
+      handleSelectStory(safeIndex - 1);
+    } else {
+      handleSelectStory(items.length - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (safeIndex < items.length - 1) {
+      handleSelectStory(safeIndex + 1);
+    } else {
+      handleSelectStory(0);
+    }
   };
 
   return (
@@ -58,21 +77,64 @@ function VideoTestimonials({ items = videoTestimonials }) {
           </p>
         </div>
 
-        {items.length > 1 && (
-          <div className="hv3-stories-nav reveal" role="tablist" aria-label="Select customer story">
-            {items.map((item, idx) => (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={activeIndex === idx}
-                className={`hv3-stories-tab${activeIndex === idx ? ' hv3-stories-tab--active' : ''}`}
-                onClick={() => handleSelectStory(idx)}
-              >
-                <span className="hv3-stories-tab-name">{item.name}</span>
-                <span className="hv3-stories-tab-company">{item.company}</span>
-              </button>
-            ))}
+        {hasMultiple && (
+          <div className="hv3-stories-selector-wrap reveal">
+            <div className="hv3-stories-selector-bar">
+              <div className="hv3-stories-counter">
+                <span className="hv3-stories-counter-dot" aria-hidden="true" />
+                <span className="tabular-nums">
+                  Story {safeIndex + 1} of {items.length}
+                </span>
+              </div>
+              <div className="hv3-stories-arrows" aria-label="Story navigation">
+                <button
+                  type="button"
+                  className="hv3-stories-arrow-btn"
+                  onClick={handlePrev}
+                  aria-label="Previous customer story"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  className="hv3-stories-arrow-btn"
+                  onClick={handleNext}
+                  aria-label="Next customer story"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className="hv3-stories-nav" role="tablist" aria-label="Select customer story">
+              {items.map((item, idx) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={safeIndex === idx}
+                  className={`hv3-stories-tab${safeIndex === idx ? ' hv3-stories-tab--active' : ''}`}
+                  onClick={() => handleSelectStory(idx)}
+                >
+                  <span className="hv3-stories-tab-avatar" aria-hidden="true">
+                    {item.video?.poster ? (
+                      <img src={item.video.poster} alt="" className="hv3-stories-tab-thumb" />
+                    ) : (
+                      item.company.split(' ').map((w) => w[0]).join('').slice(0, 2)
+                    )}
+                  </span>
+                  <div className="hv3-stories-tab-meta">
+                    <span className="hv3-stories-tab-name">{item.name}</span>
+                    <span className="hv3-stories-tab-company">{item.company}</span>
+                  </div>
+                  {item.duration && (
+                    <span className="hv3-stories-tab-duration tabular-nums">
+                      <Clock size={11} /> {item.duration}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
@@ -184,6 +246,23 @@ function VideoTestimonials({ items = videoTestimonials }) {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+
+              {hasMultiple && (
+                <div className="hv3-stories-next-hint">
+                  <span className="hv3-stories-next-label">Up next:</span>
+                  <button
+                    type="button"
+                    className="hv3-stories-next-btn"
+                    onClick={() => handleSelectStory((safeIndex + 1) % items.length)}
+                  >
+                    <span>
+                      {items[(safeIndex + 1) % items.length].name} &middot;{' '}
+                      {items[(safeIndex + 1) % items.length].company}
+                    </span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               )}
 

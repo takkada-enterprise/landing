@@ -1,9 +1,10 @@
 ---
 title: "Purchase Bill ki Photo se Tally Entry Kaise Banaye"
 slug: "purchase-bill-photo-se-tally-entry"
-meta_description: "Purchase bill ki photo se Tally entry banao: Takkada mein photo lo, supplier aur items match karo, total check karo, phir Save Purchase Voucher dabao."
+meta_description: "Purchase bill ki photo se Tally mein jaldi entry kaise chadhaye: Takkada mein photo lo, supplier aur items match karo, total check karo, phir save karo."
 primary_keyword: "purchase bill ki photo se tally entry"
 date: "2026-10-11"
+updated: "2026-11-03"
 author: "harsh"
 category: "Autopilot"
 excerpt: "Supplier ka bill WhatsApp pe aaya, raat ko baith ke Tally mein type karna padta hai. Takkada mein bill ki photo lo, entry ka draft ban jata hai, aap check karke save karo."
@@ -13,7 +14,7 @@ Purchase bill ki photo se Tally entry banane ke liye Takkada mein Purchase regis
 
 ## Problem kya hai
 
-Distributor ke paas din bhar supplier ke bill aate hain. Kuch PDF mein email pe, zyada tar WhatsApp pe photo ban ke, kuch maal ke saath kaagaz pe. Shaam ko accountant baith ke ek ek line Tally mein type karta hai: supplier, bill number, item, quantity, rate, GST. Ek bill mein 30 line ho toh aadha ghanta chala jata hai.
+Distributor ke paas din bhar supplier ke bill aate hain. Kuch PDF mein email pe, zyada tar WhatsApp pe photo ban ke, kuch maal ke saath kaagaz pe. Shaam ko accountant baith ke ek ek line Tally mein type karta hai: supplier, bill number, item, quantity, rate, GST. Ek bill mein 30 line ho toh aadha ghanta chala jata hai. Isiliye sawaal yahi rehta hai: purchase ka bill Tally mein jaldi kaise chadhaye, bina har line type kiye.
 
 Galti bhi wahin hoti hai. Rate mein ek zero kam laga, ya 20mm ki jagah 25mm wala item chun liya, toh mahine ke end mein supplier ka ledger match nahi karta aur stock bhi gadbad dikhta hai.
 
@@ -40,6 +41,14 @@ Bill check aap hi karte ho. Takkada sirf typing ka kaam leta hai, faisla aapka r
 Screens ki detail [Import purchase from PDF](/import-purchase-from-pdf) page pe hai, aur poori guide [purchase bills Tally mein import karne](/blog/import-purchase-bills-into-tally-photo-pdf) wale post mein.
 
 ## Frequently Asked Questions
+
+**Q: Purchase ki photo se Tally mein jaldi bill kaise chadhaye?**
+
+A: Takkada mein Purchase register kholo, Import from PDF or photo dabao aur supplier ke bill ki photo lo. App supplier, bill number, items, quantity, rate aur GST padh ke purchase voucher ka draft bana deta hai. Aap supplier aur items match karte ho, total check karte ho aur Save Purchase Voucher dabate ho, aur bill Tally mein chadh jaata hai. Typing ki jagah sirf check karna padta hai, isliye kaam jaldi hota hai.
+
+**Q: How do I enter a purchase bill into Tally from a photo?**
+
+A: In Takkada, open the Purchase register, tap Import from PDF or photo, and photograph the supplier's bill. Takkada reads the supplier, bill number, items, quantities, rates and GST and builds a draft purchase voucher. You confirm the supplier, match each line to your Tally stock item, check the total and tap Save Purchase Voucher. The entry then posts into Tally like any other voucher made in the app.
 
 **Q: Kya photo lete hi entry Tally mein chali jaati hai?**
 
