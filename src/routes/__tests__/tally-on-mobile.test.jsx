@@ -69,7 +69,7 @@ describe('/tally-on-mobile', () => {
     const { container } = renderRoute();
     const h1 = container.querySelectorAll('h1');
     expect(h1).toHaveLength(1);
-    expect(h1[0].textContent.toLowerCase()).toContain('tally on mobile');
+    expect(h1[0].textContent).toBe(PAGE.headline);
     expect(PAGE.seo.title.toLowerCase()).toContain('tally on mobile');
     expect(PAGE.seo.title.length).toBeLessThanOrEqual(60);
   });

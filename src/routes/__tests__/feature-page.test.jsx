@@ -49,11 +49,11 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
     expect(home.getAttribute('href')).toBe('/');
   });
 
-  it('puts the exact search phrase in the only h1', () => {
+  it('puts the page headline in the only h1', () => {
     const { container } = renderPage(page);
     const h1s = container.querySelectorAll('h1');
     expect(h1s).toHaveLength(1);
-    expect(h1s[0].textContent.toLowerCase()).toContain(page.searchPhrase.toLowerCase());
+    expect(h1s[0].textContent).toBe(page.headline);
   });
 
   it('renders the hero mockup eagerly at high fetch priority', () => {

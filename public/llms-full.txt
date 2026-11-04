@@ -78,9 +78,9 @@ Add-ons (Ask your partner for pricing):
 
 ## Feature Deep Dives & Specifications
 
-### [Salesman app for Tally. Your team’s day, on your phone.](https://takkada.com/salesman-app-tally/)
+### [Manage your sales team and orders directly from their phones.](https://takkada.com/salesman-app-tally/)
 
-*You know he left at nine in the morning. Which shops he reached, what he booked, and how much he collected, you find out when he tells you at night.*
+*Give your salesmen an easy way to manage customer visits, check product details and place orders while on the go. Keep sales activity connected with your Tally data.*
 
 **Core capability & workflow:**
 Takkada is a salesman app for Tally. Your field team works fixed beats, checks in with geo-tagged photos, books orders against live stock, raises invoices, and collects by UPI, all from a phone. Orders total into a dispatch load sheet per route, and everything lands in your Tally as vouchers, with targets and commission worked out per salesman.
@@ -101,9 +101,9 @@ Takkada is a salesman app for Tally. Your field team works fixed beats, checks i
 - **Q: How does commission get calculated?**
   A: Each salesman carries a monthly target, and progress updates as invoices and collections come in against his name. Commission is worked out per salesman from that same data, so the figure you pay comes from what was actually billed and collected rather than from a separate spreadsheet someone maintains.
 
-### [Payment collection on Tally, from the invoice to the bank line.](https://takkada.com/payment-collection-tally/)
+### [Collect customer payments faster with easy payment options.](https://takkada.com/payment-collection-tally/)
 
-*The bill went out on the 3rd. It is the 27th, he says he has paid, and nobody can tell you which of the four invoices that money was meant for.*
+*Make it easier for customers to clear their outstanding dues. Share payment details and track collections to stay updated on the money received.*
 
 **Core capability & workflow:**
 Takkada adds payment collection on Tally without changing how you bill. Every invoice carries a UPI link at 0% MDR on UPI collections, no transaction cap, no monthly fee. The retailer pays from WhatsApp, and the receipt posts itself against the right invoice in your Tally.
@@ -126,9 +126,9 @@ Takkada adds payment collection on Tally without changing how you bill. Every in
 - **Q: What if a retailer pays by cash or a direct bank transfer instead?**
   A: That still works the way it always has. You record the receipt in the app or in Tally and it behaves like any other entry. The collection link is there for the retailers who would rather pay from their phone, and it does not force everyone onto one method.
 
-### [Payment reminder from Tally, sent before you remember to ask.](https://takkada.com/payment-reminder-tally/)
+### [Remind customers about pending payments directly from your phone.](https://takkada.com/payment-reminder-tally/)
 
-*Chasing is the part nobody wants to do. So it slips, and a bill that was thirty days old quietly becomes ninety.*
+*Keep track of outstanding payments and send reminders to customers without making repeated calls. Help customers remember their dues and follow up on payments more easily.*
 
 **Core capability & workflow:**
 A payment reminder from Tally goes out on your own WhatsApp number, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.
@@ -176,7 +176,7 @@ You can generate GST e-invoices from your phone, and the IRN with its signed QR 
 - **Q: What if my turnover has not crossed the e-invoicing threshold yet?**
   A: Then you simply do not use it, and everything else in the app works the same way. Distributors usually turn it on in the year they expect to cross the limit, so the workflow is already familiar to the team before it becomes mandatory rather than being learned in a hurry.
 
-### [Generate e-way bills from your phone before the truck leaves.](https://takkada.com/e-way-bill-from-phone/)
+### [Generate e-way bills easily from your phone.](https://takkada.com/e-way-bill-from-phone/)
 
 *You can create e-way bills easily from your mobile with no extra portal login.*
 
@@ -201,9 +201,9 @@ E-way bills from your phone come off the invoice you just raised, with no portal
 - **Q: Can I raise the e-invoice and the e-way bill together?**
   A: Yes, both come off the same invoice in one pass, which is the sequence the government system expects when an IRN is involved. The details that carry across from the e-invoice do not have to be entered twice, and both numbers land against the same voucher in Tally.
 
-### [Tally reports on mobile, the twenty you actually open.](https://takkada.com/tally-reports-on-mobile/)
+### [View important Tally reports directly from your phone.](https://takkada.com/tally-reports-on-mobile/)
 
-*You do not need all of Tally on a phone. You need the six numbers you check before breakfast and the register your CA asks for.*
+*Get business insights wherever you are by checking your Tally reports on mobile. Stay informed about sales, purchases, payments and other business activities without opening your computer.*
 
 **Core capability & workflow:**
 Tally reports on mobile means the registers you open every day, on your phone. Outstanding by age, party and item sales, purchase, stock, cash and bank, profit, trial balance, and the GST summaries your accountant asks for. Read them anywhere, and send any of them on WhatsApp.
@@ -228,7 +228,7 @@ Tally reports on mobile means the registers you open every day, on your phone. O
 
 ### [Import purchase bills from PDF into Tally without typing every line.](https://takkada.com/import-purchase-from-pdf/)
 
-*Supplier bills arrive as PDFs or photos, and keying in each item by hand takes the whole evening. Takkada reads the bill, matches every line to your stock list and prepares a purchase voucher for you to review.*
+*Supplier bills often arrive as PDFs or photos, and entering each item manually takes time. Simply upload or photograph the bill. Takkada reads the details, matches items with your stock list and prepares a purchase voucher for you to review.*
 
 **Core capability & workflow:**
 To import purchase bills from PDF into Tally, photograph the supplier bill or upload the file and the lines are read for you. Item, quantity, rate and GST come off the bill as printed, and each line is matched to your own stock items. You check the draft on screen, and it posts as a purchase voucher.
@@ -251,9 +251,9 @@ To import purchase bills from PDF into Tally, photograph the supplier bill or up
 - **Q: Where does the finished entry end up?**
   A: As a purchase voucher in your Tally against the supplier ledger you already use, exactly as though it had been typed there. Your payables, your purchase register and your stock all move with it, and there is no separate place where imported bills live.
 
-### [Tally on mobile, for every hour you are not at that desk.](https://takkada.com/tally-on-mobile/)
+### [Access your Tally data directly from your phone.](https://takkada.com/tally-on-mobile/)
 
-*Tally runs on one machine in the office. The decisions do not wait for you to be sitting in front of it.*
+*Stay connected to your business data even when you're away from your desk. View important information and manage your business operations through Takkada on your mobile.*
 
 **Core capability & workflow:**
 Takkada puts Tally on mobile for distributors: your live books on a phone, plus the work you would otherwise wait to do at the desk. Read outstanding and reports, raise an invoice, send it on WhatsApp, collect by UPI, and every entry lands back in your own Tally.
@@ -276,9 +276,9 @@ Takkada puts Tally on mobile for distributors: your live books on a phone, plus 
 - **Q: Will it change anything in my Tally?**
   A: It writes the vouchers you raise and nothing else. Your numbering series, your invoice formats, your ledger and item masters and your existing entries are untouched. Distributors who have run the same Tally setup for a decade do not have to change any of it to start using a phone alongside it.
 
-### [Outstanding receivables on mobile, party by party.](https://takkada.com/outstanding-receivables-on-mobile/)
+### [Track outstanding customer payments from your phone.](https://takkada.com/outstanding-receivables-on-mobile/)
 
-*You know the total. What you cannot see standing in the market is which retailer is sixty days late and which one paid this morning.*
+*Get a clear view of how much money your customers owe your business. Check pending payments, identify overdue amounts and follow up with customers to collect dues on time.*
 
 **Core capability & workflow:**
 Takkada puts your outstanding receivables on mobile, read straight from your Tally. Every party carries its own balance, its overdue invoices and the age of each one. You send a statement or a payment link from the same screen, and the receipt reconciles itself against the right invoice once the retailer pays.
@@ -302,9 +302,9 @@ Takkada puts your outstanding receivables on mobile, read straight from your Tal
 - **Q: Does this change anything inside my Tally?**
   A: Reading does not. Your Tally stays the system of record and nothing is rewritten to show you a balance. When you create a receipt or an invoice from the app, that voucher is written into Tally the way you would have entered it on the desktop, against the same party and the same bill.
 
-### [Share a ledger statement on WhatsApp, straight from Tally.](https://takkada.com/share-ledger-statement-whatsapp/)
+### [Share customer ledgers directly on WhatsApp.](https://takkada.com/share-ledger-statement-whatsapp/)
 
-*The retailer says his books show something else. Until he has your statement in his hand, that argument runs for another week.*
+*Send customers their ledger statements on WhatsApp without downloading and sharing files manually. Help them check outstanding balances, payments and transaction details easily.*
 
 **Core capability & workflow:**
 Takkada lets you share a ledger statement on WhatsApp for any party and any period, generated from your Tally. Pick the party and the dates, choose the full account or only the bills awaiting payment, and the PDF goes from your phone with a payment link. The retailer checks every entry and settles from the same message.
@@ -328,9 +328,9 @@ Takkada lets you share a ledger statement on WhatsApp for any party and any peri
 - **Q: Does sending a statement change anything in my Tally?**
   A: No. Generating and sending a ledger is a read. Nothing is written back, no voucher is created and no balance is touched. The only entries the app writes into your Tally are the ones you deliberately create, such as a receipt when the retailer pays or an invoice when you raise one.
 
-### [Debtor ageing report on phone, from your own Tally.](https://takkada.com/debtor-ageing-report-on-phone/)
+### [Know how long your customer payments have been overdue.](https://takkada.com/debtor-ageing-report-on-phone/)
 
-*Everyone owes you something. The question worth answering before you start dialling is who has been owing it the longest.*
+*Understand how long your money has been stuck with customers. View outstanding amounts based on how many days they have been pending and prioritise follow-ups accordingly.*
 
 **Core capability & workflow:**
 Takkada gives you a debtor ageing report on phone, built from your Tally bill by bill. Every party falls into a slab by how old its overdue invoices are, so the ninety-day retailer stops hiding behind the thirty-day one. You can call, send the ledger or attach a payment link from the same list.
@@ -354,9 +354,9 @@ Takkada gives you a debtor ageing report on phone, built from your Tally bill by
 - **Q: Do I have to chase every party on the list myself?**
   A: No. Scheduled reminders handle the routine cases before and after the due date, with a cap on how often any one party is messaged. That leaves your own calls for the parties where a conversation is actually needed, which is usually the oldest slab rather than the whole book.
 
-### [Tally on mobile without remote access or TeamViewer.](https://takkada.com/tally-on-mobile-without-remote-access/)
+### [Access your Tally data without remote desktop access.](https://takkada.com/tally-on-mobile-without-remote-access/)
 
-*Pinching at a desktop screen on a phone, waiting for the office machine to wake up, is how most distributors have been reading their books from the road.*
+*View your business information on your phone without having to connect to your office computer through remote access software. Get the information you need wherever you are.*
 
 **Core capability & workflow:**
 You can run Tally on mobile without remote access by syncing your books to an app built for a phone. Takkada reads your Tally through a connector on the same machine, so there is no desktop to log into, no screen to pinch at, and no need for the office computer to stay switched on for you.
@@ -380,9 +380,9 @@ You can run Tally on mobile without remote access by syncing your books to an ap
 - **Q: Does my Tally data leave my machine?**
   A: Your Tally installation stays where it is and stays the system of record. The connector syncs the company data you point it at so the app can show it to you, in the same way any mobile app for Tally has to. Nothing is rewritten in your books except the vouchers you deliberately create from the app.
 
-### [Send payment reminders automatically, from your own books.](https://takkada.com/send-payment-reminders-automatically/)
+### [Send payment reminders automatically without following up manually.](https://takkada.com/send-payment-reminders-automatically/)
 
-*Ringing thirty retailers to ask for money is a full morning. Most of them would have paid on a message, and the rest are the ones worth calling.*
+*Set up automatic reminders for customers with pending payments. Takkada helps you follow up at the right time, so you spend less time chasing payments and more time managing your business.*
 
 **Core capability & workflow:**
 Takkada can send payment reminders automatically against every open invoice in your Tally, from your own WhatsApp number. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.
@@ -406,9 +406,9 @@ Takkada can send payment reminders automatically against every open invoice in y
 - **Q: Can reminders come from my own WhatsApp number?**
   A: Yes, with your own WhatsApp Business number, a paid add-on. Without it, automatic reminders go out from Takkada's WhatsApp number. Your own number matters more than it sounds, because a retailer opens a message from a number he already has saved and often ignores an unknown sender. Without it you can still share a reminder by hand from your phone.
 
-### [Bank statement import into Tally, from the file your bank already gives you.](https://takkada.com/bank-statement-import-tally/)
+### [Import bank statements into Tally without matching entries manually.](https://takkada.com/bank-statement-import-tally/)
 
-*Forty credits landed this week. Somebody has to work out which retailer sent each one and which bills it clears, and that somebody is usually you at nine at night.*
+*Bank transactions add up quickly, and matching every credit to the right customer and bill takes time. Upload the statement file provided by your bank. Takkada reads the transaction details, suggests the party and open bills, and explains the suggested matches for you to review.*
 
 **Core capability & workflow:**
 Bank statement import takes the file your bank already gives you and turns each credit into a Tally entry. Takkada reads the narration and the account the money came from, suggests the party and the open bills it settles, and says why. You approve before anything posts, so nobody spends the evening matching credits to bills.
@@ -432,9 +432,9 @@ Bank statement import takes the file your bank already gives you and turns each 
 - **Q: Do I still need my accountant for reconciliation?**
   A: You still want the review, but the typing goes away. What used to be an evening of reading a statement line by line becomes a batch your accountant checks and approves. The exceptions, meaning the credits nobody can attribute, are surfaced separately so the work is spent where the judgement is actually needed.
 
-### [Godown wise stock on mobile, for every location you run.](https://takkada.com/godown-wise-stock-on-mobile/)
+### [Check stock across all your godowns from your phone.](https://takkada.com/godown-wise-stock-on-mobile/)
 
-*The main godown says the item is there. The branch says it is not. Somebody drives across town to find out which one is right.*
+*Know how much stock is available at each godown without checking records manually. View stock location-wise and make better decisions about where to source or dispatch items.*
 
 **Core capability & workflow:**
 Godown wise stock on mobile shows what is lying in each of your locations, read from your Tally. Item balances per godown, transfers recorded between them, and the godown stamped on the invoice or challan you raise. Staff can be limited to the warehouse they actually work in.
@@ -458,9 +458,9 @@ Godown wise stock on mobile shows what is lying in each of your locations, read 
 - **Q: Can I create a new godown without going to the desktop?**
   A: Yes. Godowns can be created and managed from the app and are written back into your Tally, so a new location opening does not have to wait for someone to be at the office machine. The masters stay in Tally, which remains the system of record for all of it.
 
-### [Multi-company Tally reports, every business on one phone.](https://takkada.com/multi-company-tally-reports/)
+### [Manage multiple Tally companies from one place.](https://takkada.com/multi-company-tally-reports/)
 
-*Two firms, sometimes three. Checking where each one stands means opening each one in turn, and most owners only ever get round to the biggest.*
+*If you handle more than one business, switch between company data easily from your phone. Access the information you need without repeatedly logging in to different systems.*
 
 **Core capability & workflow:**
 Multi-company Tally reports let you hold every business you run in one app and switch between them without logging out. Each company keeps its own books, its own parties and its own reports, read from your Tally. You see sales, receipts, purchase and outstanding for whichever one you are standing in.
@@ -484,9 +484,9 @@ Multi-company Tally reports let you hold every business you run in one app and s
 - **Q: Does each company need its own connector?**
   A: The connector runs on the machine where Tally is installed and syncs the companies you point it at. If all your firms are kept in one Tally installation, one setup covers them. If they sit on different machines, each machine runs its own, and both appear together in the app.
 
-### [Sales order on mobile, booked against live stock.](https://takkada.com/sales-order-on-mobile/)
+### [Create and manage sales orders directly from your phone.](https://takkada.com/sales-order-on-mobile/)
 
-*He promised the retailer forty cases. The godown had eleven. That conversation happens after the order is already written in the book.*
+*Create sales orders without having to return to your desktop. Add customer and item details, review the order and keep your sales records updated in Tally.*
 
 **Core capability & workflow:**
 A sales order on mobile is booked at the shop against live stock and lands in your Tally as a voucher. Your salesman sees what the godown actually has before he promises it, the pending quantity stays tracked until it ships, and nobody types the order a second time in the evening.
@@ -510,9 +510,9 @@ A sales order on mobile is booked at the shop against live stock and lands in yo
 - **Q: Can I control who is allowed to book orders?**
   A: Yes. Create rights are set per register and per person, so a salesman can be allowed to raise orders without being able to raise invoices or credit notes. You can also restrict which parties and stock groups he sees at all, which keeps the field team working inside their own patch.
 
-### [Delivery challan from mobile, before the truck leaves.](https://takkada.com/delivery-challan-from-mobile/)
+### [Create and manage delivery challans from your phone.](https://takkada.com/delivery-challan-from-mobile/)
 
-*The goods are loaded and the driver is waiting. The paperwork is on a desktop three kilometres away, and so is the person who can raise it.*
+*Create delivery challans for goods being sent to customers or between locations. Record dispatch details and keep your delivery records connected with Tally.*
 
 **Core capability & workflow:**
 A delivery challan from mobile is raised at the loading point and written into your Tally as a voucher. The godown the goods left from is recorded on it, and a whole beat’s orders can be picked together and loaded onto one van rather than handled one at a time. It converts to an invoice without being rewritten.
@@ -536,9 +536,9 @@ A delivery challan from mobile is raised at the loading point and written into y
 - **Q: Can I control who is allowed to raise a challan?**
   A: Yes. Create rights are set per register and per person, so a godown supervisor can be allowed to raise challans without being able to raise invoices or credit notes. You can also restrict which stock groups and locations he sees at all, so his access matches the warehouse he works in.
 
-### [Create credit and debit notes from your phone, synced to Tally.](https://takkada.com/credit-note-from-phone/)
+### [Create credit and debit notes directly from your phone and sync them with Tally](https://takkada.com/credit-note-from-phone/)
 
-*Record a return, discount or extra charge the day it happens, without waiting to reach the desktop.*
+*Record sales returns, purchase returns, discounts or extra charges as soon as they happen. No need to wait until you're back at your desk.*
 
 **Core capability & workflow:**
 Credit and debit notes from your phone are raised against the original invoice and written into your Tally as vouchers. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Purchase returns and extra charges go through as debit notes.
@@ -562,9 +562,9 @@ Credit and debit notes from your phone are raised against the original invoice a
 - **Q: Can I stop my salesman from raising credit notes?**
   A: Yes, and most distributors do. Create rights are set per register and per person, so someone can be allowed to book orders and raise invoices without being able to issue a credit note. Since a credit note reduces what you are owed, it is usually kept with the people who own the collection decision.
 
-### [Custom invoice template, your own format on every bill.](https://takkada.com/custom-invoice-template-tally/)
+### [Create professional invoices that reflect your business.](https://takkada.com/custom-invoice-template-tally/)
 
-*The bill that reaches your retailer is the one piece of your business he looks at every week. It should look like you sent it.*
+*Customise your invoice layout to match your business needs. Choose how your invoice looks and share a clear, professional copy with your customers.*
 
 **Core capability & workflow:**
 A custom invoice template puts your own format on every bill the app sends. Your logo, your terms, your bank and UPI details, laid out the way your business already prints them. The retailer gets that PDF on WhatsApp within seconds of the invoice being saved in your Tally.
@@ -588,9 +588,9 @@ A custom invoice template puts your own format on every bill the app sends. Your
 - **Q: How much can the template be changed?**
   A: The template is set up for your business rather than edited by you screen by screen, so tell us the format you print today and it gets matched. Distributors usually want their letterhead, their terms and their bank block in the places their customers are used to, and that is what the setup covers.
 
-### [Handwritten order to Tally, from a photo of the order book.](https://takkada.com/handwritten-order-to-tally/)
+### [Convert handwritten orders into Tally entries from a photo.](https://takkada.com/handwritten-order-to-tally/)
 
-*The order book comes back at seven in the evening with thirty pages in it. Somebody types every line, and the mistakes only surface when the goods reach the wrong shop.*
+*No need to manually type every item from the order book. Simply take a photo of the handwritten order. Takkada reads the items and quantities as written, picks rates from the order page or your existing rates, and prepares the entry for your approval.*
 
 **Core capability & workflow:**
 A handwritten order to Tally starts with a photograph of the page. The items and quantities are read off it exactly as written, and rates come from the page where it has them and from your own rates where it does not. Only what you approve is written into your books.
@@ -614,9 +614,9 @@ A handwritten order to Tally starts with a photograph of the page. The items and
 - **Q: Do my salesmen have to stop using their order books?**
   A: No, and that is the point. Booking the order in the app against live stock is better where the team will do it, but the ones who have written orders on paper for twenty years keep their book, and the page gets photographed instead of typed up at night.
 
-### [Order booking app for Tally, and your retailer installs nothing.](https://takkada.com/order-booking-app-tally/)
+### [Let customers place orders through a simple link.](https://takkada.com/order-booking-app-tally/)
 
-*The order reaches you at nine at night. A voice note, a photo of a diary page, and somebody types it into Tally in the morning and hopes the rates were right.*
+*Share an order link with your customers so they can browse your products and place orders without calling or messaging your sales team. Receive their orders digitally and manage them through Tally.*
 
 **Core capability & workflow:**
 Takkada is an order booking app for Tally where your retailer needs nothing installed. You send him a link on WhatsApp. He opens your catalogue at your rates, puts in quantities, and sends the order. You approve it with one tap and it becomes a sales order in your Tally.
@@ -644,9 +644,9 @@ Takkada is an order booking app for Tally where your retailer needs nothing inst
 - **Q: Can I hide items that are out of stock?**
   A: Yes, that is a setting on the link. You can leave out-of-stock items off the catalogue entirely, or leave them showing so a retailer can still order against a shipment that is on its way. Either way the buyer never sees your stock counts, only whether an item is there to order.
 
-### [Voucher approval before Tally: nothing posts until you say so.](https://takkada.com/voucher-approval-before-tally/)
+### [Approve or reject vouchers from anywhere.](https://takkada.com/voucher-approval-before-tally/)
 
-*A new salesman raised an invoice at the wrong rate on Tuesday. You found it in the ledger on Friday, after the retailer had paid the wrong amount.*
+*Review pending vouchers and make approval decisions directly from your phone. Keep control over business transactions without needing to be at your desk.*
 
 **Core capability & workflow:**
 Voucher approval before Tally means a team member's invoice, order or receipt waits for you instead of posting. You choose which voucher kinds need a checker. The approver sees the party's dues and every line, corrects what is wrong, and approves, sends it back or declines. Only the approved save reaches your books.
@@ -669,9 +669,9 @@ Voucher approval before Tally means a team member's invoice, order or receipt wa
 - **Q: Does anything reach Tally before approval?**
   A: No. The request sits outside your books as a draft the approver can read. Only the approver's save is written into Tally, as the voucher it was always going to be, under your normal number series.
 
-### [AI collection calls for the parties who ignore the reminder.](https://takkada.com/ai-collection-calls/)
+### [Use AI-powered calls to follow up on overdue payments.](https://takkada.com/ai-collection-calls/)
 
-*The WhatsApp went out at nine. Two days later the bill is still open, and somebody in your office has to pick up the phone and ask.*
+*Save time on repeated payment follow-ups with AI-powered collection calls. Let AI contact customers about pending dues and help your team stay on top of collections.*
 
 **Core capability & workflow:**
 AI collection calls are how Takkada follows up the parties who ignored the WhatsApp reminder. You tick overdue parties and tap Call with AI. An agent calls each in their language, asks for the payment, and logs what they said as a follow-up, shown on the recovery board when the Recovery dashboard is on. Calls are billed per connected minute.
@@ -745,9 +745,9 @@ Takkada is the Livekeeping alternative for distributors who want the whole day o
 - **Q: Is Livekeeping better at anything?**
   A: They ship updates frequently and have been polishing the mobile GST creation flow for well over a year, so that path is well worn. They also sit inside a much larger distribution network, which usually means an easier local support conversation. Neither of those is a feature you can put in a table, and both are real. If mobile invoicing with GST documents is genuinely all you need, they cover it.
 
-### [Tally app for FMCG distributors. Two hundred shops, one phone.](https://takkada.com/tally-app-for-fmcg-distributors/)
+### [Manage your FMCG distribution business with ease.](https://takkada.com/tally-app-for-fmcg-distributors/)
 
-*Your beat covers more kirana counters in a day than most businesses invoice in a month. Every one of them is a small bill, a small payment, and a line in a ledger somebody has to key in tonight.*
+*Handle orders, billing, stock and collections from one place. Simplify daily operations and keep your business data connected with Tally.*
 
 **Core capability & workflow:**
 A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a data-entry job. Sales by item show which lines are moving and what each one earns.
@@ -769,9 +769,9 @@ A Tally app for FMCG distributors has to survive volume. Takkada books the order
 - **Q: Can I stop a salesman from seeing my margins?**
   A: Yes. Access is set per person and can be limited to his own parties, his own targets and his own collections, and stock permissions can be scoped down to a specific warehouse. Purchase rates, other territories and the company-level reports stay out of his app. This is set from the admin side, so it does not depend on the salesman leaving anything alone.
 
-### [Tally app for pharma distributors. Thin margins, long credit.](https://takkada.com/tally-app-for-pharma-distributors/)
+### [Simplify pharma distribution, billing and stock management.](https://takkada.com/tally-app-for-pharma-distributors/)
 
-*You work on a few points of margin and wait two months for the chemist to pay. Anything that takes a percentage out of the payment, or an hour out of your evening, is coming straight off that margin.*
+*Manage medicine orders, inventory and billing with a workflow built for pharmaceutical distributors. Keep track of products, batches and expiry details while managing daily transactions*
 
 **Core capability & workflow:**
 A Tally app for pharma distributors has to protect the margin. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on your credit terms, and an order a team member raises can wait for your approval.
@@ -793,9 +793,9 @@ A Tally app for pharma distributors has to protect the margin. Takkada raises th
 - **Q: Does this handle batch and expiry the way pharma needs?**
   A: Batch-wise entry works where your Tally already tracks it, because the vouchers written back are ordinary Tally vouchers against your existing stock items and batches. What the app does not do is manage expiry or near-expiry returns as a workflow of its own. If that is the deciding requirement, say so on the call and we will tell you plainly where the line is.
 
-### [Tally app for agri-input distributors. Paid on the harvest, not the calendar.](https://takkada.com/tally-app-for-agri-input-distributors/)
+### [Manage your agri-input distribution business from your phone.](https://takkada.com/tally-app-for-agri-input-distributors/)
 
-*You send the stock out before sowing and the money comes back after the crop is sold. A thirty-day ageing report tells you almost nothing about a receivable that was always going to take a season.*
+*Handle orders, stock and billing for seeds, fertilisers and crop protection products. Keep daily distribution activities organised and connected with Tally.*
 
 **Core capability & workflow:**
 A Tally app for agri-input distributors has to follow the crop cycle. Takkada shows debtor ageing on slabs you set, so a season-long receivable reads correctly instead of looking overdue from week five. Orders, invoices and scheme credit notes go in from the phone, and UPI collection posts into Tally at zero MDR.
@@ -817,9 +817,9 @@ A Tally app for agri-input distributors has to follow the crop cycle. Takkada sh
 - **Q: The season is three months of the year. Is the app worth it for the rest?**
   A: The collection and reminder side earns its keep in the settlement window, which is short and intense. The rest of the year the value is in the ordinary work: purchase bills coming in from a photo, bank statements matching themselves, stock across depots being visible without a call to the godown. Whether that adds up for your business is a fair question to put to us on the demo with your own numbers.
 
-### [Scheme management for Tally. Buy 10 get 1 free, written once, applied on every bill that qualifies.](https://takkada.com/schemes-tally/)
+### [Manage product schemes and offers directly from Tally.](https://takkada.com/schemes-tally/)
 
-*The company's scheme letter lives in the app, not in the salesman's memory. When a party's bill crosses the line, the free quantity or the slab discount is added by itself, and the month-end report says what each scheme cost.*
+*Set up and manage product schemes to offer the right deals to your customers. Keep track of discounts and special offers while creating sales orders and bills.*
 
 **Core capability & workflow:**
 Scheme management for Tally in Takkada covers four kinds of billing-time offer: buy X get X free, buy X get Y free, quantity slab and invoice value discount. Each is set once with its items, parties and dates. The cart adds the free line or the slab percentage while the salesman bills, and a report totals what each scheme cost.
@@ -841,9 +841,9 @@ Scheme management for Tally in Takkada covers four kinds of billing-time offer: 
 - **Q: What happens to old bills when a scheme is archived?**
   A: Nothing. Archiving stops the scheme applying to new bills and takes it off the list. Bills already made keep their free lines and discounts, and the Scheme cost report still shows them for the period they were billed in.
 
-### [MRP-based billing for Tally. From printed MRP to the retailer's rate, with a floor the salesman cannot cross.](https://takkada.com/fmcg-module-tally/)
+### [Simplify FMCG order management and billing with Tally.](https://takkada.com/fmcg-module-tally/)
 
-*Set MRP, the retailer's margin and two trade discounts once per item. Every bill prices itself from there, and the app says how much room is left before a line loses money.*
+*Manage everyday FMCG sales operations, from order booking to billing. Handle products, pricing and schemes more easily while keeping your transactions updated in Tally.*
 
 **Core capability & workflow:**
 MRP-based billing for Tally is what Takkada's FMCG module does: each stock item carries its printed MRP, the retailer's margin, two sequential trade discounts and an item-wise salesman commission. When a salesman bills, the rate comes down from MRP through the margin and both discounts. Any extra discount he types is checked against that line's break-even before saving.
@@ -863,9 +863,9 @@ MRP-based billing for Tally is what Takkada's FMCG module does: each stock item 
 - **Q: Does the MRP go into Tally?**
   A: The MRP is kept in Takkada against the stock item and is GST-inclusive, as printed on the pack. The voucher that reaches Tally carries the list rate and the discount percentage; Tally's own item master is not changed by the module.
 
-### [Cost-plus pricing for Tally. The selling price follows the last purchase cost, plus your markup.](https://takkada.com/autoparts-billing-tally/)
+### [Make automobile spare parts billing faster and easier](https://takkada.com/autoparts-billing-tally/)
 
-*Parts have no MRP worth trusting and a cost that moves with every consignment. Price them from what they actually cost you, and let the bill update when the cost does.*
+*Manage spare part details and create bills efficiently with a dedicated auto parts billing workflow. Find the right parts and handle customer transactions with greater ease.*
 
 **Core capability & workflow:**
 Cost-plus pricing for Tally in Takkada's AutoParts billing reads each part's latest purchase cost from Tally, ex-GST and per base unit, and applies a markup set at the company, the stock group or the item, whichever is most specific. Two markups give two selling prices, one per price level, and the party's level decides which one the bill takes.
@@ -885,9 +885,9 @@ Cost-plus pricing for Tally in Takkada's AutoParts billing reads each part's lat
 - **Q: What does the salesman see?**
   A: The selling price for the party's level, the unit and the GST basis. Cost and markup are withheld unless the member has full access; the app does not derive one from the other on the phone, so a screenshot of the cart gives nothing away.
 
-### [Ladder discount in Tally. 5% + 10% + 2% on the bill, 16.21% in the voucher, and both are right.](https://takkada.com/ladder-discount-tally/)
+### [Apply slab-based discounts automatically while billing.](https://takkada.com/ladder-discount-tally/)
 
-*Your trade quotes discounts in steps. Tally takes one number. The ladder shows the steps to the customer and sends Tally the one number they add up to.*
+*Set different discount levels based on purchase quantity or value. Let the applicable discount be calculated automatically so your customers get the right offer without manual calculations.*
 
 **Core capability & workflow:**
 A ladder discount in Tally through Takkada is up to three named discount steps on an invoice line, applied one after the other. The app compounds them into a single aggregate percentage, rounded to two decimals, and that aggregate is the discount on the Tally voucher and the figure the taxable value is computed from. The PDF prints every step.
@@ -907,9 +907,9 @@ A ladder discount in Tally through Takkada is up to three named discount steps o
 - **Q: Can the ladder be combined with the FMCG module's D1 and D2?**
   A: They solve different problems. The FMCG module sets the rate from MRP and margin per item; the ladder describes the discount on a line in steps. Which one a business uses depends on how its trade quotes prices, and the demo is the place to settle that for your setup.
 
-### [Barcode in Tally Prime, with the box quantity printed into every sticker.](https://takkada.com/barcode-in-tally-prime/)
+### [Generate barcode labels for your products easily.](https://takkada.com/barcode-in-tally-prime/)
 
-*Print stickers for what just came in, stick one on each box, and bill by scanning. One scan of a 6-carton box puts 6 cartons on the bill, and the bill reaches Tally like any other.*
+*Create barcode labels for your stock items to make product identification and billing easier. Use barcode scanning to find items quickly and reduce manual entry.*
 
 **Core capability & workflow:**
 Barcode in Tally Prime works through Takkada without a TDL: print stickers from a purchase bill or an item, each carrying the item and the quantity in that box. Scan them into a sales bill, challan, GRN or stock journal with the phone camera, a Bluetooth gun or a USB gun. The voucher reaches Tally as usual.
@@ -935,9 +935,9 @@ Barcode in Tally Prime works through Takkada without a TDL: print stickers from 
 - **Q: Can I scan the barcode already printed on the product?**
   A: Yes, once it is linked. Scan the maker's barcode, tap Link to an item, and choose the item and how many pieces that pack holds. After that, every scan of that barcode adds that quantity. Linking is kept to the business admin, so a salesman cannot point a code at the wrong item.
 
-### [An AI agent for Tally Prime that answers from your books and waits for your confirm.](https://takkada.com/ai-agent-for-tally-prime/)
+### [Get answers from your Tally data using AI.](https://takkada.com/ai-agent-for-tally-prime/)
 
-*You want to know who to call before ten, what came in yesterday, and whether that supplier bill is posted. Ask Claude in plain words, and the answer comes from your own Tally books.*
+*Ask questions about your business in simple language and get useful answers from your Tally data. Find information faster without manually searching through multiple reports.*
 
 **Core capability & workflow:**
 Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or what is due today, and it reads your synced Tally books. Ask it to remind every late party, post a week of supplier bills or five bank statements at once, and it shows a preview first. Nothing happens until you reply confirm.

@@ -78,11 +78,17 @@ const FIRST_BATCH = [
     slug: 'salesman-app-tally',
     searchPhrase: 'Salesman app for Tally',
     overline: 'TEAM SALES',
-    headline: 'Salesman app for Tally. Your team’s day, on your phone.',
+    headline: 'Manage your sales team and orders directly from their phones.',
     // Frames the distributor's day, not the product. The capability list is the
     // answer block's job, and saying it twice made the hero read as filler.
     subheadline:
-      'You know he left at nine in the morning. Which shops he reached, what he booked, and how much he collected, you find out when he tells you at night.',
+      'Give your salesmen an easy way to manage customer visits, check product details and place orders while on the go. Keep sales activity connected with your Tally data.',
+    answerPoints: [
+      'Access customer and product details on the go',
+      'Create and submit sales orders from the app',
+      'Check product rates and availability',
+      'Keep sales activities connected with Tally',
+    ],
     // Front-loaded answer, 55 words. This is the passage an AI-search engine
     // lifts, so it is entity-first by design and answers the query in the
     // opening sentence. The hero copy above it stays distributor-first
@@ -284,9 +290,15 @@ const FIRST_BATCH = [
     slug: 'payment-collection-tally',
     searchPhrase: 'Payment collection on Tally',
     overline: 'PAYMENT COLLECTION',
-    headline: 'Payment collection on Tally, from the invoice to the bank line.',
+    headline: 'Collect customer payments faster with easy payment options.',
     subheadline:
-      'The bill went out on the 3rd. It is the 27th, he says he has paid, and nobody can tell you which of the four invoices that money was meant for.',
+      'Make it easier for customers to clear their outstanding dues. Share payment details and track collections to stay updated on the money received.',
+    answerPoints: [
+      'Share payment requests with customers',
+      'Make it easier for customers to pay outstanding dues',
+      'Track received and pending payments',
+      'Keep payment records updated in Tally',
+    ],
     // 46 words. Carries the locked pricing sentence verbatim.
     answer:
       'Takkada adds payment collection on Tally without changing how you bill. Every invoice carries a UPI link at 0% MDR on UPI collections, no transaction cap, no monthly fee. The retailer pays from WhatsApp, and the receipt posts itself against the right invoice in your Tally.',
@@ -428,9 +440,15 @@ const FIRST_BATCH = [
     slug: 'payment-reminder-tally',
     searchPhrase: 'Payment reminder from Tally',
     overline: 'SMART REMINDERS',
-    headline: 'Payment reminder from Tally, sent before you remember to ask.',
+    headline: 'Remind customers about pending payments directly from your phone.',
     subheadline:
-      'Chasing is the part nobody wants to do. So it slips, and a bill that was thirty days old quietly becomes ninety.',
+      'Keep track of outstanding payments and send reminders to customers without making repeated calls. Help customers remember their dues and follow up on payments more easily.',
+    answerPoints: [
+      'View pending and overdue customer payments',
+      'Send payment reminders directly from your phone',
+      'Share outstanding balance details with customers',
+      'Follow up on pending payments more easily',
+    ],
     // 46 words.
     answer:
       'A payment reminder from Tally goes out on your own WhatsApp number, on a schedule you set. Pre-due nudges before the date, firmer ones after it, each carrying the invoice and the ledger. Per-party caps stop the same retailer being messaged twice in one day.',
@@ -576,9 +594,11 @@ const FIRST_BATCH = [
     subheadline:
       'Create and generate GST-compliant e-invoices directly from your phone. Get the IRN and signed QR added instantly.',
     answerPoints: [
-      'Generate the IRN and signed QR in one tap',
-      'Download the invoice PDF and share it on WhatsApp',
-      'Cancel and re-issue an e-invoice within 24 hours',
+      'Generate single or bulk e-invoices',
+      'Generate IRNs instantly',
+      'Download and share invoice PDFs',
+      'Cancel and re-issue e-invoices within 24 hours',
+      'Access GSTR-1 and GSTR-2 reports',
     ],
     // 50 words.
     answer:
@@ -726,14 +746,14 @@ const FIRST_BATCH = [
     slug: 'e-way-bill-from-phone',
     searchPhrase: 'E-way bills from your phone',
     overline: 'E-WAY BILLS',
-    headline: 'Generate e-way bills from your phone before the truck leaves.',
+    headline: 'Generate e-way bills easily from your phone.',
     subheadline:
       'You can create e-way bills easily from your mobile with no extra portal login.',
     answerPoints: [
-      'Generate e-way bills from existing invoices or delivery challans',
+      'Generate e-way bills from existing invoices or challans',
       'Get party, item and distance details pre-filled',
-      'Download the e-way bill PDF and share it on WhatsApp',
-      'Cancel it from the app within the permitted time limit',
+      'Generate and download e-way bill PDFs',
+      'Share bills on WhatsApp and cancel them from the app within the permitted time limit',
     ],
     // 45 words.
     answer:
@@ -879,9 +899,15 @@ const FIRST_BATCH = [
     slug: 'tally-reports-on-mobile',
     searchPhrase: 'Tally reports on mobile',
     overline: 'REPORTS',
-    headline: 'Tally reports on mobile, the twenty you actually open.',
+    headline: 'View important Tally reports directly from your phone.',
     subheadline:
-      'You do not need all of Tally on a phone. You need the six numbers you check before breakfast and the register your CA asks for.',
+      'Get business insights wherever you are by checking your Tally reports on mobile. Stay informed about sales, purchases, payments and other business activities without opening your computer.',
+    answerPoints: [
+      'Access important Tally reports on your phone',
+      'Check sales and purchase information',
+      'View outstanding balances and business summaries',
+      'Make informed decisions while on the go',
+    ],
     // 47 words.
     answer:
       'Tally reports on mobile means the registers you open every day, on your phone. Outstanding by age, party and item sales, purchase, stock, cash and bank, profit, trial balance, and the GST summaries your accountant asks for. Read them anywhere, and send any of them on WhatsApp.',
@@ -1048,12 +1074,12 @@ const FIRST_BATCH = [
     overline: 'AI ENTRY',
     headline: 'Import purchase bills from PDF into Tally without typing every line.',
     subheadline:
-      'Supplier bills arrive as PDFs or photos, and keying in each item by hand takes the whole evening. Takkada reads the bill, matches every line to your stock list and prepares a purchase voucher for you to review.',
+      'Supplier bills often arrive as PDFs or photos, and entering each item manually takes time. Simply upload or photograph the bill. Takkada reads the details, matches items with your stock list and prepares a purchase voucher for you to review.',
     answerPoints: [
-      'Upload a supplier bill as a PDF or a photo',
-      'Extract item names, quantities, rates and GST',
-      'Match each line to your existing stock items',
-      'Review the draft and post it to Tally as a purchase voucher',
+      'Upload supplier bills as PDFs or photos',
+      'Automatically extract item names, quantities, rates and GST',
+      'Match bill items with your existing stock items',
+      'Review the draft and post it as a purchase voucher in Tally',
     ],
     // 49 words.
     answer:
@@ -1259,9 +1285,15 @@ const FIRST_BATCH = [
     slug: 'tally-on-mobile',
     searchPhrase: 'Tally on mobile',
     overline: 'TALLY ON MOBILE',
-    headline: 'Tally on mobile, for every hour you are not at that desk.',
+    headline: 'Access your Tally data directly from your phone.',
     subheadline:
-      'Tally runs on one machine in the office. The decisions do not wait for you to be sitting in front of it.',
+      "Stay connected to your business data even when you're away from your desk. View important information and manage your business operations through Takkada on your mobile.",
+    answerPoints: [
+      'Access Tally data from your phone',
+      'View business and accounting information on the go',
+      'Stay updated without opening your desktop',
+      'Manage business activities from anywhere',
+    ],
     // 48 words.
     answer:
       'Takkada puts Tally on mobile for distributors: your live books on a phone, plus the work you would otherwise wait to do at the desk. Read outstanding and reports, raise an invoice, send it on WhatsApp, collect by UPI, and every entry lands back in your own Tally.',
