@@ -33,9 +33,15 @@ export const PERSONAS = [
     slug: 'tally-app-for-fmcg-distributors',
     searchPhrase: 'Tally app for FMCG distributors',
     overline: 'FMCG DISTRIBUTION',
-    headline: 'Tally app for FMCG distributors. Two hundred shops, one phone.',
+    headline: 'Manage your FMCG distribution business with ease.',
     subheadline:
-      'Your beat covers more kirana counters in a day than most businesses invoice in a month. Every one of them is a small bill, a small payment, and a line in a ledger somebody has to key in tonight.',
+      'Handle orders, billing, stock and collections from one place. Simplify daily operations and keep your business data connected with Tally.',
+    answerPoints: [
+      'Manage retailer orders and customer details',
+      'Check stock and product availability',
+      'Create invoices and apply product schemes',
+      'Track outstanding payments and collections',
+    ],
     // 55 words.
     answer:
       'A Tally app for FMCG distributors has to survive volume. Takkada books the order at the counter against live stock, raises the invoice, and takes payment on UPI at zero MDR, so a two-hundred-shop beat does not become a data-entry job. Sales by item show which lines are moving and what each one earns.',
@@ -184,9 +190,15 @@ export const PERSONAS = [
     slug: 'tally-app-for-pharma-distributors',
     searchPhrase: 'Tally app for pharma distributors',
     overline: 'PHARMA DISTRIBUTION',
-    headline: 'Tally app for pharma distributors. Thin margins, long credit.',
+    headline: 'Simplify pharma distribution, billing and stock management.',
     subheadline:
-      'You work on a few points of margin and wait two months for the chemist to pay. Anything that takes a percentage out of the payment, or an hour out of your evening, is coming straight off that margin.',
+      'Manage medicine orders, inventory and billing with a workflow built for pharmaceutical distributors. Keep track of products, batches and expiry details while managing daily transactions',
+    answerPoints: [
+      'Manage medicine stock and product details',
+      'Track batch numbers and expiry dates',
+      'Create and manage customer orders and invoices',
+      'Monitor outstanding payments and collections',
+    ],
     // 54 words.
     answer:
       'A Tally app for pharma distributors has to protect the margin. Takkada raises the GST invoice with its IRN from the phone, sends it to the chemist on WhatsApp with a zero-MDR UPI link, and posts the receipt into Tally itself. Reminders run on your credit terms, and an order a team member raises can wait for your approval.',
@@ -329,9 +341,15 @@ export const PERSONAS = [
     slug: 'tally-app-for-agri-input-distributors',
     searchPhrase: 'Tally app for agri-input distributors',
     overline: 'AGRI INPUT DISTRIBUTION',
-    headline: 'Tally app for agri-input distributors. Paid on the harvest, not the calendar.',
+    headline: 'Manage your agri-input distribution business from your phone.',
     subheadline:
-      'You send the stock out before sowing and the money comes back after the crop is sold. A thirty-day ageing report tells you almost nothing about a receivable that was always going to take a season.',
+      'Handle orders, stock and billing for seeds, fertilisers and crop protection products. Keep daily distribution activities organised and connected with Tally.',
+    answerPoints: [
+      'Manage seeds, fertilisers and pesticide products',
+      'Track stock and product availability',
+      'Create retailer orders and sales invoices',
+      'Track customer balances and pending payments',
+    ],
     // 54 words.
     answer:
       'A Tally app for agri-input distributors has to follow the crop cycle. Takkada shows debtor ageing on slabs you set, so a season-long receivable reads correctly instead of looking overdue from week five. Orders, invoices and scheme credit notes go in from the phone, and UPI collection posts into Tally at zero MDR.',

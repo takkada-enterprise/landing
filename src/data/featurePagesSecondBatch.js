@@ -41,9 +41,15 @@ export const SECOND_BATCH = [
     slug: 'outstanding-receivables-on-mobile',
     searchPhrase: 'Outstanding receivables on mobile',
     overline: 'RECEIVABLES',
-    headline: 'Outstanding receivables on mobile, party by party.',
+    headline: 'Track outstanding customer payments from your phone.',
     subheadline:
-      'You know the total. What you cannot see standing in the market is which retailer is sixty days late and which one paid this morning.',
+      'Get a clear view of how much money your customers owe your business. Check pending payments, identify overdue amounts and follow up with customers to collect dues on time.',
+    answerPoints: [
+      'View total outstanding receivables',
+      'Check customer-wise pending balances',
+      'Identify overdue payments',
+      'Follow up with customers for pending dues',
+    ],
     answer:
       'Takkada puts your outstanding receivables on mobile, read straight from your Tally. Every party carries its own balance, its overdue invoices and the age of each one. You send a statement or a payment link from the same screen, and the receipt reconciles itself against the right invoice once the retailer pays.',
     waContext: 'feature-outstanding-receivables-on-mobile',
@@ -194,9 +200,15 @@ export const SECOND_BATCH = [
     // sentence a distributor would say.
     searchPhrase: 'ledger statement on WhatsApp',
     overline: 'LEDGER SHARE',
-    headline: 'Share a ledger statement on WhatsApp, straight from Tally.',
+    headline: 'Share customer ledgers directly on WhatsApp.',
     subheadline:
-      'The retailer says his books show something else. Until he has your statement in his hand, that argument runs for another week.',
+      'Send customers their ledger statements on WhatsApp without downloading and sharing files manually. Help them check outstanding balances, payments and transaction details easily.',
+    answerPoints: [
+      'Share customer ledger statements on WhatsApp',
+      'Show outstanding balances and payment details',
+      'Send updated account statements quickly',
+      'Make it easier for customers to track their accounts',
+    ],
     answer:
       'Takkada lets you share a ledger statement on WhatsApp for any party and any period, generated from your Tally. Pick the party and the dates, choose the full account or only the bills awaiting payment, and the PDF goes from your phone with a payment link. The retailer checks every entry and settles from the same message.',
     waContext: 'feature-share-ledger-statement-whatsapp',
@@ -343,9 +355,15 @@ export const SECOND_BATCH = [
     slug: 'debtor-ageing-report-on-phone',
     searchPhrase: 'Debtor ageing report on phone',
     overline: 'AGEING',
-    headline: 'Debtor ageing report on phone, from your own Tally.',
+    headline: 'Know how long your customer payments have been overdue.',
     subheadline:
-      'Everyone owes you something. The question worth answering before you start dialling is who has been owing it the longest.',
+      'Understand how long your money has been stuck with customers. View outstanding amounts based on how many days they have been pending and prioritise follow-ups accordingly.',
+    answerPoints: [
+      'View customer-wise ageing of outstanding payments',
+      'Group dues by pending days',
+      'Identify long-overdue payments',
+      'Prioritise customers who need follow-ups',
+    ],
     answer:
       'Takkada gives you a debtor ageing report on phone, built from your Tally bill by bill. Every party falls into a slab by how old its overdue invoices are, so the ninety-day retailer stops hiding behind the thirty-day one. You can call, send the ledger or attach a payment link from the same list.',
     waContext: 'feature-debtor-ageing-report-on-phone',
@@ -492,9 +510,15 @@ export const SECOND_BATCH = [
     slug: 'tally-on-mobile-without-remote-access',
     searchPhrase: 'Tally on mobile without remote access',
     overline: 'NO REMOTE DESKTOP',
-    headline: 'Tally on mobile without remote access or TeamViewer.',
+    headline: 'Access your Tally data without remote desktop access.',
     subheadline:
-      'Pinching at a desktop screen on a phone, waiting for the office machine to wake up, is how most distributors have been reading their books from the road.',
+      'View your business information on your phone without having to connect to your office computer through remote access software. Get the information you need wherever you are.',
+    answerPoints: [
+      'Access Tally data directly from your mobile',
+      'No need to use remote desktop software',
+      'Check business information while away from the office',
+      'Stay connected to your Tally data on the go',
+    ],
     answer:
       'You can run Tally on mobile without remote access by syncing your books to an app built for a phone. Takkada reads your Tally through a connector on the same machine, so there is no desktop to log into, no screen to pinch at, and no need for the office computer to stay switched on for you.',
     waContext: 'feature-tally-on-mobile-without-remote-access',
@@ -648,9 +672,15 @@ export const SECOND_BATCH = [
     slug: 'send-payment-reminders-automatically',
     searchPhrase: 'send payment reminders automatically',
     overline: 'REMINDERS',
-    headline: 'Send payment reminders automatically, from your own books.',
+    headline: 'Send payment reminders automatically without following up manually.',
     subheadline:
-      'Ringing thirty retailers to ask for money is a full morning. Most of them would have paid on a message, and the rest are the ones worth calling.',
+      'Set up automatic reminders for customers with pending payments. Takkada helps you follow up at the right time, so you spend less time chasing payments and more time managing your business.',
+    answerPoints: [
+      'Set reminders for pending customer payments',
+      'Send reminders automatically at scheduled intervals',
+      'Reach customers through WhatsApp or supported channels',
+      'Reduce manual payment follow-ups',
+    ],
     answer:
       'Takkada can send payment reminders automatically against every open invoice in your Tally, from your own WhatsApp number. You set the schedule once, before the due date and after it, and each message carries the invoice and a payment link. Caps per party stop a retailer being messaged into ignoring you, and paid bills drop out on their own.',
     waContext: 'feature-send-payment-reminders-automatically',
@@ -798,9 +828,15 @@ export const SECOND_BATCH = [
     slug: 'bank-statement-import-tally',
     searchPhrase: 'Bank statement import',
     overline: 'RECONCILIATION',
-    headline: 'Bank statement import into Tally, from the file your bank already gives you.',
+    headline: 'Import bank statements into Tally without matching entries manually.',
     subheadline:
-      'Forty credits landed this week. Somebody has to work out which retailer sent each one and which bills it clears, and that somebody is usually you at nine at night.',
+      'Bank transactions add up quickly, and matching every credit to the right customer and bill takes time. Upload the statement file provided by your bank. Takkada reads the transaction details, suggests the party and open bills, and explains the suggested matches for you to review.',
+    answerPoints: [
+      "Import bank statements directly from your bank's file",
+      'Read transaction details and identify the source of credits',
+      'Get suggestions for the matching party and open bills',
+      'Review and approve entries before they are posted to Tally',
+    ],
     answer:
       'Bank statement import takes the file your bank already gives you and turns each credit into a Tally entry. Takkada reads the narration and the account the money came from, suggests the party and the open bills it settles, and says why. You approve before anything posts, so nobody spends the evening matching credits to bills.',
     waContext: 'feature-bank-statement-import-tally',
@@ -985,9 +1021,15 @@ export const SECOND_BATCH = [
     slug: 'godown-wise-stock-on-mobile',
     searchPhrase: 'Godown wise stock on mobile',
     overline: 'STOCK AND GODOWNS',
-    headline: 'Godown wise stock on mobile, for every location you run.',
+    headline: 'Check stock across all your godowns from your phone.',
     subheadline:
-      'The main godown says the item is there. The branch says it is not. Somebody drives across town to find out which one is right.',
+      'Know how much stock is available at each godown without checking records manually. View stock location-wise and make better decisions about where to source or dispatch items.',
+    answerPoints: [
+      'View stock available in each godown',
+      'Check item-wise stock quantities',
+      'Identify where specific items are stored',
+      'Access stock information from your phone',
+    ],
     answer:
       'Godown wise stock on mobile shows what is lying in each of your locations, read from your Tally. Item balances per godown, transfers recorded between them, and the godown stamped on the invoice or challan you raise. Staff can be limited to the warehouse they actually work in.',
     waContext: 'feature-godown-wise-stock-on-mobile',
@@ -1131,9 +1173,15 @@ export const SECOND_BATCH = [
     slug: 'multi-company-tally-reports',
     searchPhrase: 'Multi-company Tally reports',
     overline: 'MULTI-COMPANY',
-    headline: 'Multi-company Tally reports, every business on one phone.',
+    headline: 'Manage multiple Tally companies from one place.',
     subheadline:
-      'Two firms, sometimes three. Checking where each one stands means opening each one in turn, and most owners only ever get round to the biggest.',
+      'If you handle more than one business, switch between company data easily from your phone. Access the information you need without repeatedly logging in to different systems.',
+    answerPoints: [
+      'Access multiple Tally companies',
+      'Switch between companies easily',
+      'View company-wise business information',
+      'Manage different businesses from one app',
+    ],
     answer:
       'Multi-company Tally reports let you hold every business you run in one app and switch between them without logging out. Each company keeps its own books, its own parties and its own reports, read from your Tally. You see sales, receipts, purchase and outstanding for whichever one you are standing in.',
     waContext: 'feature-multi-company-tally-reports',
@@ -1277,9 +1325,15 @@ export const SECOND_BATCH = [
     slug: 'sales-order-on-mobile',
     searchPhrase: 'Sales order on mobile',
     overline: 'ORDERS',
-    headline: 'Sales order on mobile, booked against live stock.',
+    headline: 'Create and manage sales orders directly from your phone.',
     subheadline:
-      'He promised the retailer forty cases. The godown had eleven. That conversation happens after the order is already written in the book.',
+      'Create sales orders without having to return to your desktop. Add customer and item details, review the order and keep your sales records updated in Tally.',
+    answerPoints: [
+      'Create sales orders directly from your phone',
+      'Select customers and add items easily',
+      'View and manage existing sales orders',
+      'Sync sales order details with Tally',
+    ],
     answer:
       'A sales order on mobile is booked at the shop against live stock and lands in your Tally as a voucher. Your salesman sees what the godown actually has before he promises it, the pending quantity stays tracked until it ships, and nobody types the order a second time in the evening.',
     waContext: 'feature-sales-order-on-mobile',
@@ -1430,9 +1484,15 @@ export const SECOND_BATCH = [
     slug: 'delivery-challan-from-mobile',
     searchPhrase: 'Delivery challan from mobile',
     overline: 'DISPATCH',
-    headline: 'Delivery challan from mobile, before the truck leaves.',
+    headline: 'Create and manage delivery challans from your phone.',
     subheadline:
-      'The goods are loaded and the driver is waiting. The paperwork is on a desktop three kilometres away, and so is the person who can raise it.',
+      'Create delivery challans for goods being sent to customers or between locations. Record dispatch details and keep your delivery records connected with Tally.',
+    answerPoints: [
+      'Create delivery challans directly from your phone',
+      'Add customer, item and quantity details',
+      'View and manage delivery challans',
+      'Sync challan entries with Tally',
+    ],
     answer:
       'A delivery challan from mobile is raised at the loading point and written into your Tally as a voucher. The godown the goods left from is recorded on it, and a whole beat’s orders can be picked together and loaded onto one van rather than handled one at a time. It converts to an invoice without being rewritten.',
     waContext: 'feature-delivery-challan-from-mobile',
@@ -1588,14 +1648,15 @@ export const SECOND_BATCH = [
     slug: 'credit-note-from-phone',
     searchPhrase: 'Credit and debit notes from your phone',
     overline: 'NOTES',
-    headline: 'Create credit and debit notes from your phone, synced to Tally.',
+    headline:
+      'Create credit and debit notes directly from your phone and sync them with Tally',
     subheadline:
-      'Record a return, discount or extra charge the day it happens, without waiting to reach the desktop.',
+      "Record sales returns, purchase returns, discounts or extra charges as soon as they happen. No need to wait until you're back at your desk.",
     answerPoints: [
-      'Create credit notes for sales returns, discounts and adjustments',
-      'Create debit notes for purchase returns and additional charges',
-      'Raise either note against the original invoice and party',
-      'Sync every note to Tally as a voucher',
+      'Create credit notes for sales returns, discounts and other adjustments.',
+      'Create debit notes for purchase returns and additional charges.',
+      'Link notes to the original invoice and party.',
+      'Sync all entries to Tally as vouchers.',
     ],
     answer:
       'Credit and debit notes from your phone are raised against the original invoice and written into your Tally as vouchers. Goods returned at the shop, a rate difference agreed on the road, or a scheme payout owed to a retailer stops waiting for someone to reach the desktop. Purchase returns and extra charges go through as debit notes.',
@@ -1742,9 +1803,15 @@ export const SECOND_BATCH = [
     slug: 'custom-invoice-template-tally',
     searchPhrase: 'Custom invoice template',
     overline: 'YOUR FORMAT',
-    headline: 'Custom invoice template, your own format on every bill.',
+    headline: 'Create professional invoices that reflect your business.',
     subheadline:
-      'The bill that reaches your retailer is the one piece of your business he looks at every week. It should look like you sent it.',
+      'Customise your invoice layout to match your business needs. Choose how your invoice looks and share a clear, professional copy with your customers.',
+    answerPoints: [
+      'Choose from available invoice templates',
+      'Add your business details and branding',
+      'Display relevant invoice information clearly',
+      'Download and share invoices with customers',
+    ],
     answer:
       'A custom invoice template puts your own format on every bill the app sends. Your logo, your terms, your bank and UPI details, laid out the way your business already prints them. The retailer gets that PDF on WhatsApp within seconds of the invoice being saved in your Tally.',
     waContext: 'feature-custom-invoice-template-tally',
@@ -1893,9 +1960,15 @@ export const SECOND_BATCH = [
     slug: 'handwritten-order-to-tally',
     searchPhrase: 'Handwritten order to Tally',
     overline: 'FROM A PHOTO',
-    headline: 'Handwritten order to Tally, from a photo of the order book.',
+    headline: 'Convert handwritten orders into Tally entries from a photo.',
     subheadline:
-      'The order book comes back at seven in the evening with thirty pages in it. Somebody types every line, and the mistakes only surface when the goods reach the wrong shop.',
+      'No need to manually type every item from the order book. Simply take a photo of the handwritten order. Takkada reads the items and quantities as written, picks rates from the order page or your existing rates, and prepares the entry for your approval.',
+    answerPoints: [
+      'Capture handwritten orders directly from a photo',
+      'Read item names and quantities as written',
+      'Fetch rates from the order page or your existing rates',
+      'Review and approve entries before they are added to Tally',
+    ],
     answer:
       'A handwritten order to Tally starts with a photograph of the page. The items and quantities are read off it exactly as written, and rates come from the page where it has them and from your own rates where it does not. Only what you approve is written into your books.',
     waContext: 'feature-handwritten-order-to-tally',
@@ -2101,11 +2174,17 @@ export const SECOND_BATCH = [
     slug: 'order-booking-app-tally',
     searchPhrase: 'Order booking app for Tally',
     overline: 'CUSTOMER ORDERS',
-    headline: 'Order booking app for Tally, and your retailer installs nothing.',
+    headline: 'Let customers place orders through a simple link.',
     // The distributor's evening, not the product (CLAUDE.md craft rule 11).
     // The answer block below is where the capability list belongs.
     subheadline:
-      'The order reaches you at nine at night. A voice note, a photo of a diary page, and somebody types it into Tally in the morning and hopes the rates were right.',
+      'Share an order link with your customers so they can browse your products and place orders without calling or messaging your sales team. Receive their orders digitally and manage them through Tally.',
+    answerPoints: [
+      'Share a unique order link with customers',
+      'Let customers browse your products and place orders',
+      'Receive customer orders digitally',
+      'Manage received orders through Tally',
+    ],
     // Front-loaded answer, 50 words. Entity-first because this is the passage
     // an AI-search engine lifts, and it opens with the search phrase verbatim
     // because src/data/__tests__/feature-pages.test.js asserts exactly that.
@@ -2293,9 +2372,15 @@ export const SECOND_BATCH = [
     slug: 'voucher-approval-before-tally',
     searchPhrase: 'Voucher approval before Tally',
     overline: 'APPROVALS',
-    headline: 'Voucher approval before Tally: nothing posts until you say so.',
+    headline: 'Approve or reject vouchers from anywhere.',
     subheadline:
-      'A new salesman raised an invoice at the wrong rate on Tuesday. You found it in the ledger on Friday, after the retailer had paid the wrong amount.',
+      'Review pending vouchers and make approval decisions directly from your phone. Keep control over business transactions without needing to be at your desk.',
+    answerPoints: [
+      'View vouchers waiting for approval',
+      'Check voucher details before approving',
+      'Approve or reject vouchers from your phone',
+      'Keep the approval process moving from anywhere',
+    ],
     answer:
       "Voucher approval before Tally means a team member's invoice, order or receipt waits for you instead of posting. You choose which voucher kinds need a checker. The approver sees the party's dues and every line, corrects what is wrong, and approves, sends it back or declines. Only the approved save reaches your books.",
     waContext: 'feature-voucher-approval-before-tally',
@@ -2431,9 +2516,15 @@ export const SECOND_BATCH = [
     slug: 'ai-collection-calls',
     searchPhrase: 'AI collection calls',
     overline: 'RECOVER',
-    headline: 'AI collection calls for the parties who ignore the reminder.',
+    headline: 'Use AI-powered calls to follow up on overdue payments.',
     subheadline:
-      'The WhatsApp went out at nine. Two days later the bill is still open, and somebody in your office has to pick up the phone and ask.',
+      'Save time on repeated payment follow-ups with AI-powered collection calls. Let AI contact customers about pending dues and help your team stay on top of collections.',
+    answerPoints: [
+      'Automate calls to customers with overdue payments',
+      'Share outstanding payment details during calls',
+      'Handle routine payment follow-ups through AI',
+      'Help your team focus on important collection tasks',
+    ],
     answer:
       "AI collection calls are how Takkada follows up the parties who ignored the WhatsApp reminder. You tick overdue parties and tap Call with AI. An agent calls each in their language, asks for the payment, and logs what they said as a follow-up, shown on the recovery board when the Recovery dashboard is on. Calls are billed per connected minute.",
     waContext: 'feature-ai-collection-calls',

@@ -31,9 +31,15 @@ export const AI_AGENT = [
     slug: 'ai-agent-for-tally-prime',
     searchPhrase: 'AI agent for Tally Prime',
     overline: 'AI ASSISTANT',
-    headline: 'An AI agent for Tally Prime that answers from your books and waits for your confirm.',
+    headline: 'Get answers from your Tally data using AI.',
     subheadline:
-      'You want to know who to call before ten, what came in yesterday, and whether that supplier bill is posted. Ask Claude in plain words, and the answer comes from your own Tally books.',
+      'Ask questions about your business in simple language and get useful answers from your Tally data. Find information faster without manually searching through multiple reports.',
+    answerPoints: [
+      'Ask business-related questions in natural language',
+      'Get answers based on your Tally data',
+      'Find important information without searching reports manually',
+      'Make faster, data-informed business decisions',
+    ],
     answer:
       'Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or what is due today, and it reads your synced Tally books. Ask it to remind every late party, post a week of supplier bills or five bank statements at once, and it shows a preview first. Nothing happens until you reply confirm.',
     waContext: 'feature-ai-agent-for-tally-prime',

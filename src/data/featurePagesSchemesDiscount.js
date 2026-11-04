@@ -27,10 +27,15 @@ export const SCHEMES_DISCOUNT = [
     slug: 'schemes-tally',
     searchPhrase: 'scheme management for Tally',
     overline: 'SCHEMES',
-    headline:
-      'Scheme management for Tally. Buy 10 get 1 free, written once, applied on every bill that qualifies.',
+    headline: 'Manage product schemes and offers directly from Tally.',
     subheadline:
-      "The company's scheme letter lives in the app, not in the salesman's memory. When a party's bill crosses the line, the free quantity or the slab discount is added by itself, and the month-end report says what each scheme cost.",
+      'Set up and manage product schemes to offer the right deals to your customers. Keep track of discounts and special offers while creating sales orders and bills.',
+    answerPoints: [
+      'Create and manage product schemes',
+      'Set scheme conditions and offers',
+      'Apply eligible schemes during billing',
+      'Manage promotional offers through Tally',
+    ],
     // 60 words.
     answer:
       'Scheme management for Tally in Takkada covers four kinds of billing-time offer: buy X get X free, buy X get Y free, quantity slab and invoice value discount. Each is set once with its items, parties and dates. The cart adds the free line or the slab percentage while the salesman bills, and a report totals what each scheme cost.',
@@ -140,10 +145,15 @@ export const SCHEMES_DISCOUNT = [
     slug: 'fmcg-module-tally',
     searchPhrase: 'MRP-based billing for Tally',
     overline: 'FMCG MODULE',
-    headline:
-      "MRP-based billing for Tally. From printed MRP to the retailer's rate, with a floor the salesman cannot cross.",
+    headline: 'Simplify FMCG order management and billing with Tally.',
     subheadline:
-      "Set MRP, the retailer's margin and two trade discounts once per item. Every bill prices itself from there, and the app says how much room is left before a line loses money.",
+      'Manage everyday FMCG sales operations, from order booking to billing. Handle products, pricing and schemes more easily while keeping your transactions updated in Tally.',
+    answerPoints: [
+      'Manage FMCG products and stock',
+      'Handle retailer orders and sales',
+      'Apply product schemes and discounts',
+      'Simplify day-to-day FMCG billing',
+    ],
     // 58 words.
     answer:
       "MRP-based billing for Tally is what Takkada's FMCG module does: each stock item carries its printed MRP, the retailer's margin, two sequential trade discounts and an item-wise salesman commission. When a salesman bills, the rate comes down from MRP through the margin and both discounts. Any extra discount he types is checked against that line's break-even before saving.",
@@ -249,10 +259,15 @@ export const SCHEMES_DISCOUNT = [
     slug: 'autoparts-billing-tally',
     searchPhrase: 'cost-plus pricing for Tally',
     overline: 'AUTOPARTS BILLING',
-    headline:
-      'Cost-plus pricing for Tally. The selling price follows the last purchase cost, plus your markup.',
+    headline: 'Make automobile spare parts billing faster and easier',
     subheadline:
-      'Parts have no MRP worth trusting and a cost that moves with every consignment. Price them from what they actually cost you, and let the bill update when the cost does.',
+      'Manage spare part details and create bills efficiently with a dedicated auto parts billing workflow. Find the right parts and handle customer transactions with greater ease.',
+    answerPoints: [
+      'Manage automobile spare part details',
+      'Search and select parts while billing',
+      'Create customer invoices quickly',
+      'Keep billing records updated in Tally',
+    ],
     // 59 words.
     answer:
       "Cost-plus pricing for Tally in Takkada's AutoParts billing reads each part's latest purchase cost from Tally, ex-GST and per base unit, and applies a markup set at the company, the stock group or the item, whichever is most specific. Two markups give two selling prices, one per price level, and the party's level decides which one the bill takes.",
@@ -358,10 +373,15 @@ export const SCHEMES_DISCOUNT = [
     slug: 'ladder-discount-tally',
     searchPhrase: 'ladder discount in Tally',
     overline: 'LADDER DISCOUNT',
-    headline:
-      'Ladder discount in Tally. 5% + 10% + 2% on the bill, 16.21% in the voucher, and both are right.',
+    headline: 'Apply slab-based discounts automatically while billing.',
     subheadline:
-      'Your trade quotes discounts in steps. Tally takes one number. The ladder shows the steps to the customer and sends Tally the one number they add up to.',
+      'Set different discount levels based on purchase quantity or value. Let the applicable discount be calculated automatically so your customers get the right offer without manual calculations.',
+    answerPoints: [
+      'Set up multiple discount slabs',
+      'Define discounts based on quantity or value',
+      'Apply eligible discounts during billing',
+      'Reduce manual discount calculations',
+    ],
     // 60 words.
     answer:
       'A ladder discount in Tally through Takkada is up to three named discount steps on an invoice line, applied one after the other. The app compounds them into a single aggregate percentage, rounded to two decimals, and that aggregate is the discount on the Tally voucher and the figure the taxable value is computed from. The PDF prints every step.',

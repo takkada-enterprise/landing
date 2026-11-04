@@ -30,9 +30,15 @@ export const BARCODE = [
     slug: 'barcode-in-tally-prime',
     searchPhrase: 'barcode in Tally Prime',
     overline: 'BARCODE LABELS',
-    headline: 'Barcode in Tally Prime, with the box quantity printed into every sticker.',
+    headline: 'Generate barcode labels for your products easily.',
     subheadline:
-      'Print stickers for what just came in, stick one on each box, and bill by scanning. One scan of a 6-carton box puts 6 cartons on the bill, and the bill reaches Tally like any other.',
+      'Create barcode labels for your stock items to make product identification and billing easier. Use barcode scanning to find items quickly and reduce manual entry.',
+    answerPoints: [
+      'Generate barcode labels for stock items',
+      'Include product details on labels',
+      'Scan barcodes to identify items quickly',
+      'Make stock handling and billing easier',
+    ],
     // 52 words.
     answer:
       'Barcode in Tally Prime works through Takkada without a TDL: print stickers from a purchase bill or an item, each carrying the item and the quantity in that box. Scan them into a sales bill, challan, GRN or stock journal with the phone camera, a Bluetooth gun or a USB gun. The voucher reaches Tally as usual.',
