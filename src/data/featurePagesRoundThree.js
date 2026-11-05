@@ -226,7 +226,6 @@ export const ROUND_THREE = [
     },
     footerLabel: 'Proof of delivery',
     hero: { screen: 'pod-driver-drops' },
-    pendingScreens: ['pod-cash-on-van'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -251,7 +250,7 @@ export const ROUND_THREE = [
         title: 'Cash, UPI or cheque on the van',
         body:
           'He records what the shop paid, against one bill or all of them oldest first. UPI and cheque need a photo of the screen or the cheque. The drop saves on the phone without signal and uploads when the van is back in range.',
-        pendingScreen: 'pod-cash-on-van',
+        screen: 'pod-cash-on-van',
       },
       {
         icon: 'CheckCheck',

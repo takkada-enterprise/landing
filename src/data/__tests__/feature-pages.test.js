@@ -868,10 +868,10 @@ describe('report gallery', () => {
 //
 // Seven more landed later on 2026-11-05. A third batch that evening closed
 // tally-drafts (a stage capture under an operator exception: demo co143 is a
-// no-Tally company) and six of the nine copy-only steps. pod-cash-on-van is
-// still owed: the driver's payment screen is phone-app only (kIsWeb gate in
-// pod_drop_screen.dart) and this Mac has no Android emulator.
-const OWED_CAPTURES = new Set(['pod-cash-on-van']);
+// no-Tally company) and six of the nine copy-only steps. pod-cash-on-van, the
+// last one, is phone-app only (kIsWeb gate in pod_drop_screen.dart); Ronak
+// took it on his iPhone as the demo van's driver. Nothing is owed now.
+const OWED_CAPTURES = new Set([]);
 
 // A step with no capture of its own stays copy, by decision rather than as a
 // wait: a borrowed screen is what Ronak rejected. The set is closed so a copy-only
@@ -889,9 +889,7 @@ describe('pages owed captures', () => {
   const owed = FEATURE_PAGES.filter((p) => p.pendingScreens?.length);
 
   it('are exactly the round-three pages still waiting on a capture', () => {
-    expect(owed.map((p) => p.slug).sort()).toEqual(
-      ['proof-of-delivery-app-tally']
-    );
+    expect(owed.map((p) => p.slug).sort()).toEqual([]);
   });
 
   it('owe only the captures that were briefed, each once across the site', () => {

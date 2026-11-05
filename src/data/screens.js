@@ -326,6 +326,7 @@ export const SCREENS = {
   'stock-control-season-plan': phone('stock-control-season-plan', "Season plan listing items by stock group with days out of stock, true demand, forecast and an order-by date for each"),
   'pod-driver-drops': phone('pod-driver-drops', "A van's delivery trip with shops numbered in order, each shop's items and bill amount, a Call button, and finished drops marked delivered"),
   'pod-photo-proof': phone('pod-photo-proof', "Invoice with a delivery proof card: the delivery photo, the time, the van and driver, the quantities accepted, and where the photo was taken"),
+  'pod-cash-on-van': phone('pod-cash-on-van', "A driver on the van recording a UPI payment against one bill: the items with Returned buttons, Take photo, Cash, UPI or Cheque, the amount, and a photo of the payment screen"),
   'pod-office-approval': phone('pod-office-approval', "Cash with drivers: each collection with its invoice, cash or UPI, a payment screenshot for UPI, and Approve or Reject"),
   'manufacturing-bom': phone('manufacturing-bom', "Bill of materials for one carton: components with quantities, godown and scrap percentage, made in house and used by default"),
   'manufacturing-production-run': phone('manufacturing-production-run', "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync"),

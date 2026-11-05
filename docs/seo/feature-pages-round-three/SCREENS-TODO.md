@@ -20,6 +20,7 @@ Still owed:
 
 | Capture slug | Page | Where it plugs in | Blocker |
 |---|---|---|---|
-| `pod-cash-on-van` | `/proof-of-delivery-app-tally` | step 3 "Cash, UPI or cheque on the van" (the driver recording a payment) | The driver's drop screen greys its buttons on the web (`kIsWeb` in `lib/screens/pod/pod_drop_screen.dart:144`, banner "Use the phone app to record deliveries"). Needs the Android app: no Android SDK or emulator on this Mac (two release APKs sit in ~/Downloads). |
 
 What each capture should show is in the "Screens" section of that page's `*-claims.md` in this folder.
+
+2026-11-05 evening: `pod-cash-on-van` landed (Ronak's iPhone, demo co143 as the van driver, nothing saved). No capture is owed now.

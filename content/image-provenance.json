@@ -3065,6 +3065,22 @@
       "knownSensitive": false,
       "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/live-tracking-day.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
       "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "d574d8c76647f4c510f10933d94583600e86db4fb827377f2a5a35cea49ec2f6": {
+      "path": "public/assets/screens/pod-cash-on-van-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), taken by Ronak on his iPhone in the Takkada app as the van driver and sent in chat; screens-raw/2026-11-05/pod-cash-on-van-iphone-raw.png with the phone's status bar cropped off (screens-raw/2026-11-05/pod-cash-on-van.png), framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the proof-of-delivery page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "7dc20d4c73f518865916ce34643303674d518eadc2c89241fdbbece81133272f": {
+      "path": "public/assets/screens/pod-cash-on-van-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), taken by Ronak on his iPhone in the Takkada app as the van driver and sent in chat; screens-raw/2026-11-05/pod-cash-on-van-iphone-raw.png with the phone's status bar cropped off (screens-raw/2026-11-05/pod-cash-on-van.png), framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the proof-of-delivery page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
     }
   },
   "classes": [

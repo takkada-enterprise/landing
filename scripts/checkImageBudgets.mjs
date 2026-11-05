@@ -236,6 +236,8 @@ export const BUDGETS = [
   ['public/assets/screens/pod-driver-drops-720.webp', 60_000, 'feature-page hero (proof-of-delivery-app-tally)'],
   ['public/assets/screens/pod-photo-proof-360.webp', 32_000, 'feature-page screen (pod-photo-proof)'],
   ['public/assets/screens/pod-photo-proof-720.webp', 60_000, 'feature-page screen (pod-photo-proof)'],
+  ['public/assets/screens/pod-cash-on-van-360.webp', 32_000, 'feature-page screen (pod-cash-on-van)'],
+  ['public/assets/screens/pod-cash-on-van-720.webp', 60_000, 'feature-page screen (pod-cash-on-van)'],
   ['public/assets/screens/pod-office-approval-360.webp', 32_000, 'feature-page screen (pod-office-approval)'],
   ['public/assets/screens/pod-office-approval-720.webp', 60_000, 'feature-page screen (pod-office-approval)'],
   ['public/assets/screens/manufacturing-bom-360.webp', 32_000, 'feature-page screen (manufacturing-bom)'],

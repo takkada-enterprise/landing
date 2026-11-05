@@ -578,6 +578,13 @@
     "q": 76
   },
   {
+    "slug": "pod-cash-on-van",
+    "source": "pod-cash-on-van.png",
+    "shows": "Driver's drop screen for Krishna General Store, bill INV/26-27/0001 Rs 1,84,873: three items each with Returned, Delivery photo Take photo, This bill and No old dues, Payment No payment / Cash / UPI (picked) / Cheque, Amount 184873, Photo of payment screen, A UPI payment needs a photo, Couldn't deliver and Mark delivered",
+    "alt": "A driver on the van recording a UPI payment against one bill: the items with Returned buttons, Take photo, Cash, UPI or Cheque, the amount, and a photo of the payment screen",
+    "operatorException": "2026-11-05: taken by Ronak on his own iPhone in the Takkada app, signed in to demo company 143 (made-up data) as the van driver, and sent in chat for the proof-of-delivery page (\"let me know what screenshot to share for eveything to complete\"). Nothing was saved. The source here is screens-raw/2026-11-05/pod-cash-on-van-iphone-raw.png with the phone's own status bar cropped off (screens-raw/2026-11-05/pod-cash-on-van.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
     "slug": "pod-office-approval",
     "source": "pod-office-approval.png",
     "shows": "Cash with drivers: one driver with the amount pending; a cash and a UPI collection, each with its invoice and van, Approve and Reject; the UPI row carries a payment screenshot",
