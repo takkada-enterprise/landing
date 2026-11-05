@@ -2053,6 +2053,24 @@
       "reviewedOn": "2026-11-03",
       "reviewedBy": "operator supplied latest customer testimonial thumbnail for Meet Patel (Dhanlaxmi Crop Science Limited)",
       "origin": "Still frame / portrait thumbnail from the customer's video testimonial: Meet Patel seated in office."
+    },
+    "f6763daf6c6203e4d73920e2f9549ba260fa734adbdd74425acbcff9b97a2ff8": {
+      "path": "public/assets/testimonials/narmada-agencies-thumbnail.jpg",
+      "kind": "photograph",
+      "sha256": "f6763daf6c6203e4d73920e2f9549ba260fa734adbdd74425acbcff9b97a2ff8",
+      "reviewed": true,
+      "reviewedOn": "2026-11-06",
+      "reviewedBy": "operator supplied the Narmada Agencies testimonial thumbnail (WhatsApp, 2026-11-05)",
+      "origin": "Portrait thumbnail of the customer's video testimonial: the Narmada Agencies speaker seated in an office. A photograph of a person, not a picture of the application."
+    },
+    "468334d046afd47068303d180f575e5e78ec201dedc3601cf550c3bf5df20608": {
+      "path": "public/assets/testimonials/kewa-bearings-thumbnail.jpg",
+      "kind": "photograph",
+      "sha256": "468334d046afd47068303d180f575e5e78ec201dedc3601cf550c3bf5df20608",
+      "reviewed": true,
+      "reviewedOn": "2026-11-06",
+      "reviewedBy": "operator supplied the Kewa Bearings testimonial (YouTube UqHtjahbPd0); centre crop of its thumbnail",
+      "origin": "Portrait thumbnail of the customer's video testimonial: Jitesh Singhal of Kewa Bearings in his office. A photograph of a person, not a picture of the application."
     }
   },
   "unprovenAllowlist": {

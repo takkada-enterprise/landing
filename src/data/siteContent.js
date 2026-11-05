@@ -300,6 +300,79 @@ export const videoTestimonials = [
       contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
+  // Quotes below are the speakers' own words from the videos (transcribed
+  // 2026-11-06), trimmed but not reworded beyond grammar.
+  {
+    id: 'narmada-agencies',
+    name: 'Shashank Agarwal',
+    role: 'Owner',
+    company: 'Narmada Agencies',
+    location: 'Guwahati, Assam',
+    industry: 'Distribution & Wholesale',
+    badge: 'Verified Takkada Customer',
+    duration: '1:01',
+    quote: 'I personally found it very easy to navigate and understand. And this is not just me. Most of the people in my organization have said the same thing.',
+    takeaways: [
+      {
+        title: 'Easy for the Whole Team',
+        desc: 'Owner, accounts and sales staff all found the app easy to navigate.',
+      },
+      {
+        title: 'Everyone on One Platform',
+        desc: 'The whole organisation works together in one place, on the same Tally data.',
+      },
+      {
+        title: 'Queries Taken Care Of',
+        desc: '"I have personally never had to complain."',
+      },
+    ],
+    video: {
+      type: 'mp4',
+      src: '/assets/videos/testimonials/narmada-agencies.mp4',
+      poster: '/assets/testimonials/narmada-agencies-thumbnail.jpg',
+      title: 'Narmada Agencies, Guwahati, sharing their Takkada experience',
+      uploadDate: '2026-11-05T12:00:00+05:30',
+      durationIso: 'PT1M1S',
+      schemaDescription:
+        'Narmada Agencies, a distributor in Guwahati, Assam, on how Takkada put their whole team on one platform with Tally on mobile.',
+      contentLocation: 'Guwahati, Assam, India',
+    },
+  },
+  {
+    id: 'kewa-bearings',
+    name: 'Jitesh Singhal',
+    role: 'Owner',
+    company: 'Kewa Bearings',
+    industry: 'Bearings Trading',
+    badge: 'Verified Takkada Customer',
+    duration: '0:39',
+    quote: 'After using Takkada, our work became so easy. Our outstanding became so easy to recover due to their AI features, which remind by themselves at the due date.',
+    takeaways: [
+      {
+        title: 'Reminders on the Due Date',
+        desc: 'Payment reminders go out automatically from Tally data, with no manual follow-up.',
+      },
+      {
+        title: 'Easy to Use',
+        desc: '"Very convenient, very easy to use and very helpful."',
+      },
+      {
+        title: 'Queries Solved in Minutes',
+        desc: '"Anytime we call them, in 10 minutes they solve our query."',
+      },
+    ],
+    video: {
+      type: 'mp4',
+      src: '/assets/videos/testimonials/kewa-bearings.mp4',
+      poster: '/assets/testimonials/kewa-bearings-thumbnail.jpg',
+      title: 'Kewa Bearings sharing their Takkada experience',
+      uploadDate: '2026-11-05T12:00:00+05:30',
+      durationIso: 'PT39S',
+      schemaDescription:
+        'Kewa Bearings on recovering outstanding payments with automatic due-date WhatsApp reminders from Tally, using Takkada.',
+      contentLocation: 'India',
+    },
+  },
 ];
 
 

@@ -147,6 +147,10 @@ export const BUDGETS = [
   // ceiling stops a heavier re-export (or a non-faststart one) from slipping in.
   ['public/assets/testimonials/MeetPatelLatestThumbnail.jpeg', 160_000, 'homepage testimonial poster'],
   ['public/assets/videos/testimonials/MP_F.mp4', 12_500_000, 'homepage testimonial video (1:50, 576x1024)'],
+  ['public/assets/testimonials/narmada-agencies-thumbnail.jpg', 160_000, 'homepage testimonial poster'],
+  ['public/assets/videos/testimonials/narmada-agencies.mp4', 5_000_000, 'homepage testimonial video (1:01, 720x674)'],
+  ['public/assets/testimonials/kewa-bearings-thumbnail.jpg', 80_000, 'homepage testimonial poster'],
+  ['public/assets/videos/testimonials/kewa-bearings.mp4', 2_500_000, 'homepage testimonial video (0:39, 576x1024)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:

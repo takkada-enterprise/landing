@@ -72,8 +72,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
           <span className="section-label">Real Distributor Stories</span>
           <h2 className="hv3-story-title">Hear from distributors who run on Takkada</h2>
           <p className="hv3-story-intro">
-            Real owners, real numbers. Watch how Meet Patel, Owner of Dhanlaxmi Crop Science Limited, uses Takkada to automate
-            bank statement reconciliation, send smart WhatsApp payment reminders, and track seasonal distribution.
+            Owners from Ahmedabad to Guwahati, in their own words, on what changed once their Tally was on the phone.
           </p>
         </div>
 
