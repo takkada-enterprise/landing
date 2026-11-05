@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+docs/REPO-MAP.md is the repo map — read it before exploring, update it in the same commit when you change structure, commands, or conventions.
+
 ## 1. Product one-liner
 
 Takkada is Tally on mobile: the distributor's existing Tally on the phone and in a browser, covering the whole business-accounting day. Billing with e-invoice and e-way bill, 20+ reports, stock, orders and challans, salesman visits, dispatch loading, WhatsApp invoices and reminders, and UPI collection, with every entry posting back into Tally.
