@@ -1021,10 +1021,13 @@ html.js .home-v3 .hv3-feature.reveal {
   background: linear-gradient(180deg, var(--color-bg) 0%, rgba(220, 242, 251, 0.4) 100%);
   border-top: 1px solid var(--color-outline, var(--color-border));
   border-bottom: 1px solid var(--color-outline, var(--color-border));
+  overflow: hidden;
 }
 
 .home-v3 .hv3-stories-selector-wrap {
   max-width: 1040px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto 36px;
   display: flex;
   flex-direction: column;
@@ -1036,6 +1039,9 @@ html.js .home-v3 .hv3-feature.reveal {
   justify-content: space-between;
   align-items: center;
   padding: 0 4px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .home-v3 .hv3-stories-counter {
@@ -1047,6 +1053,7 @@ html.js .home-v3 .hv3-feature.reveal {
   color: var(--color-text-secondary);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 
 .home-v3 .hv3-stories-counter-dot {
@@ -1061,6 +1068,7 @@ html.js .home-v3 .hv3-feature.reveal {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .home-v3 .hv3-stories-arrow-btn {
@@ -1092,6 +1100,10 @@ html.js .home-v3 .hv3-feature.reveal {
   justify-content: flex-start;
   gap: 12px;
   overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   padding: 4px;
@@ -1218,16 +1230,20 @@ html.js .home-v3 .hv3-feature.reveal {
 
 .home-v3 .hv3-stories-grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 360px minmax(0, 1fr);
   gap: 48px;
   align-items: center;
   max-width: 1040px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
 }
 
 .home-v3 .hv3-stories-player-col {
   display: flex;
   justify-content: center;
+  width: 100%;
+  min-width: 0;
 }
 
 .home-v3 .hv3-stories-video-frame {
@@ -1292,11 +1308,14 @@ html.js .home-v3 .hv3-feature.reveal {
   border: 1px solid rgba(255, 255, 255, 0.15);
   white-space: nowrap;
   min-width: 0;
+  max-width: calc(100% - 70px);
 }
 
 .home-v3 .hv3-stories-chip-text {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .home-v3 .hv3-stories-chip--time {
@@ -1404,6 +1423,8 @@ html.js .home-v3 .hv3-feature.reveal {
 .home-v3 .hv3-stories-details-col {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .home-v3 .hv3-stories-card {
@@ -1415,12 +1436,17 @@ html.js .home-v3 .hv3-feature.reveal {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .home-v3 .hv3-stories-company-badge {
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  min-width: 0;
 }
 
 .home-v3 .hv3-stories-avatar {
@@ -1443,6 +1469,8 @@ html.js .home-v3 .hv3-feature.reveal {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  min-width: 0;
+  flex: 1;
 }
 
 .home-v3 .hv3-stories-company-row {
@@ -1450,6 +1478,7 @@ html.js .home-v3 .hv3-feature.reveal {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .home-v3 .hv3-stories-company-name {
@@ -1457,6 +1486,7 @@ html.js .home-v3 .hv3-feature.reveal {
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
+  word-break: break-word;
 }
 
 .home-v3 .hv3-stories-verified {
@@ -1564,6 +1594,9 @@ html.js .home-v3 .hv3-feature.reveal {
   border-radius: var(--radius-md, 8px);
   border: 1px dashed rgba(0, 110, 166, 0.25);
   font-size: 13px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .home-v3 .hv3-stories-next-label {
@@ -1588,6 +1621,7 @@ html.js .home-v3 .hv3-feature.reveal {
   text-align: left;
   transition: color 140ms ease;
   min-width: 0;
+  flex: 1;
 }
 
 .home-v3 .hv3-stories-next-btn span {
@@ -1624,20 +1658,95 @@ html.js .home-v3 .hv3-feature.reveal {
 }
 
 /* ═══════════ Responsive ═══════════ */
-@media (max-width: 767px) {
-  .home-v3 .hv3-tally { padding: 72px 0; }
-  .home-v3 .hv3-story-head { margin-bottom: 44px; }
-  .home-v3 .hv3-tally-points { grid-template-columns: 1fr; }
-  .home-v3 .hv3-stories { padding: 60px 0; }
+@media (max-width: 960px) {
   .home-v3 .hv3-stories-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-v3 .hv3-tally { padding: 72px 0; }
+  .home-v3 .hv3-story-head { margin-bottom: 32px; }
+  .home-v3 .hv3-tally-points { grid-template-columns: 1fr; }
+  .home-v3 .hv3-stories { padding: 56px 0; overflow: hidden; }
+  .home-v3 .hv3-stories-selector-wrap {
+    margin-bottom: 24px;
+  }
+  .home-v3 .hv3-stories-tab {
+    min-width: 170px;
+    max-width: 260px;
+    padding: 6px 12px 6px 6px;
+    font-size: 13px;
+  }
+  .home-v3 .hv3-stories-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+  .home-v3 .hv3-stories-player-col {
+    width: 100%;
   }
   .home-v3 .hv3-stories-video-frame {
-    max-width: 320px;
+    max-width: min(320px, 100%);
+    border-radius: 20px;
+    margin: 0 auto;
   }
   .home-v3 .hv3-stories-card {
-    padding: 28px 22px;
+    padding: 24px 18px;
+    gap: 20px;
+    border-radius: var(--radius-xl);
+  }
+  .home-v3 .hv3-stories-company-name {
+    font-size: 18px;
+  }
+  .home-v3 .hv3-stories-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    border-radius: var(--radius-lg);
+  }
+  .home-v3 .hv3-stories-quote {
+    padding-left: 16px;
+  }
+  .home-v3 .hv3-stories-quote p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .home-v3 .hv3-stories-takeaway-item {
+    gap: 10px;
+  }
+  .home-v3 .hv3-stories-takeaway-item strong {
+    font-size: 14px;
+  }
+  .home-v3 .hv3-stories-takeaway-item p {
+    font-size: 13px;
+  }
+  .home-v3 .hv3-stories-next-hint {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .home-v3 .hv3-stories-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .home-v3 .hv3-stories-cta .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .home-v3 .hv3-stories-calendar-link {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .home-v3 .hv3-stories-card {
+    padding: 20px 14px;
+  }
+  .home-v3 .hv3-stories-video-frame {
+    max-width: 280px;
   }
 }
 
