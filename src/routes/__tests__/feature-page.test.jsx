@@ -110,7 +110,10 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
         // A step still waiting for its capture (round three, 2026-11-05)
         // renders copy only: no empty media band, no broken img.
         if (!shot) {
-          expect(page.pendingScreens?.length, `${page.slug} has an imageless step`).toBeGreaterThan(0);
+          expect(
+            page.pendingScreens?.length || step.copyOnly,
+            `${page.slug} has an imageless step`
+          ).toBeTruthy();
           expect(steps[i].querySelector('.feature-step-shot')).toBeNull();
           expect(steps[i].textContent).toContain(step.title);
           return;

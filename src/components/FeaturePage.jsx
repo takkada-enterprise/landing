@@ -128,6 +128,9 @@ function FeaturePage({ page }) {
   // Resolved once: the hero image, the LCP preload and the Article schema image
   // all have to be the same picture.
   const shot = heroShot(page);
+  // A desktop capture is wider than tall; it gets a wider column and a card
+  // instead of a phone's silhouette shadow (feature-page.css).
+  const wideHero = shot && shot.width > shot.height;
   const faqItems = page.faqs.map((f) => ({ question: f.q, answer: f.a }));
   const trail = [
     { name: 'Home', url: `${SITE_URL}/` },
@@ -169,7 +172,7 @@ function FeaturePage({ page }) {
       {/* ── Hero + front-loaded answer ── */}
       <section className="hero icp-hero feature-hero" id="hero">
         <div className="container">
-          <div className="feature-hero-grid">
+          <div className={wideHero ? 'feature-hero-grid feature-hero-grid--wide' : 'feature-hero-grid'}>
             <div className="hero-content icp-hero-content">
               <BackHome />
               <Breadcrumb trail={trail} />
@@ -207,7 +210,7 @@ function FeaturePage({ page }) {
                 <img
                   src={shot.src}
                   srcSet={shot.srcSet}
-                  sizes="(max-width: 767px) 70vw, 300px"
+                  sizes={wideHero ? '(max-width: 900px) 92vw, 560px' : '(max-width: 767px) 70vw, 300px'}
                   alt={shot.alt}
                   width={shot.width}
                   height={shot.height}
@@ -253,10 +256,17 @@ function FeaturePage({ page }) {
               {page.walkthrough.map((step) => {
                 const Icon = ICONS[step.icon];
                 const stepImg = stepShot(step);
+                const wide = stepImg && stepImg.width > stepImg.height;
                 return (
                   <article
                     key={step.title}
-                    className={stepImg ? 'feature-step' : 'feature-step feature-step--copy'}
+                    className={
+                      !stepImg
+                        ? 'feature-step feature-step--copy'
+                        : wide
+                          ? 'feature-step feature-step--wide'
+                          : 'feature-step'
+                    }
                   >
                     {/* Media band first and fixed-height (feature-page.css), so
                       every phone in a row starts and is cut at the same y
@@ -266,7 +276,7 @@ function FeaturePage({ page }) {
                         <img
                           src={stepImg.src}
                           srcSet={stepImg.srcSet}
-                          sizes="208px"
+                          sizes={wide ? '300px' : '208px'}
                           alt={stepImg.alt}
                           width={stepImg.width}
                           height={stepImg.height}

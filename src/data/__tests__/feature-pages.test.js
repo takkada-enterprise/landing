@@ -139,8 +139,9 @@ describe('feature page data contract', () => {
       for (const step of page.walkthrough) {
         const shot = stepShot(step);
         // A step may go without an image only while its page is owed captures
-        // (round three, 2026-11-05); the pending-captures block below pins that.
-        if (!shot && page.pendingScreens?.length) continue;
+        // (round three, 2026-11-05), or when it is one of the closed set of
+        // copy-only steps; the pending-captures block below pins both.
+        if (!shot && (page.pendingScreens?.length || step.copyOnly)) continue;
         expect(shot, `${page.slug} step "${step.title}" has no screen`).not.toBeNull();
         if (step.screen) expect(SCREENS).toHaveProperty(step.screen);
         expect(existsSync(resolve(repoRoot, `public${shot.src}`))).toBe(true);
@@ -864,32 +865,33 @@ describe('report gallery', () => {
 // The first eleven landed on 2026-11-05 and left the set. Five steps on those
 // pages had no capture of their own, so they joined it as copy-only steps
 // rather than borrow a screen that shows something else.
-const OWED_CAPTURES = new Set([
-  'pod-cash-on-van',
-  'manufacturing-run-short-check',
-  'voucher-names-create-in-tally',
-  'voucher-names-series',
-  'voucher-names-pick-at-billing',
-  'desktop-entry-invoice',
-  'live-tracking-map',
-  'email-invoices',
-  'tally-drafts',
-]);
+//
+// Seven more landed later on 2026-11-05. pod-cash-on-van (it showed a banner
+// and greyed buttons) and tally-drafts (no capture) are still owed.
+const OWED_CAPTURES = new Set(['pod-cash-on-van', 'tally-drafts']);
+
+// Pages with a single capture keep their other steps as copy, by decision
+// rather than as a wait: nothing else on those features was captured, and a
+// borrowed screen is what Ronak rejected. The set is closed so a copy-only
+// step cannot spread to a page that should carry a screen.
+const COPY_ONLY_STEPS = [
+  'desktop-billing-tally: Pull the order into the bill',
+  'desktop-billing-tally: Save, then the next step',
+  'desktop-billing-tally: Into Tally like any other entry',
+  'salesman-location-tracking-app: He starts the day, tracking starts',
+  'salesman-location-tracking-app: His day, drawn out',
+  'salesman-location-tracking-app: Rules you set',
+  'email-invoice-from-tally: The invoice reaches the inbox',
+  'email-invoice-from-tally: Reminders and statements, with Pay now',
+  'email-invoice-from-tally: The address comes from Tally',
+];
 
 describe('pages owed captures', () => {
   const owed = FEATURE_PAGES.filter((p) => p.pendingScreens?.length);
 
   it('are exactly the round-three pages still waiting on a capture', () => {
     expect(owed.map((p) => p.slug).sort()).toEqual(
-      [
-        'proof-of-delivery-app-tally',
-        'manufacturing-in-tally-prime',
-        'custom-voucher-type-tally',
-        'desktop-billing-tally',
-        'salesman-location-tracking-app',
-        'email-invoice-from-tally',
-        'optional-voucher-tally-prime',
-      ].sort()
+      ['proof-of-delivery-app-tally', 'optional-voucher-tally-prime'].sort()
     );
   });
 
@@ -922,9 +924,19 @@ describe('pages owed captures', () => {
 
   it('no page outside the owed set has an imageless step', () => {
     const offenders = FEATURE_PAGES.filter((p) => !p.pendingScreens?.length).flatMap((p) =>
-      (p.walkthrough ?? []).filter((s) => !stepShot(s)).map((s) => `${p.slug}: ${s.title}`)
+      (p.walkthrough ?? [])
+        .filter((s) => !stepShot(s) && !s.copyOnly)
+        .map((s) => `${p.slug}: ${s.title}`)
     );
     expect(offenders).toEqual([]);
+  });
+
+  it('copy-only steps are exactly the closed set, and carry no screen', () => {
+    const marked = FEATURE_PAGES.flatMap((p) =>
+      (p.walkthrough ?? []).filter((s) => s.copyOnly).map((s) => [p.slug, s])
+    );
+    expect(marked.map(([slug, s]) => `${slug}: ${s.title}`).sort()).toEqual([...COPY_ONLY_STEPS].sort());
+    for (const [, s] of marked) expect(stepShot(s), s.title).toBeNull();
   });
 });
 

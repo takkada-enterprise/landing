@@ -331,6 +331,15 @@ export const SCREENS = {
   'manufacturing-production-run': phone('manufacturing-production-run', "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync"),
   'manufacturing-job-work': phone('manufacturing-job-work', "Job work order with items received so far, the components, Material Out and Material In challans, a charges bill to link, and Record receipt"),
   'voucher-names-list': phone('voucher-names-list', "Custom voucher names: Proforma Invoice, Service Invoice and Vehicle Booking, each ready with its next bill number"),
+  'manufacturing-run-short-check': phone('manufacturing-run-short-check', "New production run for 20 bags with one component marked Short, none in stock, and a warning before Save run"),
+  'voucher-names-create-in-tally': phone('voucher-names-create-in-tally', "New sales invoice type named Export Invoice with prefix EXP/26-27/, first number EXP/26-27/1, and a Create in Tally button"),
+  'voucher-names-series': phone('voucher-names-series', "New voucher type flagging the prefix PF/26-27/: another type already numbers bills with it, so pick one that cannot clash"),
+  'voucher-names-pick-at-billing': phone('voucher-names-pick-at-billing', "Starting a new sales invoice asks which one: Proforma Invoice or Service Invoice"),
+  // A desktop capture (2880x1800, the empty bottom strip cut to 2880x1712), so
+  // a wide sheet at 720x428, not a phone.
+  'desktop-entry-invoice': sheet('desktop-entry-invoice', "New sales invoice on a computer screen: party, number and voucher type across the top, item rows with qty, rate, discount and GST, and the total with Save", 720, 428),
+  'live-tracking-map': phone('live-tracking-map', "Team Map with salesmen's pins over the city, and each one's last seen, battery and kilometres today, one marked stopped reporting"),
+  'email-invoices': phone('email-invoices', "Email settings: sent as the company via Takkada, copies and replies to the business address, 5 of 34 customers with an email, and recent invoices marked sent"),
 };
 
 export function screen(slug) {

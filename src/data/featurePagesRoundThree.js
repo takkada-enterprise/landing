@@ -11,11 +11,13 @@
 // Screens: every image here is a real capture of the feature itself, from demo
 // company 143 (2026-11-05). Ronak rejected the adjacent stand-in screens these
 // pages first carried, so a page or step with no capture of its own shows no
-// image at all: the four pages without one (desktop entry, live tracking, email
-// invoices, Tally drafts) have a copy-only hero. A step that is waiting names
-// its capture in `pendingScreen`, and the page lists every capture it is owed
-// in `pendingScreens`. feature-pages.test.js pins both, and goes red the day a
-// pending slug is registered in screens.js, so the swap cannot be forgotten.
+// image at all: Tally drafts, still waiting on its capture, has a copy-only
+// hero. A step that is waiting names its capture in `pendingScreen`, and the
+// page lists every capture it is owed in `pendingScreens`. feature-pages.test.js
+// pins both, and goes red the day a pending slug is registered in screens.js,
+// so the swap cannot be forgotten. A step that will stay without a screen (the
+// single-capture pages: desktop entry, live tracking, email invoices) says so
+// with `copyOnly: true`; that set is closed in the same test file.
 // Where each slug plugs in: docs/seo/feature-pages-round-three/SCREENS-TODO.md.
 //
 // Copy angle (Ronak, 2026-11-05): the reader already runs this job in Tally.
@@ -370,7 +372,6 @@ export const ROUND_THREE = [
     },
     footerLabel: 'Manufacturing',
     hero: { screen: 'manufacturing-production-run' },
-    pendingScreens: ['manufacturing-run-short-check'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -388,7 +389,7 @@ export const ROUND_THREE = [
         title: 'Stock checked before the batch starts',
         body:
           'Pick what you are making and how many. Each component shows what is on hand and says Short when the godown cannot cover it, before anything is saved, so nobody calls the godown to ask. A run received from a production order opens with its item, BOM and the quantity still to receive already filled.',
-        pendingScreen: 'manufacturing-run-short-check',
+        screen: 'manufacturing-run-short-check',
       },
       {
         icon: 'FileCheck2',
@@ -514,7 +515,6 @@ export const ROUND_THREE = [
     },
     footerLabel: 'Voucher names',
     hero: { screen: 'voucher-names-list' },
-    pendingScreens: ['voucher-names-create-in-tally', 'voucher-names-series', 'voucher-names-pick-at-billing'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -532,21 +532,21 @@ export const ROUND_THREE = [
         title: 'Created in Tally, under the right parent',
         body:
           'At the Tally computer this means Create, Voucher Type, then a parent, a numbering method and Prevent duplicates. Create in Tally does it for you under the base type for that document, even if you renamed the base, with manual numbering and duplicates prevented. The type stays switched on, so staff keying in Tally can use it too.',
-        pendingScreen: 'voucher-names-create-in-tally',
+        screen: 'voucher-names-create-in-tally',
       },
       {
         icon: 'ListChecks',
         title: 'Its own series, with no clashes',
         body:
           'A prefix has to be unique and cannot clash with numbers your Tally vouchers already use this year. Rename a type and the numbers keep running: VB-1, VB-2, then VB-3 under the new name.',
-        pendingScreen: 'voucher-names-series',
+        screen: 'voucher-names-series',
       },
       {
         icon: 'CheckCheck',
         title: 'Pick it when you bill',
         body:
           'With one name for a document it is used on its own. With several, a new sales invoice asks which one. Lists show each bill\'s type with filter chips, and the PDF keeps Tax Invoice as its title with the type name printed under it.',
-        pendingScreen: 'voucher-names-pick-at-billing',
+        screen: 'voucher-names-pick-at-billing',
       },
     ],
     comparison: {
@@ -644,7 +644,7 @@ export const ROUND_THREE = [
         'Desktop Entry add-on: a computer layout in the web browser at app.takkada.com with a sidebar, wide registers and one keyboard-first entry form for quotations, sales orders, delivery challans, sales invoices, credit notes, receipts, purchase orders, goods receipts, purchase invoices, debit notes, payments, stock journals, expenses, contra and journals. Enter moves on, Ctrl+A saves, F8/F9 pick sales or purchase vouchers, Alt+O pulls pending order or challan lines. Every save runs the same path to Tally as the phone app. Shown only for companies with the add-on, on a wide window with a mouse; never switched on by screen size.',
     },
     footerLabel: 'Desktop billing',
-    pendingScreens: ['desktop-entry-invoice'],
+    hero: { screen: 'desktop-entry-invoice' },
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -655,25 +655,28 @@ export const ROUND_THREE = [
         title: 'Type it the way Tally taught you',
         body:
           'F8 lists the sales vouchers and F9 the purchase ones, Option 8 and Option 9 on a MacBook. Enter moves to the next field, Shift+Tab goes back, Esc backs out. F2 changes the date, and Alt+C makes a new party or item without leaving the bill.',
-        pendingScreen: 'desktop-entry-invoice',
+        screen: 'desktop-entry-invoice',
       },
       {
         icon: 'Link2',
         title: 'Pull the order into the bill',
         body:
           "Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt, so an order a salesman booked on his phone is never typed again. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.",
+        copyOnly: true,
       },
       {
         icon: 'CheckCheck',
         title: 'Save, then the next step',
         body:
           'Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the delivery challan.',
+        copyOnly: true,
       },
       {
         icon: 'ShieldCheck',
         title: 'Into Tally like any other entry',
         body:
           'A desktop save runs the same save the phone runs, so numbering, approvals and the write into Tally behave the same. A half-typed bill survives a closed or crashed browser tab for seven days.',
+        copyOnly: true,
       },
     ],
     comparison: {
@@ -771,7 +774,7 @@ export const ROUND_THREE = [
         "Live Tracking add-on: a Start day / End day duty window on the salesman's Android phone records location and battery every 2, 5, 10 or 15 minutes (or every 200 m), with a notification showing the whole time and an automatic stop time. The Team Map shows who is on duty, last seen, battery, km today and who stopped reporting; a day view shows the route, gaps, check-in pins, orders and receipts. Offline points queue for 48 hours. Android only, never iPhone; the map also opens in a computer browser with Web view. Locations kept 90 days.",
     },
     footerLabel: 'Live tracking',
-    pendingScreens: ['live-tracking-map'],
+    hero: { screen: 'live-tracking-map' },
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -782,25 +785,28 @@ export const ROUND_THREE = [
         title: 'He starts the day, tracking starts',
         body:
           'The home screen carries a Start your day card. The first time, he sees what is recorded and agrees to it. From Start day to End day the phone reports where it is, and a notification stays on the whole time, so nothing runs out of sight.',
+        copyOnly: true,
       },
       {
         icon: 'LayoutGrid',
         title: 'The Team Map, refreshed every minute',
         body:
           'Pins for everyone on duty, and a line per person with when they were last seen, the battery left and the kilometres covered today. Anyone silent for twenty minutes reads Stopped reporting, and Day ended or Never started today covers the rest.',
-        pendingScreen: 'live-tracking-map',
+        screen: 'live-tracking-map',
       },
       {
         icon: 'Route',
         title: 'His day, drawn out',
         body:
           'Tap a name for the day: the route on the map, the gaps where the phone went quiet, the check-in pins, and the orders and receipts he made, including the ones keyed in Tally. End day tells the salesman how many kilometres he covered.',
+        copyOnly: true,
       },
       {
         icon: 'Clock',
         title: 'Rules you set',
         body:
           'The admin picks how often the phone reports, every 2, 5, 10 or 15 minutes, and the time tracking stops by itself if nobody ends the day. Below 15% battery the phone reports less often. Locations are kept for 90 days.',
+        copyOnly: true,
       },
     ],
     comparison: {
@@ -902,7 +908,7 @@ export const ROUND_THREE = [
         "Email add-on: each automatic invoice (with Auto Invoice Dispatch), due and overdue payment reminder and ledger statement that goes out on WhatsApp is also emailed, PDF attached, with the same words and a Pay now link. The address comes from the party's Tally ledger or is added in the app and written back to Tally. Sent as the company via Takkada; Reply-To and a copy go to the business email. Sent even when WhatsApp fails. No manual email button; receipts and credit notes are not emailed.",
     },
     footerLabel: 'Email invoices',
-    pendingScreens: ['email-invoices'],
+    hero: { screen: 'email-invoices' },
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -913,25 +919,28 @@ export const ROUND_THREE = [
         title: 'The invoice reaches the inbox',
         body:
           'When Auto Invoice Dispatch sends an invoice on WhatsApp, the same invoice goes by email with the PDF attached. It is sent as your company name via Takkada, and a copy goes to your business email.',
-        pendingScreen: 'email-invoices',
+        copyOnly: true,
       },
       {
         icon: 'CalendarClock',
         title: 'Reminders and statements, with Pay now',
         body:
           'Due and overdue reminders and ledger statements carry the same words as the WhatsApp message, plus a Pay now link. If the WhatsApp message fails or the number has blocked you, the email still goes.',
+        copyOnly: true,
       },
       {
         icon: 'BookOpen',
         title: 'The address comes from Tally',
         body:
           "Takkada reads the email on the party ledger in Tally. If one is missing, add it on the party's Email card in the app; it is written back into Tally, so the next sync keeps it.",
+        copyOnly: true,
       },
       {
         icon: 'ListChecks',
         title: 'See what went out',
         body:
           'Settings, Email shows the name it is sent as, where copies and replies go, how many of your customers have an email address, and the emails sent most recently.',
+        screen: 'email-invoices',
       },
     ],
     comparison: {

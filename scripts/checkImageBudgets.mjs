@@ -246,6 +246,20 @@ export const BUDGETS = [
   ['public/assets/screens/manufacturing-job-work-720.webp', 60_000, 'feature-page screen (manufacturing-job-work)'],
   ['public/assets/screens/voucher-names-list-360.webp', 32_000, 'feature-page hero (custom-voucher-type-tally)'],
   ['public/assets/screens/voucher-names-list-720.webp', 60_000, 'feature-page hero (custom-voucher-type-tally)'],
+  ['public/assets/screens/manufacturing-run-short-check-360.webp', 32_000, 'feature-page screen (manufacturing-run-short-check)'],
+  ['public/assets/screens/manufacturing-run-short-check-720.webp', 60_000, 'feature-page screen (manufacturing-run-short-check)'],
+  ['public/assets/screens/voucher-names-create-in-tally-360.webp', 32_000, 'feature-page screen (voucher-names-create-in-tally)'],
+  ['public/assets/screens/voucher-names-create-in-tally-720.webp', 60_000, 'feature-page screen (voucher-names-create-in-tally)'],
+  ['public/assets/screens/voucher-names-series-360.webp', 32_000, 'feature-page screen (voucher-names-series)'],
+  ['public/assets/screens/voucher-names-series-720.webp', 60_000, 'feature-page screen (voucher-names-series)'],
+  ['public/assets/screens/voucher-names-pick-at-billing-360.webp', 32_000, 'feature-page screen (voucher-names-pick-at-billing)'],
+  ['public/assets/screens/voucher-names-pick-at-billing-720.webp', 60_000, 'feature-page screen (voucher-names-pick-at-billing)'],
+  ['public/assets/screens/desktop-entry-invoice-720.webp', 24_000, 'feature-page hero (desktop-billing-tally), wide sheet'],
+  ['public/assets/screens/desktop-entry-invoice-1440.webp', 56_000, 'feature-page hero (desktop-billing-tally), wide sheet 2x'],
+  ['public/assets/screens/live-tracking-map-360.webp', 34_000, 'feature-page hero (salesman-location-tracking-app); map tiles, q64'],
+  ['public/assets/screens/live-tracking-map-720.webp', 76_000, 'feature-page hero (salesman-location-tracking-app); map tiles are the heaviest round-three export even at q64'],
+  ['public/assets/screens/email-invoices-360.webp', 32_000, 'feature-page hero (email-invoice-from-tally)'],
+  ['public/assets/screens/email-invoices-720.webp', 60_000, 'feature-page hero (email-invoice-from-tally)'],
 ];
 
 export function overBudget(entries, sizeOf) {
