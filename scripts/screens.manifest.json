@@ -529,83 +529,88 @@
     "source": "stock-control-reorder.png",
     "shows": "Stock Control, Reorder tab with its top band open: 12 to reorder, 5 overdue, 6 on order; 5 items past their order-by date; Order this week 2, Lead time 7 d, On order 6 with 2 late, Lost sales; Growth 0%; supplier chips; 5 due items, 3 suppliers, Select",
     "alt": "Stock Control with five items past their order-by date and tiles for order this week, lead time, on order and lost sales",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-reorder.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
   },
   {
     "slug": "stock-control-reorder-list",
     "source": "stock-control-reorder-list.png",
     "shows": "Stock Control, Reorder tab list: each item with a tick box, stock, overdue and the quantity to order, what is already on the way; 5 due items, 3 suppliers, Select",
     "alt": "Reorder list with each item's stock, what is already on the way and the quantity to order, ready to tick",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-reorder-list.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "stock-control-basket",
     "source": "stock-control-basket.png",
     "shows": "Stock Control basket: 2 suppliers, 5 items grouped by supplier with a value per supplier, quantity boxes to edit, remove buttons, Create PO for one supplier (3 items)",
     "alt": "Order basket grouping the ticked items by supplier, with quantities to edit and a Create PO button for one supplier",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-basket.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 62
   },
   {
     "slug": "stock-control-supplier-performance",
     "source": "stock-control-supplier-performance.png",
     "shows": "Stock Control, Suppliers tab, one supplier: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, ordered qty arrived 89%; days to arrive by year chart marked Getting slower; items below",
     "alt": "One supplier's delivery record: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, 89% of the ordered quantity arrived, getting slower",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-supplier-performance.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
   },
   {
     "slug": "stock-control-season-plan",
     "source": "stock-control-season-plan.png",
     "shows": "Stock Control, Season Plan tab: items grouped by stock group with out-of-stock days, true demand and forecast, each with an Order by date",
     "alt": "Season plan listing items by stock group with days out of stock, true demand, forecast and an order-by date for each",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-season-plan.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "pod-driver-drops",
     "source": "pod-driver-drops.png",
     "shows": "Delivery trip for one van: shops numbered in driving order, the items and quantities for each, this bill amount and old dues, Call on the next shop, a New shop tag, finished drops marked Delivered",
     "alt": "A van's delivery trip with shops numbered in order, each shop's items and bill amount, a Call button, and finished drops marked delivered",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-driver-drops.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "pod-photo-proof",
     "source": "pod-photo-proof.png",
     "shows": "Invoice screen with a Delivery proof card: the delivery photo, Delivered with date and time, van and driver, quantities accepted per item, Where the photo was taken",
     "alt": "Invoice with a delivery proof card: the delivery photo, the time, the van and driver, the quantities accepted, and where the photo was taken",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-photo-proof.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
   },
   {
     "slug": "pod-office-approval",
     "source": "pod-office-approval.png",
     "shows": "Cash with drivers: one driver with the amount pending; a cash and a UPI collection, each with its invoice and van, Approve and Reject; the UPI row carries a payment screenshot",
     "alt": "Cash with drivers: each collection with its invoice, cash or UPI, a payment screenshot for UPI, and Approve or Reject",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-office-approval.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "manufacturing-bom",
     "source": "manufacturing-bom.png",
     "shows": "Bill of materials editor: BOM name Standard, makes 1 Carton, Use by default on, Made in house or At a job worker, component lines with quantity, godown and scrap %, Made from its own BOM, Add line",
     "alt": "Bill of materials for one carton: components with quantities, godown and scrap percentage, made in house and used by default",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-bom.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "manufacturing-production-run",
     "source": "manufacturing-production-run.png",
     "shows": "Stock Journal screen showing a Manufacturing Journal SJ-38 from run 2 / level 1, sync pending; Inward the finished cartons, Outward two components, each with quantity, godown and value; Share PDF",
     "alt": "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-production-run.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "manufacturing-job-work",
     "source": "manufacturing-job-work.png",
     "shows": "Job work order: items to receive at a rate per bag, 10 of 20 received; components; challans Material Out, Manufacturing Journal, Material In; no charges bill linked yet with Link a bill; Record receipt and Send material",
     "alt": "Job work order with items received so far, the components, Material Out and Material In challans, a charges bill to link, and Record receipt",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-job-work.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
   },
   {
     "slug": "voucher-names-list",
     "source": "voucher-names-list.png",
     "shows": "Custom voucher names settings: switch on; Proforma Invoice and Service Invoice under Sales Invoice, Vehicle Booking under Sales Order, each Ready with its next number; Add another type under each document",
     "alt": "Custom voucher names: Proforma Invoice, Service Invoice and Vehicle Booking, each ready with its next bill number",
-    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/voucher-names-list.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 66
   }
 ]

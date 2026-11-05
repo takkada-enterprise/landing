@@ -88,3 +88,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 ## Capture
 
 - `desktop-entry-invoice`: the desktop Sales Invoice form on a wide browser window (stage co7088). Show the party filled in, three item lines in the grid, the totals panel and the ? shortcut sheet or hint chips. Ideally take a second frame just after Ctrl+A, showing the saved strip ("SALE-… saved", View / Print / Send) above a blank form.
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: Alt+O lists the party's open source documents, so a sales order booked on the phone app is pulled into the bill (`desktop/entry/chain/entry_chain_source.dart:1-50`; `widgets/pull_source_list.dart:1-13`); same save as the phone, numbering and approvals unchanged (`sales_invoice_entry_wiring.dart:1-14`; `entry_approval.dart:1-20`); Chrome or Safari, wide window, mouse (`desktop_shortcuts.dart:11-35`; `desktop_device_scope.dart`). The disclaimer says the Tally computer and its connector must stay on.
+
+**Tally alone (basis)**: billing in Tally Prime happens at a computer running Tally (or a remote session into one), with F8/F9, Enter, Ctrl+A and Alt+C; the page credits Tally with the same keys ("The same keys, at the Tally computer"). "Typed in again from the salesman's message or slip" describes a business without the phone app, which is what "Tally alone" means on this page. No claim about Tally licences or editions.

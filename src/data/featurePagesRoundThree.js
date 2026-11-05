@@ -17,6 +17,13 @@
 // in `pendingScreens`. feature-pages.test.js pins both, and goes red the day a
 // pending slug is registered in screens.js, so the swap cannot be forgotten.
 // Where each slug plugs in: docs/seo/feature-pages-round-three/SCREENS-TODO.md.
+//
+// Copy angle (Ronak, 2026-11-05): the reader already runs this job in Tally.
+// Each page says what the job takes in Tally alone today (who, where, how many
+// entries, what is typed twice, what is checked by phone) and what is left with
+// Takkada doing the legwork into the same Tally. Tally is the neighbour: the
+// "Tally alone" column describes the reader's day, never a fault in Tally, and
+// every Tally-side sentence is listed with its basis in the claims sheet.
 
 /** @type {import('./featurePages').FeaturePage[]} */
 export const ROUND_THREE = [
@@ -24,25 +31,25 @@ export const ROUND_THREE = [
     slug: 'stock-control-tally',
     searchPhrase: 'Stock control for Tally',
     overline: 'STOCK CONTROL',
-    headline: 'Know what to order, from whom, and by when.',
+    headline: "This week's purchase list, worked out before anyone walks to the godown.",
     subheadline:
-      'A fast item runs out and the retailer buys elsewhere, while a slow one sits on the shelf because somebody ordered it to be safe. Stock Control reads your Tally sales, purchase orders and receipts and tells you each morning what to buy.',
+      "The weekly order usually starts with the stock summary in Tally, a call to the godown and somebody's memory of which supplier takes twelve days, then each purchase order is keyed in line by line. Stock Control reads the same Tally books and hands you the list and the orders.",
     answerPoints: [
-      'See which items run out before a fresh order can arrive',
-      'Order quantities worked out from your own best month of sales',
+      'The items that will run out before a fresh order lands, without a godown call',
+      'Quantities from your own best month, minus stock and what is already ordered',
       'Supplier delivery times measured from your own orders and receipts',
-      'Turn the list into one purchase order per supplier',
+      'One purchase order per supplier, filled in and saved to Tally',
     ],
-    // 55 words.
+    // 59 words.
     answer:
-      "Stock control for Tally works through Takkada's Stock Control screen. It reads your synced Tally sales, purchase orders and receipts, lists the items that will run out before a fresh order lands, suggests a quantity from your best month, and turns the ticked items into one purchase order per supplier that goes back to Tally.",
+      "Stock control for Tally means knowing what to reorder without counting shelves or retyping orders. Takkada's Stock Control reads your synced Tally sales, purchase orders and receipts, lists the items that will run out before a fresh order lands, suggests quantities from your best month, and turns ticked items into one purchase order per supplier, saved back to Tally.",
     waContext: 'feature-stock-control-tally',
     waMessage:
       'Hi, we reorder from memory and still run out of the fast items. Can you show me what Takkada Stock Control says I should order this week?',
     seo: {
       title: 'Stock Control for Tally: Reorder, Lead Time, Season Plan',
       description:
-        'Stock control for Tally: what to reorder today, real supplier lead times, a season plan with order-by dates, and one purchase order per supplier.',
+        'Stock control for Tally: what to reorder today, supplier lead times from your own receipts, a season plan, and purchase orders saved to Tally unretyped.',
     },
     llms: {
       section: 'Features',
@@ -59,23 +66,23 @@ export const ROUND_THREE = [
     walkthrough: [
       {
         icon: 'Activity',
-        title: 'Reorder Now, most overdue first',
+        title: 'The list nobody has to make',
         body:
-          'The top band reads Order this week, Lead time, On order and Lost sales. Below it is every item that will run out before a fresh order can arrive, with its stock, what is already on the way, the supplier lead time and a suggested quantity.',
+          'The top band reads Order this week, Lead time, On order and Lost sales. Below it is every item that will run out before a fresh order can arrive, most overdue first, with its stock, what is already on the way, the supplier lead time and a quantity to order. Nobody counts a shelf to build it.',
         screen: 'stock-control-reorder-list',
       },
       {
         icon: 'PackageCheck',
         title: 'Tick, check, create the order',
         body:
-          'Tick items, or let one tap pick everything that is due. The basket groups them by supplier with the quantities open to change, and Create PO opens that supplier\'s purchase order filled in at the last purchase rate. Save it and it goes to Tally like any order.',
+          'Tick items, or let one tap pick everything that is due. The basket groups them by supplier with the quantities open to change, and Create PO opens that supplier\'s purchase order filled in at the last purchase rate. Save it and it goes to Tally like any order, so nobody keys it again at the Tally computer.',
         screen: 'stock-control-basket',
       },
       {
         icon: 'Truck',
         title: 'Suppliers, judged on what they did',
         body:
-          'For every supplier: the days an order usually takes, the days 9 in 10 orders arrive within, the worst case, how much of what you ordered actually came, and the orders past their promised date. Year by year it shows who is getting faster or slower.',
+          'For every supplier: the days an order usually takes, the days 9 in 10 orders arrive within, the worst case, how much of what you ordered actually came, and the orders past their promised date. Year by year it shows who is getting faster or slower, measured from your own receipts.',
         screen: 'stock-control-supplier-performance',
       },
       {
@@ -87,44 +94,49 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'Reordering from memory, against reordering from your own numbers',
-      othersLabel: 'A reorder spreadsheet',
+      heading: 'The weekly order, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
+        {
+          feature: 'Which items to reorder',
+          takkada: 'Listed each morning, most overdue first: the items that will run out before a fresh order arrives.',
+          others: 'Read off the stock summary, then checked with a call to the godown.',
+        },
         {
           feature: 'How much to order',
           takkada:
-            'Tops stock up to your best month of the last twelve, lifted by the growth dial, minus stock and what is on order.',
-          others: 'Somebody counts the shelf and guesses.',
+            'Topped up to your best month of the last twelve, lifted by the growth dial, minus stock and what is already on order.',
+          others: 'Worked out by whoever places the order, against the reorder level on the item if somebody set one.',
         },
         {
           feature: 'Supplier delivery time',
           takkada: 'Measured from your own purchase orders and receipts: usually, 9 in 10 within, worst.',
-          others: 'The time the supplier promised.',
-        },
-        {
-          feature: 'Stock already ordered',
-          takkada: 'Counted in every suggestion, so the same item is not ordered twice.',
-          others: 'Checked by calling the godown.',
+          others: 'Remembered, or taken from what the supplier said on the phone.',
         },
         {
           feature: 'Season stock',
-          takkada: "Last year's same months, corrected for stock-outs, with an order-by date per item.",
-          others: 'Bought once the rush has started.',
+          takkada: "Last year's same months, corrected for the days items were out of stock, with an order-by date per item.",
+          others: "Read off last year's sales register by hand, if there is time before the rush.",
         },
         {
           feature: 'The purchase order',
-          takkada: 'One per supplier, filled in from the basket and saved to Tally.',
-          others: 'Typed into Tally line by line.',
+          takkada: 'One per supplier, filled in from the basket at the last purchase rate, then saved to Tally.',
+          others: 'Keyed into Tally line by line at the office.',
         },
       ],
       disclaimer:
-        'Tally Prime keeps a reorder level on a stock item if you type one in. It does not measure supplier lead time or plan a season, which is the part Stock Control adds.',
+        "Tally Prime's Reorder Status report works from the reorder level and minimum order quantity set on each item. Stock Control reads the same books and adds measured supplier lead times, a season plan and the purchase orders themselves.",
     },
     planPointer: {
       plan: 'Momentum',
       note: 'Stock Control is an add-on, priced by your partner. Ask them for the add-on price.',
     },
     faqs: [
+      {
+        q: 'Does somebody still type the purchase orders into Tally?',
+        a: 'No. Create PO opens the purchase order already filled in with the supplier, the items, the quantities from the basket and the last purchase rate where there is one. Whoever saves it checks it once, and it reaches Tally as an ordinary purchase order.',
+      },
       {
         q: 'How does Stock Control decide how much to order?',
         a: "It finds each item's best month of sales in the last twelve full months and tops stock up to that level, lifted by the growth dial, after taking off what is in the godown and what is already on order. The quantity is rounded to a clean figure. An item with no such month falls back to its daily sales over the supplier's lead time.",
@@ -182,25 +194,25 @@ export const ROUND_THREE = [
     slug: 'proof-of-delivery-app-tally',
     searchPhrase: 'Proof of delivery app for Tally',
     overline: 'PROOF OF DELIVERY',
-    headline: 'Know what reached each shop, and what came back on the van.',
+    headline: 'When the van is back at seven, every drop is already on record: the photo, the returns and the cash.',
     subheadline:
-      'The van comes back at seven with cash in a bag, two cartons returned and a story about a closed shutter. Proof of Delivery gives your driver a login of his own, so every drop carries a photo, the returns and the money, and the office approves the cash into Tally.',
+      "Most evenings run on signed bill copies, a bag of cash counted against a list, and one receipt per shop keyed into Tally. Proof of Delivery puts the photo, the returns and the cash on record at each drop, and the office approves the money into a Tally receipt.",
     answerPoints: [
-      'A driver login that shows only his own trips',
-      'A live camera photo with time and place at each drop',
-      'Returns and missed drops recorded with a reason',
-      'Cash, UPI and cheque approved by the office into Tally receipts',
+      'A live camera photo with time and place at every drop, in place of the signed copy',
+      'Returns and missed drops recorded at the shop, with a reason',
+      'Cash, UPI and cheque recorded by the driver against each bill',
+      'One approval at the office makes the Tally receipt',
     ],
-    // 53 words.
+    // 59 words.
     answer:
-      "A proof of delivery app for Tally is what Takkada's Proof of Delivery add-on gives your driver: a login showing only his own trips. At each shop he marks the drop delivered with a camera photo carrying time and place, notes returns, and records cash, UPI or cheque. The office approves the money into Tally.",
+      "A proof of delivery app for Tally replaces the signed slip and the evening cash count with a record made at the shop. With Takkada's Proof of Delivery, the driver marks each drop with a live camera photo carrying time and place, notes returns, and records cash, UPI or cheque. The office approves the money into a Tally receipt.",
     waContext: 'feature-proof-of-delivery-app-tally',
     waMessage:
       'Hi, my van comes back with cash and returns and nobody knows what reached which shop. Can you show me Takkada Proof of Delivery with a driver login?',
     seo: {
       title: 'Proof of Delivery App for Tally: Photo, Returns, Cash',
       description:
-        'Proof of delivery app for Tally: a driver login, a live photo with time and place at each shop, returns with reasons, and van cash approved into Tally receipts.',
+        'Proof of delivery app for Tally: a photo with time and place at each shop, returns with reasons, and van cash approved into Tally receipts nobody retypes.',
     },
     llms: {
       section: 'Features',
@@ -241,28 +253,34 @@ export const ROUND_THREE = [
         icon: 'CheckCheck',
         title: 'The office approves it into Tally',
         body:
-          'Cash with drivers lists each collection by driver. Approve asks which account the money went into and makes a receipt in Tally; reject asks for a reason. The invoice carries a delivery proof card with the photo, the time and the map pin.',
+          'Cash with drivers lists each collection by driver, with the UPI screen or cheque photo beside it. Approve asks which account the money went into and makes the receipt in Tally against the bill, naming the driver and the trip, so nobody keys it. Reject asks for a reason. The invoice carries the photo, the time and the map pin.',
         screen: 'pod-office-approval',
       },
     ],
     comparison: {
-      heading: 'What the office knows when the van comes back',
-      othersLabel: 'Paper delivery slips',
+      heading: 'The evening after the van comes back, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
           feature: 'Proof the goods reached the shop',
-          takkada: 'A live camera photo with the time and the place on every drop.',
-          others: 'A stamp or signature on a slip, if the slip comes back.',
-        },
-        {
-          feature: 'Returns',
-          takkada: 'Quantity and reason per item, recorded at the shop.',
-          others: 'Told to the office in the evening.',
+          takkada: 'A live camera photo with the time and the place, shown on the invoice.',
+          others: 'A signed or stamped copy of the bill, if it comes back with the driver.',
         },
         {
           feature: 'Cash collected on the van',
-          takkada: 'Recorded per drop, then approved by the office into a Tally receipt.',
-          others: 'Counted against a list, then typed into Tally.',
+          takkada: 'Recorded per drop by the driver. One approval at the office makes the Tally receipt against the bill.',
+          others: 'Counted against a list, then one receipt per shop keyed into Tally.',
+        },
+        {
+          feature: 'Returns',
+          takkada: 'Quantity and reason per item, recorded at the shop and listed in the Returns report. The office still makes the credit note.',
+          others: 'Told to the office in the evening, then the credit note is keyed in Tally.',
+        },
+        {
+          feature: 'A shop that was not delivered',
+          takkada: "Couldn't deliver, with the reason: shop closed, customer refused, no money, or the shop was not found.",
+          others: "Explained by the driver at the end of the day.",
         },
         {
           feature: "The driver's access",
@@ -271,7 +289,7 @@ export const ROUND_THREE = [
         },
       ],
       disclaimer:
-        'Returns are recorded for the office and listed in a Returns report; they do not post a credit note or stock entry to Tally. Deliveries are recorded in the phone app.',
+        'Returns are recorded for the office and listed in a Returns report; they do not post a credit note or stock entry to Tally. Deliveries are recorded in the phone app, and nothing reaches Tally until the office approves it.',
     },
     planPointer: {
       plan: 'Copilot',
@@ -324,25 +342,25 @@ export const ROUND_THREE = [
     slug: 'manufacturing-in-tally-prime',
     searchPhrase: 'Manufacturing in Tally Prime',
     overline: 'MANUFACTURING',
-    headline: 'Record production and job work where it happens, straight into Tally.',
+    headline: 'Record production on the floor, and Tally gets the journals without anyone keying them.',
     subheadline:
-      'The supervisor knows what came off the line today, and Tally learns it days later when somebody keys a stock journal. Manufacturing keeps your bills of materials, production runs and job work in the app, and posts a Manufacturing Journal to Tally for each run.',
+      "Today the output goes on a slip, the godown gets a call before each batch, and the accountant keys every Manufacturing Journal, Material Out and Material In at the Tally computer. Takkada works from the BOMs already in your Tally, checks stock before a run and posts those vouchers from the phone.",
     answerPoints: [
-      'Bills of materials with by-products, co-products and scrap',
-      'Production runs that warn when a component is short',
-      'A Manufacturing Journal in Tally for each in-house step',
-      'Job work: material out to the worker and back again',
+      'Components checked against the godown before a run, with shortages marked',
+      'One run posts a Manufacturing Journal for each in-house level, in order',
+      'A production order received into stock with its item, BOM and quantity filled in',
+      'Job-work challans that start from the order, going out and coming back',
     ],
-    // 52 words.
+    // 57 words.
     answer:
-      "Manufacturing in Tally Prime gets a phone and computer front end with Takkada's Manufacturing add-on. Keep bills of materials with by-products and scrap, record a production run and each in-house step posts a Manufacturing Journal to Tally. Send material to a job worker and record what came back, against a job-work order.",
+      "Manufacturing in Tally Prime runs on Manufacturing Journals that someone keys at the Tally computer. With Takkada's Manufacturing add-on the floor records the run on a phone: it reads your Tally BOMs, flags short components, and posts one Manufacturing Journal per in-house step to Tally. Job work goes out and back on challans filled from the order.",
     waContext: 'feature-manufacturing-in-tally-prime',
     waMessage:
       'Hi, our production is keyed into Tally days after it happens. Can you show me how Takkada records BOMs, production runs and job work into Tally?',
     seo: {
       title: 'Manufacturing in Tally Prime: BOM, Production, Job Work',
       description:
-        'Manufacturing in Tally Prime from the phone: bills of materials with scrap, production runs posted as Manufacturing Journals, and job work out and back.',
+        'Manufacturing in Tally Prime from the floor: stock checked before a run, Manufacturing Journals posted per level, and job-work challans filled from the order.',
     },
     llms: {
       section: 'Features',
@@ -356,64 +374,75 @@ export const ROUND_THREE = [
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
-    walkthroughHeading: 'From the bill of materials to the journal in Tally',
+    walkthroughHeading: 'From the BOM in your Tally to the journal in your Tally',
     walkthrough: [
       {
         icon: 'ListChecks',
-        title: 'The bill of materials, set once',
+        title: 'The BOM your Tally already has',
         body:
-          'An item can carry several BOMs, one of them the default, over as many levels as you make it in. A line is a component, a by-product or a co-product with its own godown, and a component can carry a scrap percentage. A BOM edited in the app is written back to the item in Tally.',
+          'BOMs already set on your items in Tally come into the app, and a BOM edited in the app is written back to the item in Tally, so the office and the floor read one recipe. An item can carry several BOMs over as many levels as you make it in, and a line is a component, by-product or co-product with its own godown.',
         screen: 'manufacturing-bom',
       },
       {
         icon: 'PackageCheck',
-        title: 'A run that checks the godown first',
+        title: 'Stock checked before the batch starts',
         body:
-          'Pick what you are making and how many. Each component shows what is on hand and says Short when the godown cannot cover it. A step takes its output batch and godown, by-products, scrap, and labour or power as an amount or a percentage.',
+          'Pick what you are making and how many. Each component shows what is on hand and says Short when the godown cannot cover it, before anything is saved, so nobody calls the godown to ask. A run received from a production order opens with its item, BOM and the quantity still to receive already filled.',
         pendingScreen: 'manufacturing-run-short-check',
       },
       {
         icon: 'FileCheck2',
-        title: 'Each step lands as a Manufacturing Journal',
+        title: 'Every level becomes its own Manufacturing Journal',
         body:
-          'Save the run and every in-house step posts one Manufacturing Journal to Tally: components out, the finished item, by-products and scrap in, costs added. The run shows each step as In Tally with its number, and Tally values the finished item itself.',
+          'In Tally alone, a product made in three levels usually means three Manufacturing Journals, keyed in order. Save the run and each in-house level becomes one, components out and the finished item in. Here level 1 of run 2 is SJ-38, reading Sync: pending until your Tally computer takes it in; the run then marks the step In Tally with its number.',
         screen: 'manufacturing-production-run',
       },
       {
         icon: 'Truck',
-        title: 'Job work, out and back',
+        title: 'Job work out and back, nothing typed twice',
         body:
-          "Raise a job-work order with charges per unit, send material on a challan printed under Section 143 of the CGST Act, and record what came back: received, used, scrap and returned unused. The job worker's charges bill links to the order.",
+          "Send material starts from the order's components, and Record receipt starts from what is still due, with the components used worked out in proportion. The challan prints under Section 143 of the CGST Act. The Job Work Out Order, Material Out and Material In then reach Tally in that order.",
         screen: 'manufacturing-job-work',
       },
     ],
     comparison: {
-      heading: 'Production on the floor, against production keyed at the office',
-      othersLabel: 'Tally Prime on its own',
+      heading: 'A week of production, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
-          feature: 'Where production is recorded',
-          takkada: 'On the phone or computer, by whoever runs the line.',
-          others: 'At the Tally machine, as a Manufacturing Journal.',
+          feature: 'Recording what was made',
+          takkada: 'On the phone, by whoever runs the line, the day it is made.',
+          others: 'Written on a slip, then keyed at the Tally computer as a Manufacturing Journal.',
         },
         {
-          feature: 'Short components',
-          takkada: 'Flagged on the run before it is saved.',
-          others: 'Found when the stock goes negative.',
+          feature: 'A product made in levels',
+          takkada: 'One run. A Manufacturing Journal per level goes to Tally in order, stopping at the first failure.',
+          others: 'One Manufacturing Journal per level, keyed by hand in the right order.',
+        },
+        {
+          feature: 'Enough components for the batch',
+          takkada: 'Each component shows On hand, and Short when the godown cannot cover it, before the run is saved.',
+          others: 'Checked with a call to the godown before the batch starts.',
         },
         {
           feature: 'Planning the work',
-          takkada: 'Production orders with due dates, reported rejects and requests from the team.',
-          others: 'Kept on paper or in a sheet.',
+          takkada: 'Production orders with due dates, requests from the team and rejects reported. Receiving one opens the run already filled.',
+          others: 'A whiteboard or a sheet kept beside Tally.',
         },
         {
-          feature: 'Job-work challan',
-          takkada: 'Printed under Section 143, with an e-way bill offered on the consignment value.',
-          others: 'A Material Out voucher keyed at the office.',
+          feature: 'Job work out and back',
+          takkada: 'Material Out and Material In start filled from the job-work order, and the challan prints under Section 143.',
+          others: 'Job Work Out Order, Material Out and Material In, each keyed with its items.',
+        },
+        {
+          feature: 'The bill of materials',
+          takkada: 'The same BOM, read from your Tally. An edit made in the app goes back to the item.',
+          others: 'Set on the stock item at the Tally computer.',
         },
       ],
       disclaimer:
-        'Takkada posts into the Manufacturing Journal voucher type already in your Tally and does not create one. Job work you do for a principal is not sent to Tally.',
+        'Takkada posts into the Manufacturing Journal voucher type your Tally already has and does not create one. Job work you do for a principal stays in the app and is not sent to Tally, and a journal or challan already in Tally is not changed from the app.',
     },
     planPointer: {
       plan: 'Momentum',
@@ -442,6 +471,10 @@ export const ROUND_THREE = [
         a: 'Job work out does: the job-work order, the Material Out when material leaves and the Material In when it comes back go to Tally in that order. Job work you do for a principal is recorded in the app but is not sent to Tally.',
       },
       {
+        q: 'What does my accountant still do in Tally?',
+        a: 'Set up the Manufacturing Journal voucher type once, keep the Tally computer and its connector running so the journals land, and cancel a journal in Tally if a run was wrong. The journals, job-work vouchers and BOM edits arrive from the app without anyone keying them.',
+      },
+      {
         q: 'Can I change a run after it is in Tally?',
         a: 'No. Once a run, a job-work order or a challan is in Tally, the app will not change it. If a run was wrong, cancel its journal in Tally and record the run again in the app, so both sides tell the same story.',
       },
@@ -453,18 +486,18 @@ export const ROUND_THREE = [
     slug: 'custom-voucher-type-tally',
     searchPhrase: 'Custom voucher type in Tally',
     overline: 'VOUCHER NAMES',
-    headline: 'Bill as Proforma, Service Invoice or Vehicle Booking, each with its own numbers.',
+    headline: 'Proforma, service bills and bookings, each on its own number series in Tally, set up from your phone.',
     subheadline:
-      'Your business raises more than one kind of bill, and your accountant keeps them apart in Tally by voucher type. Voucher names lets you create those types from the app, each with its own number series, and bill against the right one from the phone.',
+      'Today a new kind of bill means a session at the Tally computer: the voucher type, its parent, its numbering, its prefix, and a check that no number collides with one used this year. Voucher names does it from Settings on the phone, and asks your staff which type to use when they start a bill.',
     answerPoints: [
-      'Create voucher types in Tally from the app',
-      'A number prefix and series for each one',
-      'Rename once, in the app and in Tally',
-      'Pick the right type when you start a bill',
+      'A new voucher type made in Tally without a visit to the Tally computer',
+      'A prefix checked against the numbers your Tally already used this year',
+      'Rename once, and Tally follows with the series running on',
+      'Staff pick the type when they start the bill',
     ],
-    // 52 words.
+    // 58 words.
     answer:
-      "A custom voucher type in Tally, such as Proforma or Service Invoice under Sales, is what Takkada's Voucher names add-on creates for you. Type the name and a number prefix, tap Create in Tally, and the type appears in Tally with manual numbering and duplicates blocked. Each name runs its own series.",
+      "A custom voucher type in Tally, such as Proforma or Service Invoice under Sales, is usually set up at the Tally computer. Takkada's Voucher names add-on does it from the app: type the name and a number prefix, tap Create in Tally, and the type appears in Tally with manual numbering, duplicates blocked and its own series.",
     waContext: 'feature-custom-voucher-type-tally',
     waMessage:
       'Hi, we keep separate voucher types in Tally for different bills. Can you show me how Takkada creates them with their own number series and bills against them?',
@@ -498,7 +531,7 @@ export const ROUND_THREE = [
         icon: 'ShieldCheck',
         title: 'Created in Tally, under the right parent',
         body:
-          'Create in Tally makes the voucher type under the base type for that document, even if you renamed the base in Tally. It is set to manual numbering with duplicates prevented and left switched on, so your staff can use it in Tally as well.',
+          'At the Tally computer this means Create, Voucher Type, then a parent, a numbering method and Prevent duplicates. Create in Tally does it for you under the base type for that document, even if you renamed the base, with manual numbering and duplicates prevented. The type stays switched on, so staff keying in Tally can use it too.',
         pendingScreen: 'voucher-names-create-in-tally',
       },
       {
@@ -517,32 +550,33 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'Voucher types made from the app, against made at the Tally machine',
-      othersLabel: 'Tally Prime on its own',
+      heading: 'A new kind of bill, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
           feature: 'Creating the type',
-          takkada: 'From the app, by the company admin.',
-          others: 'At the Tally machine, under Voucher Types.',
+          takkada: 'From Settings on the phone, by the company admin, in one sheet. Takkada creates it in Tally.',
+          others: 'At the Tally computer, under Create, Voucher Type.',
         },
         {
           feature: 'Number series',
-          takkada: 'A prefix per name, checked against numbers already used this year.',
-          others: 'Set inside the voucher type by whoever creates it.',
+          takkada: 'A prefix per name, checked against the numbers your Tally vouchers already use this year.',
+          others: 'Set inside the voucher type by whoever creates it, and checked for clashes by them.',
         },
         {
           feature: 'Renaming',
-          takkada: 'Once, in the app. Tally follows and the numbers keep running.',
-          others: 'Done in Tally, and the app has to be told separately.',
+          takkada: 'Once, in the app. Tally follows, old bills show the new name and the numbers keep running.',
+          others: 'Altered in the voucher type at the Tally computer.',
         },
         {
           feature: 'Choosing the type on a bill',
-          takkada: 'Asked at the start of the bill on the phone or computer.',
-          others: 'Picked in voucher entry at the office.',
+          takkada: 'Asked when a bill is started on the phone, if the document has more than one.',
+          others: 'Picked in voucher entry, at a computer running Tally.',
         },
       ],
       disclaimer:
-        'Tally Prime has always let you add voucher types. Voucher names creates them from the app and keeps the app and Tally on the same names and the same series.',
+        'Tally Prime has always let you add voucher types. Voucher names creates them from the app and keeps the app and Tally on the same names and the same series. A type, once made, stays in Tally; it can be hidden from new bills, never deleted.',
     },
     planPointer: {
       plan: 'Momentum',
@@ -583,18 +617,18 @@ export const ROUND_THREE = [
     slug: 'desktop-billing-tally',
     searchPhrase: 'Desktop billing for Tally',
     overline: 'DESKTOP ENTRY',
-    headline: 'Bill on the computer the way your Tally operator already types.',
+    headline: 'Your billing staff type at Tally speed from any office computer with a browser.',
     subheadline:
-      'Your billing staff think in Enter and the keyboard, not in taps. Desktop Entry puts a Tally-style form in the computer browser, so invoices, orders, receipts and payments go in at keyboard speed and reach Tally like every other entry.',
+      "Today billing waits for a seat at the computer that runs Tally, and an order a salesman took on his phone gets typed in again. Desktop Entry puts a Tally-style form in the browser, F8, Enter and Ctrl+A included, and each bill reaches your Tally through the same save the phone app uses.",
     answerPoints: [
-      'One keyboard-first form for sales, purchase, stock and accounts entries',
-      'Enter moves to the next field and Ctrl+A saves',
-      'Pull what is pending from an order or challan into the bill',
+      "Tally's keys in the browser: F8, F9, Enter, Ctrl+A and Alt+C",
+      'A second billing desk without a second seat at the Tally computer',
+      'Alt+O pulls what is still pending on an order or challan into the bill',
       'Every save reaches Tally the same way a phone entry does',
     ],
-    // 50 words.
+    // 57 words.
     answer:
-      "Desktop billing for Tally is what Takkada's Desktop Entry add-on does: a keyboard-first entry form in the computer browser at app.takkada.com. Type the party, Enter through item, quantity and rate, press Ctrl+A to save. Invoices, orders, challans, receipts, payments and journals post to Tally the same way phone entries do.",
+      "Desktop billing for Tally is what Takkada's Desktop Entry add-on does: a keyboard-first entry form in the computer browser at app.takkada.com, so billing no longer waits for a seat at the Tally computer. Type the party, Enter through item, quantity and rate, press Ctrl+A to save. Each entry posts to Tally the same way phone entries do.",
     waContext: 'feature-desktop-billing-tally',
     waMessage:
       'Hi, my billing staff type fast in Tally and find the phone slow. Can you show me Takkada Desktop Entry with the keyboard on a computer?',
@@ -627,7 +661,7 @@ export const ROUND_THREE = [
         icon: 'Link2',
         title: 'Pull the order into the bill',
         body:
-          "Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.",
+          "Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt, so an order a salesman booked on his phone is never typed again. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.",
       },
       {
         icon: 'CheckCheck',
@@ -643,32 +677,33 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'The computer layout, against the phone screens in a browser',
-      othersLabel: 'Web view on its own',
+      heading: 'A day at the billing desk, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
-          feature: 'What you see on a computer',
-          takkada: 'A sidebar, wide registers and a Tally-style entry form.',
-          others: 'The phone screens, in a browser window.',
+          feature: 'Where billing happens',
+          takkada: 'Any computer with Chrome or Safari, a wide window and a mouse, at app.takkada.com.',
+          others: 'At a computer running Tally, or over a remote session into it.',
         },
         {
-          feature: 'Moving through a bill',
-          takkada: 'Enter, Shift+Tab, arrows and Esc, with F8 and F9 for the voucher type.',
-          others: 'Clicks, the way a phone is tapped.',
+          feature: 'The keys',
+          takkada: 'F8, F9, Enter, Esc, Ctrl+A and Alt+C, the ones your staff already use.',
+          others: 'The same keys, at the Tally computer.',
         },
         {
-          feature: 'Who it suits',
-          takkada: 'Billing staff who type all day.',
-          others: 'An owner checking a figure from a laptop.',
+          feature: 'An order booked on the phone',
+          takkada: 'Pulled into the bill with Alt+O, only the quantity still open, checked again at save.',
+          others: 'Typed in again from the salesman\'s message or slip.',
         },
         {
-          feature: 'Where entries go',
-          takkada: 'Into Tally, through the same save as the phone.',
-          others: 'Into Tally, through the same save as the phone.',
+          feature: 'Where the bill lands',
+          takkada: 'In your Tally, through the same save the phone app uses, with numbering and approvals unchanged.',
+          others: 'In Tally, as it is typed.',
         },
       ],
       disclaimer:
-        'Web view is the browser login that comes with Assurance. Desktop Entry is a separate add-on that brings the computer layout and opens the browser by itself.',
+        'Desktop Entry runs in the browser and writes to the Tally on your office computer through its connector, so that computer stays on. Web view, which comes with Assurance, shows the phone screens in a browser; Desktop Entry brings the computer layout and opens the browser by itself.',
     },
     planPointer: {
       plan: 'Momentum',
@@ -709,9 +744,9 @@ export const ROUND_THREE = [
     slug: 'salesman-location-tracking-app',
     searchPhrase: 'Salesman location tracking app',
     overline: 'LIVE TRACKING',
-    headline: 'See where your salesmen are during their working day.',
+    headline: 'Where your salesmen went today, on one map, before the evening call.',
     subheadline:
-      'The evening call asking where everyone went gets you an answer, never a route. Live Tracking records the salesman\'s location only between Start day and End day on his Android phone, and the Team Map shows who is out, where, and how far they have gone.',
+      "Tally holds the orders and receipts your salesmen bring back; where they went and how far is whatever they say on the evening call. Live Tracking records location only between Start day and End day on the salesman's Android phone, and lays his route beside his orders and receipts.",
     answerPoints: [
       'Location and battery recorded only during the working day',
       'A Team Map of who is on duty and who stopped reporting',
@@ -759,7 +794,7 @@ export const ROUND_THREE = [
         icon: 'Route',
         title: 'His day, drawn out',
         body:
-          'Tap a name for the day: the route on the map, the gaps where the phone went quiet, the check-in pins, and the orders and receipts he made. End day tells the salesman how many kilometres he covered.',
+          'Tap a name for the day: the route on the map, the gaps where the phone went quiet, the check-in pins, and the orders and receipts he made, including the ones keyed in Tally. End day tells the salesman how many kilometres he covered.',
       },
       {
         icon: 'Clock',
@@ -769,32 +804,33 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'A visit stamp, against the whole working day',
-      othersLabel: 'Visit check-in on its own',
+      heading: "One salesman's day, in Tally alone and with Takkada",
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
-          feature: 'What it records',
-          takkada: 'Location every few minutes, from Start day to End day.',
-          others: 'A photo, the location and the time at each shop check-in.',
+          feature: 'Where he is now',
+          takkada: 'A pin on the Team Map, refreshed every minute, with the battery left on his phone.',
+          others: 'Asked on a phone call.',
         },
         {
-          feature: 'The question it answers',
-          takkada: 'Where is he now, and how far has he gone today.',
-          others: 'Was he at this shop, and when.',
+          feature: 'Kilometres covered',
+          takkada: 'Counted per day, shown on the map and to him at End day.',
+          others: 'Whatever he writes on his travel claim.',
         },
         {
-          feature: 'Battery and silence',
-          takkada: 'Battery per person, and a flag when a phone stops reporting.',
-          others: 'Not shown.',
+          feature: 'His orders and receipts',
+          takkada: 'On the same day view as his route and check-in pins, including entries keyed in Tally.',
+          others: 'In Tally once keyed, with nothing to say where he was.',
         },
         {
-          feature: 'Kilometres',
-          takkada: 'Counted per day and shown at End day.',
-          others: 'Not counted.',
+          feature: 'A phone that went quiet',
+          takkada: 'Marked Stopped reporting after twenty minutes without a location.',
+          others: 'Found out when he does not pick up.',
         },
       ],
       disclaimer:
-        'Visit check-in is part of Team Sales in Copilot and comes with Live Tracking too. Live Tracking records on Android only.',
+        'Tally keeps the books and was never meant to record where a salesman went. Live Tracking records on Android phones only, includes visit check-in and check-out, writes nothing to Tally, and keeps locations for 90 days.',
     },
     planPointer: {
       plan: 'Momentum',
@@ -839,9 +875,9 @@ export const ROUND_THREE = [
     slug: 'email-invoice-from-tally',
     searchPhrase: 'Email invoices from Tally',
     overline: 'EMAIL INVOICES',
-    headline: 'Reach the customers who work from their inbox.',
+    headline: 'Customers who ask for invoices by email get them with each automatic WhatsApp send.',
     subheadline:
-      "Some buyers, the purchase desk of a chain or a company's accounts team, read email before WhatsApp. With Email on, the invoice PDF, the reminder and the statement reach their inbox too, from the same send.",
+      "The purchase desk of a chain reads email before WhatsApp, and today each invoice, reminder and statement it wants is e-mailed by hand from the Tally computer. With Email on, the invoice PDF, the reminder and the statement that go out on WhatsApp reach the inbox too, from the same automatic send.",
     answerPoints: [
       'Invoices emailed with the PDF attached',
       'Payment reminders and statements emailed with a Pay now link',
@@ -899,28 +935,29 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'Email that rides with every send, against email by hand',
-      othersLabel: 'Emailing from Tally by hand',
+      heading: 'Email to customers, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
           feature: 'Sending the invoice',
-          takkada: 'Automatic, with the WhatsApp send.',
-          others: "Tally Prime's E-mail option, one voucher at a time, after mail setup.",
+          takkada: 'Automatic, with the WhatsApp send from Auto Invoice Dispatch, PDF attached.',
+          others: 'E-mailed from the voucher by somebody at the Tally computer, once mail is set up there.',
         },
         {
-          feature: 'Payment reminders',
-          takkada: 'Each scheduled reminder, emailed with a Pay now link.',
-          others: 'Written and sent by somebody at the office.',
+          feature: 'Reminders and statements',
+          takkada: 'Each scheduled reminder and statement, emailed with a Pay now link.',
+          others: 'Sent by hand from the office.',
+        },
+        {
+          feature: 'The email address',
+          takkada: "Read from the party ledger in Tally. One added in the app is written back to the ledger.",
+          others: 'Kept on the party ledger in Tally.',
         },
         {
           feature: 'Replies',
           takkada: 'Come back to your business email, which gets a copy of each one.',
-          others: 'Come to whichever mailbox sent it.',
-        },
-        {
-          feature: 'When WhatsApp fails',
-          takkada: 'The email still goes.',
-          others: 'Somebody notices, or nobody does.',
+          others: 'Come to the mailbox set up on the Tally computer.',
         },
       ],
       disclaimer:
@@ -969,9 +1006,9 @@ export const ROUND_THREE = [
     slug: 'optional-voucher-tally-prime',
     searchPhrase: 'Optional voucher in Tally Prime',
     overline: 'TALLY DRAFTS',
-    headline: 'Check what your accountant keyed in Tally before it reaches the books.',
+    headline: 'The vouchers your accountant parked for your word, checked and posted from your phone.',
     subheadline:
-      'Your accountant marks a voucher optional in Tally when it is not ready to post, and it sits there until somebody opens Tally to look. Tally Drafts lists them on your phone, so you check each one and post it or set it aside from wherever you are.',
+      'Today the accountant marks a voucher optional in Tally, reads it out to you on the phone, waits for your word, then opens it again and makes it regular. Tally Drafts lists those vouchers on your phone, and one tap turns the same voucher regular in Tally.',
     answerPoints: [
       'See every optional voucher keyed in Tally, by type',
       'Check the party, amount and ledger lines on the phone',
@@ -1019,7 +1056,7 @@ export const ROUND_THREE = [
         icon: 'CheckCheck',
         title: 'Post it, and Tally makes it regular',
         body:
-          'Approve on the list posts it in one tap; Post to books on the detail asks first. The same voucher in Tally turns regular, with no second copy made. A posted draft cannot be undone from the app.',
+          'Approve on the list posts it in one tap; Post to books on the detail asks first. The same voucher in Tally turns regular, with no second copy made, and nobody opens it again at the Tally computer. A posted draft cannot be undone from the app.',
       },
       {
         icon: 'ShieldCheck',
@@ -1029,18 +1066,24 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: 'Drafts checked on the phone, against drafts found at the office',
-      othersLabel: 'Tally Prime on its own',
+      heading: 'An optional voucher, in Tally alone and with Takkada',
+      takkadaLabel: 'Tally with Takkada',
+      othersLabel: 'Tally alone',
       rows: [
         {
           feature: 'Seeing pending drafts',
           takkada: 'A list on the phone, by voucher type and status.',
-          others: "The optional vouchers report, at the Tally machine.",
+          others: 'The Optional Vouchers report at the Tally computer, or a call from the accountant.',
+        },
+        {
+          feature: 'Checking one',
+          takkada: 'Party, amount, ledger lines and narration, on the phone.',
+          others: 'Opened in Tally, or read out over the phone.',
         },
         {
           feature: 'Posting one',
-          takkada: 'One tap. The same voucher turns regular in Tally.',
-          others: 'Opened in Tally, marked regular and saved.',
+          takkada: 'One tap. The same voucher turns regular in Tally, with no second copy.',
+          others: 'Opened in Tally again, marked regular and saved.',
         },
         {
           feature: 'Who can post',

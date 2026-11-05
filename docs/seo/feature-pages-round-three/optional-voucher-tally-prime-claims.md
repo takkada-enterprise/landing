@@ -64,3 +64,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 ## Capture
 
 - `tally-drafts`: the **Tally Drafts** register on the phone (stage co7088 or the demo book), on the Drafts tab with the "All" chip. Show two or three tiles, each with voucher type, party, amount, date, Dr/Cr ledger lines and the Reject / Approve buttons. A second frame is optional: the "Post to your Tally books?" sheet showing "This records it in Tally as a regular … It can't be undone from the app."
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: unchanged facts above (Approve makes the same voucher regular, no second copy; list shows party, amount, ledger lines and narration; reject is app-only).
+
+**Tally alone (basis)**: in Tally Prime a voucher is marked optional in voucher entry and made regular by opening it, marking it regular and saving; pending ones are listed in the Optional Vouchers report. The phone call or photo to the owner is the reader's day.

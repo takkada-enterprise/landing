@@ -64,3 +64,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 ## Capture (demo / stage book only, never a customer book)
 
 - `voucher-names-list`: phone **Custom voucher names** screen with the switch on and the hide warning under it. A **Sales Invoice** section with two rows (for example "Vehicle Booking" and "Service Invoice"), each reading **Ready** and "Next number VB-3" style text, one with "Ledger: …"; the **Add another Sales Invoice type** button and **Use a type already in your Tally**; a **Sales Order** section with one row below it.
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: unchanged facts above (create in Tally under the base type with manual numbering and duplicates prevented; prefix checked against this year's numbers; rename follows in Tally; chooser when a family has several names). The type staying switched on in Tally is `20261049860500_custom_voucher_type_active_in_tally.sql:3-10`. The disclaimer now adds that a created type stays in Tally and can only be hidden (`custom_voucher_names_settings_screen.dart:582-583`, `:905-906`).
+
+**Tally alone (basis)**: in Tally Prime a voucher type is made under Create, Voucher Type, choosing its parent (type of voucher), method of numbering, Prevent duplicates and prefix details; renaming is an Alter of the voucher type; voucher entry offers the list of types under a parent. Removed from the old table: "the app has to be told separately" (not verified).

@@ -76,3 +76,13 @@ Checked 2026-11-05 against takkada `origin/main` 7d9784c7f (2.1.322, live on pro
 | `stock-control-basket` | Basket sheet "Check quantities" with Create PO · supplier buttons | walkthrough step 2 |
 | `stock-control-supplier-performance` | Suppliers tab: Usually / 9 in 10 within / Arrived / Trend / Past promise | walkthrough step 3 |
 | `stock-control-season-plan` | Season Plan: True demand, Order by, the "already late" line | walkthrough step 4 |
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: unchanged facts from the sheet above, reframed: the list is built from synced sales, POs and receipts; Create PO opens the supplier's PO filled from the basket at the last purchase rate where one exists, and the saved PO goes to Tally like any app PO (`services/reorder_po_draft_builder.dart` header; `stockout_reorder_screen.dart:49-52`). New FAQ "Does somebody still type the purchase orders into Tally?" rests on those two refs.
+
+**Tally alone (basis)**
+- Tally Prime's Reorder Status report works from the reorder level and minimum order quantity set on each stock item (disclaimer). The page does not say Tally ignores stock on order or cannot compute a level; it says the quantity is "worked out by whoever places the order, against the reorder level on the item if somebody set one".
+- Purchase orders in Tally are keyed at the Tally computer, line by line. Lead times "remembered, or taken from what the supplier said" and the godown call are the reader's day.

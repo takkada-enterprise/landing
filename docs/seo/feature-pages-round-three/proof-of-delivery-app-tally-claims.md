@@ -75,3 +75,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 - `pod-driver-drops`: the driver's trip screen (`pod_trip_screen.dart`): trip name in the app bar, shops in drive order, each with Call and Navigate, one shop marked Delivered, one "New shop", one "Saved on phone · uploads when there is signal".
 - `pod-photo-proof`: the drop screen (`pod_drop_screen.dart`): bill heading with "₹X due", an item with Returned qty and a reason chip (Damaged), Delivery photo with the green tick, Payment chips with UPI picked, amount filled, "Photo of payment screen", and Mark delivered / Couldn't deliver at the bottom. Use a demo company; no real shop names.
 - `pod-office-approval`: Cash with drivers (`pod_cash_screen.dart`) with the "Approve payment?" dialog open: "This makes a receipt and sends it to Tally." and the "Money went into" picker. Alternative: the invoice's Delivery proof card ("7 accepted · 3 returned", photo, map pin).
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: approval makes the receipt against the bill(s), with the driver and trip in the narration (live prod `approve_pod_payment` → `create_receipt_v2`); Cash with drivers shows the payment photo (`pod_cash_screen.dart:10-13`); Couldn't deliver reasons (`pod_drop_screen.dart:25-30`). The comparison now says outright that the office still makes the credit note for returns.
+
+**Tally alone (basis)**: proof is the signed or stamped bill copy the driver brings back; van cash becomes one receipt per shop keyed into Tally; returns become a credit note keyed in Tally. All three describe the reader's day; Tally has no driver-side app and the page does not fault it for that.

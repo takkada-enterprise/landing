@@ -53,3 +53,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 ## Screen captures
 
 - `email-invoices`: Settings → Email (`email_settings_screen.dart`) on a demo company: "Sent as <Company> via Takkada <noreply@takkada.com>", "Copies and replies go to" with a business email, "N of M customers have an email", and Recent emails with an Invoice row marked Sent. Prod has no invoice email to capture, so this needs a staged demo send. Second choice: the party page Email card with an address saved.
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: unchanged facts above (rides on Auto Invoice Dispatch and the automatic reminders; address from the ledger, app-added address written back; Reply-To and copy to the business email).
+
+**Tally alone (basis)**: Tally Prime can e-mail a voucher or report once e-mail is set up on the Tally computer; somebody at that computer sends it. The page no longer says "one voucher at a time" or that Tally cannot send reminders: we did not verify Tally's multi-voucher or reminder-letter e-mail, so the table says only "Sent by hand from the office".

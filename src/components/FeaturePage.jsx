@@ -412,7 +412,7 @@ function FeaturePage({ page }) {
                     What you need
                   </th>
                   <th className="comparison-th comparison-th--takkada" scope="col">
-                    Takkada
+                    {page.comparison.takkadaLabel ?? 'Takkada'}
                   </th>
                   <th className="comparison-th" scope="col">
                     {page.comparison.othersLabel}

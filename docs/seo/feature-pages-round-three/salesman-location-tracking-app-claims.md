@@ -58,3 +58,11 @@ Checked 2026-11-05 against takkada origin/main 7d9784c7f and prod (SELECT only).
 ## Screen captures
 
 - `live-tracking-map`: the Team Map (`team_map_screen.dart`) on Android or web: map with two or three person pins (one in warning colour), the Auto-stop time and Location every rows (full access view), then On duty rows reading "Last seen 3 min ago · Battery 64% · 18.2 km today" and one "Stopped reporting at …", a Day ended row with "(automatic)". The demo company has seeded live-tracking data (prod cron `demo-live-tracking`), so capture from demo, never a customer.
+
+## Tally alone vs with Takkada (copy rewrite, 2026-11-05)
+
+Ronak asked for every page to show what the job takes in Tally alone and what is left with Takkada. Takkada-side sentences were re-checked against takkada origin/main 7d9784c7f and supabase-functions origin/main b08b6fab (unchanged since the sheet above). Tally-side sentences describe Tally Prime as it ships, or the reader's day around it; where we were not sure how far Tally goes, the page says less. The comparison table's columns are labelled "Tally with Takkada" and "Tally alone" (`comparison.takkadaLabel`, rendered by `src/components/FeaturePage.jsx`).
+
+**With Takkada**: the day view's orders and receipts include entries made in Tally ("Includes entries made in Tally.", `screens/field_visits/salesman_day_screen.dart:477`); Stopped reporting after 20 minutes (`live_tracking_reads.dart:57-59`); km per day and at End day (`duty_day_service.dart:526-527`); writes nothing to Tally.
+
+**Tally alone (basis)**: Tally keeps the orders and receipts once keyed and has no location record; the page says Tally "was never meant to record where a salesman went". Phone call, travel claim and "found out when he does not pick up" are the reader's day.

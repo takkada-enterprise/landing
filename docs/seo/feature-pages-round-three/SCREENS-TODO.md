@@ -6,7 +6,7 @@ Landed: Stock Control hero `stock-control-reorder`, steps `stock-control-reorder
 
 To land a capture (demo company 143, `screens-raw/2026-11-05/<slug>.png`):
 
-1. Add it to `scripts/screens.manifest.json`, run `node scripts/exportScreens.mjs`, register it in `src/data/screens.js` with alt text written from the picture, add its provenance record to `content/image-provenance.json`, and if it becomes a hero, a byte budget in `scripts/checkImageBudgets.mjs`.
+1. A phone capture comes off the app as a bare rectangle; every screen on the site sits in an iPhone frame. Frame it first: `python3 scripts/phone-frame/frame_capture.py screens-raw/2026-11-05/<slug>.png mockups/<slug>.png` (the twelve landed ones were framed this way on 2026-11-05; a wide desktop capture is not framed). Then add it to `scripts/screens.manifest.json`, run `node scripts/exportScreens.mjs`, register it in `src/data/screens.js` with alt text written from the picture, add its provenance record to `content/image-provenance.json`, and if it becomes a hero, a byte budget in `scripts/checkImageBudgets.mjs`.
 2. In the page, rename the step's `pendingScreen: '<slug>'` to `screen: '<slug>'` (or set `hero: { screen: '<slug>' }`), and remove the slug from that page's `pendingScreens`.
 3. `src/data/__tests__/feature-pages.test.js` ("pages owed captures") goes red the moment a slug is registered while still pending, so step 2 cannot be skipped. When a page's `pendingScreens` empties, every step on it needs a screen. Single-capture pages will have three copy-only steps left over at that point, so either give them screens or decide on the layout then.
 
@@ -15,7 +15,7 @@ Still owed:
 | Capture slug | Page | Where it plugs in |
 |---|---|---|
 | `pod-cash-on-van` | `/proof-of-delivery-app-tally` | step 3 "Cash, UPI or cheque on the van" (the driver recording a payment) |
-| `manufacturing-run-short-check` | `/manufacturing-in-tally-prime` | step 2 "A run that checks the godown first" (a run with a component marked Short) |
+| `manufacturing-run-short-check` | `/manufacturing-in-tally-prime` | step 2 "Stock checked before the batch starts" (a run with a component marked Short) |
 | `voucher-names-create-in-tally` | `/custom-voucher-type-tally` | step 2 "Created in Tally, under the right parent" |
 | `voucher-names-series` | `/custom-voucher-type-tally` | step 3 "Its own series, with no clashes" |
 | `voucher-names-pick-at-billing` | `/custom-voucher-type-tally` | step 4 "Pick it when you bill" |
