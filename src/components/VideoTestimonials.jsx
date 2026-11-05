@@ -69,8 +69,8 @@ function VideoTestimonials({ items = videoTestimonials }) {
     <section className="hv3-stories" id="customer-stories" aria-label="Customer Video Stories">
       <div className="container">
         <div className="hv3-story-head reveal">
-          <span className="section-label">Real Distributor Stories</span>
-          <h2 className="hv3-story-title">Hear from distributors who run on Takkada</h2>
+          <span className="section-label">Real Customer Stories</span>
+          <h2 className="hv3-story-title">Hear from owners who run on Takkada</h2>
           <p className="hv3-story-intro">
             Owners from Ahmedabad to Guwahati, in their own words, on what changed once their Tally was on the phone.
           </p>
