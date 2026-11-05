@@ -666,5 +666,88 @@
     "alt": "Email settings: sent as the company via Takkada, copies and replies to the business address, 5 of 34 customers with an email, and recent invoices marked sent",
     "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/email-invoices.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
     "q": 72
+  },
+  {
+    "slug": "desktop-entry-pull-order",
+    "source": "desktop-entry-pull-order.png",
+    "shows": "Desktop New Sales Invoice for Ganesh Provision Stores, INV/26-27/0039, voucher type Sales; hint 3 open sales orders, 1 open delivery challan, Option-O to pull; list after Option-O: Sales orders waiting to be billed SO/26-27/004 (3 items still pending), SO/26-27/014 (4), SO/26-27/027 (2); Challans waiting to be billed DC/26-27/0002 (4 items still pending)",
+    "alt": "Pressing Alt+O on a new sales invoice lists the party's sales orders and challan still waiting to be billed, with the items pending on each",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-pull-order.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "desktop-entry-saved-strip",
+    "source": "desktop-entry-saved-strip.png",
+    "shows": "Desktop sales invoice just saved: strip INV/26-27/0039 saved with View, Print, Send, Record Receipt, Credit Note, Print labels, WhatsApp, Copy, Cancel, E-invoice, E-way bill, Payment link, each with its key; Linked to Sales Order SO/26-27/004, Open; a blank form below for the next bill, number INV/26-27/0040",
+    "alt": "After Ctrl+A the bill number shows as saved, with keys to view, print, send or cancel it and buttons for the receipt or credit note, above a blank form for the next bill",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-saved-strip.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "desktop-entry-restored-draft",
+    "source": "desktop-entry-restored-draft.png",
+    "shows": "Desktop New Sales Invoice after the browser tab was reloaded: Restored your unsaved invoice from 05-11-2026 18:50. Press Esc to discard it. Krishna General Store, Poha 25kg Bag 15 Bag, Groundnut Oil 15L 10 Tin, total Rs 34,559, Save Ctrl+A",
+    "alt": "A half-typed sales invoice brought back after the browser tab closed, with a note saying when it was restored and that Esc discards it",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-restored-draft.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "live-tracking-day",
+    "source": "live-tracking-day.png",
+    "shows": "Salesman's day for Arjun (Demo), Today: the day's route on the map; On duty since 9:45 AM, last seen 7 min ago, battery 51%, 34.9 km today; No location from 1:25 PM to 2:10 PM; No beat chosen for today; visit 1 Sardar Provision 12:05 to 12:30 PM, at the dealer 25 min, location verified",
+    "alt": "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/live-tracking-day.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
+  },
+  {
+    "slug": "live-tracking-rules",
+    "source": "live-tracking-rules.png",
+    "shows": "Team Map with the Share location every dialog open: More often uses more battery. Phones low on battery share every 15 min. Options 2 min, 5 min (ticked), 10 min, 15 min; Auto-stop time and the On duty list dimmed behind",
+    "alt": "Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/live-tracking-rules.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "email-party-card",
+    "source": "email-party-card.png",
+    "shows": "Party Balaji Traders: Add email dialog with an Email address field (placeholder accounts@example.com), Cancel and Save, over the party overview and its pending-orders card",
+    "alt": "Adding an email address to a party from its page in the app",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/email-party-card.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "tally-drafts",
+    "source": "tally-drafts.png",
+    "shows": "Tally Drafts, Drafts tab (In progress, Posted, Rejected); chips All, Sales, Purchases, Receipts; Sales INV/26-27/D102 Ganesh Provision Stores Rs 27,615 with Dr/Cr ledger lines and narration Scheme discount pending, Reject and Approve; Sales INV/26-27/D101 Laxmi Super Market Rs 48,230; Purchase PUR/26-27/D17 Navrang FMCG Agencies Rs 86,420; no Tally-sync-off line",
+    "alt": "Tally Drafts: optional vouchers from Tally with party, amount, date, ledger lines and narration, and Reject and Approve on each",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
+  },
+  {
+    "slug": "tally-drafts-detail",
+    "source": "tally-drafts-detail.png",
+    "shows": "Tally Draft: Draft chip; Type Sales, Number INV/26-27/D102, Date 05/11/2026, Party Ganesh Provision Stores, Amount Rs 27,615.00, Narration Scheme discount pending; Entries Dr Ganesh Provision Stores 27,615.00, Cr Sales GST 18% 23,402.54, Cr CGST 9% 2,106.23, Cr SGST 9% 2,106.23; Post to books",
+    "alt": "One Tally draft: type, number, date, party, amount and narration, and its debit and credit ledger entries, with Post to books",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-detail.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "tally-drafts-post",
+    "source": "tally-drafts-post.png",
+    "shows": "Post to your Tally books? sheet over the draft: Voucher Sales INV/26-27/D102, Party Ganesh Provision Stores, Amount Rs 27,615.00, Date 05/11/2026; This records it in Tally as a regular sales invoice. It can't be undone from the app. Cancel / Post",
+    "alt": "Posting a draft asks first: it records the voucher in Tally as a regular sales invoice and cannot be undone from the app",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-post.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "tally-drafts-reject",
+    "source": "tally-drafts-reject.png",
+    "shows": "Tally Drafts list after Reject on INV/26-27/D101: snackbar Rejected. Nothing was changed in Tally. Undo; remaining drafts Ganesh Provision Stores, Navrang FMCG Agencies, Annapurna Kirana receipt",
+    "alt": "Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-reject.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
   }
 ]

@@ -6,7 +6,9 @@ Landed, first batch: Stock Control hero `stock-control-reorder`, steps `stock-co
 
 Landed, second batch: Manufacturing step 2 `manufacturing-run-short-check`. Voucher names step 2 `voucher-names-create-in-tally`, step 3 `voucher-names-series` (the prefix-clash line), step 4 `voucher-names-pick-at-billing`. Desktop entry hero and step 1 `desktop-entry-invoice`, a wide `sheet()` with the empty bottom strip cut off and no device frame (it renders as a rounded card in a wider hero column, `feature-hero-grid--wide`). Live tracking hero and step 2 `live-tracking-map` (the names are made up now). Email invoices hero and step 4 "See what went out" `email-invoices`: the capture is the Settings, Email screen that step describes word for word, so it sits there rather than on step 1.
 
-Copy only by decision: the other three steps on desktop entry, live tracking and email invoices carry `copyOnly: true`; no capture exists for them and a borrowed screen is what was rejected. The set is closed in `src/data/__tests__/feature-pages.test.js` (`COPY_ONLY_STEPS`). Not used: `pod-cash-on-van.png` (a "Use the phone app to record deliveries" banner and greyed buttons; recapture).
+Landed, third batch (evening of 2026-11-05): Desktop entry step 2 `desktop-entry-pull-order` (the Alt+O list of orders and a challan still to be billed), step 3 `desktop-entry-saved-strip` (INV/26-27/0039 saved, with its keys; the step now says "such as the receipt", which is what the strip offers after an invoice), step 4 `desktop-entry-restored-draft` (the "Restored your unsaved invoice" note after a reloaded tab), all wide sheets. Live tracking step 3 `live-tracking-day` (Salesman's day with route, gap and first visit), step 4 `live-tracking-rules` (the Share location every dialog). Email invoices step 3 `email-party-card` (Add email on a party). Tally drafts hero and step 1 `tally-drafts`, step 2 `tally-drafts-detail`, step 3 `tally-drafts-post` (the confirm sheet; Post was not pressed), step 4 `tally-drafts-reject` (Rejected. Nothing was changed in Tally. Undo). The four Tally drafts files are STAGE captures of co111 "Shreeji Traders (Stage)" with made-up drafts (`docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql`), under an operator exception like the barcode page: demo co143 is a no-Tally company, so every draft there reads "Tally sync is off", and that guard was not bypassed.
+
+Copy only by decision, closed in `src/data/__tests__/feature-pages.test.js` (`COPY_ONLY_STEPS`): live tracking step 1 "He starts the day" (the Start day card is Android only and this Mac has no Android emulator), and email invoices steps 1 and 2 (the customer's inbox; the demo company's automatic sends are suppressed and an inbox is not an app screen).
 
 To land a capture (demo company 143, `screens-raw/2026-11-05/<slug>.png`):
 
@@ -16,9 +18,8 @@ To land a capture (demo company 143, `screens-raw/2026-11-05/<slug>.png`):
 
 Still owed:
 
-| Capture slug | Page | Where it plugs in |
-|---|---|---|
-| `pod-cash-on-van` | `/proof-of-delivery-app-tally` | step 3 "Cash, UPI or cheque on the van" (the driver recording a payment) |
-| `tally-drafts` | `/optional-voucher-tally-prime` | step 1 "Every draft, in one list", and the hero. Capture with Tally sync on so no banner shows |
+| Capture slug | Page | Where it plugs in | Blocker |
+|---|---|---|---|
+| `pod-cash-on-van` | `/proof-of-delivery-app-tally` | step 3 "Cash, UPI or cheque on the van" (the driver recording a payment) | The driver's drop screen greys its buttons on the web (`kIsWeb` in `lib/screens/pod/pod_drop_screen.dart:144`, banner "Use the phone app to record deliveries"). Needs the Android app: no Android SDK or emulator on this Mac (two release APKs sit in ~/Downloads). |
 
 What each capture should show is in the "Screens" section of that page's `*-claims.md` in this folder.

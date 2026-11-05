@@ -2905,6 +2905,166 @@
       "knownSensitive": false,
       "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-invoice.png, with the empty bottom 88 px cut off (a strip carrying only a small status dot in the sidebar), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction in place of the stand-in screens he rejected. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
       "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "a31653fa7ee5197ed65dedd116f639149ecc8e2823d47c579420047db8caad86": {
+      "path": "public/assets/screens/desktop-entry-pull-order-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-pull-order.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "d8a0c9d31a119068c8cecd12e4ac084baee6a52e1963255d7c8806d8d8eb1cea": {
+      "path": "public/assets/screens/desktop-entry-pull-order-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-pull-order.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "bc0d70b5131ebbd34adedd72789381bc798f250f7f7c8e049c89e3f67a32edc6": {
+      "path": "public/assets/screens/desktop-entry-saved-strip-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-saved-strip.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "bc779a7b33c7e38cbeb1d7fc091a98ffe3b96a42e0f30a5dd2dcef4b4b2fe03e": {
+      "path": "public/assets/screens/desktop-entry-saved-strip-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-saved-strip.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "badc6d72dd34d9fb67a1f2ab237fce221cdc20f9974baa0aa0194e99c093694c": {
+      "path": "public/assets/screens/desktop-entry-restored-draft-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-restored-draft.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "9439b36c49fb6a92ce96405e143aed273cedd49aab949f42717f24a36bcdfb9d": {
+      "path": "public/assets/screens/desktop-entry-restored-draft-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Desktop capture from demo company 143 (made-up data), screens-raw/2026-11-05/desktop-entry-restored-draft.png, cut at the bottom (empty page and the sidebar status line), no phone frame, the screen itself unchanged, then exported by scripts/exportScreens.mjs as a wide sheet. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "b7b6c9c7aad7009d1ac11cec5656c6e65d399d83c28e1ab4e1aef1c7f9ab432d": {
+      "path": "public/assets/screens/live-tracking-rules-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/live-tracking-rules.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "7b277f37fd5819c15747d7b23d117babcf8b66ef0c76b8f0f4380dab301e8e6c": {
+      "path": "public/assets/screens/live-tracking-rules-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/live-tracking-rules.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "1f531c99ce0aeeac9e852597529566692d0aa084c92c5b37e3ff06297317b25e": {
+      "path": "public/assets/screens/email-party-card-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/email-party-card.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "0fd31ffeb2f6fd0068620b2efd1d9717568f327809dc2b6cbb33dab181409e00": {
+      "path": "public/assets/screens/email-party-card-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/email-party-card.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "0b770c2f45ebfcbcdb0443e0857d98baba856a373721f126e68bb13779abef77": {
+      "path": "public/assets/screens/tally-drafts-detail-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-detail.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "45b5e429f85d74b0306eef5622a8683078c5126308348f9064e9630da97b57ff": {
+      "path": "public/assets/screens/tally-drafts-detail-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-detail.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "64a1b5c722445c291ebeb5fbadeb48ae4cbdb171fd5aa8da74366bed72b69194": {
+      "path": "public/assets/screens/tally-drafts-post-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-post.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "793bca7d8de17a4b46c2d6de5be48fc2622c1b808580b58caf0c526065dc64e2": {
+      "path": "public/assets/screens/tally-drafts-post-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-post.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "9d8af23ab80250a9022f319329cf05412c69f2573f64c3909259ad46c1a3a30a": {
+      "path": "public/assets/screens/tally-drafts-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "fbf4af9fcbdaab5a86db086e94813785807646854e7f8c56c58fb07fe0a094f4": {
+      "path": "public/assets/screens/tally-drafts-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "5b086d3468074a34910cb3ccd1fa5c0248e80377f754a3c12e6894972b427238": {
+      "path": "public/assets/screens/tally-drafts-reject-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-reject.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "6cd6d1c8da820f723e9106580dadefb2ce224aaf6126f0b10e94658746b36b14": {
+      "path": "public/assets/screens/tally-drafts-reject-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from STAGE co111 \"Shreeji Traders (Stage)\" (made-up Tally drafts on an empty stage QA company; not demo company 143), screens-raw/2026-11-05/tally-drafts-reject.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged), then exported by scripts/exportScreens.mjs. Demo co143 cannot show this screen without its \"Tally sync is off\" line. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from a Tally-connected demo company if one ever exists."
+    },
+    "8c3d5c211b5a25c80e822a013e00294c537528a1caec65a9e89c8ebfa6d072ef": {
+      "path": "public/assets/screens/live-tracking-day-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/live-tracking-day.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "a8d976f9e09cfc153650b3b04361ab2a495d33a34f3f1d994e562152ae257e3a": {
+      "path": "public/assets/screens/live-tracking-day-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-05",
+      "knownSensitive": false,
+      "reason": "Phone capture from demo company 143 (made-up data), screens-raw/2026-11-05/live-tracking-day.png, framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported by scripts/exportScreens.mjs. Wired into the round-three feature pages at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
     }
   },
   "classes": [

@@ -1099,7 +1099,7 @@ Desktop billing for Tally is what Takkada's Desktop Entry add-on does: a keyboar
 **How it works:**
 - **Type it the way Tally taught you**: F8 lists the sales vouchers and F9 the purchase ones, Option 8 and Option 9 on a MacBook. Enter moves to the next field, Shift+Tab goes back, Esc backs out. F2 changes the date, and Alt+C makes a new party or item without leaving the bill.
 - **Pull the order into the bill**: Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt, so an order a salesman booked on his phone is never typed again. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.
-- **Save, then the next step**: Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the delivery challan.
+- **Save, then the next step**: Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the receipt.
 - **Into Tally like any other entry**: A desktop save runs the same save the phone runs, so numbering, approvals and the write into Tally behave the same. A half-typed bill survives a closed or crashed browser tab for seven days.
 
 **Frequently Asked Questions:**

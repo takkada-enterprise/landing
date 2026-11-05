@@ -340,6 +340,20 @@ export const SCREENS = {
   'desktop-entry-invoice': sheet('desktop-entry-invoice', "New sales invoice on a computer screen: party, number and voucher type across the top, item rows with qty, rate, discount and GST, and the total with Save", 720, 428),
   'live-tracking-map': phone('live-tracking-map', "Team Map with salesmen's pins over the city, and each one's last seen, battery and kilometres today, one marked stopped reporting"),
   'email-invoices': phone('email-invoices', "Email settings: sent as the company via Takkada, copies and replies to the business address, 5 of 34 customers with an email, and recent invoices marked sent"),
+  // Third batch (2026-11-05). Desktop captures cut at the bottom (2880 wide,
+  // so 720 x height/4 sheets); phone captures framed like the rest.
+  'desktop-entry-pull-order': sheet('desktop-entry-pull-order', "Pressing Alt+O on a new sales invoice lists the party's sales orders and challan still waiting to be billed, with the items pending on each", 720, 370),
+  'desktop-entry-saved-strip': sheet('desktop-entry-saved-strip', 'After Ctrl+A the bill number shows as saved, with keys to view, print, send or cancel it and buttons for the receipt or credit note, above a blank form for the next bill', 720, 310),
+  'desktop-entry-restored-draft': sheet('desktop-entry-restored-draft', 'A half-typed sales invoice brought back after the browser tab closed, with a note saying when it was restored and that Esc discards it', 720, 380),
+  'live-tracking-day': phone('live-tracking-day', "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day"),
+  'live-tracking-rules': phone('live-tracking-rules', 'Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15'),
+  'email-party-card': phone('email-party-card', 'Adding an email address to a party from its page in the app'),
+  // The four Tally drafts screens are stage captures (co111, made-up drafts),
+  // not demo company 143: see their operatorException rows in the manifest.
+  'tally-drafts': phone('tally-drafts', 'Tally Drafts: optional vouchers from Tally with party, amount, date, ledger lines and narration, and Reject and Approve on each'),
+  'tally-drafts-detail': phone('tally-drafts-detail', 'One Tally draft: type, number, date, party, amount and narration, and its debit and credit ledger entries, with Post to books'),
+  'tally-drafts-post': phone('tally-drafts-post', 'Posting a draft asks first: it records the voucher in Tally as a regular sales invoice and cannot be undone from the app'),
+  'tally-drafts-reject': phone('tally-drafts-reject', 'Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo'),
 };
 
 export function screen(slug) {

@@ -9,15 +9,17 @@
 // each planPointer names a plan and the note sends the reader to a partner.
 //
 // Screens: every image here is a real capture of the feature itself, from demo
-// company 143 (2026-11-05). Ronak rejected the adjacent stand-in screens these
-// pages first carried, so a page or step with no capture of its own shows no
-// image at all: Tally drafts, still waiting on its capture, has a copy-only
-// hero. A step that is waiting names its capture in `pendingScreen`, and the
-// page lists every capture it is owed in `pendingScreens`. feature-pages.test.js
+// company 143 (2026-11-05), except the four Tally drafts screens: demo co143 is
+// a no-Tally company whose every draft reads "Tally sync is off", so those are
+// stage captures of made-up drafts under an operator exception (see their
+// manifest rows). Ronak rejected the adjacent stand-in screens these pages
+// first carried, so a step with no capture of its own shows no image at all.
+// A step that is waiting names its capture in `pendingScreen`, and the page
+// lists every capture it is owed in `pendingScreens`. feature-pages.test.js
 // pins both, and goes red the day a pending slug is registered in screens.js,
-// so the swap cannot be forgotten. A step that will stay without a screen (the
-// single-capture pages: desktop entry, live tracking, email invoices) says so
-// with `copyOnly: true`; that set is closed in the same test file.
+// so the swap cannot be forgotten. A step that will stay without a screen
+// (Start day, Android only; the two email-inbox steps) says so with
+// `copyOnly: true`; that set is closed in the same test file.
 // Where each slug plugs in: docs/seo/feature-pages-round-three/SCREENS-TODO.md.
 //
 // Copy angle (Ronak, 2026-11-05): the reader already runs this job in Tally.
@@ -662,21 +664,21 @@ export const ROUND_THREE = [
         title: 'Pull the order into the bill',
         body:
           "Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt, so an order a salesman booked on his phone is never typed again. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.",
-        copyOnly: true,
+        screen: 'desktop-entry-pull-order',
       },
       {
         icon: 'CheckCheck',
         title: 'Save, then the next step',
         body:
-          'Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the delivery challan.',
-        copyOnly: true,
+          'Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the receipt.',
+        screen: 'desktop-entry-saved-strip',
       },
       {
         icon: 'ShieldCheck',
         title: 'Into Tally like any other entry',
         body:
           'A desktop save runs the same save the phone runs, so numbering, approvals and the write into Tally behave the same. A half-typed bill survives a closed or crashed browser tab for seven days.',
-        copyOnly: true,
+        screen: 'desktop-entry-restored-draft',
       },
     ],
     comparison: {
@@ -799,14 +801,14 @@ export const ROUND_THREE = [
         title: 'His day, drawn out',
         body:
           'Tap a name for the day: the route on the map, the gaps where the phone went quiet, the check-in pins, and the orders and receipts he made, including the ones keyed in Tally. End day tells the salesman how many kilometres he covered.',
-        copyOnly: true,
+        screen: 'live-tracking-day',
       },
       {
         icon: 'Clock',
         title: 'Rules you set',
         body:
           'The admin picks how often the phone reports, every 2, 5, 10 or 15 minutes, and the time tracking stops by itself if nobody ends the day. Below 15% battery the phone reports less often. Locations are kept for 90 days.',
-        copyOnly: true,
+        screen: 'live-tracking-rules',
       },
     ],
     comparison: {
@@ -933,7 +935,7 @@ export const ROUND_THREE = [
         title: 'The address comes from Tally',
         body:
           "Takkada reads the email on the party ledger in Tally. If one is missing, add it on the party's Email card in the app; it is written back into Tally, so the next sync keeps it.",
-        copyOnly: true,
+        screen: 'email-party-card',
       },
       {
         icon: 'ListChecks',
@@ -1042,7 +1044,7 @@ export const ROUND_THREE = [
         'Tally Drafts add-on: lists the optional (draft) vouchers keyed in Tally on the phone and computer, in Drafts, In progress, Posted and Rejected tabs filtered by voucher type, with party, amount, date, ledger lines and narration. Approve posts the same voucher as regular in Tally with no second copy; Reject is app-only and leaves Tally untouched. Follows team permissions and approvals. Drafts are kept out of outstanding, ledgers, reports and reminders. Item lines are not shown; post-dated drafts are not posted.',
     },
     footerLabel: 'Tally drafts',
-    pendingScreens: ['tally-drafts'],
+    hero: { screen: 'tally-drafts' },
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -1053,25 +1055,28 @@ export const ROUND_THREE = [
         title: 'Every draft, in one list',
         body:
           'Tally Drafts opens on four tabs: Drafts, In progress, Posted and Rejected. Chips narrow it to sales, purchases, receipts, payments, notes, journals, contra, stock, challans, goods receipts or purchase orders, for this financial year unless you ask for older.',
-        pendingScreen: 'tally-drafts',
+        screen: 'tally-drafts',
       },
       {
         icon: 'FileCheck2',
         title: 'Check it where you are',
         body:
           'Each draft shows the voucher type, party, amount, date, the debit and credit ledger lines and the narration. If the accountant changes it in Tally after you looked, the post stops and the new figures are shown.',
+        screen: 'tally-drafts-detail',
       },
       {
         icon: 'CheckCheck',
         title: 'Post it, and Tally makes it regular',
         body:
           'Approve on the list posts it in one tap; Post to books on the detail asks first. The same voucher in Tally turns regular, with no second copy made, and nobody opens it again at the Tally computer. A posted draft cannot be undone from the app.',
+        screen: 'tally-drafts-post',
       },
       {
         icon: 'ShieldCheck',
         title: 'Reject without touching Tally',
         body:
           'Reject only sets it aside in the app, with Undo offered, and Tally stays as it was. Posting follows your team permissions: a member sees only the voucher types they may view and posts only the ones they may create.',
+        screen: 'tally-drafts-reject',
       },
     ],
     comparison: {

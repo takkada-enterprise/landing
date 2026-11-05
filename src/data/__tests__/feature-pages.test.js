@@ -866,24 +866,23 @@ describe('report gallery', () => {
 // pages had no capture of their own, so they joined it as copy-only steps
 // rather than borrow a screen that shows something else.
 //
-// Seven more landed later on 2026-11-05. pod-cash-on-van (it showed a banner
-// and greyed buttons) and tally-drafts (no capture) are still owed.
-const OWED_CAPTURES = new Set(['pod-cash-on-van', 'tally-drafts']);
+// Seven more landed later on 2026-11-05. A third batch that evening closed
+// tally-drafts (a stage capture under an operator exception: demo co143 is a
+// no-Tally company) and six of the nine copy-only steps. pod-cash-on-van is
+// still owed: the driver's payment screen is phone-app only (kIsWeb gate in
+// pod_drop_screen.dart) and this Mac has no Android emulator.
+const OWED_CAPTURES = new Set(['pod-cash-on-van']);
 
-// Pages with a single capture keep their other steps as copy, by decision
-// rather than as a wait: nothing else on those features was captured, and a
-// borrowed screen is what Ronak rejected. The set is closed so a copy-only
+// A step with no capture of its own stays copy, by decision rather than as a
+// wait: a borrowed screen is what Ronak rejected. The set is closed so a copy-only
 // step cannot spread to a page that should carry a screen.
+// What is left has no web capture to give: Start day is an Android-only card,
+// and the two email steps are the customer's inbox, which the demo never
+// reaches (its automatic sends are suppressed).
 const COPY_ONLY_STEPS = [
-  'desktop-billing-tally: Pull the order into the bill',
-  'desktop-billing-tally: Save, then the next step',
-  'desktop-billing-tally: Into Tally like any other entry',
   'salesman-location-tracking-app: He starts the day, tracking starts',
-  'salesman-location-tracking-app: His day, drawn out',
-  'salesman-location-tracking-app: Rules you set',
   'email-invoice-from-tally: The invoice reaches the inbox',
   'email-invoice-from-tally: Reminders and statements, with Pay now',
-  'email-invoice-from-tally: The address comes from Tally',
 ];
 
 describe('pages owed captures', () => {
@@ -891,7 +890,7 @@ describe('pages owed captures', () => {
 
   it('are exactly the round-three pages still waiting on a capture', () => {
     expect(owed.map((p) => p.slug).sort()).toEqual(
-      ['proof-of-delivery-app-tally', 'optional-voucher-tally-prime'].sort()
+      ['proof-of-delivery-app-tally']
     );
   });
 
