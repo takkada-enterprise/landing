@@ -33,7 +33,7 @@ describe('VideoTestimonials component', () => {
     expect(section).toBeTruthy();
     expect(section.getAttribute('aria-label')).toBe('Customer Video Stories');
     expect(screen.getByRole('heading', { level: 2 }).textContent).toContain(
-      'Hear from distributors who run on Takkada'
+      'Hear from owners who run on Takkada'
     );
   });
 
