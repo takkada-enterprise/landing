@@ -5,7 +5,7 @@ meta_title: "What Is Takkada? Tally on Mobile for Distributors"
 meta_description: "What is Takkada: Tally on mobile for Indian distributors. Billing with e-invoice, 20+ reports, stock, orders, salesmen, dispatch, reminders and UPI collection."
 primary_keyword: "what is takkada"
 date: "2026-06-06"
-updated: "2026-11-03"
+updated: "2026-11-05"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "A Guwahati FMCG distributor with 180 retail parties runs his business from Tally on a desktop he leaves at 7 PM. Takkada puts that Tally on his phone: the bills, the reports, the stock, the salesmen and the money, with every entry going back into the same books."
@@ -57,6 +57,10 @@ Feature by feature, here is what the app does for a distributor.
 | WhatsApp invoices and reminders | Invoices and payment reminders go out on WhatsApp, from Takkada's number or your own |
 | UPI collection at 0% MDR | The retailer pays on a UPI link, and the receipt matches to its invoice in Tally |
 | Role-based access | Owners, accountants and salesmen each see only what their role needs |
+| Stock control | [What to reorder today](/stock-control-tally), from which supplier and by when, from your own sales and purchase orders |
+| Manufacturing | [Bills of materials and production runs](/manufacturing-in-tally-prime) posted to Tally as Manufacturing Journals, plus job work |
+| Tally drafts | [Optional vouchers keyed in Tally](/optional-voucher-tally-prime), checked on the phone and posted into the books |
+| Desktop billing | [A keyboard-first billing form](/desktop-billing-tally) in the computer browser, for staff who type all day |
 
 Some of these are in the higher plans and some are add-ons. The [pricing and plans guide](/blog/takkada-pricing-plans-2026/) lays out which is which.
 

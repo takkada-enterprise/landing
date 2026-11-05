@@ -5,13 +5,13 @@ meta_title: "A Day on a Beat: Field Sales Hour by Hour"
 meta_description: "A distributor field sales daily routine with a beat app: Today's load, photo check-in, Sales Order into Tally, load sheet, WhatsApp invoice, evening Team Sales."
 primary_keyword: "distributor field sales daily routine"
 date: "2026-08-26"
-updated: "2026-09-18"
+updated: "2026-11-05"
 author: "founder"
 category: "Market Reality"
 excerpt: "Follow Raju through Tuesday on Station Road. Today's load at nine, Gupta Stores at 10:40, a Sales Order after check-out, the van from one sheet, WhatsApp when billed, Team Sales at 8 PM."
 ---
 
-A distributor salesman's day with a beat app is a named list in the morning, a camera check-in at each shop, a Sales Order into Tally after check-out, a load sheet for the van, the invoice on WhatsApp when it is billed, and Team Sales at night. Today's load is pending orders from a 3-day window including today, not a sequenced walk. A distributor field sales daily routine, on this Guwahati book, is Raju on Station Road: five salesmen, about 120 dealers, GS Road, Fancy Bazaar, NH-37 and Beltola on the same five lists. Visit capture is phone-only. Beats, Dispatch and Team Sales also run on the web. There is no scheduler, no map, and no all-day tracking. Delivered is ticked on the sheet and Tally is not told. This article follows one Tuesday from nine in the morning to the last rupee on the leaderboard.
+A distributor salesman's day with a beat app is a named list in the morning, a camera check-in at each shop, a Sales Order into Tally after check-out, a load sheet for the van, the invoice on WhatsApp when it is billed, and Team Sales at night. Today's load is pending orders from a 3-day window including today, not a sequenced walk. A distributor field sales daily routine, on this Guwahati book, is Raju on Station Road: five salesmen, about 120 dealers, GS Road, Fancy Bazaar, NH-37 and Beltola on the same five lists. Visit capture is phone-only. Beats, Dispatch and Team Sales also run on the web. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. Delivered is ticked on the sheet and Tally is not told. This article follows one Tuesday from nine in the morning to the last rupee on the leaderboard.
 
 ## Key Highlights
 
@@ -83,7 +83,7 @@ Tuesday's ₹42,000 is still a Sales Order until the office bills it, or until R
 
 By night the owner already knows how the day went. Visits and orders per salesman as they land. He opens Team Sales at 8 PM on the web. Period is Month. Basis is Invoices. Raju's August target is ₹8,00,000. Orders sit at ₹9,20,000. Invoices sit at ₹6,40,000. Gupta Stores paid ₹8,400 at 3 PM against an old bill. That receipt sits on the dealer. It does not climb Raju a row. [A sales team leaderboard from Tally](/blog/sales-team-leaderboard-for-distributors/) is that stack. [Salesman targets and commission from Tally](/blog/salesman-targets-and-commission-from-tally/) is the figure under it. Commission is worked from orders or invoices. There is no collections ranking.
 
-He used to call five people. "Kitna hua aaj?" The evening call asking everyone what they did stops being necessary. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. A distributor field sales daily routine on this book ends on the same Tally sales the office already trusts.
+He used to call five people. "Kitna hua aaj?" The evening call asking everyone what they did stops being necessary. Station Road stays a named list. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. A distributor field sales daily routine on this book ends on the same Tally sales the office already trusts.
 
 The ₹42,000, ₹8,00,000 and ₹8,400 in this article are the worked example on one Guwahati book.
 

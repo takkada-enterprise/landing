@@ -5,7 +5,7 @@ meta_title: "Fake GPS Location: What the App Does"
 meta_description: "Fake GPS location in field sales: check-in is refused and no visit is recorded. The refused attempt still shows. An exemption marks the visit Unverified."
 primary_keyword: "fake gps location field sales"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "Field Sales"
 excerpt: "Raju's phone reports a mock location at Gupta Stores. Check-in is refused. No visit is recorded. The owner still sees the refused attempt. An exemption, if he grants one, accepts the visit and marks it Unverified."
@@ -33,7 +33,7 @@ You stop a salesman from faking his location by refusing the visit when the phon
 
 By letting the phone's mock-location flag stop the stamp. Fake GPS location in field sales is that flag, on the device, at the moment of check-in.
 
-Raju opens Gupta Stores on Station Road at 10:40 and checks in. If the phone reports a mock or fake location, check-in is refused. No visit is recorded. The refused attempt still shows to the owner. The [Salesman app for Tally](/salesman-app-tally) does not follow the rest of Tuesday. [A geo-tagged visit photo versus all-day GPS tracking](/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/) already set that: the record is the photo, the coordinates and the time.
+Raju opens Gupta Stores on Station Road at 10:40 and checks in. If the phone reports a mock or fake location, check-in is refused. No visit is recorded. The refused attempt still shows to the owner. Visit check-in in the [Salesman app for Tally](/salesman-app-tally) does not follow the rest of Tuesday. [A geo-tagged visit photo versus all-day GPS tracking](/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/) already set that: the record is the photo, the coordinates and the time.
 
 [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) is Station Road as a named list, then this stamp at the shutter. The mock-location flag is the answer the product actually has.
 
@@ -63,7 +63,7 @@ The trust check is the mock-location flag only. There is no root detection, no t
 
 The product asks the phone whether location is mocked. It does not inspect whether the phone is rooted. It does not inspect whether the OS has been tampered with. It does not draw a circle around Gupta Stores and measure the salesman against it. A phone that spoofs coordinates without raising the mock-location flag will not be caught by this check. The owner still has the photograph. [What actually proves the salesman went](/blog/salesman-visit-tracking-photo-proof/) is still the four facts together: who, where the device said, when, and a picture of the place.
 
-Takkada records the photo, location and time. It does not track the phone all day. [Visit check-in with no signal](/blog/offline-visit-check-in-for-salesmen/) does not soften the flag. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. If the phone reported a mock location in the dead-signal lane, check-in was already refused on the device. Signal returning does not post a fake visit.
+Visit check-in records the photo, location and time. It does not track the phone all day. [Visit check-in with no signal](/blog/offline-visit-check-in-for-salesmen/) does not soften the flag. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. If the phone reported a mock location in the dead-signal lane, check-in was already refused on the device. Signal returning does not post a fake visit.
 
 ## He can check in when he is not at the shop
 

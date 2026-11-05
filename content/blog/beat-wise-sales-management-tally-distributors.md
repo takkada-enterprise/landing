@@ -5,7 +5,7 @@ meta_title: "Beat-wise Sales Management for Tally Distributors"
 meta_description: "Beat wise sales management for Tally distributors groups dealers into named beats, loads the van from a sheet, and writes field orders into Tally."
 primary_keyword: "beat wise sales management"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "Field Sales"
 excerpt: "A Guwahati wholesaler with five salesmen and about 120 dealers already runs Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola as beats. Beat-wise sales management is that list, plus today's load, a camera check-in at each shop, and orders that land in Tally as Sales Orders."
@@ -74,7 +74,7 @@ Field Visits Outcomes splits two piles. Booked on these visits is orders attribu
 
 ## What beat-wise sales management does not include
 
-Station Road will not grow a calendar, a map, or a trail of Raju's phone from morning tea to the ride home. There is no scheduler, no map, and no all-day tracking. A beat stays a named list. Raju walks it in the order the market allows that morning. Check-in is a camera photo at the counter. Today's load is pending orders from a 3-day window. Beats, Dispatch and Team Sales also work on the web. Visit capture and the Field Visits screens stay on the phone.
+Station Road will not grow a calendar, a map, or a trail of Raju's phone from morning tea to the ride home. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. A beat stays a named list. Raju walks it in the order the market allows that morning. Check-in is a camera photo at the counter. Today's load is pending orders from a 3-day window. Beats, Dispatch and Team Sales also work on the web. Visit capture and the Field Visits screens stay on the phone.
 
 ## Frequently Asked Questions
 

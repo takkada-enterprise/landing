@@ -58,6 +58,7 @@ export const FEATURE_GROUPS = [
       'sales-order-on-mobile',
       'voucher-approval-before-tally',
       'order-booking-app-tally',
+      'salesman-location-tracking-app',
     ],
   },
   {
@@ -76,6 +77,8 @@ export const FEATURE_GROUPS = [
       // with the homepage was not.
       'handwritten-order-to-tally',
       'bank-statement-import-tally',
+      'desktop-billing-tally',
+      'custom-voucher-type-tally',
     ],
   },
   {
@@ -83,14 +86,21 @@ export const FEATURE_GROUPS = [
     stop: 'load',
     title: 'Loading and stock',
     intro: 'Godowns, challans and what is actually on the shelf.',
-    slugs: ['godown-wise-stock-on-mobile', 'delivery-challan-from-mobile', 'barcode-in-tally-prime'],
+    slugs: [
+      'godown-wise-stock-on-mobile',
+      'delivery-challan-from-mobile',
+      'barcode-in-tally-prime',
+      'stock-control-tally',
+      'proof-of-delivery-app-tally',
+      'manufacturing-in-tally-prime',
+    ],
   },
   {
     id: 'send',
     stop: 'send',
     title: 'Sending it to the customer',
     intro: 'The invoice and the statement reach WhatsApp without anyone pressing send.',
-    slugs: ['custom-invoice-template-tally', 'share-ledger-statement-whatsapp'],
+    slugs: ['custom-invoice-template-tally', 'share-ledger-statement-whatsapp', 'email-invoice-from-tally'],
   },
   {
     id: 'remind',
@@ -125,6 +135,7 @@ export const FEATURE_GROUPS = [
       'tally-reports-on-mobile',
       'multi-company-tally-reports',
       'ai-agent-for-tally-prime',
+      'optional-voucher-tally-prime',
     ],
   },
   {
@@ -202,6 +213,22 @@ export function retiredAnchorsFor(groupId) {
  * @type {Record<string, string>}
  */
 export const FEATURE_BLURBS = {
+  'stock-control-tally':
+    'What to reorder today, how long each supplier really takes, and one purchase order per supplier.',
+  'proof-of-delivery-app-tally':
+    'A driver login with a live photo at every drop, returns with reasons, and van cash approved into Tally.',
+  'manufacturing-in-tally-prime':
+    'Bills of materials, production runs posted as Manufacturing Journals, and job work out and back.',
+  'custom-voucher-type-tally':
+    'Proforma, Service Invoice or your own name, created in Tally with a number series of its own.',
+  'desktop-billing-tally':
+    'A Tally-style keyboard form in the computer browser: Enter to move, Ctrl+A to save.',
+  'salesman-location-tracking-app':
+    'Where the team is between Start day and End day, with battery and km on one map. Android only.',
+  'email-invoice-from-tally':
+    'Invoices, reminders and statements in the customer\'s inbox as well as on WhatsApp.',
+  'optional-voucher-tally-prime':
+    "The optional vouchers keyed in Tally, checked on the phone and posted into the books in one tap.",
   'ai-agent-for-tally-prime':
     'Ask Claude who owes you, then send the reminder or post the bill, each one only after you say confirm.',
   'barcode-in-tally-prime':

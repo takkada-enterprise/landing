@@ -5,10 +5,10 @@ meta_title: "Geo-tagged Photo vs GPS Tracking for Salesmen"
 meta_description: "Geo tagged photo attendance in field sales stamps the visit at the counter. All-day GPS tracking follows the phone. Takkada keeps the photo, location and time."
 primary_keyword: "geo tagged photo attendance field sales"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "Comparisons"
-excerpt: "Tuesday at Gupta Stores, 10:40. Raju photographs the shutter. The record keeps who, where the phone said, when, and the picture. All-day GPS tracking follows the rest of his Tuesday, including lunch, and Takkada does not."
+excerpt: "Tuesday at Gupta Stores, 10:40. Raju photographs the shutter. The record keeps who, where the phone said, when, and the picture. All-day GPS tracking follows the rest of his Tuesday, including lunch, and visit check-in does not."
 ---
 
 A geo-tagged photo is better than Global Positioning System (GPS) tracking for salesmen when the question is whether he stood at this dealer, because the photo, the coordinates and the time sit on one record made at the counter. The caveat is that all-day GPS tracking answers a different question, where the phone travelled from morning tea to the ride home, and Takkada records the photo, location and time rather than following the phone all day. Geo tagged photo attendance in field sales, on this Guwahati book, is Raju at Gupta Stores on Station Road at 10:40: a camera photo, GPS location with accuracy, device time, his name and the dealer. Five salesmen, about 120 dealers, five road names. The four facts on that record are who was there, where the device said it was, when, and a photograph of the place. This article sets the photo against all-day tracking, and what the salesman feels about each.
@@ -91,7 +91,7 @@ Read Gupta Stores' visit history next to the outstanding on that ledger. The par
 
 [How long he was at the dealer](/blog/visit-duration-and-check-out-field-sales/) is the next fact on the same card. [Visit check-in with no signal](/blog/offline-visit-check-in-for-salesmen/) is the same stamp when Station Road drops into a dead-signal lane. What [field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) starts at this counter.
 
-Takkada records the photo, location and time. It does not track the phone all day. There is no scheduler on the beat, no walking order, no visit target per day. Station Road is a name plus a dealer list, with Raju assigned, the same list the owner [creates and assigns from the phone](/blog/create-beats-and-assign-salesman-mobile/). Raju decides which shutter he stands in first. Check-in is the camera at that shutter. Geo tagged photo attendance in field sales is the smaller ask, and it is the one that still answers gaya tha ya nahi at Gupta Stores.
+Visit check-in records the photo, location and time. It does not track the phone all day; that is the separate [Live Tracking](/salesman-location-tracking-app) add-on, which records only between Start day and End day on Android. There is no scheduler on the beat, no walking order, no visit target per day. Station Road is a name plus a dealer list, with Raju assigned, the same list the owner [creates and assigns from the phone](/blog/create-beats-and-assign-salesman-mobile/). Raju decides which shutter he stands in first. Check-in is the camera at that shutter. Geo tagged photo attendance in field sales is the smaller ask, and it is the one that still answers gaya tha ya nahi at Gupta Stores.
 
 ## Frequently Asked Questions
 
@@ -105,7 +105,7 @@ A: A camera photo taken at the shop, stored with the salesman's name, the GPS lo
 
 **Q: Does Takkada track the salesman's phone all day?**
 
-A: No. Takkada records the photo, location and time at check-in. It does not track the phone all day. The rest of Tuesday, including lunch and the ride home, is not on the record.
+A: Not through visit check-in. Check-in records the photo, location and time at the counter, and the rest of Tuesday is not on that record. Live Tracking, a separate add-on on Android phones, records location only between Start day and End day, with a notification showing on the phone the whole time.
 
 **Q: Can the salesman pick a photo from his gallery?**
 

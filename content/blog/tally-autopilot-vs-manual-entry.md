@@ -5,7 +5,7 @@ meta_title: "Tally Autopilot vs Manual Entry: Time Math"
 meta_description: "Automate Tally data entry vs typing every voucher: the hour-by-hour time math on invoice forwarding, reminders, reconciliation, and supplier-bill entry."
 primary_keyword: "automate tally data entry"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-11-05"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor's office spends more hours moving data into and out of Tally than anyone counts, because the hours are scattered across the day in ten-minute pieces. Add them up and the case for automating the data entry stops being a feeling and becomes arithmetic."
@@ -51,7 +51,7 @@ The [invoice forwarding number](/blog/tally-whatsapp-invoice-dispatch/) and the 
 
 The honest column in that table is the last one. Autopilot does not take the books off your hands; it takes the typing. A person still confirms the drafted purchase vouchers, still clears the reconciliation exceptions, still makes the credit calls and works the disputes. Those are decisions, and they stay.
 
-So the time math is not "hours to zero." It is "hours of typing to minutes of reviewing." The [import-from-PDF](/blog/import-purchase-from-pdf-tally/) draft still needs a glance before it posts, and the ambiguous receipt still needs an accountant. What disappears is the part where a human was the data-entry engine, and what remains is the part where a human's judgment is the point.
+So the time math is not "hours to zero." It is "hours of typing to minutes of reviewing." The [import-from-PDF](/blog/import-purchase-from-pdf-tally/) draft still needs a glance before it posts, and the ambiguous receipt still needs an accountant. What disappears is the part where a human was the data-entry engine, and what remains is the part where a human's judgment is the point. For the entries that are still typed, [desktop billing for Tally](/desktop-billing-tally) keeps them at keyboard speed in the browser.
 
 ## How the Math Scales With Volume
 

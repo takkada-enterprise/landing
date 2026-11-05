@@ -628,6 +628,7 @@ export const pricing = {
     { label: 'Proof of Delivery', note: 'Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).' },
     { label: 'Voucher names', note: 'Name your voucher types, each with a separate number series, in the app and in Tally.' },
     { label: 'Manufacturing', note: 'Bill of materials, production runs and job work, posted to Tally.' },
+    { label: 'Stock Control', note: 'What to reorder, from which supplier and by when, from your own sales and purchase orders.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',

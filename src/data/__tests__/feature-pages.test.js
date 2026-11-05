@@ -135,6 +135,9 @@ describe('feature page data contract', () => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
       for (const step of page.walkthrough) {
         const shot = stepShot(step);
+        // A step may go without an image only while its page is owed captures
+        // (round three, 2026-11-05); the pending-captures block below pins that.
+        if (!shot && page.pendingScreens?.length) continue;
         expect(shot, `${page.slug} step "${step.title}" has no screen`).not.toBeNull();
         if (step.screen) expect(SCREENS).toHaveProperty(step.screen);
         expect(existsSync(resolve(repoRoot, `public${shot.src}`))).toBe(true);
@@ -163,7 +166,7 @@ describe('feature page data contract', () => {
     const legacy = [];
     for (const page of FEATURE_PAGES) {
       for (const s of page.walkthrough ?? [])
-        if (!s.screen) legacy.push(`${page.slug}: ${s.image}`);
+        if (!s.screen && (s.image || s.screenshot)) legacy.push(`${page.slug}: ${s.image}`);
       for (const s of page.tour?.stations ?? [])
         if (!s.screen) legacy.push(`${page.slug}: ${s.screenshot}`);
     }
@@ -177,7 +180,7 @@ describe('feature page data contract', () => {
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
     heroShot(page).src,
-    ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
+    ...(page.walkthrough?.map((s) => stepShot(s)?.src).filter(Boolean) ?? []),
     ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
     ...(page.sheet ? [screen(page.sheet.screen).src] : []),
     ...(page.gallery?.items?.map((g) => screen(g.screen).src) ?? []),
@@ -309,11 +312,13 @@ describe('feature page data contract', () => {
   };
   const pageReferences = (page) => [
     { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
-    ...(page.walkthrough ?? []).map((step, i) => ({
-      path: stepShot(step).src,
-      surface: 'featurePage:walkthrough',
-      origin: `${page.slug} walk-through step ${i + 1}`,
-    })),
+    ...(page.walkthrough ?? [])
+      .map((step, i) => ({
+        path: stepShot(step)?.src,
+        surface: 'featurePage:walkthrough',
+        origin: `${page.slug} walk-through step ${i + 1}`,
+      }))
+      .filter((ref) => ref.path),
     ...(page.tour?.stations ?? []).map((station) => ({
       path: stepShot(station).src,
       surface: 'featurePage:tour',
@@ -837,6 +842,84 @@ describe('report gallery', () => {
       expect(item.body.split(/\s+/).length, item.title).toBeLessThanOrEqual(18);
       expect(item.body, item.title).toMatch(/\.$/);
     }
+  });
+});
+
+// Round three, 2026-11-05: eight add-on pages built before their captures
+// exist. A page owed captures lists them in `pendingScreens`; a step that
+// will carry one names it in `pendingScreen` and has no image until then. The
+// set is closed (the slugs the capture brief named), and every guard below
+// goes red the day a slug is registered in screens.js, so the swap from
+// `pendingScreen` to `screen` cannot be skipped. Where each one plugs in:
+// docs/seo/feature-pages-round-three/SCREENS-TODO.md.
+const OWED_CAPTURES = new Set([
+  'stock-control-reorder',
+  'stock-control-basket',
+  'stock-control-season-plan',
+  'stock-control-supplier-performance',
+  'pod-driver-drops',
+  'pod-photo-proof',
+  'pod-office-approval',
+  'manufacturing-bom',
+  'manufacturing-production-run',
+  'manufacturing-job-work',
+  'voucher-names-list',
+  'desktop-entry-invoice',
+  'live-tracking-map',
+  'email-invoices',
+  'tally-drafts',
+]);
+
+describe('pages owed captures', () => {
+  const owed = FEATURE_PAGES.filter((p) => p.pendingScreens?.length);
+
+  it('are exactly the eight round-three pages', () => {
+    expect(owed.map((p) => p.slug).sort()).toEqual(
+      [
+        'stock-control-tally',
+        'proof-of-delivery-app-tally',
+        'manufacturing-in-tally-prime',
+        'custom-voucher-type-tally',
+        'desktop-billing-tally',
+        'salesman-location-tracking-app',
+        'email-invoice-from-tally',
+        'optional-voucher-tally-prime',
+      ].sort()
+    );
+  });
+
+  it('owe only the captures that were briefed, each once across the site', () => {
+    const all = owed.flatMap((p) => p.pendingScreens);
+    expect(new Set(all).size).toBe(all.length);
+    expect(all.filter((slug) => !OWED_CAPTURES.has(slug))).toEqual([]);
+    expect([...OWED_CAPTURES].filter((slug) => !all.includes(slug))).toEqual([]);
+  });
+
+  it('still owe them: a registered capture must replace pendingScreen with screen', () => {
+    const landed = [...OWED_CAPTURES].filter((slug) => slug in SCREENS);
+    expect(
+      landed,
+      'these captures are registered now: point the step (or hero) at them and drop them from pendingScreens'
+    ).toEqual([]);
+  });
+
+  it.each(owed.map((p) => [p.slug, p]))(
+    '%s: every imageless step names a capture the page owes, and no step names one twice',
+    (_slug, page) => {
+      const named = page.walkthrough.filter((s) => s.pendingScreen).map((s) => s.pendingScreen);
+      expect(new Set(named).size).toBe(named.length);
+      for (const slug of named) expect(page.pendingScreens).toContain(slug);
+      for (const step of page.walkthrough) {
+        if (step.pendingScreen) expect(step.screen, step.title).toBeUndefined();
+      }
+    }
+  );
+
+  it('no page outside the owed set has an imageless step', () => {
+    const offenders = FEATURE_PAGES.filter((p) => !p.pendingScreens?.length).flatMap((p) =>
+      (p.walkthrough ?? []).filter((s) => !stepShot(s)).map((s) => `${p.slug}: ${s.title}`)
+    );
+    expect(offenders).toEqual([]);
   });
 });
 
