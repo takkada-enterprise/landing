@@ -112,6 +112,13 @@
   grid-column: span 3;
 }
 
+/* A step still waiting for its capture (round three, 2026-11-05) is copy only.
+ * Beside a step with a phone it would stretch to the phone's height and read as
+ * an empty white box, so it keeps its own height instead. */
+.feature-step--copy {
+  align-self: start;
+}
+
 .feature-step-shot {
   display: flex;
   justify-content: center;

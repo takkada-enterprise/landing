@@ -8,15 +8,15 @@
 // lists under "Cannot say" stays off these pages. Add-on prices never print, so
 // each planPointer names a plan and the note sends the reader to a partner.
 //
-// Screens: none of these features has a published capture yet. The pages follow
-// the precedent /import-purchase-from-pdf set: the hero is a real adjacent
-// screen from the registry, whose alt text describes only what is in its frame.
-// Walk-through steps carry no image until their capture lands; a step that is
-// waiting names its capture in `pendingScreen`, and the page lists every
-// capture it is owed in `pendingScreens`. feature-pages.test.js pins both, and
-// goes red the day a pending slug is registered in screens.js, so the swap
-// cannot be forgotten. Where each slug plugs in:
-// docs/seo/feature-pages-round-three/SCREENS-TODO.md.
+// Screens: every image here is a real capture of the feature itself, from demo
+// company 143 (2026-11-05). Ronak rejected the adjacent stand-in screens these
+// pages first carried, so a page or step with no capture of its own shows no
+// image at all: the four pages without one (desktop entry, live tracking, email
+// invoices, Tally drafts) have a copy-only hero. A step that is waiting names
+// its capture in `pendingScreen`, and the page lists every capture it is owed
+// in `pendingScreens`. feature-pages.test.js pins both, and goes red the day a
+// pending slug is registered in screens.js, so the swap cannot be forgotten.
+// Where each slug plugs in: docs/seo/feature-pages-round-three/SCREENS-TODO.md.
 
 /** @type {import('./featurePages').FeaturePage[]} */
 export const ROUND_THREE = [
@@ -51,13 +51,7 @@ export const ROUND_THREE = [
         'Stock Control add-on for distributors on Tally: Reorder Now lists items that will run out before a fresh order arrives, with stock, quantity on order, supplier lead time and a suggested quantity (top-up to the best month of the last twelve, lifted by a company growth dial); a basket turns ticked items into one purchase order per supplier; Suppliers measures usual, 9-in-10 and worst delivery time and fill from the company\'s own purchase orders and receipts; Season Plan covers the items making up the top 80% of sales, baselined on the same window last year and corrected for stock-outs, with an order-by date; Lost Sales counts order lines lost to stock-outs. Any tab exports to Excel.',
     },
     footerLabel: 'Stock control',
-    hero: { screen: 'godown-list' },
-    pendingScreens: [
-      'stock-control-reorder',
-      'stock-control-basket',
-      'stock-control-supplier-performance',
-      'stock-control-season-plan',
-    ],
+    hero: { screen: 'stock-control-reorder' },
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -68,28 +62,28 @@ export const ROUND_THREE = [
         title: 'Reorder Now, most overdue first',
         body:
           'The top band reads Order this week, Lead time, On order and Lost sales. Below it is every item that will run out before a fresh order can arrive, with its stock, what is already on the way, the supplier lead time and a suggested quantity.',
-        pendingScreen: 'stock-control-reorder',
+        screen: 'stock-control-reorder-list',
       },
       {
         icon: 'PackageCheck',
         title: 'Tick, check, create the order',
         body:
           'Tick items, or let one tap pick everything that is due. The basket groups them by supplier with the quantities open to change, and Create PO opens that supplier\'s purchase order filled in at the last purchase rate. Save it and it goes to Tally like any order.',
-        pendingScreen: 'stock-control-basket',
+        screen: 'stock-control-basket',
       },
       {
         icon: 'Truck',
         title: 'Suppliers, judged on what they did',
         body:
           'For every supplier: the days an order usually takes, the days 9 in 10 orders arrive within, the worst case, how much of what you ordered actually came, and the orders past their promised date. Year by year it shows who is getting faster or slower.',
-        pendingScreen: 'stock-control-supplier-performance',
+        screen: 'stock-control-supplier-performance',
       },
       {
         icon: 'CalendarClock',
         title: 'A season plan with an order-by date',
         body:
           'Pick a window, say November to February. The plan takes the items making up the top 80% of your sales, reads the same months last year, corrects for the days they were out of stock, and gives each one an order-by date. Dates already gone are flagged first.',
-        pendingScreen: 'stock-control-season-plan',
+        screen: 'stock-control-season-plan',
       },
     ],
     comparison: {
@@ -215,8 +209,8 @@ export const ROUND_THREE = [
         'Proof of Delivery add-on on top of Dispatch Load: a Driver role that sees only its own delivery trips; shops in route order with call and navigate; Mark delivered needs a live camera photo that records time and location; returned quantities and missed drops carry a reason; cash, UPI and cheque recorded per drop, saved offline; the office approves driver cash into a Tally receipt against the chosen account. Returns are recorded but not posted to Tally.',
     },
     footerLabel: 'Proof of delivery',
-    hero: { screen: 'van-loading' },
-    pendingScreens: ['pod-driver-drops', 'pod-photo-proof', 'pod-office-approval'],
+    hero: { screen: 'pod-driver-drops' },
+    pendingScreens: ['pod-cash-on-van'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -227,27 +221,28 @@ export const ROUND_THREE = [
         title: 'His trips, in driving order',
         body:
           'The driver logs in to My trips. A trip appears once the van is billed, with its shops in route order and Call and Navigate on each. Shops already pinned can be sorted nearest first from where he is standing.',
-        pendingScreen: 'pod-driver-drops',
+        screen: 'pod-driver-drops',
       },
       {
         icon: 'Camera',
         title: 'Delivered, with the photo to prove it',
         body:
           'Mark delivered needs a photo from the live camera, never the gallery, and it records the time and the place. Returned quantities take a reason such as damaged, wrong item or not ordered, and a shop he could not deliver to gets one too.',
-        pendingScreen: 'pod-photo-proof',
+        screen: 'pod-photo-proof',
       },
       {
         icon: 'Wallet',
         title: 'Cash, UPI or cheque on the van',
         body:
           'He records what the shop paid, against one bill or all of them oldest first. UPI and cheque need a photo of the screen or the cheque. The drop saves on the phone without signal and uploads when the van is back in range.',
+        pendingScreen: 'pod-cash-on-van',
       },
       {
         icon: 'CheckCheck',
         title: 'The office approves it into Tally',
         body:
           'Cash with drivers lists each collection by driver. Approve asks which account the money went into and makes a receipt in Tally; reject asks for a reason. The invoice carries a delivery proof card with the photo, the time and the map pin.',
-        pendingScreen: 'pod-office-approval',
+        screen: 'pod-office-approval',
       },
     ],
     comparison: {
@@ -356,8 +351,8 @@ export const ROUND_THREE = [
         'Manufacturing add-on for Tally Prime businesses: multi-level bills of materials per item with components, by-products, co-products, scrap percentage and godowns, written back to the item in Tally; an Explosion view of raw materials for any quantity; production runs that flag short components and post one Manufacturing Journal per in-house step; production orders with due dates and reported rejects; job work out with charges per unit, a Section 143 challan, Material Out and Material In. Needs a Manufacturing Journal voucher type in Tally. Job work for a principal is not sent to Tally.',
     },
     footerLabel: 'Manufacturing',
-    hero: { screen: 'godown-items' },
-    pendingScreens: ['manufacturing-bom', 'manufacturing-production-run', 'manufacturing-job-work'],
+    hero: { screen: 'manufacturing-production-run' },
+    pendingScreens: ['manufacturing-run-short-check'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -368,27 +363,28 @@ export const ROUND_THREE = [
         title: 'The bill of materials, set once',
         body:
           'An item can carry several BOMs, one of them the default, over as many levels as you make it in. A line is a component, a by-product or a co-product with its own godown, and a component can carry a scrap percentage. A BOM edited in the app is written back to the item in Tally.',
-        pendingScreen: 'manufacturing-bom',
+        screen: 'manufacturing-bom',
       },
       {
         icon: 'PackageCheck',
         title: 'A run that checks the godown first',
         body:
           'Pick what you are making and how many. Each component shows what is on hand and says Short when the godown cannot cover it. A step takes its output batch and godown, by-products, scrap, and labour or power as an amount or a percentage.',
-        pendingScreen: 'manufacturing-production-run',
+        pendingScreen: 'manufacturing-run-short-check',
       },
       {
         icon: 'FileCheck2',
         title: 'Each step lands as a Manufacturing Journal',
         body:
           'Save the run and every in-house step posts one Manufacturing Journal to Tally: components out, the finished item, by-products and scrap in, costs added. The run shows each step as In Tally with its number, and Tally values the finished item itself.',
+        screen: 'manufacturing-production-run',
       },
       {
         icon: 'Truck',
         title: 'Job work, out and back',
         body:
           "Raise a job-work order with charges per unit, send material on a challan printed under Section 143 of the CGST Act, and record what came back: received, used, scrap and returned unused. The job worker's charges bill links to the order.",
-        pendingScreen: 'manufacturing-job-work',
+        screen: 'manufacturing-job-work',
       },
     ],
     comparison: {
@@ -484,8 +480,8 @@ export const ROUND_THREE = [
         'Voucher names add-on: the company admin creates named voucher types for sales invoices, sales orders, quotations, delivery challans, purchase invoices, purchase orders, receipts, payments, credit notes and debit notes. Takkada creates each in Tally under the base type with manual numbering and duplicates prevented, gives it a unique number prefix that cannot clash with numbers already used this year, renames it in Tally when renamed in the app with the series running on, and asks which type to use when a document has several. Existing Tally voucher types can be brought in; nothing is deleted from Tally.',
     },
     footerLabel: 'Voucher names',
-    hero: { screen: 'invoice-summary' },
-    pendingScreens: ['voucher-names-list'],
+    hero: { screen: 'voucher-names-list' },
+    pendingScreens: ['voucher-names-create-in-tally', 'voucher-names-series', 'voucher-names-pick-at-billing'],
     author: 'founder',
     datePublished: '2026-11-05',
     updated: '2026-11-05',
@@ -496,25 +492,28 @@ export const ROUND_THREE = [
         title: 'Name it, give it a prefix',
         body:
           'In Settings, Custom voucher names, pick the document, type the name and a number prefix, and the screen shows what the first one will be numbered: VB-1 for Vehicle Booking. Sales and purchase names can carry their own ledger.',
-        pendingScreen: 'voucher-names-list',
+        screen: 'voucher-names-list',
       },
       {
         icon: 'ShieldCheck',
         title: 'Created in Tally, under the right parent',
         body:
           'Create in Tally makes the voucher type under the base type for that document, even if you renamed the base in Tally. It is set to manual numbering with duplicates prevented and left switched on, so your staff can use it in Tally as well.',
+        pendingScreen: 'voucher-names-create-in-tally',
       },
       {
         icon: 'ListChecks',
         title: 'Its own series, with no clashes',
         body:
           'A prefix has to be unique and cannot clash with numbers your Tally vouchers already use this year. Rename a type and the numbers keep running: VB-1, VB-2, then VB-3 under the new name.',
+        pendingScreen: 'voucher-names-series',
       },
       {
         icon: 'CheckCheck',
         title: 'Pick it when you bill',
         body:
           'With one name for a document it is used on its own. With several, a new sales invoice asks which one. Lists show each bill\'s type with filter chips, and the PDF keeps Tax Invoice as its title with the type name printed under it.',
+        pendingScreen: 'voucher-names-pick-at-billing',
       },
     ],
     comparison: {
@@ -611,7 +610,6 @@ export const ROUND_THREE = [
         'Desktop Entry add-on: a computer layout in the web browser at app.takkada.com with a sidebar, wide registers and one keyboard-first entry form for quotations, sales orders, delivery challans, sales invoices, credit notes, receipts, purchase orders, goods receipts, purchase invoices, debit notes, payments, stock journals, expenses, contra and journals. Enter moves on, Ctrl+A saves, F8/F9 pick sales or purchase vouchers, Alt+O pulls pending order or challan lines. Every save runs the same path to Tally as the phone app. Shown only for companies with the add-on, on a wide window with a mouse; never switched on by screen size.',
     },
     footerLabel: 'Desktop billing',
-    hero: { screen: 'add-items' },
     pendingScreens: ['desktop-entry-invoice'],
     author: 'founder',
     datePublished: '2026-11-05',
@@ -738,7 +736,6 @@ export const ROUND_THREE = [
         "Live Tracking add-on: a Start day / End day duty window on the salesman's Android phone records location and battery every 2, 5, 10 or 15 minutes (or every 200 m), with a notification showing the whole time and an automatic stop time. The Team Map shows who is on duty, last seen, battery, km today and who stopped reporting; a day view shows the route, gaps, check-in pins, orders and receipts. Offline points queue for 48 hours. Android only, never iPhone; the map also opens in a computer browser with Web view. Locations kept 90 days.",
     },
     footerLabel: 'Live tracking',
-    hero: { screen: 'field-visits' },
     pendingScreens: ['live-tracking-map'],
     author: 'founder',
     datePublished: '2026-11-05',
@@ -869,7 +866,6 @@ export const ROUND_THREE = [
         "Email add-on: each automatic invoice (with Auto Invoice Dispatch), due and overdue payment reminder and ledger statement that goes out on WhatsApp is also emailed, PDF attached, with the same words and a Pay now link. The address comes from the party's Tally ledger or is added in the app and written back to Tally. Sent as the company via Takkada; Reply-To and a copy go to the business email. Sent even when WhatsApp fails. No manual email button; receipts and credit notes are not emailed.",
     },
     footerLabel: 'Email invoices',
-    hero: { screen: 'invoice-summary-send' },
     pendingScreens: ['email-invoices'],
     author: 'founder',
     datePublished: '2026-11-05',
@@ -1000,7 +996,6 @@ export const ROUND_THREE = [
         'Tally Drafts add-on: lists the optional (draft) vouchers keyed in Tally on the phone and computer, in Drafts, In progress, Posted and Rejected tabs filtered by voucher type, with party, amount, date, ledger lines and narration. Approve posts the same voucher as regular in Tally with no second copy; Reject is app-only and leaves Tally untouched. Follows team permissions and approvals. Drafts are kept out of outstanding, ledgers, reports and reminders. Item lines are not shown; post-dated drafts are not posted.',
     },
     footerLabel: 'Tally drafts',
-    hero: { screen: 'maker-checker' },
     pendingScreens: ['tally-drafts'],
     author: 'founder',
     datePublished: '2026-11-05',

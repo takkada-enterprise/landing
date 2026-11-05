@@ -42,6 +42,7 @@ import {
   breadcrumbSchema,
   articlePageSchema,
   SITE_URL,
+  DEFAULT_OG_IMAGE,
 } from '../data/schema';
 import { featurePagePath, heroShot, stepShot } from '../data/featurePages';
 import { screen } from '../data/screens';
@@ -147,11 +148,13 @@ function FeaturePage({ page }) {
             // A page tells its story through a walk-through grid or a scroll
             // tour, so the schema image falls through both before the hero.
             // Without the fallback, a tour-only page emits Article with no
-            // image at all.
+            // image at all. A page still owed every capture has no hero
+            // either (round three, 2026-11-05), so it ends on the site card.
             image:
               stepShot(page.walkthrough?.[0])?.src ??
               stepShot(page.tour?.stations?.[0])?.src ??
-              shot?.src,
+              shot?.src ??
+              DEFAULT_OG_IMAGE,
             datePublished: page.datePublished,
             dateModified: page.updated,
             author: page.author,
@@ -251,7 +254,10 @@ function FeaturePage({ page }) {
                 const Icon = ICONS[step.icon];
                 const stepImg = stepShot(step);
                 return (
-                  <article key={step.title} className="feature-step">
+                  <article
+                    key={step.title}
+                    className={stepImg ? 'feature-step' : 'feature-step feature-step--copy'}
+                  >
                     {/* Media band first and fixed-height (feature-page.css), so
                       every phone in a row starts and is cut at the same y
                       whatever the copy under it does. */}

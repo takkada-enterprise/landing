@@ -315,6 +315,22 @@ export const SCREENS = {
   'ai-chat-statements': phone('ai-chat-statements', "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm"),
   'ai-chat-bills': phone('ai-chat-bills', "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm"),
   'ai-chat-banks': phone('ai-chat-banks', "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered"),
+  // Round-three feature pages (2026-11-05). Captured from demo company 143
+  // (made-up data), 1080x2238 sources, so the 360w export is 360x746 like the
+  // rest. Awaiting Ronak's review: each file sits on the unproven backlog in
+  // content/image-provenance.json until he records it.
+  'stock-control-reorder': phone('stock-control-reorder', "Stock Control with five items past their order-by date and tiles for order this week, lead time, on order and lost sales"),
+  'stock-control-reorder-list': phone('stock-control-reorder-list', "Reorder list with each item's stock, what is already on the way and the quantity to order, ready to tick"),
+  'stock-control-basket': phone('stock-control-basket', "Order basket grouping the ticked items by supplier, with quantities to edit and a Create PO button for one supplier"),
+  'stock-control-supplier-performance': phone('stock-control-supplier-performance', "One supplier's delivery record: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, 89% of the ordered quantity arrived, getting slower"),
+  'stock-control-season-plan': phone('stock-control-season-plan', "Season plan listing items by stock group with days out of stock, true demand, forecast and an order-by date for each"),
+  'pod-driver-drops': phone('pod-driver-drops', "A van's delivery trip with shops numbered in order, each shop's items and bill amount, a Call button, and finished drops marked delivered"),
+  'pod-photo-proof': phone('pod-photo-proof', "Invoice with a delivery proof card: the delivery photo, the time, the van and driver, the quantities accepted, and where the photo was taken"),
+  'pod-office-approval': phone('pod-office-approval', "Cash with drivers: each collection with its invoice, cash or UPI, a payment screenshot for UPI, and Approve or Reject"),
+  'manufacturing-bom': phone('manufacturing-bom', "Bill of materials for one carton: components with quantities, godown and scrap percentage, made in house and used by default"),
+  'manufacturing-production-run': phone('manufacturing-production-run', "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync"),
+  'manufacturing-job-work': phone('manufacturing-job-work', "Job work order with items received so far, the components, Material Out and Material In challans, a charges bill to link, and Record receipt"),
+  'voucher-names-list': phone('voucher-names-list', "Custom voucher names: Proforma Invoice, Service Invoice and Vehicle Booking, each ready with its next bill number"),
 };
 
 export function screen(slug) {

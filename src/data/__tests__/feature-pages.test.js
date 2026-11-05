@@ -92,6 +92,9 @@ describe('feature page data contract', () => {
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: the hero mockup exists, is sized, and stays inside its byte budget',
     (_slug, page) => {
+      // A page still owed its captures may carry no hero at all rather than a
+      // stand-in screen (Ronak rejected the stand-ins, 2026-11-05).
+      if (!page.hero && page.pendingScreens?.length) return;
       expect(page.hero).toBeDefined();
       // Whichever shape the hero is in - its own file, or a registry screen.
       const shot = heroShot(page);
@@ -179,7 +182,7 @@ describe('feature page data contract', () => {
   // before 2026-08-12 the sweeps below scanned only hero + walkthrough, so a
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
-    heroShot(page).src,
+    ...(page.hero ? [heroShot(page).src] : []),
     ...(page.walkthrough?.map((s) => stepShot(s)?.src).filter(Boolean) ?? []),
     ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
     ...(page.sheet ? [screen(page.sheet.screen).src] : []),
@@ -311,7 +314,7 @@ describe('feature page data contract', () => {
     return existsSync(full) && statSync(full).isFile() ? readFileSync(full) : null;
   };
   const pageReferences = (page) => [
-    { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
+    ...(page.hero ? [{ path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` }] : []),
     ...(page.walkthrough ?? [])
       .map((step, i) => ({
         path: stepShot(step)?.src,
@@ -731,6 +734,11 @@ describe('feature page registration is automatic', () => {
       if (!existsSync(built)) return; // dist/ only exists after a build
       const html = readFileSync(built, 'utf-8');
       const preloads = findImagePreloads(html);
+      // A copy-only hero (a page still owed every capture) has no LCP image.
+      if (!page.hero) {
+        expect(preloads).toHaveLength(0);
+        return;
+      }
       expect(preloads).toHaveLength(1);
       expect(preloads[0]).toContain(heroShot(page).src);
     }
@@ -779,7 +787,7 @@ describe('feature page heroes come from the screen registry', () => {
   });
 
   it('resolves both hero shapes through one helper', () => {
-    for (const page of FEATURE_PAGES) {
+    for (const page of FEATURE_PAGES.filter((p) => p.hero)) {
       const shot = heroShot(page);
       expect(shot, `${page.slug} has no hero shot`).toBeTruthy();
       expect(shot.src, `${page.slug} hero has no src`).toBeTruthy();
@@ -852,18 +860,16 @@ describe('report gallery', () => {
 // goes red the day a slug is registered in screens.js, so the swap from
 // `pendingScreen` to `screen` cannot be skipped. Where each one plugs in:
 // docs/seo/feature-pages-round-three/SCREENS-TODO.md.
+//
+// The first eleven landed on 2026-11-05 and left the set. Five steps on those
+// pages had no capture of their own, so they joined it as copy-only steps
+// rather than borrow a screen that shows something else.
 const OWED_CAPTURES = new Set([
-  'stock-control-reorder',
-  'stock-control-basket',
-  'stock-control-season-plan',
-  'stock-control-supplier-performance',
-  'pod-driver-drops',
-  'pod-photo-proof',
-  'pod-office-approval',
-  'manufacturing-bom',
-  'manufacturing-production-run',
-  'manufacturing-job-work',
-  'voucher-names-list',
+  'pod-cash-on-van',
+  'manufacturing-run-short-check',
+  'voucher-names-create-in-tally',
+  'voucher-names-series',
+  'voucher-names-pick-at-billing',
   'desktop-entry-invoice',
   'live-tracking-map',
   'email-invoices',
@@ -873,10 +879,9 @@ const OWED_CAPTURES = new Set([
 describe('pages owed captures', () => {
   const owed = FEATURE_PAGES.filter((p) => p.pendingScreens?.length);
 
-  it('are exactly the eight round-three pages', () => {
+  it('are exactly the round-three pages still waiting on a capture', () => {
     expect(owed.map((p) => p.slug).sort()).toEqual(
       [
-        'stock-control-tally',
         'proof-of-delivery-app-tally',
         'manufacturing-in-tally-prime',
         'custom-voucher-type-tally',

@@ -59,6 +59,13 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
   it('renders the hero mockup eagerly at high fetch priority', () => {
     const { container } = renderPage(page);
     const img = container.querySelector('.feature-hero-shot img');
+    // A page owed every capture shows its hero copy alone, never a stand-in
+    // screen (round three, 2026-11-05).
+    if (!page.hero) {
+      expect(page.pendingScreens?.length, `${page.slug} has no hero`).toBeGreaterThan(0);
+      expect(container.querySelector('.feature-hero-shot')).toBeNull();
+      return;
+    }
     expect(img).not.toBeNull();
     const shot = heroShot(page);
     expect(img.getAttribute('src')).toBe(shot.src);

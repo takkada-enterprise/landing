@@ -20,6 +20,10 @@ Add-ons (Ask your partner for pricing):
 - Voucher names: Name your voucher types, each with a separate number series, in the app and in Tally.
 - Manufacturing: Bill of materials, production runs and job work, posted to Tally.
 - Stock Control: What to reorder, from which supplier and by when, from your own sales and purchase orders.
+- Desktop entry: Keyboard-first billing on a computer: invoices, orders, receipts and journals, posted to Tally.
+- Live tracking: Salesman location from Start day to End day on Android, with battery and km on a team map.
+- Email invoices: Invoice PDFs, payment reminders and statements by email, alongside WhatsApp.
+- Tally drafts: Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
