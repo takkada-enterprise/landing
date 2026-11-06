@@ -65,7 +65,33 @@ export const ROUND_THREE = [
     hero: { screen: 'stock-control-reorder' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for whoever places the purchase orders",
+      cases: [
+        {
+          who: "A distributor buying from a dozen suppliers",
+          today: "The weekly order is built from the stock summary, a godown call and memory, and fast items still run out.",
+          with: "Reorder Now lists what will run out before a fresh order lands, and the basket turns it into one purchase order per supplier.",
+        },
+        {
+          who: "A business with a busy season",
+          today: "Season stock is planned from last year's register by hand, often once the rush has started.",
+          with: "Season Plan reads last year's same months, corrects for the days items were out of stock, and gives each item an order-by date.",
+        },
+        {
+          who: "An owner tired of late suppliers",
+          today: "Lead time is whatever the supplier promised on the phone.",
+          with: "Suppliers shows the days 9 in 10 of their orders really took, and the orders already past their promised date.",
+        },
+      ],
+      stops: [
+        "Building the reorder list from the stock summary and a godown call",
+        "Keying purchase orders into Tally line by line",
+        "Planning around the lead time a supplier promised",
+        "Reading last year's sales register by hand before the season",
+      ],
+    },
     walkthroughHeading: "From this morning's stock to the supplier's order",
     walkthrough: [
       {
@@ -228,7 +254,33 @@ export const ROUND_THREE = [
     hero: { screen: 'pod-driver-drops' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for businesses that deliver on their own vans",
+      cases: [
+        {
+          who: "A distributor with vans on shop-to-shop drops",
+          today: "Signed bill copies come back in a bundle, some missing, and a dispute means hunting for one.",
+          with: "Every drop carries a live camera photo with the time and place, shown on the invoice.",
+        },
+        {
+          who: "A van that collects payment on delivery",
+          today: "The cash is counted against a list at night, then one receipt per shop is keyed into Tally.",
+          with: "The driver records cash, UPI or cheque against each bill, and one approval at the office makes the Tally receipt.",
+        },
+        {
+          who: "An owner who wants drivers kept out of the books",
+          today: "The driver carries printed bills and calls the office for anything else.",
+          with: "The driver sees his own trips only, with no registers, party balances or reports.",
+        },
+      ],
+      stops: [
+        "Chasing signed bill copies",
+        "Counting the van's cash against a list",
+        "Keying one receipt per shop into Tally",
+        "Hearing about returns and missed shops only in the evening",
+      ],
+    },
     walkthroughHeading: 'From the loaded van to the receipt in Tally',
     walkthrough: [
       {
@@ -375,7 +427,33 @@ export const ROUND_THREE = [
     hero: { screen: 'manufacturing-production-run' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for businesses that make what they sell",
+      cases: [
+        {
+          who: "A small factory making to order",
+          today: "Output goes on a slip, and the accountant keys each Manufacturing Journal at the Tally computer.",
+          with: "Whoever runs the line records the run on the phone the day it is made, and the journals reach Tally.",
+        },
+        {
+          who: "A product made in stages",
+          today: "One Manufacturing Journal per level, keyed by hand in the right order.",
+          with: "One run posts a Manufacturing Journal for each in-house level, in order.",
+        },
+        {
+          who: "A business that sends work to job workers",
+          today: "Job Work Out Order, Material Out and Material In are each keyed with their items.",
+          with: "Material Out and Material In start filled from the job-work order, and the challan prints under Section 143.",
+        },
+      ],
+      stops: [
+        "Keying Manufacturing Journals from slips",
+        "Calling the godown before every batch",
+        "Keying job-work challans item by item",
+        "Keeping a whiteboard of what to make next",
+      ],
+    },
     walkthroughHeading: 'From the BOM in your Tally to the journal in your Tally',
     walkthrough: [
       {
@@ -518,7 +596,32 @@ export const ROUND_THREE = [
     hero: { screen: 'voucher-names-list' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for businesses with more than one kind of bill",
+      cases: [
+        {
+          who: "A business that sends proforma invoices",
+          today: "Proformas are typed outside Tally, or share a series with the real bills.",
+          with: "Proforma Invoice gets its own name and number series in Tally, made from the phone.",
+        },
+        {
+          who: "A business that bills goods and services",
+          today: "A new series for service bills waits for a session at the Tally computer.",
+          with: "Service Invoice gets its own prefix, checked against the numbers your Tally already used this year.",
+        },
+        {
+          who: "An owner who is rarely at the Tally computer",
+          today: "Every new kind of bill waits until the owner or the accountant sits at that computer.",
+          with: "The admin creates it from Settings on the phone, and staff are asked which type to use when they start a bill.",
+        },
+      ],
+      stops: [
+        "Waiting for a session at the Tally computer to add a bill type",
+        "Checking by hand that a new prefix has not been used this year",
+        "Telling each staff member which series to use for which bill",
+      ],
+    },
     walkthroughHeading: 'From a new name to a numbered bill in Tally',
     walkthrough: [
       {
@@ -556,9 +659,9 @@ export const ROUND_THREE = [
       othersLabel: 'Tally alone',
       rows: [
         {
-          feature: 'Creating the type',
-          takkada: 'From Settings on the phone, by the company admin, in one sheet. Takkada creates it in Tally.',
-          others: 'At the Tally computer, under Create, Voucher Type.',
+          feature: 'Who can set up a new bill type',
+          takkada: 'The owner or admin, from Settings on the phone, wherever they are. Takkada creates it in Tally.',
+          others: 'Someone at the Tally computer, under Create, Voucher Type, who knows its settings.',
         },
         {
           feature: 'Number series',
@@ -571,9 +674,9 @@ export const ROUND_THREE = [
           others: 'Altered in the voucher type at the Tally computer.',
         },
         {
-          feature: 'Choosing the type on a bill',
-          takkada: 'Asked when a bill is started on the phone, if the document has more than one.',
-          others: 'Picked in voucher entry, at a computer running Tally.',
+          feature: 'Staff using the right series',
+          takkada: 'Asked which type when a bill is started, from the names you set up.',
+          others: 'Told which type to pick, then picked in voucher entry at the Tally computer.',
         },
       ],
       disclaimer:
@@ -648,7 +751,32 @@ export const ROUND_THREE = [
     hero: { screen: 'desktop-entry-invoice' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for offices with more billing than one Tally computer can take",
+      cases: [
+        {
+          who: "A billing desk that queues for the Tally computer",
+          today: "Bills wait while the one computer running Tally is in use.",
+          with: "A second person bills from any office computer with a browser, and every bill reaches your Tally.",
+        },
+        {
+          who: "Salesmen who book orders on the phone",
+          today: "The office types each order again into the bill.",
+          with: "Alt+O pulls the quantity still open on the order straight into the bill.",
+        },
+        {
+          who: "Billing staff trained on Tally's keys",
+          today: "Their speed stays tied to the Tally computer.",
+          with: "F8, F9, Enter, Ctrl+A and Alt+C work the same in the browser, so there is nothing new to learn.",
+        },
+      ],
+      stops: [
+        "Waiting for a turn at the Tally computer",
+        "Retyping salesman orders into bills",
+        "Training staff on a new billing screen",
+      ],
+    },
     walkthroughHeading: 'One bill, typed the Tally way',
     walkthrough: [
       {
@@ -691,9 +819,9 @@ export const ROUND_THREE = [
           others: 'At a computer running Tally, or over a remote session into it.',
         },
         {
-          feature: 'The keys',
-          takkada: 'F8, F9, Enter, Esc, Ctrl+A and Alt+C, the ones your staff already use.',
-          others: 'The same keys, at the Tally computer.',
+          feature: 'A second person billing',
+          takkada: 'Bills at the same time from another computer, while Tally keeps running on its own.',
+          others: 'Waits for the Tally computer, or works over a remote session into it.',
         },
         {
           feature: 'An order booked on the phone',
@@ -701,9 +829,9 @@ export const ROUND_THREE = [
           others: 'Typed in again from the salesman\'s message or slip.',
         },
         {
-          feature: 'Where the bill lands',
-          takkada: 'In your Tally, through the same save the phone app uses, with numbering and approvals unchanged.',
-          others: 'In Tally, as it is typed.',
+          feature: 'Learning the screen',
+          takkada: 'Nothing new: F8, F9, Enter, Esc, Ctrl+A and Alt+C work as they do in Tally.',
+          others: 'Learned once, and usable only at the computer running Tally.',
         },
       ],
       disclaimer:
@@ -778,7 +906,32 @@ export const ROUND_THREE = [
     hero: { screen: 'live-tracking-map' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for businesses with salesmen in the field",
+      cases: [
+        {
+          who: "A distributor with a team on beats",
+          today: "Where they went is whatever they say on the evening call.",
+          with: "The Team Map shows who is on duty, where each was last seen and his battery, refreshed every minute.",
+        },
+        {
+          who: "A business that pays travel by the kilometre",
+          today: "Kilometres come from the salesman's own claim.",
+          with: "Kilometres are counted per day from his route, and shown to him at End day.",
+        },
+        {
+          who: "An owner who wants orders matched to visits",
+          today: "Orders reach Tally with nothing to say where they were taken.",
+          with: "The day view lays his route, check-in pins, orders and receipts side by side.",
+        },
+      ],
+      stops: [
+        "Calling each salesman to ask where he is",
+        "Paying travel claims with nothing to check them against",
+        "Finding out a phone went quiet only when he does not pick up",
+      ],
+    },
     walkthroughHeading: 'One working day, from Start day to End day',
     walkthrough: [
       {
@@ -811,14 +964,14 @@ export const ROUND_THREE = [
       },
     ],
     comparison: {
-      heading: "One salesman's day, in Tally alone and with Takkada",
-      takkadaLabel: 'Tally with Takkada',
-      othersLabel: 'Tally alone',
+      heading: "One salesman's day, by phone call and with Live Tracking",
+      takkadaLabel: 'With Live Tracking',
+      othersLabel: 'Calls and WhatsApp',
       rows: [
         {
           feature: 'Where he is now',
           takkada: 'A pin on the Team Map, refreshed every minute, with the battery left on his phone.',
-          others: 'Asked on a phone call.',
+          others: 'Asked on a phone call, or a WhatsApp location if he sends one.',
         },
         {
           feature: 'Kilometres covered',
@@ -829,6 +982,11 @@ export const ROUND_THREE = [
           feature: 'His orders and receipts',
           takkada: 'On the same day view as his route and check-in pins, including entries keyed in Tally.',
           others: 'In Tally once keyed, with nothing to say where he was.',
+        },
+        {
+          feature: 'When it records',
+          takkada: 'Only between Start day and End day, with a notification on his phone the whole time.',
+          others: 'Whenever he chooses to share.',
         },
         {
           feature: 'A phone that went quiet',
@@ -912,7 +1070,32 @@ export const ROUND_THREE = [
     hero: { screen: 'email-invoices' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for businesses whose customers read email",
+      cases: [
+        {
+          who: "A distributor supplying chains and modern trade",
+          today: "Their purchase desk wants invoices by email, sent by hand from the Tally computer.",
+          with: "The invoice PDF goes by email with each automatic WhatsApp send, with nobody at the office.",
+        },
+        {
+          who: "Customers who miss WhatsApp messages",
+          today: "Reminders go unread and someone follows up by phone.",
+          with: "Reminders and statements also reach their inbox with a Pay now link, and still go if the WhatsApp message fails.",
+        },
+        {
+          who: "An owner who wants a record of what went out",
+          today: "Sent mail sits in one mailbox on the Tally computer.",
+          with: "Your business email gets a copy of each one, and replies come back to it.",
+        },
+      ],
+      stops: [
+        "Emailing invoices one by one from the Tally computer",
+        "Sending reminders and statements by hand",
+        "Typing a customer's email address into each mail",
+      ],
+    },
     walkthroughHeading: 'One send, on WhatsApp and in the inbox',
     walkthrough: [
       {
@@ -960,14 +1143,14 @@ export const ROUND_THREE = [
           others: 'Sent by hand from the office.',
         },
         {
-          feature: 'The email address',
-          takkada: "Read from the party ledger in Tally. One added in the app is written back to the ledger.",
-          others: 'Kept on the party ledger in Tally.',
+          feature: 'Who has to be at the office',
+          takkada: 'Nobody. The email goes with the automatic WhatsApp send.',
+          others: 'Somebody at the Tally computer, for every email.',
         },
         {
-          feature: 'Replies',
-          takkada: 'Come back to your business email, which gets a copy of each one.',
-          others: 'Come to the mailbox set up on the Tally computer.',
+          feature: 'A customer who misses WhatsApp',
+          takkada: 'The email still goes, even if the WhatsApp message fails or the number has blocked you.',
+          others: 'Followed up by phone once somebody notices.',
         },
       ],
       disclaimer:
@@ -1046,7 +1229,32 @@ export const ROUND_THREE = [
     hero: { screen: 'tally-drafts' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-05',
+    updated: '2026-11-06',
+    useCases: {
+      heading: "Made for owners who sign off on vouchers",
+      cases: [
+        {
+          who: "An owner who checks big entries before they count",
+          today: "The accountant reads the voucher out on the phone and waits for a yes.",
+          with: "You see the party, amount and ledger lines on the phone and post it with one tap.",
+        },
+        {
+          who: "An accountant who parks doubtful entries as optional",
+          today: "Optional vouchers wait in the Optional Vouchers report until someone is at the Tally computer.",
+          with: "Every optional voucher shows on the phone by type, waiting for a decision.",
+        },
+        {
+          who: "A business with several people keying vouchers",
+          today: "Making a voucher regular needs a Tally login at the Tally computer.",
+          with: "Who can post is set per voucher type, with approvals if you use them.",
+        },
+      ],
+      stops: [
+        "Reading vouchers out over the phone",
+        "Opening each optional voucher again at the Tally computer to make it regular",
+        "Chasing the owner for a yes",
+      ],
+    },
     walkthroughHeading: 'From a draft in Tally to an entry in the books',
     walkthrough: [
       {
@@ -1104,9 +1312,9 @@ export const ROUND_THREE = [
           others: 'Whoever has the Tally login.',
         },
         {
-          feature: 'Drafts in your numbers',
-          takkada: 'Kept out of outstanding, ledgers, reports and reminders.',
-          others: 'Kept out of the books until made regular.',
+          feature: 'Rejecting one',
+          takkada: 'Set aside in the app with Undo, and nothing changes in Tally.',
+          others: 'Deleted in Tally, or left sitting in the Optional Vouchers report.',
         },
       ],
       disclaimer:

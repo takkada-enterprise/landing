@@ -83,3 +83,7 @@ Ronak asked for every page to show what the job takes in Tally alone and what is
 **With Takkada**: approval makes the receipt against the bill(s), with the driver and trip in the narration (live prod `approve_pod_payment` → `create_receipt_v2`); Cash with drivers shows the payment photo (`pod_cash_screen.dart:10-13`); Couldn't deliver reasons (`pod_drop_screen.dart:25-30`). The comparison now says outright that the office still makes the credit note for returns.
 
 **Tally alone (basis)**: proof is the signed or stamped bill copy the driver brings back; van cash becomes one receipt per shop keyed into Tally; returns become a credit note keyed in Tally. All three describe the reader's day; Tally has no driver-side app and the page does not fault it for that.
+
+
+## Who it's for, and table rows rewritten (2026-11-06)
+Ronak asked that every page make the gain over Tally and the use cases plain. Each page now carries three situations (today against with Takkada) and a "Work you stop doing" list. Every Takkada-side sentence there restates a claim already sourced above on this sheet (walkthrough, table or FAQ); the "today" sentences describe the reader's day, as the Tally-alone column does. No new Tally capability claims: Tally licences, duplicate prevention and multi-voucher e-mail are still not described. Live Tracking's table now compares against phone calls and WhatsApp location, since Tally does not record location.

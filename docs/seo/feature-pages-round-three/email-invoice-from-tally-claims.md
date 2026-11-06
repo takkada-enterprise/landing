@@ -61,3 +61,7 @@ Ronak asked for every page to show what the job takes in Tally alone and what is
 **With Takkada**: unchanged facts above (rides on Auto Invoice Dispatch and the automatic reminders; address from the ledger, app-added address written back; Reply-To and copy to the business email).
 
 **Tally alone (basis)**: Tally Prime can e-mail a voucher or report once e-mail is set up on the Tally computer; somebody at that computer sends it. The page no longer says "one voucher at a time" or that Tally cannot send reminders: we did not verify Tally's multi-voucher or reminder-letter e-mail, so the table says only "Sent by hand from the office".
+
+
+## Who it's for, and table rows rewritten (2026-11-06)
+Ronak asked that every page make the gain over Tally and the use cases plain. Each page now carries three situations (today against with Takkada) and a "Work you stop doing" list. Every Takkada-side sentence there restates a claim already sourced above on this sheet (walkthrough, table or FAQ); the "today" sentences describe the reader's day, as the Tally-alone column does. No new Tally capability claims: Tally licences, duplicate prevention and multi-voucher e-mail are still not described. Live Tracking's table now compares against phone calls and WhatsApp location, since Tally does not record location.

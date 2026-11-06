@@ -223,6 +223,44 @@ function FeaturePage({ page }) {
         </div>
       </section>
 
+      {/* ── Who it's for (2026-11-06, Ronak: "make it clear for all"). Three
+          situations the reader can find himself in, each as today against with
+          Takkada, then the jobs that drop off his day. Reuses the in-detail
+          card styling. ── */}
+      {page.useCases && (
+        <section className="tally-section feature-detail feature-usecases" id="who-its-for">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">WHO IT&apos;S FOR</span>
+              <h2 className="section-title">{page.useCases.heading}</h2>
+            </div>
+            <div className="tally-grid feature-detail-grid">
+              {page.useCases.cases.map((c) => (
+                <article key={c.who} className="tally-card feature-detail-card">
+                  <h3>{c.who}</h3>
+                  <ul>
+                    <li>
+                      <strong className="feature-detail-lead">Today.</strong> {c.today}
+                    </li>
+                    <li>
+                      <strong className="feature-detail-lead">With Takkada.</strong> {c.with}
+                    </li>
+                  </ul>
+                </article>
+              ))}
+            </div>
+            <div className="feature-stops">
+              <h3>Work you stop doing</h3>
+              <ul>
+                {page.useCases.stops.map((stop) => (
+                  <li key={stop}>{stop}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── A recording of the thing the page describes, only on pages whose
           data carries one: the AI collection call first (2026-09-20). Directly
           under the hero (Ronak, 2026-09-20): on a page about a phone call the

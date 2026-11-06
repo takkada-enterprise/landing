@@ -66,3 +66,7 @@ Ronak asked for every page to show what the job takes in Tally alone and what is
 **With Takkada**: the day view's orders and receipts include entries made in Tally ("Includes entries made in Tally.", `screens/field_visits/salesman_day_screen.dart:477`); Stopped reporting after 20 minutes (`live_tracking_reads.dart:57-59`); km per day and at End day (`duty_day_service.dart:526-527`); writes nothing to Tally.
 
 **Tally alone (basis)**: Tally keeps the orders and receipts once keyed and has no location record; the page says Tally "was never meant to record where a salesman went". Phone call, travel claim and "found out when he does not pick up" are the reader's day.
+
+
+## Who it's for, and table rows rewritten (2026-11-06)
+Ronak asked that every page make the gain over Tally and the use cases plain. Each page now carries three situations (today against with Takkada) and a "Work you stop doing" list. Every Takkada-side sentence there restates a claim already sourced above on this sheet (walkthrough, table or FAQ); the "today" sentences describe the reader's day, as the Tally-alone column does. No new Tally capability claims: Tally licences, duplicate prevention and multi-voucher e-mail are still not described. Live Tracking's table now compares against phone calls and WhatsApp location, since Tally does not record location.

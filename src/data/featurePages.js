@@ -48,6 +48,7 @@
  * @property {string} walkthroughHeading
  * @property {Array<{icon: string, title: string, body: string, image?: string, alt?: string, width?: number, height?: number}>} walkthrough
  * @property {{heading: string, othersLabel: string, takkadaLabel?: string, rows: Array<{feature: string, takkada: string, others: string}>, disclaimer: string}} comparison
+ * @property {{heading: string, cases: Array<{who: string, today: string, with: string}>, stops: string[]}} [useCases]  Who it's for: three situations, today vs with Takkada, and the work that stops
  * @property {{plan: string, note: string}} planPointer
  * @property {Array<{q: string, a: string}>} faqs
  * @property {Array<{slug: string, title: string}>} relatedPosts
