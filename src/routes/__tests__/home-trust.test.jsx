@@ -49,13 +49,12 @@ describe('proof strip (the testimonial moved ahead of pricing, 2026-08-06)', () 
     expect(section.textContent).toContain(testimonials[0].role);
   });
 
-  it('renders proof and the differentiator band before the pricing table (R3/R4)', () => {
+  it('renders proof before the pricing table (R3/R4) and omits why-takkada differentiator section', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
     expect(ids.indexOf('testimonial')).toBeGreaterThan(-1);
-    expect(ids.indexOf('why-takkada')).toBeGreaterThan(-1);
     expect(ids.indexOf('testimonial')).toBeLessThan(ids.indexOf('pricing'));
-    expect(ids.indexOf('why-takkada')).toBeLessThan(ids.indexOf('pricing'));
+    expect(ids.indexOf('why-takkada')).toBe(-1);
   });
 
   it('never renders placeholder copy (real quotes only)', () => {
