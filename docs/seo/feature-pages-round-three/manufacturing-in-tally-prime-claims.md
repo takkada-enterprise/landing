@@ -91,3 +91,7 @@ Ronak asked for every page to show what the job takes in Tally alone and what is
 - A product made in levels (sub-assembly, then the finished item) is one Manufacturing Journal per level in Tally. The page softens this to "usually means".
 - Job work in Tally Prime (job order processing switched on) is a Job Work Out Order, a Material Out and a Material In, each a voucher keyed with its items.
 - Slip from the floor, a call to the godown, planning on a whiteboard or sheet: the reader's day, not a statement about Tally.
+
+
+## Who it's for, and table rows rewritten (2026-11-06)
+Ronak asked that every page make the gain over Tally and the use cases plain. Each page now carries three situations (today against with Takkada) and a "Work you stop doing" list. Every Takkada-side sentence there restates a claim already sourced above on this sheet (walkthrough, table or FAQ); the "today" sentences describe the reader's day, as the Tally-alone column does. No new Tally capability claims: Tally licences, duplicate prevention and multi-voucher e-mail are still not described. Live Tracking's table now compares against phone calls and WhatsApp location, since Tally does not record location.

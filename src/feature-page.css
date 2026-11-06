@@ -1509,3 +1509,33 @@
   .call-player.playing .call-player-bar { animation: none; }
   .call-player-play { transition: background 160ms ease; }
 }
+
+/* Who it's for: the jobs that drop off the reader's day (2026-11-06). */
+.feature-stops {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: var(--color-surface);
+}
+.feature-stops h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+.feature-stops ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.feature-stops li {
+  position: relative;
+  padding-left: 26px;
+}
+.feature-stops li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success, #2b8a3e);
+  font-weight: 700;
+}

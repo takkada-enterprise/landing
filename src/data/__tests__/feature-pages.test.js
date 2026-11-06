@@ -23,6 +23,7 @@ import {
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
 import { STOPS } from '../journey';
+import { ROUND_THREE } from '../featurePagesRoundThree';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -992,3 +993,18 @@ describe('call recording', () => {
   });
 });
 
+
+// Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
+// it is for in three situations, each today against with Takkada, and lists
+// the work that stops.
+describe('who it is for', () => {
+  it.each(ROUND_THREE.map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+    expect(page.useCases?.heading).toBeTruthy();
+    expect(page.useCases.cases).toHaveLength(3);
+    for (const c of page.useCases.cases) {
+      expect(c.who && c.today && c.with).toBeTruthy();
+      expect(c.today).not.toBe(c.with);
+    }
+    expect(page.useCases.stops.length).toBeGreaterThanOrEqual(3);
+  });
+});
