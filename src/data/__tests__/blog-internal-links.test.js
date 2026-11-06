@@ -95,6 +95,10 @@ const LINK_FLOORS = {
   'bank-statement-import-tally': 2,
   'debtor-ageing-report-on-phone': 2,
   'livekeeping-alternative': 2,
+  // Round three, 2026-11-05.
+  'salesman-location-tracking-app': 3,
+  'stock-control-tally': 2,
+  'desktop-billing-tally': 2,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

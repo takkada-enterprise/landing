@@ -315,6 +315,49 @@ export const SCREENS = {
   'ai-chat-statements': phone('ai-chat-statements', "AI assistant sending ledger statements with a Pay Now button to the ten biggest balances after one confirm"),
   'ai-chat-bills': phone('ai-chat-bills', "AI assistant reading four supplier bills at once, skipping one already posted, asking one item question, then saving after confirm"),
   'ai-chat-banks': phone('ai-chat-banks', "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered"),
+  // Round-three feature pages (2026-11-05). Captured from demo company 143
+  // (made-up data), 1080x2238 sources, so the 360w export is 360x746 like the
+  // rest. Awaiting Ronak's review: each file sits on the unproven backlog in
+  // content/image-provenance.json until he records it.
+  'stock-control-reorder': phone('stock-control-reorder', "Stock Control with five items past their order-by date and tiles for order this week, lead time, on order and lost sales"),
+  'stock-control-reorder-list': phone('stock-control-reorder-list', "Reorder list with each item's stock, what is already on the way and the quantity to order, ready to tick"),
+  'stock-control-basket': phone('stock-control-basket', "Order basket grouping the ticked items by supplier, with quantities to edit and a Create PO button for one supplier"),
+  'stock-control-supplier-performance': phone('stock-control-supplier-performance', "One supplier's delivery record: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, 89% of the ordered quantity arrived, getting slower"),
+  'stock-control-season-plan': phone('stock-control-season-plan', "Season plan listing items by stock group with days out of stock, true demand, forecast and an order-by date for each"),
+  'pod-driver-drops': phone('pod-driver-drops', "A van's delivery trip with shops numbered in order, each shop's items and bill amount, a Call button, and finished drops marked delivered"),
+  'pod-photo-proof': phone('pod-photo-proof', "Invoice with a delivery proof card: the delivery photo, the time, the van and driver, the quantities accepted, and where the photo was taken"),
+  'pod-cash-on-van': phone('pod-cash-on-van', "A driver on the van recording a UPI payment against one bill: the items with Returned buttons, Take photo, Cash, UPI or Cheque, the amount, and a photo of the payment screen"),
+  'pod-office-approval': phone('pod-office-approval', "Cash with drivers: each collection with its invoice, cash or UPI, a payment screenshot for UPI, and Approve or Reject"),
+  'manufacturing-bom': phone('manufacturing-bom', "Bill of materials for one carton: components with quantities, godown and scrap percentage, made in house and used by default"),
+  'manufacturing-production-run': phone('manufacturing-production-run', "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync"),
+  'manufacturing-job-work': phone('manufacturing-job-work', "Job work order with items received so far, the components, Material Out and Material In challans, a charges bill to link, and Record receipt"),
+  'voucher-names-list': phone('voucher-names-list', "Custom voucher names: Proforma Invoice, Service Invoice and Vehicle Booking, each ready with its next bill number"),
+  'manufacturing-run-short-check': phone('manufacturing-run-short-check', "New production run for 20 bags with one component marked Short, none in stock, and a warning before Save run"),
+  'voucher-names-create-in-tally': phone('voucher-names-create-in-tally', "New sales invoice type named Export Invoice with prefix EXP/26-27/, first number EXP/26-27/1, and a Create in Tally button"),
+  'voucher-names-series': phone('voucher-names-series', "New voucher type flagging the prefix PF/26-27/: another type already numbers bills with it, so pick one that cannot clash"),
+  'voucher-names-pick-at-billing': phone('voucher-names-pick-at-billing', "Starting a new sales invoice asks which one: Proforma Invoice or Service Invoice"),
+  // A desktop capture (2880x1800, the empty bottom strip cut to 2880x1712), so
+  // a wide sheet at 720x428, not a phone.
+  'desktop-entry-invoice': sheet('desktop-entry-invoice', "New sales invoice on a computer screen: party, number and voucher type across the top, item rows with qty, rate, discount and GST, and the total with Save", 720, 428),
+  'live-tracking-map': phone('live-tracking-map', "Team Map with salesmen's pins over the city, and each one's last seen, battery and kilometres today, one marked stopped reporting"),
+  'email-invoices': phone('email-invoices', "Email settings: sent as the company via Takkada, copies and replies to the business address, 5 of 34 customers with an email, and recent invoices marked sent"),
+  // Third batch (2026-11-05). Desktop captures cut at the bottom (2880 wide,
+  // so 720 x height/4 sheets); phone captures framed like the rest.
+  'desktop-entry-pull-order': sheet('desktop-entry-pull-order', "Pressing Alt+O on a new sales invoice lists the party's sales orders and challan still waiting to be billed, with the items pending on each", 720, 370),
+  'desktop-entry-saved-strip': sheet('desktop-entry-saved-strip', 'After Ctrl+A the bill number shows as saved, with keys to view, print, send or cancel it and buttons for the receipt or credit note, above a blank form for the next bill', 720, 310),
+  'desktop-entry-restored-draft': sheet('desktop-entry-restored-draft', 'A half-typed sales invoice brought back after the browser tab closed, with a note saying when it was restored and that Esc discards it', 720, 380),
+  'live-tracking-start-day': phone('live-tracking-start-day', "A salesman's home screen with the Start your day card: tap Start day when you go out for work, your location is shared only until you tap End day"),
+  'live-tracking-day': phone('live-tracking-day', "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day"),
+  'live-tracking-rules': phone('live-tracking-rules', 'Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15'),
+  'email-party-card': phone('email-party-card', 'Adding an email address to a party from its page in the app'),
+  'email-inbox-invoice': phone('email-inbox-invoice', "An invoice email in Gmail from Shreeji Traders via Takkada: amount, due date, a Pay now link and the invoice PDF attached"),
+  'email-inbox-reminder': phone('email-inbox-reminder', "A payment reminder email in Gmail: amount overdue, the original due date, days overdue and a Pay now link"),
+  // The four Tally drafts screens are stage captures (co111, made-up drafts),
+  // not demo company 143: see their operatorException rows in the manifest.
+  'tally-drafts': phone('tally-drafts', 'Tally Drafts: optional vouchers from Tally with party, amount, date, ledger lines and narration, and Reject and Approve on each'),
+  'tally-drafts-detail': phone('tally-drafts-detail', 'One Tally draft: type, number, date, party, amount and narration, and its debit and credit ledger entries, with Post to books'),
+  'tally-drafts-post': phone('tally-drafts-post', 'Posting a draft asks first: it records the voucher in Tally as a regular sales invoice and cannot be undone from the app'),
+  'tally-drafts-reject': phone('tally-drafts-reject', 'Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo'),
 };
 
 export function screen(slug) {

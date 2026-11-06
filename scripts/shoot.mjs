@@ -102,6 +102,22 @@ SETS.round2 = [
   // moving waveform are the whole point of it.
   ['round2-listen-playing', '/ai-collection-calls#listen', { click: '.call-player-play' }],
 ];
+// The eight round-three add-on pages (2026-11-05): hero, walk-through and the
+// "Tally alone" table, at both widths, so a copy or frame change is one run.
+SETS.round3 = [
+  'stock-control-tally',
+  'proof-of-delivery-app-tally',
+  'manufacturing-in-tally-prime',
+  'custom-voucher-type-tally',
+  'desktop-billing-tally',
+  'salesman-location-tracking-app',
+  'email-invoice-from-tally',
+  'optional-voucher-tally-prime',
+].flatMap((slug) => [
+  [`round3-${slug}`, `/${slug}`],
+  [`round3-walk-${slug}`, `/${slug}#walkthrough`],
+  [`round3-table-${slug}`, `/${slug}#comparison`],
+]);
 // The states the 2026-09-21 phone fixes are of: the job row and the proof
 // card's junction, the story intro, the phone menu, the connector band. Each is
 // below the fold or behind a tap, so no hash lands on it; `scrollTo` puts the

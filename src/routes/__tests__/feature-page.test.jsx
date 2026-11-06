@@ -59,6 +59,13 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
   it('renders the hero mockup eagerly at high fetch priority', () => {
     const { container } = renderPage(page);
     const img = container.querySelector('.feature-hero-shot img');
+    // A page owed every capture shows its hero copy alone, never a stand-in
+    // screen (round three, 2026-11-05).
+    if (!page.hero) {
+      expect(page.pendingScreens?.length, `${page.slug} has no hero`).toBeGreaterThan(0);
+      expect(container.querySelector('.feature-hero-shot')).toBeNull();
+      return;
+    }
     expect(img).not.toBeNull();
     const shot = heroShot(page);
     expect(img.getAttribute('src')).toBe(shot.src);
@@ -100,6 +107,17 @@ describe.each(CASES)('%s renders the whole template', (_slug, page) => {
       );
       page.walkthrough.forEach((step, i) => {
         const shot = stepShot(step);
+        // A step still waiting for its capture (round three, 2026-11-05)
+        // renders copy only: no empty media band, no broken img.
+        if (!shot) {
+          expect(
+            page.pendingScreens?.length || step.copyOnly,
+            `${page.slug} has an imageless step`
+          ).toBeTruthy();
+          expect(steps[i].querySelector('.feature-step-shot')).toBeNull();
+          expect(steps[i].textContent).toContain(step.title);
+          return;
+        }
         // Media band first, then copy: the band's fixed height is what lines
         // the phones up across a row (feature-page.css).
         expect(steps[i].firstElementChild.className).toBe('feature-step-shot');

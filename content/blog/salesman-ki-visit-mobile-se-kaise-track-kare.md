@@ -5,7 +5,7 @@ meta_title: "Salesman ki Visit Mobile se Kaise Track Kare"
 meta_description: "Salesman ki visit kaise track kare phone se: shutter ki camera photo, location aur time. All-day GPS nahi. Fake location pe visit nahi banti."
 primary_keyword: "salesman ki visit kaise track kare"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "How-To"
 excerpt: "Station Road, Gupta Stores, 10:40. Raju shutter ki camera photo kheenchta hai. Owner ko woh photo, location aur time dikhta hai. Poora din phone follow nahi hota. Fake location pe visit record nahi hoti."
@@ -33,7 +33,7 @@ Salesman ki visit mobile se aap is tarah track karte ho: woh dealer pe check-in 
 
 Phone pe check-in se. Raju Gupta Stores kholta hai, camera khulta hai, shutter ki photo kheenchta hai. Record pe char cheezein baith jaati hain: kaun tha, device ne kahan kaha, kab, aur jagah ki photograph.
 
-Yahi jawab hai salesman ki visit kaise track kare ka, is book pe. WhatsApp list raat ke nau baje ghar se type nahi hoti. All-day GPS tracking bhi nahi, jo lunch aur ghar ki ride ko bhi follow kare. Takkada photo, location aur time record karti hai. Phone ko poora din track nahi karti.
+Yahi jawab hai salesman ki visit kaise track kare ka, is book pe. WhatsApp list raat ke nau baje ghar se type nahi hoti. All-day GPS tracking bhi nahi, jo lunch aur ghar ki ride ko bhi follow kare. Visit check-in photo, location aur time record karta hai. Phone ko poora din track nahi karta; woh alag [Live Tracking](/salesman-location-tracking-app) add-on hai, sirf Android pe, Start day se End day tak.
 
 [Salesman app for Tally](/salesman-app-tally) pe yahi stamp hai. [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) Station Road ko named list rakhta hai, phir yeh stamp shutter pe. Beats ka naam Station Road, GS Road, Fancy Bazaar, NH-37, Beltola. Gupta Stores Station Road pe hai, Raju assigned.
 

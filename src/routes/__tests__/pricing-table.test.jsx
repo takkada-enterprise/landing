@@ -101,7 +101,7 @@ describe('pricing comparison table', () => {
       'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
       'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
       'Payment Collection', 'Barcode labels', 'Proof of Delivery', 'Voucher names', 'Manufacturing',
-      'Extra user',
+      'Stock Control', 'Desktop entry', 'Live tracking', 'Email invoices', 'Tally drafts', 'Extra user',
     ]);
     expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
     expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);

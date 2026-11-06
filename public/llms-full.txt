@@ -19,6 +19,11 @@ Add-ons (Ask your partner for pricing):
 - Proof of Delivery: Driver login with a geo-tagged photo at each drop, and cash or UPI approved by the office. Needs Dispatch Load (Copilot).
 - Voucher names: Name your voucher types, each with a separate number series, in the app and in Tally.
 - Manufacturing: Bill of materials, production runs and job work, posted to Tally.
+- Stock Control: What to reorder, from which supplier and by when, from your own sales and purchase orders.
+- Desktop entry: Keyboard-first billing on a computer: invoices, orders, receipts and journals, posted to Tally.
+- Live tracking: Salesman location from Start day to End day on Android, with battery and km on a team map.
+- Email invoices: Invoice PDFs, payment reminders and statements by email, alongside WhatsApp.
+- Tally drafts: Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -70,6 +75,14 @@ Add-ons (Ask your partner for pricing):
 - [Ladder discount on Tally invoices](https://takkada.com/ladder-discount-tally/): Stepped trade discounts for distributors on Tally. Up to three named discount steps per invoice line compound into a single aggregate percentage, rounded half-up to two decimals; the aggregate is what Tally receives and what the taxable value is computed from. The invoice PDF prints each step and the price after it. Works on sales orders too.
 - [Barcode labels on Tally](https://takkada.com/barcode-in-tally-prime/): Barcode stickers for Tally Prime businesses, printed from a purchase bill, an item or a picked list of items, each encoding the item and the quantity in that box. Scanned into sales invoices, purchases, delivery challans, GRNs and stock journals with a phone camera, a Bluetooth scanner or a USB gun; batch, MRP and expiry can print on the label; a maker barcode can be linked to an item. Bills reach Tally as normal vouchers.
 - [AI agent for Tally Prime (Claude connector)](https://takkada.com/ai-agent-for-tally-prime/): A Takkada connector for Claude, with ChatGPT under review. Reads the synced Tally books: receivables and payables with ageing, party statements, daybook, registers, trial balance, P&L and balance sheet, stock, item-wise party history and the daily collections brief. Proposes writes (receipts, payments, journals, sales and purchase invoices, orders, parties, items, purchase bill and bank statement import, e-invoice, e-way bill, WhatsApp reminders, payment links, ledger statements) that run only after the user confirms; entries can be undone by cancellation. Business admins only, on the AI assistant add-on.
+- [Stock control for Tally](https://takkada.com/stock-control-tally/): Stock Control add-on for distributors on Tally: Reorder Now lists items that will run out before a fresh order arrives, with stock, quantity on order, supplier lead time and a suggested quantity (top-up to the best month of the last twelve, lifted by a company growth dial); a basket turns ticked items into one purchase order per supplier; Suppliers measures usual, 9-in-10 and worst delivery time and fill from the company's own purchase orders and receipts; Season Plan covers the items making up the top 80% of sales, baselined on the same window last year and corrected for stock-outs, with an order-by date; Lost Sales counts order lines lost to stock-outs. Any tab exports to Excel.
+- [Proof of delivery app for Tally](https://takkada.com/proof-of-delivery-app-tally/): Proof of Delivery add-on on top of Dispatch Load: a Driver role that sees only its own delivery trips; shops in route order with call and navigate; Mark delivered needs a live camera photo that records time and location; returned quantities and missed drops carry a reason; cash, UPI and cheque recorded per drop, saved offline; the office approves driver cash into a Tally receipt against the chosen account. Returns are recorded but not posted to Tally.
+- [Manufacturing in Tally Prime](https://takkada.com/manufacturing-in-tally-prime/): Manufacturing add-on for Tally Prime businesses: multi-level bills of materials per item with components, by-products, co-products, scrap percentage and godowns, written back to the item in Tally; an Explosion view of raw materials for any quantity; production runs that flag short components and post one Manufacturing Journal per in-house step; production orders with due dates and reported rejects; job work out with charges per unit, a Section 143 challan, Material Out and Material In. Needs a Manufacturing Journal voucher type in Tally. Job work for a principal is not sent to Tally.
+- [Custom voucher type in Tally (Voucher names)](https://takkada.com/custom-voucher-type-tally/): Voucher names add-on: the company admin creates named voucher types for sales invoices, sales orders, quotations, delivery challans, purchase invoices, purchase orders, receipts, payments, credit notes and debit notes. Takkada creates each in Tally under the base type with manual numbering and duplicates prevented, gives it a unique number prefix that cannot clash with numbers already used this year, renames it in Tally when renamed in the app with the series running on, and asks which type to use when a document has several. Existing Tally voucher types can be brought in; nothing is deleted from Tally.
+- [Desktop billing for Tally (Desktop Entry)](https://takkada.com/desktop-billing-tally/): Desktop Entry add-on: a computer layout in the web browser at app.takkada.com with a sidebar, wide registers and one keyboard-first entry form for quotations, sales orders, delivery challans, sales invoices, credit notes, receipts, purchase orders, goods receipts, purchase invoices, debit notes, payments, stock journals, expenses, contra and journals. Enter moves on, Ctrl+A saves, F8/F9 pick sales or purchase vouchers, Alt+O pulls pending order or challan lines. Every save runs the same path to Tally as the phone app. Shown only for companies with the add-on, on a wide window with a mouse; never switched on by screen size.
+- [Salesman location tracking app (Live Tracking)](https://takkada.com/salesman-location-tracking-app/): Live Tracking add-on: a Start day / End day duty window on the salesman's Android phone records location and battery every 2, 5, 10 or 15 minutes (or every 200 m), with a notification showing the whole time and an automatic stop time. The Team Map shows who is on duty, last seen, battery, km today and who stopped reporting; a day view shows the route, gaps, check-in pins, orders and receipts. Offline points queue for 48 hours. Android only, never iPhone; the map also opens in a computer browser with Web view. Locations kept 90 days.
+- [Email invoices from Tally](https://takkada.com/email-invoice-from-tally/): Email add-on: each automatic invoice (with Auto Invoice Dispatch), due and overdue payment reminder and ledger statement that goes out on WhatsApp is also emailed, PDF attached, with the same words and a Pay now link. The address comes from the party's Tally ledger or is added in the app and written back to Tally. Sent as the company via Takkada; Reply-To and a copy go to the business email. Sent even when WhatsApp fails. No manual email button; receipts and credit notes are not emailed.
+- [Optional voucher in Tally Prime (Tally Drafts)](https://takkada.com/optional-voucher-tally-prime/): Tally Drafts add-on: lists the optional (draft) vouchers keyed in Tally on the phone and computer, in Drafts, In progress, Posted and Rejected tabs filtered by voucher type, with party, amount, date, ledger lines and narration. Approve posts the same voucher as regular in Tally with no second copy; Reject is app-only and leaves Tally untouched. Follows team permissions and approvals. Drafts are kept out of outstanding, ledgers, reports and reminders. Item lines are not shown; post-dated drafts are not posted.
 
 ## Company
 
@@ -965,6 +978,216 @@ Takkada works as an AI agent for Tally Prime inside Claude. Ask who owes you or 
   A: Yes for questions. The assistant reads the copy Takkada keeps, which is as fresh as the last sync from the office computer, and every answer says when that was. Entries you confirm wait in Takkada and reach Tally the next time the desktop connector runs.
 - **Q: Does Takkada store my chats or train an AI on my books?**
   A: Takkada records which action was asked for, when, and whether it worked, for security and support. It does not store your conversation, and the assistant sees only what it fetched to answer the question you asked, for the companies you administer.
+
+### [This week's purchase list, worked out before anyone walks to the godown.](https://takkada.com/stock-control-tally/)
+
+*The weekly order usually starts with the stock summary in Tally, a call to the godown and somebody's memory of which supplier takes twelve days, then each purchase order is keyed in line by line. Stock Control reads the same Tally books and hands you the list and the orders.*
+
+**Core capability & workflow:**
+Stock control for Tally means knowing what to reorder without counting shelves or retyping orders. Takkada's Stock Control reads your synced Tally sales, purchase orders and receipts, lists the items that will run out before a fresh order lands, suggests quantities from your best month, and turns ticked items into one purchase order per supplier, saved back to Tally.
+
+**How it works:**
+- **The list nobody has to make**: The top band reads Order this week, Lead time, On order and Lost sales. Below it is every item that will run out before a fresh order can arrive, most overdue first, with its stock, what is already on the way, the supplier lead time and a quantity to order. Nobody counts a shelf to build it.
+- **Tick, check, create the order**: Tick items, or let one tap pick everything that is due. The basket groups them by supplier with the quantities open to change, and Create PO opens that supplier's purchase order filled in at the last purchase rate. Save it and it goes to Tally like any order, so nobody keys it again at the Tally computer.
+- **Suppliers, judged on what they did**: For every supplier: the days an order usually takes, the days 9 in 10 orders arrive within, the worst case, how much of what you ordered actually came, and the orders past their promised date. Year by year it shows who is getting faster or slower, measured from your own receipts.
+- **A season plan with an order-by date**: Pick a window, say November to February. The plan takes the items making up the top 80% of your sales, reads the same months last year, corrects for the days they were out of stock, and gives each one an order-by date. Dates already gone are flagged first.
+
+**Frequently Asked Questions:**
+- **Q: Does somebody still type the purchase orders into Tally?**
+  A: No. Create PO opens the purchase order already filled in with the supplier, the items, the quantities from the basket and the last purchase rate where there is one. Whoever saves it checks it once, and it reaches Tally as an ordinary purchase order.
+- **Q: How does Stock Control decide how much to order?**
+  A: It finds each item's best month of sales in the last twelve full months and tops stock up to that level, lifted by the growth dial, after taking off what is in the godown and what is already on order. The quantity is rounded to a clean figure. An item with no such month falls back to its daily sales over the supplier's lead time.
+- **Q: Where does the supplier lead time come from?**
+  A: From your own purchase orders and the goods receipts against them. For each supplier it shows the days an order usually takes, the days 9 in 10 orders arrive within, and the worst case. The more purchase orders you book, in Tally or in Takkada, the sharper those numbers get.
+- **Q: How is the reorder point worked out?**
+  A: From the item's average daily sales, adjusted for the season, carried over the supplier's usual delivery time plus a month for your order cycle and a buffer for the slow deliveries. An item whose stock and stock on the way fall below it shows up in Reorder Now.
+- **Q: What does the growth dial do?**
+  A: It lifts every suggestion by the same percentage, in steps of five, from minus fifty to plus fifty. Expecting ten percent more business, set it to ten and every base level and order quantity moves with it. Only the company admin can turn it; everyone else sees the setting.
+- **Q: Can I see the sales I lost because stock ran out?**
+  A: Yes, when orders are booked as sales orders. Lost Sales counts an order line as lost when the next consignment arrived, the customer was billed again, and the item still was not on that bill. Lines that can still be filled sit apart as awaiting stock, and the screen says what share of your sales goes through orders.
+- **Q: Does it work on the phone and on the web?**
+  A: Yes. Stock Control is the same screen in the phone app and on the web. Any of its four tabs exports to Excel exactly as it is on screen, with a supplier summary sheet and the full list, and the purchase orders it creates reach Tally as ordinary purchase orders.
+
+### [When the van is back at seven, every drop is already on record: the photo, the returns and the cash.](https://takkada.com/proof-of-delivery-app-tally/)
+
+*Most evenings run on signed bill copies, a bag of cash counted against a list, and one receipt per shop keyed into Tally. Proof of Delivery puts the photo, the returns and the cash on record at each drop, and the office approves the money into a Tally receipt.*
+
+**Core capability & workflow:**
+A proof of delivery app for Tally replaces the signed slip and the evening cash count with a record made at the shop. With Takkada's Proof of Delivery, the driver marks each drop with a live camera photo carrying time and place, notes returns, and records cash, UPI or cheque. The office approves the money into a Tally receipt.
+
+**How it works:**
+- **His trips, in driving order**: The driver logs in to My trips. A trip appears once the van is billed, with its shops in route order and Call and Navigate on each. Shops already pinned can be sorted nearest first from where he is standing.
+- **Delivered, with the photo to prove it**: Mark delivered needs a photo from the live camera, never the gallery, and it records the time and the place. Returned quantities take a reason such as damaged, wrong item or not ordered, and a shop he could not deliver to gets one too.
+- **Cash, UPI or cheque on the van**: He records what the shop paid, against one bill or all of them oldest first. UPI and cheque need a photo of the screen or the cheque. The drop saves on the phone without signal and uploads when the van is back in range.
+- **The office approves it into Tally**: Cash with drivers lists each collection by driver, with the UPI screen or cheque photo beside it. Approve asks which account the money went into and makes the receipt in Tally against the bill, naming the driver and the trip, so nobody keys it. Reject asks for a reason. The invoice carries the photo, the time and the map pin.
+
+**Frequently Asked Questions:**
+- **Q: Does the driver see my parties and reports?**
+  A: No. The Driver role sees only his own delivery trips: the drops, the photos and the cash he collected. Registers, party balances and reports stay closed to him. A driver login uses a user seat like any other team member.
+- **Q: Can the driver use a photo from the gallery?**
+  A: No. Mark delivered opens the live camera, and the photo records the time and the location it was taken at. The first photo at a shop also pins that shop's location, so later trips can sort the drops nearest first.
+- **Q: How does the cash on the van reach Tally?**
+  A: The office opens Cash with drivers, picks the account the money went into and approves. That makes a normal receipt in Tally, with a narration naming the driver and the trip. Until it is approved the cash is not in Tally, and a rejection has to carry a reason.
+- **Q: Do returns create a credit note in Tally?**
+  A: No. Returned quantities and their reasons are recorded and listed in the Returns report, so the office knows what came back, but nothing is posted to Tally for them. The credit note or stock entry is made as its own step.
+- **Q: Does it work without network?**
+  A: Yes. A drop, its photo and the payment are saved on the phone and uploaded when the signal returns. Recording deliveries is a phone-app job; the browser shows the delivery proof on the invoice but does not record drops.
+- **Q: Who can approve the driver cash?**
+  A: Members with full access, or the approvers you have set when voucher approvals are on. Each approval names the account the money went into, and each rejection carries a reason, so the trail still reads cleanly at month end.
+
+### [Record production on the floor, and Tally gets the journals without anyone keying them.](https://takkada.com/manufacturing-in-tally-prime/)
+
+*Today the output goes on a slip, the godown gets a call before each batch, and the accountant keys every Manufacturing Journal, Material Out and Material In at the Tally computer. Takkada works from the BOMs already in your Tally, checks stock before a run and posts those vouchers from the phone.*
+
+**Core capability & workflow:**
+Manufacturing in Tally Prime runs on Manufacturing Journals that someone keys at the Tally computer. With Takkada's Manufacturing add-on the floor records the run on a phone: it reads your Tally BOMs, flags short components, and posts one Manufacturing Journal per in-house step to Tally. Job work goes out and back on challans filled from the order.
+
+**How it works:**
+- **The BOM your Tally already has**: BOMs already set on your items in Tally come into the app, and a BOM edited in the app is written back to the item in Tally, so the office and the floor read one recipe. An item can carry several BOMs over as many levels as you make it in, and a line is a component, by-product or co-product with its own godown.
+- **Stock checked before the batch starts**: Pick what you are making and how many. Each component shows what is on hand and says Short when the godown cannot cover it, before anything is saved, so nobody calls the godown to ask. A run received from a production order opens with its item, BOM and the quantity still to receive already filled.
+- **Every level becomes its own Manufacturing Journal**: In Tally alone, a product made in three levels usually means three Manufacturing Journals, keyed in order. Save the run and each in-house level becomes one, components out and the finished item in. Here level 1 of run 2 is SJ-38, reading Sync: pending until your Tally computer takes it in; the run then marks the step In Tally with its number.
+- **Job work out and back, nothing typed twice**: Send material starts from the order's components, and Record receipt starts from what is still due, with the components used worked out in proportion. The challan prints under Section 143 of the CGST Act. The Job Work Out Order, Material Out and Material In then reach Tally in that order.
+
+**Frequently Asked Questions:**
+- **Q: How do I record manufacturing in Tally Prime from a phone?**
+  A: With the Manufacturing add-on on, open Production from the home screen and start a new run: pick the item, its BOM and how many to make. When you save, each in-house step goes to Tally as a Manufacturing Journal, the same voucher your accountant would have keyed at the office.
+- **Q: Do I need a Manufacturing Journal voucher type in Tally?**
+  A: Yes. Takkada posts into the Manufacturing Journal voucher type your Tally already has and does not create one. If your company has never used it, your accountant or partner sets it up once in Tally before the first run.
+- **Q: Can a bill of materials carry scrap and by-products?**
+  A: Yes. A BOM line can be a component, a by-product or a co-product, each with its own godown, and a component can carry a scrap percentage and name the item the scrap goes into. An item can have several BOMs, one of them the default.
+- **Q: Can I see the raw material needed before I start?**
+  A: Yes. The Explosion view lists every raw material for any quantity you type, with an estimated cost at current item rates. Tally works out the real cost when the run is posted, so read the estimate as a planning number.
+- **Q: Does job work reach Tally?**
+  A: Job work out does: the job-work order, the Material Out when material leaves and the Material In when it comes back go to Tally in that order. Job work you do for a principal is recorded in the app but is not sent to Tally.
+- **Q: What does my accountant still do in Tally?**
+  A: Set up the Manufacturing Journal voucher type once, keep the Tally computer and its connector running so the journals land, and cancel a journal in Tally if a run was wrong. The journals, job-work vouchers and BOM edits arrive from the app without anyone keying them.
+- **Q: Can I change a run after it is in Tally?**
+  A: No. Once a run, a job-work order or a challan is in Tally, the app will not change it. If a run was wrong, cancel its journal in Tally and record the run again in the app, so both sides tell the same story.
+
+### [Proforma, service bills and bookings, each on its own number series in Tally, set up from your phone.](https://takkada.com/custom-voucher-type-tally/)
+
+*Today a new kind of bill means a session at the Tally computer: the voucher type, its parent, its numbering, its prefix, and a check that no number collides with one used this year. Voucher names does it from Settings on the phone, and asks your staff which type to use when they start a bill.*
+
+**Core capability & workflow:**
+A custom voucher type in Tally, such as Proforma or Service Invoice under Sales, is usually set up at the Tally computer. Takkada's Voucher names add-on does it from the app: type the name and a number prefix, tap Create in Tally, and the type appears in Tally with manual numbering, duplicates blocked and its own series.
+
+**How it works:**
+- **Name it, give it a prefix**: In Settings, Custom voucher names, pick the document, type the name and a number prefix, and the screen shows what the first one will be numbered: VB-1 for Vehicle Booking. Sales and purchase names can carry their own ledger.
+- **Created in Tally, under the right parent**: At the Tally computer this means Create, Voucher Type, then a parent, a numbering method and Prevent duplicates. Create in Tally does it for you under the base type for that document, even if you renamed the base, with manual numbering and duplicates prevented. The type stays switched on, so staff keying in Tally can use it too.
+- **Its own series, with no clashes**: A prefix has to be unique and cannot clash with numbers your Tally vouchers already use this year. Rename a type and the numbers keep running: VB-1, VB-2, then VB-3 under the new name.
+- **Pick it when you bill**: With one name for a document it is used on its own. With several, a new sales invoice asks which one. Lists show each bill's type with filter chips, and the PDF keeps Tax Invoice as its title with the type name printed under it.
+
+**Frequently Asked Questions:**
+- **Q: How do I create a custom voucher type in Tally?**
+  A: In Tally you add one under Voucher Types and choose its parent. With Voucher names on, the company admin does it from Takkada instead: Settings, Custom voucher names, a name and a number prefix, then Create in Tally. The type appears in Tally under the base type for that document.
+- **Q: Which documents can have their own names?**
+  A: Sales invoices, sales orders, quotations, delivery challans, purchase invoices, purchase orders, receipts, payments, credit notes and debit notes. Each can carry several names. Journals, contra, stock journals, goods receipts and expenses keep their usual voucher types.
+- **Q: Can I use a voucher type I already made in Tally?**
+  A: Yes. Use a type already in your Tally brings it into the app, and Tally keeps its own numbering for it. Names created from the app get a prefix and a running number of their own instead, so the two never fight over a series.
+- **Q: What happens when I rename one or stop using it?**
+  A: Renaming changes the name in the app and in Tally, and the numbers carry on, with old bills showing the new name. Hide from new bills takes it off the list for new entries. Nothing is deleted from Tally, and a created type stays in Tally.
+- **Q: Can I choose the starting number or a suffix?**
+  A: No. Numbering is your prefix followed by a running number from 1, with no suffix. The prefix is checked so it cannot clash with the numbers your existing Tally vouchers already use this year, which keeps duplicate bill numbers out of the books.
+
+### [Your billing staff type at Tally speed from any office computer with a browser.](https://takkada.com/desktop-billing-tally/)
+
+*Today billing waits for a seat at the computer that runs Tally, and an order a salesman took on his phone gets typed in again. Desktop Entry puts a Tally-style form in the browser, F8, Enter and Ctrl+A included, and each bill reaches your Tally through the same save the phone app uses.*
+
+**Core capability & workflow:**
+Desktop billing for Tally is what Takkada's Desktop Entry add-on does: a keyboard-first entry form in the computer browser at app.takkada.com, so billing no longer waits for a seat at the Tally computer. Type the party, Enter through item, quantity and rate, press Ctrl+A to save. Each entry posts to Tally the same way phone entries do.
+
+**How it works:**
+- **Type it the way Tally taught you**: F8 lists the sales vouchers and F9 the purchase ones, Option 8 and Option 9 on a MacBook. Enter moves to the next field, Shift+Tab goes back, Esc backs out. F2 changes the date, and Alt+C makes a new party or item without leaving the bill.
+- **Pull the order into the bill**: Alt+O brings in what is still pending on a sales order, challan, quotation, purchase order or goods receipt, so an order a salesman booked on his phone is never typed again. Only the open quantity is offered and it is checked again at save, so nothing is billed twice. Alt+2 copies the party's last invoice.
+- **Save, then the next step**: Ctrl+A saves. The form clears for the next bill and a strip shows the number just saved, with keys to view, print, send or cancel it, and a button for the next document, such as the receipt.
+- **Into Tally like any other entry**: A desktop save runs the same save the phone runs, so numbering, approvals and the write into Tally behave the same. A half-typed bill survives a closed or crashed browser tab for seven days.
+
+**Frequently Asked Questions:**
+- **Q: Do I need to install anything on the computer?**
+  A: No. Desktop Entry runs in the browser at app.takkada.com, in Chrome or Safari, on the computers your billing staff already use. Tally keeps running on the office machine with the connector, and that is where each saved entry is written.
+- **Q: Is Desktop Entry the same as Web view?**
+  A: No. Web view lets you log in from a computer browser and shows the ordinary app screens. Desktop Entry is the computer layout itself: the sidebar, the wide registers and the keyboard entry form. A company with Desktop Entry does not need Web view switched on as well.
+- **Q: Which keys does it use?**
+  A: Enter moves to the next field and accepts, Shift+Tab goes back, Esc backs out and Ctrl+A saves, Control+A on a Mac. F8 and F9 switch between the sales and purchase vouchers, F2 changes the date, Ctrl+I inserts a line and Alt+C creates a party or item.
+- **Q: Which entries can I make from the computer?**
+  A: Quotations, sales orders, delivery challans, sales invoices, credit notes and receipts on the sales side; purchase orders, goods receipts, purchase invoices, debit notes and payments on the purchase side; and stock journals, expenses, contra and journal entries.
+- **Q: Does the phone app change?**
+  A: No. The phone app keeps its own screens. The computer layout shows only on a wide window with a mouse or trackpad, and only for a company with the add-on, so a phone or a narrow window never switches into it.
+
+### [Where your salesmen went today, on one map, before the evening call.](https://takkada.com/salesman-location-tracking-app/)
+
+*Tally holds the orders and receipts your salesmen bring back; where they went and how far is whatever they say on the evening call. Live Tracking records location only between Start day and End day on the salesman's Android phone, and lays his route beside his orders and receipts.*
+
+**Core capability & workflow:**
+Takkada's Live Tracking works as a salesman location tracking app for distributors on Tally. On the salesman's Android phone, Start day begins recording location and battery every few minutes and End day stops it. The Team Map shows who is on duty, where they were last seen, battery and kilometres covered today.
+
+**How it works:**
+- **He starts the day, tracking starts**: The home screen carries a Start your day card. The first time, he sees what is recorded and agrees to it. From Start day to End day the phone reports where it is, and a notification stays on the whole time, so nothing runs out of sight.
+- **The Team Map, refreshed every minute**: Pins for everyone on duty, and a line per person with when they were last seen, the battery left and the kilometres covered today. Anyone silent for twenty minutes reads Stopped reporting, and Day ended or Never started today covers the rest.
+- **His day, drawn out**: Tap a name for the day: the route on the map, the gaps where the phone went quiet, the check-in pins, and the orders and receipts he made, including the ones keyed in Tally. End day tells the salesman how many kilometres he covered.
+- **Rules you set**: The admin picks how often the phone reports, every 2, 5, 10 or 15 minutes, and the time tracking stops by itself if nobody ends the day. Below 15% battery the phone reports less often. Locations are kept for 90 days.
+
+**Frequently Asked Questions:**
+- **Q: Does it track my salesman after working hours?**
+  A: No. Recording runs only between Start day and End day, and a notification stays on the phone the whole time. If he forgets to end the day, it stops by itself at the time the admin sets, eight in the evening unless changed. Owners and admins are not tracked.
+- **Q: Does it work on iPhone?**
+  A: No. Live Tracking records on Android phones only, and the iPhone app does not show it at all. The Team Map can be opened on an Android phone, or in a computer browser when Web view is on for the company.
+- **Q: What happens when there is no network?**
+  A: The phone keeps the location points and sends them when the signal returns, holding up to 48 hours of them. If the app is closed and opened again during the day, tracking picks up again on its own.
+- **Q: Who can see the Team Map?**
+  A: Members with full access, and anyone you give the View team location permission. Everyone else on the team works without it. Locations are kept for 90 days and then removed, so the record covers about one quarter.
+- **Q: How is this different from a visit photo?**
+  A: A visit check-in proves he stood at one shop: a camera photo, the location and the time on one record. Live Tracking answers a different question, where he is now and how far he went today, and its day view puts the check-in pins on the same route.
+
+### [Customers who ask for invoices by email get them with each automatic WhatsApp send.](https://takkada.com/email-invoice-from-tally/)
+
+*The purchase desk of a chain reads email before WhatsApp, and today each invoice, reminder and statement it wants is e-mailed by hand from the Tally computer. With Email on, the invoice PDF, the reminder and the statement that go out on WhatsApp reach the inbox too, from the same automatic send.*
+
+**Core capability & workflow:**
+Email invoices from Tally automatically with Takkada's Email add-on: every automatic invoice, payment reminder and statement that goes out on WhatsApp also goes by email. The PDF is attached, the address comes from the party's Tally ledger, and replies reach your own business email. Nobody has to press send.
+
+**How it works:**
+- **The invoice reaches the inbox**: When Auto Invoice Dispatch sends an invoice on WhatsApp, the same invoice goes by email with the PDF attached. It is sent as your company name via Takkada, and a copy goes to your business email.
+- **Reminders and statements, with Pay now**: Due and overdue reminders and ledger statements carry the same words as the WhatsApp message, plus a Pay now link. If the WhatsApp message fails or the number has blocked you, the email still goes.
+- **The address comes from Tally**: Takkada reads the email on the party ledger in Tally. If one is missing, add it on the party's Email card in the app; it is written back into Tally, so the next sync keeps it.
+- **See what went out**: Settings, Email shows the name it is sent as, where copies and replies go, how many of your customers have an email address, and the emails sent most recently.
+
+**Frequently Asked Questions:**
+- **Q: Can Takkada email invoices automatically?**
+  A: Yes, with the Email add-on and Auto Invoice Dispatch both on. Each invoice that goes out on WhatsApp is also emailed, with the PDF attached, to the address on the party's Tally ledger. One send makes at most one email, so a retry never doubles it.
+- **Q: Which email address does it use?**
+  A: The email on the party ledger in Tally, the first valid one if there are several. You can also add one on the party's Email card in the app; it is written back into Tally and survives the next sync. A party without an email simply gets WhatsApp.
+- **Q: Who is the email from, and where do replies go?**
+  A: It is sent as your company name via Takkada, from a Takkada no-reply address. Reply-To is the business email in your seller details, and that address gets a copy of every email, so a customer's reply lands with you.
+- **Q: Can I email one invoice by hand?**
+  A: Not today. Email goes out with the automatic sends: invoices through Auto Invoice Dispatch, and reminders and statements with their WhatsApp message. An invoice shared by hand on WhatsApp is not emailed, and receipts and credit notes are not emailed.
+- **Q: Does the customer need a WhatsApp number to get the email?**
+  A: The email travels with the WhatsApp send, so the party needs a valid mobile number in Tally for anything to go out. If the WhatsApp message then fails or is blocked, the email still goes.
+
+### [The vouchers your accountant parked for your word, checked and posted from your phone.](https://takkada.com/optional-voucher-tally-prime/)
+
+*Today the accountant marks a voucher optional in Tally, reads it out to you on the phone, waits for your word, then opens it again and makes it regular. Tally Drafts lists those vouchers on your phone, and one tap turns the same voucher regular in Tally.*
+
+**Core capability & workflow:**
+An optional voucher in Tally Prime is one your accountant has typed but not posted to the books. Takkada's Tally Drafts lists them on the phone and computer with party, amount and ledger lines. Approve one and the same voucher becomes a regular entry in Tally; reject it and Tally is left untouched.
+
+**How it works:**
+- **Every draft, in one list**: Tally Drafts opens on four tabs: Drafts, In progress, Posted and Rejected. Chips narrow it to sales, purchases, receipts, payments, notes, journals, contra, stock, challans, goods receipts or purchase orders, for this financial year unless you ask for older.
+- **Check it where you are**: Each draft shows the voucher type, party, amount, date, the debit and credit ledger lines and the narration. If the accountant changes it in Tally after you looked, the post stops and the new figures are shown.
+- **Post it, and Tally makes it regular**: Approve on the list posts it in one tap; Post to books on the detail asks first. The same voucher in Tally turns regular, with no second copy made, and nobody opens it again at the Tally computer. A posted draft cannot be undone from the app.
+- **Reject without touching Tally**: Reject only sets it aside in the app, with Undo offered, and Tally stays as it was. Posting follows your team permissions: a member sees only the voucher types they may view and posts only the ones they may create.
+
+**Frequently Asked Questions:**
+- **Q: What is an optional voucher in Tally Prime?**
+  A: A voucher marked optional is saved in Tally but kept out of the books: it changes no ledger balance or stock until somebody makes it regular. Accountants use it for entries waiting on a check, a bill or the owner's word. Takkada calls these drafts.
+- **Q: How do I convert an optional voucher to regular?**
+  A: In Tally you open the voucher, mark it regular and save it. From Takkada you tap Approve on the draft, or Post to books on its detail, and the same voucher turns regular in Tally. Nothing is entered twice, and the entry then counts in the books like any other.
+- **Q: Does rejecting a draft delete it from Tally?**
+  A: No. Reject only moves it to the Rejected tab in Takkada, with Undo offered. The voucher stays optional in Tally. If the accountant edits it there later, it comes back to the Drafts tab so it can be checked again.
+- **Q: Who on my team can post drafts?**
+  A: It follows the permissions you already set. A member sees drafts only for the voucher types they are allowed to view, and posting needs permission to create that type, plus an approver if approvals are switched on for it.
+- **Q: Are there drafts it cannot post?**
+  A: Yes. Post-dated drafts, and drafts of a voucher type Takkada has not been set up for, stay in Tally to be posted there. Item lines are not shown on the phone, so a stock draft points you to Tally for its items.
 
 ## Manual
 

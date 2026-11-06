@@ -5,7 +5,7 @@ meta_title: "Dispatch Load Sheet for Distributors"
 meta_description: "A dispatch load sheet totals pending orders from a 3-day window, then breaks them per beat and per dealer for the van."
 primary_keyword: "dispatch load sheet"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "How-To"
 excerpt: "At 9:15 the godown opens Dispatch, totals pending orders across Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola, then prints a Load sheet per beat with Gupta Stores on top."
@@ -79,7 +79,7 @@ The salesman opens Today's load. Raju, Station Road, pending orders from a 3-day
 
 Raju does not total five beats. The dispatcher does not walk Station Road shop by shop unless he has opened that beat's Load sheet. The owner, if he has full access, can open both. At 9:15 the useful split is already the one the market runs: the field looks at his beat, the gate looks at the totals and the sheets.
 
-Five salesmen, about 120 dealers, five Load sheets. Gupta Stores on Station Road. The Tempo leaves when the item total on Dispatch matches what went on the floor.
+Five salesmen, about 120 dealers, five Load sheets. Gupta Stores on Station Road. The Tempo leaves when the item total on Dispatch matches what went on the floor. Once it has left, [proof of delivery](/proof-of-delivery-app-tally) gives the driver a login of his own for the photo, the returns and the cash at each drop.
 
 ## Frequently Asked Questions
 

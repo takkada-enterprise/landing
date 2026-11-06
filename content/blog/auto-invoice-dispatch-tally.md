@@ -5,7 +5,7 @@ meta_title: "Auto Invoice Dispatch from Tally to WhatsApp"
 meta_description: "Automatic invoice dispatch on WhatsApp: every Tally invoice fires to the retailer the moment it is saved, with a UPI link, so the payment clock starts at once."
 primary_keyword: "automatic invoice dispatch whatsapp"
 date: "2026-07-21"
-updated: "2026-11-03"
+updated: "2026-11-05"
 author: "founder"
 category: "Autopilot"
 excerpt: "A distributor saves an invoice in Tally at 2 PM and it reaches the retailer's WhatsApp the next morning, when someone finally gets around to forwarding it. Auto invoice dispatch closes that gap to seconds and lets the invoice send itself."
@@ -78,7 +78,7 @@ A: It is the headline feature of the Copilot plan (₹9,000 a year, GST extra), 
 
 **Q: Can I turn dispatch off for certain parties?**
 
-A: Yes. Dispatch can be set per party, so a large retailer who prefers email or their own procurement channel can be excluded while the rest get WhatsApp delivery. The system pulls each party's number from the Tally master, so keeping those contacts current is what makes delivery reliable.
+A: Yes. Dispatch can be set per party, so a large retailer who prefers email or their own procurement channel can be excluded while the rest get WhatsApp delivery. With the Email add-on, each dispatched invoice also [goes to the party's email](/email-invoice-from-tally) on its Tally ledger, PDF attached. The system pulls each party's number from the Tally master, so keeping those contacts current is what makes delivery reliable.
 
 **Q: Does the dispatched invoice include the e-invoice and e-way bill?**
 

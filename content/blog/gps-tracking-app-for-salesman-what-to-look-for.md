@@ -5,7 +5,7 @@ meta_title: "GPS Tracking App for Salesman: What to Look For"
 meta_description: "What to look for in a GPS tracking app for salesman: photo check-in, mock-location honesty, offline visits, Tally Sales Orders. No all-day trail, no map."
 primary_keyword: "gps tracking app for salesman"
 date: "2026-08-26"
-updated: "2026-09-18"
+updated: "2026-11-05"
 author: "founder"
 category: "Market Reality"
 excerpt: "Before you buy a salesman tracking app, ask for the stamp at Gupta Stores: camera photo, location, time. Ask what happens on a mock location. Ask whether the order lands in Tally. All-day tracking and a map are the wrong list."
@@ -77,9 +77,9 @@ Team Sales, later, ranks that sale on Orders or Invoices. [Salesman targets and 
 
 ## What a GPS tracking app for salesman should leave out
 
-All-day tracking follows the phone from morning tea through lunch to the ride home. Field teams resent it enough to leave the handset in a drawer. The question on Station Road is whether Raju stood at Gupta Stores at 10:40. A trail of the rest of Tuesday does not answer it.
+All-day tracking follows the phone from morning tea through lunch to the ride home. Field teams resent it enough to leave the handset in a drawer. The question on Station Road is whether Raju stood at Gupta Stores at 10:40. A trail of the rest of Tuesday does not answer it. When you do want the route as well, Takkada's [Live Tracking](/salesman-location-tracking-app) add-on records it on Android between Start day and End day, separate from the visit stamp.
 
-A map of the city, a sequenced walk, a scheduler that tells him which shop is next: Station Road is a name plus a dealer list. A beat has no date, weekday, sequence or visit target. Today's load is pending orders from a 3-day window including today. Older pending sits behind an older pending chip. Raju decides which shutter he photographs first. There is no scheduler, no map, and no all-day tracking.
+A map of the city, a sequenced walk, a scheduler that tells him which shop is next: Station Road is a name plus a dealer list. A beat has no date, weekday, sequence or visit target. Today's load is pending orders from a 3-day window including today. Older pending sits behind an older pending chip. Raju decides which shutter he photographs first. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day.
 
 Beats, Dispatch and Team Sales also work on the web. The owner can set Station Road at the desktop. Visit capture stays on the phone. Manoj on GS Road cannot check in from a browser. An office clerk with web access should not be able to stamp Gupta Stores.
 

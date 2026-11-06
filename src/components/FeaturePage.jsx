@@ -42,6 +42,7 @@ import {
   breadcrumbSchema,
   articlePageSchema,
   SITE_URL,
+  DEFAULT_OG_IMAGE,
 } from '../data/schema';
 import { featurePagePath, heroShot, stepShot } from '../data/featurePages';
 import { screen } from '../data/screens';
@@ -127,6 +128,9 @@ function FeaturePage({ page }) {
   // Resolved once: the hero image, the LCP preload and the Article schema image
   // all have to be the same picture.
   const shot = heroShot(page);
+  // A desktop capture is wider than tall; it gets a wider column and a card
+  // instead of a phone's silhouette shadow (feature-page.css).
+  const wideHero = shot && shot.width > shot.height;
   const faqItems = page.faqs.map((f) => ({ question: f.q, answer: f.a }));
   const trail = [
     { name: 'Home', url: `${SITE_URL}/` },
@@ -147,11 +151,13 @@ function FeaturePage({ page }) {
             // A page tells its story through a walk-through grid or a scroll
             // tour, so the schema image falls through both before the hero.
             // Without the fallback, a tour-only page emits Article with no
-            // image at all.
+            // image at all. A page still owed every capture has no hero
+            // either (round three, 2026-11-05), so it ends on the site card.
             image:
               stepShot(page.walkthrough?.[0])?.src ??
               stepShot(page.tour?.stations?.[0])?.src ??
-              shot?.src,
+              shot?.src ??
+              DEFAULT_OG_IMAGE,
             datePublished: page.datePublished,
             dateModified: page.updated,
             author: page.author,
@@ -166,7 +172,7 @@ function FeaturePage({ page }) {
       {/* ── Hero + front-loaded answer ── */}
       <section className="hero icp-hero feature-hero" id="hero">
         <div className="container">
-          <div className="feature-hero-grid">
+          <div className={wideHero ? 'feature-hero-grid feature-hero-grid--wide' : 'feature-hero-grid'}>
             <div className="hero-content icp-hero-content">
               <BackHome />
               <Breadcrumb trail={trail} />
@@ -204,7 +210,7 @@ function FeaturePage({ page }) {
                 <img
                   src={shot.src}
                   srcSet={shot.srcSet}
-                  sizes="(max-width: 767px) 70vw, 300px"
+                  sizes={wideHero ? '(max-width: 900px) 92vw, 560px' : '(max-width: 767px) 70vw, 300px'}
                   alt={shot.alt}
                   width={shot.width}
                   height={shot.height}
@@ -250,8 +256,18 @@ function FeaturePage({ page }) {
               {page.walkthrough.map((step) => {
                 const Icon = ICONS[step.icon];
                 const stepImg = stepShot(step);
+                const wide = stepImg && stepImg.width > stepImg.height;
                 return (
-                  <article key={step.title} className="feature-step">
+                  <article
+                    key={step.title}
+                    className={
+                      !stepImg
+                        ? 'feature-step feature-step--copy'
+                        : wide
+                          ? 'feature-step feature-step--wide'
+                          : 'feature-step'
+                    }
+                  >
                     {/* Media band first and fixed-height (feature-page.css), so
                       every phone in a row starts and is cut at the same y
                       whatever the copy under it does. */}
@@ -260,7 +276,7 @@ function FeaturePage({ page }) {
                         <img
                           src={stepImg.src}
                           srcSet={stepImg.srcSet}
-                          sizes="208px"
+                          sizes={wide ? '300px' : '208px'}
                           alt={stepImg.alt}
                           width={stepImg.width}
                           height={stepImg.height}
@@ -406,7 +422,7 @@ function FeaturePage({ page }) {
                     What you need
                   </th>
                   <th className="comparison-th comparison-th--takkada" scope="col">
-                    Takkada
+                    {page.comparison.takkadaLabel ?? 'Takkada'}
                   </th>
                   <th className="comparison-th" scope="col">
                     {page.comparison.othersLabel}

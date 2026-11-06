@@ -5,7 +5,7 @@ meta_title: "Salesman Target and Commission from Tally"
 meta_description: "Salesman target commission tracking from Tally sales: per-member targets, Month Quarter or Year, and commission on orders or invoices, never collections."
 primary_keyword: "salesman target commission tracking"
 date: "2026-08-26"
-updated: "2026-09-18"
+updated: "2026-11-05"
 author: "founder"
 category: "Field Sales"
 excerpt: "Tuesday night in Guwahati. Raju's August target is ₹8,00,000. Team Sales shows ₹9,20,000 of orders and ₹6,40,000 of invoices. Gupta Stores paid ₹8,400. That receipt does not move his commission."
@@ -95,7 +95,7 @@ Reassignment is who gets sales credit. The books stay the books. [What field tea
 
 By 8 PM the five vans are in. The owner used to call each man. "Kitna hua aaj?" Team Sales is the leaderboard from the same Tally sales the office already trusts. Each row is a target, a sales total on the chosen basis, and a commission figure. Period is Month. Basis is Invoices. Raju is at ₹6,40,000 against ₹8,00,000.
 
-The screen also runs on the phone. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. Commission stays on orders or invoices. The ₹8,400 Gupta sent at 3 PM sits on the dealer.
+The screen also runs on the phone. Station Road stays a named list. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. Commission stays on orders or invoices. The ₹8,400 Gupta sent at 3 PM sits on the dealer.
 
 The ₹8,00,000 and ₹6,40,000 in this article are the worked example on one Guwahati book.
 

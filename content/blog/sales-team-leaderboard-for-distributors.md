@@ -5,7 +5,7 @@ meta_title: "Sales Team Leaderboard for Distributors"
 meta_description: "A sales team leaderboard for distributors ranks salesmen from Tally sales on Orders or Invoices, for Month, Quarter or Year. Receipts do not change the rank."
 primary_keyword: "sales team leaderboard distributor"
 date: "2026-08-26"
-updated: "2026-09-18"
+updated: "2026-11-05"
 author: "founder"
 category: "Field Sales"
 excerpt: "Tuesday night in Guwahati. Team Sales ranks five names from Tally. Raju's August orders sit at ₹9,20,000, invoices at ₹6,40,000. Gupta Stores paid ₹8,400. That receipt does not move his rank."
@@ -97,7 +97,7 @@ Tally is not touched. The voucher keeps the same party, the same items, the same
 
 By 8 PM the five vans are in. The owner opens Team Sales. Period is Month. Basis is Invoices. Raju is at ₹6,40,000 against ₹8,00,000. Manoj is at ₹7,20,000 against ₹7,50,000. Fancy Bazaar, NH-37 and Beltola sit under them. Each row is a target, a sales total on the chosen basis, and a commission figure.
 
-The screen also runs on the phone. He can read it after dinner. Station Road stays a named list. There is no scheduler, no map, and no all-day tracking. Rank stays on orders or invoices. The ₹8,400 Gupta sent at 3 PM sits on the dealer.
+The screen also runs on the phone. He can read it after dinner. Station Road stays a named list. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. Rank stays on orders or invoices. The ₹8,400 Gupta sent at 3 PM sits on the dealer.
 
 A spreadsheet next to Tally is how two brothers start an argument about ₹2,80,000. One exported Monday. One typed Wednesday. Team Sales reads the live sales register on the basis he picked, for the period he pays on. That is the whole defence of the ranking.
 
