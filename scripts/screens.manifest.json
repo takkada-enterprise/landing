@@ -702,6 +702,13 @@
     "q": 72
   },
   {
+    "slug": "live-tracking-start-day",
+    "source": "live-tracking-start-day.png",
+    "shows": "Android home screen of demo company Shreeji Distributors (Demo) for a salesman: payable and receivable totals, Start your day card (Tap Start day when you go out for work. Your location is shared only until you tap End day.) with Start day and Tracking stops?, Today strip, Quick actions, demo banner",
+    "alt": "A salesman's home screen with the Start your day card: tap Start day when you go out for work, your location is shared only until you tap End day",
+    "operatorException": "2026-11-06: taken on a team member's Android phone (Palak) in the Takkada app on demo company 143 (made-up data), with her demo-company role set to salesman for the capture and restored after, and sent in chat by Ronak (\"make her the saleman, she is not able to see start day in the demo account\"). The source here is screens-raw/2026-11-05/live-tracking-start-day-android-raw.png with the phone's status bar and gesture bar cropped off (live-tracking-start-day.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
     "slug": "live-tracking-day",
     "source": "live-tracking-day.png",
     "shows": "Salesman's day for Arjun (Demo), Today: the day's route on the map; On duty since 9:45 AM, last seen 7 min ago, battery 51%, 34.9 km today; No location from 1:25 PM to 2:10 PM; No beat chosen for today; visit 1 Sardar Provision 12:05 to 12:30 PM, at the dealer 25 min, location verified",

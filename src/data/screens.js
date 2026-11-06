@@ -346,6 +346,7 @@ export const SCREENS = {
   'desktop-entry-pull-order': sheet('desktop-entry-pull-order', "Pressing Alt+O on a new sales invoice lists the party's sales orders and challan still waiting to be billed, with the items pending on each", 720, 370),
   'desktop-entry-saved-strip': sheet('desktop-entry-saved-strip', 'After Ctrl+A the bill number shows as saved, with keys to view, print, send or cancel it and buttons for the receipt or credit note, above a blank form for the next bill', 720, 310),
   'desktop-entry-restored-draft': sheet('desktop-entry-restored-draft', 'A half-typed sales invoice brought back after the browser tab closed, with a note saying when it was restored and that Esc discards it', 720, 380),
+  'live-tracking-start-day': phone('live-tracking-start-day', "A salesman's home screen with the Start your day card: tap Start day when you go out for work, your location is shared only until you tap End day"),
   'live-tracking-day': phone('live-tracking-day', "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day"),
   'live-tracking-rules': phone('live-tracking-rules', 'Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15'),
   'email-party-card': phone('email-party-card', 'Adding an email address to a party from its page in the app'),

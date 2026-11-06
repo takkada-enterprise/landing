@@ -3113,6 +3113,22 @@
       "knownSensitive": false,
       "reason": "Gmail screenshot by Ronak on his iPhone of a real email the stage reminder pipeline sent from made-up stage company 111 to his own inbox; screens-raw/2026-11-05/email-inbox-reminder-iphone-raw.png, status bar cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the email-invoice page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
       "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "84519c6ddb52ccb8a638ba95b4b12f28ab530d19926e673659170cd568ee900b": {
+      "path": "public/assets/screens/live-tracking-start-day-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Android screenshot by a team member (Palak) of demo company 143 (made-up data) as a salesman, sent by Ronak in chat; screens-raw/2026-11-05/live-tracking-start-day-android-raw.png, status and gesture bars cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the live-tracking page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "c130b067648e4900af2dc31787a734b4e06de8b92425ded0b673e7ca31d3a8a7": {
+      "path": "public/assets/screens/live-tracking-start-day-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Android screenshot by a team member (Palak) of demo company 143 (made-up data) as a salesman, sent by Ronak in chat; screens-raw/2026-11-05/live-tracking-start-day-android-raw.png, status and gesture bars cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the live-tracking page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
     }
   },
   "classes": [

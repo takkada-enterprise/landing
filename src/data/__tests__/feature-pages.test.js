@@ -876,10 +876,9 @@ const OWED_CAPTURES = new Set([]);
 // A step with no capture of its own stays copy, by decision rather than as a
 // wait: a borrowed screen is what Ronak rejected. The set is closed so a copy-only
 // step cannot spread to a page that should carry a screen.
-// What is left has no capture to give: Start day is an Android-only card.
-// (The two email-inbox steps landed 2026-11-06 from a stage send to Ronak.)
+// Empty since 2026-11-06: the two email-inbox steps came from a stage send to
+// Ronak, and Start day from a team member's Android phone on the demo.
 const COPY_ONLY_STEPS = [
-  'salesman-location-tracking-app: He starts the day, tracking starts',
 ];
 
 describe('pages owed captures', () => {

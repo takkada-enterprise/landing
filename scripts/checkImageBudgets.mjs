@@ -268,6 +268,8 @@ export const BUDGETS = [
   ['public/assets/screens/desktop-entry-saved-strip-1440.webp', 56_000, 'feature-page screen (desktop-entry-saved-strip), wide sheet'],
   ['public/assets/screens/desktop-entry-restored-draft-720.webp', 24_000, 'feature-page screen (desktop-entry-restored-draft), wide sheet'],
   ['public/assets/screens/desktop-entry-restored-draft-1440.webp', 56_000, 'feature-page screen (desktop-entry-restored-draft), wide sheet'],
+  ['public/assets/screens/live-tracking-start-day-360.webp', 34_000, 'feature-page screen (live-tracking-start-day)'],
+  ['public/assets/screens/live-tracking-start-day-720.webp', 76_000, 'feature-page screen (live-tracking-start-day)'],
   ['public/assets/screens/live-tracking-day-360.webp', 36_000, 'feature-page screen (live-tracking-day); map tiles, q64'],
   ['public/assets/screens/live-tracking-day-720.webp', 84_000, 'feature-page screen (live-tracking-day); map tiles, q64'],
   ['public/assets/screens/live-tracking-rules-360.webp', 34_000, 'feature-page screen (live-tracking-rules)'],

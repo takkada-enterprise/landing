@@ -17,9 +17,9 @@
 // A step that is waiting names its capture in `pendingScreen`, and the page
 // lists every capture it is owed in `pendingScreens`. feature-pages.test.js
 // pins both, and goes red the day a pending slug is registered in screens.js,
-// so the swap cannot be forgotten. A step that will stay without a screen
-// (Start day, Android only; the two email-inbox steps) says so with
-// `copyOnly: true`; that set is closed in the same test file.
+// so the swap cannot be forgotten. A step that will stay without a screen says
+// so with `copyOnly: true`; that set is closed (empty since 2026-11-06) in the
+// same test file.
 // Where each slug plugs in: docs/seo/feature-pages-round-three/SCREENS-TODO.md.
 //
 // Copy angle (Ronak, 2026-11-05): the reader already runs this job in Tally.
@@ -786,7 +786,7 @@ export const ROUND_THREE = [
         title: 'He starts the day, tracking starts',
         body:
           'The home screen carries a Start your day card. The first time, he sees what is recorded and agrees to it. From Start day to End day the phone reports where it is, and a notification stays on the whole time, so nothing runs out of sight.',
-        copyOnly: true,
+        screen: 'live-tracking-start-day',
       },
       {
         icon: 'LayoutGrid',
