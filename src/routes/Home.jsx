@@ -44,7 +44,6 @@ import {
   testimonials,
   trustSection,
   proofStrip,
-  differentiators,
   homeFeatures,
 } from '../data/siteContent';
 
@@ -259,34 +258,6 @@ function Home({ seo = HOME_SEO }) {
             </a>
             <p className="hv3-tally-download-note">{tallyTrust.downloadNote}</p>
           </div>
-        </div>
-      </section>
-
-      {/* ── Differentiator band: what only Takkada does, competitors
-             unnamed (2026-08-06 conversion pass, R4). Claims contract lives
-             in siteContent.js + differentiators.test.js. ── */}
-      <section className="hv3-diff" id={differentiators.id}>
-        <div className="container">
-          <div className="hv3-story-head reveal">
-            <span className="section-label">{differentiators.overline}</span>
-            <h2 className="hv3-story-title">{differentiators.heading}</h2>
-            <p className="hv3-story-intro">{differentiators.intro}</p>
-          </div>
-          <div className="hv3-diff-rows">
-            {differentiators.rows.map((row) => (
-              <div key={row.stop} className="hv3-diff-row reveal">
-                <div className="hv3-diff-cell hv3-diff-cell--others">
-                  <span className="hv3-diff-tag">{row.stop}</span>
-                  <p className="tabular-nums">{row.others}</p>
-                </div>
-                <div className="hv3-diff-cell hv3-diff-cell--takkada">
-                  <span className="hv3-diff-tag hv3-diff-tag--takkada">Takkada keeps going</span>
-                  <p className="tabular-nums">{row.takkada}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="hv3-story-footnote reveal">{differentiators.footnote}</p>
         </div>
       </section>
 
