@@ -726,6 +726,20 @@
     "q": 76
   },
   {
+    "slug": "email-inbox-invoice",
+    "source": "email-inbox-invoice.png",
+    "shows": "Gmail on Ronak's iPhone, email 'Invoice SH/26-27/0187 from Shreeji Traders' from Shreeji Traders via Takkada to Krishna General Store: created an invoice, Amount Rs 8,715.00, Due Date 05/12/2026, Pay now, Thank you, Sent by Shreeji Traders using Takkada, attachment SH-26-27-0187.pdf",
+    "alt": "An invoice email in Gmail from Shreeji Traders via Takkada: amount, due date, a Pay now link and the invoice PDF attached",
+    "operatorException": "2026-11-06: real emails sent by the stage reminder pipeline from stage company 111 (made-up company and party, renamed 'Shreeji Traders' for the send) to Ronak's own inbox at his request (\"trigger a sample email to ronakmalu@gmail.com\"), screenshotted by Ronak on his iPhone and sent in chat. The source here is screens-raw/2026-11-05/email-inbox-invoice-iphone-raw.png with the phone's status bar cropped off (email-inbox-invoice.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "email-inbox-reminder",
+    "source": "email-inbox-reminder.png",
+    "shows": "Gmail on Ronak's iPhone, email 'Payment overdue: Rs 16,695.00 to Shreeji Traders' from Shreeji Traders via Takkada: Your payment is overdue, Amount, Original Due Date 26/10/2026, Overdue By 11 days, Pay now, Sent by Shreeji Traders using Takkada",
+    "alt": "A payment reminder email in Gmail: amount overdue, the original due date, days overdue and a Pay now link",
+    "operatorException": "2026-11-06: real emails sent by the stage reminder pipeline from stage company 111 (made-up company and party, renamed 'Shreeji Traders' for the send) to Ronak's own inbox at his request (\"trigger a sample email to ronakmalu@gmail.com\"), screenshotted by Ronak on his iPhone and sent in chat. The source here is screens-raw/2026-11-05/email-inbox-reminder-iphone-raw.png with the phone's status bar cropped off (email-inbox-reminder.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
     "slug": "tally-drafts",
     "source": "tally-drafts.png",
     "shows": "Tally Drafts, Drafts tab (In progress, Posted, Rejected); chips All, Sales, Purchases, Receipts; Sales INV/26-27/D102 Ganesh Provision Stores Rs 27,615 with Dr/Cr ledger lines and narration Scheme discount pending, Reject and Approve; Sales INV/26-27/D101 Laxmi Super Market Rs 48,230; Purchase PUR/26-27/D17 Navrang FMCG Agencies Rs 86,420; no Tally-sync-off line",

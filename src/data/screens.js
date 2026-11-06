@@ -349,6 +349,8 @@ export const SCREENS = {
   'live-tracking-day': phone('live-tracking-day', "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day"),
   'live-tracking-rules': phone('live-tracking-rules', 'Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15'),
   'email-party-card': phone('email-party-card', 'Adding an email address to a party from its page in the app'),
+  'email-inbox-invoice': phone('email-inbox-invoice', "An invoice email in Gmail from Shreeji Traders via Takkada: amount, due date, a Pay now link and the invoice PDF attached"),
+  'email-inbox-reminder': phone('email-inbox-reminder', "A payment reminder email in Gmail: amount overdue, the original due date, days overdue and a Pay now link"),
   // The four Tally drafts screens are stage captures (co111, made-up drafts),
   // not demo company 143: see their operatorException rows in the manifest.
   'tally-drafts': phone('tally-drafts', 'Tally Drafts: optional vouchers from Tally with party, amount, date, ledger lines and narration, and Reject and Approve on each'),

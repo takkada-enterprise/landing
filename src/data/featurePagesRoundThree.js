@@ -920,14 +920,14 @@ export const ROUND_THREE = [
         title: 'The invoice reaches the inbox',
         body:
           'When Auto Invoice Dispatch sends an invoice on WhatsApp, the same invoice goes by email with the PDF attached. It is sent as your company name via Takkada, and a copy goes to your business email.',
-        copyOnly: true,
+        screen: 'email-inbox-invoice',
       },
       {
         icon: 'CalendarClock',
         title: 'Reminders and statements, with Pay now',
         body:
           'Due and overdue reminders and ledger statements carry the same words as the WhatsApp message, plus a Pay now link. If the WhatsApp message fails or the number has blocked you, the email still goes.',
-        copyOnly: true,
+        screen: 'email-inbox-reminder',
       },
       {
         icon: 'BookOpen',

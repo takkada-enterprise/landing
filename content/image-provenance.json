@@ -3081,6 +3081,38 @@
       "knownSensitive": false,
       "reason": "Phone capture from demo company 143 (made-up data), taken by Ronak on his iPhone in the Takkada app as the van driver and sent in chat; screens-raw/2026-11-05/pod-cash-on-van-iphone-raw.png with the phone's status bar cropped off (screens-raw/2026-11-05/pod-cash-on-van.png), framed in the site phone frame by scripts/phone-frame/frame_capture.py (the capture itself unchanged, only scaled into the frame under a stock status bar), then exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the proof-of-delivery page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
       "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "405d1b8c6f6c193e0ece6ef12a12e66688639f02a9899061590fcd10d96db890": {
+      "path": "public/assets/screens/email-inbox-invoice-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Gmail screenshot by Ronak on his iPhone of a real email the stage reminder pipeline sent from made-up stage company 111 to his own inbox; screens-raw/2026-11-05/email-inbox-invoice-iphone-raw.png, status bar cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the email-invoice page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "21238d5d1228b19d922bc146e1aa14eddfce620004e649d6258a089fe1e4dec1": {
+      "path": "public/assets/screens/email-inbox-invoice-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Gmail screenshot by Ronak on his iPhone of a real email the stage reminder pipeline sent from made-up stage company 111 to his own inbox; screens-raw/2026-11-05/email-inbox-invoice-iphone-raw.png, status bar cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the email-invoice page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "0fc711ca1e608d65b42a4116cba46dd00c834576040499d2d793b807d55b3ce3": {
+      "path": "public/assets/screens/email-inbox-reminder-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Gmail screenshot by Ronak on his iPhone of a real email the stage reminder pipeline sent from made-up stage company 111 to his own inbox; screens-raw/2026-11-05/email-inbox-reminder-iphone-raw.png, status bar cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the email-invoice page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "8039e71304bb538df30581ba0e794be84ae8c22f8bb81f70ef748399b289a9da": {
+      "path": "public/assets/screens/email-inbox-reminder-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-06",
+      "knownSensitive": false,
+      "reason": "Gmail screenshot by Ronak on his iPhone of a real email the stage reminder pipeline sent from made-up stage company 111 to his own inbox; screens-raw/2026-11-05/email-inbox-reminder-iphone-raw.png, status bar cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the email-invoice page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
+      "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
     }
   },
   "classes": [
