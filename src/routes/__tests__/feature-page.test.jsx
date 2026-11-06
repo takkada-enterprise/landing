@@ -246,33 +246,11 @@ describe('the router picks feature pages up without a per-page edit', () => {
 // page joining a stop needs no page edit at all — the grouping already knows.
 // These pin the mount point and the silence, per page, so a regrouping that
 // drops a stop shows up as a failing page and not as a quietly missing strip.
-describe('every feature page shows where it sits in the invoice journey', () => {
-  const stopOf = (slug) => FEATURE_GROUPS.find((g) => g.slugs.includes(slug))?.stop;
-
-  it.each(CASES)('%s marks its own stop, or carries no strip at all', (_slug, page) => {
+describe('feature pages do not render the journey strip', () => {
+  it.each(CASES)('%s carries no journey strip', (_slug, page) => {
     const { container } = renderPage(page);
-    const copy = container.querySelector('.feature-hero .icp-hero-content');
     const strip = container.querySelector('.feature-hero .journey-strip');
-    const stop = stopOf(page.slug);
-
-    if (!stop) {
-      expect(strip).toBeNull();
-      return;
-    }
-    expect(strip).not.toBeNull();
-    // Last child of the copy column: it closes the hero, under the CTAs.
-    expect(copy.lastElementChild).toBe(strip);
-    const marked = [...strip.querySelectorAll('li[aria-current="step"]')];
-    expect(marked).toHaveLength(1);
-    expect(marked[0].textContent).toBe(STOPS.find((s) => s.id === stop).label);
-    expect(strip.querySelector('li[aria-current="step"] a').getAttribute('href')).toBe(
-      `/#stop-${stop}`
-    );
-  });
-
-  it('draws a strip on at least one page, so the assertions above are not vacuous', () => {
-    const withStop = FEATURE_PAGES.filter((p) => stopOf(p.slug));
-    expect(withStop.length).toBeGreaterThan(0);
+    expect(strip).toBeNull();
   });
 });
 
