@@ -40,6 +40,13 @@ describe('setMetaUserPhone', () => {
     const html = readFileSync('index.html', 'utf8');
     expect(html).toContain(`fbq('init', '${META_PIXEL_ID}'`);
   });
+
+  it('tracks Lead for calendar.notion.so and whatsapp clicks in index.html', async () => {
+    const { readFileSync } = await import('node:fs');
+    const html = readFileSync('index.html', 'utf8');
+    expect(html).toContain("fbq('track', 'Lead', { content_name: 'book_demo_click' })");
+    expect(html).toContain("fbq('track', 'Lead', { content_name: 'whatsapp_click' })");
+  });
 });
 
 describe('trackMetaLead', () => {
