@@ -53,7 +53,7 @@ export const ROUND_THREE = [
     seo: {
       title: 'Stock Control for Tally: Reorder, Lead Time, Season Plan',
       description:
-        'Stock control for Tally: what to reorder today, supplier lead times from your own receipts, a season plan, and purchase orders saved to Tally unretyped.',
+        'Stock control for Tally: what to reorder today, supplier lead times from your own receipts, a season plan, and purchase orders saved to Tally, no retyping.',
     },
     llms: {
       section: 'Features',
@@ -766,7 +766,7 @@ export const ROUND_THREE = [
     seo: {
       title: 'Salesman Location Tracking App for Tally Distributors',
       description:
-        'Salesman location tracking during the working day only: Start day to End day on Android, a Team Map with last seen, battery and km covered. Nothing after hours.',
+        'Salesman location tracking during the working day only: Start day to End day on Android, a Team Map with last seen, battery and km. Nothing after hours.',
     },
     llms: {
       section: 'Features',
