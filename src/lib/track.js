@@ -53,11 +53,12 @@ export function setMetaUserPhone(phone) {
   }
 }
 
-// Meta Pixel Lead for captured phone submissions (try demo OTP entry and
-// calendar booking phone capture in PhoneModal.jsx, and the homepage feature
-// cards' Book Demo form, content_name 'feature_demo_request'). These represent real
-// contacts with captured phone numbers. Outbound link clicks on WhatsApp and
-// calendar links fire 'Contact' instead to avoid counting bounces as leads.
+// Meta Pixel Lead for conversions:
+// 1. Captured phone submissions (try demo OTP entry in PhoneModal.jsx, and the
+//    homepage feature cards' Book Demo form, content_name 'feature_demo_request').
+// 2. Calendar booking flow via phone capture (content_name 'book_demo_click').
+// 3. Outbound clicks on WhatsApp (content_name 'whatsapp_click') and Notion
+//    Calendar links (content_name 'book_demo_click') tracked via index.html.
 // Same contract as track(): a silent no-op when the pixel is absent (tests,
 // SSR, local hosts, blockers) and never throws.
 export function trackMetaLead(contentName) {
@@ -72,8 +73,8 @@ export function trackMetaLead(contentName) {
   }
 }
 
-// Meta Pixel Contact for outbound intent interactions (e.g. WhatsApp clicks
-// and calendar opens). Same silent no-op contract.
+// Meta Pixel Contact for outbound intent interactions (retained for backwards
+// compatibility). Same silent no-op contract.
 export function trackMetaContact(contentName) {
   if (typeof window === 'undefined') return;
   const fbq = window.fbq;
