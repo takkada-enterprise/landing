@@ -190,5 +190,17 @@ export const routeMetadata = [
     // inbound links but is excluded from sitemap.xml (2026-07 audit item 4).
     sitemap: false,
   },
+  {
+    path: '/customised-erp',
+    llms: {
+      section: 'Key pages',
+      title: 'Customised ERP',
+      summary:
+        'Modular Tally ERP solutions for distributors: custom billing counters, field sales, barcode systems, manufacturing, and multi-company setups.',
+    },
+    sourceFile: 'src/routes/CustomisedErp.jsx',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
   ...featureRouteMetadata,
 ];

@@ -14,6 +14,7 @@ import TallyMobileComparison from './TallyMobileComparison';
 import TryDemo from './TryDemo';
 import Partners from './Partners';
 import Features from './Features';
+import CustomisedErp from './CustomisedErp';
 import FeaturePage from '../components/FeaturePage';
 import { routeMetadata } from '../data/siteMetadata';
 import { FEATURE_PAGES, featurePagePath } from '../data/featurePages';
@@ -43,6 +44,7 @@ const ELEMENT_FOR_PATH = {
   '/features': <Features />,
   '/partners': <Partners />,
   '/become-a-partner': <Partners />,
+  '/customised-erp': <CustomisedErp />,
 };
 
 const children = routeMetadata.map(({ path }) => {

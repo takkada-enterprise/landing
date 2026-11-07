@@ -79,7 +79,7 @@ describe('webSiteSchema', () => {
 describe('pricing data (rate card, July 2026)', () => {
   it('maps each plan to its current rate-card MRP', () => {
     const byPlan = Object.fromEntries(pricing.plans.map((p) => [p.plan, p.annualPrice]));
-    expect(byPlan).toEqual({ Momentum: 4500, Assurance: 6480, Copilot: 9000, Enterprise: 24000 });
+    expect(byPlan).toEqual({ Momentum: 4500, Assurance: 6480, Copilot: 9000 });
   });
 
   it('keeps the retired plan names off the public site', () => {
@@ -366,7 +366,7 @@ describe('softwareApplicationSchema', () => {
     expect(offers['Momentum']).toMatchObject({ price: '4500', priceCurrency: 'INR' });
     expect(offers['Assurance']).toMatchObject({ price: '6480', priceCurrency: 'INR' });
     expect(offers['Copilot']).toMatchObject({ price: '9000', priceCurrency: 'INR' });
-    expect(offers['Enterprise']).toMatchObject({ price: '24000', priceCurrency: 'INR' });
+    expect(offers['Enterprise']).toBeUndefined();
   });
 
   it('declares verified featureList, softwareRequirements, and target country/languages for AI discovery', () => {

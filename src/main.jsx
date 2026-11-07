@@ -9,6 +9,7 @@ import './home.css';
 import './journey.css';
 import './feature-page.css';
 import './guide.css';
+import './customised-erp.css';
 
 export const createRoot = ViteReactSSG(
   { routes },

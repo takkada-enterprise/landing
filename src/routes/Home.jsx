@@ -34,7 +34,6 @@ import { JOBS, HERO_HOME, jobHref } from '../data/heroHotspots';
 import {
   appLinks,
   pricing,
-  biggerSetups,
   planPricing,
   planPriceRange,
   formatInr,
@@ -83,9 +82,7 @@ const HOME_SEO = {
   // AI summaries read one definition of what Takkada is. The snippet's range
   // stops at Copilot and leaves Enterprise out (operator call, 2026-10-21);
   // the pricing section still shows the full ladder.
-  description: `Takkada is Tally on mobile. Bill with e-invoice, see 20+ reports, manage stock, orders and salesmen from your phone. ${planPriceRange(
-    pricing.plans.filter((p) => p.plan !== 'Enterprise')
-  )}/year.`,
+  description: `Takkada is Tally on mobile. Bill with e-invoice, see 20+ reports, manage stock, orders and salesmen from your phone. ${planPriceRange()}/year.`,
   path: '/',
 };
 
@@ -376,62 +373,13 @@ function Home({ seo = HOME_SEO }) {
                 ))}
               </div>
             ))}
+          </div>
 
-            {/* Add-ons close the table rather than sitting below it as an
-                orphan block, because any plan can take them (Enterprise
-                already includes some of them). */}
-            <div className="rate-addons">
-              <div className="rate-addons-title">Add-ons</div>
-              <ul className="rate-addons-list">
-                {pricing.addons.map((addon) => (
-                  <li key={addon.label} className="rate-addon">
-                    <span className="rate-addon-label">{addon.label}</span>
-                    <span className="rate-addon-note">{addon.note}</span>
-                  </li>
-                ))}
-              </ul>
-              {/* Add-ons carry no price on the site: partners quote them
-                  (ruled 2026-10-04). One shared line, not a figure per pill. */}
-              <div className="rate-addons-foot">
-                <p className="rate-addons-cta">{pricing.addonsCta}</p>
-                <WhatsAppCTA context="pricing" variant="outline">
-                  Ask about add-ons on WhatsApp
-                </WhatsAppCTA>
-              </div>
-            </div>
-
-            {/* Bigger setups close the table for the same reason add-ons do:
-                they sit outside the plan columns and none of them is a plan.
-                A card rather than a pill, so the custom-pricing line can carry
-                its own note beside the price. */}
-            <div className="rate-bigger">
-              <div className="rate-bigger-head">
-                <div className="rate-bigger-title">{biggerSetups.title}</div>
-                <p className="rate-bigger-intro">{biggerSetups.intro}</p>
-              </div>
-              <div className="rate-bigger-cards">
-                {biggerSetups.items.map((item) => (
-                  <div className="rate-bigger-card" key={item.id}>
-                    <h3 className="rate-bigger-card-title">{item.title}</h3>
-                    <p className="rate-bigger-card-body">{item.body}</p>
-                    <div className="rate-bigger-prices">
-                      {item.price.map((line) => (
-                        <div className="rate-bigger-price" key={line.amount}>
-                          <span className="rate-bigger-amount tabular-nums">{line.amount}</span>
-                          <span className="rate-bigger-price-note">{line.note}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="rate-bigger-foot">
-                <p className="rate-bigger-note">{biggerSetups.note}</p>
-                <WhatsAppCTA context="bigger-setups" variant="outline">
-                  {biggerSetups.ctaLabel}
-                </WhatsAppCTA>
-              </div>
-            </div>
+          <div className="rate-custom-erp-banner">
+            <span>For Customised ERP, </span>
+            <Link to="/customised-erp" className="rate-custom-erp-link">
+              follow the link <ArrowRight size={15} aria-hidden="true" />
+            </Link>
           </div>
 
           <div className="home-pricing-strip-cta">

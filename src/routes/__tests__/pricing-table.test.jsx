@@ -85,41 +85,25 @@ describe('pricing comparison table', () => {
     }
   });
 
-  it('shows every add-on inside the table, not as a block below it', () => {
+  it('does not render the multiple add-on strip in the pricing table', () => {
     const container = renderHome();
     const addons = container.querySelector('.rate-addons');
-    expect(addons).toBeTruthy();
-    for (const addon of pricing.addons) {
-      expect(addons.textContent).toContain(addon.label);
-      expect(addons.textContent).toContain(addon.note);
-    }
+    expect(addons).toBeNull();
   });
 
-  it('lists every module as an add-on with no price — partners quote them (ruled 2026-10-04)', () => {
+  it('renders a banner below the table linking to Customised ERP', () => {
     const container = renderHome();
-    expect(pricing.addons.map((a) => a.label)).toEqual([
-      'FMCG billing', 'Auto parts billing', 'Schemes', 'Ladder discount', 'Recovery dashboard',
-      'Customer order link', 'Personal party links', 'AI calling', 'Your own WhatsApp number',
-      'Payment Collection', 'Barcode labels', 'Proof of Delivery', 'Voucher names', 'Manufacturing',
-      'Stock Control', 'Desktop entry', 'Live tracking', 'Email invoices', 'Tally drafts', 'Extra user',
-    ]);
-    expect(container.querySelector('.rate-addons').textContent).not.toMatch(/₹/);
-    expect(screen.getAllByText('Ask your partner for pricing').length).toBeGreaterThan(0);
-    const cta = container.querySelector('.rate-addons a[href*="wa.me"]');
-    expect(cta, 'the add-on strip has no contact CTA').toBeTruthy();
+    const banner = container.querySelector('.rate-custom-erp-banner');
+    expect(banner).toBeTruthy();
+    expect(banner.textContent).toContain('For Customised ERP, follow the link');
+    const link = banner.querySelector('a');
+    expect(link).toBeTruthy();
+    expect(link.getAttribute('href')).toBe('/customised-erp/');
   });
 
-  it('never claims Enterprise carries every module (final review 2026-10-04)', () => {
-    // Enterprise leaves out Payment Collection, the own WhatsApp number,
-    // extra users and the big modules unless picked or bought, so "every
-    // module" overstates it. It carries any 4 small modules the customer picks.
-    const container = renderHome();
-    expect(container.textContent).not.toMatch(/\bevery module|\ball modules/i);
-    expect(container.querySelector('.rate-addons-title').textContent).toBe('Add-ons');
-    expect(pricing.matrix.map((g) => g.group)).toContain('Modules you pick');
-    expect(pricing.plans.find((p) => p.plan === 'Enterprise').description).toMatch(
-      /any 4 small modules/
-    );
+  it('no longer offers Enterprise plan in the pricing ladder', () => {
+    renderHome();
+    expect(pricing.plans.map((p) => p.plan)).not.toContain('Enterprise');
   });
 
   it('no longer offers Clarity anywhere on the page', () => {
@@ -151,12 +135,12 @@ describe('pricing comparison table', () => {
 
   it('marks exactly one plan as the highlighted column', () => {
     const container = renderHome();
-    expect(pricing.plans).toHaveLength(4);
+    expect(pricing.plans).toHaveLength(3);
     expect(container.querySelectorAll('.rate-plan--hero')).toHaveLength(1);
     expect(container.querySelector('.rate-plan--hero').textContent).toContain('Copilot');
-    const enterprise = pricing.plans.find((p) => p.plan === 'Enterprise');
-    expect(enterprise).toMatchObject({ annualPrice: 24000, badge: 'Most complete' });
-    expect(enterprise.highlighted).toBeFalsy();
+    const copilot = pricing.plans.find((p) => p.plan === 'Copilot');
+    expect(copilot).toMatchObject({ annualPrice: 9000, badge: 'Most Popular' });
+    expect(copilot.highlighted).toBe(true);
     // Below 900px the picker opens on the highlighted plan, not the last one.
     expect(container.querySelector('.rate-table').getAttribute('data-active-plan')).toBe(
       String(pricing.plans.findIndex((p) => p.highlighted))
@@ -175,85 +159,16 @@ describe('pricing comparison table', () => {
   });
 });
 
-// The self-hosting and multi-company lines are quoted per business, not per
-// user, so they close the table as their own block instead of becoming a
-// fifth plan column or a capability row. These guards pin that placement and
-// pin both figures to formatInr, because the deck (slide 13) and the site
-// have to keep saying the same number to the same prospect.
-describe('bigger setups block', () => {
-  it('renders inside the rate table, after the add-on strip', () => {
+describe('customised ERP pathway', () => {
+  it('omits bigger setups card block from the homepage pricing table', () => {
     const container = renderHome();
-    const table = container.querySelector('.rate-table');
-    const bigger = container.querySelector('.rate-bigger');
-    expect(bigger, 'the bigger-setups block is missing').toBeTruthy();
-    expect(table.contains(bigger), 'the block orphaned below the table').toBe(true);
-
-    const addons = container.querySelector('.rate-addons');
-    expect(
-      addons.compareDocumentPosition(bigger) & Node.DOCUMENT_POSITION_FOLLOWING,
-      'the block must come after the add-on strip'
-    ).toBeTruthy();
+    expect(container.querySelector('.rate-bigger')).toBeNull();
   });
 
-  it('sets every rupee figure in tabular figures', () => {
+  it('routes custom ERP interest to /customised-erp', () => {
     const container = renderHome();
-    const amounts = [...container.querySelectorAll('.rate-bigger-amount')];
-    expect(amounts.length).toBeGreaterThan(0);
-    for (const el of amounts) {
-      if (!el.textContent.includes('₹')) continue;
-      expect(
-        el.classList.contains('tabular-nums'),
-        `"${el.textContent}" is not in tabular figures`
-      ).toBe(true);
-    }
-    // Every ₹ figure in the block lives in an amount span. A figure written
-    // into the prose would escape the tabular-nums check above.
-    const prose = [...container.querySelectorAll('.rate-bigger-card-body, .rate-bigger-note')];
-    for (const el of prose) {
-      expect(el.textContent, 'a rupee figure escaped into the prose').not.toContain('₹');
-    }
-  });
-
-  it('quotes the multi-company line without a rupee figure', () => {
-    const container = renderHome();
-    const card = [...container.querySelectorAll('.rate-bigger-card')].find((el) =>
-      /across companies/i.test(el.textContent)
-    );
-    expect(card, 'no multi-company card rendered').toBeTruthy();
-    expect(card.textContent).toContain('Per additional company');
-    expect(card.textContent).not.toContain('₹');
-  });
-
-  it('did not become a plan column or a capability row', () => {
-    expect(pricing.plans).toHaveLength(4);
-    expect(pricing.matrix).toHaveLength(5);
-    const labels = [
-      ...pricing.plans.map((p) => p.plan),
-      ...pricing.matrix.flatMap((g) => [g.group, ...g.rows.map((r) => r.label)]),
-      ...pricing.addons.map((a) => a.label),
-    ].join(' | ');
-    expect(labels).not.toMatch(/self-host|own server|consolidated report/i);
-  });
-
-  it('sends the block CTA to its own WhatsApp context', () => {
-    const container = renderHome();
-    const cta = container.querySelector('.rate-bigger-foot a[href*="wa.me"]');
-    expect(cta, 'the block has no WhatsApp CTA').toBeTruthy();
-    expect(cta.getAttribute('href')).toContain(
-      encodeURIComponent(WHATSAPP_MESSAGES['bigger-setups'])
-    );
-    expect(cta.getAttribute('href')).not.toContain(
-      encodeURIComponent(WHATSAPP_MESSAGES.pricing)
-    );
-  });
-
-  it('keeps adoption language away from an option nobody has taken yet', () => {
-    // Zero delivered self-hosted deployments as of 2026-08-11. A capability
-    // claim is allowed here; a usage claim is not (CLAUDE.md §3, §5).
-    const text = [
-      biggerSetups.note,
-      ...biggerSetups.items.flatMap((i) => [i.title, i.body]),
-    ].join(' ');
-    expect(text).not.toMatch(/customers (run|use|host)|used by|trusted by|\d+\s*(businesses|companies) (run|use)/i);
+    const link = container.querySelector('.rate-custom-erp-banner a');
+    expect(link).toBeTruthy();
+    expect(link.getAttribute('href')).toBe('/customised-erp/');
   });
 });

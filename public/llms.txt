@@ -2,7 +2,7 @@
 
 > Takkada is Tally on mobile: a mobile app, with a web version, for Indian distributors, wholesalers and manufacturers who run their books on Tally. It covers billing with e-invoice and e-way bill, 20+ reports, stock, orders, salesman visits, dispatch, WhatsApp invoices and reminders, and UPI payment collection, with every entry posting back into Tally. Tally stays the system of record; Takkada syncs with the distributor's own Tally installation through a Windows connector. Built by Pay Saathi Innovation LLP, Guwahati, India.
 
-Pricing (annual list price per business, GST extra): Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹9,000 · Enterprise ₹24,000. A 3-year term is 25% off, billed once.
+Pricing (annual list price per business, GST extra): Momentum ₹4,500 · Assurance ₹6,480 · Copilot ₹9,000. A 3-year term is 25% off, billed once.
 
 Add-ons (Ask your partner for pricing):
 - FMCG billing: A fast billing counter, with retail margin and discount set per item.
@@ -34,6 +34,7 @@ Add-ons (Ask your partner for pricing):
 - [Live demo](https://takkada.com/demo/): Try Takkada on a demo company with real-shaped books, no installation.
 - [All features](https://takkada.com/features/): Directory of every Takkada feature page, grouped by the distributor's day: taking the order, billing, loading and stock, sending, reminding and collecting, and back in Tally.
 - [Tally partner program](https://takkada.com/partners/): The reseller program for Tally partners: recurring commission on every plan and renewal.
+- [Customised ERP](https://takkada.com/customised-erp/): Modular Tally ERP solutions for distributors: custom billing counters, field sales, barcode systems, manufacturing, and multi-company setups.
 - [Biz Analyst alternative](https://takkada.com/biz-analyst-alternative/): Takkada compared with Biz Analyst for Indian distributors on Tally. Both read Tally on mobile, create vouchers and send reminders. Takkada adds a browser version, credit and debit notes, cancellation of an e-invoice or e-way bill from the phone, dispatch loading, and UPI collection matched back into Tally. Biz Analyst bills per device and is offline-capable, which Takkada is not.
 - [Livekeeping alternative](https://takkada.com/livekeeping-alternative/): Takkada compared with Livekeeping for Indian distributors on Tally. Both create vouchers from mobile and generate e-invoices and e-way bills. Livekeeping sells e-invoice and e-way bill as a paid add-on tier. Takkada adds cancellation of an e-invoice or e-way bill from the phone, credit and debit notes, delivery challans, dispatch loading, purchase bill import, and UPI collection matched back into Tally.
 - [Tally app for FMCG distributors](https://takkada.com/tally-app-for-fmcg-distributors/): Takkada for FMCG distributors running high-volume, low-ticket beats on Tally: salesman check-in with geo-tagged photo proof, orders booked against live stock, invoices raised at the counter, UPI collection at zero MDR with no per-receipt fee, and receipts reconciled into Tally automatically. Built for the case where a hundred small payments a day is normal.

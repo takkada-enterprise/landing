@@ -37,9 +37,9 @@ describe('checkRateCardDrift — data layer (AE2/AE3)', () => {
 
   it('fails when the site drops an offer the snapshot still carries', () => {
     const sitePricing = clone(pricing);
-    sitePricing.plans = sitePricing.plans.filter((p) => p.plan !== 'Enterprise');
+    sitePricing.plans = sitePricing.plans.filter((p) => p.plan !== 'Copilot');
     const problems = inspectData(sitePricing, snapshot);
-    expect(problems.some((p) => p.includes('Enterprise'))).toBe(true);
+    expect(problems.some((p) => p.includes('Copilot'))).toBe(true);
   });
 
   it('accepts the unpriced add-on list — partners quote add-ons, the site never does', () => {
@@ -92,7 +92,7 @@ describe('checkRateCardDrift — rendered-HTML layer', () => {
 
   it('accepts every figure the snapshot derives (annual, per-year, billed-once)', () => {
     const html =
-      '<p>₹9,000 ₹6,750 ₹20,250 ₹4,500 ₹3,375 ₹10,125 ₹24,000 ₹18,000 ₹54,000</p>';
+      '<p>₹9,000 ₹6,750 ₹20,250 ₹4,500 ₹3,375 ₹10,125 ₹6,480 ₹4,860 ₹14,580</p>';
     expect(inspectPage(html, allowed)).toEqual({ total: 9, unknown: [] });
   });
 
