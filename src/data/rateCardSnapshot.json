@@ -14,14 +14,11 @@
     "full_access": {
       "publicName": "Copilot",
       "annualInr": 9000
-    },
-    "enterprise": {
-      "publicName": "Enterprise",
-      "annualInr": 24000
     }
   },
   "addons": {},
   "dashboardOnlyKeys": [
+    "enterprise",
     "business_insights",
     "extra_business",
     "auto_dispatch_addon",

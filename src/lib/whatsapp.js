@@ -27,6 +27,8 @@ export const WHATSAPP_MESSAGES = {
   // plan choice, and the founder needs to know which arrived.
   'bigger-setups':
     'Hi, I read the bigger setups part on takkada.com. I want to talk about running this across my companies, or on my own server.',
+  'customised-erp':
+    'Hi, I am looking at Customised ERP on takkada.com and want to discuss custom modules for my business.',
   'final-cta':
     'Hi, I want to set up Takkada for my business. What is the next step?',
   'icp-mobile-tally':

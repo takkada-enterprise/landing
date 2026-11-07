@@ -543,14 +543,6 @@ export const pricing = {
       badge: 'Most Popular',
       highlighted: true,
     },
-    {
-      plan: 'Enterprise',
-      annualPrice: 24000,
-      price: '\u20B924,000',
-      period: '/year + GST',
-      description: 'Everything in Copilot, plus any 4 small modules you pick, in one price.',
-      badge: 'Most complete',
-    },
   ],
   // The capability matrix is the single source of truth for what each plan
   // carries. `from` is the index of the first plan in `plans` that includes
@@ -598,14 +590,6 @@ export const pricing = {
         { label: 'Dispatch Load: build a van load, print the loading sheet, bill it', from: 2 },
         { label: 'Team Sales: field visit check-in and check-out', from: 2 },
       ],
-    },
-    // Enterprise's own row. Without it its column would tick exactly what
-    // Copilot ticks at nearly three times the price. Partner price list of
-    // 2026-10-25: the customer picks any 4 small modules; it is not a fixed set,
-    // and big modules such as the Customer order link are not among them.
-    {
-      group: 'Modules you pick',
-      rows: [{ label: 'Any 4 small modules you pick with your partner', from: 3 }],
     },
   ],
   // Add-ons never show a price on the site: partners quote them (ruled

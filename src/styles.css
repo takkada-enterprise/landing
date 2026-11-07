@@ -3281,7 +3281,7 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
    grid row, which is useless over eighteen capability rows. Identical track
    definitions across strips keep the columns aligned to the pixel. */
 .rate-table {
-  --rate-cols: minmax(240px, 1.7fr) repeat(4, minmax(0, 1fr));
+  --rate-cols: minmax(240px, 1.7fr) repeat(3, minmax(0, 1fr));
   border-radius: var(--radius-xl);
   background: var(--color-white);
   box-shadow: var(--shadow-md);
@@ -3673,8 +3673,7 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
 
   .rate-table[data-active-plan='0'] .rate-col:not(.rate-col--0),
   .rate-table[data-active-plan='1'] .rate-col:not(.rate-col--1),
-  .rate-table[data-active-plan='2'] .rate-col:not(.rate-col--2),
-  .rate-table[data-active-plan='3'] .rate-col:not(.rate-col--3) {
+  .rate-table[data-active-plan='2'] .rate-col:not(.rate-col--2) {
     display: none;
   }
 
@@ -3773,6 +3772,31 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
   border: 0;
 }
 
+
+.rate-custom-erp-banner {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: var(--color-surface-variant, #f8fafc);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-text-secondary, #475569);
+}
+
+.rate-custom-erp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--color-primary, #0284c7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rate-custom-erp-link:hover {
+  color: var(--color-primary-dark, #0369a1);
+}
 
 .home-pricing-strip-cta {
   margin-top: 18px;
