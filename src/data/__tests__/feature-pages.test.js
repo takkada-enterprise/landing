@@ -23,6 +23,7 @@ import {
 } from '../featureGroups';
 import { routeMetadata } from '../siteMetadata';
 import { STOPS } from '../journey';
+import { ROUND_THREE } from '../featurePagesRoundThree';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -92,6 +93,9 @@ describe('feature page data contract', () => {
   it.each(FEATURE_PAGES.map((p) => [p.slug, p]))(
     '%s: the hero mockup exists, is sized, and stays inside its byte budget',
     (_slug, page) => {
+      // A page still owed its captures may carry no hero at all rather than a
+      // stand-in screen (Ronak rejected the stand-ins, 2026-11-05).
+      if (!page.hero && page.pendingScreens?.length) return;
       expect(page.hero).toBeDefined();
       // Whichever shape the hero is in - its own file, or a registry screen.
       const shot = heroShot(page);
@@ -135,6 +139,10 @@ describe('feature page data contract', () => {
       expect(page.walkthrough.length).toBeGreaterThan(0);
       for (const step of page.walkthrough) {
         const shot = stepShot(step);
+        // A step may go without an image only while its page is owed captures
+        // (round three, 2026-11-05), or when it is one of the closed set of
+        // copy-only steps; the pending-captures block below pins both.
+        if (!shot && (page.pendingScreens?.length || step.copyOnly)) continue;
         expect(shot, `${page.slug} step "${step.title}" has no screen`).not.toBeNull();
         if (step.screen) expect(SCREENS).toHaveProperty(step.screen);
         expect(existsSync(resolve(repoRoot, `public${shot.src}`))).toBe(true);
@@ -163,7 +171,7 @@ describe('feature page data contract', () => {
     const legacy = [];
     for (const page of FEATURE_PAGES) {
       for (const s of page.walkthrough ?? [])
-        if (!s.screen) legacy.push(`${page.slug}: ${s.image}`);
+        if (!s.screen && (s.image || s.screenshot)) legacy.push(`${page.slug}: ${s.image}`);
       for (const s of page.tour?.stations ?? [])
         if (!s.screen) legacy.push(`${page.slug}: ${s.screenshot}`);
     }
@@ -176,8 +184,8 @@ describe('feature page data contract', () => {
   // before 2026-08-12 the sweeps below scanned only hero + walkthrough, so a
   // real-customer capture could have shipped inside a tour untouched.
   const pageImages = (page) => [
-    heroShot(page).src,
-    ...(page.walkthrough?.map((s) => stepShot(s).src) ?? []),
+    ...(page.hero ? [heroShot(page).src] : []),
+    ...(page.walkthrough?.map((s) => stepShot(s)?.src).filter(Boolean) ?? []),
     ...(page.tour?.stations?.map((s) => stepShot(s).src) ?? []),
     ...(page.sheet ? [screen(page.sheet.screen).src] : []),
     ...(page.gallery?.items?.map((g) => screen(g.screen).src) ?? []),
@@ -308,12 +316,14 @@ describe('feature page data contract', () => {
     return existsSync(full) && statSync(full).isFile() ? readFileSync(full) : null;
   };
   const pageReferences = (page) => [
-    { path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` },
-    ...(page.walkthrough ?? []).map((step, i) => ({
-      path: stepShot(step).src,
-      surface: 'featurePage:walkthrough',
-      origin: `${page.slug} walk-through step ${i + 1}`,
-    })),
+    ...(page.hero ? [{ path: heroShot(page).src, surface: 'featurePage:hero', origin: `${page.slug} hero` }] : []),
+    ...(page.walkthrough ?? [])
+      .map((step, i) => ({
+        path: stepShot(step)?.src,
+        surface: 'featurePage:walkthrough',
+        origin: `${page.slug} walk-through step ${i + 1}`,
+      }))
+      .filter((ref) => ref.path),
     ...(page.tour?.stations ?? []).map((station) => ({
       path: stepShot(station).src,
       surface: 'featurePage:tour',
@@ -726,6 +736,11 @@ describe('feature page registration is automatic', () => {
       if (!existsSync(built)) return; // dist/ only exists after a build
       const html = readFileSync(built, 'utf-8');
       const preloads = findImagePreloads(html);
+      // A copy-only hero (a page still owed every capture) has no LCP image.
+      if (!page.hero) {
+        expect(preloads).toHaveLength(0);
+        return;
+      }
       expect(preloads).toHaveLength(1);
       expect(preloads[0]).toContain(heroShot(page).src);
     }
@@ -774,7 +789,7 @@ describe('feature page heroes come from the screen registry', () => {
   });
 
   it('resolves both hero shapes through one helper', () => {
-    for (const page of FEATURE_PAGES) {
+    for (const page of FEATURE_PAGES.filter((p) => p.hero)) {
       const shot = heroShot(page);
       expect(shot, `${page.slug} has no hero shot`).toBeTruthy();
       expect(shot.src, `${page.slug} hero has no src`).toBeTruthy();
@@ -840,6 +855,85 @@ describe('report gallery', () => {
   });
 });
 
+// Round three, 2026-11-05: eight add-on pages built before their captures
+// exist. A page owed captures lists them in `pendingScreens`; a step that
+// will carry one names it in `pendingScreen` and has no image until then. The
+// set is closed (the slugs the capture brief named), and every guard below
+// goes red the day a slug is registered in screens.js, so the swap from
+// `pendingScreen` to `screen` cannot be skipped. Where each one plugs in:
+// docs/seo/feature-pages-round-three/SCREENS-TODO.md.
+//
+// The first eleven landed on 2026-11-05 and left the set. Five steps on those
+// pages had no capture of their own, so they joined it as copy-only steps
+// rather than borrow a screen that shows something else.
+//
+// Seven more landed later on 2026-11-05. A third batch that evening closed
+// tally-drafts (a stage capture under an operator exception: demo co143 is a
+// no-Tally company) and six of the nine copy-only steps. pod-cash-on-van, the
+// last one, is phone-app only (kIsWeb gate in pod_drop_screen.dart); Ronak
+// took it on his iPhone as the demo van's driver. Nothing is owed now.
+const OWED_CAPTURES = new Set([]);
+
+// A step with no capture of its own stays copy, by decision rather than as a
+// wait: a borrowed screen is what Ronak rejected. The set is closed so a copy-only
+// step cannot spread to a page that should carry a screen.
+// Empty since 2026-11-06: the two email-inbox steps came from a stage send to
+// Ronak, and Start day from a team member's Android phone on the demo.
+const COPY_ONLY_STEPS = [
+];
+
+describe('pages owed captures', () => {
+  const owed = FEATURE_PAGES.filter((p) => p.pendingScreens?.length);
+
+  it('are exactly the round-three pages still waiting on a capture', () => {
+    expect(owed.map((p) => p.slug).sort()).toEqual([]);
+  });
+
+  it('owe only the captures that were briefed, each once across the site', () => {
+    const all = owed.flatMap((p) => p.pendingScreens);
+    expect(new Set(all).size).toBe(all.length);
+    expect(all.filter((slug) => !OWED_CAPTURES.has(slug))).toEqual([]);
+    expect([...OWED_CAPTURES].filter((slug) => !all.includes(slug))).toEqual([]);
+  });
+
+  it('still owe them: a registered capture must replace pendingScreen with screen', () => {
+    const landed = [...OWED_CAPTURES].filter((slug) => slug in SCREENS);
+    expect(
+      landed,
+      'these captures are registered now: point the step (or hero) at them and drop them from pendingScreens'
+    ).toEqual([]);
+  });
+
+  it.each(owed.map((p) => [p.slug, p]))(
+    '%s: every imageless step names a capture the page owes, and no step names one twice',
+    (_slug, page) => {
+      const named = page.walkthrough.filter((s) => s.pendingScreen).map((s) => s.pendingScreen);
+      expect(new Set(named).size).toBe(named.length);
+      for (const slug of named) expect(page.pendingScreens).toContain(slug);
+      for (const step of page.walkthrough) {
+        if (step.pendingScreen) expect(step.screen, step.title).toBeUndefined();
+      }
+    }
+  );
+
+  it('no page outside the owed set has an imageless step', () => {
+    const offenders = FEATURE_PAGES.filter((p) => !p.pendingScreens?.length).flatMap((p) =>
+      (p.walkthrough ?? [])
+        .filter((s) => !stepShot(s) && !s.copyOnly)
+        .map((s) => `${p.slug}: ${s.title}`)
+    );
+    expect(offenders).toEqual([]);
+  });
+
+  it('copy-only steps are exactly the closed set, and carry no screen', () => {
+    const marked = FEATURE_PAGES.flatMap((p) =>
+      (p.walkthrough ?? []).filter((s) => s.copyOnly).map((s) => [p.slug, s])
+    );
+    expect(marked.map(([slug, s]) => `${slug}: ${s.title}`).sort()).toEqual([...COPY_ONLY_STEPS].sort());
+    for (const [, s] of marked) expect(stepShot(s), s.title).toBeNull();
+  });
+});
+
 // Round two, 2026-09-20: the two pages Ronak asked for. Pinned by slug so a
 // regroup cannot drop one without saying so.
 describe('round-two pages', () => {
@@ -899,3 +993,18 @@ describe('call recording', () => {
   });
 });
 
+
+// Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
+// it is for in three situations, each today against with Takkada, and lists
+// the work that stops.
+describe('who it is for', () => {
+  it.each(ROUND_THREE.map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+    expect(page.useCases?.heading).toBeTruthy();
+    expect(page.useCases.cases).toHaveLength(3);
+    for (const c of page.useCases.cases) {
+      expect(c.who && c.today && c.with).toBeTruthy();
+      expect(c.today).not.toBe(c.with);
+    }
+    expect(page.useCases.stops.length).toBeGreaterThanOrEqual(3);
+  });
+});

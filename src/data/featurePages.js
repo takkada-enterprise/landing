@@ -47,7 +47,8 @@
  * @property {string} updated                  ISO date; bump on a real edit (recency is a citation signal)
  * @property {string} walkthroughHeading
  * @property {Array<{icon: string, title: string, body: string, image?: string, alt?: string, width?: number, height?: number}>} walkthrough
- * @property {{heading: string, othersLabel: string, rows: Array<{feature: string, takkada: string, others: string}>, disclaimer: string}} comparison
+ * @property {{heading: string, othersLabel: string, takkadaLabel?: string, rows: Array<{feature: string, takkada: string, others: string}>, disclaimer: string}} comparison
+ * @property {{heading: string, cases: Array<{who: string, today: string, with: string}>, stops: string[]}} [useCases]  Who it's for: three situations, today vs with Takkada, and the work that stops
  * @property {{plan: string, note: string}} planPointer
  * @property {Array<{q: string, a: string}>} faqs
  * @property {Array<{slug: string, title: string}>} relatedPosts
@@ -71,6 +72,7 @@ import { PERSONAS } from './featurePagesPersonas.js';
 import { SCHEMES_DISCOUNT } from './featurePagesSchemesDiscount.js';
 import { BARCODE } from './featurePagesBarcode.js';
 import { AI_AGENT } from './featurePagesAiAgent.js';
+import { ROUND_THREE } from './featurePagesRoundThree.js';
 
 /** @type {FeaturePage[]} */
 const FIRST_BATCH = [
@@ -1435,7 +1437,7 @@ const FIRST_BATCH = [
  * which batch a page came from.
  * @type {FeaturePage[]}
  */
-export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT];
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE];
 
 // Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
 // file that actually changes when the page is edited.
@@ -1444,6 +1446,7 @@ const SOURCE_FILES = new Map([
   ...SECOND_BATCH.map((page) => [page.slug, 'src/data/featurePagesSecondBatch.js']),
   ...ALTERNATIVES.map((page) => [page.slug, 'src/data/featurePagesAlternatives.js']),
   ...PERSONAS.map((page) => [page.slug, 'src/data/featurePagesPersonas.js']),
+  ...ROUND_THREE.map((page) => [page.slug, 'src/data/featurePagesRoundThree.js']),
 ]);
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */

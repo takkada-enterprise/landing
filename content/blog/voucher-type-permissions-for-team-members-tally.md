@@ -5,7 +5,7 @@ meta_title: "Voucher Type Permission for Tally Members"
 meta_description: "Voucher type permission for a Tally member lets a salesman create sales orders and blocks invoices, plus which parties and registers he can open."
 primary_keyword: "voucher type permission tally member"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "How-To"
 excerpt: "Raju on Station Road can raise Gupta Stores' Sales Order from the phone. He cannot raise Gupta Stores' invoice. Voucher-type permission is that split, plus which parties he sees and which registers he can create in."
@@ -83,7 +83,7 @@ The owner WhatsApps Raju: "Order laga dena, bill office se jayega." That sentenc
 
 ## What this permission leaves to the office
 
-The office still invoices. The office still decides godown, GST, and the series. [Marking orders delivered](/blog/mark-orders-delivered-without-touching-tally/) still stays off Tally. None of that moves onto Raju because he was given Sales Order create.
+The office still invoices. The office still decides godown, GST, and the series. A series that needs its own name, Proforma or Service Invoice, can be made a [custom voucher type in Tally](/custom-voucher-type-tally) from the app. [Marking orders delivered](/blog/mark-orders-delivered-without-touching-tally/) still stays off Tally. None of that moves onto Raju because he was given Sales Order create.
 
 Member permissions do not add a date or a walking order to Station Road. The beat remains a name plus a dealer list. Raju still decides which shutter he stands in first. He just cannot bill when he gets there.
 

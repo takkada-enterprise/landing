@@ -5,7 +5,7 @@ meta_title: "Stockout Control for Distributors in India"
 meta_description: "Stockout control for a distributor means four numbers per item, read from Tally stock and sales, before the godown goes dry."
 primary_keyword: "stockout control distributor"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "Market Reality"
 excerpt: "A distributor running 400 SKUs and six suppliers still runs out of the one item a retailer came for. Stockout control is four numbers per item, kept against Tally stock and sales. Lead time lives with the owner."
@@ -113,6 +113,8 @@ Thursday. Repeat for anything that moved unusually, a scheme, a retailer stockin
 The ₹180 bottle, forty a day, is ₹7,200 of sales a day when it is in stock. Two dry days are ₹14,400 you did not bill, and two days of retailers who will try the next distributor. That arithmetic is why the method exists. It is also why it has to run off Tally data you already trust, rather than off a second stock book somebody typed.
 
 Stockout control for a distributor in India is that week, repeated. Four numbers, live reports, sales orders that show demand, and an owner who still knows how many days each of his six suppliers actually takes.
+
+If you would rather the app kept those numbers, [stock control for Tally](/stock-control-tally) measures each supplier's delivery time from your own purchase orders and receipts and lists what to reorder today.
 
 ## Frequently Asked Questions
 

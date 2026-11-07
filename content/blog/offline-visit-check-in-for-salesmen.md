@@ -5,7 +5,7 @@ meta_title: "Offline Field Visit Check-in on the Phone"
 meta_description: "An offline field visit app saves check-in on the phone without signal and uploads when signal returns. Orders, invoices and receipts still need data."
 primary_keyword: "offline field visit app"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-05"
 author: "founder"
 category: "Field Sales"
 excerpt: "Station Road drops into a dead-signal lane. Raju still checks in at Gupta Stores. The phone shows Saved on this phone. The visit uploads when signal returns. The order waits for data."
@@ -48,7 +48,7 @@ Five salesmen means five handsets. Manoj on GS Road can be offline in a differen
 
 Visit capture is phone-only. Field Visits is available on request. The owner's Field Visits screen is phone-only. Feed defaults to today, filterable by salesman or Everyone. Until Raju's phone uploads, Gupta Stores is not on that feed. After the upload it is, with the caption plate: salesman, approximate street address prefixed "Approx.", coordinates with accuracy, timestamp.
 
-[How long he was at the dealer](/blog/visit-duration-and-check-out-field-sales/) is computed from the two device times on the phone. [A geo-tagged visit photo versus all-day GPS tracking](/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/) is still the first stamp. Takkada records the photo, location and time. It does not track the phone all day.
+[How long he was at the dealer](/blog/visit-duration-and-check-out-field-sales/) is computed from the two device times on the phone. [A geo-tagged visit photo versus all-day GPS tracking](/blog/geo-tagged-visit-photo-vs-all-day-gps-tracking/) is still the first stamp. Visit check-in records the photo, location and time. It does not track the phone all day.
 
 ## What an offline field visit app will not do
 

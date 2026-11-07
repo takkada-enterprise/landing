@@ -35,6 +35,17 @@
     drop-shadow(0 10px 22px rgba(10, 23, 48, 0.12));
 }
 
+/* A desktop capture in the hero: a wider column, and a rounded card, since the
+ * screenshot carries no device frame. Same silhouette shadow as the phones. */
+.feature-hero-grid--wide {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+  gap: 48px;
+}
+
+.feature-hero-grid--wide .feature-hero-shot img {
+  border-radius: var(--radius-lg);
+}
+
 /* ── The front-loaded answer, directly under the h1 ──
  * This is the passage AI-search engines lift, so it is set apart to read as a
  * definition rather than as more hero copy. */
@@ -112,6 +123,13 @@
   grid-column: span 3;
 }
 
+/* A step still waiting for its capture (round three, 2026-11-05) is copy only.
+ * Beside a step with a phone it would stretch to the phone's height and read as
+ * an empty white box, so it keeps its own height instead. */
+.feature-step--copy {
+  align-self: start;
+}
+
 .feature-step-shot {
   display: flex;
   justify-content: center;
@@ -137,6 +155,17 @@
 
 .feature-step-copy {
   padding: 24px 28px 28px;
+}
+
+/* A desktop capture (wider than tall) has no device frame of its own, so it
+ * fills the band edge to edge as a rounded card instead of a 220px phone. */
+.feature-step--wide .feature-step-shot {
+  padding: 24px 16px;
+}
+
+.feature-step--wide .feature-step-shot img {
+  width: 100%;
+  border-radius: var(--radius-md);
 }
 
 .feature-step-copy h3 {
@@ -448,6 +477,10 @@
   .feature-hero-shot {
     max-width: 260px;
     margin: 0 auto;
+  }
+
+  .feature-hero-grid--wide .feature-hero-shot {
+    max-width: 640px;
   }
 
   .feature-steps .feature-step,
@@ -1475,4 +1508,34 @@
 @media (prefers-reduced-motion: reduce) {
   .call-player.playing .call-player-bar { animation: none; }
   .call-player-play { transition: background 160ms ease; }
+}
+
+/* Who it's for: the jobs that drop off the reader's day (2026-11-06). */
+.feature-stops {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: var(--color-surface);
+}
+.feature-stops h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+.feature-stops ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.feature-stops li {
+  position: relative;
+  padding-left: 26px;
+}
+.feature-stops li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success, #2b8a3e);
+  font-weight: 700;
 }

@@ -523,5 +523,259 @@
     "shows": "AI assistant chat: five September bank statements attached (HDFC, SBI, ICICI, Axis, Kotak), rows and matched counts per bank, 8 rows need an answer",
     "alt": "AI assistant matching five bank statements at once, with rows matched per bank and the few it needs answered",
     "operatorException": "2026-10-25: built when the operator asked for this page to be made 'on your own'. A drawn chat illustration of the AI assistant, not an app capture; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "stock-control-reorder",
+    "source": "stock-control-reorder.png",
+    "shows": "Stock Control, Reorder tab with its top band open: 12 to reorder, 5 overdue, 6 on order; 5 items past their order-by date; Order this week 2, Lead time 7 d, On order 6 with 2 late, Lost sales; Growth 0%; supplier chips; 5 due items, 3 suppliers, Select",
+    "alt": "Stock Control with five items past their order-by date and tiles for order this week, lead time, on order and lost sales",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-reorder.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "stock-control-reorder-list",
+    "source": "stock-control-reorder-list.png",
+    "shows": "Stock Control, Reorder tab list: each item with a tick box, stock, overdue and the quantity to order, what is already on the way; 5 due items, 3 suppliers, Select",
+    "alt": "Reorder list with each item's stock, what is already on the way and the quantity to order, ready to tick",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-reorder-list.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "stock-control-basket",
+    "source": "stock-control-basket.png",
+    "shows": "Stock Control basket: 2 suppliers, 5 items grouped by supplier with a value per supplier, quantity boxes to edit, remove buttons, Create PO for one supplier (3 items)",
+    "alt": "Order basket grouping the ticked items by supplier, with quantities to edit and a Create PO button for one supplier",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-basket.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 62
+  },
+  {
+    "slug": "stock-control-supplier-performance",
+    "source": "stock-control-supplier-performance.png",
+    "shows": "Stock Control, Suppliers tab, one supplier: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, ordered qty arrived 89%; days to arrive by year chart marked Getting slower; items below",
+    "alt": "One supplier's delivery record: usually 13 days, 9 in 10 orders within 20 days, worst 24 days, 89% of the ordered quantity arrived, getting slower",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-supplier-performance.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "stock-control-season-plan",
+    "source": "stock-control-season-plan.png",
+    "shows": "Stock Control, Season Plan tab: items grouped by stock group with out-of-stock days, true demand and forecast, each with an Order by date",
+    "alt": "Season plan listing items by stock group with days out of stock, true demand, forecast and an order-by date for each",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/stock-control-season-plan.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "pod-driver-drops",
+    "source": "pod-driver-drops.png",
+    "shows": "Delivery trip for one van: shops numbered in driving order, the items and quantities for each, this bill amount and old dues, Call on the next shop, a New shop tag, finished drops marked Delivered",
+    "alt": "A van's delivery trip with shops numbered in order, each shop's items and bill amount, a Call button, and finished drops marked delivered",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-driver-drops.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "pod-photo-proof",
+    "source": "pod-photo-proof.png",
+    "shows": "Invoice screen with a Delivery proof card: the delivery photo, Delivered with date and time, van and driver, quantities accepted per item, Where the photo was taken",
+    "alt": "Invoice with a delivery proof card: the delivery photo, the time, the van and driver, the quantities accepted, and where the photo was taken",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-photo-proof.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "pod-cash-on-van",
+    "source": "pod-cash-on-van.png",
+    "shows": "Driver's drop screen for Krishna General Store, bill INV/26-27/0001 Rs 1,84,873: three items each with Returned, Delivery photo Take photo, This bill and No old dues, Payment No payment / Cash / UPI (picked) / Cheque, Amount 184873, Photo of payment screen, A UPI payment needs a photo, Couldn't deliver and Mark delivered",
+    "alt": "A driver on the van recording a UPI payment against one bill: the items with Returned buttons, Take photo, Cash, UPI or Cheque, the amount, and a photo of the payment screen",
+    "operatorException": "2026-11-05: taken by Ronak on his own iPhone in the Takkada app, signed in to demo company 143 (made-up data) as the van driver, and sent in chat for the proof-of-delivery page (\"let me know what screenshot to share for eveything to complete\"). Nothing was saved. The source here is screens-raw/2026-11-05/pod-cash-on-van-iphone-raw.png with the phone's own status bar cropped off (screens-raw/2026-11-05/pod-cash-on-van.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "pod-office-approval",
+    "source": "pod-office-approval.png",
+    "shows": "Cash with drivers: one driver with the amount pending; a cash and a UPI collection, each with its invoice and van, Approve and Reject; the UPI row carries a payment screenshot",
+    "alt": "Cash with drivers: each collection with its invoice, cash or UPI, a payment screenshot for UPI, and Approve or Reject",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/pod-office-approval.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "manufacturing-bom",
+    "source": "manufacturing-bom.png",
+    "shows": "Bill of materials editor: BOM name Standard, makes 1 Carton, Use by default on, Made in house or At a job worker, component lines with quantity, godown and scrap %, Made from its own BOM, Add line",
+    "alt": "Bill of materials for one carton: components with quantities, godown and scrap percentage, made in house and used by default",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-bom.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "manufacturing-production-run",
+    "source": "manufacturing-production-run.png",
+    "shows": "Stock Journal screen showing a Manufacturing Journal SJ-38 from run 2 / level 1, sync pending; Inward the finished cartons, Outward two components, each with quantity, godown and value; Share PDF",
+    "alt": "A Manufacturing Journal from a production run: the finished cartons in, the components out, with quantities and values, waiting to sync",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-production-run.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "manufacturing-job-work",
+    "source": "manufacturing-job-work.png",
+    "shows": "Job work order: items to receive at a rate per bag, 10 of 20 received; components; challans Material Out, Manufacturing Journal, Material In; no charges bill linked yet with Link a bill; Record receipt and Send material",
+    "alt": "Job work order with items received so far, the components, Material Out and Material In challans, a charges bill to link, and Record receipt",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-job-work.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "voucher-names-list",
+    "source": "voucher-names-list.png",
+    "shows": "Custom voucher names settings: switch on; Proforma Invoice and Service Invoice under Sales Invoice, Vehicle Booking under Sales Order, each Ready with its next number; Add another type under each document",
+    "alt": "Custom voucher names: Proforma Invoice, Service Invoice and Vehicle Booking, each ready with its next bill number",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/voucher-names-list.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 66
+  },
+  {
+    "slug": "manufacturing-run-short-check",
+    "source": "manufacturing-run-short-check.png",
+    "shows": "New production run: make 20 Bag of Besan 25kg Bag; component Toor Dal 30kg, plan 24 Bag, marked Short, none in stock; line reads 1 item is short, you can still save, Tally may refuse if it does not allow negative stock; Save run",
+    "alt": "New production run for 20 bags with one component marked Short, none in stock, and a warning before Save run",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/manufacturing-run-short-check.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "voucher-names-create-in-tally",
+    "source": "voucher-names-create-in-tally.png",
+    "shows": "Custom voucher names, New Sales Invoice type sheet: name Export Invoice, number prefix EXP/26-27/, the first one will be numbered EXP/26-27/1, ledger optional, note that the type is created in your Tally and can be hidden but not removed, Create in Tally button",
+    "alt": "New sales invoice type named Export Invoice with prefix EXP/26-27/, first number EXP/26-27/1, and a Create in Tally button",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/voucher-names-create-in-tally.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "voucher-names-series",
+    "source": "voucher-names-series.png",
+    "shows": "Custom voucher names, New Sales Invoice type sheet with prefix PF/26-27/: red line says another voucher type already numbers bills starting with PF/26-27/ and asks for a different prefix so the two can never clash",
+    "alt": "New voucher type flagging the prefix PF/26-27/: another type already numbers bills with it, so pick one that cannot clash",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/voucher-names-series.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 62
+  },
+  {
+    "slug": "voucher-names-pick-at-billing",
+    "source": "voucher-names-pick-at-billing.png",
+    "shows": "Home screen of Shreeji Distributors (Demo) dimmed under a sheet: New Sales Invoice, which one? Proforma Invoice, Service Invoice",
+    "alt": "Starting a new sales invoice asks which one: Proforma Invoice or Service Invoice",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/voucher-names-pick-at-billing.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "desktop-entry-invoice",
+    "source": "desktop-entry-invoice.png",
+    "shows": "Desktop layout in the browser, New Sales Invoice for Laxmi Super Market, number INV/26-27/0039, voucher type Sales; item rows with qty, unit, godown, batch, rate, disc%, GST% and amount, a scheme line under each; Taxable, Discount, CGST, SGST, round off, total Rs 39,622; Save with Ctrl+A; sidebar of modules; Search Ctrl+K and New Ctrl+N",
+    "alt": "New sales invoice on a computer screen: party, number and voucher type across the top, item rows with qty, rate, discount and GST, and the total with Save",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-invoice.png with the bottom 88 px cut off (an empty strip carrying a small status dot in the sidebar); no phone frame, the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "live-tracking-map",
+    "source": "live-tracking-map.png",
+    "shows": "Team Map over Ahmedabad with four pins, one orange; auto-stop time 8:00 PM; location every 5 min; On duty (4): Arjun (Demo) last seen 8 min ago, battery 57%, 30.5 km today; Priya Desai stopped reporting at 2:05 PM, battery 12%, 14.8 km today; Rajesh Patel last seen 8 min ago",
+    "alt": "Team Map with salesmen's pins over the city, and each one's last seen, battery and kilometres today, one marked stopped reporting",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/live-tracking-map.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
+  },
+  {
+    "slug": "email-invoices",
+    "source": "email-invoices.png",
+    "shows": "Settings, Email: sent as Shreeji Distributors (Demo) via Takkada from the noreply address; copies and replies go to the business email; 5 of 34 customers have an email; recent emails: two invoices and a reminder, each Sent with time and address",
+    "alt": "Email settings: sent as the company via Takkada, copies and replies to the business address, 5 of 34 customers with an email, and recent invoices marked sent",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction in place of the stand-in screens he rejected. The source here is the raw capture screens-raw/2026-11-05/email-invoices.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "desktop-entry-pull-order",
+    "source": "desktop-entry-pull-order.png",
+    "shows": "Desktop New Sales Invoice for Ganesh Provision Stores, INV/26-27/0039, voucher type Sales; hint 3 open sales orders, 1 open delivery challan, Option-O to pull; list after Option-O: Sales orders waiting to be billed SO/26-27/004 (3 items still pending), SO/26-27/014 (4), SO/26-27/027 (2); Challans waiting to be billed DC/26-27/0002 (4 items still pending)",
+    "alt": "Pressing Alt+O on a new sales invoice lists the party's sales orders and challan still waiting to be billed, with the items pending on each",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-pull-order.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "desktop-entry-saved-strip",
+    "source": "desktop-entry-saved-strip.png",
+    "shows": "Desktop sales invoice just saved: strip INV/26-27/0039 saved with View, Print, Send, Record Receipt, Credit Note, Print labels, WhatsApp, Copy, Cancel, E-invoice, E-way bill, Payment link, each with its key; Linked to Sales Order SO/26-27/004, Open; a blank form below for the next bill, number INV/26-27/0040",
+    "alt": "After Ctrl+A the bill number shows as saved, with keys to view, print, send or cancel it and buttons for the receipt or credit note, above a blank form for the next bill",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-saved-strip.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "desktop-entry-restored-draft",
+    "source": "desktop-entry-restored-draft.png",
+    "shows": "Desktop New Sales Invoice after the browser tab was reloaded: Restored your unsaved invoice from 05-11-2026 18:50. Press Esc to discard it. Krishna General Store, Poha 25kg Bag 15 Bag, Groundnut Oil 15L 10 Tin, total Rs 34,559, Save Ctrl+A",
+    "alt": "A half-typed sales invoice brought back after the browser tab closed, with a note saying when it was restored and that Esc discards it",
+    "sheet": true,
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw desktop capture screens-raw/2026-11-05/desktop-entry-restored-draft.png cut at the bottom (the empty page below the form and the sidebar status line), no phone frame; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 72
+  },
+  {
+    "slug": "live-tracking-start-day",
+    "source": "live-tracking-start-day.png",
+    "shows": "Android home screen of demo company Shreeji Distributors (Demo) for a salesman: payable and receivable totals, Start your day card (Tap Start day when you go out for work. Your location is shared only until you tap End day.) with Start day and Tracking stops?, Today strip, Quick actions, demo banner",
+    "alt": "A salesman's home screen with the Start your day card: tap Start day when you go out for work, your location is shared only until you tap End day",
+    "operatorException": "2026-11-06: taken on a team member's Android phone (Palak) in the Takkada app on demo company 143 (made-up data), with her demo-company role set to salesman for the capture and restored after, and sent in chat by Ronak (\"make her the saleman, she is not able to see start day in the demo account\"). The source here is screens-raw/2026-11-05/live-tracking-start-day-android-raw.png with the phone's status bar and gesture bar cropped off (live-tracking-start-day.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "live-tracking-day",
+    "source": "live-tracking-day.png",
+    "shows": "Salesman's day for Arjun (Demo), Today: the day's route on the map; On duty since 9:45 AM, last seen 7 min ago, battery 51%, 34.9 km today; No location from 1:25 PM to 2:10 PM; No beat chosen for today; visit 1 Sardar Provision 12:05 to 12:30 PM, at the dealer 25 min, location verified",
+    "alt": "A salesman's day: his route drawn on the map, kilometres and battery, the gap when his phone went quiet, and his first visit of the day",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/live-tracking-day.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
+  },
+  {
+    "slug": "live-tracking-rules",
+    "source": "live-tracking-rules.png",
+    "shows": "Team Map with the Share location every dialog open: More often uses more battery. Phones low on battery share every 15 min. Options 2 min, 5 min (ticked), 10 min, 15 min; Auto-stop time and the On duty list dimmed behind",
+    "alt": "Choosing how often phones share their location: every 2, 5, 10 or 15 minutes, with phones low on battery sharing every 15",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/live-tracking-rules.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "email-party-card",
+    "source": "email-party-card.png",
+    "shows": "Party Balaji Traders: Add email dialog with an Email address field (placeholder accounts@example.com), Cancel and Save, over the party overview and its pending-orders card",
+    "alt": "Adding an email address to a party from its page in the app",
+    "operatorException": "2026-11-05: captured from demo company 143 (made-up data) for the round-three feature pages and published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"). The source here is the raw capture screens-raw/2026-11-05/email-party-card.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "email-inbox-invoice",
+    "source": "email-inbox-invoice.png",
+    "shows": "Gmail on Ronak's iPhone, email 'Invoice SH/26-27/0187 from Shreeji Traders' from Shreeji Traders via Takkada to Krishna General Store: created an invoice, Amount Rs 8,715.00, Due Date 05/12/2026, Pay now, Thank you, Sent by Shreeji Traders using Takkada, attachment SH-26-27-0187.pdf",
+    "alt": "An invoice email in Gmail from Shreeji Traders via Takkada: amount, due date, a Pay now link and the invoice PDF attached",
+    "operatorException": "2026-11-06: real emails sent by the stage reminder pipeline from stage company 111 (made-up company and party, renamed 'Shreeji Traders' for the send) to Ronak's own inbox at his request (\"trigger a sample email to ronakmalu@gmail.com\"), screenshotted by Ronak on his iPhone and sent in chat. The source here is screens-raw/2026-11-05/email-inbox-invoice-iphone-raw.png with the phone's status bar cropped off (email-inbox-invoice.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "email-inbox-reminder",
+    "source": "email-inbox-reminder.png",
+    "shows": "Gmail on Ronak's iPhone, email 'Payment overdue: Rs 16,695.00 to Shreeji Traders' from Shreeji Traders via Takkada: Your payment is overdue, Amount, Original Due Date 26/10/2026, Overdue By 11 days, Pay now, Sent by Shreeji Traders using Takkada",
+    "alt": "A payment reminder email in Gmail: amount overdue, the original due date, days overdue and a Pay now link",
+    "operatorException": "2026-11-06: real emails sent by the stage reminder pipeline from stage company 111 (made-up company and party, renamed 'Shreeji Traders' for the send) to Ronak's own inbox at his request (\"trigger a sample email to ronakmalu@gmail.com\"), screenshotted by Ronak on his iPhone and sent in chat. The source here is screens-raw/2026-11-05/email-inbox-reminder-iphone-raw.png with the phone's status bar cropped off (email-inbox-reminder.png), put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no evidence record exists until he records one with scripts/capture-guide-evidence.mjs record; until then each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "tally-drafts",
+    "source": "tally-drafts.png",
+    "shows": "Tally Drafts, Drafts tab (In progress, Posted, Rejected); chips All, Sales, Purchases, Receipts; Sales INV/26-27/D102 Ganesh Provision Stores Rs 27,615 with Dr/Cr ledger lines and narration Scheme discount pending, Reject and Approve; Sales INV/26-27/D101 Laxmi Super Market Rs 48,230; Purchase PUR/26-27/D17 Navrang FMCG Agencies Rs 86,420; no Tally-sync-off line",
+    "alt": "Tally Drafts: optional vouchers from Tally with party, amount, date, ledger lines and narration, and Reject and Approve on each",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
+  },
+  {
+    "slug": "tally-drafts-detail",
+    "source": "tally-drafts-detail.png",
+    "shows": "Tally Draft: Draft chip; Type Sales, Number INV/26-27/D102, Date 05/11/2026, Party Ganesh Provision Stores, Amount Rs 27,615.00, Narration Scheme discount pending; Entries Dr Ganesh Provision Stores 27,615.00, Cr Sales GST 18% 23,402.54, Cr CGST 9% 2,106.23, Cr SGST 9% 2,106.23; Post to books",
+    "alt": "One Tally draft: type, number, date, party, amount and narration, and its debit and credit ledger entries, with Post to books",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-detail.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "tally-drafts-post",
+    "source": "tally-drafts-post.png",
+    "shows": "Post to your Tally books? sheet over the draft: Voucher Sales INV/26-27/D102, Party Ganesh Provision Stores, Amount Rs 27,615.00, Date 05/11/2026; This records it in Tally as a regular sales invoice. It can't be undone from the app. Cancel / Post",
+    "alt": "Posting a draft asks first: it records the voucher in Tally as a regular sales invoice and cannot be undone from the app",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-post.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 76
+  },
+  {
+    "slug": "tally-drafts-reject",
+    "source": "tally-drafts-reject.png",
+    "shows": "Tally Drafts list after Reject on INV/26-27/D101: snackbar Rejected. Nothing was changed in Tally. Undo; remaining drafts Ganesh Provision Stores, Navrang FMCG Agencies, Annapurna Kirana receipt",
+    "alt": "Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo",
+    "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-reject.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
+    "q": 64
   }
 ]
