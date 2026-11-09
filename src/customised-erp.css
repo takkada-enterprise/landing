@@ -5,7 +5,7 @@
 }
 
 .erp-hero {
-  padding: 48px 0 64px;
+  padding: 120px 0 64px;
   background: linear-gradient(180deg, var(--color-surface, #f8fafc) 0%, #ffffff 100%);
   border-bottom: 1px solid var(--color-border, #e2e8f0);
 }
@@ -264,7 +264,7 @@
 
 @media (max-width: 767px) {
   .erp-hero {
-    padding: 32px 0 48px;
+    padding: 100px 0 48px;
   }
 
   .erp-modules-section,
