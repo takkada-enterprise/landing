@@ -698,7 +698,7 @@ export const faqItems = [
 // array and would be in its temporal dead zone. appLinks.tallyConnector points
 // at this same constant, so there is still one URL.
 const TALLY_CONNECTOR_URL =
-  'https://paysaathi-desktop-autoupdate.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe';
+  'https://takkada-loader-updates.s3.ap-south-1.amazonaws.com/releases/takkada-setup.exe';
 
 export const footerColumns = [
   {
