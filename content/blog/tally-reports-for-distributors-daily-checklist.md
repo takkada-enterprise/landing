@@ -5,19 +5,19 @@ meta_title: "Tally Reports for Distributors: Daily Checklist"
 meta_description: "Tally reports for distributors: check Collections and Daybook daily, Bills Receivable at midday, Trial Balance and P&L at month-end. Opens on the phone."
 primary_keyword: "tally reports for distributors"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "A Guwahati distributor with 80 retail parties opens Collections Outstanding at 8:30, Daybook at noon, and Trial Balance when the month closes. Those Tally reports live on the phone, with the limits named below."
 ---
 
-A distributor should check these Tally reports daily: Collections Outstanding and the This Financial Year band in the morning, Daybook and Bills Receivable around midday, and Sales Analytics plus Customer Analytics in the evening. Most action reports have no date filter, and Bills Receivable ageing is always as of today, so the daily stack shows the books as they stand. The Tally reports for distributors on the phone sit in two groups: Financial Statements (Trial Balance, Profit & Loss, Balance Sheet, MIS Reports) and Action Reports (Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook). A Guwahati FMCG owner with 80-odd parties on 30-day terms opens Outstanding at 8:30 looking for Sharma Kirana's ₹1,85,000, then Daybook at lunch because a salesman said he billed twelve invoices. Month-end is Trial Balance, Profit & Loss and MIS Reports.
+A distributor should check these Tally reports daily: Collections Outstanding and the This Financial Year band in the morning, Daybook and Bills Receivable around midday, and Sales Analytics plus Customer Analytics in the evening. Most action reports have no date filter, and Bills Receivable ageing is always as of today, so the daily stack shows the books as they stand. The Tally reports for distributors on the phone sit behind six doors: Sales, Customers & orders, Purchase, Stock, Money and Accounts, with Collections and Bills Receivable under Money and Daybook under Accounts. A Guwahati FMCG owner with 80-odd parties on 30-day terms opens Outstanding at 8:30 looking for Sharma Kirana's ₹1,85,000, then Daybook at lunch because a salesman said he billed twelve invoices. Month-end is Trial Balance, Profit & Loss and Monthly P&L & Balance Sheet.
 
 ## Key Highlights
 
 - At 8:30 the owner opens Collections Outstanding and the This Financial Year band of ten register totals, each tappable into its register
 - Daybook has Today, Yesterday, Last 7 days, Last 30 days and Custom, plus a voucher-type chip, and shares as PDF or as a CSV file
-- Trial Balance on the phone is a flat list with no ledger drill-down. Balance Sheet drills group to sub-group to ledger. MIS Reports is a 12-month grid with no drill-down, part of Reports+
+- Trial Balance on the phone is a flat list with no ledger drill-down. Balance Sheet drills group to sub-group to ledger. Monthly P&L & Balance Sheet is a 12-month grid with no drill-down
 
 ## In This Article
 
@@ -25,13 +25,13 @@ A distributor should check these Tally reports daily: Collections Outstanding an
 - Morning: Collections Outstanding and This Financial Year
 - Midday: Daybook and Bills Receivable
 - Evening: Sales Analytics and Customer Analytics
-- Month-end: Trial Balance, Profit & Loss, and MIS Reports
+- Month-end: Trial Balance, Profit & Loss, and Monthly P&L & Balance Sheet
 - Sharing a report from the phone
 - Frequently Asked Questions
 
 ## Tally reports for distributors through one working day
 
-The Reports screen on the phone is two lists. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Action Reports hold Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. A working day that uses them well opens four or five, not all thirteen.
+The Reports screen on the phone is grouped by the question you are asking: Sales, Customers & orders, Purchase, Stock, Money and Accounts. A working day that uses them well opens four or five, not all thirteen.
 
 Morning is who still owes you and what this year has booked. Midday is whether today's vouchers posted, and how old the bills are. Evening is who bought and what moved. Month-end is the three statements the CA asks for, plus the 12-month MIS grid. Bills Payable, Inventory, Purchase Analytics and Cross-sell Gaps wait for a reason: a supplier payment, a stock promise, buying that looks off, a party lifting only half the catalogue.
 
@@ -43,7 +43,7 @@ The wider view of [Tally reports on mobile](/tally-reports-on-mobile) is how the
 
 Tea at 8:30, before the first dispatch. Collections has two tabs. Outstanding opens first: who owes how much right now. The owner types Sharma in the search box and sees Sharma Kirana of Fancy Bazaar at ₹1,85,000, 47 days on 30-day terms. That is the call to make before the van leaves with fresh credit for the same counter. The deeper cut lives in the [outstanding receivables report](/blog/outstanding-receivables-report-tally/) and on [Outstanding receivables on mobile](/outstanding-receivables-on-mobile).
 
-Outstanding answers who owes how much this morning. The Payment behaviour tab answers which customers pay late and how many days they take, and that tab unlocks with Reports+. Ageing on the phone is always as of today. Outstanding has no date you pick to rewind last Tuesday.
+Outstanding answers who owes how much this morning. The Payment behaviour tab answers which customers pay late and how many days they take Reports+, which holds that tab, is included for every company. Ageing on the phone is always as of today. Outstanding has no date you pick to rewind last Tuesday.
 
 Above the action list, a This Financial Year band shows ten register totals: Sales Invoice, Sales Order, Purchase Invoice, Purchase Order, Receipts, Payments, Credit Note, Debit Note, Journal, Contra. Each total is tappable into its register. The owner taps Sales Invoice, sees ₹42,00,000 year to date, then taps Receipts and sees collection sitting behind. The band is this year's running total. It does not replace Profit & Loss, and it does not drill like a Balance Sheet.
 
@@ -59,19 +59,19 @@ Bills Payable is the same shape on the supplier side. Open it when you are about
 
 ## Evening: Sales Analytics and Customer Analytics
 
-Nine PM, the godown locked, the owner still in the car. Sales Analytics goes past the sales register: which items moved, which parties bought. Reports+ unlocks it. The 1-litre mustard oil SKU that should have moved 40 cases this week moved 11. That is tomorrow's counter conversation. There is no salesman filter on this report, and no godown filter. Godown is its own report. PDF and Excel export sit behind a chooser sheet. The [item wise sales report](/blog/item-wise-sales-report-tally/) and the [party wise sales report](/blog/party-wise-sales-report-tally/) are the cousins of this view.
+Nine PM, the godown locked, the owner still in the car. Sales Analytics goes past the sales register: which items moved, which parties bought. The 1-litre mustard oil SKU that should have moved 40 cases this week moved 11. That is tomorrow's counter conversation. There is no salesman filter on this report, and no godown filter. Godown is its own report. PDF and Excel export sit behind a chooser sheet. The [item wise sales report](/blog/item-wise-sales-report-tally/) and the [party wise sales report](/blog/party-wise-sales-report-tally/) are the cousins of this view. To see which stock groups fell against last month, use the [sales comparison report for Tally](/sales-comparison-report-tally/) page, and for what each saved invoice made, the [invoice-wise profit for Tally](/invoice-wise-profit-tally/) page.
 
 Customer Analytics answers who buys, how often, how much. Sharma Kirana lifts twice a week and tickets around ₹22,000. A party that used to lift weekly and has gone quiet shows up here before Outstanding does. Customer Analytics exports to PDF, with no Excel.
 
 Cross-sell Gaps, also Reports+, lists items a customer should be buying and is not. Sharma takes rice and oil and has never lifted the new atta SKU. PDF and Excel export exist. Inventory is the stock-on-hand action report; its Velocity tab is the Reports+ piece, next to the [stock summary report](/blog/stock-summary-report-tally-mobile/). Purchase Analytics, Reports+, is the buying-side pair, with PDF and Excel, next to the [purchase report on mobile](/blog/purchase-report-tally-mobile/). Reports+ comes with every plan. Without it, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab and Inventory Velocity stay dark. The morning and midday stack, Trial Balance, Profit & Loss and Balance Sheet still open.
 
-## Month-end: Trial Balance, Profit & Loss, and MIS Reports
+## Month-end: Trial Balance, Profit & Loss, and Monthly P&L & Balance Sheet
 
-The second of the month, the CA asks for a Trial Balance. Financial Statements on the phone reads those numbers straight from the Tally books synced to the device. Trial Balance is a flat list. There is no drill-down from a Trial Balance line into a ledger. Group to sub-group to ledger is the Balance Sheet. When the synced books do not foot, the Balance Sheet shows a Difference row.
+The second of the month, the CA asks for a Trial Balance. The Accounts door on the phone reads those numbers straight from the Tally books synced to the device. Trial Balance is a flat list. There is no drill-down from a Trial Balance line into a ledger. Group to sub-group to ledger is the Balance Sheet. When the synced books do not foot, the Balance Sheet shows a Difference row.
 
 Profit & Loss is the same synced books, income against expense. The [profitability report for distributors](/blog/profit-report-for-distributors-tally/) is the margin reading that sits beside it. Tally-format export, the layout Tally itself prints, exists for Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period.
 
-MIS Reports show a 12-month grid with a total column. They are part of Reports+. There is no drill-down from an MIS cell into a voucher or a ledger. Use the grid to see whether August sales are the same shape as July, then open Daybook or Sales Analytics for the why. The [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/) post is the daily-scorecard reading of the same habit. PDF and Excel export exist for Trial Balance, Profit & Loss, Balance Sheet and MIS, through a chooser sheet on the phone.
+Monthly P&L & Balance Sheet shows a 12-month grid with a total column. There is no drill-down from an MIS cell into a voucher or a ledger. Use the grid to see whether August sales are the same shape as July, then open Daybook or Sales Analytics for the why. The [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/) post is the daily-scorecard reading of the same habit. PDF and Excel export exist for Trial Balance, Profit & Loss, Balance Sheet and MIS, through a chooser sheet on the phone.
 
 ## Sharing a report from the phone
 
@@ -87,7 +87,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: Which Tally reports should a distributor check daily?**
 
-A: Collections Outstanding and the This Financial Year band in the morning, Daybook and Bills Receivable around midday, and Sales Analytics plus Customer Analytics in the evening. Month-end is Trial Balance, Profit and Loss, Balance Sheet and MIS Reports. Most action reports have no date filter, and Bills Receivable ageing is always as of today.
+A: Collections Outstanding and the This Financial Year band in the morning, Daybook and Bills Receivable around midday, and Sales Analytics plus Customer Analytics in the evening. Month-end is Trial Balance, Profit and Loss, Balance Sheet and Monthly P&L & Balance Sheet. Most action reports have no date filter, and Bills Receivable ageing is always as of today.
 
 **Q: Can I pick my own date range on every Tally report on the phone?**
 
@@ -103,10 +103,10 @@ A: Every exported PDF or Excel goes through the phone's share sheet, where you p
 
 **Q: What does Reports+ add to Tally reports on the phone?**
 
-A: Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. A company without Reports+ still has Collections Outstanding, Daybook, Bills Receivable, Trial Balance, Profit and Loss and Balance Sheet.
+A: Reports+ is included for every company. It covers Monthly P&L & Balance Sheet, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections and the Velocity tab of Inventory, next to Collections Outstanding, Daybook, Bills Receivable, Trial Balance, Profit and Loss and Balance Sheet.
 
 **Q: Does the Trial Balance on the phone drill down to a ledger?**
 
-A: No. Trial Balance is a flat list read from the Tally books synced to the phone. Balance Sheet is the report that drills group to sub-group to ledger. MIS Reports show a 12-month grid with a total column and have no drill-down.
+A: No. Trial Balance is a flat list read from the Tally books synced to the phone. Balance Sheet is the report that drills group to sub-group to ledger. Monthly P&L & Balance Sheet shows a 12-month grid with a total column and has no drill-down.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

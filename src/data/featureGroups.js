@@ -139,6 +139,11 @@ export const FEATURE_GROUPS = [
       'tally-on-mobile',
       'tally-on-mobile-without-remote-access',
       'tally-reports-on-mobile',
+      // 2026-11-10: the new reports' spokes, right after their hub.
+      'party-wise-item-wise-sales-report-tally',
+      'sales-comparison-report-tally',
+      'invoice-wise-profit-tally',
+      'sales-insights-tally',
       'multi-company-tally-reports',
       'ai-agent-for-tally-prime',
       'optional-voucher-tally-prime',
@@ -286,7 +291,15 @@ export const FEATURE_BLURBS = {
   'tally-on-mobile-without-remote-access':
     'Reading the books without TeamViewer, AnyDesk, or the office machine being awake.',
   'tally-reports-on-mobile':
-    'Over twenty registers, from receivables ageing to item-wise and party-wise sales.',
+    'Reports grouped by the question, from item sales and invoice margin to the stock ledger.',
+  'party-wise-item-wise-sales-report-tally':
+    "Item sales grouped by customer, group or month, and each item's customers at their price.",
+  'sales-comparison-report-tally':
+    'Stock groups month against month, biggest drop first, with the change in percent.',
+  'invoice-wise-profit-tally':
+    'Cost and margin on every line of a saved invoice, for the people you allow.',
+  'sales-insights-tally':
+    'Slipping items, vanished customers, below-cost sales and dead stock, one card each.',
   'multi-company-tally-reports':
     'Two firms or three inside one app, each keeping its own books and its own numbers.',
   'salesman-app-tally':

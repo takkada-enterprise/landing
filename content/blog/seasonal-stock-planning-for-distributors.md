@@ -5,7 +5,7 @@ meta_title: "Seasonal Stock Planning for Distributors"
 meta_description: "Seasonal stock planning distributor method: last year's item-wise and party-wise sales for the same weeks, then cover against this year's lead time."
 primary_keyword: "seasonal stock planning distributor"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Market Reality"
 excerpt: "Last Puja, diya oil did 40 tins a day for 18 days. This September the shelf has 60 tins, 1.5 days at that rate. The forecast is last year's register, not a feeling that Puja is coming."
@@ -90,6 +90,8 @@ Monday 9:10 in season is daily, not twice a week. Agri-input shops already know 
 On 8 September, this year's item-wise sales for 20 September to 8 October does not exist. You cannot wait for it. That is why last year is the forecast.
 
 What this year can already show: bookings as sales orders, if you record them. A chemist punching 40 tins on 5 September is a signal last year's 720 might be light. Add it. Do not throw away last year because one chemist booked early.
+
+Once the festival starts, check whether the scheme lifted the group or only moved sales between months. Sales Comparison reads a stock group month by month in quantity, with the change against the month before and the running month marked so far, as the [sales comparison report for Tally](/sales-comparison-report-tally/) page shows.
 
 What this year will show too late: invoices in the festival week. Those are for next year's notebook. If you stock out on 22 September, this year's register will look quieter than demand was. Write the refusals. Next September you will thank yourself.
 

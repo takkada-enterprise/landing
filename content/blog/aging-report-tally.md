@@ -5,7 +5,7 @@ meta_title: "Aging Report in Tally: How Distributors Read and Act On It"
 meta_description: "How to generate the aging report in Tally Prime, read each receivables bucket, and run a weekly action plan that actually pulls cash in."
 primary_keyword: "aging report tally"
 date: "2026-05-06"
-updated: "2026-10-23"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "An aging report in Tally is a list of every open invoice grouped by how long it has been outstanding. The buckets are usually 0 to 30, 31 to 60, 61 to 90, and over 90 days. It is the single most important report a distributor's accountant can pull on a Monday morning."
@@ -37,6 +37,8 @@ When you look at "Outstanding Receivables" in Tally, the headline number is the 
 The aging report breaks that total apart by how old each invoice is. A ₹47 lakh receivable book reads very differently when ₹38 lakh of it is under 30 days old versus when ₹22 lakh of it is over 90 days old. The first is a healthy business with normal credit terms. The second is a business with a recovery problem.
 
 Tally calls this the "Bills Receivable" or "Outstandings by Ageing" report depending on your version. The mechanic is the same: the system groups every open bill by the age of the bill date, into the buckets you define.
+
+Stock has an ageing report of its own, which ages unsold goods by purchase date rather than bills by bill date; it is covered in our post on the [stock ageing report in Tally Prime](/blog/stock-ageing-report-tally-prime/).
 
 ## How to generate it in Tally Prime, step by step
 

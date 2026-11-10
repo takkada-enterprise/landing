@@ -5,7 +5,7 @@ meta_title: "MIS Reports for Distributors: Daily Numbers in Tally"
 meta_description: "A distributor mis report is the short list of numbers to check daily: sales, outstanding, cash, stock, margin. See the set and how to read them on mobile."
 primary_keyword: "distributor mis report"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "Most distributors have all the data in Tally and no habit of reading it. An MIS is the short, fixed list of numbers an owner checks every day so nothing important surprises him at month end, no fancy dashboard required."
@@ -17,7 +17,7 @@ An MIS report for a distributor is the short, fixed set of numbers an owner shou
 
 - A distributor MIS is a fixed daily set: sales versus target, outstanding with ageing, cash and bank, stock against sales, and gross margin
 - The value is the habit, not the data, because Tally already holds every number, but reading the same short set daily is what stops month-end surprises
-- Takkada surfaces the MIS set on mobile, reading live from Tally, with deeper cuts in Reports + (part of every plan), so the owner glances at the scorecard from the field
+- Takkada surfaces the MIS set on mobile, from your Tally as of the last sync, with deeper cuts in Reports + (part of every plan), so the owner glances at the scorecard from the field
 
 ## In This Article
 
@@ -68,7 +68,7 @@ Salesman performance is a weekly read for most owners, because a fair judgement 
 
 An MIS only works if it is actually read, and a report locked on the office desktop is read rarely. The whole set has to be where the owner is, which is usually not at the Tally machine.
 
-Takkada surfaces the MIS set on the phone, reading live from Tally through the two-way sync, with the deeper analytical cuts sitting in Reports + (part of every plan). The same mobile surface that carries the individual [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily scorecard, so checking the business becomes a glance between routes rather than a month-end scramble at the desk. Tally stays the system of record; the phone just makes the daily habit possible.
+Takkada surfaces the MIS set on the phone, from your Tally as of the last sync, with the deeper analytical cuts sitting in Reports + (part of every plan). The same mobile surface that carries the individual [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the daily scorecard, so checking the business becomes a glance between routes rather than a month-end scramble at the desk. Tally stays the system of record; the phone just makes the daily habit possible. For the margin line read month by month, the Monthly P&L & Balance Sheet tile puts each month's closing stock in that month's profit, and why a month can read as a loss without it is in [month wise profit and loss in Tally Prime](/blog/month-wise-profit-and-loss-tally-prime/).
 
 ## Frequently Asked Questions
 

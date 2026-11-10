@@ -5,7 +5,7 @@ meta_title: "Fast and Slow Moving Items from Tally"
 meta_description: "Find fast moving slow moving items tally on the phone: Inventory Velocity ranks how fast each SKU moves, Stock sits beside it for cover."
 primary_keyword: "fast moving slow moving items tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "Monday 9:10, Velocity puts 1-litre oil at 24 a day and a pickle jar at 2. Stock beside it: oil 96 bottles, pickle 200. One is a purchase. One is capital sitting still."
@@ -90,7 +90,7 @@ Hold it, then scheme or return before year-end locks the valuation. That is the 
 
 A slow mover with low Stock is usually a line you should not refill. Thin and slow is a SKU the market already voted against. Filling it because the hook looks empty is how dead stock is born.
 
-Season can reclassify. A diya-oil tin that is slow in July is a fast mover in October. Last year's item-wise sales for that month is the ranking to use, not July Velocity. Mixing those two periods is how you either miss Puja or sit on tins until February.
+Season can reclassify. A diya-oil tin that is slow in July is a fast mover in October. Last year's item-wise sales for that month is the ranking to use, not July Velocity. Mixing those two periods is how you either miss Puja or sit on tins until February. For a stock group rather than one SKU, Sales Comparison puts the months side by side, biggest drop first, with the change in percent, as the [sales comparison report for Tally](/sales-comparison-report-tally/) page shows.
 
 ## The sheet you take into the purchase call
 

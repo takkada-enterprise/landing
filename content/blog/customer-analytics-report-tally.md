@@ -5,17 +5,17 @@ meta_title: "Customer Analytics Tally: Who Buys How Often"
 meta_description: "How do I find my top customers and how often they buy from Tally? Customer analytics tally ranks who buys, how often, how much. PDF export, no Excel."
 primary_keyword: "customer analytics tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "Sharma Kirana lifts twice a week and tickets around ₹22,000. Customer analytics tally on the phone is who buys, how often, how much, so a quiet party shows up before Outstanding does."
 ---
 
-You find your top customers and how often they buy from Tally on the phone in Customer Analytics, the Action Report that ranks who buys, how often, and how much. Customer analytics tally reads the Tally books synced to the device. It exports to PDF in one sitting, with no Excel chooser. A Guwahati FMCG owner at 9 PM types Sharma, sees Sharma Kirana of Fancy Bazaar lifting twice a week at tickets around ₹22,000, then scrolls to the party who used to lift weekly and has gone quiet. Outstanding will not flag that name if the old bills are cleared. Customer Analytics will. Party search is a search box. You type a name. There is no salesman filter and no godown filter. Ageing is always as of today. This report is who buys, not who owes.
+You find your top customers and how often they buy from Tally on the phone in Customer Analytics, the report in the Customers & orders door that ranks who buys, how often, and how much. Customer analytics tally reads the Tally books synced to the device. It exports to PDF in one sitting, with no Excel chooser. A Guwahati FMCG owner at 9 PM types Sharma, sees Sharma Kirana of Fancy Bazaar lifting twice a week at tickets around ₹22,000, then scrolls to the party who used to lift weekly and has gone quiet. Outstanding will not flag that name if the old bills are cleared. Customer Analytics will. Party search is a search box. You type a name. There is no salesman filter and no godown filter. Ageing is always as of today. This report is who buys, not who owes.
 
 ## Key Highlights
 
-- Customer Analytics sits in Action Reports: who buys, how often, how much, from the Tally books on the phone
+- Customer Analytics sits in the Customers & orders door of Reports: who buys, how often, how much, from the Tally books on the phone
 - Sharma Kirana lifts twice a week at around ₹22,000. A party who paid up and then stopped lifting shows here before Outstanding does
 - Customer Analytics exports to PDF, with no Excel. Party search is a search box. There is no salesman filter
 
@@ -32,9 +32,9 @@ You find your top customers and how often they buy from Tally on the phone in Cu
 
 ## How do I find my top customers and how often they buy from Tally?
 
-Open Reports, Action Reports, Customer Analytics. That is how you find your top customers and how often they buy from Tally on the phone. Each row is a party, a frequency, a ticket. The ranking is who carries the week, not who owes the most.
+Open Reports, Customers & orders, Customer Analytics. That is how you find your top customers and how often they buy from Tally on the phone. Each row is a party, a frequency, a ticket. The ranking is who carries the week, not who owes the most.
 
-It sits in Action Reports next to Collections, Bills Receivable, Bills Payable, Sales Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Evening is when the owner opens this one, after Outstanding has already named the lumps, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) sets out.
+It sits in the Customers & orders door of the Reports tab, next to Cross-sell Gaps and Customers waiting, while Sales Analytics sits in Sales, Collections and the bills reports in Money, and Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook in Accounts. Evening is when the owner opens this one, after Outstanding has already named the lumps, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) sets out.
 
 The Tally habit of ranking retailers is the [party wise sales report](/blog/party-wise-sales-report-tally/). Customer Analytics is that habit with frequency sitting next to value, so a small party who lifts three times a week is not buried under Sharma's ₹22,000 ticket.
 
@@ -53,6 +53,8 @@ Party search is a search box. Type Sharma. There is no picker and no multi-selec
 Sharma Kirana, Fancy Bazaar, twice a week, around ₹22,000, 30-day terms, currently ₹1,85,000 on Outstanding. The owner already knows Sharma. He opens Customer Analytics for the names under Sharma.
 
 Das Stores, 12-day payer, tickets around ₹8,000, lifts often. Small on Outstanding, precious on frequency. The third name used to lift every Thursday. This Thursday there is no voucher. Outstanding is zero because he paid up on the 2nd. Behaviour has nothing to clock. Customer Analytics still has a frequency that just broke. Tomorrow's beat includes that shop, not because he owes, because he stopped.
+
+When a shop still buys from you but has dropped one item, the earlier sign is in the Insights tab of Sales by Item. Our post on [customers who stopped buying an item](/blog/customers-who-stopped-buying-an-item/) shows that check, and the [sales insights from Tally](/sales-insights-tally/) page lists the other cards.
 
 A fourth name, new, two lifts, small tickets. Frequency will tell you in a month whether he is a habit or a one-off who took the scheme. The [item wise sales report](/blog/item-wise-sales-report-tally/) will tell you what he took. Customer Analytics tells you that he came back.
 
@@ -100,7 +102,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: How do I find my top customers and how often they buy from Tally?**
 
-A: Open Reports, then Action Reports, then Customer Analytics on the phone. Customer analytics tally ranks who buys, how often, and how much, read from the Tally books synced to the device. Type a party name in the search box to land on that ledger.
+A: Open Reports, then Customers & orders, then Customer Analytics on the phone. Customer analytics tally ranks who buys, how often, and how much, read from the Tally books synced to the device. Type a party name in the search box to land on that ledger.
 
 **Q: Is customer analytics tally the same as Outstanding?**
 
@@ -120,6 +122,6 @@ A: Customer Analytics is an action report, and most action reports have no date 
 
 **Q: Where does Customer Analytics sit among Tally reports on the phone?**
 
-A: Customer Analytics sits in Action Reports, next to Collections, Bills Receivable, Bills Payable, Sales Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Financial Statements hold Trial Balance, Profit and Loss, Balance Sheet and MIS Reports. Evening is when a distributor opens the who-buys ranking.
+A: Customer Analytics sits in the Customers & orders door of Reports, next to Cross-sell Gaps and Customers waiting, while Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook sit in Accounts. Evening is when a distributor opens the who-buys ranking.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

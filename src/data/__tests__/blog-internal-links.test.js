@@ -80,7 +80,7 @@ const LINK_FLOORS = {
   'e-invoice-from-phone': 5,
   'e-way-bill-from-phone': 5,
   'tally-on-mobile-without-remote-access': 5,
-  'tally-reports-on-mobile': 5,
+  'tally-reports-on-mobile': 26, // raised 2026-11-10 by the new reports posts
   'outstanding-receivables-on-mobile': 4,
   'payment-collection-tally': 4,
   'payment-reminder-tally': 4,
@@ -106,7 +106,7 @@ const LINK_FLOORS = {
   'payroll-software-tally': 3,
   'salary-slip-in-hindi': 2,
   // Physical Stock Count pages, 2026-11-10.
-  'physical-stock-verification-tally': 12,
+  'physical-stock-verification-tally': 13, // +1 from stock-register-in-tally-prime, 2026-11-10
   'stock-count-app': 4,
   // Custom Fields pages, 2026-11-10, and the existing pages their posts link.
   'serial-number-tracking-tally': 10,
@@ -115,6 +115,11 @@ const LINK_FLOORS = {
   'credit-note-from-phone': 2,
   'custom-invoice-template-tally': 2,
   'manufacturing-in-tally-prime': 2,
+  // New reports pages, 2026-11-10 (integration re-counts after every group commits).
+  'party-wise-item-wise-sales-report-tally': 6,
+  'sales-comparison-report-tally': 5,
+  'invoice-wise-profit-tally': 7,
+  'sales-insights-tally': 8,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

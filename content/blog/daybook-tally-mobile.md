@@ -5,7 +5,7 @@ meta_title: "Daybook Tally Mobile: Today's Vouchers"
 meta_description: "Daybook tally mobile lists today's Tally vouchers. Today, Yesterday, Last 7 days, Last 30 days, Custom, plus a voucher-type chip. Share as PDF or CSV."
 primary_keyword: "daybook tally mobile"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "A salesman WhatsApps at 12:10 that twelve bills are done. The owner opens Daybook on the phone, sets Today, chips Sales, and counts seven vouchers before the van leaves again."
@@ -36,7 +36,7 @@ Daybook is the voucher list for a window you choose: who was billed, who was pai
 
 It answers one midday question well: which vouchers posted in the window I picked. It does not age Sharma Kirana's ₹1,85,000. That is Bills Receivable. It does not total the year. That is the This Financial Year band. It does not replace [the daily sales report](/blog/daily-sales-report-tally-mobile/), which is the day's selling as a number. Daybook is the vouchers behind a number somebody quoted from memory.
 
-Daybook sits in Action Reports, next to Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory and Purchase Analytics. Financial Statements are the other group. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+Daybook sits in the Accounts door, next to Trial Balance, Profit & Loss, Balance Sheet and Monthly P&L & Balance Sheet. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
 ## Today, Yesterday, Last 7 days, Last 30 days, Custom
 

@@ -149,6 +149,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Staff attendance, salary and payslips in English and Hindi (add-on)',
       'Physical stock counts done blind on the phone, reviewed by you, with the stock journal made for Tally (add-on)',
       'Serial number tracking: your own details for every unit, such as chassis no, IMEI or colour, picked from stock and printed on the bill (Custom Fields add-on)',
+      'Item-wise and party-wise sales, sales comparison by stock group, margin on each invoice and question cards (slipping items, customers who stopped buying, sales below cost, dead stock) from Tally on mobile',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
     sameAs: [appLinks.playStore, appLinks.appStore],

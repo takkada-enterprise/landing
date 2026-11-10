@@ -5,13 +5,13 @@ meta_title: "Export Tally Report to Excel from Mobile"
 meta_description: "Export a Tally report to Excel from mobile for 11 reports via a chooser. Receivables Ageing and Customer Analytics are PDF only. Daybook is PDF or CSV."
 primary_keyword: "export tally report to excel from mobile"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "At 9:10 the CA asks for the Trial Balance as a sheet while the owner is still at Fancy Bazaar. Eleven Tally reports export to Excel from the phone. Two are PDF only. Daybook is PDF or CSV."
 ---
 
-You can export a Tally report to Excel from your phone for eleven reports that offer a PDF and Excel chooser: Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing, MIS, Payments, Purchase Analytics, Sales Analytics, Cross-sell Gaps and Inventory Velocity. Receivables Ageing and Customer Analytics export to PDF only, with no Excel, and Daybook shares as PDF or as a CSV file. A Guwahati FMCG owner still at Fancy Bazaar at 9:10 gets the CA asking for the Trial Balance as a sheet. He opens Financial Statements, Trial Balance, picks Excel from the chooser, and the file goes through the phone's share sheet, where he picks WhatsApp, email or Drive. That is how you export a Tally report to Excel from mobile. Tally-format export, the layout Tally itself prints, is a separate file for five statutory reports.
+You can export a Tally report to Excel from your phone for eleven reports that offer a PDF and Excel chooser: Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing, MIS, Payments, Purchase Analytics, Sales Analytics, Cross-sell Gaps and Inventory Velocity. Receivables Ageing and Customer Analytics export to PDF only, with no Excel, and Daybook shares as PDF or as a CSV file. A Guwahati FMCG owner still at Fancy Bazaar at 9:10 gets the CA asking for the Trial Balance as a sheet. He opens Accounts, Trial Balance, picks Excel from the chooser, and the file goes through the phone's share sheet, where he picks WhatsApp, email or Drive. That is how you export a Tally report to Excel from mobile. Tally-format export, the layout Tally itself prints, is a separate file for five statutory reports.
 
 ## Key Highlights
 
@@ -33,7 +33,7 @@ You can export a Tally report to Excel from your phone for eleven reports that o
 
 Yes, for the eleven reports that open a chooser sheet with PDF and Excel on it. The phone does not turn every report into a spreadsheet. The list below is the whole map. The CA asked for a file they can open in Excel. A screenshot of Sharma Kirana's ₹1,85,000 will not do that job.
 
-The Reports screen on the phone is two groups. Financial Statements hold Trial Balance, Profit and Loss, Balance Sheet and MIS Reports. Action Reports hold Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Export lives on individual reports, not as a single button on that list. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+The Reports screen on the phone is grouped by the question you are asking: Sales, Customers & orders, Purchase, Stock, Money and Accounts. Export lives on individual reports, not as a single button on that list. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
 Party search on every report is a search box. You type a name. Access to the Reports tab is permission-controlled per team member. A salesman without that permission does not see reports at all, so he also cannot export them.
 
@@ -41,21 +41,23 @@ Party search on every report is a search box. You type a name. Access to the Rep
 
 These reports offer a PDF and Excel chooser. Pick Excel, then the file goes through the phone's share sheet.
 
-| Report | Group | Reports+ needed |
+| Report | Door | Reports+ needed |
 |---|---|---|
-| Trial Balance | Financial Statements | No |
-| Profit and Loss | Financial Statements | No |
-| Balance Sheet | Financial Statements | No |
-| Bills Receivable ageing | Action Reports | No |
-| Bills Payable ageing | Action Reports | No |
-| MIS | Financial Statements | Yes |
-| Payments | Action Reports | No |
-| Purchase Analytics | Action Reports | Yes |
-| Sales Analytics | Action Reports | Yes |
-| Cross-sell Gaps | Action Reports | Yes |
-| Inventory Velocity | Action Reports | Yes |
+| Trial Balance | Accounts | No |
+| Profit and Loss | Accounts | No |
+| Balance Sheet | Accounts | No |
+| Bills Receivable ageing | Money | No |
+| Bills Payable ageing | Money | No |
+| Monthly P&L & Balance Sheet | Accounts | Yes |
+| Payments | Money | No |
+| Purchase Analytics | Purchase | Yes |
+| Sales Analytics | Sales | Yes |
+| Cross-sell Gaps | Customers & orders | Yes |
+| Inventory Velocity | Stock | Yes |
 
-Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections and the Velocity tab of Inventory. Without Reports+, those five Excel paths stay dark. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments still offer the chooser.
+Reports+ is included for every company, so all eleven offer the chooser.
+
+The list has grown since these eleven. Every register, sales, purchase, receipts, payments, notes, journal, contra and orders, downloads as Excel or PDF. Sales by Item and Purchases by Item export to Excel or PDF too; Sales by Item takes customer returns (credit notes) off and shows them in a Returns column, and Purchases by Item does the same with debit notes. Each Insights card opens a full list you can export, and an item's stock ledger downloads as a print-ready PDF laid out like Tally's stock item register, or as Excel with one row per voucher. The new reports are on the [Tally reports on mobile](/tally-reports-on-mobile/) page.
 
 The [Trial Balance on the phone](/blog/trial-balance-tally-mobile/) is a flat list. There is no drill from a line into a ledger. Group to sub-group to ledger is the Balance Sheet. Exporting the Trial Balance to Excel gives the CA that same flat list as a sheet. It does not invent a drill-down the screen does not have.
 
@@ -81,7 +83,7 @@ Most action reports have no date filter. Ageing is always as of today. Daybook i
 
 Open the report. Open the chooser. Pick Excel. The phone's share sheet appears. Pick WhatsApp, or email, or Drive, or Files. That is the whole path. There is no second Tally sitting on the phone producing a different sheet. The numbers are the Tally books synced to the device.
 
-A worked sitting at 9:10. The CA WhatsApps "TB Excel mein bhej do." Reports, Financial Statements, Trial Balance. Chooser, Excel. Share sheet, WhatsApp, the CA's chat. The owner is still on the Fancy Bazaar pavement. Sharma Kirana's counter is twenty steps away. The sheet leaves the phone the same way a PDF would.
+A worked sitting at 9:10. The CA WhatsApps "TB Excel mein bhej do." Reports, Accounts, Trial Balance. Chooser, Excel. Share sheet, WhatsApp, the CA's chat. The owner is still on the Fancy Bazaar pavement. Sharma Kirana's counter is twenty steps away. The sheet leaves the phone the same way a PDF would.
 
 If the CA wanted Profit and Loss or Balance Sheet as a sheet, same chooser on those two reports. If the CA wanted the layout Tally itself prints, that is Tally-format export, next section, not this Excel path.
 
@@ -127,7 +129,7 @@ A: Every exported PDF or Excel goes through the phone's share sheet, where you p
 
 **Q: Do I need Reports+ to export a Tally Trial Balance to Excel?**
 
-A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments offer the chooser without Reports+. Reports+ comes with every plan. It unlocks MIS, Sales Analytics, Cross-sell Gaps, Purchase Analytics and Inventory Velocity, which is why those five Excel paths need it.
+A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable ageing, Bills Payable ageing and Payments offer the chooser without Reports+. Reports+ is included for every company, so the other five offer it as well.
 
 **Q: Is Tally-format export the same as Excel export from the phone?**
 

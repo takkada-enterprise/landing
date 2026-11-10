@@ -5,7 +5,7 @@ meta_title: "Purchase Report from Tally on Mobile"
 meta_description: "A purchase report tally mobile view shows what you bought and from whom, supplier by supplier, so a distributor tracks buying and what falls due."
 primary_keyword: "purchase report tally mobile"
 date: "2026-07-21"
-updated: "2026-08-08"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor watches his sales closely and his buying loosely. The purchase report is the buy-side mirror: what came in, from which supplier, at what cost. On the phone he can check it before he commits to the next stock order."
@@ -44,7 +44,7 @@ Group the register by party and it becomes supplier-wise purchases, showing how 
 
 The consolidated purchase total tells you how much stock came in. The supplier-wise breakdown tells you the things worth acting on.
 
-Read supplier by supplier, you can see which principal you depend on most, whether a supplier's effective rate has drifted, and how your buying is spread across vendors. Sort by value and the concentration is obvious: if one supplier is most of your purchasing, that relationship carries the business and deserves careful terms. Set the period to compare this month against last, and a creeping cost or a swelling order jumps out before it becomes a habit. Read carelessly, as one lump total, all of that stays hidden.
+Read supplier by supplier, you can see which principal you depend on most, whether a supplier's effective rate has drifted, and how your buying is spread across vendors. Sort by value and the concentration is obvious: if one supplier is most of your purchasing, that relationship carries the business and deserves careful terms. Set the period to compare this month against last, and a creeping cost or a swelling order jumps out before it becomes a habit. Read carelessly, as one lump total, all of that stays hidden. When the same item comes from two suppliers, our post on [supplier rate comparison for the same item](/blog/supplier-rate-comparison-same-item/) works out what the gap costs in rupees.
 
 ## Purchases, Payables, and the Next Order
 

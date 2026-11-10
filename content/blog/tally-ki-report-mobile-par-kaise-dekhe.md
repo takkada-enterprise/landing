@@ -2,27 +2,27 @@
 title: "Tally ki Report Mobile par Kaise Dekhe (Hinglish)"
 slug: "tally-ki-report-mobile-par-kaise-dekhe"
 meta_title: "Tally ki Report Mobile par Kaise Dekhe"
-meta_description: "Tally ki report mobile par kaise dekhe: Financial Statements aur Action Reports phone par. Share sheet se WhatsApp. Excel un reports par jahan chooser hai."
+meta_description: "Tally ki report mobile par kaise dekhe: Sales se Accounts tak chhe darwaze phone par. Share sheet se WhatsApp. Excel un reports par jahan chooser hai."
 primary_keyword: "tally report mobile par kaise dekhe"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
-excerpt: "Owner Fancy Bazaar par khada hai, CA ne TB maanga. Tally ki report mobile par Reports screen se khulti hai, do groups mein. Share sheet se WhatsApp jaati hai, Excel un reports par jahan chooser hai."
+excerpt: "Owner Fancy Bazaar par khada hai, CA ne TB maanga. Tally ki report mobile par Reports screen se khulti hai, chhe darwazon mein. Share sheet se WhatsApp jaati hai, Excel un reports par jahan chooser hai."
 ---
 
-Tally ki report mobile par kaise dekhe, yeh seedha jawab hai: phone par Reports screen kholiye, do groups mein. Financial Statements mein Trial Balance, Profit and Loss, Balance Sheet aur MIS Reports hain. Action Reports mein Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics aur Daybook hain. Numbers wahi Tally books se aate hain jo phone par sync hain. Guwahati ka FMCG owner Fancy Bazaar par 9:10 baje CA ka message dekhta hai, "TB bhej do", aur Trial Balance phone par khol leta hai. Har exported PDF ya Excel phone ki share sheet se jaati hai, jahan WhatsApp, email ya Drive choose karte ho. Receivables Ageing aur Customer Analytics sirf PDF hain. Daybook PDF ya CSV hai. Stock aur godown screens par export nahi hai. Reports+ har plan mein shamil hai, MIS aur analytics ke liye.
+Tally ki report mobile par kaise dekhe, yeh seedha jawab hai: phone par Reports screen kholiye, jo chhe darwazon mein hai: Sales, Customers & orders, Purchase, Stock, Money aur Accounts, upar Find box ke saath. Accounts mein Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet aur Daybook hain, aur Money mein Collections, Bills Receivable aur Bills Payable. Numbers wahi Tally books se aate hain jo phone par sync hain. Guwahati ka FMCG owner Fancy Bazaar par 9:10 baje CA ka message dekhta hai, "TB bhej do", aur Trial Balance phone par khol leta hai. Har exported PDF ya Excel phone ki share sheet se jaati hai, jahan WhatsApp, email ya Drive choose karte ho. Receivables Ageing aur Customer Analytics sirf PDF hain. Daybook PDF ya CSV hai. Stock aur godown screens par export nahi hai. Reports+ har company ke liye shamil hai.
 
 ## Key Highlights
 
-- Reports screen do groups mein hai: Financial Statements (Trial Balance, Profit and Loss, Balance Sheet, MIS Reports) aur Action Reports (Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook)
+- Reports screen chhe darwazon mein hai: Sales, Customers & orders, Purchase, Stock, Money aur Accounts, aur phone par Find box se report seedha khulti hai
 - Har exported PDF ya Excel phone ki share sheet se jaati hai, jahan WhatsApp choose hota hai
 - Trial Balance flat list hai, ledger drill nahi. Balance Sheet group se sub-group se ledger tak jaati hai
 
 ## In This Article
 
 - Tally ki report mobile par kaise dekhe?
-- Do groups: Financial Statements aur Action Reports
+- Chhe darwaze: Sales se Accounts tak
 - Subah, dopahar, mahine ke end par kaun si report
 - Report WhatsApp par kaise share karein
 - Excel, PDF, CSV: kaun si file kis report ki
@@ -31,7 +31,7 @@ Tally ki report mobile par kaise dekhe, yeh seedha jawab hai: phone par Reports 
 
 ## Tally ki report mobile par kaise dekhe?
 
-Tally ki report mobile par kaise dekhe, iska pehla step Reports tab hai. Wahan do lists milti hain, alag-alag sawaal ke liye. Financial Statements wahi teen cheezein hain jo CA maangta hai, plus MIS. Action Reports woh screens hain jo din bhar kaam aati hain: kaun kitna baaki hai, aaj kaun se voucher pade, maal kya hila.
+Tally ki report mobile par kaise dekhe, iska pehla step Reports tab hai. Wahan reports chhe darwazon mein hain, har darwaza ek sawaal ke liye: Accounts mein woh statements jo CA maangta hai, aur Money, Sales, Stock mein woh screens jo din bhar kaam aati hain: kaun kitna baaki hai, kya bika, maal kya hila.
 
 Tally desktop neighbour hai. Phone usi books ko padhta hai jo sync hui hain. Doosri books nahi banti. Sharma Kirana Fancy Bazaar par ₹1,85,000, 47 din, 30-day terms. Outstanding par naam type karo, line dikh jaati hai. Party search har report par search box hai. Naam likhte ho. Picker nahi, multi-select nahi.
 
@@ -39,13 +39,13 @@ Pura din ka order [Tally reports ki daily checklist](/blog/tally-reports-for-dis
 
 Desktop band hai, Tally usi machine par hai jahan accountant baitha tha. Owner route par hai. Sawal wahi rehta hai: Sharma ka baaki, aaj ke bill, mahine ka TB. Phone par woh teen screens khul jaati hain. Jo na khule, jaise salesman filter ya har report par apni date, woh desktop ki aadat hai, is list ki nahi.
 
-## Do groups: Financial Statements aur Action Reports
+## Chhe darwaze: Sales se Accounts tak
 
-Financial Statements: Trial Balance, Profit and Loss, Balance Sheet, MIS Reports. Trial Balance, P&L aur Balance Sheet synced Tally books se seedha padhte hain. Trial Balance flat list hai. Line se ledger mein drill nahi. Group se sub-group se ledger Balance Sheet ka kaam hai. Jab synced books foot nahi karti, Balance Sheet par Difference row aati hai. [Trial Balance phone par](/blog/trial-balance-tally-mobile/) yahi list hai.
+Accounts: Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet, Daybook. Trial Balance, P&L aur Balance Sheet synced Tally books se seedha padhte hain. Trial Balance flat list hai. Line se ledger mein drill nahi. Group se sub-group se ledger Balance Sheet ka kaam hai. Jab synced books foot nahi karti, Balance Sheet par Difference row aati hai. [Trial Balance phone par](/blog/trial-balance-tally-mobile/) yahi list hai.
 
-MIS Reports 12-month grid hai, total column ke saath. Cell se voucher ya ledger mein drill nahi. MIS Reports+ ka hissa hai. Reports+ har plan mein shamil hai. Uske bina bhi Trial Balance, P&L, Balance Sheet khulte hain.
+Monthly P&L & Balance Sheet 12-month grid hai, total column ke saath. Cell se voucher ya ledger mein drill nahi. Reports+ har company ke liye shamil hai.
 
-Action Reports: Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook. Collections ke do tabs: Outstanding aur Payment behaviour. Payment behaviour, Sales Analytics, Cross-sell Gaps, Purchase Analytics aur Inventory ka Velocity tab Reports+ se khulte hain.
+Money: Collections, Bills Receivable, Bills Payable. Sales: Sales by Item, Sales Analytics, Sales Comparison. Customers & orders: Customer Analytics, Cross-sell Gaps, Customers waiting. Purchase: Purchases by Item, Purchase Analytics. Stock: Reorder & slow stock. Collections ke do tabs: Outstanding aur Payment behaviour. Item, bill aur mahine ka profit kaise dekhein, woh [Tally me profit kaise dekhe](/blog/tally-me-profit-kaise-dekhe/) mein hai.
 
 Daybook mein Today, Yesterday, Last 7 days, Last 30 days, Custom, aur voucher-type chip. Baaki action reports mein zyadatar date filter nahi. Ageing aaj ke hisaab se hai. Ledger statement aur godown reports mein This FY, This Quarter, This Month, Last Month, Last FY, Custom.
 
@@ -97,7 +97,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: Tally ki report mobile par kaise dekhe?**
 
-A: Phone par Reports screen kholiye. Financial Statements mein Trial Balance, Profit and Loss, Balance Sheet aur MIS Reports hain. Action Reports mein Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics aur Daybook hain. Numbers synced Tally books se aate hain. Party search ek search box hai, naam type karte ho.
+A: Phone par Reports screen kholiye. Reports chhe darwazon mein hain: Sales, Customers & orders, Purchase, Stock, Money aur Accounts. Accounts mein Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet aur Daybook hain, aur Money mein Collections, Bills Receivable aur Bills Payable. Numbers synced Tally books se aate hain. Party search ek search box hai, naam type karte ho.
 
 **Q: Kya har Tally report Excel mein nikal sakte hain phone se?**
 
@@ -109,11 +109,11 @@ A: Report export karke phone ki share sheet se WhatsApp choose kijiye. Web app p
 
 **Q: Trial Balance mobile par ledger tak drill karti hai kya?**
 
-A: Nahi. Trial Balance flat list hai. Group se sub-group se ledger Balance Sheet karti hai. MIS Reports 12-month grid hai, cell se drill nahi. Jab books foot nahi karti, Balance Sheet par Difference row aati hai.
+A: Nahi. Trial Balance flat list hai. Group se sub-group se ledger Balance Sheet karti hai. Monthly P&L & Balance Sheet 12-month grid hai, cell se drill nahi. Jab books foot nahi karti, Balance Sheet par Difference row aati hai.
 
 **Q: Reports+ ke bina kaun si Tally reports phone par khulti hain?**
 
-A: Collections Outstanding, Daybook, Bills Receivable, Bills Payable, Trial Balance, Profit and Loss aur Balance Sheet khulti hain. Reports+ har plan mein shamil hai. Woh MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, Collections ka Payment behaviour tab aur Inventory ka Velocity tab kholta hai.
+A: Collections Outstanding, Daybook, Bills Receivable, Bills Payable, Trial Balance, Profit and Loss aur Balance Sheet khulti hain. Reports+ har company ke liye shamil hai, isliye Monthly P&L & Balance Sheet, Sales Analytics, Cross-sell Gaps, Purchase Analytics aur Collections ka Payment behaviour tab bhi khulte hain.
 
 **Q: Kya salesman har Tally report dekh sakta hai?**
 

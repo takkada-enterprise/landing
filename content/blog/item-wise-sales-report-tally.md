@@ -5,7 +5,7 @@ meta_title: "Item-Wise Sales Report from Tally on Mobile"
 meta_description: "An item wise sales report tally view shows which products moved, in quantity and value, so a distributor reorders fast movers and spots dead stock."
 primary_keyword: "item wise sales report tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor lives on which products move. The item-wise sales report tells him exactly that, in quantity and value, and on the phone he can check it while standing in the godown deciding what to reorder before the fast mover runs out."
@@ -64,6 +64,8 @@ The two read together are the reorder signal: high sales plus low stock in hand 
 The reorder call gets made in the warehouse or on the phone with a supplier, not at the accounts desk. That is the location gap.
 
 Takkada reads your inventory and sales data from Tally and shows item-wise movement on mobile, ranked by quantity or value for the period, kept current through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the item movement, and the deeper product cuts sit in Reports + (part of every plan) for owners who want to slice by category or party. A salesman on a route can even check whether a fast mover is in stock before promising a delivery. Tally stays the system of record.
+
+The Reports tab now has a Sales by Item report built for this question. One tap groups the same sales by item, stock group, customer or month, and grouped rows show quantity in each unit, such as 120 Box and 40 Pcs, instead of one added-up figure. Its Insights tab adds cards for slipping items, vanished customers, selling below cost and the few items that make 80% of your sales. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column. The [party-wise item-wise sales report for Tally](/party-wise-item-wise-sales-report-tally/) page walks through the grouping, and the [sales insights from Tally](/sales-insights-tally/) page covers the cards.
 
 ## Frequently Asked Questions
 

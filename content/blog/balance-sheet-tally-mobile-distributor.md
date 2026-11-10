@@ -5,13 +5,13 @@ meta_title: "Balance Sheet Tally Mobile: Group to Ledger"
 meta_description: "Read a balance sheet tally mobile view with group to sub-group to ledger drill. A Difference row means the synced books need attention in Tally."
 primary_keyword: "balance sheet tally mobile"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "On the second of the month the owner drills Sundry Debtors down to Sharma Kirana from the Balance Sheet on the phone. A non-zero Difference row means the synced books need attention in Tally, not a fix on the phone."
 ---
 
-You read your Tally balance sheet on your phone from Financial Statements, as assets and liabilities that drill group to sub-group to ledger, read from the Tally books synced to the device. The balance sheet tally mobile view is the drill. Trial Balance is the flat list. On the second of the month the owner stands at Fancy Bazaar, opens Sundry Debtors, then the sub-group, then Sharma Kirana, without the office desktop. A non-zero Difference row means the synced books need attention in Tally. The phone does not rewrite vouchers to clear it. PDF and Excel export sit behind a chooser sheet. Tally-format export exists for the layout the CA expects, and Balance Sheet in that Tally format exports only for the current period. The statement is as good as the books you already keep.
+You read your Tally balance sheet on your phone from the Accounts door, as assets and liabilities that drill group to sub-group to ledger, read from the Tally books synced to the device. The balance sheet tally mobile view is the drill. Trial Balance is the flat list. On the second of the month the owner stands at Fancy Bazaar, opens Sundry Debtors, then the sub-group, then Sharma Kirana, without the office desktop. A non-zero Difference row means the synced books need attention in Tally. The phone does not rewrite vouchers to clear it. PDF and Excel export sit behind a chooser sheet. Tally-format export exists for the layout the CA expects, and Balance Sheet in that Tally format exports only for the current period. The statement is as good as the books you already keep.
 
 ## Key Highlights
 
@@ -36,7 +36,7 @@ A Balance Sheet is assets against liabilities at a point in time, so you can see
 
 It answers the month-end question: what do we hold, what do we owe, and can I walk a group down to the ledger that is bothering me. It does not age Sharma's ₹1,85,000. That is Bills Receivable. It does not list today's vouchers. That is Daybook.
 
-Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Balance Sheet is the drill inside that group. The working-day order of the rest is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+The Accounts door holds Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook. Balance Sheet is the drill inside that door. The working-day order of the rest is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
 ## Group to sub-group to ledger
 
@@ -94,7 +94,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: How do I read my Tally balance sheet on my phone?**
 
-A: Open Reports, then Financial Statements, then Balance Sheet. The balance sheet tally mobile view reads assets and liabilities from the Tally books synced to the phone, and drills group to sub-group to ledger. A non-zero Difference row means the synced books need attention in Tally.
+A: Open Reports, then Accounts, then Balance Sheet. The balance sheet tally mobile view reads assets and liabilities from the Tally books synced to the phone, and drills group to sub-group to ledger. A non-zero Difference row means the synced books need attention in Tally.
 
 **Q: Does the Balance Sheet on the phone drill down to a ledger?**
 

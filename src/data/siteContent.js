@@ -741,6 +741,9 @@ export const footerColumns = [
       { label: 'Physical stock count', page: 'physical-stock-verification-tally' },
       // Sitewide link to the serial number tracking hub page (2026-11-10).
       { label: 'Serial number tracking', page: 'serial-number-tracking-tally' },
+      // Sitewide link to the new reports' question page (2026-11-10); the hub is
+      // already in the Features column.
+      { label: 'Sales insights', page: 'sales-insights-tally' },
     ],
   },
   {

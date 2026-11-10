@@ -5,7 +5,7 @@ meta_title: "Dead Stock in Tally Before Year-End"
 meta_description: "Identify dead stock in Tally before year-end: near-zero Velocity for 90 days, quantity still on Stock Summary, then scheme, return, or write-down."
 primary_keyword: "dead stock in tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "200 pickle jars, 2 a day, 100 days of cover, ₹8,000 in a corner. Forty such SKUs is ₹3,20,000 sitting until March values it. Find them in December, not on the auditor's printout."
@@ -46,6 +46,8 @@ Second week of December, Monday 9:40, after the movers have had their purchase l
 Open Inventory. Velocity is how fast each item moves, and Velocity sits in Reports+. Go to the bottom of the ranking, not the top. For each quiet SKU, open Stock. If quantity is zero, skip. If quantity is sitting, write a line.
 
 [Stock Summary from Tally on mobile](/blog/stock-summary-report-tally-mobile/) is the same quantity as of a date, with item drill-down. Use today for the pass. A past date is useful when someone claims the hamper moved in November; quantity on 30 November is historical and exact, the rupee column at current rate.
+
+The Insights tab of Purchases by Item lists stock with no sale in 60 days or more, the biggest 25 by value, as the [sales insights from Tally](/sales-insights-tally/) page shows. For how long stock has sat since it was bought, slab by slab, see our post on the [stock ageing report in Tally Prime](/blog/stock-ageing-report-tally-prime/).
 
 [Item-wise sales](/blog/item-wise-sales-report-tally/) for 1 September to today confirms the quiet. If the pickle sold 60 jars in 90 days, it is slow, 2 a day if you stretch it, not dead. If it sold 4 jars in 90 days, it is dead for this purpose.
 

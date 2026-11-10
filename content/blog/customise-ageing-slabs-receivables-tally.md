@@ -5,7 +5,7 @@ meta_title: "Ageing Slabs Receivables: Set Your Own Buckets"
 meta_description: "Ageing slabs receivables on the phone: change Tally buckets to 0-7-15-30 or 0-45-90-120. Remembered per company. Receivables Ageing exports PDF in one tap."
 primary_keyword: "ageing slabs receivables"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "A Guwahati pharma owner sets 0-7-15-30 so a 21-day chemist bill hits this week's call list. The agri company on the same phone keeps 0-45-90-120. Those ageing slabs stick per company."
@@ -35,7 +35,7 @@ Yes. On the phone the receivables ageing view lets you edit the slabs. You add a
 
 Tally on the desktop has lived for years on 0-30, 31-60, 61-90, over 90. Plenty of distributors never touch that. The chemist in Paltan Bazaar and the agri dealer in Barpeta do not share a credit clock, and a single 30-day split treats them as if they did. The phone is where the owner actually looks at ageing between dispatches, so that is where the dividers belong.
 
-Bills Receivable sits in Action Reports, next to Collections, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Ageing is the midday member of the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/). The [aging report in Tally](/blog/aging-report-tally/) is the desktop reading of the same idea. The phone reading of the buckets, including how a party opens into bills, is the [Debtor ageing report on phone](/debtor-ageing-report-on-phone).
+Bills Receivable sits in the Money door of the Reports screen, next to Collections and Bills Payable. Ageing is the midday member of the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/). The [aging report in Tally](/blog/aging-report-tally/) is the desktop reading of the same idea. The phone reading of the buckets, including how a party opens into bills, is the [Debtor ageing report on phone](/debtor-ageing-report-on-phone).
 
 ## Ageing slabs receivables for a pharma beat
 

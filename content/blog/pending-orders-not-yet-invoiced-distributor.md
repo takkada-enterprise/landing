@@ -5,7 +5,7 @@ meta_title: "Pending Orders Report for Distributors"
 meta_description: "A pending orders report distributor teams use lists every sales order not yet invoiced, then feeds Today's load and the Dispatch Load sheet."
 primary_keyword: "pending orders report distributor"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Gupta Stores' 14 cartons are a Sales Order in Tally and still waiting for an invoice. Pending orders puts every such line in one list. Today's load and Dispatch read the same pile for the next van."
@@ -37,7 +37,7 @@ The Tally desktop already holds those vouchers in the Sales Order register. The 
 
 [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) already assumed this pile. Today's load and Dispatch read from it. This article is the pile itself: every open Sales Order, then the 3-day slice the van actually loads.
 
-The [Salesman app for Tally](/salesman-app-tally) is where many of those orders were booked. [Sales order on mobile](/sales-order-on-mobile) is that booking, written back as an ordinary Sales Order. Pending is what you open after, when you need the ones that have not become invoices yet.
+The [Salesman app for Tally](/salesman-app-tally) is where many of those orders were booked. [Sales order on mobile](/sales-order-on-mobile) is that booking, written back as an ordinary Sales Order. Pending is what you open after, when you need the ones that have not become invoices yet. Tally's own pending report, and how to see who is waiting for each item against stock, is in [sales order pending report in Tally Prime](/blog/sales-order-pending-report-tally-prime/).
 
 ## What a pending orders report distributor teams actually open
 

@@ -5,7 +5,7 @@ meta_title: "MIS Report vs Profit and Loss for Distributors"
 meta_description: "MIS report vs profit and loss: MIS is a 12-month movement grid, P&L is a period result. Totals can differ on closing stock. MIS has no drill-down."
 primary_keyword: "mis report vs profit and loss"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "On the second of the month the CA wants the Profit and Loss. The owner also opens the 12-month MIS grid, because August versus July is a different question from whether the period made money."
@@ -15,9 +15,9 @@ The difference between an MIS report and a profit and loss statement is that MIS
 
 ## Key Highlights
 
-- MIS Reports show a 12-month grid with a total column. Profit & Loss is income against expense for a period
+- Monthly P&L & Balance Sheet shows a 12-month grid with a total column. Profit & Loss is income against expense for a period
 - The MIS total and the P&L can legitimately differ on closing stock
-- MIS has no drill-down. Reports+ comes with every plan
+- MIS has no drill-down. Reports+ is included for every company
 
 ## In This Article
 
@@ -34,11 +34,11 @@ The difference between an MIS report and a profit and loss statement is that MIS
 
 An MIS report, on this phone, is a 12-month grid with a total column: how each month moved. A profit and loss statement is income against expense for a period: what the period resulted in. The first is a shape across months. The second is a result for a period. A Guwahati FMCG distributor who only ever opens P&L finds out August was weak when the CA says so. The one who also opens the grid sees July-to-August in the same sitting.
 
-Both live under Financial Statements, next to Trial Balance and Balance Sheet. Both read from the Tally books synced to the phone. They are not two names for one screen. The daily-scorecard habit of reading the same handful of numbers every morning is a different use of the word MIS, written up as [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/). This post is the product grid versus the statutory P&L.
+Both live under the Accounts door, next to Trial Balance and Balance Sheet. Both read from the Tally books synced to the phone. They are not two names for one screen. The daily-scorecard habit of reading the same handful of numbers every morning is a different use of the word MIS, written up as [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/). This post is the product grid versus the statutory P&L.
 
 ## MIS report vs profit and loss, side by side
 
-| | MIS Reports | Profit & Loss |
+| | Monthly P&L & Balance Sheet | Profit & Loss |
 |---|---|---|
 | What you see | A 12-month grid with a total column | Income against expense for a period |
 | Question it answers | How did each month move | What did this period result in |
@@ -90,7 +90,7 @@ If August is the hole, the grid will not name the party. [Daybook](/blog/daybook
 
 Closing stock is the usual reason the MIS total and the P&L disagree, and it is a legitimate disagreement. Spend the afternoon on Tally only if a line inside the P&L looks like a voucher in the wrong ledger, or if the Balance Sheet shows a Difference row. Forcing the two totals to match because "they should" is mixing a movement view with a period result.
 
-The working habit is small. Second of the month: send P&L, read the grid, walk away. Eighth of the month: open the grid again if July's shape has not returned. Do not wait for year-end to discover two dead months. The grid is sitting under Financial Statements the whole year.
+The working habit is small. Second of the month: send P&L, read the grid, walk away. Eighth of the month: open the grid again if July's shape has not returned. Do not wait for year-end to discover two dead months. The grid is sitting under Accounts the whole year. Why a heavy buying month can read as a loss in Tally, and how its own closing stock fixes it, is in [month wise profit and loss in Tally Prime](/blog/month-wise-profit-and-loss-tally-prime/).
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
 
@@ -110,7 +110,7 @@ A: No. MIS Reports show a 12-month grid with a total column and have no drill-do
 
 **Q: Is MIS Reports part of Reports+?**
 
-A: Yes. Reports+ comes with every plan. It unlocks MIS Reports, Sales Analytics, Cross-sell Gaps, Purchase Analytics, the Payment behaviour tab of Collections, and the Velocity tab of Inventory. Profit and Loss, Trial Balance and Balance Sheet still open without it.
+A: Yes. Monthly P&L & Balance Sheet, the tile for this grid, is part of Reports+, which is included for every company. Profit and Loss, Trial Balance and Balance Sheet open as well.
 
 **Q: Can I export MIS and Profit and Loss from the phone?**
 

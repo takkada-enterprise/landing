@@ -48,7 +48,7 @@ Tally keeps a running book stock for every item from your purchases, sales and t
 
 ## The Physical Stock Register
 
-Press Alt+G (Go To), type or select Physical Stock Register and press Enter. The register lists the physical stock entries for the period, so you can see when each item was counted and how its stock was adjusted. It is the report to show your CA when they ask how the year's counts were recorded.
+Press Alt+G (Go To), type or select Physical Stock Register and press Enter. The register lists the physical stock entries for the period, so you can see when each item was counted and how its stock was adjusted. It is the report to show your CA when they ask how the year's counts were recorded. The book side of the count, voucher by voucher for one item, is Stock Item Vouchers, which our post on the [stock register in Tally Prime](/blog/stock-register-in-tally-prime/) walks through.
 
 ## A worked example: 120 cartons in the books, 112 on the shelf
 

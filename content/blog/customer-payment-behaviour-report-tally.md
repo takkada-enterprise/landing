@@ -5,7 +5,7 @@ meta_title: "Customer Payment Behaviour Report in Tally"
 meta_description: "Which report shows which customers pay late in Tally? The customer payment behaviour report on Collections. Days they take, on the phone, next to Outstanding."
 primary_keyword: "customer payment behaviour report"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Collections"
 excerpt: "Outstanding says Sharma Kirana owes ₹1,85,000. The customer payment behaviour report says he takes 47 days on 30-day terms. That second number is who you stop giving fresh credit to at 8:30."
@@ -36,7 +36,7 @@ Collections, then the Payment behaviour tab. That is the customer payment behavi
 
 Outstanding is the sibling tab on the same screen. Outstanding is the lump: Sharma Kirana ₹1,85,000 this morning. Payment behaviour is the clock: 47 days, against terms of 30. A distributor who only ever opens Outstanding keeps calling the biggest number. A distributor who also opens behaviour stops loading mustard oil for the party whose clock never comes back.
 
-Both tabs live under Action Reports, in the Collections row, next to Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/). The lump itself is the [outstanding receivables report](/blog/outstanding-receivables-report-tally/).
+Both tabs live in the Money door, in Collections, next to Bills Receivable and Bills Payable. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/). The lump itself is the [outstanding receivables report](/blog/outstanding-receivables-report-tally/).
 
 ## What the customer payment behaviour report actually shows
 
@@ -116,7 +116,7 @@ A: No. There is no salesman filter and no godown filter on this report. Party se
 
 **Q: How do I open the report that shows late-paying customers in Tally on my phone?**
 
-A: Open Reports, then Action Reports, then Collections, then the Payment behaviour tab. Type a party name in the search box to land on that ledger. Outstanding is the sibling tab on the same screen if you need the lump first.
+A: Open Reports, then Money, then Collections, then the Payment behaviour tab. Type a party name in the search box to land on that ledger. Outstanding is the sibling tab on the same screen if you need the lump first.
 
 **Q: Does Payment behaviour send a WhatsApp reminder from Tally?**
 
