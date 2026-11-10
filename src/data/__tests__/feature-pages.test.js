@@ -27,6 +27,7 @@ import { ROUND_THREE } from '../featurePagesRoundThree';
 import { HRMS_PAGES } from '../featurePagesHrms';
 import { STOCK_COUNT_PAGES } from '../featurePagesStockCount';
 import { CUSTOM_FIELDS_PAGES } from '../featurePagesCustomFields';
+import { REPORTS_PAGES } from '../featurePagesReports';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -1000,9 +1001,9 @@ describe('call recording', () => {
 // Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
 // it is for in three situations, each today against with Takkada, and lists
 // the work that stops. The Staff and Payroll and Physical Stock Count and Custom Fields pages
-// (2026-11-10) follow suit.
+// and the new reports pages (2026-11-10) follow suit.
 describe('who it is for', () => {
-  it.each([...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES, ...CUSTOM_FIELDS_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+  it.each([...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES, ...CUSTOM_FIELDS_PAGES, ...REPORTS_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
     expect(page.useCases?.heading).toBeTruthy();
     expect(page.useCases.cases).toHaveLength(3);
     for (const c of page.useCases.cases) {
@@ -1093,5 +1094,41 @@ describe('Custom Fields pages stay inside their claims sheets', () => {
     const group = FEATURE_GROUPS.find((g) => g.id === 'load');
     for (const p of CUSTOM_FIELDS_PAGES) expect(group.slugs).toContain(p.slug);
     expect(CUSTOM_FIELDS_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
+  });
+});
+
+// New reports (2026-11-10): claims that are not live or not provable, per
+// docs/seo/feature-pages-reports/*-claims.md, over the four spokes and the
+// rebuilt hub. Sales by Item never nets returns, cost is always Tally's own,
+// MIS Insights is named only with its add-on sentence, and "MIS Reports" is no
+// longer a tile name (relatedPosts are stripped: post titles may keep it).
+describe('New report pages stay inside their claims sheets', () => {
+  const pages = [...REPORTS_PAGES, FEATURE_PAGES.find((p) => p.slug === 'tally-reports-on-mobile')];
+  const BANNED =
+    /real.?time|close to live|ai.powered|predict|100%|automatic(ally)? (reorder|order)|auto.dispatch|bulk|to all (your )?customers|\bfifo\b|landed cost|after freight|identical to tally|every salesman|the only|paysaathi|state.wise|crop.wise|\bnrv\b|biz analyst|livekeeping|vyapar|accosync|tallydekho|\bmarg\b|zoho|MIS Reports/i;
+  it.each(pages.map((p) => [p.slug, p]))('%s: carries no banned claim', (_slug, page) => {
+    const { relatedPosts, ...claimBearing } = page;
+    expect(JSON.stringify(claimBearing)).not.toMatch(BANNED);
+  });
+  it.each(pages.map((p) => [p.slug, p]))('%s: names MIS Insights only with the add-on sentence', (_slug, page) => {
+    const text = JSON.stringify(page);
+    if (/MIS Insights/.test(text)) expect(text).toContain('Part of the MIS Insights add-on. Ask us to switch it on for your business.');
+  });
+  it.each(pages.map((p) => [p.slug, p]))('%s: item figures carry the returns line', (_slug, page) => {
+    const text = JSON.stringify(page);
+    // Single-company Sales by Item nets credit notes into a Returns column (app
+    // plan 2026-10-29-005); the old "not taken off" line is out of date.
+    if (/Sales by Item/.test(text)) expect(text).toMatch(/credit notes\) (are taken )?off and show|Returns column/i);
+    expect(text).not.toMatch(/credit notes are not taken off/i);
+  });
+  it.each(pages.map((p) => [p.slug, p]))("%s: cost is Tally's, never a method we invented", (_slug, page) => {
+    const text = JSON.stringify(page);
+    if (/\bmargin\b/i.test(text)) expect(text).toMatch(/as your Tally values it|as Takkada reads it from your Tally/);
+  });
+  it('the spokes sit next to the hub in Back in Tally, off the lead tier', () => {
+    const group = FEATURE_GROUPS.find((g) => g.id === 'tally');
+    const at = group.slugs.indexOf('tally-reports-on-mobile');
+    expect(group.slugs.slice(at + 1, at + 5)).toEqual(REPORTS_PAGES.map((p) => p.slug));
+    expect(REPORTS_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
   });
 });

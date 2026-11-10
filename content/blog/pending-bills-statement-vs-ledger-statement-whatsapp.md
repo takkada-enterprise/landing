@@ -5,7 +5,7 @@ meta_title: "Pending Bills Statement WhatsApp vs Full Ledger"
 meta_description: "Pending bills statement WhatsApp vs full ledger: Ledger Account or Pending Bills in Settings, plus Include details. Bank details print from the default bank."
 primary_keyword: "pending bills statement whatsapp"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Collections"
 excerpt: "Sharma Kirana WhatsApps at 9:40 for a statement. Settings lets you pick Ledger Account or Pending Bills, plus Include details. Those are the two documents. Bank details print from the default bank."
@@ -114,6 +114,6 @@ A: Settings only chooses the document. The send starts on the party page, the bi
 
 **Q: Is a Trial Balance PDF the same as a ledger statement on WhatsApp?**
 
-A: No. A Trial Balance is a report of every ledger with a debit or a credit, shared from Financial Statements through the phone's share sheet. A ledger statement or pending-bills statement is one party's document from the party page, the bills page or the ageing report. Sharma asking for his statement wants the party document.
+A: No. A Trial Balance is a report of every ledger with a debit or a credit, shared from the Accounts door through the phone's share sheet. A ledger statement or pending-bills statement is one party's document from the party page, the bills page or the ageing report. Sharma asking for his statement wants the party document.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

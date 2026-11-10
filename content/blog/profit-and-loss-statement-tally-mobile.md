@@ -5,13 +5,13 @@ meta_title: "Profit and Loss Tally Mobile for Distributors"
 meta_description: "See profit and loss tally mobile from your synced Tally books. Income against expense on the phone, with PDF, Excel and Tally-format export for the CA."
 primary_keyword: "profit and loss tally mobile"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "On the second of the month the owner opens Profit and Loss from the phone at Fancy Bazaar, income against expense from the synced Tally books, before the CA asks whether August actually made money."
 ---
 
-You can see your Tally profit and loss on mobile from Financial Statements on the Reports screen, as income against expense read from the Tally books synced to the phone. The profit and loss tally mobile view is a period result, not a month-by-month grid. On the second of the month the CA asks whether August made money while the owner is still at Fancy Bazaar, and the statement opens without the office desktop. Sales for the period sit against purchase, expense and the closing the books already hold. PDF and Excel export sit behind a chooser sheet. Tally-format export exists for the layout the CA expects, and Profit and Loss in that Tally format exports only for the current period. MIS Reports, a 12-month grid, can legitimately differ from this statement on closing stock. The P&L is the period result the CA names.
+You can see your Tally profit and loss on mobile from the Accounts door on the Reports screen, as income against expense read from the Tally books synced to the phone. The profit and loss tally mobile view is a period result, not a month-by-month grid. On the second of the month the CA asks whether August made money while the owner is still at Fancy Bazaar, and the statement opens without the office desktop. Sales for the period sit against purchase, expense and the closing the books already hold. PDF and Excel export sit behind a chooser sheet. Tally-format export exists for the layout the CA expects, and Profit and Loss in that Tally format exports only for the current period. MIS Reports, a 12-month grid, can legitimately differ from this statement on closing stock. The P&L is the period result the CA names.
 
 ## Key Highlights
 
@@ -22,7 +22,7 @@ You can see your Tally profit and loss on mobile from Financial Statements on th
 ## In This Article
 
 - What the profit and loss tally mobile statement shows
-- Opening Profit & Loss from Financial Statements
+- Opening Profit & Loss from Accounts
 - Reading August at Fancy Bazaar
 - Exporting for the CA from the share sheet
 - Profit & Loss next to MIS and the profit report
@@ -36,11 +36,11 @@ A Profit & Loss statement is income against expense for a period, so you can see
 
 It answers the month-end question: did this period result in a profit or a loss, in the shape Tally already uses. It does not show which month inside the year was the weak one. That is the 12-month MIS grid. It does not show Sharma Kirana's ₹1,85,000 at 47 days. That is Collections Outstanding, on the [outstanding receivables report](/blog/outstanding-receivables-report-tally/).
 
-Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Profit & Loss sits between the Trial Balance list and the Balance Sheet drill. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+The Accounts door holds Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook. Profit & Loss sits between the Trial Balance list and the Balance Sheet drill. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
-## Opening Profit & Loss from Financial Statements
+## Opening Profit & Loss from Accounts
 
-The CA's "P&L bhej do" lands at 9:25, three WhatsApps after the Trial Balance request. Reports, Financial Statements, Profit & Loss. The statement loads from the synced books. There is no second set of income and expense on the phone.
+The CA's "P&L bhej do" lands at 9:25, three WhatsApps after the Trial Balance request. Reports, Accounts, Profit & Loss. The statement loads from the synced books. There is no second set of income and expense on the phone.
 
 Party search on every report is a search box. You type a name. On Profit & Loss that search is useful when an income or expense ledger is named after a party or a godown. Access to the Reports tab is permission-controlled per team member. A salesman without that permission does not see this statement.
 
@@ -68,7 +68,7 @@ Every exported PDF or Excel goes through the phone's share sheet, where you pick
 
 ## Profit & Loss next to MIS and the profit report
 
-MIS Reports show a 12-month grid with a total column. They are part of Reports+. There is no drill-down from an MIS cell into a voucher or a ledger. The grid is month-by-month movement. Profit & Loss is a period result. The MIS total and the P&L can legitimately differ on closing stock, which is why you hold both rather than picking a winner. That comparison is [MIS report versus profit and loss](/blog/mis-report-vs-profit-and-loss-distributor/). The daily-scorecard habit of reading the same handful of numbers is [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/).
+Monthly P&L & Balance Sheet shows a 12-month grid with a total column. There is no drill-down from an MIS cell into a voucher or a ledger. The grid is month-by-month movement. Profit & Loss is a period result. The MIS total and the P&L can legitimately differ on closing stock, which is why you hold both rather than picking a winner. That comparison is [MIS report versus profit and loss](/blog/mis-report-vs-profit-and-loss-distributor/), and why one month can read as a loss in Tally until it has its own closing stock is in [month wise profit and loss in Tally Prime](/blog/month-wise-profit-and-loss-tally-prime/). The daily-scorecard habit of reading the same handful of numbers is [MIS reports for distributors](/blog/mis-reports-for-distributors-tally/).
 
 Trial Balance is the flat list under this statement. Balance Sheet is assets and liabilities with group to sub-group to ledger. Neither replaces Profit & Loss for the "did August make money" question.
 
@@ -80,7 +80,7 @@ It also does not rewrite Tally. If the Balance Sheet shows a Difference row, the
 
 ## Month-end order at Fancy Bazaar
 
-The second of the month has a useful order, and the owner who skips it sends the CA a P&L of books he has not scanned. Trial Balance first, as a list, from [the trial balance on the phone](/blog/trial-balance-tally-mobile/). Then Profit & Loss, income against expense. Then the MIS grid, if the company has Reports+, for August versus July. Then export.
+The second of the month has a useful order, and the owner who skips it sends the CA a P&L of books he has not scanned. Trial Balance first, as a list, from [the trial balance on the phone](/blog/trial-balance-tally-mobile/). Then Profit & Loss, income against expense. Then the Monthly P&L & Balance Sheet grid, for August versus July. Then export.
 
 At 9:25 the CA wants the P&L. At 9:26 the owner still opens Trial Balance for ninety seconds, because a Purchase line that is ₹1,20,000 light will show there before it shows as a thin month in the P&L. Fancy Bazaar can wait. The mustard-oil stack is not going to walk away. The CA's 4 PM call will, if the file is wrong.
 
@@ -94,7 +94,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: Can I see my Tally profit and loss on mobile?**
 
-A: Yes. Open Reports, then Financial Statements, then Profit and Loss. The profit and loss tally mobile view is income against expense, read from the Tally books synced to the phone. It is a period result. The 12-month movement grid is MIS Reports.
+A: Yes. Open Reports, then Accounts, then Profit and Loss. The profit and loss tally mobile view is income against expense, read from the Tally books synced to the phone. It is a period result. The 12-month movement grid is Monthly P&L & Balance Sheet.
 
 **Q: Can I export the Profit and Loss to Excel from the phone?**
 
@@ -106,7 +106,7 @@ A: Yes, for the current period. Tally-format export, the layout Tally itself pri
 
 **Q: Why might the MIS total differ from the Profit and Loss?**
 
-A: MIS Reports are a 12-month grid of month-by-month movement. Profit and Loss is a period result. The two can legitimately differ on closing stock. MIS has no drill-down. Profit and Loss is the statement the CA names for the period.
+A: Monthly P&L & Balance Sheet is a 12-month grid of month-by-month movement. Profit and Loss is a period result. The two can legitimately differ on closing stock. MIS has no drill-down. Profit and Loss is the statement the CA names for the period.
 
 **Q: Is Profit and Loss on the phone a second set of books?**
 

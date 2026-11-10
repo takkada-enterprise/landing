@@ -5,7 +5,7 @@ meta_title: "Restrict Reports Access Tally for Your Team"
 meta_description: "How do I stop my salesman from seeing my Tally reports? Restrict reports access tally by turning off the Reports tab for that member. The tab is all or nothing."
 primary_keyword: "restrict reports access tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "Raju should not open Profit and Loss at 9 PM in a tea stall. Restrict reports access tally on the phone by turning the Reports tab off for that team member. He then sees no reports at all."
@@ -42,7 +42,7 @@ The Tally desktop story of security levels, and of rights that attach to a repor
 
 Restrict reports access tally by opening that member and switching the Reports permission off. One member, one switch. Raju's Reports tab stays off, while the accountant and the owner keep theirs on. A second salesman, same as Raju, off.
 
-With the tab off, the member does not see the Reports section. Financial Statements (Trial Balance, Profit & Loss, Balance Sheet, MIS Reports) stay out of reach. Action Reports (Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics, Daybook) stay out of reach. The This Financial Year band of ten register totals stays out of reach with them.
+With the tab off, the member does not see the Reports section. The Sales, Customers & orders, Purchase, Stock, Money and Accounts doors, from Collections and Daybook to Trial Balance and Monthly P&L & Balance Sheet, stay out of reach. Item reports and profit are narrower still: owners and full-access team members see item-wise sales and profit; you choose who else sees reports. The This Financial Year band of ten register totals stays out of reach with them.
 
 With the tab on, the member sees that whole Reports section. Party search is a search box. He types a name. There is no salesman filter on the reports, and no beat chip. Godown is its own report.
 
@@ -86,7 +86,7 @@ Every exported PDF or Excel from a report goes through the phone's share sheet, 
 
 Tuesday, a second beat opens toward Maligaon. The new member gets a phone. The owner copies Raju's Reports setting: off. The accountant stays on. The owner stays on. Three members, two of them dark on Reports, one of them reading Sharma's ₹1,85,000 at 8:30.
 
-The temptation is to turn the tab on "just for Daybook" so the new man can check his own bills. Daybook lives behind the same tab as Profit & Loss and MIS Reports. Turning it on for the new man gives him the section. The owner who wants him off Profit & Loss keeps him off the tab, and checks Daybook himself at 12:15 the way he already checks Raju's seven-not-twelve.
+The temptation is to turn the tab on "just for Daybook" so the new man can check his own bills. Daybook lives behind the same tab as Profit & Loss and Monthly P&L & Balance Sheet. Turning it on for the new man gives him the section. The owner who wants him off Profit & Loss keeps him off the tab, and checks Daybook himself at 12:15 the way he already checks Raju's seven-not-twelve.
 
 A month later, if this person moves into the office as a second accountant, the same member can have Reports switched on. The permission follows the member, not the beat. There is still no salesman filter on any report he then opens. He types a name in the search box, like everyone else with the tab. Friday 9 PM, the owner is in the car and the new man is off Reports, so Outstanding for Sharma's ₹1,85,000 is still the owner's sitting. That is the arrangement he wanted when he hired for Maligaon. The tab kept it.
 
@@ -116,6 +116,6 @@ A: No. There is no salesman filter on the reports, and no godown filter. Godown 
 
 **Q: Who can export a Trial Balance from Tally on the phone?**
 
-A: A team member whose Reports permission is on. Trial Balance sits in Financial Statements, behind the Reports tab. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive.
+A: A team member whose Reports permission is on. Trial Balance sits under Accounts, behind the Reports tab. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

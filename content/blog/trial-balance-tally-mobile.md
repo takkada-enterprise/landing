@@ -5,13 +5,13 @@ meta_title: "Trial Balance Tally Mobile: What It Shows"
 meta_description: "A trial balance tally mobile view is a flat list from your synced Tally books. No ledger drill. Open it on the phone and export PDF, Excel or Tally format."
 primary_keyword: "trial balance tally mobile"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "On the second of the month the CA asks for a Trial Balance while the owner is still at Fancy Bazaar. The list opens on the phone from the synced Tally books, as a flat list with no drill into a ledger."
 ---
 
-You can see your Tally trial balance on your phone from Financial Statements on the Reports screen, as a flat list read from the Tally books synced to the device. The trial balance tally mobile view has no ledger drill-down. Group to sub-group to ledger is the Balance Sheet. On the second of the month the CA WhatsApps "TB bhej do" while the owner is still at Fancy Bazaar, and the list opens without the office desktop. Each line is a ledger with a debit or a credit, the same shape Tally prints. Type Sharma in the search box and Sharma Kirana's line is there if it has a balance. PDF and Excel export sit behind a chooser sheet, and Tally-format export exists for the layout the CA expects. When the Balance Sheet shows a Difference row, the synced books need attention in Tally. The Trial Balance itself stays a list.
+You can see your Tally trial balance on your phone from the Accounts door on the Reports screen, as a flat list read from the Tally books synced to the device. The trial balance tally mobile view has no ledger drill-down. Group to sub-group to ledger is the Balance Sheet. On the second of the month the CA WhatsApps "TB bhej do" while the owner is still at Fancy Bazaar, and the list opens without the office desktop. Each line is a ledger with a debit or a credit, the same shape Tally prints. Type Sharma in the search box and Sharma Kirana's line is there if it has a balance. PDF and Excel export sit behind a chooser sheet, and Tally-format export exists for the layout the CA expects. When the Balance Sheet shows a Difference row, the synced books need attention in Tally. The Trial Balance itself stays a list.
 
 ## Key Highlights
 
@@ -22,7 +22,7 @@ You can see your Tally trial balance on your phone from Financial Statements on 
 ## In This Article
 
 - What a trial balance tally mobile view actually shows
-- Opening Trial Balance from Financial Statements
+- Opening Trial Balance from Accounts
 - Why the list is flat, and where drill-down lives
 - Month-end with the CA at Fancy Bazaar
 - Sharing the Trial Balance from the phone
@@ -36,11 +36,11 @@ A Trial Balance is every ledger in the books with a debit or a credit, so the tw
 
 It answers one month-end question well: do the books still foot in the shape the CA expects, and what is the closing figure on this ledger. It does not tell you which of Sharma Kirana's invoices is 47 days old. That is Bills Receivable, covered in the [aging report in Tally](/blog/aging-report-tally/). It does not tell you today's vouchers. That is Daybook.
 
-The Reports screen splits in two. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Action Reports hold Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Trial Balance sits in the first group, next to the two statements the CA also asks for. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+The Reports screen is grouped by the question you are asking: Sales, Customers & orders, Purchase, Stock, Money and Accounts. Trial Balance sits under Accounts, next to the two statements the CA also asks for. The working-day order of those reports is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
-## Opening Trial Balance from Financial Statements
+## Opening Trial Balance from Accounts
 
-Tea can wait. The CA's message arrived at 9:10. Reports, Financial Statements, Trial Balance. The list loads from the synced books. There is no second copy of Tally on the phone. The numbers are the books you already keep.
+Tea can wait. The CA's message arrived at 9:10. Reports, Accounts, Trial Balance. The list loads from the synced books. There is no second copy of Tally on the phone. The numbers are the books you already keep.
 
 Party search on every report is a search box. You type a name. Sharma brings Sharma Kirana of Fancy Bazaar if that ledger has a balance. There is no picker and no multi-select. Access to the Reports tab is permission-controlled per team member. A salesman without that permission does not see reports at all, including this list.
 
@@ -52,7 +52,7 @@ Each Trial Balance row is a ledger name and an amount. Tapping a row does not op
 
 Group to sub-group to ledger is the Balance Sheet. If you need to walk Sundry Debtors down to Sharma Kirana's ledger, that path is on [reading the Balance Sheet on the phone](/blog/balance-sheet-tally-mobile-distributor/). When the synced books do not foot, the Balance Sheet shows a Difference row. The Trial Balance will not rewrite Tally for you.
 
-MIS Reports, also under Financial Statements, are a 12-month grid with a total column and no drill-down of their own. They are a different question, written up as [MIS versus Profit and Loss](/blog/mis-report-vs-profit-and-loss-distributor/).
+Monthly P&L & Balance Sheet, also under Accounts, are a 12-month grid with a total column and no drill-down of their own. They are a different question, written up as [MIS versus Profit and Loss](/blog/mis-report-vs-profit-and-loss-distributor/).
 
 ## Month-end with the CA at Fancy Bazaar
 
@@ -94,7 +94,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: How do I see my Tally trial balance on my phone?**
 
-A: Open Reports, then Financial Statements, then Trial Balance. The trial balance tally mobile view is a flat list read from the Tally books synced to the phone. Each line is a ledger with a debit or a credit. There is no drill from a Trial Balance line into a ledger.
+A: Open Reports, then Accounts, then Trial Balance. The trial balance tally mobile view is a flat list read from the Tally books synced to the phone. Each line is a ledger with a debit or a credit. There is no drill from a Trial Balance line into a ledger.
 
 **Q: Does the Trial Balance on the phone drill down to a ledger?**
 
@@ -110,7 +110,7 @@ A: No. Trial Balance, Profit and Loss and Balance Sheet are read straight from t
 
 **Q: Which Tally reports sit next to Trial Balance on the phone?**
 
-A: Financial Statements hold Trial Balance, Profit and Loss, Balance Sheet and MIS Reports. Action Reports hold Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Trial Balance is the month-end list, not the 8:30 collections check.
+A: The Accounts door holds Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook. Money holds Collections, Bills Receivable and Bills Payable, and Sales, Customers & orders, Purchase and Stock hold the rest. Trial Balance is the month-end list, not the 8:30 collections check.
 
 **Q: Who can see the Trial Balance on the phone?**
 

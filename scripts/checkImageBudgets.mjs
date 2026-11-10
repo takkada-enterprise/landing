@@ -311,6 +311,16 @@ export const BUDGETS = [
   ['public/assets/screens/custom-fields-unit-rows-720.webp', 60_000, 'feature-page hero (imei-tracking-tally)'],
   ['public/assets/screens/custom-fields-invoice-print-360.webp', 32_000, 'feature-page hero (chassis-number-tracking-tally)'],
   ['public/assets/screens/custom-fields-invoice-print-720.webp', 60_000, 'feature-page hero (chassis-number-tracking-tally)'],
+  // New reports spoke heroes (2026-11-10), drawn screens; invoice-margin and
+  // insights-sales at q72 (q80 landed at 65 KB on the 720w).
+  ['public/assets/screens/sales-by-item-grouped-360.webp', 32_000, 'feature-page hero (party-wise-item-wise-sales-report-tally)'],
+  ['public/assets/screens/sales-by-item-grouped-720.webp', 60_000, 'feature-page hero (party-wise-item-wise-sales-report-tally)'],
+  ['public/assets/screens/sales-comparison-360.webp', 32_000, 'feature-page hero (sales-comparison-report-tally)'],
+  ['public/assets/screens/sales-comparison-720.webp', 60_000, 'feature-page hero (sales-comparison-report-tally)'],
+  ['public/assets/screens/invoice-margin-360.webp', 32_000, 'feature-page hero (invoice-wise-profit-tally)'],
+  ['public/assets/screens/invoice-margin-720.webp', 60_000, 'feature-page hero (invoice-wise-profit-tally)'],
+  ['public/assets/screens/insights-sales-360.webp', 32_000, 'feature-page hero (sales-insights-tally)'],
+  ['public/assets/screens/insights-sales-720.webp', 60_000, 'feature-page hero (sales-insights-tally)'],
 ];
 
 export function overBudget(entries, sizeOf) {

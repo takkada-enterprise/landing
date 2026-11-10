@@ -405,6 +405,25 @@ export const SCREENS = {
   'custom-fields-invoice-print': phone('custom-fields-invoice-print', "Sales invoice with the scooter's chassis number, motor number, colour, battery numbers and charger number printed under the item."),
   'custom-fields-units-by-detail': phone('custom-fields-units-by-detail', 'Units by detail report counting units sold by colour: four red, two blue and one black.'),
   'custom-fields-unit-history': phone('custom-fields-unit-history', 'Unit history of one battery: bought on a purchase bill, fitted in a scooter in a production run, and the scooter it went into sold on INV/0033, with the date and bill for each step.'),
+  // New reports pages (2026-11-10). Drawn from the app's own wording, not
+  // captures: the only captures of these reports are of a stage book copied
+  // from a real business or of another brand's app, and app captures are
+  // night-only. See their operatorException rows in the manifest; swap for
+  // a demo company 143 night capture when it exists.
+  'reports-hub-doors': phone('reports-hub-doors', 'The Reports tab with a Find box and the reports grouped by question: Sales, Customers and orders, and Purchase, each with one line on what it answers.'),
+  'sales-by-item-grouped': phone('sales-by-item-grouped', 'Sales by Item grouped by stock group for September: Paints, Plumbing, Adhesives and Fasteners, each with its net amount and its quantity in each unit.'),
+  'sales-by-item-customers': phone('sales-by-item-customers', "One item's customers for the month, each with quantity, average price and profit, and the one who paid below the average marked."),
+  'insights-sales': phone('insights-sales', 'The Insights tab of Sales by Item: slipping items, customers who stopped buying an item and items sold below cost, each answered in one line.'),
+  'insights-vanished': phone('insights-vanished', 'A list of customers who bought an item last month and none of it this month, with Call and Send from my WhatsApp open for one of them.'),
+  'insights-below-cost': phone('insights-below-cost', 'The Selling below cost list: one item sold under its purchase price and the amount given away, with Export to Excel and Export to PDF.'),
+  'insights-purchase': phone('insights-purchase', 'The Insights tab of Purchases by Item: cost creep, over-buying and the supplier rate gap, each answered in one line.'),
+  'sales-comparison': phone('sales-comparison', 'Sales Comparison by stock group for July, August and September, sorted by biggest drop, with the change in percent.'),
+  'sales-comparison-items': phone('sales-comparison-items', 'One stock group opened into its items, compared by quantity month by month.'),
+  'invoice-margin': phone('invoice-margin', 'A saved sales invoice showing cost, margin and margin percent on each line, with one line missing its cost.'),
+  'invoice-add-cost': phone('invoice-add-cost', 'The Add cost box for one invoice line, used for this invoice only and not sent to Tally.'),
+  'customers-waiting': phone('customers-waiting', 'Customers waiting, item by item: one item opened to three customers with pending sales orders, set against the stock in Tally.'),
+  'stock-ledger': phone('stock-ledger', "An item's stock ledger for October across all godowns: opening, each purchase, transfer and sale, and closing."),
+  'monthly-pl-bs': phone('monthly-pl-bs', "Profit and loss month by month for the year, with each month's opening and closing stock and gross profit."),
 };
 
 export function screen(slug) {

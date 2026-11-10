@@ -5,7 +5,7 @@ meta_title: "Financial Year Totals Tally on Your Phone"
 meta_description: "Financial year totals tally: ten register totals for this year, each tappable into its register. Sales, purchases, receipts and payments at a glance."
 primary_keyword: "financial year totals tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Tally Mobile"
 excerpt: "At 8:30 the owner reads this year's sales, purchases, receipts and payments from a band of ten register totals on the Reports screen, each tappable into its register, before the first dispatch."
@@ -36,7 +36,7 @@ The This Financial Year band sits on the Reports screen. It is this year's runni
 
 It answers one morning question well: where does this year stand, in ten numbers I can tap. It does not tell you whether August made money. That is Profit & Loss. It does not age Sharma Kirana's ₹1,85,000. That is Collections Outstanding. It does not list today's seven sales vouchers. That is [Daybook on the phone](/blog/daybook-tally-mobile/).
 
-The rest of the Reports screen is two groups. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Action Reports hold Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. The band sits above that work, as the year in ten taps. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
+The rest of the Reports screen is grouped by the question you are asking: Sales, Customers & orders, Purchase, Stock, Money and Accounts. Tap a sales total down to one saved invoice and, once the owner turns on Show margin on invoice, each line shows its cost and margin, as the [invoice-wise profit for Tally](/invoice-wise-profit-tally/) page shows. The band sits above that work, as the year in ten taps. The working-day order is the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/).
 
 ## The ten register totals
 

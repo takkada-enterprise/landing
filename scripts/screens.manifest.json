@@ -1017,5 +1017,105 @@
     "shows": "Unit history, search LFP-0457: LFP-0457 · Battery 48V 30Ah, Used in a unit, Capacity: 30Ah, Inside XEV24C000187 (E-scooter 48V) · Sold on INV/0033 to Ravi Kumar; 28/10/2026 · In stock · Purchase invoice PUR/0118 · Om Battery House; 05/11/2026 · Used in a unit · Production run 7",
     "alt": "Unit history of one battery: bought on a purchase bill, fitted in a scooter in a production run, and the scooter it went into sold on INV/0033, with the date and bill for each step.",
     "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "reports-hub-doors",
+    "source": "reports/reports-hub-doors.png",
+    "shows": "Reports, scrolled below the financial-year totals (Journal ₹ 3,18,450.00, Contra ₹ 1,92,000.00); Search in 'Reports'; Sales, What sold, to whom, at what margin.: Sales by Item, Sales Analytics, Sales Comparison with their one-line descriptions; Customers & orders, Who to call, who is waiting, what to ship and buy.: Customer Analytics, Cross-sell Gaps, Customers waiting; Purchase, What you bought, from whom, at what rate.: Purchases by Item (cut off at the bottom)",
+    "alt": "The Reports tab with a Find box and the reports grouped by question: Sales, Customers and orders, and Purchase, each with one line on what it answers.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "sales-by-item-grouped",
+    "source": "reports/sales-by-item-grouped.png",
+    "shows": "Sales by Item, Month, Sep 2026, All items tab; chips Item, Group (on), Category, Customer, Month; strip Sales ₹ 7.55 L, Returns ₹ 0, Net ₹ 7.55 L; Paints 352 Tin · 260 Bag, 2 items · 5 customers, ₹ 3.52 L; Plumbing 950 Pcs, 2 items · 4 customers, ₹ 2.47 L; Adhesives 414 Pcs · 3 Box, 1 item · 3 customers, ₹ 1.38 L; Fasteners 60 Box, 1 item · 2 customers, ₹ 18K",
+    "alt": "Sales by Item grouped by stock group for September: Paints, Plumbing, Adhesives and Fasteners, each with its net amount and its quantity in each unit.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "sales-by-item-customers",
+    "source": "reports/sales-by-item-customers.png",
+    "shows": "Wall Putty 20 kg, Sep 2026: Average price this period ₹ 605.38, ₹ 4,523.08 given away below average across 1 customer; Search in 'Customers and invoices'; Profit uses average purchase cost, before returns.; Ravi Traders 120, ₹ 77K, avg ₹ 640, 4 invoices, profit ₹ 12,000, 15.6%, cost known 100%; Mehta Sanitary 80, ₹ 49K, ₹ 610, 3, ₹ 5,600, 11.5%, 100%; Lakshmi Stores (marked) 60, ₹ 32K, ₹ 530, 2, Money lost ₹ 4,523.08, profit -₹ 600, -1.9%, 100%",
+    "alt": "One item's customers for the month, each with quantity, average price and profit, and the one who paid below the average marked.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "insights-sales",
+    "source": "reports/insights-sales.png",
+    "shows": "Sales by Item, Month, Sep 2026, Insights tab: Slipping items, ₹ 78,500 less than Aug 2026 across 3 items (Exterior Emulsion 20 L ₹ 38,500, PVC Pipe 1 inch 6 m ₹ 20,500, Wall Putty 20 kg ₹ 19,500), See all; Vanished customers, 4 customers bought an item in Aug 2026 and none of it this period (Patel Paints, Shree Ganesh Hardware, Ravi Traders, Mehta Sanitary with item and amount), See all; Selling below cost, ₹ 600 given away on 1 item sold under purchase price (cut off at the bottom)",
+    "alt": "The Insights tab of Sales by Item: slipping items, customers who stopped buying an item and items sold below cost, each answered in one line.",
+    "q": 72,
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "insights-vanished",
+    "source": "reports/insights-vanished.png",
+    "shows": "Vanished customers list: 4 customers bought an item in Aug 2026 and none of it this period; columns Customer, Item; Patel Paints Wall Putty 20 kg, Shree Ganesh Hardware PVC Pipe 1 inch 6 m, Ravi Traders Exterior Emulsion 20 L, Mehta Sanitary Ball Valve 1 inch; row sheet for Patel Paints: Wall Putty 20 kg · ₹ 36,600 last period, nothing this period; Call 98765 43210; Send from my WhatsApp",
+    "alt": "A list of customers who bought an item last month and none of it this month, with Call and Send from my WhatsApp open for one of them.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "insights-below-cost",
+    "source": "reports/insights-below-cost.png",
+    "shows": "Selling below cost list: ₹ 600 given away on 1 item sold under purchase price; columns Item, Sales avg (Purchase avg cut off); Ball Valve 1 inch ₹ 172.50; export sheet Export to Excel, Export to PDF",
+    "alt": "The Selling below cost list: one item sold under its purchase price and the amount given away, with Export to Excel and Export to PDF.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "insights-purchase",
+    "source": "reports/insights-purchase.png",
+    "shows": "Purchases by Item, Month, Sep 2026, Insights tab: Cost creep, ₹ 12,660 more paid than at last period's rates on 4 items (Exterior Emulsion 20 L ₹ 3,600, Wall Putty 20 kg ₹ 3,600, Wood Glue 1 kg ₹ 3,360, Ball Valve 1 inch ₹ 2,100); Over-buying, ₹ 46,000 bought beyond what sold on 3 items (Wall Putty 20 kg ₹ 21,600, Exterior Emulsion 20 L ₹ 19,440, Hex Bolt M10 ₹ 4,960, with weeks of stock); Supplier rate gap, ₹ 2,800 spread across 1 item bought from more than one supplier (Exterior Emulsion 20 L, cut off at the bottom)",
+    "alt": "The Insights tab of Purchases by Item: cost creep, over-buying and the supplier rate gap, each answered in one line.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "sales-comparison",
+    "source": "reports/sales-comparison.png",
+    "shows": "Sales Comparison: Sort: Biggest drop, Month, Quarter; Jul 2026 – Sep 2026; All groups; Name, Jul, Aug, Sep, Change; Paints ₹ 3,95,000, ₹ 4,10,000, ₹ 3,52,000, -14%; Plumbing ₹ 2,52,000, ₹ 2,60,000, ₹ 2,47,000, -5%; Adhesives ₹ 1,12,000, ₹ 1,20,000, ₹ 1,38,000, +15%; Fasteners ₹ 0, ₹ 0, ₹ 18,000, new; Total ₹ 7,59,000, ₹ 7,90,000, ₹ 7,55,000, -4%",
+    "alt": "Sales Comparison by stock group for July, August and September, sorted by biggest drop, with the change in percent.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "sales-comparison-items",
+    "source": "reports/sales-comparison-items.png",
+    "shows": "Sales Comparison: Sort: Biggest drop, Month; Jul 2026 – Sep 2026; All groups > Paints; Exterior Emulsion 20 L 395 Tin, 410 Tin, 352 Tin, -14%; Wall Putty 20 kg 270 Bag, 290 Bag, 260 Bag, -10%; Total mixed units",
+    "alt": "One stock group opened into its items, compared by quantity month by month.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "invoice-margin",
+    "source": "reports/invoice-margin.png",
+    "shows": "Invoice #INV/0412, Ravi Traders · 21 Oct; ITEMS (3) ₹ 52,740.00; Wall Putty 20 kg 40 Bag × ₹ 620.00 ₹ 24,800.00, Cost ₹ 21,600 · Margin ₹ 3,200 (12.9%); Wood Glue 1 kg 24 Pcs × ₹ 310.00 ₹ 7,440.00, Cost ₹ 6,360 · Margin ₹ 1,080 (14.5%); PVC Pipe 1 inch 6 m 50 Pcs × ₹ 410.00 ₹ 20,500.00, Cost not known, Add cost; Known cost ₹ 27,960, Known margin ₹ 4,280, Margin % 13.3%, Cost known for 2 of 3 items (61% of sale value), Cost used Average purchase cost; AMOUNT",
+    "alt": "A saved sales invoice showing cost, margin and margin percent on each line, with one line missing its cost.",
+    "q": 72,
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "invoice-add-cost",
+    "source": "reports/invoice-add-cost.png",
+    "shows": "Add cost dialog over Invoice #INV/0412: PVC Pipe 1 inch 6 m, 50 Pcs · Sale ₹ 20,500, field Cost per Pcs (₹) empty, Used for this invoice only. Not sent to Tally., Cancel, Save (off)",
+    "alt": "The Add cost box for one invoice line, used for this invoice only and not sent to Tally.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "customers-waiting",
+    "source": "reports/customers-waiting.png",
+    "shows": "Customers waiting: Search in 'Items'; Stock as of 10 Nov (last Tally sync); Wood Glue 1 kg, Pending: 84 Pcs · Short 24 Pcs, 3 customers waiting · 60 Pcs in Tally stock, open: Ravi Traders Order SO/0087 48 Pcs, Patel Paints Order SO/0091 24 Pcs, Lakshmi Stores Order SO/0094 12 Pcs; Ball Valve 1 inch, Exterior Emulsion 20 L, Hex Bolt M10, Wall Putty 20 kg closed with their pending figures",
+    "alt": "Customers waiting, item by item: one item opened to three customers with pending sales orders, set against the stock in Tally.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "stock-ledger",
+    "source": "reports/stock-ledger.png",
+    "shows": "Wall Putty 20 kg, Stock ledger; 1-Oct-26 to 31-Oct-26; All godowns; Opening 160, Inwards 240, Outwards 265, Closing 135; Opening Balance 160; Om Distributors Purchase +200; Ravi Traders Sales -60; Shop Stock Journal +40 -40 (Main godown, Shop); Mehta Sanitary Sales -80; Lakshmi Stores Sales -25 (Shop); Ravi Traders Sales INV/0412 -40; Shree Ganesh Hardware Sales -20 (Shop), Bal 135; Totals (Bag) Inwards 400, Outwards 265, Closing 135",
+    "alt": "An item's stock ledger for October across all godowns: opening, each purchase, transfer and sale, and closing.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
+  },
+  {
+    "slug": "monthly-pl-bs",
+    "source": "reports/monthly-pl-bs.png",
+    "shows": "Monthly P&L & Balance Sheet, Profit & Loss tab, Monthly Profit & Loss for FY 2026 - 27 (Current); Particulars with Jul '26, Aug '26, Sep '26: Sales Account 11.20 L, 12.40 L, 14.00 L; Purchase Account 9.40 L, 10.60 L, 18.00 L; Opening Stock 6.30 L, 6.10 L, 6.00 L; Closing Stock 6.10 L, 6.00 L, 11.80 L; Gross Profit / (Loss) 1.60 L, 1.70 L, 1.80 L; Salary, Rent, Freight Outward; Net Profit / (Loss) 33K, 41K, 46K; Cumulative Net Profit / (Loss) 1.12 L, 1.53 L, 1.99 L",
+    "alt": "Profit and loss month by month for the year, with each month's opening and closing stock and gross profit.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (report screens on app main 73ac89bbd), not an app capture: the only captures of these reports are of a stage book copied from a real business or of another brand's app, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until a demo company 143 capture replaces it."
   }
 ]

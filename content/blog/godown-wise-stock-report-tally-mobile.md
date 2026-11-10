@@ -64,7 +64,7 @@ The list view answers "what is at this branch". The drill-down answers the harde
 
 Tap an item and you see how its quantity is spread across your godowns. A retailer wants 30 cartons, the branch has 12, and the main warehouse has 60. That single screen is what turns "let me check and call you back" into a delivery commitment made at the counter, with a [branch transfer](/blog/stock-transfer-between-godowns-tally-mobile/) raised the same afternoon to cover it.
 
-For distributors carrying wide catalogues, this drill-down is the difference between a location report that is interesting and one that is used. Nobody scrolls a thousand-item list. Everybody looks up one item.
+For distributors carrying wide catalogues, this drill-down is the difference between a location report that is interesting and one that is used. Nobody scrolls a thousand-item list. Everybody looks up one item. A godown's stock also opens by item, by stock group or by category, so a branch can read Paints or Plumbing as one line before opening the items, and one item's every movement in and out is its stock ledger, explained in [stock register in Tally Prime](/blog/stock-register-in-tally-prime/).
 
 ## As-Of-Date and the Stock Argument It Ends
 

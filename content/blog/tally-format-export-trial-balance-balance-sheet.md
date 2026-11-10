@@ -5,13 +5,13 @@ meta_title: "Tally Format Export from Your Phone for CA"
 meta_description: "Tally format export for five reports: Trial Balance, Balance Sheet, P&L, Bills Payable, Bills Receivable. P&L and Balance Sheet, current period only."
 primary_keyword: "tally format export"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "On the second of the month the CA asks for a Trial Balance in the layout Tally itself prints. The owner sends it from Fancy Bazaar through the phone's share sheet, from the five statutory reports that offer Tally-format export."
 ---
 
-You can export a trial balance in Tally format from your phone for your CA, from Financial Statements, using Tally-format export, the layout Tally itself prints. Tally format export exists for five statutory reports: Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period. On the second of the month the CA WhatsApps "TB Tally format mein bhej do" while the owner is still at Fancy Bazaar. The file leaves through the phone's share sheet, where you pick WhatsApp, or email, or Drive. PDF and Excel remain a separate chooser on those same statements. Last year's P&L in Tally format still comes from the desktop. The Trial Balance, and the current-period P&L, leave from the phone.
+You can export a trial balance in Tally format from your phone for your CA, from the Accounts door, using Tally-format export, the layout Tally itself prints. Tally format export exists for five statutory reports: Trial Balance, Balance Sheet, Profit & Loss, Bills Payable and Bills Receivable. Profit & Loss and Balance Sheet export in that Tally format only for the current period. On the second of the month the CA WhatsApps "TB Tally format mein bhej do" while the owner is still at Fancy Bazaar. The file leaves through the phone's share sheet, where you pick WhatsApp, or email, or Drive. PDF and Excel remain a separate chooser on those same statements. Last year's P&L in Tally format still comes from the desktop. The Trial Balance, and the current-period P&L, leave from the phone.
 
 ## Key Highlights
 
@@ -48,7 +48,7 @@ Trial Balance is the flat list the CA asks for first. Balance Sheet is assets an
 
 At 9:40 the CA adds "BR, BP bhi." Both are on the five. Both leave through the share sheet. Neither is Daybook. Neither is MIS. The owner who already has Trial Balance open can finish the CA's list from the same Reports screen without a ride across Guwahati.
 
-Daybook is not on the list. MIS Reports is not on the list. Sales Analytics is not on the list. If the CA asked for a Daybook in Tally format from the phone, the honest answer is PDF or CSV from Daybook, or the desktop. Do not promise a sixth report.
+Daybook is not on the list. Monthly P&L & Balance Sheet is not on the list. Sales Analytics is not on the list. If the CA asked for a Daybook in Tally format from the phone, the honest answer is PDF or CSV from Daybook, or the desktop. Do not promise a sixth report.
 
 Bills Receivable in this layout is the statutory bills file, next to the ageing reading on the [aging report in Tally](/blog/aging-report-tally/). Ageing on the phone is always as of today. The Tally-format file is the layout the CA files, not the slab view you use at 8:30.
 
@@ -104,7 +104,7 @@ A: Yes. Tally format export, the layout Tally itself prints, exists for Trial Ba
 
 **Q: Which reports offer Tally-format export from the phone?**
 
-A: Five statutory reports: Trial Balance, Balance Sheet, Profit and Loss, Bills Payable and Bills Receivable. Daybook, MIS Reports and Sales Analytics are not on that list. Profit and Loss and Balance Sheet export in Tally format only for the current period.
+A: Five statutory reports: Trial Balance, Balance Sheet, Profit and Loss, Bills Payable and Bills Receivable. Daybook, Monthly P&L & Balance Sheet and Sales Analytics are not on that list. Profit and Loss and Balance Sheet export in Tally format only for the current period.
 
 **Q: Can I export last year's Profit and Loss in Tally format from the phone?**
 

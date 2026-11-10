@@ -5,17 +5,17 @@ meta_title: "Cross Sell Report Distributor: Items Not Bought"
 meta_description: "How do I find which items a customer is not buying from me? A cross sell report distributor view lists the gaps. PDF and Excel export on the phone."
 primary_keyword: "cross sell report distributor"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "Sharma Kirana takes rice and oil and has never lifted the new atta SKU. The cross sell report distributor view on the phone is that gap, ready for tomorrow's counter conversation."
 ---
 
-You find which items a customer is not buying from you in Cross-sell Gaps, the Action Report that lists the catalogue holes per party, which is the cross sell report distributor view on the phone. Cross-sell Gaps unlocks with Reports+, which comes with every plan. PDF and Excel export sit behind a chooser sheet. A Guwahati FMCG owner types Sharma at 9 PM, sees Sharma Kirana of Fancy Bazaar lifting rice and oil, and sees the new atta SKU sitting in the gap. Sharma already tickets around ₹22,000 twice a week. Das Stores two shops down has the same atta gap. The owner sends Raju three names, not a scheme SMS to eighty parties. Party search is a search box. You type a name. There is no salesman filter and no godown filter.
+You find which items a customer is not buying from you in Cross-sell Gaps, the report in the Customers & orders door that lists the catalogue holes per party, which is the cross sell report distributor view on the phone. Cross-sell Gaps is included for every company. PDF and Excel export sit behind a chooser sheet. A Guwahati FMCG owner types Sharma at 9 PM, sees Sharma Kirana of Fancy Bazaar lifting rice and oil, and sees the new atta SKU sitting in the gap. Sharma already tickets around ₹22,000 twice a week. Das Stores two shops down has the same atta gap. The owner sends Raju three names, not a scheme SMS to eighty parties. Party search is a search box. You type a name. There is no salesman filter and no godown filter.
 
 ## Key Highlights
 
-- Cross-sell Gaps sits in Action Reports and lists items a customer should be buying and is not, from the Tally books on the phone
+- Cross-sell Gaps sits in the Customers & orders door of Reports and lists items a customer should be buying and is not, from the Tally books on the phone
 - Sharma Kirana takes rice and oil and has never lifted the new atta SKU. That gap is tomorrow's counter conversation
 - PDF and Excel export sit behind a chooser sheet. Every exported file goes through the phone's share sheet
 
@@ -32,9 +32,9 @@ You find which items a customer is not buying from you in Cross-sell Gaps, the A
 
 ## How do I find which items a customer is not buying from me?
 
-Open Reports, Action Reports, Cross-sell Gaps. That is how you find which items a customer is not buying from you, party by party, from the Tally books synced to the phone. Each gap is an item that party has not lifted, against a catalogue they already buy from.
+Open Reports, Customers & orders, Cross-sell Gaps. That is how you find which items a customer is not buying from you, party by party, from the Tally books synced to the phone. Each gap is an item that party has not lifted, against a catalogue they already buy from.
 
-It lives under Action Reports, in the same list as Collections, Bills Receivable, Bills Payable, Sales Analytics, Customer Analytics, Inventory, Purchase Analytics and Daybook. Evening is when it earns a slot, after Customer Analytics has already told you Sharma is worth the conversation, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) lays out.
+It sits in the Customers & orders door of the Reports tab, next to Customer Analytics and Customers waiting, while Sales Analytics sits in Sales and Collections and the bills reports in Money. Evening is when it earns a slot, after Customer Analytics has already told you Sharma is worth the conversation, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) lays out.
 
 The [item wise sales report](/blog/item-wise-sales-report-tally/) tells you atta is slow across the company. Cross-sell Gaps tells you Sharma never started. Those are different calls. One is a purchase hold. The other is a counter sentence.
 
@@ -60,7 +60,9 @@ Nine PM in the car is when you build the three-name list. Eight-thirty is Outsta
 
 ## How this sits next to Sales Analytics and Customer Analytics
 
-Sales Analytics names the slow SKU. Customer Analytics names the live party. Cross-sell Gaps names the hole between them. All three are Action Reports. The owner who opens only Sales Analytics knows atta is slow. The owner who also opens Cross-sell Gaps knows who to say it to at the counter.
+Sales Analytics names the slow SKU. Customer Analytics names the live party. Cross-sell Gaps names the hole between them. Sales Analytics sits in the Sales door; Customer Analytics and Cross-sell Gaps sit in Customers & orders. The owner who opens only Sales Analytics knows atta is slow. The owner who also opens Cross-sell Gaps knows who to say it to at the counter.
+
+The Insights tab of Sales by Item adds the other half: Vanished customers lists who bought an item last period and none of it this period, as the [sales insights from Tally](/sales-insights-tally/) page shows.
 
 Purchase Analytics is the buying-side pair, next to the [purchase report on mobile](/blog/purchase-report-tally-mobile/). If atta is slow because you over-bought, that is Purchase Analytics plus stock. If atta is slow because Sharma never saw it, that is this report.
 
@@ -98,7 +100,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: How do I find which items a customer is not buying from me?**
 
-A: Open Reports, then Action Reports, then Cross-sell Gaps on the phone. That cross sell report distributor view lists items a customer should be buying and is not, read from the Tally books synced to the device. Type a party name in the search box to land on that ledger.
+A: Open Reports, then Customers & orders, then Cross-sell Gaps on the phone. That cross sell report distributor view lists items a customer should be buying and is not, read from the Tally books synced to the device. Type a party name in the search box to land on that ledger.
 
 **Q: Is a cross sell report distributor view the same as an item-wise sales report?**
 
@@ -118,6 +120,6 @@ A: Cross-sell Gaps is an action report, and most action reports have no date fil
 
 **Q: Where do I open the report of items a customer is not buying in Tally?**
 
-A: Open Reports, then Action Reports, then Cross-sell Gaps. Use Customer Analytics first if you need to confirm the party still lifts, then open Cross-sell Gaps on those names. Evening is when a distributor builds the three-name list for tomorrow's counters.
+A: Open Reports, then Customers & orders, then Cross-sell Gaps. Use Customer Analytics first if you need to confirm the party still lifts, then open Cross-sell Gaps on those names. Evening is when a distributor builds the three-name list for tomorrow's counters.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

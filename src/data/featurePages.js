@@ -76,6 +76,7 @@ import { ROUND_THREE } from './featurePagesRoundThree.js';
 import { HRMS_PAGES } from './featurePagesHrms.js';
 import { STOCK_COUNT_PAGES } from './featurePagesStockCount.js';
 import { CUSTOM_FIELDS_PAGES } from './featurePagesCustomFields.js';
+import { REPORTS_PAGES } from './featurePagesReports.js';
 
 /** @type {FeaturePage[]} */
 const FIRST_BATCH = [
@@ -908,86 +909,151 @@ const FIRST_BATCH = [
   },
 
   {
+    // Rebuilt 2026-11-10 as the showcase of the reports added since September
+    // (the four spokes live in featurePagesReports.js). Claims trace to
+    // docs/seo/feature-pages-reports/tally-reports-on-mobile-claims.md. The
+    // comparison rows are unchanged from 2026-08-08.
     slug: 'tally-reports-on-mobile',
     searchPhrase: 'Tally reports on mobile',
     overline: 'REPORTS',
-    headline: 'View important Tally reports directly from your phone.',
+    headline: 'Your Tally reports on the phone, grouped by the question you are asking.',
     subheadline:
-      'Get business insights wherever you are by checking your Tally reports on mobile. Stay informed about sales, purchases, payments and other business activities without opening your computer.',
+      'Since September the Reports tab has grown from registers into answers: what each item sold and to whom, which items are slipping, which customers stopped buying, what went out below cost, which stock groups are falling and what each invoice made. All of it from your Tally, as of the last sync, on the phone and the web app.',
     answerPoints: [
-      'Access important Tally reports on your phone',
-      'Check sales and purchase information',
-      'View outstanding balances and business summaries',
-      'Make informed decisions while on the go',
+      'Sales, Customers & orders, Purchase, Stock, Money and Accounts, with a Find box',
+      'Item sales grouped by customer, stock group or month in one tap',
+      'Question cards: slipping items, vanished customers, selling below cost',
+      'Cost and margin on each invoice line, for the people you allow',
     ],
-    // 47 words.
+    // 55 words.
     answer:
-      'Tally reports on mobile means the registers you open every day, on your phone. Outstanding by age, party and item sales, purchase, stock, cash and bank, profit, trial balance, and the GST summaries your accountant asks for. Read them anywhere, and send any of them on WhatsApp.',
+      'Tally reports on mobile means the reports you open in Tally, read on your phone from the books Takkada syncs. The Reports tab groups them by question: Sales, Customers & orders, Purchase, Stock, Money and Accounts. New since September: Sales by Item, Insights, Sales Comparison, Customers waiting, the stock ledger and margin on each invoice.',
     waContext: 'feature-tally-reports-on-mobile',
     waMessage:
       'Hi, I want to read my Tally reports on my phone instead of waiting to get to the office. Can you show me which reports are covered?',
     seo: {
-      title: 'Tally Reports on Mobile, 20+ Reports | Takkada',
+      title: 'Tally Reports on Mobile: Item, Profit and Stock Reports',
       description:
-        'Read Tally reports on mobile: outstanding by age, sales and purchase registers, stock, cash and bank, profit and trial balance. Share any on WhatsApp.',
+        'Tally reports on mobile: Sales by Item, Insights, Sales Comparison, margin on each invoice and the stock ledger, grouped by the question you are asking.',
     },
     llms: {
       section: 'Features',
       title: 'Tally reports on mobile',
+      // "Over twenty": the Reports tab shows 17 tiles to everyone (2026-11-10,
+      // reports_hub_screen.dart on app main 73ac89bbd); the registers, the
+      // Insights lists, godown stock and the stock ledger take it past twenty.
       summary:
-        'Over twenty Tally reports readable on a phone: receivables and payables by age, party-wise and item-wise sales, purchase register, stock summary, cash and bank book, profit, trial balance and GST summaries, each shareable as PDF or Excel on WhatsApp without opening a laptop.',
+        "Over twenty reports from a business's Tally books on the phone and web app, grouped by the question asked: Sales, Customers & orders, Purchase, Stock, Money and Accounts, with a Find box on the phone. Added September to November 2026 and on for every company: Sales by Item and Purchases by Item with one-tap grouping, the Insights cards (slipping items, vanished customers, selling below cost, what's carrying me, cost creep, over-buying, supplier rate gap, dead stock), Sales Comparison by stock group, cost and margin on each sales invoice, Customers waiting, the stock ledger (PDF laid out like Tally's stock item register, or Excel), godown stock by item, group or category, Excel and PDF export of every register, and Monthly P&L & Balance Sheet with each month's closing stock. Also receivables and payables by age, trial balance, P&L, balance sheet and daybook. Each report can be shared as PDF or Excel. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column; cost on the invoice is the item's cost for that financial year as the company's Tally values it.",
     },
     footerLabel: 'Reports on mobile',
     // reports-screen.webp is the more literal hero but its purchase, payments
     // and note tiles all read zero on that capture, which makes a page about
     // twenty reports look like an empty product. The sales register carries
-    // real volume and no identifying name, so it leads instead and the summary
-    // screen becomes the first walk-through step.
+    // real volume and no identifying name, so it leads instead.
     hero: { screen: 'total-fy' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
-    walkthroughHeading: 'The numbers, without the laptop',
+    updated: '2026-11-10',
+    useCases: {
+      heading: 'Made for owners who read the business from the phone',
+      cases: [
+        {
+          who: 'A distributor on Monday morning before the purchase order',
+          today: 'Opens the stock summary and the sales register and compares them by eye.',
+          with: 'Reads the purchase Insights for items that cost more than last time and stock with no sale in 60 days.',
+        },
+        {
+          who: 'An owner whose salesman says a shop has gone quiet',
+          today: "Searches the customer's ledger for the last bill of each item.",
+          with: 'Opens Vanished customers and sends that shop a ready message from their own WhatsApp.',
+        },
+        {
+          who: 'A partner asked by the CA for an item\'s stock register',
+          today: 'Waits to reach the office computer to export it.',
+          with: "Opens the item's stock ledger on the phone and shares the PDF laid out like Tally's register.",
+        },
+      ],
+      stops: [
+        'Exporting registers to Excel to sort them',
+        'Scanning profit columns for minus signs',
+        'Comparing two months of a group by hand',
+        'Waiting for the office computer to send a report',
+      ],
+    },
+    walkthroughHeading: 'From the question to the voucher',
     walkthrough: [
       {
         icon: 'LayoutGrid',
-        title: 'The year so far, on the first screen',
+        title: 'Reports grouped by the question',
         body:
-          'Sales, receipts, purchase, payments, credit and debit notes for the financial year, before you tap anything. It is the summary most owners open first thing and then close again.',
-        screen: 'total-fy',
+          'Sales, Customers & orders, Purchase, Stock, Money and Accounts, each with one line on what it answers. On the phone, type in Find to jump straight to a report.',
+        screen: 'reports-hub-doors',
       },
       {
         icon: 'BarChart3',
-        title: 'Registers you can walk down',
+        title: 'Who bought what, grouped in one tap',
         body:
-          'Sales by month, by party and by item, with the purchase side alongside. Tap a month to get the invoices inside it, tap an invoice to get its lines.',
-        screen: 'sales-analytics',
+          "Sales by Item by item, stock group, customer or month, then an item's customers at their average price. Customer returns (credit notes) are taken off and shown in a Returns column.",
+        screen: 'sales-by-item-grouped',
       },
       {
-        icon: 'Clock',
-        title: 'Outstanding sorted by how old it is',
+        icon: 'Target',
+        title: 'Questions answered before the table',
         body:
-          'Receivables and payables by age, so the ninety-day parties stand out from the ones who are merely late. From the same screen you can send a reminder or share the ledger.',
-        screen: 'receivables-report',
+          'Slipping items, vanished customers, selling below cost and the few items that make 80% of sales, plus four cards on the buying side.',
+        screen: 'insights-sales',
+      },
+      {
+        icon: 'Activity',
+        title: 'Which stock groups are falling',
+        body:
+          'Sales Comparison, month by month or quarter by quarter, biggest drop first, with the change in percent.',
+        screen: 'sales-comparison',
+      },
+      {
+        icon: 'Wallet',
+        title: 'What each invoice made',
+        body:
+          "Cost and margin on every line of a saved sales invoice, once the owner turns on Show margin on invoice. Cost is the item's cost for that financial year as your Tally values it.",
+        screen: 'invoice-margin',
+      },
+      {
+        icon: 'BookOpen',
+        title: "An item's stock ledger",
+        body:
+          "Every voucher that moved it, opening and closing, all godowns or one, and its batches on the end date. Download a PDF laid out like Tally's stock item register, or Excel.",
+        screen: 'stock-ledger',
       },
       {
         icon: 'Share2',
-        title: 'Any report, to anyone, as PDF or Excel',
+        title: 'Any report, out',
         body:
-          'Send the register to your CA or the ledger to a retailer straight from the report. The month-end routine of exporting from the office machine and mailing it stops being a task.',
+          "Every register to Excel or PDF, onto WhatsApp or email from the phone's share sheet.",
         screen: 'report-export',
       },
     ],
-    // Every report there is a screenshot of (Ronak, 2026-09-20). Twelve, in
-    // the order an owner meets them: sales, purchases, collections, stock, out.
+    // Every report there is a screen of (Ronak, 2026-09-20), the twelve added
+    // since September first (2026-11-10, drawn screens until a demo capture).
     gallery: {
       overline: 'THE REPORTS',
-      heading: 'Every report on the phone, one screen each',
-      intro: 'These are the registers as they open on a phone, from the demo company. Tap any figure in the app and it opens into the vouchers behind it.',
+      heading: 'Every report on the phone, the new ones first',
+      intro: 'The first twelve were added between September and November 2026. Tap any figure in the app and it opens into the vouchers behind it.',
       items: [
+        { screen: 'reports-hub-doors', title: 'Reports by question', body: 'Six doors and a Find box. Open the one that matches what you are asking.' },
+        { screen: 'sales-by-item-grouped', title: 'Grouped item sales', body: 'Item, group, customer or month in one tap. Open it before a scheme review.' },
+        { screen: 'sales-by-item-customers', title: 'Who bought each item', body: 'Every customer of one item at their average price. Use it before a rate revision.' },
+        { screen: 'insights-sales', title: 'Sales insights', body: 'Slipping items, vanished customers, below-cost sales and the items that make 80%.' },
+        { screen: 'insights-vanished', title: 'Vanished customers', body: 'Bought an item last period, none of it this period. Message each from your own WhatsApp.' },
+        { screen: 'insights-below-cost', title: 'Selling below cost', body: 'Items sold under purchase price, and the amount given away. Check it weekly.' },
+        { screen: 'insights-purchase', title: 'Purchase insights', body: 'Cost creep, over-buying, supplier rate gaps and dead stock. Read it before ordering.' },
+        { screen: 'sales-comparison', title: 'Sales Comparison', body: 'Stock groups month by month, biggest drop first. Open it for the month-end review.' },
+        { screen: 'invoice-margin', title: 'Margin on each invoice', body: 'Cost and margin on every line of a saved invoice, for the people you allow.' },
+        { screen: 'customers-waiting', title: 'Customers waiting', body: 'Item by item, who has a pending sales order, against the stock you hold.' },
+        { screen: 'stock-ledger', title: 'Stock ledger', body: "Every voucher that moved an item, by godown, laid out like Tally's register." },
+        { screen: 'monthly-pl-bs', title: 'Month-by-month P&L', body: "Twelve months side by side, with each month's closing stock in its profit." },
         { screen: 'total-fy', title: 'This financial year', body: 'Sales, receipts, purchase, payments, credit and debit notes, one figure each.' },
         { screen: 'sales-analytics', title: 'Sales analytics', body: 'The monthly trend for the year and how much of it sits with your top customers.' },
-        { screen: 'sales-by-item', title: 'Sales by item', body: 'Quantity, amount, average price and the spread against purchase, by month, quarter or year.' },
+        { screen: 'sales-by-item', title: 'Item sales by period', body: 'Quantity, amount, average price and the spread against purchase, by month, quarter or year.' },
         { screen: 'customer-analytics', title: 'Went quiet', body: 'Customers who stopped ordering, the value at risk, and how long each has been silent.' },
         { screen: 'purchase-analytics', title: 'Purchase analytics', body: 'The monthly purchase trend and how concentrated your spend is across suppliers.' },
         { screen: 'purchases-by-item', title: 'Purchases by item', body: 'Quantity bought, amount, average cost and the spread against your selling price.' },
@@ -1040,11 +1106,23 @@ const FIRST_BATCH = [
     faqs: [
       {
         q: 'Which Tally reports can I actually read on my phone?',
-        a: 'Outstanding receivables and payables by age, party-wise and item-wise sales, the sales and purchase registers, stock summary and godown-wise stock, cash and bank book, profit, trial balance, and GST summaries for your accountant. Over twenty in total, chosen because they are the ones distributors open repeatedly rather than everything Tally can print.',
+        a: "The Reports tab has six doors. Sales holds Sales by Item, Sales Analytics and Sales Comparison; Customers & orders holds Customer Analytics, Cross-sell Gaps and Customers waiting; Purchase holds Purchases by Item and Purchase Analytics; Stock holds Reorder & slow stock; Money holds Collections, Bills Receivable and Bills Payable; Accounts holds Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and the Daybook. Stock by godown and each item's stock ledger open from the Stock button on the home screen.",
+      },
+      {
+        q: 'Which reports are new in the Takkada app?',
+        a: "Sales by Item and Purchases by Item with one-tap grouping, the Insights cards, Sales Comparison, Customers waiting, the stock ledger, cost and margin on each invoice, godown stock by group or category, and Monthly P&L & Balance Sheet with each month's closing stock. They were added between September and November 2026 and are on for every company.",
       },
       {
         q: 'Do the reports work when the office computer is switched off?',
-        a: 'Yes. Your books sync from the machine running Tally, and the last synced position stays readable on your phone whether or not that machine is on right now. What you see is as current as the most recent sync, which for most distributors means Tally is open most of the working day and the view is close to live.',
+        a: 'Yes. Your books sync from the machine running Tally, and the last synced position stays readable on your phone whether or not that machine is on right now. What you see is your Tally as of the last sync, so a bill entered after it shows once Tally is open and syncs again.',
+      },
+      {
+        q: 'Can I see sales by item and by customer together?',
+        a: 'Yes. Open Sales by Item and group it by Customer to see each customer\'s sales, or tap an item to see every customer who bought it at their average price, then the invoices. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column.',
+      },
+      {
+        q: 'Who in my team can see item-wise sales and profit?',
+        a: 'Owners and full-access team members see item-wise sales and profit; you choose who else sees reports. Cost and margin on an invoice also need the owner to turn on Show margin on invoice, and then show only to members allowed to see profit.',
       },
       {
         q: 'Can I open a total to see what is inside it?',
@@ -1058,6 +1136,10 @@ const FIRST_BATCH = [
         q: 'Does it handle more than one company?',
         a: 'Yes, unlimited companies on every plan, and you switch between them inside the app. Family businesses that run three or four entities in Tally see each one separately rather than needing a different licence or a different login for each.',
       },
+      {
+        q: 'What is the MIS Insights add-on?',
+        a: 'MIS Insights adds pages such as Customers to call, Stock health, Gross profit, Trend and Day view, and a Today door at the top of Reports. Part of the MIS Insights add-on. Ask us to switch it on for your business.',
+      },
     ],
     relatedPosts: [
       {
@@ -1065,16 +1147,24 @@ const FIRST_BATCH = [
         title: 'The Five Reports an Owner Actually Opens on a Phone',
       },
       {
-        slug: 'mis-reports-for-distributors-tally',
-        title: 'MIS Reports for Distributors: The Numbers to Check Daily',
+        slug: 'item-wise-profit-in-tally-prime',
+        title: 'Item Wise Profit in Tally Prime: F7 Steps, the Gaps and a Faster Check',
       },
       {
-        slug: 'daily-sales-report-tally-mobile',
-        title: 'Daily Sales Report from Tally on Your Phone',
+        slug: 'stock-register-in-tally-prime',
+        title: 'Stock Register in Tally Prime: Item Vouchers, Monthly Summary and Export',
       },
       {
-        slug: 'receivables-ageing-on-mobile-tally',
-        title: 'Receivables Ageing on Mobile: Catch the 60/90-Day Parties',
+        slug: 'stock-ageing-report-tally-prime',
+        title: 'Stock Ageing Report in Tally Prime: Slabs, Batches and What to Do Next',
+      },
+      {
+        slug: 'sales-order-pending-report-tally-prime',
+        title: 'Sales Order Pending Report in Tally Prime: Who Is Waiting for Which Item',
+      },
+      {
+        slug: 'month-wise-profit-and-loss-tally-prime',
+        title: 'Month Wise Profit and Loss in Tally Prime, and Why One Month Looks Like a Loss',
       },
     ],
     priority: 0.9,
@@ -1447,7 +1537,7 @@ const FIRST_BATCH = [
  * which batch a page came from.
  * @type {FeaturePage[]}
  */
-export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES, ...CUSTOM_FIELDS_PAGES];
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES, ...CUSTOM_FIELDS_PAGES, ...REPORTS_PAGES];
 
 // Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
 // file that actually changes when the page is edited.
@@ -1460,6 +1550,7 @@ const SOURCE_FILES = new Map([
   ...HRMS_PAGES.map((page) => [page.slug, 'src/data/featurePagesHrms.js']),
   ...STOCK_COUNT_PAGES.map((page) => [page.slug, 'src/data/featurePagesStockCount.js']),
   ...CUSTOM_FIELDS_PAGES.map((page) => [page.slug, 'src/data/featurePagesCustomFields.js']),
+  ...REPORTS_PAGES.map((page) => [page.slug, 'src/data/featurePagesReports.js']),
 ]);
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */

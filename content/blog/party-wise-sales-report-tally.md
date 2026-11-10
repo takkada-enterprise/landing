@@ -5,7 +5,7 @@ meta_title: "Party-Wise Sales Report in Tally on Mobile"
 meta_description: "A party wise sales report tally view ranks retailers by how much each bought, so a distributor knows who carries the business and who has gone quiet."
 primary_keyword: "party wise sales report tally"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "Every distributor has a gut feeling about which retailers carry his business. A party-wise sales report turns that feeling into a ranked list, and on the phone he can check it between routes to see who bought less this month than last."
@@ -62,6 +62,8 @@ A retailer buying heavily but stretching every payment is quietly funding himsel
 The desktop keeps this report late and passive. On the phone it becomes something the owner checks between routes.
 
 Takkada reads your sales vouchers from Tally and shows party-wise sales on mobile, ranked by value for the period, refreshed live through the two-way Tally sync. The same surface that carries your [Tally reports on the phone](/blog/view-tally-reports-on-mobile/) carries the ranking, and the deeper cuts sit in Reports + (part of every plan) for owners who want more than the top line. It sits one tap from the [salesman-wise view](/blog/salesman-wise-sales-report-tally/), so an owner can move from "which party bought" to "which of my people sold it" without leaving the phone. Tally stays the system of record.
+
+To see which items each party bought and at what average price, Sales by Item groups the same sales by customer in one tap, with customer returns (credit notes) taken off and shown in a Returns column, as the [party-wise item-wise sales report for Tally](/party-wise-item-wise-sales-report-tally/) page shows.
 
 ## Frequently Asked Questions
 

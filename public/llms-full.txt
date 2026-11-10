@@ -54,7 +54,7 @@ Add-ons (Ask your partner for pricing):
 - [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders, from Takkada's number or from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
 - [GST e-invoices from your phone](https://takkada.com/e-invoice-from-phone/): GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.
 - [E-way bills from your phone](https://takkada.com/e-way-bill-from-phone/): E-way bill generation for Tally users from a mobile phone: raised off the invoice with distance and vehicle details prefilled, no e-way bill portal login, the number written back onto the same Tally voucher, and cancellation from the app inside the government window.
-- [Tally reports on mobile](https://takkada.com/tally-reports-on-mobile/): Over twenty Tally reports readable on a phone: receivables and payables by age, party-wise and item-wise sales, purchase register, stock summary, cash and bank book, profit, trial balance and GST summaries, each shareable as PDF or Excel on WhatsApp without opening a laptop.
+- [Tally reports on mobile](https://takkada.com/tally-reports-on-mobile/): Over twenty reports from a business's Tally books on the phone and web app, grouped by the question asked: Sales, Customers & orders, Purchase, Stock, Money and Accounts, with a Find box on the phone. Added September to November 2026 and on for every company: Sales by Item and Purchases by Item with one-tap grouping, the Insights cards (slipping items, vanished customers, selling below cost, what's carrying me, cost creep, over-buying, supplier rate gap, dead stock), Sales Comparison by stock group, cost and margin on each sales invoice, Customers waiting, the stock ledger (PDF laid out like Tally's stock item register, or Excel), godown stock by item, group or category, Excel and PDF export of every register, and Monthly P&L & Balance Sheet with each month's closing stock. Also receivables and payables by age, trial balance, P&L, balance sheet and daybook. Each report can be shared as PDF or Excel. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column; cost on the invoice is the item's cost for that financial year as the company's Tally values it.
 - [Import purchase bills from PDF](https://takkada.com/import-purchase-from-pdf/): Purchase bill entry for Tally from a PDF or a phone photo: line items, quantities, rates, GST and the supplier are read and matched against existing masters, unit-of-measure differences reconciled, and the entry posted as a purchase voucher only after a human reviews the draft.
 - [Tally on mobile](https://takkada.com/tally-on-mobile/): What a distributor can actually do with Tally from a phone: read live outstanding and over twenty reports, raise invoices and other vouchers in the existing numbering series, dispatch them on WhatsApp, collect by UPI at 0% MDR, and have every entry write back into the same Tally company.
 - [Outstanding receivables on mobile](https://takkada.com/outstanding-receivables-on-mobile/): Party-wise outstanding read live from Tally on a phone: balance per party, overdue invoices with the age of each, statement and payment link from the same screen, and receipts that reconcile against the invoice they settle.
@@ -97,6 +97,10 @@ Add-ons (Ask your partner for pricing):
 - [Serial number tracking for Tally](https://takkada.com/serial-number-tracking-tally/): Custom Fields add-on for businesses on Tally that sell numbered units: the owner or an admin adds fields to a stock group (text, number, date or pick from a list; Must be filled; Print on the bill) and subgroups inherit them; one field is the Unit no, the batch name in Tally, so Maintain in batches must be on for those items; the purchase invoice, goods receipt, stock journal inward and sales return give one row per unit, with paste for a column of numbers and a flag for a number entered twice; sales orders, challans, invoices, debit notes and stock journals pick from units still in stock in that godown, searchable by any detail; no unit is sold twice, built into two products or booked on two orders in Takkada, and the refusal names the bill that holds it, while a sale typed straight into Tally is matched after Takkada syncs; units carry through order, challan, invoice and return conversions; details print under the item on the sales invoice, order, challan and note PDFs, and the sale goes to Tally through Takkada with each Unit no as the batch and the details in the description lines; Units by detail counts units sold or in stock by any field; Unit history shows one unit's steps with date, bill and party.
 - [IMEI tracking for Tally](https://takkada.com/imei-tracking-tally/): IMEI tracking with the Custom Fields add-on for mobile and electronics shops and distributors on Tally: the IMEI is the Unit no and the batch name in Tally (Maintain in batches on for those items), with fields like colour or storage set per stock group; IMEIs are typed or pasted, one row per phone, on the purchase invoice, goods receipt or sales return, and an IMEI entered twice is flagged; sales orders, challans and invoices offer only phones still in stock in that godown, a phone picked on an order is held for that customer, and no IMEI is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details print under the item on the bill; a credit note offers only the phones on that invoice; Units by detail counts phones sold or in stock by any field; Unit history finds the bill a phone went out on.
 - [Chassis number tracking for Tally](https://takkada.com/chassis-number-tracking-tally/): Chassis and engine number tracking with the Custom Fields add-on for two-wheeler, EV and e-rickshaw dealers and assemblers on Tally: the chassis no is the Unit no and the batch name in Tally (Maintain in batches on), with motor no, colour and battery no as fields; vehicles are picked from those still in stock in the godown on the sales order, challan or invoice, a vehicle picked on an order is held for that customer, and no chassis is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details, with the numbers of the parts inside, print under the item on the sale bill; with the Manufacturing add-on a production run gives each finished vehicle its chassis no and links the batteries and charger that went into it (in-house production, not job work); Units by detail counts vehicles by colour; Unit history finds any chassis or battery number.
+- [Party-wise item-wise sales report for Tally](https://takkada.com/party-wise-item-wise-sales-report-tally/): Sales by Item and Purchases by Item for businesses on Tally, on every plan: per item quantity, net amount after line discount and before GST, average price and the change against the previous month, quarter or financial year; one-tap grouping by Item, Group (stock group), Customer or Month, plus Category, Area, Voucher Type and Cost Centre when the Tally books use them; grouped rows show quantity in each unit; tap an item for its customers at their average price, then a customer for the invoices; Purchases by Item shows each item's suppliers, average rate and the gap to the selling price; Excel and PDF export; Sales by Item takes customer returns (credit notes) off and shows them in a Returns column, and Purchases by Item does the same with debit notes; owners and full-access team members see item-wise sales.
+- [Sales comparison report for Tally](https://takkada.com/sales-comparison-report-tally/): Sales Comparison for businesses on Tally, on every plan: net sales per stock group side by side for a run of months or financial-year quarters, opening each group into its items; switch between rupees and quantity; sort by Latest, Biggest drop or Biggest rise; a Change column with the whole-percent change between the last two periods, or new when the earlier period was nil; the running month marked so far; rows are stock groups and items only, so sales by customer are read in Sales by Item grouped by Customer.
+- [Invoice-wise profit for Tally](https://takkada.com/invoice-wise-profit-tally/): Cost and margin on each line of a saved sales invoice for businesses on Tally: shown once the owner turns on Show margin on invoice, and only to people allowed to see profit; Margin and Margin % per line, with Margin % on the selling price; cost is the item's cost for that financial year as the company's Tally values it; a missing or wrong cost can be typed for one line, used for that invoice only and not sent to Tally; reached from the invoice or from Sales by Item, item, customer, invoice; Sales by Item shows customer returns (credit notes) in a Returns column.
+- [Sales insights from Tally](https://takkada.com/sales-insights-tally/): The Insights tab inside Sales by Item and Purchases by Item for businesses on Tally, included for every company: Slipping items (rupees less than the last period, per item and in total), Vanished customers (bought an item last period and none of it this period, with a ready message to send from your own WhatsApp one customer at a time, or a call), Selling below cost (items sold under purchase price and the amount given away), What's carrying me (the few items that make 80% of sales, and the top item's share when it is 30% or more); Cost creep, Over-buying (bought beyond what sold), Supplier rate gap (one item from two suppliers at different rates) and Dead stock (the biggest 25 items with no sale in 60 days or more); each card opens a full list for Excel or PDF; cards are worked out when the tab opens, not sent as alerts; cost is the purchase price as Takkada reads it from the company's Tally; the cards read sales before returns, while the Sales by Item list shows customer returns (credit notes) in a Returns column.
 
 ## Company
 
@@ -228,30 +232,41 @@ E-way bills from your phone come off the invoice you just raised, with no portal
 - **Q: Can I raise the e-invoice and the e-way bill together?**
   A: Yes, both come off the same invoice in one pass, which is the sequence the government system expects when an IRN is involved. The details that carry across from the e-invoice do not have to be entered twice, and both numbers land against the same voucher in Tally.
 
-### [View important Tally reports directly from your phone.](https://takkada.com/tally-reports-on-mobile/)
+### [Your Tally reports on the phone, grouped by the question you are asking.](https://takkada.com/tally-reports-on-mobile/)
 
-*Get business insights wherever you are by checking your Tally reports on mobile. Stay informed about sales, purchases, payments and other business activities without opening your computer.*
+*Since September the Reports tab has grown from registers into answers: what each item sold and to whom, which items are slipping, which customers stopped buying, what went out below cost, which stock groups are falling and what each invoice made. All of it from your Tally, as of the last sync, on the phone and the web app.*
 
 **Core capability & workflow:**
-Tally reports on mobile means the registers you open every day, on your phone. Outstanding by age, party and item sales, purchase, stock, cash and bank, profit, trial balance, and the GST summaries your accountant asks for. Read them anywhere, and send any of them on WhatsApp.
+Tally reports on mobile means the reports you open in Tally, read on your phone from the books Takkada syncs. The Reports tab groups them by question: Sales, Customers & orders, Purchase, Stock, Money and Accounts. New since September: Sales by Item, Insights, Sales Comparison, Customers waiting, the stock ledger and margin on each invoice.
 
 **How it works:**
-- **The year so far, on the first screen**: Sales, receipts, purchase, payments, credit and debit notes for the financial year, before you tap anything. It is the summary most owners open first thing and then close again.
-- **Registers you can walk down**: Sales by month, by party and by item, with the purchase side alongside. Tap a month to get the invoices inside it, tap an invoice to get its lines.
-- **Outstanding sorted by how old it is**: Receivables and payables by age, so the ninety-day parties stand out from the ones who are merely late. From the same screen you can send a reminder or share the ledger.
-- **Any report, to anyone, as PDF or Excel**: Send the register to your CA or the ledger to a retailer straight from the report. The month-end routine of exporting from the office machine and mailing it stops being a task.
+- **Reports grouped by the question**: Sales, Customers & orders, Purchase, Stock, Money and Accounts, each with one line on what it answers. On the phone, type in Find to jump straight to a report.
+- **Who bought what, grouped in one tap**: Sales by Item by item, stock group, customer or month, then an item's customers at their average price. Customer returns (credit notes) are taken off and shown in a Returns column.
+- **Questions answered before the table**: Slipping items, vanished customers, selling below cost and the few items that make 80% of sales, plus four cards on the buying side.
+- **Which stock groups are falling**: Sales Comparison, month by month or quarter by quarter, biggest drop first, with the change in percent.
+- **What each invoice made**: Cost and margin on every line of a saved sales invoice, once the owner turns on Show margin on invoice. Cost is the item's cost for that financial year as your Tally values it.
+- **An item's stock ledger**: Every voucher that moved it, opening and closing, all godowns or one, and its batches on the end date. Download a PDF laid out like Tally's stock item register, or Excel.
+- **Any report, out**: Every register to Excel or PDF, onto WhatsApp or email from the phone's share sheet.
 
 **Frequently Asked Questions:**
 - **Q: Which Tally reports can I actually read on my phone?**
-  A: Outstanding receivables and payables by age, party-wise and item-wise sales, the sales and purchase registers, stock summary and godown-wise stock, cash and bank book, profit, trial balance, and GST summaries for your accountant. Over twenty in total, chosen because they are the ones distributors open repeatedly rather than everything Tally can print.
+  A: The Reports tab has six doors. Sales holds Sales by Item, Sales Analytics and Sales Comparison; Customers & orders holds Customer Analytics, Cross-sell Gaps and Customers waiting; Purchase holds Purchases by Item and Purchase Analytics; Stock holds Reorder & slow stock; Money holds Collections, Bills Receivable and Bills Payable; Accounts holds Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and the Daybook. Stock by godown and each item's stock ledger open from the Stock button on the home screen.
+- **Q: Which reports are new in the Takkada app?**
+  A: Sales by Item and Purchases by Item with one-tap grouping, the Insights cards, Sales Comparison, Customers waiting, the stock ledger, cost and margin on each invoice, godown stock by group or category, and Monthly P&L & Balance Sheet with each month's closing stock. They were added between September and November 2026 and are on for every company.
 - **Q: Do the reports work when the office computer is switched off?**
-  A: Yes. Your books sync from the machine running Tally, and the last synced position stays readable on your phone whether or not that machine is on right now. What you see is as current as the most recent sync, which for most distributors means Tally is open most of the working day and the view is close to live.
+  A: Yes. Your books sync from the machine running Tally, and the last synced position stays readable on your phone whether or not that machine is on right now. What you see is your Tally as of the last sync, so a bill entered after it shows once Tally is open and syncs again.
+- **Q: Can I see sales by item and by customer together?**
+  A: Yes. Open Sales by Item and group it by Customer to see each customer's sales, or tap an item to see every customer who bought it at their average price, then the invoices. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column.
+- **Q: Who in my team can see item-wise sales and profit?**
+  A: Owners and full-access team members see item-wise sales and profit; you choose who else sees reports. Cost and margin on an invoice also need the owner to turn on Show margin on invoice, and then show only to members allowed to see profit.
 - **Q: Can I open a total to see what is inside it?**
   A: Yes. A month in the sales register opens into the invoices raised that month, and an invoice opens into its item lines with quantity, rate and GST. The same holds on the party side, where an outstanding figure opens into the individual bills that make it up.
 - **Q: Can I send a report to my CA from the phone?**
   A: Yes, as PDF or Excel, from the report screen itself onto WhatsApp or email. Distributors mostly use this at month end for the registers their accountant asks for, and through the month for sending a party his ledger without going back to the office to export it.
 - **Q: Does it handle more than one company?**
   A: Yes, unlimited companies on every plan, and you switch between them inside the app. Family businesses that run three or four entities in Tally see each one separately rather than needing a different licence or a different login for each.
+- **Q: What is the MIS Insights add-on?**
+  A: MIS Insights adds pages such as Customers to call, Stock health, Gross profit, Trend and Day view, and a Today door at the top of Reports. Part of the MIS Insights add-on. Ask us to switch it on for your business.
 
 ### [Import purchase bills from PDF into Tally without typing every line.](https://takkada.com/import-purchase-from-pdf/)
 
@@ -1493,6 +1508,115 @@ Chassis number tracking for Tally means each vehicle is one Tally batch named by
 - **Q: How much does chassis number tracking cost?**
   A: It is part of the Custom Fields add-on, priced by your partner and switched on for each company separately. Production runs also need the Manufacturing add-on. Ask your partner for the price, or message us on WhatsApp and we will switch it on for your company.
 
+### [Which customer bought which item, how much and at what price, from your Tally books.](https://takkada.com/party-wise-item-wise-sales-report-tally/)
+
+*In Tally that means the item in Stock Summary on one side, the party's ledger on the other, and an export or a TDL to join them. Sales by Item puts the two together on the phone: group your sales by item, stock group, customer or month in one tap, then open any item to see who bought it and at what average price.*
+
+**Core capability & workflow:**
+A party-wise item-wise sales report for Tally shows which customer bought which item, how much and at what price. In Takkada, Sales by Item groups your Tally sales by item, stock group, customer or month in one tap; open an item to see its customers at their average price, then each customer's invoices.
+
+**How it works:**
+- **Every item for the month, quarter or year**: Quantity, net amount after line discount and before GST, average price and the change against the previous period. Use the arrows to step back a month or a quarter.
+- **One tap to group**: All items, or group by Item, Group, Customer or Month; Category, Area, Voucher Type and Cost Centre appear when your Tally uses them. Grouped rows show quantity in each unit, such as 120 Box and 40 Pcs, never one added-up figure.
+- **An item, its customers, their invoices**: Tap an item for the customers who bought it and their average price this period, then a customer for the invoices. Goods your customers returned (credit notes) are taken off and shown in a Returns column.
+- **The purchase side, supplier by supplier**: Purchases by Item shows what each item cost you, the average rate and the gap against your selling price. Goods you returned to suppliers (debit notes) are taken off the same way.
+- **Out to Excel or PDF**: Export either report and send it from the phone's share sheet. Owners and full-access team members see item-wise sales and profit; you choose who else sees reports.
+
+**Frequently Asked Questions:**
+- **Q: How do I see party-wise item-wise sales in Tally Prime?**
+  A: Tally Prime shows one side at a time: Stock Summary for an item, and a party's ledger or Ledger Movement Analysis for what that party bought. Putting the two together usually takes an export to Excel or a TDL. In Takkada, open Sales by Item and group it by Customer, or tap an item to see its customers.
+- **Q: Can I see customer-wise sales of one item?**
+  A: Yes. Tap the item in Sales by Item and you see every customer who bought it this period, with the quantity and their average price. Tap a customer to see the invoices behind that figure, for the month, the quarter or the financial year.
+- **Q: Are sales returns taken off these figures?**
+  A: Yes. Sales by Item takes goods your customers returned on credit notes off each item and shows them in a Returns column, and Purchases by Item does the same with debit notes. The Insights cards read sales and purchases before returns.
+- **Q: Can I see quantity in boxes and pieces separately?**
+  A: Yes. When you group sales by stock group, customer or month, each row shows the quantity in each unit, for example 120 Box and 40 Pcs. Takkada does not add different units into one figure, so a group that sells in two units reads correctly.
+- **Q: Can I group item sales by stock group or category?**
+  A: Yes. One tap groups the same sales by Item, Group (your Tally stock group), Customer or Month. Category, Area, Voucher Type and Cost Centre appear as choices only when your Tally books use them, so an unused option never shows an empty list.
+- **Q: Who in my team can see Sales by Item?**
+  A: Owners and full-access team members see item-wise sales and profit. Other team members see the reports you give them through the Reports permission, so a salesman can read his own work without seeing what every item earns across the business.
+
+### [See which stock groups are falling, month against month, biggest drop first.](https://takkada.com/sales-comparison-report-tally/)
+
+*Tally can repeat a report period by period in columns, but it leaves the change for you to work out and keeps its own row order. Sales Comparison puts each stock group's sales side by side by month or quarter, shows the change in percent, sorts by the biggest drop or rise, and opens any group into its items.*
+
+**Core capability & workflow:**
+A sales comparison report for Tally puts the same sales side by side for two or more periods. In Takkada, Sales Comparison shows each stock group's sales by month or quarter with the change in percent, sorted by biggest drop or rise. Open a group to compare its items; the running month is marked so far.
+
+**How it works:**
+- **Stock groups side by side, biggest drop first**: Months or quarters as columns, each stock group's net sales in a row. Sort by Latest, Biggest drop or Biggest rise; a group that sold nothing before shows new, and the current month is marked so far. Paints sold 14% less in September than in August, so its Change reads -14%.
+- **Open a group into its items, in rupees or quantity**: The group's items in the same columns, so the item that fell stands out. Switch to quantity to see whether fewer units went out or the same units went at a lower rate.
+- **Then see who stopped buying it**: Rows here are stock groups and items, so open the item in Sales by Item for its customers at their average price. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column.
+
+**Frequently Asked Questions:**
+- **Q: How do I compare two months of sales in Tally Prime?**
+  A: In Tally Prime, open the report for the first month and press Alt+C (New Column) to add the second period beside it. Tally shows the two columns but leaves the change for you to work out. In Takkada, Sales Comparison shows each stock group by month with the change in percent.
+- **Q: Why does this month look lower than the others?**
+  A: Because it is not over yet. The running month is marked so far in Sales Comparison, so fifteen days of sales are not read as a fall against a full month. Compare it again once the month closes, or read the last two full months.
+- **Q: Can I compare sales by customer or by salesman?**
+  A: No. Rows in Sales Comparison are stock groups and their items. To see sales by customer, open Sales by Item and group it by Customer, which shows each customer with the change against the previous period.
+- **Q: Can I compare quantity instead of value?**
+  A: Yes. Switch between rupees and quantity at the top of Sales Comparison. Quantity shows whether fewer units went out, which tells a real drop in demand apart from the same units sold at a lower rate.
+- **Q: What does new mean in the Change column?**
+  A: It means the group or item sold nothing in the earlier period and something in the later one, so there is no percent to show. Every other row shows the change between the last two periods in whole percent, such as -14% or +15%.
+- **Q: Can I compare quarters instead of months?**
+  A: Yes. Choose quarters and the columns become financial-year quarters, headed like Q2 26-27, with the same Change column and the same sorting. Quarters suit a business whose months swing with festivals or with company schemes.
+
+### [Open a sales invoice and see what you made on every line.](https://takkada.com/invoice-wise-profit-tally/)
+
+*Tally shows profit per invoice once you turn it on in the Sales Register. Takkada puts cost and margin on the invoice itself, line by line, for the people you allow, using each item's cost for that financial year as your Tally values it.*
+
+**Core capability & workflow:**
+Invoice-wise profit for Tally means what each sales invoice left after the cost of the goods. In Takkada, open any saved sales invoice to see cost and margin on each line, once the owner turns on Show margin on invoice. Cost is the item's cost for that financial year as your Tally values it.
+
+**How it works:**
+- **Cost and margin on each line, for the people you allow**: Cost, Margin and Margin % on each line of a saved sales invoice. Margin % on the invoice is on selling price, so a line sold for 100 that cost 80 shows 20%. Cost is the item's cost for that financial year as your Tally values it. The owner turns on Show margin on invoice, and only members allowed to see profit see it.
+- **A cost that is missing or wrong**: Tap Add cost on the line and type the cost per unit. It is used for this invoice only and not sent to Tally; to change the item's cost everywhere, correct it in Tally.
+- **From an item to the invoice**: Sales by Item, an item, its customers at their average price, then the invoice with its margin. Sales by Item takes customer returns (credit notes) off and shows them in a Returns column.
+
+**Frequently Asked Questions:**
+- **Q: How do I check invoice-wise profit in Tally Prime?**
+  A: Open the Sales Register, go into a month and press F7 (Show Profit). Each invoice then shows Transaction Value, Gross Revenue, Cost and Gross Profit, and a loss shows with a minus sign. In Takkada, open the saved sales invoice itself to see cost and margin line by line.
+- **Q: What cost does Takkada use for the margin?**
+  A: The item's cost for that financial year as your Tally values it. It is not a cost Takkada works out on its own, so if the margin looks wrong, the item's cost in Tally is the place to check first.
+- **Q: Is the margin percent on cost or on selling price?**
+  A: Margin % on the invoice is on selling price. A line sold for 100 that cost 80 shows 20%, which is 25% on cost. Quote the same basis to your salesmen and your accountant so the two numbers agree.
+- **Q: Can my salesmen see the margin on invoices?**
+  A: Only if you allow them to see profit. The owner first turns on Show margin on invoice, and then cost and margin show only to members allowed to see profit. Everyone else opens the same invoice without the cost and margin section.
+- **Q: What if an item's cost is wrong on one invoice?**
+  A: Tap Add cost on that line and type the cost per unit. It is used for that invoice only and is not sent to Tally, so the margin on that bill reads right while the item itself stays as it is in your books.
+- **Q: Does a cost I type change anything in Tally?**
+  A: No. A cost typed on a line is used for that invoice only and is not sent to Tally. To change the item's cost everywhere, correct it in Tally, and the next sync brings it into Takkada.
+
+### [Eight questions your Tally sales and purchases can answer before you open a table.](https://takkada.com/sales-insights-tally/)
+
+*Which items are slipping, which customers stopped buying something, what went out below cost, which few items carry the business. On the buying side, what costs more than last time, what you bought beyond what sold, where two suppliers charge different rates, and what has not sold in 60 days. The Insights tab answers each on one card.*
+
+**Core capability & workflow:**
+Sales insights from Tally are the answers sitting in your sales and purchase registers. In Takkada, the Insights tab inside Sales by Item and Purchases by Item shows eight cards: slipping items, vanished customers, selling below cost, what's carrying me, cost creep, over-buying, supplier rate gap and dead stock, each opening its full list.
+
+**How it works:**
+- **Four sales questions on one screen**: Slipping items, Vanished customers, Selling below cost and What's carrying me. Each card answers its question in one line before you read a table, for the period you pick.
+- **Customers who stopped buying an item**: Who bought an item last period and none of it this period, with what they spent. Send from my WhatsApp opens your own WhatsApp with a ready message, one customer at a time, or tap Call.
+- **What went out below cost**: Items sold under their purchase price this period, and how much was given away. Cost is the purchase price as Takkada reads it from your Tally. Every card opens its full list for Excel or PDF.
+- **Four buying questions**: Cost creep, Over-buying, Supplier rate gap and Dead stock, which lists the biggest 25 items with no sale in 60 days or more. Read them before the next purchase order goes out.
+
+**Frequently Asked Questions:**
+- **Q: How do I find customers who stopped buying an item?**
+  A: Open the Insights tab in Sales by Item and tap Vanished customers. It lists everyone who bought an item last period and none of it this period, with what they spent. From a row, send a ready message from your own WhatsApp, one customer at a time, or call.
+- **Q: How do I find items sold below cost in Tally?**
+  A: In Tally Prime, open the Sales Register, go into a month and press F7 (Show Profit); a loss shows as a minus sign, invoice by invoice. In Takkada, the Selling below cost card lists the items sold under purchase price this period and how much was given away.
+- **Q: What does What's carrying me show?**
+  A: The few items that make 80% of your sales for the period, for example 5 items make 80% of your sales. When one item is 30% or more of the total, the card names it and its share. Those are the items never to run out of.
+- **Q: Does Takkada message these customers for me?**
+  A: No. Send from my WhatsApp opens your own WhatsApp with a ready message for one customer, and you press send. You can also call from the same row, and then move on to the next customer on the list.
+- **Q: Will I get an alert when an item starts slipping?**
+  A: No. The cards are worked out each time you open the Insights tab, for the period you pick. Open it once a week or at month end, and the Slipping items card shows how much less each item earned than in the last period.
+- **Q: What counts as dead stock here?**
+  A: An item with stock and no sale in 60 days or more. The Dead stock card lists the biggest 25 such items by value, so the money stuck longest in the godown is at the top, and the full list goes to Excel or PDF.
+- **Q: Are Insights part of my plan?**
+  A: Yes. Insights are included for every Takkada company, inside Sales by Item and Purchases by Item, with nothing to switch on. Owners and full-access team members see item-wise sales and profit; you choose who else sees reports.
+
 ## Manual
 
 Step-by-step instructions for people using the app, each one checked against the app itself on the date it names. Index: https://takkada.com/guide/
@@ -1728,6 +1852,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [EV Assemblers on Tally: Battery, Motor and Chassis Numbers Through Production](https://takkada.com/blog/ev-assembler-battery-chassis-numbers-tally/)
 - [Finding Dead Stock in Tally Before Year-End](https://takkada.com/blog/dead-stock-identification-tally-distributor/)
 - [Godown ka Stock Mobile se Kaise Dekhe](https://takkada.com/blog/godown-ka-stock-mobile-se-kaise-dekhe/)
+- [Gross Profit on Cost vs on Selling Price: Formula, Table and Which to Quote](https://takkada.com/blog/gross-profit-on-cost-vs-selling-price/)
 - [How Often to Send Payment Reminders: Presets and a Custom Cadence](https://takkada.com/blog/how-often-to-send-payment-reminders-cadence/)
 - [How to Access Tally on Mobile: A Step-by-Step Guide](https://takkada.com/blog/how-to-access-tally-on-mobile-step-by-step/)
 - [How to Add Description in a Tally Prime Invoice: Chassis No, IMEI and Colour](https://takkada.com/blog/print-serial-details-on-tally-invoice/)
@@ -1777,6 +1902,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
 - [Tally ki Report Mobile par Kaise Dekhe (Hinglish)](https://takkada.com/blog/tally-ki-report-mobile-par-kaise-dekhe/)
 - [Tally Me Physical Stock Kaise Kare: Entry, Register Aur Staff Se Ginti](https://takkada.com/blog/tally-me-physical-stock-kaise-kare/)
+- [Tally Me Profit Kaise Dekhe: Item, Bill Aur Mahine Ka Profit](https://takkada.com/blog/tally-me-profit-kaise-dekhe/)
 - [Tally Payment Reconciliation on Mobile, Done Right](https://takkada.com/blog/tally-payment-reconciliation-on-mobile/)
 - [Tally Prime Mein Serial Number Aur IMEI Kaise Daale (Batch Se)](https://takkada.com/blog/tally-prime-mein-serial-number-imei-kaise-daale/)
 - [Tally-Format Export: The Same Layout Your CA Expects, From the Phone](https://takkada.com/blog/tally-format-export-trial-balance-balance-sheet/)
@@ -1789,6 +1915,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [What Is a UTR Number, and How It Matches a Tally Payment](https://takkada.com/blog/what-is-utr-number-tally-payment/)
 - [WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/)
 - [Who Gets Credit for the Order: Attribution and Reassignment](https://takkada.com/blog/order-attribution-and-reassignment-salesman/)
+- [ग्रॉस प्रॉफिट कैसे निकाले: फॉर्मूला, उदाहरण और टैली में तरीका](https://takkada.com/blog/gross-profit-kaise-nikale/)
 - [वेतन पर्ची कैसे बनाएं: हिंदी फॉर्मेट, ज़रूरी लाइनें और नमूना](https://takkada.com/blog/vetan-parchi-kaise-banaye/)
 - [स्टॉक का भौतिक सत्यापन कैसे करें: तरीका, चेकलिस्ट और टैली एंट्री](https://takkada.com/blog/stock-ka-bhautik-satyapan-kaise-kare/)
 - [हाजिरी रजिस्टर कैसे बनाएं: कॉलम, नमूना और मोबाइल ऐप](https://takkada.com/blog/haziri-register-kaise-banaye/)
@@ -1843,13 +1970,16 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Batch Wise Sales Report in Tally, and Units Sold by Colour or Model](https://takkada.com/blog/units-sold-by-colour-report-tally/)
 - [Cash and Bank Position Report from Tally](https://takkada.com/blog/cash-bank-report-tally-mobile/)
 - [Customer Analytics from Tally: Who Buys, How Often, How Much](https://takkada.com/blog/customer-analytics-report-tally/)
+- [Customers Who Stopped Buying an Item: Find Them Before They Leave](https://takkada.com/blog/customers-who-stopped-buying-an-item/)
 - [Daily Sales Report from Tally on Your Phone](https://takkada.com/blog/daily-sales-report-tally-mobile/)
 - [Daybook from Tally on Your Phone: Today's Vouchers Without Opening the Desktop](https://takkada.com/blog/daybook-tally-mobile/)
 - [Fast-Moving and Slow-Moving Items from Tally on Your Phone](https://takkada.com/blog/fast-moving-slow-moving-items-report-tally/)
 - [Godown-Wise Stock Report from Tally on Your Phone](https://takkada.com/blog/godown-wise-stock-report-tally-mobile/)
+- [Item Wise Profit in Tally Prime: F7 Steps, the Gaps and a Faster Check](https://takkada.com/blog/item-wise-profit-in-tally-prime/)
 - [Item-Wise / Product Sales Report from Tally](https://takkada.com/blog/item-wise-sales-report-tally/)
 - [MIS Report vs Profit and Loss: Why a Distributor Needs Both](https://takkada.com/blog/mis-report-vs-profit-and-loss-distributor/)
 - [MIS Reports for Distributors: The Numbers to Check Daily](https://takkada.com/blog/mis-reports-for-distributors-tally/)
+- [Month Wise Profit and Loss in Tally Prime, and Why One Month Looks Like a Loss](https://takkada.com/blog/month-wise-profit-and-loss-tally-prime/)
 - [Outstanding Receivables Report for Distributors (Mobile)](https://takkada.com/blog/outstanding-receivables-report-tally/)
 - [Party-Wise Sales Report in Tally on Mobile](https://takkada.com/blog/party-wise-sales-report-tally/)
 - [Payment Speed: Median Days to Pay per Customer and per Salesman](https://takkada.com/blog/customer-payment-speed-median-days-to-pay/)
@@ -1858,8 +1988,12 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Purchase Report from Tally on Your Phone](https://takkada.com/blog/purchase-report-tally-mobile/)
 - [Reading Your Balance Sheet on the Phone: Group to Ledger Drill-Down](https://takkada.com/blog/balance-sheet-tally-mobile-distributor/)
 - [Sales Analytics from Tally for Distributors: Beyond the Sales Register](https://takkada.com/blog/sales-analytics-report-tally-distributor/)
+- [Sales Order Pending Report in Tally Prime: Who Is Waiting for Which Item](https://takkada.com/blog/sales-order-pending-report-tally-prime/)
 - [Salesman-Wise Sales Report for Distributor Teams](https://takkada.com/blog/salesman-wise-sales-report-tally/)
+- [Stock Ageing Report in Tally Prime: Slabs, Batches and What to Do Next](https://takkada.com/blog/stock-ageing-report-tally-prime/)
+- [Stock Register in Tally Prime: Item Vouchers, Monthly Summary and Export](https://takkada.com/blog/stock-register-in-tally-prime/)
 - [Stock Summary Report from Tally on Mobile](https://takkada.com/blog/stock-summary-report-tally-mobile/)
+- [Supplier Rate Comparison for the Same Item: What Two Rates Cost You](https://takkada.com/blog/supplier-rate-comparison-same-item/)
 - [The Cross-sell Gap Report: Items Your Customers Should Be Buying From You](https://takkada.com/blog/cross-sell-gap-report-distributors/)
 - [The Reports a Distributor Should Open Every Day (and Which Ones Live on the Phone)](https://takkada.com/blog/tally-reports-for-distributors-daily-checklist/)
 - [Trial Balance from Tally on Your Phone: What It Shows and What It Does Not](https://takkada.com/blog/trial-balance-tally-mobile/)

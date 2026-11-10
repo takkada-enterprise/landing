@@ -5,17 +5,17 @@ meta_title: "Sales Analytics Tally for Distributors"
 meta_description: "What sales analytics can I get from Tally data as a distributor? Sales analytics tally on the phone goes past the sales register, with PDF and Excel export."
 primary_keyword: "sales analytics tally"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "The sales register says today's billing. Sales analytics tally on the phone says the 1-litre mustard oil stands at 11 cases on the books now, against a usual 40. That is tomorrow's counter conversation."
 ---
 
-You can get sales analytics from Tally data as a distributor that go past the sales register: which items moved and which parties bought, read on the phone from Action Reports. Sales Analytics unlocks with Reports+, which comes with every plan. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive. A Guwahati FMCG owner at 9 PM, godown locked, still in the car, opens sales analytics tally and sees the 1-litre mustard oil SKU at 11 cases on the books now. He knows a usual run is 40. The [daily sales report](/blog/daily-sales-report-tally-mobile/) already told him today's rupee total. This screen names the SKU. There is no salesman filter and no godown filter. Party search is a search box. You type a name.
+You can get sales analytics from Tally data as a distributor that go past the sales register: which items moved and which parties bought, read on the phone from the Sales door of the Reports tab. Sales Analytics is included for every company. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive. A Guwahati FMCG owner at 9 PM, godown locked, still in the car, opens sales analytics tally and sees the 1-litre mustard oil SKU at 11 cases on the books now. He knows a usual run is 40. The [daily sales report](/blog/daily-sales-report-tally-mobile/) already told him today's rupee total. This screen names the SKU. There is no salesman filter and no godown filter. Party search is a search box. You type a name.
 
 ## Key Highlights
 
-- Sales Analytics sits in Action Reports and goes past the sales register: which items moved, which parties bought, from the Tally books on the phone
+- Sales Analytics sits in the Sales door of Reports and goes past the sales register: which items moved, which parties bought, from the Tally books on the phone
 - PDF and Excel export sit behind a chooser sheet. Every exported PDF or Excel goes through the phone's share sheet
 - There is no salesman filter and no godown filter. Godown is its own report. Party search is a search box
 
@@ -34,9 +34,9 @@ You can get sales analytics from Tally data as a distributor that go past the sa
 
 From the Tally books synced to the phone, Sales Analytics shows which items moved and which parties bought. That is the sales analytics a distributor actually uses after the register has already totaled the day. The register answers how much. This report answers what and who.
 
-It lives under Action Reports, in the same list as Collections, Bills Receivable, Bills Payable, Customer Analytics, Cross-sell Gaps, Inventory, Purchase Analytics and Daybook. Financial Statements hold Trial Balance, Profit & Loss, Balance Sheet and MIS Reports. Evening is when this one earns its slot, after Outstanding at 8:30 and Daybook at noon, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) lays out.
+It sits in the Sales door of the Reports tab, next to Sales by Item and Sales Comparison, while Customer Analytics and Cross-sell Gaps sit in Customers & orders, Purchase Analytics in Purchase, Reorder & slow stock in Stock, Collections and the bills reports in Money, and Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook in Accounts. Evening is when this one earns its slot, after Outstanding at 8:30 and Daybook at noon, as the [daily checklist for Tally reports](/blog/tally-reports-for-distributors-daily-checklist/) lays out.
 
-The cousins on the site are the [item wise sales report](/blog/item-wise-sales-report-tally/) and the [party wise sales report](/blog/party-wise-sales-report-tally/). Those posts are the Tally habit. This screen is that habit on the phone, in one Action Report.
+The cousins on the site are the [item wise sales report](/blog/item-wise-sales-report-tally/) and the [party wise sales report](/blog/party-wise-sales-report-tally/). Those posts are the Tally habit. This screen is that habit on the phone, in one report.
 
 ## Sales analytics tally beyond the sales register
 
@@ -44,7 +44,7 @@ A sales register filtered to today is a list of vouchers. Useful at 7 PM when so
 
 Item movement is the reorder question. 11 cases of 1-litre on the books now, against a usual 40, is a purchase hold, or a scheme, or a salesman who stopped putting it on the counter. Party buying is the credit question. Sharma Kirana of Fancy Bazaar still tickets around ₹22,000 when he lifts. A party who used to lift weekly and has gone quiet shows here before Outstanding does, because Outstanding only wakes you when the old bills are still open.
 
-Most action reports have no date filter. Daybook has Today, Yesterday, Last 7 days, Last 30 days and Custom, plus a voucher-type chip. Ledger statement and godown reports have This FY, This Quarter, This Month, Last Month, Last FY and Custom. Sales Analytics is an action report. Treat it as the books standing now, not a March rewind.
+Most action reports have no date filter. Daybook has Today, Yesterday, Last 7 days, Last 30 days and Custom, plus a voucher-type chip. Ledger statement and godown reports have This FY, This Quarter, This Month, Last Month, Last FY and Custom. Sales Analytics is an action report. Treat it as the books standing now, not a March rewind. To compare months, Sales Comparison in the same Sales door puts each stock group's sales side by side, biggest drop first, as the [sales comparison report for Tally](/sales-comparison-report-tally/) page shows.
 
 Party search is a search box. Type Sharma. There is no picker and no multi-select.
 
@@ -98,7 +98,7 @@ Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian
 
 **Q: What sales analytics can I get from Tally data as a distributor?**
 
-A: From Tally data as a distributor you can get Sales Analytics on the phone: which items moved and which parties bought, past the sales register. It sits in Action Reports and reads the Tally books synced to the device. PDF and Excel export sit behind a chooser sheet.
+A: From Tally data as a distributor you can get Sales Analytics on the phone: which items moved and which parties bought, past the sales register. It sits in the Sales door of Reports and reads the Tally books synced to the device. PDF and Excel export sit behind a chooser sheet.
 
 **Q: Is sales analytics tally the same as the sales register?**
 
@@ -118,6 +118,6 @@ A: Sales Analytics is an action report, and most action reports have no date fil
 
 **Q: Where do I open Sales Analytics from Tally on my phone?**
 
-A: Open Reports, then Action Reports, then Sales Analytics. Type a party name in the search box to land on that ledger. Item movement and party buying are the two cuts a distributor uses after the sales register has already totaled the day.
+A: Open Reports, then the Sales door, then Sales Analytics. Type a party name in the search box to land on that ledger. Item movement and party buying are the two cuts a distributor uses after the sales register has already totaled the day.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

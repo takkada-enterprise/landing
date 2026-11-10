@@ -5,7 +5,7 @@ meta_title: "Profitability Report for Distributors in Tally"
 meta_description: "A gross profit report tally view shows margin after cost of goods, so a distributor sees whether turnover is actually leaving money in the business."
 primary_keyword: "gross profit report tally"
 date: "2026-07-21"
-updated: "2026-10-23"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor can do three crore a month and still wonder where the money went. Turnover is not profit. The profitability report is where he sees the margin left after cost of goods, and on the phone he can watch it without waiting for the accountant."
@@ -63,6 +63,8 @@ This is why the profit report reads best next to the [item-wise sales report](/b
 The profit report is the one an owner reviews least often, precisely because it feels like a month-end job on the office machine. That distance is what lets a margin slip run for a quarter before anyone notices.
 
 Takkada surfaces the numbers behind profitability on the phone through Reports + (part of every plan), reading from Tally and kept current through the sync, so the owner can watch margin alongside the turnover he already checks. The gross profit line, and the sales and purchase figures that build it, sit next to the daily numbers instead of waiting for a year-end review. Tally stays the system of record; the phone just brings the number that matters most into the owner's daily view.
+
+Margin now shows on the sales invoice itself as well. Once the owner turns on Show margin on invoice, a saved sales invoice shows Cost, Margin and Margin % on each line, only for the people allowed to see profit. Cost is the item's cost for that financial year as your Tally values it, and Margin % on the invoice is on selling price. The [invoice-wise profit for Tally](/invoice-wise-profit-tally/) page shows the screen, and our post on [item wise profit in Tally Prime](/blog/item-wise-profit-in-tally-prime/) covers the F7 steps in Tally.
 
 ## Frequently Asked Questions
 
