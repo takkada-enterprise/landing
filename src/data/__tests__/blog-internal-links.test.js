@@ -99,6 +99,12 @@ const LINK_FLOORS = {
   'salesman-location-tracking-app': 3,
   'stock-control-tally': 2,
   'desktop-billing-tally': 2,
+  // Staff and Payroll pages, 2026-11-10.
+  'staff-attendance-salary-app': 10,
+  'daily-wage-salary-app': 5,
+  'pf-ecr-esi-file-from-salary': 4,
+  'payroll-software-tally': 3,
+  'salary-slip-in-hindi': 2,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

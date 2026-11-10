@@ -2,20 +2,20 @@
 title: "What Is a Beat in Distribution Sales (and How Many Dealers Fit in One)"
 slug: "what-is-a-beat-in-distribution-sales"
 meta_title: "What Is a Beat in Distribution Sales"
-meta_description: "What is a beat in sales: a named dealer list one salesman covers. On a Guwahati book, twenty-four shops sit on Station Road."
+meta_description: "What is a beat in sales: a named dealer list your salesmen cover on set weekdays. On a Guwahati book, twenty-four shops sit on Station Road."
 primary_keyword: "what is a beat in sales"
 date: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-11-10"
 author: "founder"
 category: "Market Reality"
-excerpt: "A Guwahati wholesaler already names Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola. A beat is that named dealer list, with one salesman or none, and Gupta Stores on one list only."
+excerpt: "A Guwahati wholesaler already names Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola. A beat is that named dealer list, the weekdays it runs and who runs it each day, with Gupta Stores on one list only."
 ---
 
-A beat in FMCG or distribution sales is a named list of dealers one salesman covers, the shops on a stretch rather than a date, a weekday, or a walking order. What is a beat in sales, on a working book, is that list plus one salesman assigned or none, and a rule that each dealer sits on one beat only. On a Guwahati wholesaler with five salesmen and about 120 dealers, the beats are Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola. Gupta Stores sits on Station Road with Raju. Trade practice in this kind of market is twenty to thirty dealers a salesman can cover in a day. Station Road holds twenty-four. That count is how the market already walks, not a cap the product sets. A beat has no sequence and no visit target. Moving Gupta Stores to GS Road takes it off Station Road, and the app shows what moved.
+A beat in FMCG or distribution sales is a named list of dealers that a salesman covers on the days it runs, the shops on a stretch rather than a date or a walking order. What is a beat in sales, on a working book, is that list, the weekdays it runs with a salesman for each day, and a rule that each dealer sits on one beat only. On a Guwahati wholesaler with five salesmen and about 120 dealers, the beats are Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola. Gupta Stores sits on Station Road with Raju. Trade practice in this kind of market is twenty to thirty dealers a salesman can cover in a day. Station Road holds twenty-four. That count is how the market already walks, not a cap the product sets. A beat has no sequence and no visit target. Moving Gupta Stores to GS Road takes it off Station Road, and the app shows what moved.
 
 ## Key Highlights
 
-- A beat is a name plus a dealer list, with one salesman assigned or none. Station Road holds Gupta Stores and twenty-three other kiranas for Raju
+- A beat is a name plus a dealer list, run on the weekdays you tick with a salesman for each day. Station Road holds Gupta Stores and twenty-three other kiranas for Raju
 - Each dealer belongs to one beat only. Adding Gupta Stores to GS Road moves it off Station Road, and the app shows what moved
 - How many dealers fit is trade practice, not a product field. Twenty to thirty is a working day on a scooter. Station Road holds twenty-four
 
@@ -26,6 +26,7 @@ A beat in FMCG or distribution sales is a named list of dealers one salesman cov
 - How many dealers fit in one beat
 - One dealer, one beat, and what moving shows
 - Who sits on the beat, and who does not
+- Beats by weekday
 - What the beat list leaves to the salesman
 - Frequently Asked Questions
 
@@ -33,7 +34,7 @@ A beat in FMCG or distribution sales is a named list of dealers one salesman cov
 
 Ask the owner on GS Road what a beat is and he will not describe software. He will name a stretch. Station Road. Fancy Bazaar. The shops Raju already knows by shutter colour. A beat in FMCG or distribution sales is that named set of dealers, the territory a salesman is responsible for, held as a list so the office and the field are talking about the same shops.
 
-The [Salesman app for Tally](/salesman-app-tally) stores the list the market already runs. The screen is called Beats. A beat is a name plus a dealer list. It carries no date, no weekday, no walking order, and no visit target. Raju decides which shutter he stands in front of first on Tuesday. The list does not.
+The [Salesman app for Tally](/salesman-app-tally) stores the list the market already runs. The screen is called Beats. A beat is a name plus a dealer list, with the weekdays it runs and who runs it on each day. It carries no date, no walking order, and no visit target. Raju decides which shutter he stands in front of first on Tuesday. The list does not.
 
 What [field teams actually need from a Tally app in India](/blog/salesman-app-tally-india/) starts here, before an order and before a photo. If Gupta Stores is not on a named list, the office and Raju argue about whose shop it is. [Beat-wise sales management](/blog/beat-wise-sales-management-tally-distributors/) is this list, plus today's load, plus the order that lands in Tally. The beat itself is only the names.
 
@@ -65,15 +66,26 @@ A new kirana on Beltola that has not been placed yet waits off every list. The o
 
 ## Who sits on the beat, and who does not
 
-Each beat has one assigned salesman, or none. Raju on Station Road. Manoj on GS Road. A beat with no salesman is still a beat. The dealers are grouped. Nobody in the field is carrying that list yet.
+Each beat has a salesman for each day it runs, or none. Raju on Station Road. Manoj on GS Road. A beat with no salesman is still a beat. The dealers are grouped. Nobody in the field is carrying that list yet.
 
 The owner assigns from Beats. He does not have to finish every list on Monday. Fancy Bazaar can wait a week while he decides between two candidates. The shops stay on Fancy Bazaar. The assignment can be empty.
 
 Dealers on no beat at all are the other pile. They are not on Station Road, not on GS Road, not on the remaining three. They wait until someone places them. That pile is a placement job, covered when you [create beats and assign a salesman](/blog/create-beats-and-assign-salesman-mobile/), not a second kind of beat.
 
+## Beats by weekday
+
+A beat also carries the days it is walked. In Beats the owner ticks the weekdays a route runs and picks who runs it on each of those days, so Station Road can be Raju's on Tuesday and Thursday and Manoj's on Monday. A beat with no days ticked runs every day, which is how beats made before weekdays existed keep working. On the web, the week plan puts every salesman down the side and Monday to Sunday across, with today marked.
+
+| | Mon | Tue | Wed | Thu |
+|---|---|---|---|---|
+| Raju | Fancy Bazaar | Station Road | Beltola | Station Road |
+| Manoj | Station Road | GS Road | NH-37 | GS Road |
+
+The weekdays are a weekly pattern, the same every week. A Hinglish version of this plan is in [beat plan kya hota hai](/blog/beat-plan-kya-hota-hai/).
+
 ## What the beat list leaves to the salesman
 
-A beat does not tell Raju which shutter to open first. It does not tell him to visit Gupta Stores before 11. It does not hold a sequence, a weekday, or a target. Those things live in Raju's head and in whatever WhatsApp the owner sends at 9:15. "Station Road ka load nikal, Gupta Stores pehle" is an instruction from a person. The beat stays a named list.
+A beat does not tell Raju which shutter to open first. It does not tell him to visit Gupta Stores before 11. It does not hold a sequence or a target. Those things live in Raju's head and in whatever WhatsApp the owner sends at 9:15. "Station Road ka load nikal, Gupta Stores pehle" is an instruction from a person. The beat stays a named list.
 
 The [dispatch load sheet](/blog/dispatch-load-sheet-for-distributors/) is a different object. It totals pending orders. Shops with nothing pending stay on the beat and do not appear on today's load. Raju can still walk them. A [salesman visit tracking app](/blog/salesman-visit-tracking-photo-proof/) stamps the counter when he does. The beat did not require the visit. It only named the shop.
 
@@ -83,7 +95,7 @@ The list is the geography. The walking order is the morning. They stay separate,
 
 **Q: What is a beat in sales if my dealers already sit on named roads?**
 
-A: It is those names held as dealer lists, each with one salesman assigned or none. Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola on a Guwahati book with about 120 dealers is five beats. The product stores the name and the parties. It does not store a date, a weekday, a walking order, or a visit target.
+A: It is those names held as dealer lists, each with the weekdays it runs and a salesman for each day, or none. Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola on a Guwahati book with about 120 dealers is five beats. The product stores the name, the parties and the weekdays. It does not store a date, a walking order, or a visit target.
 
 **Q: What is a beat in FMCG or distribution sales when two salesmen both call on the same kirana?**
 
@@ -99,10 +111,14 @@ A: No. A beat is a name plus a dealer list. Raju decides which shutter he stands
 
 **Q: Can I leave a beat without a salesman on it?**
 
-A: Yes. Each beat has one assigned salesman or none. Fancy Bazaar can exist as a named list while the owner is still deciding who walks it. The dealers stay grouped. Nobody in the field is carrying that list until a salesman is assigned.
+A: Yes. A beat can have a salesman for each day it runs, or none. Fancy Bazaar can exist as a named list while the owner is still deciding who walks it. The dealers stay grouped. Nobody in the field is carrying that list until a salesman is assigned.
+
+**Q: Can the same beat have a different salesman on different days?**
+
+A: Yes. Tick the weekdays the beat runs and pick who runs it on each one, so Station Road can go to Raju on Tuesday and Manoj on Monday. A beat with no days ticked runs every day. A salesman scheduled on any day of a beat can see that beat's shops.
 
 **Q: Is a beat the same thing as today's load?**
 
 A: No. The beat is the named dealer list. Today's load is pending orders from a 3-day window for that beat. Shops on Station Road with nothing pending stay on the beat and do not appear on today's load. Raju can still visit them.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/919435977777) to set them up on your own dealers.

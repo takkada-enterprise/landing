@@ -24,6 +24,7 @@ Add-ons (Ask your partner for pricing):
 - Live tracking: Salesman location from Start day to End day on Android, with battery and km on a team map.
 - Email invoices: Invoice PDFs, payment reminders and statements by email, alongside WhatsApp.
 - Tally drafts: Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.
+- Staff and payroll: Attendance, leave, salary with overtime and fines, payslips in English and Hindi, advances, and the salary entry for Tally.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -46,7 +47,7 @@ Add-ons (Ask your partner for pricing):
 - [Tally on mobile](https://takkada.com/mobile-tally/): See Tally reports, outstanding and ledgers from a phone, send WhatsApp reminders and share statements. Works with TallyPrime and Tally ERP 9.
 - [WhatsApp invoicing from Tally](https://takkada.com/whatsapp-invoice-tally/): Salesmen raise invoices at the retailer's shop from their phone. Syncs to Tally in real time and the retailer gets the PDF on WhatsApp.
 - [Payment reconciliation software for Tally](https://takkada.com/auto-reconciliation-tally/): Payments auto-match to the correct Tally invoice. Partial, bulk and unreferenced payments handled, entries post into Tally automatically.
-- [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
+- [Salesman app for Tally](https://takkada.com/salesman-app-tally/): Field-sales module for distributors on Tally: dealers grouped into beats, each run on the weekdays you tick, by a different salesman on different days if you like, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.
 - [Payment collection on Tally](https://takkada.com/payment-collection-tally/): UPI collection for distributors running Tally: a payment link on every invoice and inside every reminder at 0% MDR with no transaction cap, money landing straight in the business bank account, and receipts auto-matched against the invoices they settle, including one payment split across several bills.
 - [Payment reminders from Tally](https://takkada.com/payment-reminder-tally/): Automated WhatsApp payment reminders, from Takkada's number or from your own WhatsApp number (a paid add-on), driven by live Tally outstanding: schedules that fire before and after the due date, message caps per party so nobody is spammed, the invoice PDF and ledger statement attached, and a 0% MDR pay link inside the reminder itself.
 - [GST e-invoices from your phone](https://takkada.com/e-invoice-from-phone/): GST e-invoicing for Tally users from a mobile phone: IRN and signed QR generated without a portal login, written back onto the same Tally voucher rather than a duplicate, cancellation from the app inside the government window, and the finished invoice dispatched on WhatsApp.
@@ -84,6 +85,11 @@ Add-ons (Ask your partner for pricing):
 - [Salesman location tracking app (Live Tracking)](https://takkada.com/salesman-location-tracking-app/): Live Tracking add-on: a Start day / End day duty window on the salesman's Android phone records location and battery every 2, 5, 10 or 15 minutes (or every 200 m), with a notification showing the whole time and an automatic stop time. The Team Map shows who is on duty, last seen, battery, km today and who stopped reporting; a day view shows the route, gaps, check-in pins, orders and receipts. Offline points queue for 48 hours. Android only, never iPhone; the map also opens in a computer browser with Web view. Locations kept 90 days.
 - [Email invoices from Tally](https://takkada.com/email-invoice-from-tally/): Email add-on: each automatic invoice (with Auto Invoice Dispatch), due and overdue payment reminder and ledger statement that goes out on WhatsApp is also emailed, PDF attached, with the same words and a Pay now link. The address comes from the party's Tally ledger or is added in the app and written back to Tally. Sent as the company via Takkada; Reply-To and a copy go to the business email. Sent even when WhatsApp fails. No manual email button; receipts and credit notes are not emailed.
 - [Optional voucher in Tally Prime (Tally Drafts)](https://takkada.com/optional-voucher-tally-prime/): Tally Drafts add-on: lists the optional (draft) vouchers keyed in Tally on the phone and computer, in Drafts, In progress, Posted and Rejected tabs filtered by voucher type, with party, amount, date, ledger lines and narration. Approve posts the same voucher as regular in Tally with no second copy; Reject is app-only and leaves Tally untouched. Follows team permissions and approvals. Drafts are kept out of outstanding, ledgers, reports and reminders. Item lines are not shown; post-dated drafts are not posted.
+- [Staff attendance and salary app](https://takkada.com/staff-attendance-salary-app/): Staff and Payroll add-on for businesses on Tally: one-tap daily attendance with in and out times, leave asked and approved from the phone, monthly, daily, hourly and piece-rate pay, late fines and overtime, salary worked out with the working on every payslip line, payslips in English and Hindi as PDF, staff advances and loans with EMI, staff bills paid back or added to salary, PF ECR and ESI files prepared for upload, TDS worked out for your CA, and one balanced salary entry made for Tally each month.
+- [Payroll software for Tally](https://takkada.com/payroll-software-tally/): Payroll on the phone for businesses on Tally: salary worked out from attendance, overtime, fines and advances; pick your own Tally ledgers for salary, PF, ESI, PT and advances or let the app create them; one balanced salary entry each month plus entries for advances, loans and staff bill paybacks, sent through Takkada's Tally connector, with a Waiting for Tally mark until each entry arrives.
+- [Salary slip in Hindi](https://takkada.com/salary-slip-in-hindi/): Payslips in English and Hindi from the Staff and Payroll add-on: the same month's figures in either language, the working on each line (days absent, overtime, PF, professional tax, advance recovered), a PDF to download, and each staff member's own slips in the Takkada app.
+- [Daily wage salary app](https://takkada.com/daily-wage-salary-app/): Daily-wage, hourly and piece-rate pay in the Staff and Payroll add-on: daily staff paid for days worked plus paid leave (Sundays and holidays not paid for daily wage), pieces entered each day at a rate per piece, overtime at your rate, advances taken back from pay, and payslips in English or Hindi.
+- [PF ECR file and ESI sheet from salary](https://takkada.com/pf-ecr-esi-file-from-salary/): Government files in the Staff and Payroll add-on: the monthly PF ECR text file and ESI sheet prepared from confirmed salary for the owner or CA to upload on the EPFO and ESIC sites (the app does not upload them), PF with the pension split, ESI, professional tax and labour welfare fund on every slip, TDS on salary under the new or old regime, staff tax declarations, TDS challans, and quarterly Form 138 data for the CA. Rates are worked out from the app's tables and are not yet CA-checked.
 
 ## Company
 
@@ -107,7 +113,7 @@ Takkada is a salesman app for Tally. Your field team works fixed beats, checks i
 - **Q: Can I stop a salesman from seeing my whole ledger?**
   A: Yes. View and create rights are set per register and per person, and you can restrict which ledgers and which stock groups a user sees. A salesman can be given his own parties and the registers he needs to work, while purchase costs, other salesmen’s parties and the rest of the book stay out of his view.
 - **Q: Can I set up beats or routes for my salesmen?**
-  A: Yes. You group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.
+  A: Yes. You group your dealers into beats, the fixed routes your market already runs on, tick the weekdays each beat runs and pick who runs it each day, so the same beat can go to a different salesman on Tuesday. A beat with no days ticked runs every day. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.
 - **Q: What happens to the order the salesman books at the shop?**
   A: It becomes a sales order in your Tally against the right party and the right items, with the pending quantity tracked until it ships. When you convert it to an invoice, the retailer gets the PDF and a payment link on WhatsApp, and the receipt reconciles itself against that invoice once they pay.
 - **Q: Does it work when the shop has no network?**
@@ -1190,6 +1196,141 @@ An optional voucher in Tally Prime is one your accountant has typed but not post
 - **Q: Are there drafts it cannot post?**
   A: Yes. Post-dated drafts, and drafts of a voucher type Takkada has not been set up for, stay in Tally to be posted there. Item lines are not shown on the phone, so a stock draft points you to Tally for its items.
 
+### [Attendance in the morning, every salary worked out by month end, and the entry ready for Tally.](https://takkada.com/staff-attendance-salary-app/)
+
+*Most shops and godowns still keep attendance in a register, work salary out in Excel and have the accountant type it into Tally. The Staff and Payroll add-on runs that month inside the same Takkada app you already use for your Tally books.*
+
+**Core capability & workflow:**
+A staff attendance and salary app keeps attendance, leave and pay for your team in one place. Takkada's Staff and Payroll add-on marks the day's attendance in one tap, works out every salary from attendance, overtime, fines and advances, shows the working on each payslip in English or Hindi, and makes the month's salary entry for Tally.
+
+**How it works:**
+- **Today, for everyone, in one tap**: Mark all present, then change the few who are absent, on half day, on paid leave, on the weekly off or on a holiday. Set the weekly off, holidays and the time work starts once in settings.
+- **In and out times, overtime worked out**: Add in and out times where they matter and the overtime is worked out from them, at your overtime rate, with a higher rate for work on the weekly off if you set one.
+- **Leave asked for from the staff phone**: Staff ask for leave from their own phone. You approve or reject it with a note, approved leave goes into salary as paid leave, and both sides see how much leave is left.
+- **Salary with the working on every line**: The month's salary is worked out from attendance, overtime, fines, bonus, advances and deductions, and each line shows how it was reached. See salary so far at any point and confirm it on the last day to lock the month.
+- **Payslips in English and Hindi**: Every payslip opens in English or Hindi and downloads as a PDF. Staff see their own slips in the Takkada app and are told when one is ready.
+- **Advances and staff bills**: Give an advance and take it back from the next salary or in monthly parts, and approve a staff bill to the right Tally expense ledger, paid now or with salary.
+- **Staff loans with an EMI table**: Give a staff loan with an EMI, with interest if you want, and see every EMI with its interest and the balance left. The salary run takes back the EMI that is due.
+- **Each person sees only their own pay**: Staff open their own attendance, leave, payslips and ledger in the Takkada app. Nobody can open another person's salary.
+- **Government files and the Tally entry**: PF ECR and ESI files are prepared from confirmed salary for you or your CA to upload, and one balanced salary entry is made for Tally and sent through Takkada's Tally connector.
+
+**Frequently Asked Questions:**
+- **Q: Can staff mark their own attendance from their phone?**
+  A: Yes. Staff can punch in and out from the Takkada app with a selfie and their location, and you check any punch that looks doubtful before it counts. The app does not match faces; the photo and the place are there for you to look at.
+- **Q: How does the app work out each person's salary?**
+  A: It takes the month's attendance, overtime, late and early fines, bonus, advances and deductions, and works out every line with the working shown on the payslip. You choose whether a month counts as the calendar month, 30 days or 26 days, see salary so far at any point, and confirm it on the last day to lock the month.
+- **Q: Can staff see each other's salary?**
+  A: No. Each staff member sees only their own attendance, leave, payslips and ledger in the Takkada app, and nobody can open another person's salary. The owner and the people you allow see the whole team.
+- **Q: How do staff get their payslip?**
+  A: Staff get their payslip in the Takkada app and are told when it is ready. You can also open any payslip in English or Hindi and download it as a PDF to hand over or keep on file.
+- **Q: Does it work for daily-wage, hourly and piece-rate workers?**
+  A: Yes. Each person can be paid monthly, daily, hourly or by pieces made. Daily-wage staff are paid for the days they work and their paid leave, and piece-rate pay is worked out from the pieces entered each day at your rate per piece.
+- **Q: Can I run salary from a computer instead of the phone?**
+  A: Yes. The owner and the accountant can run attendance, salary, bills and government files from the Takkada web and desktop app, and staff use the Takkada app on their phone. Everything is the same set of books.
+- **Q: How much does the Staff and Payroll add-on cost?**
+  A: It is an add-on on top of a Takkada plan, priced by your partner, and it is switched on for each company separately. Ask your partner for the add-on price, or message us on WhatsApp and we will switch it on for your books.
+
+### [The month's salary worked out on the phone, and one balanced entry made for your Tally.](https://takkada.com/payroll-software-tally/)
+
+*Running payroll in Tally alone means pay heads, attendance entries and a payroll voucher on the office computer, or an Excel sheet and a journal typed in by hand. The Staff and Payroll add-on works the salary out from the attendance your staff and managers mark, and makes the entry for the Tally you already keep.*
+
+**Core capability & workflow:**
+Payroll software for Tally works out staff salaries and gives your Tally the accounting entry. Takkada's Staff and Payroll add-on calculates each salary from attendance, overtime, fines and advances, lets you pick your own Tally ledgers, and makes one balanced salary entry each month, sent through Takkada's Tally connector, with entries for advances, loans and staff bills too.
+
+**How it works:**
+- **This month's draft, last month locked**: The Salary page shows this month's draft for everyone and the months already confirmed. Open salary so far at any time and confirm on the last day. The owner and the accountant can run it from the phone or from a computer.
+- **Your ledgers, or new ones**: Pick the Tally ledgers you already use for salary, PF, ESI, professional tax and advances, or let the app create them. The same ledger choice comes up when you approve a staff bill, where you pick the Tally expense ledger it goes to.
+- **One balanced entry for the month**: The confirmed month becomes one salary entry for Tally, debit and credit shown balanced before it is sent through Takkada's Tally connector. The app shows Waiting for Tally until it arrives.
+- **Advances and loans in the same books**: Advances and loans get their own entries, and the salary run takes back what is due, with the EMI, interest and balance left for every loan.
+
+**Frequently Asked Questions:**
+- **Q: Do I need to switch on Tally's payroll feature?**
+  A: No. The Staff and Payroll add-on works the salary out in Takkada and makes the salary entry as an accounting voucher in the ledgers you pick, so Tally's pay heads and payroll vouchers are not needed. If you already use Tally payroll, talk to your accountant before running both.
+- **Q: Under which ledgers does the salary entry go?**
+  A: You choose. Pick the Tally ledgers you already use for salary, PF, ESI, professional tax and staff advances, or let the app create new ones, and every entry uses that choice from then on.
+- **Q: How does the salary reach Tally?**
+  A: Once you confirm the month, the app makes one balanced salary entry and sends it through Takkada's Tally connector, the same way Takkada sends invoices and receipts. Until it arrives the salary month shows Waiting for Tally.
+- **Q: Do staff advances and loans get a Tally entry too?**
+  A: Yes. Giving an advance or loan, and paying back a staff bill, each make their own entry for Tally, and the salary run takes back the advance or EMI that is due that month.
+- **Q: Can my accountant check the entry before it goes?**
+  A: Yes. The Tally entry is shown on the salary month with every debit and credit line and a balanced mark, so your accountant can read it before you confirm. Statutory lines are worked out from the rates in the app, for your CA to check.
+
+### [Every payslip in Hindi or English, from the same month's figures, with the working on each line.](https://takkada.com/salary-slip-in-hindi/)
+
+*Staff who read Hindi more easily than English still get slips in English, or none at all. With the Staff and Payroll add-on each payslip opens in either language and downloads as a PDF.*
+
+**Core capability & workflow:**
+A salary slip in Hindi lets staff read their own pay in the language they use every day. Takkada's Staff and Payroll add-on makes every payslip in English and Hindi from the same month's figures, shows the working on each line, and downloads it as a PDF. Staff also see their slips in the Takkada app.
+
+**How it works:**
+- **The working on every line**: Salary after absent days, overtime, PF, professional tax and advance recovered each show how the figure was reached.
+- **Switch to Hindi**: The same slip in Hindi, with वेतन, ओवरटाइम, पीएफ, व्यवसाय कर and एडवांस वसूली lines. A few words, such as state names, stay in English.
+- **Daily-wage slips too**: A daily-wage worker's slip in Hindi shows paid days times the day rate, bonus, ESI and advance recovered.
+- **Staff are told when it is ready**: Staff get their payslip in the Takkada app and a notification when it is ready.
+
+**Frequently Asked Questions:**
+- **Q: What does each line on a Hindi salary slip mean?**
+  A: वेतन is the salary for the days paid, ओवरटाइम is overtime pay, पीएफ is the provident fund cut, व्यवसाय कर is professional tax and एडवांस वसूली is the advance taken back. कुल देय is the net amount paid to the person.
+- **Q: Can I make a salary slip in Hindi without typing it?**
+  A: Yes. Once the month's salary is worked out in the Staff and Payroll add-on, every payslip can be switched to Hindi and downloaded as a PDF, so nothing is typed twice.
+- **Q: Is the Hindi slip fully in Hindi?**
+  A: Almost. The labels and lines are in Hindi, while a few words, such as the state name, still appear in English. The figures are the same as on the English slip.
+- **Q: Can staff open their own payslip?**
+  A: Yes. Staff see their own payslips in the Takkada app and get a notification when a new one is ready. Each person sees only their own pay.
+- **Q: Does it make slips for daily-wage workers?**
+  A: Yes. A daily-wage worker's slip shows the paid days times the day rate, then any bonus, ESI and advance taken back, in English or Hindi.
+
+### [Pay by the day, the hour or the piece, worked out from the days and pieces your team actually puts in.](https://takkada.com/daily-wage-salary-app/)
+
+*Daily and piece-rate pay is usually counted from slips and a notebook, then added up at the end of the week or month. The Staff and Payroll add-on keeps the days and pieces as they happen and works the pay out from your rates.*
+
+**Core capability & workflow:**
+A daily wage salary app works out pay from the days, hours or pieces each worker actually puts in. Takkada's Staff and Payroll add-on pays daily-wage staff for days worked and paid leave, works out piece-rate pay from the pieces entered each day, adds overtime, takes back advances, and makes each payslip in English or Hindi.
+
+**How it works:**
+- **Choose how each person is paid**: Monthly, daily, hourly or by pieces, with the overtime rate and the deductions that apply to that person.
+- **Pieces entered each day**: Enter the pieces made each day by work type, and pay is worked out from your rate per piece.
+- **Paid days, counted for you**: Daily-wage staff are paid for the days they work and their paid leave, and Sundays and holidays are not paid for daily wage.
+- **Advances taken back from pay**: Give an advance and take it back from the next pay or in parts.
+- **A slip in Hindi**: The daily-wage slip shows paid days times the day rate, in English or Hindi.
+
+**Frequently Asked Questions:**
+- **Q: How is a daily-wage worker's salary worked out?**
+  A: The app counts the days the person worked plus any approved paid leave and multiplies by the day rate. Sundays and holidays are not paid for daily wage, and overtime, bonus and advances are added or taken back on top.
+- **Q: How do I pay piece-rate workers?**
+  A: Set a rate per piece for each work type and enter the pieces each person makes every day. Pay for the month is worked out from those entries and shown on the slip.
+- **Q: Can one business have monthly and daily staff together?**
+  A: Yes. Each person is paid monthly, daily, hourly or by pieces, and all of them come into the same month's salary run and the same salary entry for Tally.
+- **Q: Can I give a daily-wage worker an advance?**
+  A: Yes. Give the advance from cash or bank and take it back from the next pay in full or in equal parts each month. The slip shows the amount taken back.
+- **Q: Do daily-wage workers get a payslip?**
+  A: Yes. Every person gets a payslip in English or Hindi that shows paid days times the day rate, any overtime and bonus, and what was taken back.
+
+### [The month's PF ECR file and ESI sheet, prepared from confirmed salary for you or your CA to upload.](https://takkada.com/pf-ecr-esi-file-from-salary/)
+
+*Every month someone copies each person's wages and days into the EPFO and ESIC formats by hand. The Staff and Payroll add-on prepares those files from the salary you confirmed, and works out professional tax, labour welfare fund and TDS on salary for your CA to check.*
+
+**Core capability & workflow:**
+A PF ECR file is the monthly return an employer uploads on the EPFO site with each member's wages. Takkada's Staff and Payroll add-on prepares the ECR file and the ESI sheet from confirmed salary for you or your CA to upload, and works out professional tax, labour welfare fund and TDS on salary for your CA to check.
+
+**How it works:**
+- **PF ECR and ESI, prepared**: The Government files screen prepares the month's PF ECR text file and ESI sheet from confirmed salary, with PT and LWF totals. The screen tells you to upload them on the EPFO and ESIC sites, because the app does not send them. If the ESIC site asks for .xls, save the sheet in that format.
+- **Every cut on the slip**: PF with the pension (EPS) split, ESI, professional tax and labour welfare fund are cut from pay and shown on the slip, worked out from the rates in the app for your CA to check.
+- **Tax declarations from the staff phone**: Staff send their 80C, 80D and home loan declarations from their phone. You check and accept them, and TDS on salary is worked out every month under the new or old regime, for your CA to check.
+- **Challans and the quarter**: Record each TDS challan from the bank receipt. Each quarter the app prepares the TDS statement data for your CA: a text file for Q1 to Q3 and an Excel sheet for Q4.
+
+**Frequently Asked Questions:**
+- **Q: What is a PF ECR file?**
+  A: The ECR (electronic challan cum return) is the monthly file an employer uploads on the EPFO site, listing each member's wages and PF and pension contribution. The Staff and Payroll add-on prepares it as a text file from the salary you confirmed.
+- **Q: Does the app upload PF and ESI for me?**
+  A: No. It prepares the PF ECR file and the ESI sheet for you or your CA to upload on the EPFO and ESIC sites, and the screen says so. Uploading and paying stay with you.
+- **Q: Are the PF, ESI and PT rates in the app correct?**
+  A: The app works them out from the rates it holds and shows every line on the slip so your CA can check it. The ESI rates have been checked; the PF wage-ceiling option, professional tax and labour welfare fund rates are not yet CA-checked, and the app says so on screen.
+- **Q: Which states' professional tax does it cover?**
+  A: It holds professional tax for Maharashtra, Karnataka, West Bengal, Gujarat, Telangana, Andhra Pradesh and Assam, and labour welfare fund for Maharashtra and Karnataka. These rates are not yet CA-checked, so have your CA check the first month.
+- **Q: Does it make Form 16?**
+  A: No. Form 16 is now Form 130 and is issued from TRACES. The app gives each staff member a yearly Salary and tax statement PDF and prepares the quarterly TDS data (Form 138, earlier Form 24Q) for your CA.
+
 ## Manual
 
 Step-by-step instructions for people using the app, each one checked against the app itself on the date it names. Index: https://takkada.com/guide/
@@ -1358,6 +1499,8 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [E Way Bill Closure: What Is Paused and What to Get Ready For](https://takkada.com/blog/e-way-bill-closure-rule-2026/)
 - [E-Way Bill Auto Generation With E-Invoice: What the IRN Actually Carries Across](https://takkada.com/blog/e-way-bill-with-e-invoice-auto-population/)
 - [E-Way Bill Expired Penalty: The Law, the 8-Hour Window and What to Do](https://takkada.com/blog/e-way-bill-expiry-extension-penalty/)
+- [EPFO Ke Liye PF ECR File Kaise Banaye: Steps Aur Aam Galtiyan](https://takkada.com/blog/pf-ecr-file-kaise-banaye/)
+- [Form 130 and Form 138: What Replaced Form 16 and Form 24Q in 2026](https://takkada.com/blog/form-130-form-138-salary-tds-2026/)
 
 ### Distribution
 
@@ -1375,6 +1518,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 - [A Sales Team Leaderboard From Your Own Tally Books](https://takkada.com/blog/sales-team-leaderboard-for-distributors/)
 - [A Self-Order Link for Your Dealers: They Order, You Convert](https://takkada.com/blog/customer-self-order-link-for-distributors/)
+- [Beat Plan Kya Hota Hai: Distributor Ke Liye Din-Wise Route Plan](https://takkada.com/blog/beat-plan-kya-hota-hai/)
 - [Beat-wise Sales Management for Tally Distributors: Beats, Load Sheets, Visits, Orders](https://takkada.com/blog/beat-wise-sales-management-tally-distributors/)
 - [Customer Khud Order Kaise Bheje: WhatsApp Order Link](https://takkada.com/blog/customer-khud-order-kaise-bheje/)
 - [Fake GPS on a Salesman's Phone: What the App Does and What It Does Not](https://takkada.com/blog/fake-gps-location-field-sales-what-happens/)
@@ -1411,6 +1555,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Create and Manage Godowns in Tally from Your Phone](https://takkada.com/blog/create-godown-in-tally-from-mobile/)
 - [Create Beats and Assign a Salesman from Your Phone](https://takkada.com/blog/create-beats-and-assign-salesman-mobile/)
 - [Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It](https://takkada.com/blog/credit-limit-for-retailers/)
+- [Daily Wage Salary Calculation with Sundays, Holidays and Leave](https://takkada.com/blog/daily-wage-salary-calculation-sundays-holidays/)
 - [Days of Cover: How Many Days Your Current Stock Lasts](https://takkada.com/blog/days-of-inventory-cover-distributor/)
 - [DSO for Distributors: How to Calculate and Reduce Days Sales Outstanding](https://takkada.com/blog/dso-for-distributors/)
 - [E-Invoice on Phone Tally: How Distributors Generate an IRN Without Going Back to the Office](https://takkada.com/blog/e-invoice-on-phone-tally/)
@@ -1446,10 +1591,15 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Let a Salesman Raise Orders but Never an Invoice: Voucher-type Permissions](https://takkada.com/blog/voucher-type-permissions-for-team-members-tally/)
 - [One Owner per Outstanding Customer: Assigning Recovery Responsibility](https://takkada.com/blog/assign-recovery-owner-per-customer/)
 - [Outstanding Payment Reminder: How the Best Distributors Run It in 2026](https://takkada.com/blog/outstanding-payment-reminder-app-india/)
+- [Overtime Calculation Formula in India, with a Worked Example](https://takkada.com/blog/overtime-calculation-formula-india/)
 - [Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation](https://takkada.com/blog/payment-link-tally-integration/)
+- [Per Day Salary Calculation: 26 Days, 30 Days or the Calendar Month?](https://takkada.com/blog/per-day-salary-calculation-26-or-30-days/)
+- [Salary Entry in Tally Prime with PF and ESI, with a Worked Example](https://takkada.com/blog/salary-entry-in-tally-prime-with-pf-esi/)
+- [Salary Kaise Calculate Kare: Monthly, Daily Aur Piece Rate Staff](https://takkada.com/blog/salary-kaise-calculate-kare/)
 - [Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)](https://takkada.com/blog/salesman-ki-visit-mobile-se-kaise-track-kare/)
 - [Set Your Own Ageing Slabs for Receivables (0-15, 15-45, 45-90 or Whatever Your Trade Uses)](https://takkada.com/blog/customise-ageing-slabs-receivables-tally/)
 - [Site Structure for a B2B Website: Design Your Product Pages So SEO and Backlinks Work Together](https://takkada.com/blog/b2b-website-structure-seo/)
+- [Staff Advance Entry in Tally: Which Group, the Journal and Recovery](https://takkada.com/blog/staff-advance-entry-in-tally/)
 - [Stock Khatam Hone se Pehle Kaise Pata Kare (Hinglish)](https://takkada.com/blog/stock-khatam-hone-se-pehle-kaise-pata-kare/)
 - [Stock Transfer Between Godowns from Mobile](https://takkada.com/blog/stock-transfer-between-godowns-tally-mobile/)
 - [Tally ki Report Mobile par Kaise Dekhe (Hinglish)](https://takkada.com/blog/tally-ki-report-mobile-par-kaise-dekhe/)
@@ -1464,6 +1614,8 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [What Is a UTR Number, and How It Matches a Tally Payment](https://takkada.com/blog/what-is-utr-number-tally-payment/)
 - [WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects](https://takkada.com/blog/whatsapp-payment-reminder-for-distributors/)
 - [Who Gets Credit for the Order: Attribution and Reassignment](https://takkada.com/blog/order-attribution-and-reassignment-salesman/)
+- [वेतन पर्ची कैसे बनाएं: हिंदी फॉर्मेट, ज़रूरी लाइनें और नमूना](https://takkada.com/blog/vetan-parchi-kaise-banaye/)
+- [हाजिरी रजिस्टर कैसे बनाएं: कॉलम, नमूना और मोबाइल ऐप](https://takkada.com/blog/haziri-register-kaise-banaye/)
 
 ### Integration
 
@@ -1588,6 +1740,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Is There an Official Tally Mobile App? The Honest Answer](https://takkada.com/blog/is-there-an-official-tally-mobile-app/)
 - [Mark Orders Delivered Without Touching Tally](https://takkada.com/blog/mark-orders-delivered-without-touching-tally/)
 - [Multi-Business Tally Mobile App: One Phone, Multiple Companies, One Dashboard](https://takkada.com/blog/multi-business-tally-mobile-app/)
+- [Payroll for Tally Users: What to Look For in a Staff App (2026)](https://takkada.com/blog/payroll-for-tally-users-what-to-look-for/)
 - [Pending Orders: Every Order Not Yet Invoiced, in One List](https://takkada.com/blog/pending-orders-not-yet-invoiced-distributor/)
 - [Restrict Staff to Their Own Warehouse in Tally](https://takkada.com/blog/restrict-staff-warehouse-access-tally/)
 - [Tally Cloud: What It Actually Means for Indian Distributors in 2026](https://takkada.com/blog/tally-cloud/)

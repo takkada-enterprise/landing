@@ -24,6 +24,7 @@ import {
 import { routeMetadata } from '../siteMetadata';
 import { STOPS } from '../journey';
 import { ROUND_THREE } from '../featurePagesRoundThree';
+import { HRMS_PAGES } from '../featurePagesHrms';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -996,9 +997,9 @@ describe('call recording', () => {
 
 // Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
 // it is for in three situations, each today against with Takkada, and lists
-// the work that stops.
+// the work that stops. The Staff and Payroll pages (2026-11-10) follow suit.
 describe('who it is for', () => {
-  it.each(ROUND_THREE.map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+  it.each([...ROUND_THREE, ...HRMS_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
     expect(page.useCases?.heading).toBeTruthy();
     expect(page.useCases.cases).toHaveLength(3);
     for (const c of page.useCases.cases) {
@@ -1006,5 +1007,24 @@ describe('who it is for', () => {
       expect(c.today).not.toBe(c.with);
     }
     expect(page.useCases.stops.length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+// Staff and Payroll (2026-11-10): claims that are not live, or not provable
+// yet, per docs/seo/feature-pages-hrms/*-claims.md. WhatsApp payslips are held
+// on prod, no portal upload or real-Tally payroll journal has been proven, most
+// statutory rates are not CA-checked, and the add-on has no price. The FAQ that
+// says the app does not make Form 16 is allowed to name it; nothing may claim it.
+describe('Staff and Payroll pages stay inside their claims sheets', () => {
+  const BANNED =
+    /whatsapp payslip|payslips? (on|over|via) whatsapp|files? (pf|esi|tds)[^.]{0,20}for you|auto-?fil|upload-ready|accepted by epfo|posted in tally|synced to tally|ca-verified|100% compliant|always up to date|form 16 generat|face recognition|biometric|leave types|full and final|\bfree\b|pagarbook|paysaathi/i;
+  it.each(HRMS_PAGES.map((p) => [p.slug, p]))('%s: carries no banned claim', (_slug, page) => {
+    const { relatedPosts, ...claimBearing } = page;
+    expect(JSON.stringify(claimBearing)).not.toMatch(BANNED);
+  });
+  it('lists all five pages under the staff and payroll group, off the lead tier', () => {
+    const group = FEATURE_GROUPS.find((g) => g.id === 'staff-payroll');
+    expect(group.slugs.sort()).toEqual(HRMS_PAGES.map((p) => p.slug).sort());
+    expect(HRMS_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
   });
 });

@@ -146,6 +146,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Automated WhatsApp payment reminders, from Takkada\'s number or your own',
       'Invoice-linked UPI payment collection at zero MDR',
       'Automatic payment reconciliation back into Tally',
+      'Staff attendance, salary and payslips in English and Hindi (add-on)',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
     sameAs: [appLinks.playStore, appLinks.appStore],
