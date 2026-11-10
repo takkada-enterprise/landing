@@ -92,6 +92,8 @@ export const BUDGETS = [
   ['public/assets/screens/reminders-720.webp', 60_000, 'feature-page hero (reminders)'],
   ['public/assets/screens/total-fy-360.webp', 32_000, 'feature-page hero (total-fy)'],
   ['public/assets/screens/total-fy-720.webp', 60_000, 'feature-page hero (total-fy)'],
+  ['public/assets/screens/reports-hub-doors-360.webp', 32_000, 'feature-page hero (tally-reports-on-mobile)'],
+  ['public/assets/screens/reports-hub-doors-720.webp', 60_000, 'feature-page hero (tally-reports-on-mobile)'],
   ['public/assets/screens/document-import-360.webp', 32_000, 'feature-page hero (document-import)'],
   ['public/assets/screens/document-import-720.webp', 60_000, 'feature-page hero (document-import)'],
   ['public/assets/screens/home-360.webp', 32_000, 'feature-page hero (home)'],

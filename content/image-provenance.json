@@ -3682,7 +3682,7 @@
       "reason": "Drawn, not captured: a static HTML screen (scratchpad reports-seo/mock/reports-hub-doors.html) using only the Takkada app's own wording from lib/screens/reports_hub_screen.dart and lib/widgets/home/fy_totals_section.dart on app main 73ac89bbd, rendered in headless Chrome at a 393 or 430 px phone width, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings (q80). The business (a paint, hardware and sanitary distributor), its items, stock groups, customers (Ravi Traders, Mehta Sanitary, Lakshmi Stores, Patel Paints, Shree Ganesh Hardware), suppliers (Om Distributors, Navkar Agencies), godowns, voucher numbers, the phone number 98765 43210 and every figure are made up; rupee figures are illustrations. No real customer, nothing from stage co7088 or any customer book. Built for the new reports pages at Ronak's direction (\"lets showcase all the reports\", then \"new reports\").",
       "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with a demo company 143 night capture of the same report and drop the operator exception."
     },
-    "92d02a87be956f982c9b661c17bd899b23ccd394d746c2dd33cba3393fd82e54": {
+    "25478dd39c46eed2463702f09899a0b453c003c071651e592b953a44dc9b35f8": {
       "path": "public/assets/screens/reports-hub-doors-720.webp",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-11-10",

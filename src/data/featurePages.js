@@ -950,7 +950,7 @@ const FIRST_BATCH = [
     // and note tiles all read zero on that capture, which makes a page about
     // twenty reports look like an empty product. The sales register carries
     // real volume and no identifying name, so it leads instead.
-    hero: { screen: 'total-fy' },
+    hero: { screen: 'reports-hub-doors' },
     author: 'founder',
     datePublished: '2026-08-08',
     updated: '2026-11-10',
