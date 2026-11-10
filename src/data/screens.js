@@ -392,6 +392,19 @@ export const SCREENS = {
   'stock-count-review': phone('stock-count-review', 'Review of a stock count: each item with system, counted and difference, a rate, Accept and Recount buttons, and one item marked Moved after count.'),
   'stock-count-recount': phone('stock-count-recount', 'A recount on a phone showing only the two items sent back, with empty boxes and the note Count these items again.'),
   'stock-count-approve': phone('stock-count-approve', 'The Approve this count? dialog with the shortage and excess value to be posted, a batch-wise item left out to adjust in Tally, and Back and Post journals buttons.'),
+  // Custom Fields add-on (serial number tracking, 2026-11-10). Drawn from the
+  // app's own wording, not captures: no company has a custom-field unit yet,
+  // demo company 143 has no batch-wise items and app captures are night-only.
+  // See their operatorException rows in the manifest; swap for the stage
+  // co7088 night capture when it exists.
+  'custom-fields-setup': phone('custom-fields-setup', 'Custom fields set up on a stock group: chassis number as the unit number, motor number and colour from a list, with must-be-filled and print-on-the-bill ticks, and a note to turn on Maintain in batches in Tally.'),
+  'custom-fields-unit-rows': phone('custom-fields-unit-rows', 'Purchase bill line for three phones with one row per phone for the IMEI and colour, and a repeated IMEI marked Entered twice.'),
+  'custom-fields-unit-picker': phone('custom-fields-unit-picker', "Picking a scooter on a sales bill from the units in stock, each with its chassis number, motor number and colour, narrowed to red, with the picked scooter's details filled into the description."),
+  'custom-fields-imei-picker': phone('custom-fields-imei-picker', 'Picking a phone on a sales bill from the phones in stock, each listed by its IMEI with its colour.'),
+  'custom-fields-already-sold': phone('custom-fields-already-sold', "A sales bill refused because the phone's IMEI is already sold on another invoice, with that invoice number shown."),
+  'custom-fields-invoice-print': phone('custom-fields-invoice-print', "Sales invoice with the scooter's chassis number, motor number, colour, battery numbers and charger number printed under the item."),
+  'custom-fields-units-by-detail': phone('custom-fields-units-by-detail', 'Units by detail report counting units sold by colour: four red, two blue and one black.'),
+  'custom-fields-unit-history': phone('custom-fields-unit-history', 'Unit history of one battery: bought on a purchase bill, fitted in a scooter in a production run, and the scooter it went into sold on INV/0033, with the date and bill for each step.'),
 };
 
 export function screen(slug) {

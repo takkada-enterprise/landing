@@ -26,6 +26,7 @@ Add-ons (Ask your partner for pricing):
 - Tally drafts: Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.
 - Staff and payroll: Attendance, leave, salary with overtime and fines, payslips in English and Hindi, advances, and the salary entry for Tally.
 - Physical stock count: Blind stock counts by group and godown, reviewed by you, with the stock journal made for Tally.
+- Custom Fields: Chassis no, IMEI, colour or any detail kept for every unit from purchase to sale, with no unit sold twice in Takkada.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -93,6 +94,9 @@ Add-ons (Ask your partner for pricing):
 - [PF ECR file and ESI sheet from salary](https://takkada.com/pf-ecr-esi-file-from-salary/): Government files in the Staff and Payroll add-on: the monthly PF ECR text file and ESI sheet prepared from confirmed salary for the owner or CA to upload on the EPFO and ESIC sites (the app does not upload them), PF with the pension split, ESI, professional tax and labour welfare fund on every slip, TDS on salary under the new or old regime, staff tax declarations, TDS challans, and quarterly Form 138 data for the CA. Rates are worked out from the app's tables and are not yet CA-checked.
 - [Physical stock verification for Tally](https://takkada.com/physical-stock-verification-tally/): Physical Stock Count add-on for businesses on Tally: assign one stock group or subgroup in one godown to one team member (up to 500 items, zero-stock items included); the counter sees item names and units but not book stock, which is hidden from them in Takkada while the count is open; book stock is frozen when they submit and items that move afterwards are marked Moved after count; the owner reviews book stock, counted, difference and rate, accepts each line or sends one item back for a blind recount; the person who counted cannot approve; approval makes the stock journal for Tally (shortages out, extra stock in) at cost rate; batch-wise items are counted but left out of the journal.
 - [Stock count app for staff](https://takkada.com/stock-count-app/): The counter's side of the Physical Stock Count add-on for businesses on Tally: counts assigned to a team member on their own login and listed on a Stock count tile with open and closed tabs; a list of item names and units with an empty box for each and no book stock; save as you go and submit once every item has a number; a note for items not on the list; recounts that show only the items sent back, with empty boxes; review and approval by the owner or a full-access member, never the person who counted; the stock journal made for Tally at cost rate on approval; batch-wise items are counted but left out of the journal.
+- [Serial number tracking for Tally](https://takkada.com/serial-number-tracking-tally/): Custom Fields add-on for businesses on Tally that sell numbered units: the owner or an admin adds fields to a stock group (text, number, date or pick from a list; Must be filled; Print on the bill) and subgroups inherit them; one field is the Unit no, the batch name in Tally, so Maintain in batches must be on for those items; the purchase invoice, goods receipt, stock journal inward and sales return give one row per unit, with paste for a column of numbers and a flag for a number entered twice; sales orders, challans, invoices, debit notes and stock journals pick from units still in stock in that godown, searchable by any detail; no unit is sold twice, built into two products or booked on two orders in Takkada, and the refusal names the bill that holds it, while a sale typed straight into Tally is matched after Takkada syncs; units carry through order, challan, invoice and return conversions; details print under the item on the sales invoice, order, challan and note PDFs, and the sale goes to Tally through Takkada with each Unit no as the batch and the details in the description lines; Units by detail counts units sold or in stock by any field; Unit history shows one unit's steps with date, bill and party.
+- [IMEI tracking for Tally](https://takkada.com/imei-tracking-tally/): IMEI tracking with the Custom Fields add-on for mobile and electronics shops and distributors on Tally: the IMEI is the Unit no and the batch name in Tally (Maintain in batches on for those items), with fields like colour or storage set per stock group; IMEIs are typed or pasted, one row per phone, on the purchase invoice, goods receipt or sales return, and an IMEI entered twice is flagged; sales orders, challans and invoices offer only phones still in stock in that godown, a phone picked on an order is held for that customer, and no IMEI is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details print under the item on the bill; a credit note offers only the phones on that invoice; Units by detail counts phones sold or in stock by any field; Unit history finds the bill a phone went out on.
+- [Chassis number tracking for Tally](https://takkada.com/chassis-number-tracking-tally/): Chassis and engine number tracking with the Custom Fields add-on for two-wheeler, EV and e-rickshaw dealers and assemblers on Tally: the chassis no is the Unit no and the batch name in Tally (Maintain in batches on), with motor no, colour and battery no as fields; vehicles are picked from those still in stock in the godown on the sales order, challan or invoice, a vehicle picked on an order is held for that customer, and no chassis is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details, with the numbers of the parts inside, print under the item on the sale bill; with the Manufacturing add-on a production run gives each finished vehicle its chassis no and links the batteries and charger that went into it (in-house production, not job work); Units by detail counts vehicles by colour; Unit history finds any chassis or battery number.
 
 ## Company
 
@@ -245,6 +249,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Razorpay Payment Links vs Tally-Native Collection](https://takkada.com/blog/razorpay-vs-tally-native-collection/)
 - [Recovery Register in a Notebook vs a Recovery Dashboard](https://takkada.com/blog/recovery-register-notebook-vs-recovery-dashboard/)
 - [Refrens vs Takkada: Which Fits a Tally-Using Distributor](https://takkada.com/blog/refrens-vs-takkada/)
+- [Serial Number TDL for Tally Prime, or an App Beside Tally? A Fair Comparison](https://takkada.com/blog/serial-number-tdl-tally-prime-alternative/)
 - [Spreadsheet Price Lists vs Cost-Plus Pricing for Spare Parts](https://takkada.com/blog/spreadsheet-price-list-vs-cost-plus-spare-parts/)
 - [Takkada vs Accosync: Tally Mobile App Feature Comparison (2026)](https://takkada.com/blog/takkada-vs-accosync/)
 - [Takkada vs Biz Analyst: Tally Mobile App Feature Comparison (2026)](https://takkada.com/blog/takkada-vs-biz-analyst/)
@@ -317,6 +322,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Bad Debt Write Off in Tally: When and How Distributors Should Do It](https://takkada.com/blog/bad-debt-write-off-tally/)
 - [Barcode Sticker Size List in mm: A4 Sheets, Thermal Rolls and What Fits](https://takkada.com/blog/barcode-sticker-size-list-in-mm/)
 - [Barcode TDL for Tally Prime: What It Adds and What to Check Before Installing](https://takkada.com/blog/barcode-tdl-for-tally-prime/)
+- [Battery Dealers: Find Who Bought Battery No. X, from Purchase to Sale](https://takkada.com/blog/battery-serial-number-history-dealers/)
 - [Can We Print Barcodes With a Normal Printer? Laser, Inkjet or Thermal for a Godown](https://takkada.com/blog/print-barcode-with-normal-printer/)
 - [Carton Barcode: One Scan for the Whole Box, With the Quantity Inside the Code](https://takkada.com/blog/carton-barcode/)
 - [Cheque Bounce Recovery for Distributors: The Section 138 Playbook](https://takkada.com/blog/cheque-bounce-recovery-distributors/)
@@ -329,10 +335,12 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Dukan Aur Godown Ka Stock Kaise Check Kare: Register Se App Tak](https://takkada.com/blog/dukan-godown-ka-stock-kaise-check-kare/)
 - [E-Invoice on Phone Tally: How Distributors Generate an IRN Without Going Back to the Office](https://takkada.com/blog/e-invoice-on-phone-tally/)
 - [E-Way Bill on Phone: How Distributors Clear ₹50,000+ Shipments Without the Office](https://takkada.com/blog/e-way-bill-on-phone/)
+- [EV Assemblers on Tally: Battery, Motor and Chassis Numbers Through Production](https://takkada.com/blog/ev-assembler-battery-chassis-numbers-tally/)
 - [Finding Dead Stock in Tally Before Year-End](https://takkada.com/blog/dead-stock-identification-tally-distributor/)
 - [Godown ka Stock Mobile se Kaise Dekhe](https://takkada.com/blog/godown-ka-stock-mobile-se-kaise-dekhe/)
 - [How Often to Send Payment Reminders: Presets and a Custom Cadence](https://takkada.com/blog/how-often-to-send-payment-reminders-cadence/)
 - [How to Access Tally on Mobile: A Step-by-Step Guide](https://takkada.com/blog/how-to-access-tally-on-mobile-step-by-step/)
+- [How to Add Description in a Tally Prime Invoice: Chassis No, IMEI and Colour](https://takkada.com/blog/print-serial-details-on-tally-invoice/)
 - [How to Automate Payment Reminders in Tally (Smart Reminders)](https://takkada.com/blog/automate-payment-reminders-tally/)
 - [How to Build a Load from Pending Orders and Print the Loading Sheet](https://takkada.com/blog/how-to-build-load-print-loading-sheet/)
 - [How to Check Party Outstanding in Tally on Mobile](https://takkada.com/blog/how-to-check-party-outstanding-tally-mobile/)
@@ -370,6 +378,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Salary Entry in Tally Prime with PF and ESI, with a Worked Example](https://takkada.com/blog/salary-entry-in-tally-prime-with-pf-esi/)
 - [Salary Kaise Calculate Kare: Monthly, Daily Aur Piece Rate Staff](https://takkada.com/blog/salary-kaise-calculate-kare/)
 - [Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)](https://takkada.com/blog/salesman-ki-visit-mobile-se-kaise-track-kare/)
+- [Serial Number in Tally Prime: Track Each Unit with One Batch per Unit](https://takkada.com/blog/serial-number-in-tally-prime-batch-method/)
 - [Set Your Own Ageing Slabs for Receivables (0-15, 15-45, 45-90 or Whatever Your Trade Uses)](https://takkada.com/blog/customise-ageing-slabs-receivables-tally/)
 - [Site Structure for a B2B Website: Design Your Product Pages So SEO and Backlinks Work Together](https://takkada.com/blog/b2b-website-structure-seo/)
 - [Staff Advance Entry in Tally: Which Group, the Journal and Recovery](https://takkada.com/blog/staff-advance-entry-in-tally/)
@@ -379,6 +388,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Tally ki Report Mobile par Kaise Dekhe (Hinglish)](https://takkada.com/blog/tally-ki-report-mobile-par-kaise-dekhe/)
 - [Tally Me Physical Stock Kaise Kare: Entry, Register Aur Staff Se Ginti](https://takkada.com/blog/tally-me-physical-stock-kaise-kare/)
 - [Tally Payment Reconciliation on Mobile, Done Right](https://takkada.com/blog/tally-payment-reconciliation-on-mobile/)
+- [Tally Prime Mein Serial Number Aur IMEI Kaise Daale (Batch Se)](https://takkada.com/blog/tally-prime-mein-serial-number-imei-kaise-daale/)
 - [Tally-Format Export: The Same Layout Your CA Expects, From the Phone](https://takkada.com/blog/tally-format-export-trial-balance-balance-sheet/)
 - [The Dispatch Load Sheet: What Goes Out Today, Beat by Beat](https://takkada.com/blog/dispatch-load-sheet-for-distributors/)
 - [The Reorder Point Formula for Distributors (With a Worked Example)](https://takkada.com/blog/reorder-point-formula-for-distributors/)
@@ -440,6 +450,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Reports
 
+- [Batch Wise Sales Report in Tally, and Units Sold by Colour or Model](https://takkada.com/blog/units-sold-by-colour-report-tally/)
 - [Cash and Bank Position Report from Tally](https://takkada.com/blog/cash-bank-report-tally-mobile/)
 - [Customer Analytics from Tally: Who Buys, How Often, How Much](https://takkada.com/blog/customer-analytics-report-tally/)
 - [Daily Sales Report from Tally on Your Phone](https://takkada.com/blog/daily-sales-report-tally-mobile/)

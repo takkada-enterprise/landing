@@ -148,6 +148,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Automatic payment reconciliation back into Tally',
       'Staff attendance, salary and payslips in English and Hindi (add-on)',
       'Physical stock counts done blind on the phone, reviewed by you, with the stock journal made for Tally (add-on)',
+      'Serial number tracking: your own details for every unit, such as chassis no, IMEI or colour, picked from stock and printed on the bill (Custom Fields add-on)',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
     sameAs: [appLinks.playStore, appLinks.appStore],

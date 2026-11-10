@@ -5,7 +5,7 @@ slug: "qr-code-vs-barcode-for-inventory"
 meta_description: "QR code vs barcode for inventory and billing: what each holds, which scanners read them, how small they print, and which a distributor's godown should use."
 primary_keyword: "QR code vs barcode for inventory"
 date: "2026-10-25"
-updated: "2026-10-25"
+updated: "2026-11-10"
 author: "harsh"
 category: "Comparisons"
 excerpt: "A QR code holds more and reads from any angle. A line barcode works with the cheapest USB gun. For a distributor billing by the box, here is how to choose."
@@ -41,6 +41,8 @@ A sticker for billing has to answer two questions: which item, and how many. Tha
 - Each piece needs its own serial number or a long batch record.
 - The label is tiny and will be scanned only by phone.
 - Labels get scuffed in transit, and a QR code's damage tolerance matters more than scanner cost.
+
+If the reason is that each piece has its own serial number, keep the number in your books first; the [serial number tracking for Tally](/serial-number-tracking-tally/) page shows one way.
 
 ## What a distributor setup looks like
 

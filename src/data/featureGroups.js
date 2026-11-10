@@ -95,6 +95,10 @@ export const FEATURE_GROUPS = [
       'stock-count-app',
       'proof-of-delivery-app-tally',
       'manufacturing-in-tally-prime',
+      // 2026-11-10: serial number tracking, the Custom Fields add-on (hub + IMEI and chassis spokes).
+      'serial-number-tracking-tally',
+      'imei-tracking-tally',
+      'chassis-number-tracking-tally',
     ],
   },
   {
@@ -321,6 +325,10 @@ export const FEATURE_BLURBS = {
     'Dealer receivables stretched from sowing right through to after the crop is sold.',
   'staff-attendance-salary-app': 'Attendance to salary to the Tally entry, in one app.',
   'payroll-software-tally': 'One balanced salary entry for Tally each month.',
+  'serial-number-tracking-tally':
+    'Your own details for every numbered unit, picked from stock and printed on the bill.',
+  'imei-tracking-tally': 'Phones bought and sold by IMEI, with no IMEI sold twice in Takkada.',
+  'chassis-number-tracking-tally': 'Chassis, motor and battery numbers per vehicle, printed on the sale bill.',
   'daily-wage-salary-app': 'Daily, hourly and piece-rate pay from the work actually done.',
   'salary-slip-in-hindi': 'Every payslip in Hindi or English, as a PDF.',
   'pf-ecr-esi-file-from-salary': 'PF ECR and ESI files prepared for your CA.',

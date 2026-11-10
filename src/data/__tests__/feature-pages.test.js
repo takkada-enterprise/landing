@@ -26,6 +26,7 @@ import { STOPS } from '../journey';
 import { ROUND_THREE } from '../featurePagesRoundThree';
 import { HRMS_PAGES } from '../featurePagesHrms';
 import { STOCK_COUNT_PAGES } from '../featurePagesStockCount';
+import { CUSTOM_FIELDS_PAGES } from '../featurePagesCustomFields';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -998,10 +999,10 @@ describe('call recording', () => {
 
 // Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
 // it is for in three situations, each today against with Takkada, and lists
-// the work that stops. The Staff and Payroll and Physical Stock Count pages
+// the work that stops. The Staff and Payroll and Physical Stock Count and Custom Fields pages
 // (2026-11-10) follow suit.
 describe('who it is for', () => {
-  it.each([...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+  it.each([...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES, ...CUSTOM_FIELDS_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
     expect(page.useCases?.heading).toBeTruthy();
     expect(page.useCases.cases).toHaveLength(3);
     for (const c of page.useCases.cases) {
@@ -1051,5 +1052,46 @@ describe('Physical Stock Count pages stay inside their claims sheets', () => {
     const group = FEATURE_GROUPS.find((g) => g.id === 'load');
     for (const p of STOCK_COUNT_PAGES) expect(group.slugs).toContain(p.slug);
     expect(STOCK_COUNT_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
+  });
+});
+
+// Custom Fields / serial number tracking (2026-11-10): claims that are not
+// live, or not provable yet, per docs/seo/feature-pages-custom-fields/*-claims.md.
+// Nobody has used the add-on yet (0 units on prod), no unit-tracked voucher has
+// reached a real Tally, purchases do not carry details to Tally, and the add-on
+// has no price. Never-twice is checked in Takkada only, so every page also says
+// a sale typed straight into Tally is matched after Takkada syncs. "warrant"
+// keeps warranty off these pages entirely, and "free" means "units still in
+// stock" must be said that way.
+describe('Custom Fields pages stay inside their claims sheets', () => {
+  const BANNED =
+    /\bscan|warrant|reminder|\bfree\b|\btrial|impossible|fraud|100%|inside tally|(saved|posted|stored|kept) (in|to) tally|\budf\b|user.defined|custom fields in tally|two-way|mandatory|the only|iphone|barcode|\bai\b|paysaathi|mybillbook|vyapar|busy (software|accounting)|\bmarg\b|zoho|swipe|refrens|accountune|gofrugal|antraweb|tdlstore/i;
+  it.each(CUSTOM_FIELDS_PAGES.map((p) => [p.slug, p]))('%s: carries no banned claim', (_slug, page) => {
+    const { relatedPosts, ...claimBearing } = page;
+    expect(JSON.stringify(claimBearing)).not.toMatch(BANNED);
+  });
+  it.each(CUSTOM_FIELDS_PAGES.map((p) => [p.slug, p]))(
+    '%s: says Maintain in batches and keeps never-twice to Takkada',
+    (_slug, page) => {
+      const text = JSON.stringify(page);
+      expect(text).toMatch(/maintain in batches/i);
+      expect(text).toMatch(/(sold|used|booked) twice in Takkada/i);
+      expect(text).toMatch(/matched after Takkada syncs/i);
+    }
+  );
+  it.each(CUSTOM_FIELDS_PAGES.map((p) => [p.slug, p]))(
+    '%s: production runs always name the Manufacturing add-on',
+    (_slug, page) => {
+      const text = JSON.stringify(page);
+      if (/production run/i.test(text)) {
+        expect(text).toMatch(/Manufacturing add-on/);
+        expect(text).toMatch(/in-house production, not job work/);
+      }
+    }
+  );
+  it('sits in Loading and stock, off the lead tier', () => {
+    const group = FEATURE_GROUPS.find((g) => g.id === 'load');
+    for (const p of CUSTOM_FIELDS_PAGES) expect(group.slugs).toContain(p.slug);
+    expect(CUSTOM_FIELDS_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
   });
 });

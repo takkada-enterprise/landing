@@ -26,6 +26,7 @@ Add-ons (Ask your partner for pricing):
 - Tally drafts: Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.
 - Staff and payroll: Attendance, leave, salary with overtime and fines, payslips in English and Hindi, advances, and the salary entry for Tally.
 - Physical stock count: Blind stock counts by group and godown, reviewed by you, with the stock journal made for Tally.
+- Custom Fields: Chassis no, IMEI, colour or any detail kept for every unit from purchase to sale, with no unit sold twice in Takkada.
 - Extra user: Every plan comes with one user. Add a login for each extra person.
 
 ## Key pages
@@ -93,6 +94,9 @@ Add-ons (Ask your partner for pricing):
 - [PF ECR file and ESI sheet from salary](https://takkada.com/pf-ecr-esi-file-from-salary/): Government files in the Staff and Payroll add-on: the monthly PF ECR text file and ESI sheet prepared from confirmed salary for the owner or CA to upload on the EPFO and ESIC sites (the app does not upload them), PF with the pension split, ESI, professional tax and labour welfare fund on every slip, TDS on salary under the new or old regime, staff tax declarations, TDS challans, and quarterly Form 138 data for the CA. Rates are worked out from the app's tables and are not yet CA-checked.
 - [Physical stock verification for Tally](https://takkada.com/physical-stock-verification-tally/): Physical Stock Count add-on for businesses on Tally: assign one stock group or subgroup in one godown to one team member (up to 500 items, zero-stock items included); the counter sees item names and units but not book stock, which is hidden from them in Takkada while the count is open; book stock is frozen when they submit and items that move afterwards are marked Moved after count; the owner reviews book stock, counted, difference and rate, accepts each line or sends one item back for a blind recount; the person who counted cannot approve; approval makes the stock journal for Tally (shortages out, extra stock in) at cost rate; batch-wise items are counted but left out of the journal.
 - [Stock count app for staff](https://takkada.com/stock-count-app/): The counter's side of the Physical Stock Count add-on for businesses on Tally: counts assigned to a team member on their own login and listed on a Stock count tile with open and closed tabs; a list of item names and units with an empty box for each and no book stock; save as you go and submit once every item has a number; a note for items not on the list; recounts that show only the items sent back, with empty boxes; review and approval by the owner or a full-access member, never the person who counted; the stock journal made for Tally at cost rate on approval; batch-wise items are counted but left out of the journal.
+- [Serial number tracking for Tally](https://takkada.com/serial-number-tracking-tally/): Custom Fields add-on for businesses on Tally that sell numbered units: the owner or an admin adds fields to a stock group (text, number, date or pick from a list; Must be filled; Print on the bill) and subgroups inherit them; one field is the Unit no, the batch name in Tally, so Maintain in batches must be on for those items; the purchase invoice, goods receipt, stock journal inward and sales return give one row per unit, with paste for a column of numbers and a flag for a number entered twice; sales orders, challans, invoices, debit notes and stock journals pick from units still in stock in that godown, searchable by any detail; no unit is sold twice, built into two products or booked on two orders in Takkada, and the refusal names the bill that holds it, while a sale typed straight into Tally is matched after Takkada syncs; units carry through order, challan, invoice and return conversions; details print under the item on the sales invoice, order, challan and note PDFs, and the sale goes to Tally through Takkada with each Unit no as the batch and the details in the description lines; Units by detail counts units sold or in stock by any field; Unit history shows one unit's steps with date, bill and party.
+- [IMEI tracking for Tally](https://takkada.com/imei-tracking-tally/): IMEI tracking with the Custom Fields add-on for mobile and electronics shops and distributors on Tally: the IMEI is the Unit no and the batch name in Tally (Maintain in batches on for those items), with fields like colour or storage set per stock group; IMEIs are typed or pasted, one row per phone, on the purchase invoice, goods receipt or sales return, and an IMEI entered twice is flagged; sales orders, challans and invoices offer only phones still in stock in that godown, a phone picked on an order is held for that customer, and no IMEI is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details print under the item on the bill; a credit note offers only the phones on that invoice; Units by detail counts phones sold or in stock by any field; Unit history finds the bill a phone went out on.
+- [Chassis number tracking for Tally](https://takkada.com/chassis-number-tracking-tally/): Chassis and engine number tracking with the Custom Fields add-on for two-wheeler, EV and e-rickshaw dealers and assemblers on Tally: the chassis no is the Unit no and the batch name in Tally (Maintain in batches on), with motor no, colour and battery no as fields; vehicles are picked from those still in stock in the godown on the sales order, challan or invoice, a vehicle picked on an order is held for that customer, and no chassis is sold twice in Takkada (a sale typed straight into Tally is matched after Takkada syncs); the details, with the numbers of the parts inside, print under the item on the sale bill; with the Manufacturing add-on a production run gives each finished vehicle its chassis no and links the batteries and charger that went into it (in-house production, not job work); Units by detail counts vehicles by colour; Unit history finds any chassis or battery number.
 
 ## Company
 
@@ -1399,6 +1403,96 @@ A stock count app lets your staff count the shelf on a phone while you check the
 - **Q: How much does the stock count cost?**
   A: Stock count is part of the Physical Stock Count add-on, which is priced by your partner and switched on for each company separately. Ask your partner for the price, or message us on WhatsApp and we will switch it on for your company.
 
+### [Every unit you sell keeps its own serial number and details, from the purchase bill to the sale bill.](https://takkada.com/serial-number-tracking-tally/)
+
+*Tally can hold each unit as a batch named by its serial number, but the engine number, colour or battery number have to live in a register, and the clerk has to remember which numbers are already sold. The Custom Fields add-on keeps those details with every unit, offers only units still in stock, and prints them under the item on the bill.*
+
+**Core capability & workflow:**
+Serial number tracking for Tally means knowing every unit you buy and sell by its own number. With Takkada's Custom Fields add-on, each unit is a Tally batch named by its Unit no, with details like chassis no, IMEI or colour kept beside it. Bills offer only units still in stock, and the details print on the sale bill.
+
+**How it works:**
+- **Your fields on a stock group**: Pick a stock group and add the details you keep for every unit: chassis no, motor no, colour, battery no, IMEI, anything. Each field is text, a number, a date or a pick from a list, and you choose which must be filled and which print on the bill. One field is the Unit no, the batch name in Tally, so turn on "Maintain in batches" for those items in Tally; the app lists any item that is not.
+- **One row per unit on the purchase**: Buy 5 and you get 5 rows, one per unit, on the purchase invoice, goods receipt, stock journal inward or sales return. Paste a column of numbers to fill them at once. A number typed twice is flagged before you save, and a unit already in stock cannot be bought again.
+- **Pick from units still in stock**: On a sales order, delivery challan, sales invoice, debit note or stock journal, the list shows only the units still in stock in that godown, each with its details; search, or tap a detail like "Color: Red". The units you pick set the quantity and fill the description lines. No unit is sold twice, built into two products or booked on two orders in Takkada: the bill is refused, naming the bill that holds it.
+- **On the bill, through every step**: The details print under the item on the sales invoice, sales order, delivery challan, credit note and debit note. Units picked on a sales order are held for that customer, and they carry from order to challan to invoice. The sale goes to Tally through Takkada with each Unit no as the batch and the details in the item's description lines.
+- **Count units by any detail**: How many Red sold this month, how many 48V batteries are in stock: Units by detail counts units sold or in stock by any field, between the dates you pick. A battery that went out inside a sold scooter counts as sold too.
+- **One number, its whole history**: Type a chassis no, battery no, IMEI or any detail and Unit history shows the unit, the vehicle it went into or the parts inside it, and every step with date, bill number and party. Units bought or made straight in Tally show up marked Details missing after Takkada syncs with Tally, so you can fill them in.
+
+**Frequently Asked Questions:**
+- **Q: Does Tally Prime have serial number tracking for stock items?**
+  A: Tally Prime has no separate serial-number field on a stock item. Tally's own help keeps each unit as a batch named by its serial number or IMEI, with batches switched on for the item, and the Batch Summary report then shows which numbers are still in stock. That records the number only, so details like colour or engine number have to be kept somewhere else.
+- **Q: Do I need to install a TDL in Tally for this?**
+  A: No. Takkada keeps the details, and the Unit no goes to Tally as the batch through Takkada's Tally connector, the same connector that sends your other bills. In Tally you only turn on "Maintain in batches" for the items in that stock group.
+- **Q: Can the same serial number be sold twice?**
+  A: No unit is sold twice in Takkada. Every bill made in Takkada, on the phone, the web app or a van, is checked, and a unit already sold, built into another product or held on another order is refused with the bill that holds it named. A sale typed straight into Tally is matched after Takkada syncs, not blocked, and shows under Units needing attention for you to clear.
+- **Q: What details can I keep for each unit?**
+  A: Any you choose, per stock group: text, a number, a date or a pick from a list, such as chassis no, motor no, colour, battery no or IMEI. Every item in the group and its subgroups asks for them, and a subgroup can have its own. Remove a field later and the details already saved stay.
+- **Q: Do the serial details print on the invoice?**
+  A: Yes. The fields you mark Print on the bill print under the item on the sales invoice, sales order, delivery challan, credit note and debit note, and you can still edit those lines before you save. The sale goes to Tally through Takkada with each Unit no as the batch and the details in the item's description lines.
+- **Q: What about units I bought straight in Tally?**
+  A: Units bought or made in Tally show up in Takkada marked Details missing after Takkada syncs with Tally, so you can fill in their details before you sell them. Turn on "Maintain in batches" in Tally first, so each unit comes through as its own batch.
+- **Q: Can I add custom fields to stock items in Tally Prime itself?**
+  A: Tally Prime's own invoice customisation adds fields to the company or the invoice as a whole, and fields on each stock item or unit need a TDL written for your Tally. The Custom Fields add-on keeps the fields in Takkada instead, per stock group, with the Unit no as the Tally batch, so nothing is installed in Tally.
+- **Q: Can I use it on a computer?**
+  A: Yes. Set up fields, buy, sell and see the reports on the phone, or in a computer browser with Web view, which comes with the Assurance plan. With the Desktop entry add-on, Custom fields and Units by detail sit in the Stock menu of the computer layout.
+- **Q: How much does the Custom Fields add-on cost?**
+  A: It is an add-on on top of a Takkada plan, priced by your partner, and it is switched on for each company separately. Ask your partner for the price, or message us on WhatsApp and we will switch it on for your company.
+
+### [Every phone in stock by its IMEI, and every bill picks from the phones you still have.](https://takkada.com/imei-tracking-tally/)
+
+*In Tally a phone can be a batch named by its IMEI, but typing twenty IMEIs into a purchase voucher is slow, and the colour and storage sit somewhere else. With the Custom Fields add-on, the IMEIs are pasted in on the purchase, each phone keeps its details, and the sale bill offers only phones still in that godown.*
+
+**Core capability & workflow:**
+IMEI tracking for Tally means each phone is one Tally batch named by its IMEI, so you know exactly which handsets came in and went out. With Takkada's Custom Fields add-on you paste the IMEIs on the purchase bill, pick from phones still in stock when you sell, and no IMEI is sold twice in Takkada.
+
+**How it works:**
+- **Paste the IMEIs on the purchase**: Set the IMEI as the Unit no for your phones' stock group, with colour or storage beside it, and turn on "Maintain in batches" for those items in Tally. Buy 20 and you get 20 rows; paste the column of IMEIs from the supplier's list. An IMEI typed twice is flagged as Entered twice, and a phone already in stock cannot be bought again.
+- **Pick from phones in stock**: On the sales order, challan or invoice, the list shows only the phones still in stock in that godown, with their colour and details. Search by the last digits of the IMEI; the phones you pick set the quantity, and their IMEIs fill the description lines.
+- **No IMEI sold twice in Takkada**: A phone already sold or held on another order is refused, naming the bill that holds it, and if two people bill the same phone at the same moment, only one bill goes through. Cancel a bill and its phones can be sold again. A sale typed straight into Tally is matched after Takkada syncs, not blocked.
+- **Phones counted by colour or model**: Units by detail counts phones sold or in stock by any field you set up, between any dates. Unit history finds one IMEI: the purchase it came in on, the bill it went out on, and the party.
+
+**Frequently Asked Questions:**
+- **Q: How do I add an IMEI number in Tally Prime?**
+  A: Tally Prime has no IMEI field of its own, so the usual way is to switch on batch-wise details, set the phone's stock item to Maintain in batches, and type each IMEI as a batch of quantity 1 on the purchase. With the Custom Fields add-on you paste the IMEIs on the purchase in Takkada instead, and each one goes to Tally as that phone's batch.
+- **Q: Do I have to print the IMEI on a GST invoice?**
+  A: Rule 46 of the CGST Rules, which lists what a tax invoice must carry, does not name the IMEI, so printing it is your choice; confirm with your CA for your own case. Printed IMEIs help when a customer brings a phone back. In Takkada, the IMEI and any field marked Print on the bill print under the item.
+- **Q: Can two salesmen sell the same phone?**
+  A: No IMEI is sold twice in Takkada. Each bill offers only phones still in stock in that godown, a phone already sold is refused with the bill that holds it named, and if two people bill the same phone at the same moment, only one bill goes through.
+- **Q: Can I see how many phones of each colour are in stock?**
+  A: Yes. Units by detail counts phones sold or in stock by any field you set up, such as colour, storage or model, between the dates you pick. Filter by dates to see a month at a time.
+- **Q: What happens when a customer returns a phone?**
+  A: Make a credit note against the invoice and it offers only the phones that were on that invoice. The returned phone is back in stock to sell again, with its IMEI and details as they were.
+- **Q: How much does IMEI tracking cost?**
+  A: IMEI tracking is part of the Custom Fields add-on, priced by your partner and switched on for each company separately. Ask your partner for the price, or message us on WhatsApp and we will switch it on for your company.
+
+### [Each vehicle billed by its chassis number, with its motor number, colour and battery numbers printed under it.](https://takkada.com/chassis-number-tracking-tally/)
+
+*A two-wheeler or e-rickshaw bill carries the chassis number and the engine or motor number, and the clerk usually copies them from a register into the bill. With the Custom Fields add-on, each vehicle keeps its own numbers from the day it is bought or built, and picking it on the bill prints them.*
+
+**Core capability & workflow:**
+Chassis number tracking for Tally means each vehicle is one Tally batch named by its chassis number, with its engine or motor number, colour and battery numbers kept beside it. With Takkada's Custom Fields add-on you pick the vehicle from those in stock, its details print on the sale bill, and no chassis is sold twice in Takkada.
+
+**How it works:**
+- **Chassis no, motor no, colour, battery no**: On the vehicles' stock group, make the chassis no the Unit no and add motor no, colour and battery no, marking which must be filled and which print on the bill. Turn on "Maintain in batches" for those items in Tally. On the purchase or goods receipt, each vehicle gets its own row.
+- **Pick the vehicle from stock**: The sales order, challan or invoice lists only the vehicles still in stock in that godown; tap "Color: Red" to narrow it. A vehicle picked on a sales order is held for that customer. No chassis is sold twice in Takkada: the bill is refused, naming the bill that holds it, and a sale typed straight into Tally is matched after Takkada syncs.
+- **Its numbers on the bill**: Chassis no, motor no, colour and the numbers of the parts inside, such as Battery no and Charger no, print under the item on the sales invoice and challan. The sale goes to Tally through Takkada with the chassis no as the batch and the details in the item's description lines.
+- **Batteries inside, found later**: With the Manufacturing add-on, a production run gives each finished vehicle its chassis no and details, and you pick the parts that go into it, any number, like two batteries and a charger; a part used in one vehicle cannot go into another. This covers in-house production, not job work. Unit history then finds any battery or chassis no with every bill.
+- **Vehicles sold by colour**: Units by detail counts vehicles sold or in stock by colour or any field, and a battery that went out inside a sold scooter counts as sold too.
+
+**Frequently Asked Questions:**
+- **Q: How do I add the chassis number and engine number on a Tally invoice?**
+  A: In Tally Prime they usually go in the description lines under the vehicle, typed on every bill, or the chassis number is used as the batch name. With the Custom Fields add-on the chassis no is the batch, and picking the vehicle fills its engine or motor number, colour and battery numbers into the description lines for you.
+- **Q: Should the chassis number on the invoice match Form 21?**
+  A: The sale certificate in Form 21 asks for the vehicle's chassis number and its engine number, or motor number for a battery-operated vehicle. Keeping the same numbers on your invoice keeps the papers consistent; check the exact requirement with your RTO agent or CA. In Takkada the numbers print from the vehicle's own details, so they are not retyped.
+- **Q: Can one scooter carry two battery numbers?**
+  A: Yes, with the Manufacturing add-on. In a production run each finished scooter gets its chassis no, and you pick any number of parts for it, such as two batteries and a charger; when the scooter is sold, the parts' numbers print with it.
+- **Q: Can I hold a vehicle for a customer who has booked it?**
+  A: Yes. Pick the vehicle on the sales order and it is held for that customer, so no other order or bill is offered it. You can also save the order without a vehicle and pick one at the challan or invoice.
+- **Q: Is this two-wheeler showroom software?**
+  A: It is billing and stock on top of your Tally, with the Custom Fields add-on keeping each vehicle's numbers. It has no workshop, service job or registration module, so a showroom that needs those keeps its dealer system for them. Spares and accessories bill from the same app.
+- **Q: How much does chassis number tracking cost?**
+  A: It is part of the Custom Fields add-on, priced by your partner and switched on for each company separately. Production runs also need the Manufacturing add-on. Ask your partner for the price, or message us on WhatsApp and we will switch it on for your company.
+
 ## Manual
 
 Step-by-step instructions for people using the app, each one checked against the app itself on the date it names. Index: https://takkada.com/guide/
@@ -1545,6 +1639,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Razorpay Payment Links vs Tally-Native Collection](https://takkada.com/blog/razorpay-vs-tally-native-collection/)
 - [Recovery Register in a Notebook vs a Recovery Dashboard](https://takkada.com/blog/recovery-register-notebook-vs-recovery-dashboard/)
 - [Refrens vs Takkada: Which Fits a Tally-Using Distributor](https://takkada.com/blog/refrens-vs-takkada/)
+- [Serial Number TDL for Tally Prime, or an App Beside Tally? A Fair Comparison](https://takkada.com/blog/serial-number-tdl-tally-prime-alternative/)
 - [Spreadsheet Price Lists vs Cost-Plus Pricing for Spare Parts](https://takkada.com/blog/spreadsheet-price-list-vs-cost-plus-spare-parts/)
 - [Takkada vs Accosync: Tally Mobile App Feature Comparison (2026)](https://takkada.com/blog/takkada-vs-accosync/)
 - [Takkada vs Biz Analyst: Tally Mobile App Feature Comparison (2026)](https://takkada.com/blog/takkada-vs-biz-analyst/)
@@ -1617,6 +1712,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Bad Debt Write Off in Tally: When and How Distributors Should Do It](https://takkada.com/blog/bad-debt-write-off-tally/)
 - [Barcode Sticker Size List in mm: A4 Sheets, Thermal Rolls and What Fits](https://takkada.com/blog/barcode-sticker-size-list-in-mm/)
 - [Barcode TDL for Tally Prime: What It Adds and What to Check Before Installing](https://takkada.com/blog/barcode-tdl-for-tally-prime/)
+- [Battery Dealers: Find Who Bought Battery No. X, from Purchase to Sale](https://takkada.com/blog/battery-serial-number-history-dealers/)
 - [Can We Print Barcodes With a Normal Printer? Laser, Inkjet or Thermal for a Godown](https://takkada.com/blog/print-barcode-with-normal-printer/)
 - [Carton Barcode: One Scan for the Whole Box, With the Quantity Inside the Code](https://takkada.com/blog/carton-barcode/)
 - [Cheque Bounce Recovery for Distributors: The Section 138 Playbook](https://takkada.com/blog/cheque-bounce-recovery-distributors/)
@@ -1629,10 +1725,12 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Dukan Aur Godown Ka Stock Kaise Check Kare: Register Se App Tak](https://takkada.com/blog/dukan-godown-ka-stock-kaise-check-kare/)
 - [E-Invoice on Phone Tally: How Distributors Generate an IRN Without Going Back to the Office](https://takkada.com/blog/e-invoice-on-phone-tally/)
 - [E-Way Bill on Phone: How Distributors Clear ₹50,000+ Shipments Without the Office](https://takkada.com/blog/e-way-bill-on-phone/)
+- [EV Assemblers on Tally: Battery, Motor and Chassis Numbers Through Production](https://takkada.com/blog/ev-assembler-battery-chassis-numbers-tally/)
 - [Finding Dead Stock in Tally Before Year-End](https://takkada.com/blog/dead-stock-identification-tally-distributor/)
 - [Godown ka Stock Mobile se Kaise Dekhe](https://takkada.com/blog/godown-ka-stock-mobile-se-kaise-dekhe/)
 - [How Often to Send Payment Reminders: Presets and a Custom Cadence](https://takkada.com/blog/how-often-to-send-payment-reminders-cadence/)
 - [How to Access Tally on Mobile: A Step-by-Step Guide](https://takkada.com/blog/how-to-access-tally-on-mobile-step-by-step/)
+- [How to Add Description in a Tally Prime Invoice: Chassis No, IMEI and Colour](https://takkada.com/blog/print-serial-details-on-tally-invoice/)
 - [How to Automate Payment Reminders in Tally (Smart Reminders)](https://takkada.com/blog/automate-payment-reminders-tally/)
 - [How to Build a Load from Pending Orders and Print the Loading Sheet](https://takkada.com/blog/how-to-build-load-print-loading-sheet/)
 - [How to Check Party Outstanding in Tally on Mobile](https://takkada.com/blog/how-to-check-party-outstanding-tally-mobile/)
@@ -1670,6 +1768,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Salary Entry in Tally Prime with PF and ESI, with a Worked Example](https://takkada.com/blog/salary-entry-in-tally-prime-with-pf-esi/)
 - [Salary Kaise Calculate Kare: Monthly, Daily Aur Piece Rate Staff](https://takkada.com/blog/salary-kaise-calculate-kare/)
 - [Salesman ki Visit Mobile se Kaise Track Kare (Hinglish)](https://takkada.com/blog/salesman-ki-visit-mobile-se-kaise-track-kare/)
+- [Serial Number in Tally Prime: Track Each Unit with One Batch per Unit](https://takkada.com/blog/serial-number-in-tally-prime-batch-method/)
 - [Set Your Own Ageing Slabs for Receivables (0-15, 15-45, 45-90 or Whatever Your Trade Uses)](https://takkada.com/blog/customise-ageing-slabs-receivables-tally/)
 - [Site Structure for a B2B Website: Design Your Product Pages So SEO and Backlinks Work Together](https://takkada.com/blog/b2b-website-structure-seo/)
 - [Staff Advance Entry in Tally: Which Group, the Journal and Recovery](https://takkada.com/blog/staff-advance-entry-in-tally/)
@@ -1679,6 +1778,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 - [Tally ki Report Mobile par Kaise Dekhe (Hinglish)](https://takkada.com/blog/tally-ki-report-mobile-par-kaise-dekhe/)
 - [Tally Me Physical Stock Kaise Kare: Entry, Register Aur Staff Se Ginti](https://takkada.com/blog/tally-me-physical-stock-kaise-kare/)
 - [Tally Payment Reconciliation on Mobile, Done Right](https://takkada.com/blog/tally-payment-reconciliation-on-mobile/)
+- [Tally Prime Mein Serial Number Aur IMEI Kaise Daale (Batch Se)](https://takkada.com/blog/tally-prime-mein-serial-number-imei-kaise-daale/)
 - [Tally-Format Export: The Same Layout Your CA Expects, From the Phone](https://takkada.com/blog/tally-format-export-trial-balance-balance-sheet/)
 - [The Dispatch Load Sheet: What Goes Out Today, Beat by Beat](https://takkada.com/blog/dispatch-load-sheet-for-distributors/)
 - [The Reorder Point Formula for Distributors (With a Worked Example)](https://takkada.com/blog/reorder-point-formula-for-distributors/)
@@ -1740,6 +1840,7 @@ Practical guides on Tally workflows, receivables and collections. Index: https:/
 
 ### Reports
 
+- [Batch Wise Sales Report in Tally, and Units Sold by Colour or Model](https://takkada.com/blog/units-sold-by-colour-report-tally/)
 - [Cash and Bank Position Report from Tally](https://takkada.com/blog/cash-bank-report-tally-mobile/)
 - [Customer Analytics from Tally: Who Buys, How Often, How Much](https://takkada.com/blog/customer-analytics-report-tally/)
 - [Daily Sales Report from Tally on Your Phone](https://takkada.com/blog/daily-sales-report-tally-mobile/)
