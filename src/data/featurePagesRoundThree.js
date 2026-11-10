@@ -431,7 +431,7 @@ export const ROUND_THREE = [
     hero: { screen: 'manufacturing-production-run' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-06',
+    updated: '2026-11-10',
     useCases: {
       heading: "Made for businesses that make what they sell",
       cases: [
@@ -563,7 +563,12 @@ export const ROUND_THREE = [
         a: 'No. Once a run, a job-work order or a challan is in Tally, the app will not change it. If a run was wrong, cancel its journal in Tally and record the run again in the app, so both sides tell the same story.',
       },
     ],
-    relatedPosts: [],
+    relatedPosts: [
+      {
+        slug: 'ev-assembler-battery-chassis-numbers-tally',
+        title: 'EV Assemblers on Tally: Battery, Motor and Chassis Numbers Through Production',
+      },
+    ],
     priority: 0.7,
   },
   {

@@ -960,5 +960,62 @@
     "shows": "Count #12 dimmed under the dialog Approve this count?: Shortage journal: 3 items, Rs 4,860.00. Excess journal: 1 item, Rs 520.00. Left out (batch-wise, adjust in Tally): Engine oil 1 L. Buttons Back, Post journals",
     "alt": "The Approve this count? dialog with the shortage and excess value to be posted, a batch-wise item left out to adjust in Tally, and Back and Post journals buttons.",
     "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-setup",
+    "source": "custom-fields/custom-fields-setup.png",
+    "shows": "Electric scooters field editor: banner Turn on \"Maintain in batches\" in Tally for these items, or their bills cannot be saved: E-scooter 60V; field Chassis no, Type Text, Unit no (the batch name in Tally) ticked, Must be filled, Print on the bill; field Motor no, Type Text, Must be filled, Print on the bill; field Color, Type Pick from a list (cut off at the bottom)",
+    "alt": "Custom fields set up on a stock group: chassis number as the unit number, motor number and colour from a list, with must-be-filled and print-on-the-bill ticks, and a note to turn on Maintain in batches in Tally.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-unit-rows",
+    "source": "custom-fields/custom-fields-unit-rows.png",
+    "shows": "Add Items, Items in bill (1): Smartphone 128 GB, Qty 3 Nos, Rate 13,800.00, Main godown; IMEI (unit 1) 356789104562318 Color Black, IMEI (unit 2) 356789104562326 Color Blue, IMEI (unit 3) 356789104562326 in red with Entered twice, Color Blue; 1 item, Continue",
+    "alt": "Purchase bill line for three phones with one row per phone for the IMEI and colour, and a repeated IMEI marked Entered twice.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-unit-picker",
+    "source": "custom-fields/custom-fields-unit-picker.png",
+    "shows": "Add Items, Items in bill (1): E-scooter 48V, Qty 1 Nos, Rate 72,500.00, Godown Main godown; Pick Chassis no · 1 picked, Search in 'Chassis no or detail', chips Color: Red (on), Color: Blue, Color: Black; XEV24C000187 ticked, XEV24C000190, XEV24C000196, each with Motor no and Color: Red; Description: Chassis no: XEV24C000187 · Motor no: MTR-48V-20931 · Color: Red / Battery no: LFP-0457, LFP-0458 · Charger no: CHG-11902; Continue",
+    "alt": "Picking a scooter on a sales bill from the units in stock, each with its chassis number, motor number and colour, narrowed to red, with the picked scooter's details filled into the description.",
+    "q": 74,
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-imei-picker",
+    "source": "custom-fields/custom-fields-imei-picker.png",
+    "shows": "Add Items, Items in bill (1): Smartphone 128 GB, Qty 1 Nos, Rate 13,800.00, Godown Main godown; Pick IMEI · 1 picked, Search in 'IMEI or detail', chips Color: Black, Color: Blue; 356789104562318 ticked, 356789104562334, 356789104562342, 356789104562359, 356789104562367, each with its Color; Continue",
+    "alt": "Picking a phone on a sales bill from the phones in stock, each listed by its IMEI with its colour.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-already-sold",
+    "source": "custom-fields/custom-fields-already-sold.png",
+    "shows": "Invoice Summary: Party Cash; Items: Smartphone 128 GB, 1 Nos, description IMEI: 356789104562318 · Color: Black, Total 13,800.00; snack bar IMEI 356789104562318 is already sold on INV/0033; Create Invoice",
+    "alt": "A sales bill refused because the phone's IMEI is already sold on another invoice, with that invoice number shown.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-invoice-print",
+    "source": "custom-fields/custom-fields-invoice-print.png",
+    "shows": "Invoice INV/0033 PDF: Tax Invoice, New Auto Point, Dated 08/11/2026, Buyer (Bill to) Ravi Kumar; E-scooter 48V 1 Nos 72,500.00 with description lines Chassis no: XEV24C000187 · Motor no: MTR-48V-20931 · Color: Red / Battery no: LFP-0457, LFP-0458 · Charger no: CHG-11902; CGST, SGST, Total 76,125.00",
+    "alt": "Sales invoice with the scooter's chassis number, motor number, colour, battery numbers and charger number printed under the item.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-units-by-detail",
+    "source": "custom-fields/custom-fields-units-by-detail.png",
+    "shows": "Units by detail: Sold (on) / In stock; chips Motor no · Electric scooters, Color · Electric scooters (on), Color · Mobiles; dates 01/11/2026 – 10/11/2026; 7 units sold: Red 4, Blue 2, Black 1",
+    "alt": "Units by detail report counting units sold by colour: four red, two blue and one black.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "custom-fields-unit-history",
+    "source": "custom-fields/custom-fields-unit-history.png",
+    "shows": "Unit history, search LFP-0457: LFP-0457 · Battery 48V 30Ah, Used in a unit, Capacity: 30Ah, Inside XEV24C000187 (E-scooter 48V) · Sold on INV/0033 to Ravi Kumar; 28/10/2026 · In stock · Purchase invoice PUR/0118 · Om Battery House; 05/11/2026 · Used in a unit · Production run 7",
+    "alt": "Unit history of one battery: bought on a purchase bill, fitted in a scooter in a production run, and the scooter it went into sold on INV/0033, with the date and bill for each step.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (custom fields screens on app main 73ac89bbd), not an app capture: no company on prod or stage has a custom-field unit yet and demo company 143 has no batch-wise items, and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
   }
 ]

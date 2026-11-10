@@ -304,6 +304,13 @@ export const BUDGETS = [
   ['public/assets/screens/stock-count-review-720.webp', 60_000, 'feature-page hero (physical-stock-verification-tally)'],
   ['public/assets/screens/stock-count-blind-entry-360.webp', 32_000, 'feature-page hero (stock-count-app)'],
   ['public/assets/screens/stock-count-blind-entry-720.webp', 60_000, 'feature-page hero (stock-count-app)'],
+  // Custom Fields heroes (2026-11-10), drawn screens; the unit picker at q74.
+  ['public/assets/screens/custom-fields-unit-picker-360.webp', 32_000, 'feature-page hero (serial-number-tracking-tally)'],
+  ['public/assets/screens/custom-fields-unit-picker-720.webp', 60_000, 'feature-page hero (serial-number-tracking-tally)'],
+  ['public/assets/screens/custom-fields-unit-rows-360.webp', 32_000, 'feature-page hero (imei-tracking-tally)'],
+  ['public/assets/screens/custom-fields-unit-rows-720.webp', 60_000, 'feature-page hero (imei-tracking-tally)'],
+  ['public/assets/screens/custom-fields-invoice-print-360.webp', 32_000, 'feature-page hero (chassis-number-tracking-tally)'],
+  ['public/assets/screens/custom-fields-invoice-print-720.webp', 60_000, 'feature-page hero (chassis-number-tracking-tally)'],
 ];
 
 export function overBudget(entries, sizeOf) {

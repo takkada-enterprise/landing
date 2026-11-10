@@ -5,7 +5,7 @@ meta_title: "Can Takkada Be Customised for My Business?"
 meta_description: "Can Takkada be customised for your business? A custom Tally app fit is available on request. See what can be tailored and how the done-with-you setup works."
 primary_keyword: "custom tally app"
 date: "2026-07-21"
-updated: "2026-07-21"
+updated: "2026-11-10"
 author: "founder"
 category: "Trust"
 excerpt: "Every distribution business has its own habits. A paint distributor prices by shade, a pharma stockist tracks batch and expiry, an FMCG house runs six salesmen on fixed routes. The fair question before buying any Tally app is whether it bends to how you already work, or forces you to bend to it."
@@ -79,7 +79,7 @@ A: The standard configuration, your masters, invoice formats, role-based access,
 
 **Q: Will my industry's quirks survive, like batch and expiry or shade-wise items?**
 
-A: In most cases yes, because Takkada reads your existing Tally masters rather than making you re-enter items, so how your stock and parties are structured in Tally is what comes through. If your case needs something the standard product does not cover, that becomes a scoped conversation rather than a silent gap.
+A: In most cases yes, because Takkada reads your existing Tally masters rather than making you re-enter items, so how your stock and parties are structured in Tally is what comes through. If your case needs something the standard product does not cover, that becomes a scoped conversation rather than a silent gap. If you sell numbered units, such as vehicles by chassis number or phones by IMEI, the Custom Fields add-on keeps your own details for each unit; the [serial number tracking for Tally](/serial-number-tracking-tally/) page shows how.
 
 **Q: How do I find out whether my requirement is covered?**
 

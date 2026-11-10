@@ -108,6 +108,13 @@ const LINK_FLOORS = {
   // Physical Stock Count pages, 2026-11-10.
   'physical-stock-verification-tally': 12,
   'stock-count-app': 4,
+  // Custom Fields pages, 2026-11-10, and the existing pages their posts link.
+  'serial-number-tracking-tally': 10,
+  'imei-tracking-tally': 4,
+  'chassis-number-tracking-tally': 3,
+  'credit-note-from-phone': 2,
+  'custom-invoice-template-tally': 2,
+  'manufacturing-in-tally-prime': 2,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;

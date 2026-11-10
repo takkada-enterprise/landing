@@ -4,6 +4,7 @@ slug: "recovery-tracking-electronics-mobile-distributors"
 meta_description: "Recovery tracking for electronics and mobile distributors: log retailer promises and scheme disputes, and see each missed date checked against Tally."
 primary_keyword: "recovery tracking for electronics and mobile distributors"
 date: "2026-10-11"
+updated: "2026-11-10"
 author: "harsh"
 category: "Collections"
 excerpt: "Thin margins, short credit and a retailer waiting on a price-drop credit before he pays. Here is how to keep every promise and dispute on record."
@@ -16,6 +17,8 @@ Recovery tracking for electronics and mobile distributors means every retailer p
 A typical mobile and electronics distributor supplies 100 to 300 retailers on 7 to 30 day credit. One launch week can put ₹4 lakh on a single large retailer's account. Margins sit in low single digits, so a payment that slips a fortnight eats into the profit on that stock.
 
 The delays usually have a reason attached. The retailer is waiting for a price protection credit after a price cut, a scheme payout he expected, or a replacement for a unit that failed on day one. Your salesman hears one version, your accountant hears another, and neither writes it down.
+
+When the dispute is about one handset, the [IMEI tracking for Tally](/imei-tracking-tally/) page shows how to find the bill it went out on.
 
 ## Writing down the reason and the date
 

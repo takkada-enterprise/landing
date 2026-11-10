@@ -619,6 +619,7 @@ export const pricing = {
     { label: 'Tally drafts', note: 'Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.' },
     { label: 'Staff and payroll', note: 'Attendance, leave, salary with overtime and fines, payslips in English and Hindi, advances, and the salary entry for Tally.' },
     { label: 'Physical stock count', note: 'Blind stock counts by group and godown, reviewed by you, with the stock journal made for Tally.' },
+    { label: 'Custom Fields', note: 'Chassis no, IMEI, colour or any detail kept for every unit from purchase to sale, with no unit sold twice in Takkada.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
@@ -738,6 +739,8 @@ export const footerColumns = [
       { label: 'Staff and Payroll', page: 'staff-attendance-salary-app' },
       // Sitewide link to the Physical Stock Count hub page (2026-11-10).
       { label: 'Physical stock count', page: 'physical-stock-verification-tally' },
+      // Sitewide link to the serial number tracking hub page (2026-11-10).
+      { label: 'Serial number tracking', page: 'serial-number-tracking-tally' },
     ],
   },
   {
