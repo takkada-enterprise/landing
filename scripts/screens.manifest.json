@@ -777,5 +777,146 @@
     "alt": "Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo",
     "operatorException": "2026-11-05: NOT demo company 143. Captured on stage (stage.takkada.com) from co111 \"Shreeji Traders (Stage)\", an empty stage QA company given made-up Tally drafts (docs/demo-seed/2026-11-05-stage-co111-tally-drafts-seed.sql), because demo co143 is a no-Tally company whose every draft reads \"Tally sync is off\" and no other Tally-connected company holds made-up data. Published at Ronak's direction (\"please get the screenshot of whatever is not there by dogfooding\"), the same operator-exception route as the barcode page. The source is the raw capture screens-raw/2026-11-05/tally-drafts-reject.png put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json.",
     "q": 64
+  },
+  {
+    "slug": "hrms-attendance-today",
+    "source": "hrms/hrms-attendance-today.png",
+    "shows": "Staff, Today: Leave requests (1) Approve or reject; ATTENDANCE TODAY with Anil More, Deepak Patil, Imran Shaikh, Mohan Jadhav each with P, A, half, Paid leave, Off, Holiday and +OT; Add staff; footer Today 7 present, 2 not marked, Mark all present",
+    "alt": "Takkada Staff screen on a phone with today's attendance: each staff member with Present, Absent, Half day, Paid leave, Off and Holiday buttons and a Mark all present button.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-today-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-attendance-in-out",
+    "source": "hrms/hrms-attendance-in-out.png",
+    "shows": "Staff, Sat 7 Nov: ATTENDANCE SAT 7 NOV, Anil More In 9:18 Out 18:41 OT 1 h, Deepak Patil In 9:18 Out 18:56 OT 1 h, Ganesh Shinde +OT, Imran Shaikh In 9:25 Out 20:05; footer 9 present, 0 not marked",
+    "alt": "Attendance for Saturday 7 November with in and out times such as In 9:18, Out 18:41 and overtime of 1 hour next to each name.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-day-in-out-overtime-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-add-staff-pay-type",
+    "source": "hrms/hrms-add-staff-pay-type.png",
+    "shows": "Add staff, SALARY: Monthly, Daily, Hourly, Pieces; Salary per month 14000; Overtime rate 1 x pay; Hours per day 8; Weekly-off overtime rate Same as OT or 2x; switches PF, ESI, Professional tax (As per Maharashtra rules) with Male/Female/Other, Labour welfare fund, Cut income tax (TDS); Save",
+    "alt": "Add staff form with Monthly, Daily, Hourly and Pieces options, a monthly salary, an overtime rate, and switches for PF, ESI, professional tax, labour welfare fund and income tax.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-staff-deductions-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-piece-rate-staff",
+    "source": "hrms/hrms-piece-rate-staff.png",
+    "shows": "Mohan Jadhav: Machine operator, Joined 18/09/2023, No login; SALARY Piece rate only from 18/09/2023; November 2026 attendance calendar, Present 7, Off 5, Holiday 1; PIECES THIS MONTH 2 Nov Bracket polishing 6 dozen, 2 Nov Spring winding 194 pcs, 3 Nov Bracket polishing 9 dozen",
+    "alt": "Machine operator paid by piece, with his November attendance and pieces made this month, such as bracket polishing by the dozen.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-detail-piece-rate-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-leave-request",
+    "source": "hrms/hrms-leave-request.png",
+    "shows": "Leave requests, Pending tab: Sita Pawar 13/11/2026 to 14/11/2026, 2 days, Cousin's wedding in Nashik, Leave left: 11, Reject and Approve",
+    "alt": "Leave request from a staff member for 13 to 14 November for a cousin's wedding, with leave left 11 and Reject and Approve buttons.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-leave-request-pending-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-staff-notifications",
+    "source": "hrms/hrms-staff-notifications.png",
+    "shows": "Notifications: Today, Leave approved 13 Nov to 14 Nov, 16m ago; This week, Salary slip for October 2026 Net pay Rs 17,563, 1d ago; Leave rejected 24 Nov to 25 Nov, 1d ago",
+    "alt": "Staff notifications in the Takkada app: leave approved for 13 to 14 November and the October salary slip ready with its net pay.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-leave-approved-notification-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-my-pay",
+    "source": "hrms/hrms-my-pay.png",
+    "shows": "My pay, My salary: November 2026 calendar for RAVI SHARMA; Present 5, Half day 1, Paid leave 2, Off 5, Holiday 1, Not marked 1; My leave, My bills, My ledger",
+    "alt": "Staff My pay screen with a November calendar and counts for present, half day, paid leave, off and holiday, plus My leave, My bills and My ledger.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-my-pay-attendance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-payslip-english",
+    "source": "hrms/hrms-payslip-english.png",
+    "shows": "Ravi Sharma payslip, October 2026 Salesman, Paid days 30 of 31, Paid on 8 Nov; EARNINGS Salary Rs 15,000 - 1 day x 15,000 / 31 = 14,516.13, Overtime 3.5 OT hours = 211.69, Total earnings 14,727.82; DEDUCTIONS PF 12% = 1,742, Professional tax Maharashtra 200, Advance recovered 3,000, Total deductions 4,942; English, Hindi, Download",
+    "alt": "October payslip for a salesman with each line's working: salary after one absent day, overtime, PF, professional tax and advance recovered, with English, Hindi and Download buttons.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-english-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-payslip-netpay-pf",
+    "source": "hrms/hrms-payslip-netpay-pf.png",
+    "shows": "Ravi Sharma payslip scrolled down: Overtime, Total earnings, DEDUCTIONS PF, Professional tax, Advance recovered, Total deductions 4,942; Net pay Rs 9,785.82; PAID BY EMPLOYER (NOT IN YOUR PAY) Employer PF 12% of 14,516.13 = 1,742 (pension 1,209, PF 533); English, Hindi, Download",
+    "alt": "Payslip foot with net pay and the employer's PF split into pension and PF.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-netpay-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-payslip-hindi",
+    "source": "hrms/hrms-payslip-hindi.png",
+    "shows": "Ravi Sharma payslip in Hindi, October 2026 Salesman: kamai with vetan, overtime, kul kamai 14,727.82; katauti with PF 1,742, vyavsay kar Maharashtra 200, advance vasooli 3,000, kul katauti 4,942; English, Hindi, Download",
+    "alt": "The same October payslip in Hindi with वेतन, ओवरटाइम, पीएफ, व्यवसाय कर and एडवांस वसूली lines.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-hindi-full-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-payslip-hindi-daily-wage",
+    "source": "hrms/hrms-payslip-hindi-daily-wage.png",
+    "shows": "Sita Pawar payslip in Hindi, October 2026 Packer & delivery, paid days 29.5 / 31: vetan 29.5 days x Rs 600 = 17,700, bonus Diwali bonus 500, kul kamai 18,200; ESI 0.75% = 137, advance vasooli 500 (1,500 left), kul katauti 637; kul dey Rs 17,563",
+    "alt": "Hindi payslip for a daily-wage packer: paid days times the day rate, a Diwali bonus, ESI, advance recovered and net pay.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-hindi-daily-wage-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-daily-wage-line",
+    "source": "hrms/hrms-daily-wage-line.png",
+    "shows": "Anil More payslip, EARNINGS card only: Salary 7 paid days x Rs 550 = 3,850 (Sundays and holidays not paid for daily wage) Rs 3,850.00; Overtime 7 OT hours x (550 / 8 hours) x 2 = 962.50; Total earnings 4,812.50",
+    "alt": "Payslip line for a daily-wage worker: 7 paid days times the day rate, with Sundays and holidays not paid for daily wage.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-daily-wage-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-salary-advance",
+    "source": "hrms/hrms-salary-advance.png",
+    "shows": "Give advance or loan to Ganesh Shinde sheet over his attendance: Amount 2000, Paid from Cash (balance blurred), Date 10/11/2026, Take back All from next salary or each month (ticked), EMI each month 1000, Charge interest switch off (Makes it a loan with an EMI), Note Room deposit, new joiner, Save advance",
+    "alt": "Give advance or loan sheet: an advance paid from Cash and taken back in equal parts each month, with a Charge interest switch.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-give-salary-advance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-loan-emi",
+    "source": "hrms/hrms-loan-emi.png",
+    "shows": "Staff ledger sheet: Loan Rs 25,000 at 12%, EMI 2,500, 11 left, Interest in all 1,474.63; November 2026 to September 2027, each month Interest, Loan and Left, last month 1,474.63 with Left 0",
+    "alt": "EMI table for a staff loan at 12% showing interest, principal and balance each month until September 2027.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-loan-emi-schedule-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-approve-bill-with-salary",
+    "source": "hrms/hrms-approve-bill-with-salary.png",
+    "shows": "Bills to pay back, Pending, with an approve sheet: Priya Kulkarni Rs 1,250, Courier 06/11/2026, Courier of GST papers to CA office; Expense ledger in Tally search Cour, Postage & Couriers under Indirect Expenses selected; Pay now or With salary (ticked), Added to the next salary that is not confirmed yet; Not approved, Approve",
+    "alt": "Approve sheet for a staff courier bill: Tally expense ledger Postage and Couriers under Indirect Expenses, With salary selected, and Approve.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-approve-bill-with-salary-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-salary-run-tally-entry",
+    "source": "hrms/hrms-salary-run-tally-entry.png",
+    "shows": "Salary November 2026 so far, TALLY ENTRY card only: Salary A/C Dr 1,10,358.42, Employer PF Contribution Dr 3,406, Employer ESI Contribution Dr 748, Bonus Payable Dr 7,000, Staff Bills Payable Dr 1,525, Out Salary A/C Cr 1,06,753.42, PF Payable Cr 6,812, ESI Payable Cr 922, Professional Tax Payable Cr 550, Staff Advance Cr 7,630, Interest on Staff Loans Cr 370, Balanced",
+    "alt": "The month's salary entry for Tally on a phone, debit and credit lines balanced before it is sent.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-run-tally-entry-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-salary-months-desktop",
+    "source": "hrms/hrms-salary-months-desktop.png",
+    "shows": "Desktop Staff > Salary: November 2026, 10 staff, Rs 1,06,753.42, Draft; October 2026, 4 staff, Rs 41,410.22, Confirmed; November so far button",
+    "alt": "Desktop Salary page: the November draft for 10 staff and October confirmed, with a November so far button.",
+    "sheet": true,
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-runs-desktop.png (2880x1800 desktop capture), cropped to drop the app top bar (company name and the attention count) and the empty right side; nothing inside the crop is changed. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-government-files",
+    "source": "hrms/hrms-government-files.png",
+    "shows": "Government files, Oct 2026: Upload these files on the EPFO / ESIC site. We don't send them. PF (ECR FILE) PF limits not yet checked by a CA, RAVI SHARMA (UAN blurred) PF wage 14,516, 1 staff 3,484 Staff share 1,742 Pension 1,209 Business PF 533, Download ECR; ESI Sita Pawar (IP number blurred) 30 days, 1 staff 729, Download ESI sheet, If the ESIC site asks for .xls save as .xls; PROFESSIONAL TAX (PT) Maharashtra Top slab 200",
+    "alt": "Government files screen with the month's PF ECR and ESI files and the note to upload them on the EPFO and ESIC sites.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-government-files-pf-esi-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-tax-declaration-review",
+    "source": "hrms/hrms-tax-declaration-review.png",
+    "shows": "Deepak Patil, tax year 2026-27, Sent by staff. Check and save to accept. Tax regime New (simpler) or Old (with savings) ticked; 80C 60000, 80D 12000, Home loan interest, Other; Earlier this year (before the app) Salary paid, Tax cut, Up to the month None; Save",
+    "alt": "Owner's review of a staff tax declaration for tax year 2026-27: regime, 80C and 80D amounts, and salary paid earlier this year.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-tax-declaration-review-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "hrms-tds-challan",
+    "source": "hrms/hrms-tds-challan.png",
+    "shows": "Add challan sheet over TDS challans: Deposited on 07/11/2026, BSR code (7 digits), Challan number (5 digits), Tax 3750, Interest, Late fee, Penalty, Others, For salary of Apr 2026 to Mar 2027 with Oct 2026 ticked, Note, Save",
+    "alt": "Add TDS challan form with deposit date, BSR code, challan number, tax, interest, late fee and the salary month it covers.",
+    "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-tds-challan-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
   }
 ]

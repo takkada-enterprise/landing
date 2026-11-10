@@ -358,6 +358,30 @@ export const SCREENS = {
   'tally-drafts-detail': phone('tally-drafts-detail', 'One Tally draft: type, number, date, party, amount and narration, and its debit and credit ledger entries, with Post to books'),
   'tally-drafts-post': phone('tally-drafts-post', 'Posting a draft asks first: it records the voucher in Tally as a regular sales invoice and cannot be undone from the app'),
   'tally-drafts-reject': phone('tally-drafts-reject', 'Rejecting a draft sets it aside in the app only: Rejected. Nothing was changed in Tally, with Undo'),
+  // Staff and Payroll add-on (2026-11-10). Stage co7088 captures with made-up
+  // staff, not demo company 143 (the demo does not get the add-on): see their
+  // operatorException rows in the manifest. Two phone screens are cut down to
+  // one card and are not framed, so they carry their own height.
+  'hrms-attendance-today': phone('hrms-attendance-today', "Takkada Staff screen on a phone with today's attendance: each staff member with Present, Absent, Half day, Paid leave, Off and Holiday buttons and a Mark all present button."),
+  'hrms-attendance-in-out': phone('hrms-attendance-in-out', 'Attendance for Saturday 7 November with in and out times such as In 9:18, Out 18:41 and overtime of 1 hour next to each name.'),
+  'hrms-add-staff-pay-type': phone('hrms-add-staff-pay-type', 'Add staff form with Monthly, Daily, Hourly and Pieces options, a monthly salary, an overtime rate, and switches for PF, ESI, professional tax, labour welfare fund and income tax.'),
+  'hrms-piece-rate-staff': phone('hrms-piece-rate-staff', 'Machine operator paid by piece, with his November attendance and pieces made this month, such as bracket polishing by the dozen.'),
+  'hrms-leave-request': phone('hrms-leave-request', "Leave request from a staff member for 13 to 14 November for a cousin's wedding, with leave left 11 and Reject and Approve buttons."),
+  'hrms-staff-notifications': phone('hrms-staff-notifications', 'Staff notifications in the Takkada app: leave approved for 13 to 14 November and the October salary slip ready with its net pay.'),
+  'hrms-my-pay': phone('hrms-my-pay', 'Staff My pay screen with a November calendar and counts for present, half day, paid leave, off and holiday, plus My leave, My bills and My ledger.'),
+  'hrms-payslip-english': phone('hrms-payslip-english', "October payslip for a salesman with each line's working: salary after one absent day, overtime, PF, professional tax and advance recovered, with English, Hindi and Download buttons."),
+  'hrms-payslip-netpay-pf': phone('hrms-payslip-netpay-pf', "Payslip foot with net pay and the employer's PF split into pension and PF."),
+  'hrms-payslip-hindi': phone('hrms-payslip-hindi', 'The same October payslip in Hindi with वेतन, ओवरटाइम, पीएफ, व्यवसाय कर and एडवांस वसूली lines.'),
+  'hrms-payslip-hindi-daily-wage': phone('hrms-payslip-hindi-daily-wage', 'Hindi payslip for a daily-wage packer: paid days times the day rate, a Diwali bonus, ESI, advance recovered and net pay.'),
+  'hrms-daily-wage-line': { ...phone('hrms-daily-wage-line', 'Payslip line for a daily-wage worker: 7 paid days times the day rate, with Sundays and holidays not paid for daily wage.'), height: 164 },
+  'hrms-salary-advance': phone('hrms-salary-advance', 'Give advance or loan sheet: an advance paid from Cash and taken back in equal parts each month, with a Charge interest switch.'),
+  'hrms-loan-emi': phone('hrms-loan-emi', 'EMI table for a staff loan at 12% showing interest, principal and balance each month until September 2027.'),
+  'hrms-approve-bill-with-salary': phone('hrms-approve-bill-with-salary', 'Approve sheet for a staff courier bill: Tally expense ledger Postage and Couriers under Indirect Expenses, With salary selected, and Approve.'),
+  'hrms-salary-run-tally-entry': { ...phone('hrms-salary-run-tally-entry', "The month's salary entry for Tally on a phone, debit and credit lines balanced before it is sent."), height: 380 },
+  'hrms-salary-months-desktop': sheet('hrms-salary-months-desktop', 'Desktop Salary page: the November draft for 10 staff and October confirmed, with a November so far button.', 720, 637),
+  'hrms-government-files': phone('hrms-government-files', "Government files screen with the month's PF ECR and ESI files and the note to upload them on the EPFO and ESIC sites."),
+  'hrms-tax-declaration-review': phone('hrms-tax-declaration-review', "Owner's review of a staff tax declaration for tax year 2026-27: regime, 80C and 80D amounts, and salary paid earlier this year."),
+  'hrms-tds-challan': phone('hrms-tds-challan', 'Add TDS challan form with deposit date, BSR code, challan number, tax, interest, late fee and the salary month it covers.'),
 };
 
 export function screen(slug) {

@@ -3129,6 +3129,326 @@
       "knownSensitive": false,
       "reason": "Android screenshot by a team member (Palak) of demo company 143 (made-up data) as a salesman, sent by Ronak in chat; screens-raw/2026-11-05/live-tracking-start-day-android-raw.png, status and gesture bars cropped, framed by scripts/phone-frame/frame_capture.py, exported with cwebp at the scripts/exportScreens.mjs settings. Wired into the live-tracking page at Ronak's direction. Nobody has yet typed the review sentence for it, so it carries no evidence record.",
       "note": "AWAITING RONAK'S REVIEW, NOT CAPTURE EVIDENCE. Record it with scripts/capture-guide-evidence.mjs record (which also takes it off this backlog) once he has looked at it."
+    },
+    "8f1cab95bffe576ac37505a978be1d69bd2bf93def71318444dcefcc7dbd60f1": {
+      "path": "public/assets/screens/hrms-attendance-today-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-today-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "00cdaddfbac350c1bba96c592e53c971e61303c0faf83c983df1d34019055330": {
+      "path": "public/assets/screens/hrms-attendance-today-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-today-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "0ddd1fb4cd22f3984a152cde3c941416e59c8f6f13c766f32766fe8893f19a62": {
+      "path": "public/assets/screens/hrms-attendance-in-out-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-day-in-out-overtime-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "704202f42f5fe06cc74f6d966c810904cbebae2ccfe87fb2b205a0c665f88a18": {
+      "path": "public/assets/screens/hrms-attendance-in-out-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-attendance-day-in-out-overtime-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "08add776ff1b642c576d012593548442216390c6a4e7137ca99283ee025be89c": {
+      "path": "public/assets/screens/hrms-add-staff-pay-type-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-staff-deductions-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "1bc527059112467de8b7870172ccf0240bcf26a547129dec15be39a575a9aace": {
+      "path": "public/assets/screens/hrms-add-staff-pay-type-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-staff-deductions-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "e3067dbd380eb6da29234ea1fc18d7350fe18f99612e1b86c1a344608300374a": {
+      "path": "public/assets/screens/hrms-piece-rate-staff-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-detail-piece-rate-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "a584b809f5053dcee91dea00e6de214a48bdf29723609932dc791db842033458": {
+      "path": "public/assets/screens/hrms-piece-rate-staff-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-detail-piece-rate-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "20d8defd7abe497186b5238b29e4bfea8f8a99ca59a3599f267a066a6b80569a": {
+      "path": "public/assets/screens/hrms-leave-request-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-leave-request-pending-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "b568bb7dca194c6de32c1e6cb595980c09392431831625738ea1f94b579a33d8": {
+      "path": "public/assets/screens/hrms-leave-request-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-leave-request-pending-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "b5ad7d5b269b1167296a59e99981abec3c0a8896905c532006f2566e14560661": {
+      "path": "public/assets/screens/hrms-staff-notifications-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-leave-approved-notification-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "a4be69d215d698ff99debde9f1a1e0c1e9d42d004a5602f3fc5df9e37cfdf73a": {
+      "path": "public/assets/screens/hrms-staff-notifications-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-leave-approved-notification-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "2af620fdc4ffa35b953222d804a0f17d3beafd75c68ca5fca0c8a061f3655f53": {
+      "path": "public/assets/screens/hrms-my-pay-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-my-pay-attendance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "f4e0aa1d7f704e961843a26193c7ef11571c30748f20e34131c039bd8eae33c7": {
+      "path": "public/assets/screens/hrms-my-pay-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-my-pay-attendance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "d305a6755ad52c0d37cbce2d9a1b19c085e8483eba5dbaca89bcefb6c2da20ec": {
+      "path": "public/assets/screens/hrms-payslip-english-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-english-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "121153ecb7d7f76963539d80b19d4bdd04633c7fd069a30a363cdf26989f75db": {
+      "path": "public/assets/screens/hrms-payslip-english-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-english-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "1ccb501b10a1f3d71061a40cfeadbbf386ba8436d22ee641f6dac5109943438b": {
+      "path": "public/assets/screens/hrms-payslip-netpay-pf-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-netpay-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "8abc610ad581de761b6f9119de9b9bce5a4a405ccdbb94f6f122a918785aa73b": {
+      "path": "public/assets/screens/hrms-payslip-netpay-pf-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-netpay-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "c1bbf4967c0efc40453a7c1f3ec18fd5b9a81fbc8a8f44301d74c8b67b81bac1": {
+      "path": "public/assets/screens/hrms-payslip-hindi-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-hindi-full-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "f74c463550d3510d43738b40beb1bd0fb1a6df2e4d8a734e89204188f4534543": {
+      "path": "public/assets/screens/hrms-payslip-hindi-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-hindi-full-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "3e9456a21ee122e37f7b6395a77dfb29dbc0c1b1ceec91dd17eeedbedeac0ad9": {
+      "path": "public/assets/screens/hrms-payslip-hindi-daily-wage-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-hindi-daily-wage-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "1acd20c383652d6849ea07b32e13827446d44c0b4626c8a93ee61d42f6988685": {
+      "path": "public/assets/screens/hrms-payslip-hindi-daily-wage-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-staff-payslip-hindi-daily-wage-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "7a943941817756b37dee2440c0558b1c462b92cd2bc36f2756c6a1b863037bac": {
+      "path": "public/assets/screens/hrms-daily-wage-line-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-daily-wage-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "d60332ef5f624351e0b792f78ef1782077a2dbc6dc8396fffa20262389b7aab1": {
+      "path": "public/assets/screens/hrms-daily-wage-line-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-payslip-daily-wage-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "77aab9cfb9a3c425ace1bb9a835b3d7dc4725069054f31fd33db204d3801e2ff": {
+      "path": "public/assets/screens/hrms-salary-advance-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-give-salary-advance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "601b11ac7da82c7bd6e16e6b8f874181d61d50c8e63e39c8bcd0eaddcc9f3ebf": {
+      "path": "public/assets/screens/hrms-salary-advance-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-give-salary-advance-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "384024733b7c165deccb9b4b85be3a363a4ae740b4f10ac3256bc329ad10c766": {
+      "path": "public/assets/screens/hrms-loan-emi-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-loan-emi-schedule-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "7818b95232ce8af94196c170ed12b44fb762d1092a07a5f12965106cca2d4b2f": {
+      "path": "public/assets/screens/hrms-loan-emi-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-loan-emi-schedule-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "ae4b2d76201fafe0a6e4a7c0800a99e1114c7c410ffa372bd5f97343244851a4": {
+      "path": "public/assets/screens/hrms-approve-bill-with-salary-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-approve-bill-with-salary-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "deb79c7c708ae8e0844d087b57e80cc5da275054d22b7ea0a88d74402ea04e2a": {
+      "path": "public/assets/screens/hrms-approve-bill-with-salary-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-approve-bill-with-salary-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "03e4d7d9e70d1d655d874071779c07fd2c2463da0e3b49ae3d11b46e2d654604": {
+      "path": "public/assets/screens/hrms-salary-run-tally-entry-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-run-tally-entry-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "826705da12fb68c6173aa3a1956daa5577f4d8165d98c994be13f2495ef23dc6": {
+      "path": "public/assets/screens/hrms-salary-run-tally-entry-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-run-tally-entry-phone.png, cropped to the card named in shows and not framed; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "d5681c007a1c9b3357b731a825f594e947c33f9ca66527a3590c172159e8b991": {
+      "path": "public/assets/screens/hrms-salary-months-desktop-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-runs-desktop.png (2880x1800 desktop capture), cropped to drop the app top bar (company name and the attention count) and the empty right side; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "9b5905f1c524caf6c5f4dfcc7bb0e12cbeffc09013ff1da21907515c3b713e04": {
+      "path": "public/assets/screens/hrms-salary-months-desktop-1440.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-salary-runs-desktop.png (2880x1800 desktop capture), cropped to drop the app top bar (company name and the attention count) and the empty right side; nothing inside the crop is changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "bf3f633bfb623daa328fe377b4e0ce9b569ca179862427acb674911f22500412": {
+      "path": "public/assets/screens/hrms-government-files-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-government-files-pf-esi-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "52b95dee55b4eaa4ac481d8852341ff973d84e2ed92a9ea8b562cb559d029347": {
+      "path": "public/assets/screens/hrms-government-files-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-government-files-pf-esi-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; before framing the identifying numbers named in shows were blurred, nothing else changed, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "1312f39ee24992fb6358eb29a1dfe055d05d683832fb6f7dd0460d18c7c8f84a": {
+      "path": "public/assets/screens/hrms-tax-declaration-review-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-tax-declaration-review-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "f49ab55d4080e5d4acd72b218aa2e97a570706b6512cbddc8c7d81aa1dc66ddb": {
+      "path": "public/assets/screens/hrms-tax-declaration-review-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-tax-declaration-review-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "99ea687d46dd6d78778a1c3713c7a1334aea91ef74517fda97cbae6e0f5176b3": {
+      "path": "public/assets/screens/hrms-tds-challan-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-tds-challan-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "6d0fbd2b1344f031f527d85b2eabf0218cb31b4898c27176eb4c011b55aeb52d": {
+      "path": "public/assets/screens/hrms-tds-challan-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-tds-challan-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
+      "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
     }
   },
   "classes": [

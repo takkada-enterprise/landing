@@ -165,6 +165,21 @@ export const FEATURE_GROUPS = [
       'tally-app-for-agri-input-distributors',
     ],
   },
+  // 2026-11-10: the Staff and Payroll add-on. No `stop`: paying your own
+  // people is not a moment in the invoice's life, so it sits after the
+  // journey like the two groups above it.
+  {
+    id: 'staff-payroll',
+    title: 'Your staff and payroll',
+    intro: 'Attendance, salary, payslips and the government files, for the people who work for you.',
+    slugs: [
+      'staff-attendance-salary-app',
+      'payroll-software-tally',
+      'daily-wage-salary-app',
+      'salary-slip-in-hindi',
+      'pf-ecr-esi-file-from-salary',
+    ],
+  },
 ];
 
 /**
@@ -299,6 +314,11 @@ export const FEATURE_BLURBS = {
     'Thin margins, and chemist credit that runs 60 to 90 days before the money comes back.',
   'tally-app-for-agri-input-distributors':
     'Dealer receivables stretched from sowing right through to after the crop is sold.',
+  'staff-attendance-salary-app': 'Attendance to salary to the Tally entry, in one app.',
+  'payroll-software-tally': 'One balanced salary entry for Tally each month.',
+  'daily-wage-salary-app': 'Daily, hourly and piece-rate pay from the work actually done.',
+  'salary-slip-in-hindi': 'Every payslip in Hindi or English, as a PDF.',
+  'pf-ecr-esi-file-from-salary': 'PF ECR and ESI files prepared for your CA.',
 };
 
 // ── Hub tiers (2026-08-11, re-cut 2026-09-18) ──
@@ -365,6 +385,7 @@ export const SECTION_GROUP_IDS = [
   'schemes-discount',
   'weighing-options',
   'built-for-your-trade',
+  'staff-payroll',
 ];
 
 const withBlurb = (page) => ({

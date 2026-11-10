@@ -288,6 +288,17 @@ export const BUDGETS = [
   ['public/assets/screens/tally-drafts-post-720.webp', 60_000, 'feature-page screen (tally-drafts-post)'],
   ['public/assets/screens/tally-drafts-reject-360.webp', 34_000, 'feature-page screen (tally-drafts-reject), q64'],
   ['public/assets/screens/tally-drafts-reject-720.webp', 68_000, 'feature-page screen (tally-drafts-reject), q64'],
+  // Staff and Payroll heroes (2026-11-10), stage co7088 captures at q80.
+  ['public/assets/screens/hrms-attendance-today-360.webp', 32_000, 'feature-page hero (staff-attendance-salary-app)'],
+  ['public/assets/screens/hrms-attendance-today-720.webp', 60_000, 'feature-page hero (staff-attendance-salary-app)'],
+  ['public/assets/screens/hrms-salary-run-tally-entry-360.webp', 32_000, 'feature-page hero (payroll-software-tally)'],
+  ['public/assets/screens/hrms-salary-run-tally-entry-720.webp', 60_000, 'feature-page hero (payroll-software-tally)'],
+  ['public/assets/screens/hrms-payslip-hindi-360.webp', 32_000, 'feature-page hero (salary-slip-in-hindi)'],
+  ['public/assets/screens/hrms-payslip-hindi-720.webp', 60_000, 'feature-page hero (salary-slip-in-hindi)'],
+  ['public/assets/screens/hrms-piece-rate-staff-360.webp', 32_000, 'feature-page hero (daily-wage-salary-app)'],
+  ['public/assets/screens/hrms-piece-rate-staff-720.webp', 60_000, 'feature-page hero (daily-wage-salary-app)'],
+  ['public/assets/screens/hrms-government-files-360.webp', 32_000, 'feature-page hero (pf-ecr-esi-file-from-salary)'],
+  ['public/assets/screens/hrms-government-files-720.webp', 60_000, 'feature-page hero (pf-ecr-esi-file-from-salary)'],
 ];
 
 export function overBudget(entries, sizeOf) {

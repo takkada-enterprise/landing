@@ -73,6 +73,7 @@ import { SCHEMES_DISCOUNT } from './featurePagesSchemesDiscount.js';
 import { BARCODE } from './featurePagesBarcode.js';
 import { AI_AGENT } from './featurePagesAiAgent.js';
 import { ROUND_THREE } from './featurePagesRoundThree.js';
+import { HRMS_PAGES } from './featurePagesHrms.js';
 
 /** @type {FeaturePage[]} */
 const FIRST_BATCH = [
@@ -111,7 +112,7 @@ const FIRST_BATCH = [
       section: 'Features',
       title: 'Salesman app for Tally',
       summary:
-        'Field-sales module for distributors on Tally: dealers grouped into beats with a salesman on each, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
+        'Field-sales module for distributors on Tally: dealers grouped into beats, each run on the weekdays you tick, by a different salesman on different days if you like, one-tap check-in, geo-tagged photo proof of every visit, orders against live stock, a dispatch load sheet per route with deliveries ticked off, invoicing and UPI collection from the shop, plus targets, commission and role-based access per salesman.',
     },
     footerLabel: 'Salesman app',
     // The hero mockup is this page's LCP element, so it renders eagerly at high
@@ -121,7 +122,10 @@ const FIRST_BATCH = [
     hero: { screen: 'field-visits' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-12',
+    // 2026-11-10: beats became day-wise (Team Sales, claims B1, B2, B5):
+    // weekdays per beat and a salesman per day. Holiday-aware routes, date
+    // overrides and route optimisation are not claimed.
+    updated: '2026-11-10',
     // No `walkthrough` on this page, on purpose (2026-08-12). It used to carry
     // an 8-card grid AND the tour below, which narrated the same day twice and
     // read as two competing stories. The grid's bottom-cropped phones also sat
@@ -142,7 +146,7 @@ const FIRST_BATCH = [
         {
           title: 'Nine in the morning, he opens his beat',
           body:
-            'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each. He opens the app and today’s shops are already listed for him.',
+            'Your dealers sit in beats, the fixed routes your market already runs on, with a salesman on each day it runs. He opens the app and today’s shops are already listed for him.',
           screen: 'beats',
         },
         {
@@ -252,7 +256,7 @@ const FIRST_BATCH = [
       },
       {
         q: 'Can I set up beats or routes for my salesmen?',
-        a: 'Yes. You group your dealers into beats, the fixed routes your market already runs on, and put a salesman on each. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.',
+        a: 'Yes. You group your dealers into beats, the fixed routes your market already runs on, tick the weekdays each beat runs and pick who runs it each day, so the same beat can go to a different salesman on Tuesday. A beat with no days ticked runs every day. On the dispatch side, the orders booked on a route total into one load sheet for the godown, item by item and then dealer by dealer, and deliveries are ticked off as the van empties.',
       },
       {
         q: 'What happens to the order the salesman books at the shop?',
@@ -283,6 +287,10 @@ const FIRST_BATCH = [
       {
         slug: 'salesman-order-to-tally-without-reentry',
         title: 'Salesman Order Taking Without Re-Entry: Punch It Once, Into Tally',
+      },
+      {
+        slug: 'beat-plan-kya-hota-hai',
+        title: 'Beat Plan Kya Hota Hai: Distributor Ke Liye Din-Wise Route Plan',
       },
     ],
     priority: 0.9,
@@ -1437,7 +1445,7 @@ const FIRST_BATCH = [
  * which batch a page came from.
  * @type {FeaturePage[]}
  */
-export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE];
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE, ...HRMS_PAGES];
 
 // Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
 // file that actually changes when the page is edited.
@@ -1447,6 +1455,7 @@ const SOURCE_FILES = new Map([
   ...ALTERNATIVES.map((page) => [page.slug, 'src/data/featurePagesAlternatives.js']),
   ...PERSONAS.map((page) => [page.slug, 'src/data/featurePagesPersonas.js']),
   ...ROUND_THREE.map((page) => [page.slug, 'src/data/featurePagesRoundThree.js']),
+  ...HRMS_PAGES.map((page) => [page.slug, 'src/data/featurePagesHrms.js']),
 ]);
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */

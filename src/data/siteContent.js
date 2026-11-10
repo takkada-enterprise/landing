@@ -617,6 +617,7 @@ export const pricing = {
     { label: 'Live tracking', note: 'Salesman location from Start day to End day on Android, with battery and km on a team map.' },
     { label: 'Email invoices', note: 'Invoice PDFs, payment reminders and statements by email, alongside WhatsApp.' },
     { label: 'Tally drafts', note: 'Optional vouchers keyed in Tally, checked on the phone and posted to the books with one tap.' },
+    { label: 'Staff and payroll', note: 'Attendance, leave, salary with overtime and fines, payslips in English and Hindi, advances, and the salary entry for Tally.' },
     { label: 'Extra user', note: 'Every plan comes with one user. Add a login for each extra person.' },
   ],
   addonsCta: 'Ask your partner for pricing',
@@ -731,6 +732,9 @@ export const footerColumns = [
       { label: 'Tally on mobile', page: 'mobile-tally' },
       { label: 'WhatsApp invoicing', page: 'whatsapp-invoice-tally' },
       { label: 'Tally mobile app comparison', page: 'tally-mobile-app-comparison' },
+      // Sitewide link to the Staff and Payroll hub page (2026-11-10), so the
+      // add-on's five pages have a crawlable parent outside the features hub.
+      { label: 'Staff and Payroll', page: 'staff-attendance-salary-app' },
     ],
   },
   {

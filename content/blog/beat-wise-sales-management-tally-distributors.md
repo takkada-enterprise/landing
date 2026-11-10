@@ -5,17 +5,17 @@ meta_title: "Beat-wise Sales Management for Tally Distributors"
 meta_description: "Beat wise sales management for Tally distributors groups dealers into named beats, loads the van from a sheet, and writes field orders into Tally."
 primary_keyword: "beat wise sales management"
 date: "2026-08-26"
-updated: "2026-11-05"
+updated: "2026-11-10"
 author: "founder"
 category: "Field Sales"
 excerpt: "A Guwahati wholesaler with five salesmen and about 120 dealers already runs Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola as beats. Beat-wise sales management is that list, plus today's load, a camera check-in at each shop, and orders that land in Tally as Sales Orders."
 ---
 
-Distributors manage salesmen beat-wise with Tally by grouping dealers into named beats, putting one salesman on each beat, and writing field orders back into Tally as Sales Orders while visit photos and delivery ticks stay on the phone. A beat is a name plus a dealer list, with no date, weekday, sequence or visit target. Beat wise sales management, on a Guwahati book with five salesmen and about 120 dealers, is Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola, each dealer on one beat only. The salesman opens Today's load, pending orders from a 3-day window including today. In the godown Dispatch totals items across beats, then a Load sheet per beat with the per-dealer breakdown. On the street the salesman checks in with a camera photo, Global Positioning System (GPS) location, device time, his name and the dealer. After check-out he books an order that lands in Tally. This article walks that Tuesday through to Team Sales.
+Distributors manage salesmen beat-wise with Tally by grouping dealers into named beats, ticking the weekdays each beat runs with a salesman for each day, and writing field orders back into Tally as Sales Orders while visit photos and delivery ticks stay on the phone. A beat is a name, a dealer list and its weekdays, with no date, sequence or visit target. Beat wise sales management, on a Guwahati book with five salesmen and about 120 dealers, is Station Road, GS Road, Fancy Bazaar, NH-37 and Beltola, each dealer on one beat only. The salesman opens Today's load, pending orders from a 3-day window including today. In the godown Dispatch totals items across beats, then a Load sheet per beat with the per-dealer breakdown. On the street the salesman checks in with a camera photo, Global Positioning System (GPS) location, device time, his name and the dealer. After check-out he books an order that lands in Tally. This article walks that Tuesday through to Team Sales.
 
 ## Key Highlights
 
-- Station Road is a beat: a name plus a dealer list, with one salesman assigned. Gupta Stores can sit on Station Road or on GS Road, not both, and moving it shows what moved
+- Station Road is a beat: a name plus a dealer list, run on the weekdays you tick, with a salesman picked for each day. Gupta Stores can sit on Station Road or on GS Road, not both, and moving it shows what moved
 - At 9:15 Raju opens Today's load, pending orders from a 3-day window including today. In the godown Dispatch totals items across beats and a Load sheet per beat shows the per-dealer breakdown
 - At 10:40 Raju checks in at Gupta Stores with a camera photo, GPS location, device time, his name and the dealer. A mock location is refused and still shown to the owner
 
@@ -23,6 +23,7 @@ Distributors manage salesmen beat-wise with Tally by grouping dealers into named
 
 - How do distributors manage salesmen beat-wise with Tally?
 - Grouping 120 dealers onto named beats
+- Beats by weekday
 - Today's load, Dispatch and the Load sheet
 - Check-in with a camera photo, then the order into Tally
 - Ticking deliveries without telling Tally
@@ -36,11 +37,22 @@ Ask the Guwahati owner what Tuesday looks like and he starts with Station Road. 
 
 ## Grouping 120 dealers onto named beats
 
-On Monday the owner sits at the office desktop and opens Beats. He types Station Road, then adds the twenty-four shops that sit on that stretch, Gupta Stores among them. He assigns Raju. He does the same for GS Road with Manoj, then Fancy Bazaar, NH-37 and Beltola. A beat is a name plus a dealer list. It carries no date, weekday, walking order, or visit target. Raju decides which shop he stands in first.
+On Monday the owner sits at the office desktop and opens Beats. He types Station Road, then adds the twenty-four shops that sit on that stretch, Gupta Stores among them. He ticks the days Station Road runs and picks Raju for each of them. He does the same for GS Road with Manoj, then Fancy Bazaar, NH-37 and Beltola. A beat is a name plus a dealer list, with the weekdays it runs and who runs it on each day. It carries no date, walking order, or visit target. Raju decides which shop he stands in first.
 
 Each dealer belongs to one beat only. When the owner adds Gupta Stores to GS Road, Gupta Stores leaves Station Road, and the app shows what moved. If a new retailer on Beltola has not been put on a beat yet, he waits in Unassigned, which full-access members can see, until someone places him.
 
 Member permissions set view and create rights per register, restrict which ledgers (parties) a member sees, and restrict which voucher types he can use, so Raju's working set is Station Road. That is the job in [how to restrict salesman access in Tally](/blog/restrict-salesman-access-tally/). Beats can be built on the web in the office. Visit capture waits for the phone.
+
+## Beats by weekday
+
+Most markets are not walked every day. Station Road may need a visit on Tuesday and Friday, while Fancy Bazaar runs on Monday, Wednesday and Saturday. In the beat editor the owner ticks the days a route runs and picks who runs it on each of those days, so the same beat can go to Raju on Tuesday and to Manoj on Friday when Raju is on GS Road. A beat with no days ticked runs every day, so books that set up beats before weekdays existed carry on as they were. On the web, a week plan shows every salesman down the side and Monday to Sunday across, with today marked.
+
+| Salesman | Mon | Tue | Wed | Thu | Fri | Sat |
+|---|---|---|---|---|---|---|
+| Raju | Fancy Bazaar | Station Road | Fancy Bazaar | Beltola | GS Road | Fancy Bazaar |
+| Manoj | GS Road | GS Road | NH-37 | GS Road | Station Road | NH-37 |
+
+A salesman scheduled on any day of a beat can see that beat's shops. The Hinglish walk-through of the same idea is [beat plan kya hota hai](/blog/beat-plan-kya-hota-hai/).
 
 ## Today's load, Dispatch and the Load sheet
 
@@ -74,13 +86,17 @@ Field Visits Outcomes splits two piles. Booked on these visits is orders attribu
 
 ## What beat-wise sales management does not include
 
-Station Road will not grow a calendar, a map, or a trail of Raju's phone from morning tea to the ride home. There is no scheduler and no map on the beat, and visit check-in does not track the phone all day. A beat stays a named list. Raju walks it in the order the market allows that morning. Check-in is a camera photo at the counter. Today's load is pending orders from a 3-day window. Beats, Dispatch and Team Sales also work on the web. Visit capture and the Field Visits screens stay on the phone.
+Station Road will not grow a date-by-date calendar, a map, or a trail of Raju's phone from morning tea to the ride home. The only schedule on a beat is the weekdays you tick. There is no map or route optimisation, and visit check-in does not track the phone all day. A beat stays a named list with its days. Raju walks it in the order the market allows that morning. Check-in is a camera photo at the counter. Today's load is pending orders from a 3-day window. Beats, Dispatch and Team Sales also work on the web. Visit capture and the Field Visits screens stay on the phone.
 
 ## Frequently Asked Questions
 
 **Q: What does beat wise sales management cover on a Tally distributor's day?**
 
-A: Named beats with one salesman on each, Today's load as pending orders from a 3-day window, a Dispatch total and a Load sheet per beat, a camera check-in, a Sales Order into Tally after check-out, delivery ticks on the phone, and Team Sales with targets and commission. A Guwahati book with five salesmen and about 120 dealers is that loop on five roads.
+A: Named beats run on the weekdays you tick, with a salesman for each day, Today's load as pending orders from a 3-day window, a Dispatch total and a Load sheet per beat, a camera check-in, a Sales Order into Tally after check-out, delivery ticks on the phone, and Team Sales with targets and commission. A Guwahati book with five salesmen and about 120 dealers is that loop on five roads.
+
+**Q: Can the same beat have a different salesman on different days?**
+
+A: Yes. Tick the days the beat runs and pick who runs it on each day, so Station Road can go to Raju on Tuesday and Manoj on Friday. A beat with no days ticked runs every day, and the week plan shows each salesman's route for Monday to Sunday.
 
 **Q: Can a dealer sit on two beats at once?**
 
@@ -102,4 +118,4 @@ A: Check-in is refused and no visit is recorded. The refused attempt still shows
 
 A: They land as ordinary Sales Orders against the party, written back from the phone after check-out or at any other time. Order creation is not gated on Team Sales. Attribution can later be reassigned in Team Sales without changing the Tally voucher.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/919435977777) to set them up on your own dealers.
