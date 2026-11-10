@@ -5,7 +5,7 @@ meta_title: "Godown-Wise Stock Report from Tally on Mobile"
 meta_description: "See stock by location from your Tally on a phone, as of any date, with item drill-down. What the godown wise stock report shows and how to read its values."
 primary_keyword: "godown wise stock report tally"
 date: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-11-10"
 author: "founder"
 category: "Reports"
 excerpt: "The question is always the same. How much of this item is lying at the branch, right now, and can I promise it today. The answer exists in Tally and sits on a desktop in another town."
@@ -100,7 +100,7 @@ A: Yes. The mobile view accepts an as-of date and shows the position the voucher
 
 **Q: Why does my godown-wise stock not match the physical stock at the branch?**
 
-A: Nearly always because some outward movements carry no location. Transfers get recorded carefully, invoices get recorded fast, and an invoice without a godown drains stock from the wrong place. The other two usual causes are goods in transit with no transit godown to sit in, and an opening balance entered as one lump instead of location-wise.
+A: Nearly always because some outward movements carry no location. Transfers get recorded carefully, invoices get recorded fast, and an invoice without a godown drains stock from the wrong place. The other two usual causes are goods in transit with no transit godown to sit in, and an opening balance entered as one lump instead of location-wise. Once the entries are right, count the godown itself; the [physical stock verification for Tally](/physical-stock-verification-tally/) page shows a count your staff do without seeing the book figure.
 
 **Q: Does the mobile report show value or only quantity?**
 

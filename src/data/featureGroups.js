@@ -91,6 +91,8 @@ export const FEATURE_GROUPS = [
       'delivery-challan-from-mobile',
       'barcode-in-tally-prime',
       'stock-control-tally',
+      'physical-stock-verification-tally',
+      'stock-count-app',
       'proof-of-delivery-app-tally',
       'manufacturing-in-tally-prime',
     ],
@@ -230,6 +232,9 @@ export function retiredAnchorsFor(groupId) {
 export const FEATURE_BLURBS = {
   'stock-control-tally':
     'What to reorder today, how long each supplier really takes, and one purchase order per supplier.',
+  'physical-stock-verification-tally':
+    'A blind count by group and godown, every gap reviewed, and the stock journal made for Tally.',
+  'stock-count-app': 'Staff count on the phone from names and units, without the book figure.',
   'proof-of-delivery-app-tally':
     'A driver login with a live photo at every drop, returns with reasons, and van cash approved into Tally.',
   'manufacturing-in-tally-prime':

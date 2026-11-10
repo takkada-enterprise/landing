@@ -74,6 +74,7 @@ import { BARCODE } from './featurePagesBarcode.js';
 import { AI_AGENT } from './featurePagesAiAgent.js';
 import { ROUND_THREE } from './featurePagesRoundThree.js';
 import { HRMS_PAGES } from './featurePagesHrms.js';
+import { STOCK_COUNT_PAGES } from './featurePagesStockCount.js';
 
 /** @type {FeaturePage[]} */
 const FIRST_BATCH = [
@@ -1445,7 +1446,7 @@ const FIRST_BATCH = [
  * which batch a page came from.
  * @type {FeaturePage[]}
  */
-export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE, ...HRMS_PAGES];
+export const FEATURE_PAGES = [...FIRST_BATCH, ...SECOND_BATCH, ...ALTERNATIVES, ...PERSONAS, ...SCHEMES_DISCOUNT, ...BARCODE, ...AI_AGENT, ...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES];
 
 // Which module a page's copy lives in, so the sitemap's <lastmod> tracks the
 // file that actually changes when the page is edited.
@@ -1456,6 +1457,7 @@ const SOURCE_FILES = new Map([
   ...PERSONAS.map((page) => [page.slug, 'src/data/featurePagesPersonas.js']),
   ...ROUND_THREE.map((page) => [page.slug, 'src/data/featurePagesRoundThree.js']),
   ...HRMS_PAGES.map((page) => [page.slug, 'src/data/featurePagesHrms.js']),
+  ...STOCK_COUNT_PAGES.map((page) => [page.slug, 'src/data/featurePagesStockCount.js']),
 ]);
 
 /** Path with the leading slash, e.g. '/salesman-app-tally'. */

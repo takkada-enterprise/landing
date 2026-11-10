@@ -918,5 +918,47 @@
     "shows": "Add challan sheet over TDS challans: Deposited on 07/11/2026, BSR code (7 digits), Challan number (5 digits), Tax 3750, Interest, Late fee, Penalty, Others, For salary of Apr 2026 to Mar 2027 with Oct 2026 ticked, Note, Save",
     "alt": "Add TDS challan form with deposit date, BSR code, challan number, tax, interest, late fee and the salary month it covers.",
     "operatorException": "2026-11-10: NOT demo company 143. Captured on stage (stage.takkada.com) from co7088, a stage test company with made-up staff (Ravi Sharma, Sita Pawar and others), during the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8), because the Staff and Payroll add-on is not on demo co143: trials and the demo do not get staff_payroll. Published for the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). The source is the raw capture tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-tds-challan-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged. AWAITING RONAK'S REVIEW: no co143 capture record can exist for it; each file is on the unproven backlog in content/image-provenance.json."
+  },
+  {
+    "slug": "stock-count-assign",
+    "source": "stock-count/stock-count-assign.png",
+    "shows": "Stock count, Open tab (#11 Lubricants In review, #9 Batteries Assigned) dimmed under the New stock count sheet: Group Spares, Godown Main godown, Person Ravi, Assign count",
+    "alt": "New stock count sheet with a stock group, a godown and the person who will count, and an Assign count button.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "stock-count-blind-entry",
+    "source": "stock-count/stock-count-blind-entry.png",
+    "shows": "Spares · Main godown: Air filter Nos 18, Brake shoe set Set 37, Clutch plate Nos 13, Engine oil 1 L Btl, Fan belt Nos, Spark plug Pcs with empty Count boxes; note field Anything not in the list? Write it here; 3 items left, Save, Submit (disabled)",
+    "alt": "A stock count on a phone: item names and units with a box to type the count for each, three items left, and Save and Submit buttons, with no book stock shown.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "stock-count-being-counted",
+    "source": "stock-count/stock-count-being-counted.png",
+    "shows": "Main godown stock on the counter's phone, 10/11/2026: Air filter, Brake shoe set, Clutch plate, Engine oil 1 L and Fan belt read Being counted; Battery 35 Ah 14 (Rs 68,600) and Coolant 1 L 36 (Rs 6,840) show quantity and value",
+    "alt": "Godown stock on the counter's phone while their count is open: the items on the count read Being counted, other items show quantity and value.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "stock-count-review",
+    "source": "stock-count/stock-count-review.png",
+    "shows": "Count #12: Brake shoe set (Set) System 40 Counted 37 Difference -3, Rate 1240.0, Accept, Recount; Clutch plate (Nos) System 14 Counted 13 Difference -1, Moved after count, Rate 780.0, Accept, Recount; Spark plug (Pcs) Difference 1, Accepted, Rate 520.0; Cancel count, Approve (disabled)",
+    "alt": "Review of a stock count: each item with system, counted and difference, a rate, Accept and Recount buttons, and one item marked Moved after count.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "stock-count-recount",
+    "source": "stock-count/stock-count-recount.png",
+    "shows": "Spares · Main godown in recount: card Count these items again, Brake shoe set Set and Clutch plate Nos with empty Count boxes, note field, 2 items left, Save, Submit (disabled)",
+    "alt": "A recount on a phone showing only the two items sent back, with empty boxes and the note Count these items again.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
+  },
+  {
+    "slug": "stock-count-approve",
+    "source": "stock-count/stock-count-approve.png",
+    "shows": "Count #12 dimmed under the dialog Approve this count?: Shortage journal: 3 items, Rs 4,860.00. Excess journal: 1 item, Rs 520.00. Left out (batch-wise, adjust in Tally): Engine oil 1 L. Buttons Back, Post journals",
+    "alt": "The Approve this count? dialog with the shortage and excess value to be posted, a batch-wise item left out to adjust in Tally, and Back and Post journals buttons.",
+    "operatorException": "2026-11-10: drawn from the Takkada app's own wording (lib/screens/stock_count on app main 73ac89bbd), not an app capture: the Physical Stock Count add-on is not on demo company 143 (paid, single-customer add-on) and app captures are night-only; each file is on the unproven backlog in content/image-provenance.json until the stage co7088 capture replaces it."
   }
 ]

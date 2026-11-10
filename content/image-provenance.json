@@ -3449,6 +3449,102 @@
       "knownSensitive": false,
       "reason": "Capture from STAGE co7088 (a stage test company with made-up staff such as Ravi Sharma and Sita Pawar; not demo company 143), taken in the HRMS and day-wise beats dogfood round 2 (takkada commit 2c5568df8): tk-wt-1110-dogfood-r2/docs/qa/2026-11-10-hrms-beats-dogfood-r2/website/hrms-add-tds-challan-phone.png, put into the site phone frame by scripts/phone-frame/frame_capture.py; the screen itself is unchanged, then exported with the same cwebp settings as scripts/exportScreens.mjs. Demo co143 cannot show this screen because trials and the demo do not get the Staff and Payroll add-on (staff_payroll). Wired into the Staff and Payroll feature pages at Ronak's direction (\"create webpages for the HRMS\"). It can never carry a co143 evidence record.",
       "note": "OPERATOR-DIRECTED STAGE CAPTURE, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Recapture from demo company 143 if the add-on is ever switched on there."
+    },
+    "59afe6463881ed194c1d82a005d43bfd4db651311dc2ff6f6ae8874a2b6450e9": {
+      "path": "public/assets/screens/stock-count-assign-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-assign.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "68a6fbe7e2ee3f50db636d452ffc53eddba66022b224e618f16c11dd308aa028": {
+      "path": "public/assets/screens/stock-count-assign-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-assign.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "6b46ff2d3898759de06c78f0bd30e070fd831daaf6ad7bac52ea8398152239ee": {
+      "path": "public/assets/screens/stock-count-blind-entry-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-blind-entry.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "e87dba26b20aff9899f8282703c5df1edac108379b9d46d690dfee645269ad5e": {
+      "path": "public/assets/screens/stock-count-blind-entry-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-blind-entry.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "ae839af535ae6ef1547f300f58505d85f89b5bb63ff317a8cb3a87c4cdc04cf7": {
+      "path": "public/assets/screens/stock-count-being-counted-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-being-counted.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "cfa1cea0882bb3384b0f6da704ea703a51cc1274d4e423c3a694a8af9e13d7f1": {
+      "path": "public/assets/screens/stock-count-being-counted-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-being-counted.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "4eb5dcc3acc6abd3f642bb3ca7a4a7e7ea19b1dbadf463e39ee596730fa74bf6": {
+      "path": "public/assets/screens/stock-count-review-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-review.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "d5422259294e0ec6a4e9a7d19498062f338b6bbe7f632f626cac4c99a2f10392": {
+      "path": "public/assets/screens/stock-count-review-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-review.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "d67f06967a0814025ed27c1181071830e61771357a24aade311d9476d941ffe4": {
+      "path": "public/assets/screens/stock-count-recount-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-recount.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "099cf6e4e4e1f8eceb500942a6b58401c89d169cba19fe4ba49ddf2eb2d2246d": {
+      "path": "public/assets/screens/stock-count-recount-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-recount.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "7ff29d300eba52f7a9a28862799865728b25cf5621498db1d223398119e4d891": {
+      "path": "public/assets/screens/stock-count-approve-360.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-approve.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
+    },
+    "875df9122bee9a6f52b5e5c8c22a445ed0331160a1398d2afa6d013d46cd7cae": {
+      "path": "public/assets/screens/stock-count-approve-720.webp",
+      "kind": "appScreenshot",
+      "allowlistedOn": "2026-11-10",
+      "knownSensitive": false,
+      "reason": "Drawn, not captured: a static HTML screen (scratchpad stockcount-seo/mock/stock-count-approve.html) using only the Takkada app's own wording from lib/screens/stock_count, lib/widgets/stock_count/stock_count_review_shared.dart and lib/services/stock_qty_visibility.dart on app main 73ac89bbd, rendered in headless Chrome, put into the site phone frame by scripts/phone-frame/frame_capture.py and exported with the scripts/exportScreens.mjs cwebp settings. Items (Brake shoe set, Clutch plate, Engine oil 1 L, Spark plug, Air filter, Fan belt), the godown, the group and the people (Ravi, Sita) are made up; rupee figures are illustrations. No real customer. Demo co143 cannot show this screen because the Physical Stock Count add-on (physical_stock_count) is not on it. Built for the Physical Stock Count feature pages at Ronak's direction (\"please lets do it for physical stock check\").",
+      "note": "DRAWN ILLUSTRATION, NOT CAPTURE EVIDENCE, AWAITING RONAK'S REVIEW. Replace with the stage co7088 night capture (counter and admin logins, a build without Accept all) and drop the operator exception."
     }
   },
   "classes": [

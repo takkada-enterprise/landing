@@ -299,6 +299,11 @@ export const BUDGETS = [
   ['public/assets/screens/hrms-piece-rate-staff-720.webp', 60_000, 'feature-page hero (daily-wage-salary-app)'],
   ['public/assets/screens/hrms-government-files-360.webp', 32_000, 'feature-page hero (pf-ecr-esi-file-from-salary)'],
   ['public/assets/screens/hrms-government-files-720.webp', 60_000, 'feature-page hero (pf-ecr-esi-file-from-salary)'],
+  // Physical Stock Count heroes (2026-11-10), drawn screens at q80.
+  ['public/assets/screens/stock-count-review-360.webp', 32_000, 'feature-page hero (physical-stock-verification-tally)'],
+  ['public/assets/screens/stock-count-review-720.webp', 60_000, 'feature-page hero (physical-stock-verification-tally)'],
+  ['public/assets/screens/stock-count-blind-entry-360.webp', 32_000, 'feature-page hero (stock-count-app)'],
+  ['public/assets/screens/stock-count-blind-entry-720.webp', 60_000, 'feature-page hero (stock-count-app)'],
 ];
 
 export function overBudget(entries, sizeOf) {

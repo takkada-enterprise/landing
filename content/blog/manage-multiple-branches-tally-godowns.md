@@ -5,7 +5,7 @@ meta_title: "Manage Multiple Branches in Tally with Godowns"
 meta_description: "Make each branch a godown and every movement carries its location. How distributors run multi-branch stock, transfers and billing from Tally on a phone."
 primary_keyword: "manage multiple branches tally"
 date: "2026-08-08"
-updated: "2026-08-09"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "One company file, three locations, and no way to see what the branch is holding without ringing the branch. Godowns are how Tally already answers that, and the phone is where the answer becomes useful."
@@ -74,7 +74,7 @@ Stock leaves a specific place when you sell it. If the invoice does not say whic
 
 Takkada stamps the godown on sales invoice lines and delivery challan lines from the phone, and the stamp flows into Tally with the voucher. For companies that want the discipline enforced, godown selection can be made compulsory per company, so a line cannot be saved without a location. The billing side is covered in [godown on sales invoices and delivery challans](/blog/godown-on-sales-invoice-delivery-challan/).
 
-This is the part branch businesses skip and then spend a physical stock count fixing. The invoice is the largest single source of outward movement in the books. If it carries no location, the location view is decoration.
+This is the part branch businesses skip and then spend a physical stock count fixing. The invoice is the largest single source of outward movement in the books. If it carries no location, the location view is decoration. When you do run one, the [physical stock verification for Tally](/physical-stock-verification-tally/) page shows how to keep the counter from copying the book figure.
 
 ## Giving a Branch Operator Access to One Warehouse
 
