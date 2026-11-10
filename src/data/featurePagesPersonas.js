@@ -63,7 +63,7 @@ export const PERSONAS = [
     hero: { screen: 'sales-by-item' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-11-10',
     walkthroughHeading: 'A beat day, from the first shutter to the night close',
     walkthrough: [
       {
@@ -164,6 +164,10 @@ export const PERSONAS = [
         q: 'Can I stop a salesman from seeing my margins?',
         a: 'Yes. Access is set per person and can be limited to his own parties, his own targets and his own collections, and stock permissions can be scoped down to a specific warehouse. Purchase rates, other territories and the company-level reports stay out of his app. This is set from the admin side, so it does not depend on the salesman leaving anything alone.',
       },
+      {
+        q: 'Can my godown staff count stock without seeing the book figure?',
+        a: 'Yes, with the Physical Stock Count add-on. You give one stock group in one godown to one person, they count item names and units on the phone without the book stock, you review every difference, and approval makes the stock journal for Tally at cost rate. Batch-wise items are counted but left out of the journal; adjust those in Tally by batch.',
+      },
     ],
     relatedPosts: [
       {
@@ -220,7 +224,7 @@ export const PERSONAS = [
     hero: { screen: 'maker-checker' },
     author: 'founder',
     datePublished: '2026-08-08',
-    updated: '2026-08-08',
+    updated: '2026-11-10',
     walkthroughHeading: 'From the invoice to the money, on a sixty-day cycle',
     walkthrough: [
       {
@@ -313,6 +317,10 @@ export const PERSONAS = [
       {
         q: 'Does this handle batch and expiry the way pharma needs?',
         a: 'Batch-wise entry works where your Tally already tracks it, because the vouchers written back are ordinary Tally vouchers against your existing stock items and batches. What the app does not do is manage expiry or near-expiry returns as a workflow of its own. If that is the deciding requirement, say so on the call and we will tell you plainly where the line is.',
+      },
+      {
+        q: 'Can I run a physical stock count for medicines kept by batch?',
+        a: 'Partly. With the Physical Stock Count add-on, batch-wise items are counted but left out of the journal, so correct those in Tally by batch. Items that are not batch-wise get the full flow: a blind count on the phone, your review, and the stock journal made for Tally at cost rate.',
       },
     ],
     relatedPosts: [

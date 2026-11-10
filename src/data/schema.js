@@ -147,6 +147,7 @@ export function softwareApplicationSchema(reviews = testimonials) {
       'Invoice-linked UPI payment collection at zero MDR',
       'Automatic payment reconciliation back into Tally',
       'Staff attendance, salary and payslips in English and Hindi (add-on)',
+      'Physical stock counts done blind on the phone, reviewed by you, with the stock journal made for Tally (add-on)',
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },
     sameAs: [appLinks.playStore, appLinks.appStore],

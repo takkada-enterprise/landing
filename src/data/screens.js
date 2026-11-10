@@ -382,6 +382,16 @@ export const SCREENS = {
   'hrms-government-files': phone('hrms-government-files', "Government files screen with the month's PF ECR and ESI files and the note to upload them on the EPFO and ESIC sites."),
   'hrms-tax-declaration-review': phone('hrms-tax-declaration-review', "Owner's review of a staff tax declaration for tax year 2026-27: regime, 80C and 80D amounts, and salary paid earlier this year."),
   'hrms-tds-challan': phone('hrms-tds-challan', 'Add TDS challan form with deposit date, BSR code, challan number, tax, interest, late fee and the salary month it covers.'),
+  // Physical Stock Count add-on (2026-11-10). Drawn from the app's own wording,
+  // not captures: the add-on is not on demo company 143 and app captures are
+  // night-only. See their operatorException rows in the manifest; swap for the
+  // stage co7088 night capture when it exists.
+  'stock-count-assign': phone('stock-count-assign', 'New stock count sheet with a stock group, a godown and the person who will count, and an Assign count button.'),
+  'stock-count-blind-entry': phone('stock-count-blind-entry', 'A stock count on a phone: item names and units with a box to type the count for each, three items left, and Save and Submit buttons, with no book stock shown.'),
+  'stock-count-being-counted': phone('stock-count-being-counted', "Godown stock on the counter's phone while their count is open: the items on the count read Being counted, other items show quantity and value."),
+  'stock-count-review': phone('stock-count-review', 'Review of a stock count: each item with system, counted and difference, a rate, Accept and Recount buttons, and one item marked Moved after count.'),
+  'stock-count-recount': phone('stock-count-recount', 'A recount on a phone showing only the two items sent back, with empty boxes and the note Count these items again.'),
+  'stock-count-approve': phone('stock-count-approve', 'The Approve this count? dialog with the shortage and excess value to be posted, a batch-wise item left out to adjust in Tally, and Back and Post journals buttons.'),
 };
 
 export function screen(slug) {

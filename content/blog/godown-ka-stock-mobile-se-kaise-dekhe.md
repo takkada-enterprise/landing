@@ -5,7 +5,7 @@ meta_title: "Godown ka Stock Mobile se Kaise Dekhe"
 meta_description: "Godown ka stock mobile se dekhna hai? Tally ke godowns phone par, location wise quantity, item drill-down aur past date ka position, bina desktop khole."
 primary_keyword: "godown ka stock mobile se"
 date: "2026-08-08"
-updated: "2026-08-09"
+updated: "2026-11-10"
 author: "founder"
 category: "How-To"
 excerpt: "Counter par customer khada hai, item chahiye aaj hi. Godown mein hai ya nahi, yeh ek call ka sawal nahi hona chahiye."
@@ -102,6 +102,6 @@ A: Nahi. Phone synced data padhta hai, isliye jis machine par Tally chal raha ha
 
 **Q: Mobile ka stock aur physical stock match nahi kar raha, kya karein?**
 
-A: Pehle invoices check kijiye ki unpar godown bhara gaya hai ya nahi, kyunki outward ka sabse bada hissa sales hai. Phir dekhiye ki transit ka alag godown hai ya nahi. Teesra, opening stock location wise daala gaya tha ya ek lump mein. In teeno mein se koi ek galat ho toh report sahi hote hue bhi physical se alag dikhegi.
+A: Pehle invoices check kijiye ki unpar godown bhara gaya hai ya nahi, kyunki outward ka sabse bada hissa sales hai. Phir dekhiye ki transit ka alag godown hai ya nahi. Teesra, opening stock location wise daala gaya tha ya ek lump mein. In teeno mein se koi ek galat ho toh report sahi hote hue bhi physical se alag dikhegi. Entries theek hone ke baad godown ki ginti karwaiye; staff bina book stock dekhe kaise gine, yeh [physical stock verification for Tally](/physical-stock-verification-tally/) page par hai.
 
 Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

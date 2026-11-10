@@ -65,7 +65,7 @@ export const ROUND_THREE = [
     hero: { screen: 'stock-control-reorder' },
     author: 'founder',
     datePublished: '2026-11-05',
-    updated: '2026-11-06',
+    updated: '2026-11-10',
     useCases: {
       heading: "Made for whoever places the purchase orders",
       cases: [
@@ -216,6 +216,10 @@ export const ROUND_THREE = [
       {
         slug: 'days-of-inventory-cover-distributor',
         title: 'Days of Cover: How Many Days Your Current Stock Lasts',
+      },
+      {
+        slug: 'physical-stock-verification-checklist',
+        title: 'Physical Stock Verification Checklist for Your Own Godown (2026)',
       },
     ],
     priority: 0.8,

@@ -25,6 +25,7 @@ import { routeMetadata } from '../siteMetadata';
 import { STOPS } from '../journey';
 import { ROUND_THREE } from '../featurePagesRoundThree';
 import { HRMS_PAGES } from '../featurePagesHrms';
+import { STOCK_COUNT_PAGES } from '../featurePagesStockCount';
 import { footerColumns, pricing } from '../siteContent';
 import { WHATSAPP_MESSAGES } from '../../lib/whatsapp';
 import { SECTION_ORDER } from '../../../scripts/generate-llms-txt.mjs';
@@ -997,9 +998,10 @@ describe('call recording', () => {
 
 // Ronak 2026-11-06 ("make it clear for all"): every round-three page says who
 // it is for in three situations, each today against with Takkada, and lists
-// the work that stops. The Staff and Payroll pages (2026-11-10) follow suit.
+// the work that stops. The Staff and Payroll and Physical Stock Count pages
+// (2026-11-10) follow suit.
 describe('who it is for', () => {
-  it.each([...ROUND_THREE, ...HRMS_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
+  it.each([...ROUND_THREE, ...HRMS_PAGES, ...STOCK_COUNT_PAGES].map((p) => [p.slug, p]))('%s: three situations and the work that stops', (_slug, page) => {
     expect(page.useCases?.heading).toBeTruthy();
     expect(page.useCases.cases).toHaveLength(3);
     for (const c of page.useCases.cases) {
@@ -1026,5 +1028,28 @@ describe('Staff and Payroll pages stay inside their claims sheets', () => {
     const group = FEATURE_GROUPS.find((g) => g.id === 'staff-payroll');
     expect(group.slugs.sort()).toEqual(HRMS_PAGES.map((p) => p.slug).sort());
     expect(HRMS_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
+  });
+});
+
+// Physical Stock Count (2026-11-10): claims that are not live, or not provable
+// yet, per docs/seo/feature-pages-stock-count/*-claims.md. "Accept all" and a
+// single journal per count are stage only, no stock-count journal has reached a
+// real Tally yet, the counter is never notified, nothing is counted offline or
+// by barcode or serial, and the add-on has no price. Wherever the approve
+// sentence appears, the batch-wise line has to appear too.
+describe('Physical Stock Count pages stay inside their claims sheets', () => {
+  const BANNED =
+    /accept all|journals? per count|one (stock )?journal|posted (in|to) tally|synced to tally|updated automatically|auto-?correct|correct(s|ed)? (your )?tally|fix(es)? your tally|100% blind|tamper|theft-?proof|\bfree\b|barcode|offline|notif|the only (app|one)|zoho|vyapar|livekeeping|cleverence|paysaathi|serial/i;
+  it.each(STOCK_COUNT_PAGES.map((p) => [p.slug, p]))('%s: carries no banned claim', (_slug, page) => {
+    const { relatedPosts, ...claimBearing } = page;
+    expect(JSON.stringify(claimBearing)).not.toMatch(BANNED);
+  });
+  it.each(STOCK_COUNT_PAGES.map((p) => [p.slug, p]))('%s: says batch-wise items are left out', (_slug, page) => {
+    expect(JSON.stringify(page)).toMatch(/batch-wise items are counted but left out of the (stock )?journal/i);
+  });
+  it('sits in Loading and stock, off the lead tier', () => {
+    const group = FEATURE_GROUPS.find((g) => g.id === 'load');
+    for (const p of STOCK_COUNT_PAGES) expect(group.slugs).toContain(p.slug);
+    expect(STOCK_COUNT_PAGES.filter((p) => LEAD_FEATURE_SLUGS.includes(p.slug))).toEqual([]);
   });
 });

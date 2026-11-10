@@ -5,7 +5,7 @@ meta_title: "Branch Stock Visibility for Distributors"
 meta_description: "Branch stock visibility decides what a distributor can promise a retailer today. What blocks it, what it costs, and how the answer moves from desktop to phone."
 primary_keyword: "branch stock visibility distributor"
 date: "2026-08-08"
-updated: "2026-08-09"
+updated: "2026-11-10"
 author: "founder"
 category: "Market Reality"
 excerpt: "At 9 PM the owner is not reading a report. He is trying to remember whether the Jorhat branch still has the item he promised somebody at four o'clock."
@@ -103,7 +103,7 @@ A: The ability to see how much of each item is lying at each of your locations, 
 
 **Q: Why does branch stock in Tally not match the physical stock?**
 
-A: Usually because outward documents were recorded without a location, since sales move far more stock than transfers do. The other common causes are goods in transit with no transit godown to hold them, entries made days after the goods moved, and opening stock entered as one lump instead of location-wise.
+A: Usually because outward documents were recorded without a location, since sales move far more stock than transfers do. The other common causes are goods in transit with no transit godown to hold them, entries made days after the goods moved, and opening stock entered as one lump instead of location-wise. When those are fixed, count the branch shelves themselves; the [physical stock verification for Tally](/physical-stock-verification-tally/) page shows a count where the person counting never sees what the books say.
 
 **Q: Can I see branch stock without giving staff access to everything?**
 

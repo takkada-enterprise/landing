@@ -97,7 +97,7 @@ const LINK_FLOORS = {
   'livekeeping-alternative': 2,
   // Round three, 2026-11-05.
   'salesman-location-tracking-app': 3,
-  'stock-control-tally': 2,
+  'stock-control-tally': 5, // raised 2026-11-10 by the Physical Stock Count posts
   'desktop-billing-tally': 2,
   // Staff and Payroll pages, 2026-11-10.
   'staff-attendance-salary-app': 10,
@@ -105,6 +105,9 @@ const LINK_FLOORS = {
   'pf-ecr-esi-file-from-salary': 4,
   'payroll-software-tally': 3,
   'salary-slip-in-hindi': 2,
+  // Physical Stock Count pages, 2026-11-10.
+  'physical-stock-verification-tally': 12,
+  'stock-count-app': 4,
 };
 
 const floorFor = (slug) => LINK_FLOORS[slug] ?? DEFAULT_FLOOR;
