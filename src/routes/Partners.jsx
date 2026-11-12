@@ -10,22 +10,22 @@ const partnerBenefits = [
   {
     icon: BadgeIndianRupee,
     title: 'Recurring revenue on every client onboarded',
-    body: 'Earn commission on the first sale and on every renewal. Distributors stay on the product because their reconciliation is gone, so renewals happen.',
+    body: 'Pocket commission not just on day one, but every single time they renew. Clients stick with it because reconciliation finally stops being a nightmare, meaning those renewals happen like clockwork.',
   },
   {
     icon: Handshake,
     title: 'Zero conflict with your Tally licence sales',
-    body: 'Takkada runs on top of Tally. Your Tally licence and renewal commercials stay exactly as they are. The same client signs two cheques, you collect on both.',
+    body: 'Takkada simply layers right on top of Tally. Your core Tally deals and renewal margins stay completely untouched—your client writes two cheques, and you earn on both.',
   },
   {
     icon: MessageCircle,
     title: 'WhatsApp-first workflow your clients already use',
-    body: 'Reminders, invoices, and payment links flow over WhatsApp. The client does not have to learn a new app to receive money.',
+    body: 'Reminders, invoices, and payment links go straight to WhatsApp. Your clients don’t have to waste time figuring out some brand-new app just to get paid.',
   },
   {
     icon: Workflow,
     title: 'End to end: reminders, UPI, reconciliation, GST',
-    body: 'Payment reminders, UPI collection with zero MDR, auto reconciliation into Tally, and e-invoice plus e-way bill from the phone. One product covers the whole receivables loop.',
+    body: 'From automated payment nudges and zero-MDR UPI collections to auto-syncing back into Tally, e-invoices, and e-way bills right from a phone—one tool handles the entire collections loop.',
   },
 ];
 
@@ -138,10 +138,10 @@ function Partners() {
             <span className="section-label hero-overline">FOR TALLY PARTNERS</span>
             <h1 className="hero-title icp-hero-title">One customer. Two products.</h1>
             <p className="hero-subtitle icp-hero-subtitle">
-              Alongside your Tally, sell Takkada and earn recurring commission on
-              every customer, on the first sale and on every renewal. They stay on
-              the product because their reconciliation has gone away, so the
-              renewals keep coming.
+              Bundle Takkada right alongside Tally and pull in recurring commissions on
+              every single signup—both upfront and every time they renew. Customers stick
+              around because their daily reconciliation headache finally disappears, which
+              means the renewal checks keep rolling in year after year.
             </p>
             <div className="hero-ctas">
               <CTAButton variant="primary" type="button" onClick={openPartnerModal}>

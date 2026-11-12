@@ -64,7 +64,7 @@ function BlogIndex() {
             <p className="overline">TAKKADA BLOG</p>
             <h1 className="blog-index-title">Notes for distributors who run on Tally</h1>
             <p className="blog-index-subtitle">
-              Practical notes on receivables, Tally workflows, and running a tighter collections operation.
+              Real talk on receivables, sorting out Tally workflows, and tightening up collections without losing your mind.
             </p>
           </div>
         </section>
