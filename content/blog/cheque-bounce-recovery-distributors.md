@@ -161,6 +161,6 @@ A: A Section 138 conviction by itself does not transfer money to you. It results
 - Payment Link Tally Integration: How Distributors Collect Without the 9 PM Reconciliation
 - Udhar Vasuli Kaise Kare: A Working Playbook for Indian Distributors in 2026
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
 
 *This article is for general information only and does not constitute legal advice. For any specific cheque bounce or Section 138 matter, consult a qualified advocate in your jurisdiction.*

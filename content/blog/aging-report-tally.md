@@ -153,4 +153,4 @@ A: Once a week is enough for action. Once a month is too late. Once a day adds n
 - Outstanding Payment Reminder: How the Best Distributors Run It in 2026
 - WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

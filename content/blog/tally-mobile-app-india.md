@@ -129,4 +129,4 @@ A: Single User, Multi-User and Gold licences all support API-based sync. Silver 
 - Tally on Mobile: What Works and What Breaks
 - Biz Analyst Alternative: What Distributors on Tally Pick
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

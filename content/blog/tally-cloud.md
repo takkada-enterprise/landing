@@ -120,4 +120,4 @@ A: Tally Single User licences are tied to the physical machine they were activat
 - Tally Prime Mobile App: What Exists, What Does Not
 - Auto Reconciliation Tally: The Full Mechanic
 
-Takkada helps Indian distributors using Tally — whether on a local PC or in the cloud — collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -160,8 +160,8 @@ CARDS = [
     {
         "filename": "takkada-og-default.png",
         "kicker": "For distributors on Tally",
-        "title": "Your Tally, in your pocket.",
-        "tagline": "Invoice from your phone, send on WhatsApp, collect on UPI, auto-reconcile into Tally.",
+        "title": "Run your Tally business from your phone.",
+        "tagline": "Invoices, orders, stock, ledgers, WhatsApp reminders and payments from your phone.",
         "screenshot": "public/assets/screenshots/home-screen.png",
     },
     {

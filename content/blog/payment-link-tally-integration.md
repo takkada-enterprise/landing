@@ -158,4 +158,4 @@ A: Yes. Good apps let you batch invoices into one payment link with the total am
 - Auto Reconciliation Tally: The Full Mechanic
 - WhatsApp Payment Reminder for Distributors: A Cadence That Actually Collects
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -122,4 +122,4 @@ A: On desktop, no, you would switch to WhatsApp and type the amount yourself. On
 
 A: No. A companion app connects to your existing Tally installation through Tally's own data channel and needs no extra Tally licence. You pay only for the mobile layer itself, and your Tally setup at the office stays exactly as it is.
 
-Takkada is a Tally-native mobile layer that lets distributors check party outstanding from the field, send WhatsApp reminders, and collect on UPI at 0% MDR with auto-reconciliation back into Tally. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). The wider view of [outstanding receivables on mobile](/outstanding-receivables-on-mobile/) covers what else lands on the phone alongside the party balance.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). The wider view of [outstanding receivables on mobile](/outstanding-receivables-on-mobile/) covers what else lands on the phone alongside the party balance.
