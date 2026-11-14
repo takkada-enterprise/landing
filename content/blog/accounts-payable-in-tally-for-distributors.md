@@ -88,4 +88,4 @@ A: Yes. Takkada reads your purchase ledgers and open bills from Tally and shows 
 
 A: Without bill-wise tracking, a supplier ledger shows only a running balance, so you cannot tell an old overdue bill from a fresh one or reconcile against the supplier's statement cleanly. With it, every purchase bill carries its own due date and every payment is tagged to the bill it settles, which protects cash discounts and makes supplier reconciliation a line-by-line match instead of an argument over a lump sum.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

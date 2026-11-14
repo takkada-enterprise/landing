@@ -306,19 +306,8 @@ describe('formatInr', () => {
 });
 
 describe('softwareApplicationSchema', () => {
-  it('maps testimonials into Review nodes whose count matches the input', () => {
-    const reviews = [
-      { name: 'A', quote: 'Great' },
-      { name: 'B', quote: 'Solid' },
-    ];
-    const schema = softwareApplicationSchema(reviews);
-    expect(schema.review).toHaveLength(2);
-    expect(schema.review[0]).toMatchObject({
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'A' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: 'Great',
-    });
+  it('carries no Review nodes (self-serving reviews are invalid structured data)', () => {
+    expect(softwareApplicationSchema()).not.toHaveProperty('review');
   });
 
   it('omits aggregateRating while no real ratingCount is configured', () => {
@@ -326,16 +315,10 @@ describe('softwareApplicationSchema', () => {
     expect(softwareApplicationSchema()).not.toHaveProperty('aggregateRating');
   });
 
-  it('returns valid schema with no review key when given empty testimonials', () => {
-    const schema = softwareApplicationSchema([]);
-    expect(schema).not.toHaveProperty('review');
+  it('returns a valid SoftwareApplication with offers', () => {
+    const schema = softwareApplicationSchema();
     expect(schema['@type']).toBe('SoftwareApplication');
     expect(schema.offers.length).toBeGreaterThan(0);
-  });
-
-  it('uses the on-site testimonials by default', () => {
-    const schema = softwareApplicationSchema();
-    expect(schema.review).toHaveLength(testimonials.length);
   });
 
   it('never emits a placeholder testimonial as a Review node', () => {

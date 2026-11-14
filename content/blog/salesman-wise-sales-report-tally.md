@@ -85,4 +85,4 @@ A: A salesman-wise report attributes sales to the rep who made them; a party-wis
 
 A: On both. Sales alone can hide overdue accounts, so a rep who books heavily but collects slowly is loading risk, not just driving revenue. Reading a salesman's sales next to what his parties owe gives the full picture, which is why distributors pair the salesman-wise report with the outstanding on his route.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -111,4 +111,4 @@ A: Yes. At the dealers visited includes orders by anyone at those dealers. If th
 
 A: Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. Outcomes reads visits and orders that have already landed. A stamp still labelled Saved on this phone is not on the owner's feed yet.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

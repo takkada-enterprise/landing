@@ -93,7 +93,7 @@ The distributors operating at Tier 3 by 2027 will have a structural cost advanta
 
 ## What Takkada is, in one sentence
 
-Takkada is the operational layer Indian distributors use to move from Tier 1 or Tier 2 to Tier 3 — Tally-integrated mobile-first invoicing, UPI link on every invoice, structured WhatsApp reminder cadence, and UTR auto-reconciliation that ends the 9 PM session.
+Takkada is Tally on mobile for Indian distributors, and it is how a Tier 1 or Tier 2 business moves to Tier 3: invoicing from the phone, UPI link on every invoice, structured WhatsApp reminder cadence, and UTR auto-reconciliation that ends the 9 PM session.
 
 ## Frequently Asked Questions
 

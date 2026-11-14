@@ -132,4 +132,4 @@ A: Item-wise sales only counts what was billed. A dry week records as quiet dema
 
 A: No. The top of Velocity, the ones whose cover is close to lead time, plus the slow-and-high-stock lines you must not refill by accident. A sheet of thirty movers beats a sheet of 400 empty columns.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

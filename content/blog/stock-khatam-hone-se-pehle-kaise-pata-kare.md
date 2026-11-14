@@ -148,4 +148,4 @@ A: Nahi. Velocity ke tez movers, jinka cover lead time ke paas hai. 90 din cover
 
 A: Tally stock aur sales dikhata hai. Cover aur reorder point owner nikalta hai, lead time ke saath. Item haath nahi uthata. Somwar aur Guruvaar kholna padta hai.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -88,7 +88,7 @@ A salesman without Reports-tab permission still may be the one standing at the c
 
 If Sharma then forwards the PDF into a kirana group, that is his chat, not a product setting. Send only to the number on file for that party. Pending Bills at 9:40 is already the short document. A group forward of a full ledger is how Fancy Bazaar learns Barpeta's rates. Keep Include details off unless the dispute needs the lines.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: Settings only chooses the document. The send starts on the party page, the bi
 
 A: No. A Trial Balance is a report of every ledger with a debit or a credit, shared from the Accounts door through the phone's share sheet. A ledger statement or pending-bills statement is one party's document from the party page, the bills page or the ageing report. Sharma asking for his statement wants the party document.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

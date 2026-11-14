@@ -92,7 +92,7 @@ Takkada has a scheme settlement module built for this shape of work, and it is s
 
 The configuration carries what these schemes actually use: MRP, an absolute rate, a token rate, category slabs, and cash-discount windows keyed by payment date with a catch-all bucket for the gap days between one window closing and the next opening. What the run cannot resolve, it flags, separated into what blocks the number, what is worth a look, and what is simply context, such as a quantity you excluded on purpose. Then the credit notes go out and the working exports as a workbook you can sit down with in front of the dealer.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -120,4 +120,4 @@ A: Yes, provided each item carries its crop and category so the same sales regis
 
 A: Yes. The scheme settlement module runs against the Tally data you already keep, reading liftings, returns and receipts from your synced books rather than a spreadsheet somebody typed. It is enabled for a company on request rather than sold as part of a plan, and it produces credit notes plus an exportable working.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -99,7 +99,7 @@ The bill is the smallest part of it. Four things to plan for.
 
 Takkada sends WhatsApp reminders and invoice dispatch from a shared business number on every plan today, which is how the [WhatsApp payment reminders](/blog/whatsapp-payment-reminder-for-distributors/) most customers run are going out. Sending the same messages from your own WhatsApp Business number is an add-on priced by your partner, and some customers already send from their own number. The onboarding is light on your side: you submit the number inside the app, the setup with Meta is completed for you, and the number goes live once it is through. The companion piece on [sending reminders from your own WhatsApp number](/blog/send-reminders-from-your-own-whatsapp-number/) covers what changes on the collections side once it does.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -127,4 +127,4 @@ A: You need the WhatsApp Business Platform with your own number registered on it
 
 A: Meta bills per template message delivered, and the rate depends on the template category and the recipient's country. Utility messages cost considerably less than marketing ones in India, and utility templates sent inside an already-open service window are not charged. Meta can revise the rate card up to four times a year, so ask your provider for current India rates in writing rather than relying on a published figure.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

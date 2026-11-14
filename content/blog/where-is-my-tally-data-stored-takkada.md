@@ -88,4 +88,4 @@ A: Not if you use role-based access, which you should. The owner assigns each us
 
 A: The synced data is protected by encryption in transit, so it cannot be read while it moves between your office, the storage, and your phone. It becomes readable only at the ends that are meant to have it. Encryption in transit is the standard protection to expect from any service carrying business data over the internet.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

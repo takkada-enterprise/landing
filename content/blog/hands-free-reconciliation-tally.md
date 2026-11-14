@@ -84,4 +84,4 @@ A: Yes. Because the loop stays in two-way sync with Tally, you can watch receipt
 
 A: It is held for review rather than force-matched. A payment smaller than the bill could be a cash discount, a TDS deduction, or a genuine shortfall, and each needs a different treatment. The automation flags it with the amount and the gap, so the accountant decides how to book it instead of the system marking the invoice closed on a partial amount.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

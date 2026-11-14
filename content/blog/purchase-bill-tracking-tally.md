@@ -98,4 +98,4 @@ A: Without a reference, a supplier ledger shows only a running balance, so you c
 
 A: Yes. Takkada reads your purchase ledgers and open bills from Tally and shows supplier-wise payables with ageing on the phone, including what is due in the next seven days. Because it stays in two-way sync with Tally, the figures on the phone match the office desktop, so you can plan a supplier payment or a stock order from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

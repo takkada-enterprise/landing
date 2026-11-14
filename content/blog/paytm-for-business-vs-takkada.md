@@ -73,7 +73,7 @@ A distributor whose collections map to specific GST invoices in Tally needs acce
 
 ## What Takkada is, in one sentence
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch, so each payment is linked to the right invoice and reconciled into Tally, not just accepted.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app, so each payment is linked to the right invoice and reconciled into Tally, not just accepted.
 
 ## Frequently Asked Questions
 

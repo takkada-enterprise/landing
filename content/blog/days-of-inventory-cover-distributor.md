@@ -147,4 +147,4 @@ A: Compute it on the location you promise from. Company 96 with Guwahati at 0 is
 
 A: Whenever quantity or the sales rate has moved enough to change the comparison with lead time. For movers, Monday and Thursday is a working cadence. For a slow crate at 90 days, once a month is enough.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

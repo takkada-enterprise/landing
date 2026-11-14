@@ -115,4 +115,4 @@ A: From the Team line that names overdue parties nobody has chased. Those are ov
 
 A: No. Tally remains the book of record for bills and receipts. The board is how those receipts and that outstanding get a person, a pace, and a list of parties nobody has asked.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

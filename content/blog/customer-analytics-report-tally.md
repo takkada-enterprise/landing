@@ -96,7 +96,7 @@ The owner screenshots nothing. He exports the PDF at 9:12, share sheet, WhatsApp
 
 A week of this habit is eight or nine visits that Outstanding would not have scheduled. Sharma still gets the 8:30 call because ₹1,85,000 is ₹1,85,000. The extra visits are the quiet names. Customer Analytics is how they made the list. Wednesday, the Thursday party is back on the van because frequency broke, not because a bill aged. He lifts ₹11,000 of rice. Outstanding never knew he had gone. The PDF from Monday night is still in WhatsApp. The owner ticks the name on it. That is the whole loop.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -124,4 +124,4 @@ A: Customer Analytics is an action report, and most action reports have no date 
 
 A: Customer Analytics sits in the Customers & orders door of Reports, next to Cross-sell Gaps and Customers waiting, while Trial Balance, Profit & Loss, Balance Sheet, Monthly P&L & Balance Sheet and Daybook sit in Accounts. Evening is when a distributor opens the who-buys ranking.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

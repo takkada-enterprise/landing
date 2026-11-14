@@ -89,4 +89,4 @@ A: It shows which SKUs are selling fastest and which have gone quiet. Read along
 
 A: Yes. The item-wise sales report is an inventory report, so it needs stock items and inventory maintained in the company. If you bill with item details, Tally already captures the outward movement per SKU, which is what the report reads. Ledger-only companies without inventory will not produce a meaningful item-wise view.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

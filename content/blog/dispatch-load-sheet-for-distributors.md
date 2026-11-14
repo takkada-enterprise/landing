@@ -107,4 +107,4 @@ A: No. Shops on Station Road with nothing pending stay on the beat and do not ap
 
 A: Dispatch totals pending orders across beats whether a salesman is assigned or not. A beat with no salesman still has a Load sheet if its dealers have pending orders. Today's load is the salesman's door into that same pile for his beat.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

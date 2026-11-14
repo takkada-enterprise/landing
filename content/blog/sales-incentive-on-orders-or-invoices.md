@@ -123,4 +123,4 @@ A: No. A receipt sits on the dealer. Receipts cannot be attributed to a salesman
 
 A: No. The Sales Order and the invoice stay in Tally as they are. The toggle only chooses which of those two sales totals Team Sales reads for the leaderboard and the commission figure.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

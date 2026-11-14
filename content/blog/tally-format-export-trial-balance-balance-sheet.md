@@ -94,7 +94,7 @@ Bills Payable is the supplier sitting. Open it when you are about to issue a pay
 
 Daybook still shares as PDF or CSV. MIS still uses the PDF and Excel chooser. Neither is Tally-format export. The five names are the list. If the CA's message names a sixth report in Tally format, the desktop still has a job.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -122,4 +122,4 @@ A: No. PDF and Excel export exist for Trial Balance, Profit and Loss, Balance Sh
 
 A: Open the Balance Sheet and look for a Difference row. A non-zero Difference row means the synced books need attention in Tally. Export after that row is gone. The phone does not rewrite Tally to clear it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

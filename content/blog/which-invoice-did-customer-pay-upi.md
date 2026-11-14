@@ -104,7 +104,7 @@ Because the selection happened before the money moved, the receipt writes back i
 
 The recovery sequence above still exists for the party who pays by plain transfer out of habit. What changes is how often you need it, because every party you move onto a link is one less anonymous credit each month.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -132,4 +132,4 @@ A: Suspense is the safer temporary home, because an on-account receipt makes the
 
 A: Change how the party initiates the payment. If he pays against named bills on a shared link listing his open invoices, the allocation is decided before the money moves and the receipt posts back against those exact bills. Free transfers to your account number will always arrive unlabelled, so make the labelled route the easiest one for every party.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

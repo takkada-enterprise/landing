@@ -87,4 +87,4 @@ A: No. Viewing the Sales Register or the mobile daily total is a read-only activ
 
 A: Yes. The Sales Register takes any period, so the same report that shows today rolls up to this week, this month, or a custom range. On the phone the daily total is the default view an owner checks each evening, with the wider periods a filter away when he wants the trend rather than the day.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -136,4 +136,4 @@ A: Only if that location actually sells the item. A transfer moves quantity. It 
 
 A: No. Closing value is quantity times current rate. Dead stock can show a large rupee figure and still be unsold. Rank the dead list by those rupees so the expensive quiet SKUs get the first scheme.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

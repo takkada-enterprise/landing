@@ -92,7 +92,7 @@ The purchase manager still wants a supplier name. That is Purchase Analytics, no
 
 By 8:30 he is on Outstanding for Sharma's ₹1,85,000. The oil decision is already on the challan from 7:40. Two sittings, two reports. Mixing them is how a credit hold becomes a dead SKU and nobody can say which.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -120,4 +120,4 @@ A: Sales Analytics is an action report, and most action reports have no date fil
 
 A: Open Reports, then the Sales door, then Sales Analytics. Type a party name in the search box to land on that ledger. Item movement and party buying are the two cuts a distributor uses after the sales register has already totaled the day.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

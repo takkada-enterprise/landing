@@ -119,4 +119,4 @@ A: The unchased line is for parties nobody has chased, typically with no owner a
 
 A: No. Assigning an owner makes one person unable to say they thought someone else had it. The bills stay in Tally until a receipt allocates. The line shrinking means the people gap closed. The rupee gap is the rest of the week.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

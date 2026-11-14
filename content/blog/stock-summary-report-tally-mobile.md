@@ -86,4 +86,4 @@ A: Group the Stock Summary by stock group and you get category-level totals, whi
 
 A: Because stock on its own does not tell you if it is the right amount. High stock of a slow item is overstock; low stock of a fast item is a stockout waiting to happen. Reading the stock summary against item-wise sales turns raw quantities into reorder and clearance decisions, which is how a distributor keeps cash in stock that sells.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

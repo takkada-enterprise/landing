@@ -101,7 +101,7 @@ The upstream discipline matters too. Where the invoice already carries an e-invo
 
 Takkada generates e-way bills and e-invoices from the phone against your Tally invoice, with Part A auto-populated where the invoice already carries an e-invoice, standalone bills with QR, and a cancellation flow, all written back into Tally against the same voucher. It sits in the Assurance plan and above.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -129,4 +129,4 @@ A: You can generate it from the invoice itself rather than retyping the consignm
 
 A: For inter-state movement the threshold is a consignment value of 50,000 rupees. For movement inside a state the threshold is set by that state and varies, so the figure that binds you is the one in your own state's notification rather than a national number.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

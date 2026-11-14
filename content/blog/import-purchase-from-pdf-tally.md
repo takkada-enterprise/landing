@@ -88,4 +88,4 @@ A: It is bundled into the Copilot plan (₹9,000 a year, GST extra), together wi
 
 A: Yes. Once the accountant posts the draft, it is an ordinary Tally purchase voucher, indistinguishable from a hand-keyed one. Tally stays the book of record, the bill carries its due date into your creditor position, and the two-way sync keeps the payables figure on your phone matching the desktop.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

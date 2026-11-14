@@ -104,7 +104,7 @@ What it cannot resolve, it flags, separated into what blocks the number, what is
 
 The part that matters months later is that a run keeps its own copy of the vouchers it counted. When a retailer calls in December about a kharif figure, the sheet still shows what went into the September number, including vouchers edited since. That is the difference between a settlement you can be argued with about and one you have to argue about.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -132,4 +132,4 @@ A: Net it off the lifted quantity before the slab is applied, converted into the
 
 A: Yes, if the settlement reads your live Tally data directly. Takkada has a scheme settlement module, enabled per company on request, that holds the item classification and packet factors, stores each dealer's booking, runs the settlement off synced vouchers, flags what it could not resolve, and issues the credit notes with an exportable working.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

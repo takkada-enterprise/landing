@@ -65,7 +65,7 @@ Bill-wise payables tracking lives in the Tally desktop, and the moments you need
 
 Takkada reads your bill-wise purchase ledgers from Tally and shows the payable position on the phone, supplier by supplier, each open bill with its due date, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. You answer "kaunsa bill" with a bill number instead of a guess, and you pay the right bill inside its window from wherever you are. Tally stays the system of record; the phone just makes the bill-wise payable readable in the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -89,4 +89,4 @@ A: Without it, a supplier ledger shows only a running balance, so you cannot tel
 
 A: Yes. Takkada reads your bill-wise purchase ledgers from Tally and shows each supplier's open bills with due dates on mobile. Because it stays in two-way sync with Tally, the position matches the office desktop, so you can pay the right bill inside its window and answer a supplier with a bill number from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

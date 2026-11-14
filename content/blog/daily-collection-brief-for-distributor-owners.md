@@ -123,4 +123,4 @@ A: It means money may have landed and Tally may not have the receipt yet. Treat 
 
 A: Treat it as a real state. There is no dated chase for this morning. Use the hour on the Team board's overdue parties nobody has chased, or on billing. Do not invent follow-ups to fill the card.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

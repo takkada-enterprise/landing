@@ -88,7 +88,7 @@ What he actually checks on the P&L after that: sales against the ₹42,00,000 ye
 
 A scheme credit note parked on sales will make August look poorer than the godown felt. That is a Tally voucher question. The phone will keep showing it until someone posts the credit note to the right ledger. Send the CA the file after that posting, not before.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: No. Trial Balance, Profit and Loss and Balance Sheet are read straight from t
 
 A: Profit and Loss is income against expense in the shape Tally already prints. The profitability report for distributors is the margin reading that sits beside it. Open Profit and Loss when the CA asks for the period result. Open the profit report when the question is the rupee that survived after the goods.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -80,4 +80,4 @@ A: Open the Purchase Register and group it by party, or view Group Outstanding a
 
 A: Yes. Import from PDF turns a supplier's invoice PDF into a Tally purchase entry, so bills that used to wait on the accountant's desk get booked faster. That keeps the purchase report current, because the report is only as accurate as the bills actually entered, and a backlog of unkeyed invoices understates both purchases and payables.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

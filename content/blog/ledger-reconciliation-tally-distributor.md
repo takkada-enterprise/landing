@@ -101,4 +101,4 @@ A: Considerably. With bill-wise references on, matching two statements becomes a
 
 A: Yes. Takkada shows each party's live, bill-wise outstanding on the phone and keeps receipts matched to the right bill in Tally, so ledgers stay close to reconciled continuously. When a party disputes a balance, you can pull up the exact open bills on the spot and settle the mismatch with a bill number instead of waiting to check at the office.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

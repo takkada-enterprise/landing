@@ -92,4 +92,4 @@ A: No. Auto Invoice Dispatch comes in with Assurance, and Import-from-PDF, bank 
 
 A: Only the exceptions. Most receipts reconcile cleanly on their own, and a small share that are ambiguous or unmatched land in a queue the accountant clears in a few minutes each morning. Disputes and credit calls arrive as they happen. The routine typing goes to zero; the decisions stay with you.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

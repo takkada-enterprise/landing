@@ -81,7 +81,7 @@ A party's ledger statement and pending-bills statement can go from the party pag
 
 Bank details print on the statement automatically from the company's default bank. They appear in reminder text only when there is no payment link.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -109,4 +109,4 @@ A: Reports+ is included for every company. It covers Monthly P&L & Balance Sheet
 
 A: No. Trial Balance is a flat list read from the Tally books synced to the phone. Balance Sheet is the report that drills group to sub-group to ledger. Monthly P&L & Balance Sheet shows a 12-month grid with a total column and has no drill-down.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

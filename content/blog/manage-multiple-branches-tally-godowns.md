@@ -88,7 +88,7 @@ Multi-branch businesses collect money in more places than they can watch. A reta
 
 Takkada puts a UPI payment link on the invoice itself, so the retailer pays from wherever he is and the receipt reconciles back into Tally against the right bill. Collection carries 0% MDR on UPI, with no transaction cap and no monthly fee, which matters when a branch network is pushing a few crore a month through small ticket payments. The branch stops being a place where money waits for someone to record it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: Yes. A team member can be restricted to named godowns for stock movements, co
 
 A: No. Godowns record where goods physically sit. Your returns are filed at the registration level, so moving stock between two godowns under the same GSTIN creates no tax event. A movement between locations registered under different GSTINs is a different transaction and is billed as such.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

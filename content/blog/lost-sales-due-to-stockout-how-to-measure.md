@@ -131,4 +131,4 @@ A: No. A dip caused by zero stock is a supply hole, not a demand hole. Use avera
 
 A: Tally will total invoices and, if you record them, sales orders. The owner still has to pick the unbilled orders on dry items and any marks in the notebook. That addition is the measurement.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -107,4 +107,4 @@ A: No. The visit is not recorded, and the refused attempt still shows to the own
 
 A: No. Visit check-in and check-out are saved on the phone without signal and upload when signal returns. Creating an order, invoice or receipt needs a working data connection. Mock location is refused on the device. Signal does not change the flag.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

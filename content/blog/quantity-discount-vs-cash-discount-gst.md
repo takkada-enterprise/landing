@@ -86,7 +86,7 @@ For the quantity discount, that means each stock item is classified into the sch
 
 The number itself was never the difficult part. Producing the evidence behind it, months after the season closed, is where the season is won or lost.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -110,4 +110,4 @@ A: Usually because a retailer short-paid a bill by the cash discount he claimed 
 
 A: For the post-supply route as the law has stood since 2017, yes, a discount established in terms of an agreement entered into at or before the time of supply and linked to relevant invoices. The Finance Act, 2026 removes that condition once it is notified into force. Writing the scheme down in advance is still the practical answer, because it is what ends the argument with the retailer at settlement.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

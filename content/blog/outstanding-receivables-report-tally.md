@@ -80,4 +80,4 @@ A: They are the same money from two angles. Sundry Debtors is the Tally group th
 
 A: No. Reading the Receivables report, on desktop or on the phone, is read-only and reports the state of the books without altering them. The number only moves when a real transaction posts, such as a fresh invoice or a receipt. Takkada writes back to Tally only when you actually collect or invoice, and it posts a clean voucher into your existing company.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

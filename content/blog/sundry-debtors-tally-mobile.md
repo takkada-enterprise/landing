@@ -64,7 +64,7 @@ A debtor list on its own does not collect anything. It becomes money only when s
 
 Takkada takes the overdue parties off your Sundry Debtors position and fires a WhatsApp reminder on the right bill, with a UPI payment link attached. The retailer taps, pays on UPI at 0% MDR, and the receipt reconciles back into Tally against the specific invoice it settles, so that bill drops off the debtor list on its own. The list that used to sit on a desktop now runs the collection by itself, and the outstanding actually comes down instead of just being visible. Tally stays the system of record throughout; nothing about the accountant's month-end changes.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -88,4 +88,4 @@ A: Yes. Takkada reads your Sundry Debtors ledgers and open bills from Tally and 
 
 A: Common causes are duplicate customer ledgers splitting one party across two names, a receipt posted On Account instead of against the specific bill it settles, or bill-wise details being off so the ledger shows only a lump total. Keep one clean ledger per customer with bill-wise on, and match every receipt to its invoice.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

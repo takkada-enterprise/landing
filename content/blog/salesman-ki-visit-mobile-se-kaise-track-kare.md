@@ -129,4 +129,4 @@ A: Haan. Dealer pe pin nahi hai, check-in koi distance test nahi chalta. Photo a
 
 A: Take an order check-out ke baad milta hai. Sales orders ko signal chahiye. Order Tally mein ordinary Sales Order banta hai. Visit stamps phone pe wait kar sakte hain. Order nahi, jab tak data na ho.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

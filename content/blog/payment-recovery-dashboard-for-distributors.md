@@ -125,4 +125,4 @@ A: No. Reminder cadence is a company-wide setting. The presets are Every day, Ev
 
 A: No. WhatsApp reminders can carry a UPI payment link once payment collection is active, after KYC. When collection is on, UPI collections run at 0% MDR, with no transaction cap and no monthly fee.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -90,4 +90,4 @@ A: No. Some pieces are plan gated. Auto Invoice Dispatch comes in with Assurance
 
 A: For a distributor with 200 receipts and 30 to 50 invoices a day, the manual versions of these jobs add up to a few hours: invoice forwarding, reminder calls, and the 9 PM reconciliation session. The [time math against manual entry](/blog/tally-autopilot-vs-manual-entry/) breaks it down job by job.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

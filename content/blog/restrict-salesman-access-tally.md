@@ -100,7 +100,7 @@ Underneath, Tally stays the book of record and stays exactly as it is. Orders sy
 
 The practical sequence is short. Decide the four things you will not show, decide the four things each man must be able to do, then open the second list one member at a time and leave the first closed. Most owners find the field team wanted far less than they feared, and that nobody got access for five years because Tally's controls do not bend at the party level, which is a design choice rather than a defect. The rest of what a field team can do once access is scoped sits on the [salesman app for Tally](/salesman-app-tally/) page.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -128,4 +128,4 @@ A: In Tally alone the two are hard to separate cleanly, because the report right
 
 A: On Takkada, role-based access comes with every plan, from Momentum at ₹4,500 per year for the business, with GST extra, and each additional user beyond the included one is an add-on your Tally partner prices. A three-year term is 25% off and billed once. So an owner with three salesmen is looking at the plan plus three user seats, rather than a per-salesman licence for the accounting software itself.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -1,8 +1,8 @@
 ---
 title: "What Is a UTR Number, and How It Matches a Tally Payment"
 slug: "what-is-utr-number-tally-payment"
-meta_title: "UTR Number Meaning and How to Match It in Tally"
-meta_description: "What a utr number is, where to find it in your UPI app or bank statement, and how matching it to the right Tally receipt closes a bill cleanly."
+meta_title: "What Is a UTR Number? Where to Find It for UPI and NEFT"
+meta_description: "A UTR is the reference your bank gives every UPI, NEFT, RTGS or IMPS payment. UPI UTRs are 12 digits. Where to find yours, and how to match it in Tally."
 primary_keyword: "utr number"
 date: "2026-06-21"
 updated: "2026-10-23"

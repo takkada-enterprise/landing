@@ -63,7 +63,7 @@ A report, however accurate, does not collect anything on its own. The overdue bi
 
 Takkada takes the overdue bills off your Bills Receivable position and fires a WhatsApp reminder on the specific invoice, with a UPI payment link attached. The retailer taps, pays on UPI at 0% MDR, and the receipt reconciles back into Tally against that exact bill, so it drops off the report on its own. The schedule that used to sit on a desktop now runs the collection by itself. The same live receivable also shortens your [days sales outstanding](/blog/dso-for-distributors/), because the reminder fires on time and the money is matched the moment it lands. Tally stays the system of record throughout.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -87,4 +87,4 @@ A: Bills Receivable is your unpaid sales invoices, money retailers owe you, an a
 
 A: Yes. Takkada reads your sales ledgers and open bills from Tally and shows the receivable schedule on mobile with ageing, then fires WhatsApp reminders on overdue bills with a UPI link. Because it stays in two-way sync with Tally, the schedule on the phone matches the office desktop, and paid bills reconcile off the list automatically.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

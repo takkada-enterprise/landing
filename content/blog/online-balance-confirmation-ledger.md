@@ -88,7 +88,7 @@ The effect compounds quietly. When a statement lands every month, no difference 
 
 With Takkada, the statement generates from your Tally data and goes out as a PDF on WhatsApp, and the party replies in the chat. There is no page the party signs, and no login for them anywhere. What Takkada does add is a shared no-login link that shows a party their own open bills with the amount outstanding on each and how many days overdue it is, which they can tick to pay by UPI at 0% MDR, with the receipt written back into Tally against those specific bills. That link is a collection tool rather than a confirmation, but it removes a large share of the "kaunsa bill pending hai" arguments before they ever grow into a confirmation difference, and the receipts it produces land allocated instead of on account.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: There is no page a party signs and no customer login. The statement goes to t
 
 A: Send it a second time with a named person and a reply-by date, and follow up on the phone once. If there is still no reply, record the party as unconfirmed in your register with the dates you tried, and tell your auditor that. Non-reply is itself information, and a party who will not agree a balance in writing is usually a party worth reviewing on credit terms.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

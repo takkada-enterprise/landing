@@ -93,7 +93,7 @@ A multi-branch distributor collects in more places than he can watch, and every 
 
 Judged together, that is the real test of a multi-location product for a distributor: it makes stock accurate at every location and it stops money waiting at any of them.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -121,4 +121,4 @@ A: Yes, but check the boundary rather than the label. Ask which documents the sc
 
 A: It can, and for a branch network it should. Money collected at a counter in another town reaches the books whenever somebody records it. An invoice-level payment link that reconciles back into Tally removes that wait. Check the cost of accepting the payment too, since MDR on every collection is a running charge on a branch network.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

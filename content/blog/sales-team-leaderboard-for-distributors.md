@@ -129,4 +129,4 @@ A: It can. Reassignment moves who gets sales credit on Team Sales. The Tally vou
 
 A: No. It is computed from Tally sales already against each member. The owner opens Team Sales on the web or the phone and reads the same books the office already trusts.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

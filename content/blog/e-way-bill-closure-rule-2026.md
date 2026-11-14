@@ -101,7 +101,7 @@ To check whether it has been revived, go to the source rather than to a search r
 
 Takkada's e-way bill screens today cover what is actually live: generation from an invoice, Part A auto-populated when the invoice already carries an e-invoice, standalone e-way bills with QR, and the cancellation flow, each written back into Tally against the same voucher. Closure is not an available action anywhere at the moment, on the GST system or in any app, because the facility is switched off.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -129,4 +129,4 @@ A: Watch the News and Updates section of the GST portal and the e-way bill syste
 
 A: The ones already in force. Since 1 January 2025, an e-way bill can only be generated against a document dated within 180 days, and extensions cannot carry a bill beyond 360 days from its original generation date. Validity under Rule 138(10) runs one day per 200 km for regular cargo, with the clock starting when Part B vehicle details are entered. An expiring bill can be extended up to 8 hours before or after expiry, and generation is blocked under Rule 138E if returns are unfiled.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

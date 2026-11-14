@@ -87,4 +87,4 @@ A: No. When the retailer pays on the UPI link, the receipt reconciles back into 
 
 A: Yes. The cadence can route a well-overdue account to the owner or buyer instead of continuing to message the retailer's clerk. That is by design, because a bill that is far past due usually needs a personal call, and the schedule hands you exactly those accounts rather than trying to automate the whole relationship.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

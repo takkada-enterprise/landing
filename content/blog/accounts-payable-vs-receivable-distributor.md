@@ -64,7 +64,7 @@ Say a principal wants â‚¹6 lakh on Friday and your receivable due this week is â
 
 The reason this stays hard is that both ledgers live on the office desktop, and the decisions get made away from it: at a supplier's counter, on a call about a fresh order, on the drive home. Takkada reads both your Sundry Creditors and Sundry Debtors positions straight from Tally and puts them on the phone, side by side. Supplier-wise payables with due dates, and party-wise receivables with ageing, both live, because the app keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) instead of a separate copy. On the receivable side it also fires WhatsApp reminders and collects on a UPI link, then reconciles the receipt back into Tally, so the money you are owed actually turns up before the money you owe falls due.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. Tally stays the book of record; the phone just makes both sides visible at once.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. Tally stays the book of record; the phone just makes both sides visible at once.
 
 ## Frequently Asked Questions
 
@@ -88,4 +88,4 @@ A: Go to Gateway of Tally, then Display More Reports, then Statements of Account
 
 A: The timing gap between paying your suppliers and getting paid by your retailers is part of the cash conversion cycle. It is the number of days your own working capital is locked up funding the business. A distributor who shortens the receivable side of that gap, mainly by collecting faster, frees up cash without borrowing.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -115,4 +115,4 @@ A: No. Ageing and bills stay as Tally has them. The recovery owner is attributio
 
 A: On the Team board, in the line that names overdue parties nobody has chased, and on the daily brief when those names are in the morning queue. Assign them from the app before the meeting ends.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

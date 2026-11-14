@@ -80,7 +80,7 @@ Tally's godown-wise reports live where Tally is installed. For an owner who is a
 
 Takkada reads the godowns already defined in your Tally and puts [godown wise stock on mobile](/godown-wise-stock-on-mobile), with item-level drill-down and an as-of-date view. Quantities for a past date are the real historical quantities; the values beside them use the item's current rate, so read a backdated view as exact on units and indicative on rupees. The report mechanics are in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/), and the wider branch setup is in [managing multiple branches in Tally with godowns](/blog/manage-multiple-branches-tally-godowns/).
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -108,4 +108,4 @@ A: Main Location is the default godown Tally creates so that inventory works bef
 
 A: Takkada shows godown-wise stock on the phone, reading the same godowns and quantities from your Tally, with item drill-down and a view as of any past date. It is the same data your desktop reports hold, put in front of whoever is standing at the counter or at the branch rather than at the machine Tally runs on.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

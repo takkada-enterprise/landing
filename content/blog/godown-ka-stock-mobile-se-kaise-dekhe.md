@@ -76,7 +76,7 @@ Transit ka apna godown ho. Monday ko nikla maal Thursday ko pahunchta hai, aur b
 
 Opening stock location wise daala gaya ho. Ek lump mein daal diya toh har location pehle physical count tak galat rahega, aur blame report par aayega.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -104,4 +104,4 @@ A: Nahi. Phone synced data padhta hai, isliye jis machine par Tally chal raha ha
 
 A: Pehle invoices check kijiye ki unpar godown bhara gaya hai ya nahi, kyunki outward ka sabse bada hissa sales hai. Phir dekhiye ki transit ka alag godown hai ya nahi. Teesra, opening stock location wise daala gaya tha ya ek lump mein. In teeno mein se koi ek galat ho toh report sahi hote hue bhi physical se alag dikhegi. Entries theek hone ke baad godown ki ginti karwaiye; staff bina book stock dekhe kaise gine, yeh [physical stock verification for Tally](/physical-stock-verification-tally/) page par hai.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

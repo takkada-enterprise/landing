@@ -127,4 +127,4 @@ A: The visit stays open. An open visit at evening is visible on the owner's Fiel
 
 A: No. A 2-minute visit with a photo of the shutter can still be a real stop. Read duration next to the photograph. Minutes without the picture are only a number. The picture without check-out is only the first half of the card.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

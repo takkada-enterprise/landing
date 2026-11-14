@@ -94,7 +94,7 @@ A fourth row, 55 days, ₹1,10,000, a party the owner likes personally. Behaviou
 
 He does not export this sitting. He does not send the CA a behaviour PDF. He folds the challan into the shirt pocket next to the phone. Outstanding at 8:30 will still open first, because the van is loaded and Sharma is ₹1,85,000. Behaviour already told him who else belongs on that same hour. If the kettle boils over and he only has time for two calls, Sharma and the ₹9,400 name at 81 days go first. Das Stores can wait. The tab sorted that in ninety seconds.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -122,4 +122,4 @@ A: Open Reports, then Money, then Collections, then the Payment behaviour tab. T
 
 A: No. The tab shows which customers pay late and how many days they take. A WhatsApp reminder still starts from the party page, the bills page, or the ageing report. Send from my WhatsApp opens your own WhatsApp with the message pre-filled, and the PDF goes through the share sheet.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

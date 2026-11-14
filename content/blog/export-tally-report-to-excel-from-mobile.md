@@ -111,7 +111,7 @@ For the owner, Bills Receivable ageing as Excel is the midday file: Sharma's ₹
 
 A brother on the family WhatsApp who wants "August ka number" often wants the This Financial Year band or the P&L, not an eleven-report dump. Send the one file that answers the question that was asked.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -139,4 +139,4 @@ A: No. Tally-format export is the layout Tally itself prints, and it exists for 
 
 A: No. Bills Receivable ageing is always as of today. You can edit the ageing slabs on the phone, and the Excel file follows those slabs. Daybook is the action report with Today, Yesterday, Last 7 days, Last 30 days and Custom. Ledger statement and godown reports have their own date presets.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

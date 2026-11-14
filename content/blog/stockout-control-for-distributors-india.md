@@ -142,4 +142,4 @@ A: Read godown-wise stock per location, as of today, with item drill-down, next 
 
 A: Yes. A sales order punched on the phone lands in Tally as a Sales Order, so promised demand is visible while the stock is still in the godown. Pending Orders, a paid add-on available on request, shows orders not yet invoiced. Free quantity is stock minus what is already promised, and that is the number days of cover should use.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

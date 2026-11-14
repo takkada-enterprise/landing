@@ -73,7 +73,7 @@ A distributor on Tally should not split their numbers. The goal is mobile invoic
 
 ## What Takkada is, in one sentence
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch, so your invoices and receipts live in Tally instead of a second app.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app, so your invoices and receipts live in Tally instead of a second app.
 
 ## Frequently Asked Questions
 

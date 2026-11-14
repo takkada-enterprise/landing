@@ -82,7 +82,7 @@ Check whether the transit location is holding anything old. A transit balance th
 
 Look at whether anything is still posting to the default Main Location godown. If entries are landing there after you created real locations, somebody is pressing through the field, and that is a five-minute conversation rather than a month of drift.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -110,4 +110,4 @@ A: No. The godown records where the goods left from, which is an inventory attri
 
 A: There is little to gain. A single-location company gets one figure per item either way, and making the field compulsory adds a step with no reporting benefit. Turn locations on when stock genuinely sits in more than one place, including a transit location if goods spend real time moving between your own premises.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

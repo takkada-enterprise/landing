@@ -94,7 +94,7 @@ A fourth party has the atta gap and a broken frequency on Customer Analytics. He
 
 By Friday the owner opens Sales Analytics again. If atta is 18 bags instead of 4, the three conversations did the work. If atta is still 4, the gap was never going to close at this pack or this rate, and Purchase Analytics plus the [stock summary](/blog/stock-summary-report-tally-mobile/) decide whether the stack stays. Cross-sell earned the week of trying. It did not promise the lift. Saturday he types Sharma again. If atta is still in the gap, next week's sentence at the counter gets shorter: "last time skip kiya, ek bag rakh ke dekho." Same report, second sitting, same party.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -122,4 +122,4 @@ A: Cross-sell Gaps is an action report, and most action reports have no date fil
 
 A: Open Reports, then Customers & orders, then Cross-sell Gaps. Use Customer Analytics first if you need to confirm the party still lifts, then open Cross-sell Gaps on those names. Evening is when a distributor builds the three-name list for tomorrow's counters.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
