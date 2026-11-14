@@ -1,8 +1,8 @@
 ---
 title: "Creditors vs Debtors in Tally: A Distributor's Cheat Sheet"
 slug: "creditors-vs-debtors-tally"
-meta_title: "Creditors vs Debtors in Tally: Distributor Cheat Sheet"
-meta_description: "Creditors vs debtors in Tally, made simple: a debtor owes you, a creditor is owed by you. See where each sits in Tally and how to read both on mobile."
+meta_title: "Debtors vs Creditors: Who Owes Whom, with Tally Groups"
+meta_description: "A debtor owes you money; you owe a creditor. In Tally, debtors sit under Sundry Debtors and creditors under Sundry Creditors. A simple distributor guide."
 primary_keyword: "creditors vs debtors tally"
 date: "2026-07-21"
 updated: "2026-07-21"
@@ -96,4 +96,4 @@ A: Go to Gateway of Tally, then Display More Reports, then Statements of Account
 
 A: Yes. Takkada reads both your debtor and creditor ledgers from Tally and shows debtor-wise outstanding and supplier-wise payables on mobile, each with ageing and due dates. Because it stays in two-way sync with Tally, the figures on the phone match the office desktop, so you can decide a collection or a supplier payment from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

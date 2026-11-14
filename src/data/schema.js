@@ -2,7 +2,6 @@ import {
   contactInfo,
   faqItems,
   pricing,
-  testimonials,
   appLinks,
   appRatingCount,
   videoTestimonials,
@@ -106,16 +105,11 @@ export function webSiteSchema() {
   };
 }
 
-function reviewSchema(testimonial) {
-  return {
-    '@type': 'Review',
-    author: { '@type': 'Person', name: testimonial.name },
-    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-    reviewBody: testimonial.quote,
-  };
-}
-
-export function softwareApplicationSchema(reviews = testimonials) {
+// No `review` nodes. Testimonials we publish about our own product are
+// self-serving reviews: Google never shows stars for them, and Search Console
+// flagged 94 pages "Multiple reviews without aggregateRating object" (2026-11).
+// The testimonials stay on the page as copy; they stay out of structured data.
+export function softwareApplicationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -180,11 +174,6 @@ export function softwareApplicationSchema(reviews = testimonials) {
       bestRating: '5',
       ratingCount: appRatingCount,
     };
-  }
-
-  const reviewNodes = (reviews || []).map(reviewSchema);
-  if (reviewNodes.length > 0) {
-    schema.review = reviewNodes;
   }
 
   return schema;

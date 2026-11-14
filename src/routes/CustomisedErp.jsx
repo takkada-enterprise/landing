@@ -203,7 +203,7 @@ const ERP_CATEGORIES = [
 
 const BREADCRUMB_TRAIL = [
   { name: 'Home', url: 'https://takkada.com/' },
-  { name: 'Customised ERP', url: 'https://takkada.com/customised-erp' },
+  { name: 'Customised ERP', url: 'https://takkada.com/customised-erp/' },
 ];
 
 export default function CustomisedErp() {
