@@ -87,7 +87,7 @@ The file you pick has to match the question. A Trial Balance PDF will not settle
 
 A second WhatsApp at 9:55 is the brother asking for August sales as a sheet. That is Profit and Loss or Sales Analytics, Excel from the chooser, then the same share sheet. Three chats, three files, one sheet. The sheet does not remember the last destination. You pick WhatsApp each time.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -115,4 +115,4 @@ A: No. Trial Balance, Profit and Loss, Balance Sheet, Bills Receivable, Bills Pa
 
 A: Access to the Reports tab is permission-controlled per team member. A member without that permission does not see reports at all, so he cannot export or share them. Party search on every report is a search box. You type a name.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

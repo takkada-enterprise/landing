@@ -87,4 +87,4 @@ A: A party-wise sales report shows how much each retailer bought. An outstanding
 
 A: No. The sales ranking works from the sales vouchers themselves, so you get party totals without bill-wise tracking. You do want bill-wise details on if you also want the outstanding and ageing for the same parties, because that is what ties each unpaid amount to a specific bill and its due date.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

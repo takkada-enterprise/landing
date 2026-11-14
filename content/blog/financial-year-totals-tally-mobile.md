@@ -92,7 +92,7 @@ At 8:32, after Sales Invoice and Receipts, spend thirty seconds on Credit Note a
 
 Sales Order and Purchase Order are the pipeline. A sales-order total that sits at ₹6,00,000 while Sales Invoice is ₹42,00,000 is work still to bill. A purchase-order total that has run ahead of Purchase Invoice is stock still to land. The [purchase report on mobile](/blog/purchase-report-tally-mobile/) is the next cut when the buy side looks off. The band is the glance that tells you to open it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -120,4 +120,4 @@ A: No. The band is this year's running totals. Daybook is the voucher list for a
 
 A: Access to the Reports tab is permission-controlled per team member. A member without that permission does not see reports at all, including the band and the registers behind it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

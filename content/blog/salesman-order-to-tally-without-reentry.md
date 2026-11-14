@@ -102,7 +102,7 @@ Team access controls are the part worth setting up carefully on day one. Per tea
 
 On the reporting side, salesman-wise boards can be read on an order basis or an invoice basis, which is the distinction between what the field brought in and what the office converted. For teams that also want the visit recorded, check-in with a stamped photo sits alongside the order, and the wider picture of what a salesman needs on the phone is on the [salesman app for Tally](/salesman-app-tally/) page.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -130,4 +130,4 @@ A: No, and this is the part to set up before rolling out order taking. Access sh
 
 A: Read the salesman-wise board on both bases. On an order basis you see what the field brought in, which tells you who is working his beat plan. On an invoice basis you see what converted and was billed, which tells you what the business actually earned. A wide gap between the two for one person is usually a stock or credit problem rather than an effort problem.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Where the team still writes on paper, turning a [handwritten order to Tally](/handwritten-order-to-tally/) from a photo is covered on its own page.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Where the team still writes on paper, turning a [handwritten order to Tally](/handwritten-order-to-tally/) from a photo is covered on its own page.

@@ -119,4 +119,4 @@ A: Four: paid, promised, no answer, disputed. If money moved, use paid. If a dat
 
 A: No. The log records a chase you already made. Reminders run on the company-wide cadence, separate from the log. You can share the daily brief as text through the phone's share sheet when you want someone else to see today's list. That share is manual.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

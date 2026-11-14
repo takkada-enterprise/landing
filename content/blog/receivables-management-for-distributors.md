@@ -65,7 +65,7 @@ A playbook needs a scoreboard, and for receivables it is two numbers. [Days sale
 
 Watch both monthly. If invoicing moved to delivery day, reminders got specific, UPI replaced cheques, and reconciliation runs in real time, these numbers move within a quarter, no staff added and no customer lost. Takkada carries the entire loop, invoice to reconciliation, on top of your existing Tally, and reports the scoreboard on the phone. Tally stays the book of record; the app runs the receivables loop so the distributor stops chasing and starts getting paid.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -89,4 +89,4 @@ A: No. Tally stays the system of record and the accountant's month-end is unchan
 
 A: Watch two numbers monthly: days sales outstanding, which should fall as the loop tightens, and the accounts receivable turnover ratio, which should rise. If invoicing moved to delivery day, reminders got specific, UPI replaced cheques, and reconciliation runs in real time, both move within a quarter with no staff added and no customers lost.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

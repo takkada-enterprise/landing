@@ -87,4 +87,4 @@ A: Yes. Every invoice, receipt, and purchase still becomes a proper Tally vouche
 
 A: The decisions. Confirming a drafted supplier bill before it posts, clearing ambiguous or unmatched receipts, making credit calls on late retailers, and resolving disputes all stay with a person. Autopilot handles the rule-based typing and routes only the judgment calls to you, which is why the time math is hours of typing turning into minutes of reviewing.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -88,7 +88,7 @@ Same sitting, he opens Profit & Loss only after the Trial Balance list looks lik
 
 A line named after a godown or a salesman is still a ledger line. There is no godown filter and no salesman filter on this report. Godown is its own report. If you need stock by location, that is the [stock summary](/blog/stock-summary-report-tally-mobile/) path, not a Trial Balance chip.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: The Accounts door holds Trial Balance, Profit & Loss, Balance Sheet, Monthly 
 
 A: Access to the Reports tab is permission-controlled per team member. A member without that permission does not see reports at all, including Trial Balance. Party search on the list is a search box. You type a name.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

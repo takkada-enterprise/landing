@@ -125,4 +125,4 @@ A: No. Those invoices arrive during the festival, after lead time has already ru
 
 A: The weekly look uses recent Velocity and a 30-day average. Seasonal planning swaps in last year's festival window as the average, weeks before the spike, so cover is computed at the rate that will actually empty the shelf.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

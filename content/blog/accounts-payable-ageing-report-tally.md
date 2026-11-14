@@ -65,7 +65,7 @@ The payables ageing report lives on the Tally desktop, and the payment decisions
 
 Takkada reads your purchase ledgers and open bills from Tally and shows the aged payable schedule on the phone, supplier-wise, with what falls due this week flagged, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. The owner sees the discount windows before they close and the overdue bills before the supplier calls. Alongside it, the same app runs the receivable side, so the two aged schedules sit on one phone and the week's cash gets planned against both. Tally stays the system of record; the phone just makes the timing unmissable.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -89,4 +89,4 @@ A: They use the same buckets and mechanics but opposite direction. Receivables a
 
 A: Yes. Takkada reads your purchase ledgers and open bills from Tally and shows the aged payable schedule on mobile, with what is due this week flagged. Because it stays in two-way sync with Tally, the schedule matches the office desktop, so you can protect a discount window or clear an overdue bill from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

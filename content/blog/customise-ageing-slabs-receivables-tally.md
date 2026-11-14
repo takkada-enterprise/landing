@@ -87,7 +87,7 @@ A party's ledger statement and pending-bills statement are a different send, fro
 
 Tally-format export, the layout Tally itself prints, exists for Bills Receivable as one of five statutory reports. That file is what the CA is used to seeing. The slab view you edited is the working copy. Send the Tally-format file when the CA asks for ageing in Tally's clothes. Keep the slab PDF when you want your 0-7-15-30 staring back at you.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -115,4 +115,4 @@ A: No. Ageing is always as of today. You cannot rewind it to last Tuesday. Daybo
 
 A: No. There is no salesman filter and no godown filter on this report. Party search is a search box. You type a name. Godown is its own report. Access to the Reports tab is permission-controlled per team member, and a member without that permission does not see reports at all.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

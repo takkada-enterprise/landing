@@ -81,4 +81,4 @@ A: No. Your Tally company file stays on the office machine you control. What tra
 
 A: Usually larger distributors, group companies with a strict data policy, or businesses with an internal IT team that already runs private servers. For most distributors the standard hosted connection is simpler and sufficient. If a specific compliance or policy constraint applies to you, that is the signal to ask about the on-request option.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

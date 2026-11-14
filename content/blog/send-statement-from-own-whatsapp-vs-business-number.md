@@ -85,7 +85,7 @@ Send from my WhatsApp on a statement opens the WhatsApp already on the phone. Mo
 
 A statement from your own WhatsApp number, in this post, means Send from my WhatsApp plus the share sheet. A reminder from your own API number is the add-on in that other post. Both care about whose name Sharma sees. They are set up in different places.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -113,4 +113,4 @@ A: From the party page, the bills page and the ageing report. Those three screen
 
 A: No. Send from my WhatsApp opens the WhatsApp already on your phone, with the statement PDF on the share sheet. Putting your shop number on the WhatsApp Business API so reminders leave as that number is a separate paid add-on, and that number then leaves the ordinary handset app.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

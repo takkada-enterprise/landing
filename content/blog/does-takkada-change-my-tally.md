@@ -82,4 +82,4 @@ A: No. Historical vouchers and year-end closes stay intact, and no history is mi
 
 A: Writing back means posting the specific new voucher you created, through a two-way sync, into a Tally that stays the master copy. Taking over would mean the app becoming the official books and editing them freely, which does not happen. Tally remains the record; Takkada only adds the entries you authorise from the phone.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

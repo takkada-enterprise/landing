@@ -111,4 +111,4 @@ A: No. Orders taken in the field are ordinary Sales Orders in Tally, written bac
 
 A: For the question this book is asking, no. Station Road is a named list. Today's load is a 3-day window of pending orders. The stamp at Gupta Stores is a photo, location and time. A trail of the phone and a map of the city answer a different job.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

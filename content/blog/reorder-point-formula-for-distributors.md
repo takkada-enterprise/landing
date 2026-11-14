@@ -154,4 +154,4 @@ A: Use quantity. Compare bottles to bottles, or cases to cases. A rupee value on
 
 A: No. Start with the movers whose days of cover are close to lead time. A slow crate with 90 days of cover is a capital question. The oil with 4 days of cover and a 7-day truck is this morning's purchase.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

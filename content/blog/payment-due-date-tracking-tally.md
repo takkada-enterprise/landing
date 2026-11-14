@@ -65,7 +65,7 @@ A due date on a desktop only helps the person sitting at the desk on the right d
 
 On the receivable side, that means a reminder that fires on the retailer automatically as a bill approaches or passes its due date, with the specific bill and a UPI link attached, so collection does not depend on the accountant remembering. Running that cadence by hand across 150 parties is impossible, which is why it runs on [automated payment reminders](/blog/automate-payment-reminders-tally/) that change tone by how overdue the bill is. Takkada carries the whole due-date schedule to the phone in [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/), flags what falls due this week on both sides, and fires the receivable reminders on time, so a date passing is an alert instead of a miss. Tally stays the book of record; the phone makes sure nothing slips.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -89,4 +89,4 @@ A: Reading a desktop report daily is fragile because a busy day means the date p
 
 A: Bill date is when the invoice was raised. Due date is when payment is expected, computed by adding the agreed credit period to the bill date. Due date is what you track to pay suppliers on time and chase retailers promptly, because it reflects the deadline, not just the age of the bill.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

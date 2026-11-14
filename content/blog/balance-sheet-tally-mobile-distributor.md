@@ -88,7 +88,7 @@ Capital and loans are the groups the brother asks about at night. They drill the
 
 If you came here from the Trial Balance because a line would not open, you are in the right statement. Send the CA both files from the same sitting, current-period Tally format for the Balance Sheet, after the Difference row is gone.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: No. Trial Balance, Profit and Loss and Balance Sheet are read straight from t
 
 A: Access to the Reports tab is permission-controlled per team member. A member without that permission does not see reports at all, including Balance Sheet. Party search is a search box. You type a name.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

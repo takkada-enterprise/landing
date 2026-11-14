@@ -75,7 +75,7 @@ If you are a distributor with retail parties on 30 to 90 day terms, invoices in 
 
 ## What Takkada is, in one sentence
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch, so your udhaar is the same number as your Tally invoice, collected and reconciled automatically.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app, so your udhaar is the same number as your Tally invoice, collected and reconciled automatically.
 
 ## Frequently Asked Questions
 

@@ -85,4 +85,4 @@ A: In most cases yes, because Takkada reads your existing Tally masters rather t
 
 A: Describe the specific thing your business does when you talk to us or book a demo. A concrete requirement gets a concrete answer: often it is already handled by configuration, sometimes it needs scoping as a bespoke fit. Coming with the exact need is faster than asking whether the app is customisable in general.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

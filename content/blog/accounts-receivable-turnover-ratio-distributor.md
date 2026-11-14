@@ -84,7 +84,7 @@ You lift the ratio by shrinking the denominator, average receivables, without cu
 
 Each lever pulls a few days out of average collection, which raises turnover. Stack them and a ratio of 6 can become 8 in a couple of quarters. The whole loop, invoice to reconciliation, is laid out in [receivables management for distributors](/blog/receivables-management-for-distributors/). Takkada runs that loop on top of your existing Tally: same-day mobile invoicing, WhatsApp reminders with a UPI link at 0% MDR, and auto-reconciliation back into Tally, so the ratio climbs without adding a collections team. Tally stays the book of record; the phone does the collecting that moves the number.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -108,4 +108,4 @@ A: They are twins. Divide 365 by the turnover ratio to get average collection da
 
 A: Collect faster on the same book so average receivables falls. Invoice on delivery day, put a UPI link on every bill to remove cheque float, send specific reminders on the exact overdue invoice, and reconcile receipts in real time. Each lever takes days out of collection time, which raises turnover, without cutting sales or losing customers.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

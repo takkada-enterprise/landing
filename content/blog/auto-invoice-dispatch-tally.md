@@ -84,4 +84,4 @@ A: Yes. Dispatch can be set per party, so a large retailer who prefers email or 
 
 A: Yes, when those are generated. An invoice raised with the e-invoice IRN and e-way bill can be dispatched with the IRN-stamped document and QR code, so the retailer receives the fully compliant invoice automatically, before the goods arrive. The compliant document and the payment link travel in the same message.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

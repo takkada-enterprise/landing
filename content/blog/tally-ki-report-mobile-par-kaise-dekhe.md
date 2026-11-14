@@ -91,7 +91,7 @@ Ek typical Tuesday ka phone use aise dikhta hai. 8:30 Outstanding, Sharma ₹1,8
 
 Barpeta wale bhai ko MIS grid bhejna ho, Reports+ on ho, 12-month column August mein patla dikhe, toh grid ke cell se invoice nahi khulega. Daybook ya Sales Analytics alag se kholna padega. Jo log cell se bill expect karte hain unko pehle bol do, warna 4 baje extra WhatsApp aayega, "is number ka bill kahan hai".
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -119,4 +119,4 @@ A: Collections Outstanding, Daybook, Bills Receivable, Bills Payable, Trial Bala
 
 A: Tabhi jab us member ko Reports tab ki permission ho. Bina permission ke reports dikhti hi nahi. Party search har report par naam type karne ka box hai. Godown Reports ka filter nahi, alag screen hai. Salesman filter kisi report par nahi.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

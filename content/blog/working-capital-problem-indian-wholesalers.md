@@ -95,7 +95,7 @@ A Surat textile wholesaler, ₹22 crore turnover, used these three changes over 
 
 ## What Takkada is, in one sentence
 
-Takkada is the operational layer that gives Indian distributors and wholesalers the three things that actually move DSO — fast mobile dispatch, UPI link on every invoice with WhatsApp reminders, and UTR auto-reconciliation back into Tally — turning the working capital problem from a structural ceiling into a solvable one.
+Takkada is Tally on mobile for Indian distributors and wholesalers, and it covers the three things that actually move DSO: fast mobile dispatch, UPI link on every invoice with WhatsApp reminders, and UTR auto-reconciliation back into Tally, turning the working capital problem from a structural ceiling into a solvable one.
 
 ## Frequently Asked Questions
 

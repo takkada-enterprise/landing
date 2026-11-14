@@ -98,7 +98,7 @@ Takkada has a scheme settlement module that runs against your synced Tally data,
 
 This article describes the statutory position as we read it. Confirm the treatment of your own schemes with your tax adviser before acting.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -126,4 +126,4 @@ A: Commercially, yes, and distributors do it constantly. Under the law as it sta
 
 A: Not by itself. CBIC has clarified that a routine post-sale discount passed on to a dealer is not consideration for a separate supply of service. It becomes one where the dealer undertakes a defined promotional activity such as an advertising campaign, co-branding or a special sales drive, and that activity is named in an agreement with a consideration attached to it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

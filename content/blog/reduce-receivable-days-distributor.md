@@ -68,7 +68,7 @@ When paying is frictionless and reminders are specific, the honest stallers sepa
 
 This is the discipline that keeps receivable days down without thinning your customer list. Setting the boundary in advance, through a [credit limit for retailers](/blog/credit-limit-for-retailers/), means the hard line is a policy the retailer agreed to, not a personal attack. Takkada carries the whole playbook: same-day invoicing from the field, a UPI link on every bill at 0% MDR, graded WhatsApp reminders on the specific invoice, and reconciliation back into Tally so a paid party is never chased again. Tally stays the book of record; the phone does the collecting.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -92,4 +92,4 @@ A: Reserve firmness for them specifically. Once frictionless payment and specifi
 
 A: Not if they are graded and specific. A nudge on delivery day, a due-date notice, and a firmer note only if the bill goes overdue reads as organisation, not harassment. The problem is blunt, repeated, generic reminders. A cadence that quotes the exact bill and eases the payment is usually welcomed rather than resented.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

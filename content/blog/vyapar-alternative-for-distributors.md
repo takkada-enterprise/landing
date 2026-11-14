@@ -115,7 +115,7 @@ A: Strongly recommended. A Tally Certified Partner sets up the initial Tally ins
 
 ## Internal Links
 
-- Biz Analyst Alternative: What Collections-First Distributors Pick
+- Biz Analyst Alternative: What Distributors on Tally Pick
 - Tally Prime Mobile App: What Exists, What Does Not
 - Payment Collection App for Distributors India: The 2026 Reality
 

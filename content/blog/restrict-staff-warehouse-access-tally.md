@@ -89,7 +89,7 @@ A branch accountant or manager who bills, collects and reports needs more than a
 
 An owner or admin stays unrestricted, because the value of the multi-branch view is seeing every location at once. That view is covered in [the godown-wise stock report on mobile](/blog/godown-wise-stock-report-tally-mobile/) and the full setup in [managing multiple branches in Tally with godowns](/blog/manage-multiple-branches-tally-godowns/).
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -117,4 +117,4 @@ A: No. A member restricted to selected godowns keeps exactly the list you assign
 
 A: No, and the difference matters over time. Restriction off means the member always has every location, including ones created next year. Restriction on with everything ticked means the locations that exist today, and a new location will not reach him until you assign it. Choose deliberately rather than by habit.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

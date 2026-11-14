@@ -93,7 +93,7 @@ What Takkada does on the payables side is aimed entirely at you. It reads your p
 
 The one no-login surface Takkada does have points the other way, at money coming in. A party can open a payment link and pay an invoice without an account. There is nothing equivalent pointed at your suppliers, and calling anything here a portal would be inaccurate.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -121,4 +121,4 @@ A: No. Takkada has no vendor portal, no supplier login and no supplier-facing sc
 
 A: Export the supplier's open item statement and your own bill-wise payables for that ledger, then match line by line on document number rather than on amount. Sort every difference into timing, an unaccepted debit note, an unallocated payment, or a rate dispute, and send the list back with your explanation against each line. This only works if bill-wise tracking is switched on for your supplier ledgers, otherwise your side is a running balance with nothing to match against.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -90,7 +90,7 @@ The temptation is to turn the tab on "just for Daybook" so the new man can check
 
 A month later, if this person moves into the office as a second accountant, the same member can have Reports switched on. The permission follows the member, not the beat. There is still no salesman filter on any report he then opens. He types a name in the search box, like everyone else with the tab. Friday 9 PM, the owner is in the car and the new man is off Reports, so Outstanding for Sharma's ₹1,85,000 is still the owner's sitting. That is the arrangement he wanted when he hired for Maligaon. The tab kept it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -118,4 +118,4 @@ A: No. There is no salesman filter on the reports, and no godown filter. Godown 
 
 A: A team member whose Reports permission is on. Trial Balance sits under Accounts, behind the Reports tab. PDF and Excel export sit behind a chooser sheet, and every exported file goes through the phone's share sheet, where you pick WhatsApp, email or Drive.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

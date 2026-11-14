@@ -104,4 +104,4 @@ A: An advance is money received before any invoice exists, tagged Advance. An On
 
 A: Yes. Takkada captures a receipt, matches it to the correct open bill, and writes it back into Tally as an Against Reference entry, so an advance that should offset a bill gets adjusted without manual end-of-day work. The owner sees the party's true outstanding on the phone, with advances already netted where a bill exists.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

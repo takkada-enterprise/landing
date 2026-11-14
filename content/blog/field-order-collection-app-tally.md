@@ -17,7 +17,7 @@ A field order collection app for Tally lets a salesman take a retailer's order o
 
 - A field order collection app for Tally must show live stock, live price, the retailer's credit limit, and accept the order against the right Tally party and ledger
 - Same-day order-to-invoice compression is the underrated lever on [DSO](/blog/days-sales-outstanding-distributor-india/). A field order collection app for Tally cuts 1–3 days out of the order-to-invoice gap
-- Takkada is a field order collection app for Tally with live two-way sync, mobile invoicing including e-invoice IRN, and 0% MDR UPI links for instant collection at delivery
+- Takkada is Tally on mobile for distributors, with field order booking, live two-way sync, mobile invoicing including e-invoice IRN, and 0% MDR UPI links for instant collection at delivery
 
 ## In This Article
 
@@ -136,4 +136,4 @@ A: The salesman shows a UPI QR or sends a UPI link to the retailer. Retailer pay
 
 A: Most distributors are running production orders through the app within 3–5 working days. Onboarding includes connecting the Tally installation, importing the catalog, mapping party masters, and training the first 2–3 salesmen, who then train the rest.
 
-Takkada is the Tally-native field order collection app for Indian distributors, with on-the-spot GST invoicing and 0% MDR UPI collection at delivery. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Booking a [sales order on mobile](/sales-order-on-mobile/) against live stock is covered in detail on its own page.
+Takkada is Tally on mobile for Indian distributors: salesmen book orders in the field, bills go out with GST on the spot, and UPI collection at delivery runs at 0% MDR. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada). Booking a [sales order on mobile](/sales-order-on-mobile/) against live stock is covered in detail on its own page.

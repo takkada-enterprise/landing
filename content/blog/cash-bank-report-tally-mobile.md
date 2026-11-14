@@ -80,4 +80,4 @@ A: When a receipt is collected on a payment link, auto-reconciliation posts it b
 
 A: On the bank position. Receivables are money owed and may arrive late or in part, while the cash and bank position is money you actually hold today. A strong receivables figure does not clear a cheque; only funds in the bank do. Distributors who confuse the two can bounce a payment despite healthy sales, so the bank position is the number a payment turns on.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

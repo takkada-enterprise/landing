@@ -94,7 +94,7 @@ The app cost ₹9,000 a year for the business. The working capital freed by the 
 
 ## What Takkada is, in one sentence
 
-Takkada is an outstanding payment reminder app for Indian distributors using Tally — five-stage reminder cadence, UPI payment link on every reminder, UTR-to-invoice auto-reconciliation, and receipt vouchers posting back into Tally automatically. How to [send payment reminders automatically](/send-payment-reminders-automatically/) from your own open Tally invoices is covered on its own page.
+Takkada is Tally on mobile for Indian distributors, and its payment reminders run on a five-stage cadence, with a UPI payment link on every reminder, UTR-to-invoice auto-reconciliation, and receipt vouchers posting back into Tally automatically. How to [send payment reminders automatically](/send-payment-reminders-automatically/) from your own open Tally invoices is covered on its own page.
 
 ## Frequently Asked Questions
 

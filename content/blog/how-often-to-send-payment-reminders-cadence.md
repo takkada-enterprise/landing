@@ -120,4 +120,4 @@ A: It is the preset most 30-day books should try first: a before-due nudge, then
 
 A: Reminders go from the Takkada business number, shown as queued, or via Send from my WhatsApp from the owner's number. The daily brief is a card the owner opens and can share as text by hand. Different audience, different button.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

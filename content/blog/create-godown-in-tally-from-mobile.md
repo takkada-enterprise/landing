@@ -84,7 +84,7 @@ Switch on multiple godowns for the company. Create one godown per real place, in
 
 After that, the discipline that keeps the numbers honest is on the voucher side: every outward movement carrying a location, invoices included. That is covered in [godown on sales invoices and delivery challans](/blog/godown-on-sales-invoice-delivery-challan/).
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -112,4 +112,4 @@ A: Yes. The master carries a setting for whether the location can store inventor
 
 A: One per place where stock actually sits, plus one for transit. That usually means the main warehouse, each branch, and In Transit. Resist creating locations for anything that is not physical, because every extra entry in the picker slows down the person recording a voucher and increases the chance of the wrong location being chosen.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

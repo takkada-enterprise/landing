@@ -88,7 +88,7 @@ Custom range is the CA's "12th se 18th tak kya hua." Last 7 days is the week you
 
 A receipt that posted as a journal will not show under the Receipts chip. Chip Journal, or clear the chip and read the whole day. The chip is a filter on voucher type, not a second set of books. If the rupee landed and the chip is blank, change the chip before you accuse the accountant.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: Daybook lists vouchers in a window you choose. The daily sales report is the 
 
 A: Access to the Reports tab is permission-controlled per team member. A member without that permission does not see reports at all, including Daybook. Party search is a search box. You type a name.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -110,4 +110,4 @@ A: No. Creating an order, invoice or receipt needs a working data connection. He
 
 A: Check-in is refused on the device and no visit is recorded. The refused attempt still shows to the owner once it can travel. If the owner has granted that device an exemption, the visit is accepted and marked Unverified. Signal does not change the flag.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

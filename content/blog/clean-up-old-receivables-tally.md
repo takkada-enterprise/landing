@@ -58,7 +58,7 @@ A one-time clean-up decays fast if the habits that caused the mess stay in place
 
 This is exactly where a mobile layer earns its keep. Takkada collects on a UPI link and reconciles each receipt back into Tally against the correct open bill automatically, so bills close as they are paid and the paid-but-unmatched pile never rebuilds. It shows the live ageing on the phone, so the owner reviews the risk bucket monthly instead of never. Keeping the wider party ledger reconciled is the subject of [ledger reconciliation in Tally for distributors](/blog/ledger-reconciliation-tally-distributor/). Tally stays the book of record; the clean-up just makes it tell the truth, and the habits keep it that way.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -82,4 +82,4 @@ A: When the money is genuinely uncollectable, the shop has closed, the party has
 
 A: Match every receipt Against Reference to the specific bill on the day it is paid, and review the 90-plus ageing bucket monthly. A mobile app that collects on UPI and auto-reconciles each receipt into Tally against the right bill keeps paid bills closing on their own, so the paid-but-unmatched pile never rebuilds.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

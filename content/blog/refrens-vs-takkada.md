@@ -108,7 +108,7 @@ A: Rare, but possible. If you run a distribution side-business at very small sca
 ## Internal Links
 
 - Vyapar Alternative for Distributors Using Tally Prime
-- Biz Analyst Alternative: What Collections-First Distributors Pick
+- Biz Analyst Alternative: What Distributors on Tally Pick
 - Tally Prime Mobile App: What Exists, What Does Not
 
 Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.

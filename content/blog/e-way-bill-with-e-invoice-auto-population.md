@@ -90,7 +90,7 @@ In Takkada, the e-way bill starts from the invoice. Open the sales voucher on th
 
 What comes back gets written into Tally against the same voucher, so nobody is retyping an e-way bill number at 9 PM off a WhatsApp screenshot, and the voucher in the books carries the same reference the driver is showing at the check-post. The mechanics of that write-back are described in [how the two-way Tally sync works](/blog/bidirectional-tally-sync-explained/). This is part of the Assurance plan and above, at ₹6,480 a year with GST extra.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -118,4 +118,4 @@ A: Under Rule 138(10), validity is one day for every 200 km for regular cargo an
 
 A: Section 129(1) of the CGST Act 2017, as substituted by section 117(i) of the Finance Act 2021 and brought into force on 1 January 2022 by Notification 39/2021-CT dated 21 December 2021, sets two levels. Where the owner of the goods comes forward, the penalty is 200% of the tax payable on those goods, and for exempted goods it is 2% of the value of the goods or ₹25,000, whichever is less. Where the owner does not come forward, it is 50% of the value of the goods or 200% of the tax payable, whichever is higher, and for exempted goods 5% of the value or ₹25,000, whichever is less.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

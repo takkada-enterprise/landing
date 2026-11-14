@@ -103,4 +103,4 @@ A: The person standing at the shutter with the cartons, usually the delivery boy
 
 A: Yes. The ticks live on the Load sheet. By late afternoon Station Road's pending pile for the 3-day window is either ticked or still sitting. Tally still holds open Sales Orders until the office invoices them.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

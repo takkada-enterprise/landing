@@ -103,7 +103,7 @@ Sending from your own WhatsApp Business number is an add-on priced by your partn
 
 Before you ask for it, do the two checks above. Get them right and the reminder your retailer opens on a Tuesday morning looks like every other message he has had from you for a decade, which is the whole point.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -131,4 +131,4 @@ A: You submit the number you want to use from inside the app. Registering it on 
 
 A: They will, and the reply is often the useful part, because it is where a dispute or a part payment gets flagged. Settle before you move a number who in your office reads and answers what comes back. A business line nobody watches turns a good reminder into a message the retailer answered and nobody read.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

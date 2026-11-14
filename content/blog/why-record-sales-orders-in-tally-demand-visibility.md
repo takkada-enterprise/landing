@@ -125,4 +125,4 @@ A: You will see orders for asks that were already going to succeed. Zero-stock a
 
 A: No. Item-wise sales still totals what was billed. Orders add the queue that has not been billed. You need both: billed history for the average daily rate, and orders for what is already committed against today's stock.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

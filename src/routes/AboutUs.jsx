@@ -42,7 +42,7 @@ function AboutUs() {
         <h2>Our Approach</h2>
         <ul>
           <li><strong>Tally-First:</strong> We don&apos;t replace Tally, we make it better. Your existing workflow stays exactly the same.</li>
-          <li><strong>Mobile-First:</strong> Manage your entire receivables operation from your phone, anywhere.</li>
+          <li><strong>Mobile-First:</strong> Run your Tally business from your phone, anywhere.</li>
           <li><strong>Automation-First:</strong> Payment reminders, collection links, and reconciliation all happen automatically.</li>
           <li><strong>India-First:</strong> Built for Indian businesses with GST compliance, UPI payments, WhatsApp integration, and rupee-denominated workflows.</li>
         </ul>

@@ -92,4 +92,4 @@ A: A single report answers one question, like today's sales or what a party owes
 
 A: Sales, outstanding, cash, and stock are daily reads because they move fast and drive same-day decisions. Salesman performance suits a weekly review, purchases a weekly or fortnightly one tied to the buying cycle, and full margin-by-line and receivables ageing a monthly deep-read. Keeping fast numbers daily and slow numbers scheduled stops the scorecard from becoming a burden.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

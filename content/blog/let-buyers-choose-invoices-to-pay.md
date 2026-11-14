@@ -92,7 +92,7 @@ In Takkada, you share a payment link for a party. He opens it on his phone witho
 
 The part worth sitting with is what happened to the bookkeeping. The buyer did your allocation for you, and he did it more accurately than anyone on your side could have, because he was the one holding the reason.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -120,4 +120,4 @@ A: No. He opens the link on his phone and the page shows his open bills straight
 
 A: The bills the buyer selected are carried through with the payment, so the receipt is written into Tally as a bill-wise entry against those invoices, which is Tally's against-reference behaviour on a ledger maintained bill-by-bill. The remaining open bills keep their own dates, so ageing continues to run correctly on them and no manual end-of-day matching is needed.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

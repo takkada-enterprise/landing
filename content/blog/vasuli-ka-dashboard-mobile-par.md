@@ -119,4 +119,4 @@ A: Nahi. Cadence company-wide hai. Presets Every day, Every 2 days, Every 3 days
 
 A: Nahi. Link tab jab payment collection active ho, KYC ke baad. Collection on ho to 0% MDR, no cap, no monthly fee.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -88,4 +88,4 @@ A: Because turnover is stock passing through, not money kept. A high-turnover mo
 
 A: The item-wise sales report and the purchase report. Gross profit by line tells you the margin, item sales tell you the volume that margin was earned on, and the purchase report tells you the rate the goods were bought at. Together they show where profit is real and where it is only assumed, and they flag lines sold at near cost.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

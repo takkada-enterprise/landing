@@ -87,4 +87,4 @@ A: They surface for a person. A well-overdue account routes to the owner for a p
 
 A: No. The loop reads from your existing Tally data and writes receipts back to it. Tally stays the system of record, your ledgers and party masters stay where they are, and the accountant's workflow does not change. The automation sits on top and does the chasing and matching the desktop could not do from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

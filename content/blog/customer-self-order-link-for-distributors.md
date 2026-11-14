@@ -115,4 +115,4 @@ A: Once you convert, it is a Sales Order, so it is a pending order until invoice
 
 A: Yes. The personal link is independent of the visit. Gupta Stores can send 14 cartons at 8:47. Raju still walks Station Road. Today's load picks the line up if it sits inside the 3-day window.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

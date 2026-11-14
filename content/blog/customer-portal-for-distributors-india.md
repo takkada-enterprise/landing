@@ -106,7 +106,7 @@ Alongside it, a party's full statement generates as a PDF and goes out on WhatsA
 
 What you cannot give them today is a login of their own. If your business needs institutional buyers browsing two years of invoice history and pulling their own copies, that is a portal project and Takkada is not it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -134,4 +134,4 @@ A: Yes, if the screen showing his open bills also takes the payment. He selects 
 
 A: They are mirror images solving different problems. A customer portal faces the people who owe you money. A vendor portal faces the suppliers you owe, letting them see payment status and submit invoices. Building one gives you nothing on the other side, so decide which relationship is costing you time before scoping anything.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

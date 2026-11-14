@@ -66,7 +66,7 @@ A messy Sundry Creditors group makes every payable read wrong. Two things drift 
 
 The fix is boring and it works. One ledger per supplier, named the way the supplier names himself on his invoice, all sitting under Sundry Creditors with bill-wise on. When the list is clean, supplier reconciliation stops being an argument. When the principal sends his statement, your bill-wise creditor ledger lines up against it entry for entry and the two of you agree in minutes. Takkada surfaces this clean list on the phone, and because Tally stays the system of record, nothing about the accountant's month-end changes.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -90,4 +90,4 @@ A: Yes. Takkada reads your Sundry Creditors ledgers and open bills from Tally an
 
 A: Usually one of two reasons: a duplicate supplier ledger splitting dues across two names, or a supplier ledger misclassified out of the Sundry Creditors group so it drops off the payables report. Keep one clean ledger per supplier under the group with bill-wise details on, and the total reconciles against the supplier's own statement.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

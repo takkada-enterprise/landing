@@ -100,7 +100,7 @@ That one stays a send from your side. The statement generates as a PDF and goes 
 
 Between the two, the everyday call gets answered by the link and the once-a-year reconciliation gets answered by the PDF.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -128,4 +128,4 @@ A: No. The link shows pending bills only, with no history browsing and no self-s
 
 A: The receipt is written back into Tally against the specific bills he ticked, so the allocation is bill by bill rather than a lump on account. That means the party's outstanding drops on the right invoices, and nobody has to work out afterwards which bill the money was meant for.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

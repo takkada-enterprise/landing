@@ -85,7 +85,7 @@ Buying above your band wastes money. Buying below it leaves the real problem in 
 
 ## What Takkada is, in one sentence
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch, built for the collection-and-reconciliation band that actually moves DSO.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app, with every entry posting back into Tally.
 
 ## Frequently Asked Questions
 
@@ -108,7 +108,7 @@ A: Band 4. DSO falls when collection is invoice-linked, reminders pause once a p
 ## Internal Links
 
 - Best Tally App for Receivables in 2026
-- Biz Analyst Alternative: What Collections-First Distributors Pick
+- Biz Analyst Alternative: What Distributors on Tally Pick
 - Livekeeping Alternative for Distributors
 
 Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.

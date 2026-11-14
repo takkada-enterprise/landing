@@ -107,7 +107,7 @@ The mechanics follow the four facts above. The salesman checks in at a party. Th
 
 Because the visit sits on the same party master as the invoices, it lands beside the rest of what a [salesman app for Tally](/salesman-app-tally/) already does: the orders he books, the outstanding he can see, the parties he is allowed to see at all. Role gates decide which team member sees which ledgers and which screens, so a salesman can be limited to his own parties while the owner reads the whole territory. Field visits run in the live app today for companies that have them switched on.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -135,4 +135,4 @@ A: They object to being followed all day, and that objection is usually reasonab
 
 A: It is good proof when an order exists, since an order booked at the counter could not have been created from home. The gap is that in a weak month most visits produce no order, and those are the visits an owner doubts. A visit record covers the shops where nothing was bought, and that is where coverage is won or lost.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -63,7 +63,7 @@ The last problem is location. The Bills Payable report lives on the Tally deskto
 
 Takkada reads your purchase ledgers and open bills straight from Tally and shows the payable schedule on the phone: supplier-wise, with what falls due in the next seven days flagged, live, because it keeps a [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/) rather than a separate copy. The same surface that carries your [Tally reports on mobile](/tally-reports-on-mobile/) carries this one, so a payment or a stock order gets decided against the real due-date schedule, not a rough memory of it.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -87,4 +87,4 @@ A: Usually because bill-wise details were not enabled for the supplier ledger, o
 
 A: Yes. Takkada reads your purchase ledgers and open bills from Tally and shows the payable schedule on mobile, including what is due in the next seven days. Because it stays in two-way sync with Tally, the schedule on the phone matches the office desktop, so you can decide a supplier payment from the field.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

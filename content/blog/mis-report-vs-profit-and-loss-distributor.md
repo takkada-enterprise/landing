@@ -92,7 +92,7 @@ Closing stock is the usual reason the MIS total and the P&L disagree, and it is 
 
 The working habit is small. Second of the month: send P&L, read the grid, walk away. Eighth of the month: open the grid again if July's shape has not returned. Do not wait for year-end to discover two dead months. The grid is sitting under Accounts the whole year. Why a heavy buying month can read as a loss in Tally, and how its own closing stock fixes it, is in [month wise profit and loss in Tally Prime](/blog/month-wise-profit-and-loss-tally-prime/).
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -120,4 +120,4 @@ A: Yes. PDF and Excel export exist for both, behind a chooser sheet. Every expor
 
 A: The daily scorecard habit is the short list of numbers an owner reads every day: sales, outstanding, cash, stock, margin. MIS Reports on the phone is a 12-month grid with a total column. They share a name in conversation. They are different screens and different questions.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

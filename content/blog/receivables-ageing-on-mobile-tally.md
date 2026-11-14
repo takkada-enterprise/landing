@@ -65,7 +65,7 @@ The last piece is who reads it and where. On the desktop, only whoever sits at t
 
 Takkada shows the live ageing on the phone in [two-way sync with Tally](/blog/bidirectional-tally-sync-explained/), which is why the number on the screen matches the desktop and updates as receipts land. The payable side ages the same way; the mirror report for suppliers is the [accounts payable ageing report](/blog/accounts-payable-ageing-report-tally/), so a distributor can watch money coming in and money going out on the same phone.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -89,4 +89,4 @@ A: It turns the report into an action. Takkada takes each overdue bill off the l
 
 A: Yes, with the right role. A salesman can check a retailer's outstanding and ageing on the phone before booking a fresh order, so he does not load more stock onto a party already 80 days overdue. This keeps new sales from deepening a receivable that is already at risk.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

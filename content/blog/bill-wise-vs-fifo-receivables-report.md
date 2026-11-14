@@ -104,7 +104,7 @@ The owner flips the Payments report to Bill-wise, sees how the receipt would hav
 
 If they decide May should have been cleared, that is a voucher job in Tally: re-allocate the receipt on the desktop, wait for the sync, open Payments again. The toggle showed the disagreement. It did not rewrite the receipt. Ageing on the phone will then colour whatever bills remain, as of today, on the slabs that company already set.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -132,4 +132,4 @@ A: No. There is no salesman filter and no godown filter on this report. Party se
 
 A: Yes. Payments offers a PDF and Excel chooser. Every exported PDF or Excel goes through the phone's share sheet, where you pick WhatsApp, email or Drive. A party's ledger statement is a different send, from the party page, the bills page, or the ageing report.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

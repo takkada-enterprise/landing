@@ -119,4 +119,4 @@ A: No. Reminder cadence is company-wide. A slow median is a follow-up log, a rec
 
 A: No. Parties is ageing by customer as of today, with editable slabs. Bills is bill-by-bill outstanding. Habits is behaviour. You need the stock and the pattern. Tally remains the book of record for the dates underneath both.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

@@ -93,7 +93,7 @@ A retailer pays the branch, somebody writes it in a notebook, and the receipt re
 
 Takkada puts a UPI payment link on the invoice, so the retailer pays from wherever he is and the receipt reconciles back into Tally against the right bill. Collection carries 0% MDR on UPI, with no transaction cap and no monthly fee, which matters across a branch network taking many small payments. Between stock that is visible and money that does not wait, the branch stops being a place the owner has to remember and becomes a place he can see.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -121,4 +121,4 @@ A: Usually not, when the branches sit under one legal entity and one GSTIN. Tall
 
 A: It does not appear as a line in the books. It appears as orders promised against stock that is not there, freight on transfers that were not needed, orders lost at the counter to a check-and-call-back, and an annual count that takes days to reconcile. Small amounts weekly, on distribution margins, across every location.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

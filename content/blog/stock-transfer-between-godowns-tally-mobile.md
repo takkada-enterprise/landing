@@ -88,7 +88,7 @@ Open the location view for the destination godown and confirm the received items
 
 Distributors who run this check weekly stop discovering branch discrepancies at the annual physical count, when the trail is cold and nobody remembers which truck was short.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -116,4 +116,4 @@ A: No. A stock journal has no party and no ledger effect, so outstanding, receiv
 
 A: Timing and missing locations, in that order. Transfers entered days after the goods moved leave both ends wrong in the meantime, and outward sales recorded without a godown drain stock from the wrong place entirely. Recording the movement when it happens and stamping locations on invoices fixes most branch discrepancies before they accumulate.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

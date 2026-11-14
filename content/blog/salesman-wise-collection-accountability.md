@@ -103,7 +103,7 @@ Team access controls decide what each member sees. A salesman can be limited to 
 
 The reps also collect on the same phone. A payment link goes to the party, who sees each open bill with its due status and pays by UPI at 0% MDR, and the receipt writes back into Tally against those specific bills rather than sitting on account. That keeps the board honest, because only a receipt allocated bill by bill lets the ageing recompute correctly next month. Reps using the [field order and collection tools](/blog/field-order-collection-app-tally/) produce attributed data as a by-product of the normal job.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -131,4 +131,4 @@ A: Paying on billing ends the salesman's responsibility at the delivery, and ove
 
 A: Decide the rule once and apply it everywhere. The usual choice is to attribute outstanding to the rep who owns the party today, keeping the billing attribution visible alongside, so a route handover reads as a handover instead of as one man's numbers collapsing. Disputes come from having no stated rule, because then both conventions end up in use in different reports.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

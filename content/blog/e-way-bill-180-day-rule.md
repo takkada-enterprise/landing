@@ -97,7 +97,7 @@ Takkada generates the [e-way bill from the phone](/e-way-bill-from-phone) agains
 
 The godown manager holding the phone is the one who knows the truck is loaded. Putting the generation step in his hands turns a stale-document problem into a five-minute question for the owner rather than a truck standing overnight.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app.
 
 ## Frequently Asked Questions
 
@@ -125,4 +125,4 @@ A: In Tally Prime you open the sales voucher, send it for e-way bill, and enter 
 
 A: Section 129(1) of the CGST Act 2017, as substituted by the Finance Act 2021 and effective from 1 January 2022, sets the penalty at 200% of the tax payable where the owner of the goods comes forward, or 2% of the value of exempted goods or ₹25,000, whichever is less. Where the owner does not come forward, it is 50% of the value of the goods or 200% of the tax payable, whichever is higher, and 5% of the value or ₹25,000, whichever is less, for exempted goods.
 
-Takkada is a Tally-integrated receivables and auto-reconciliation app for Indian distributors, with 0% MDR UPI collection and WhatsApp dispatch. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
