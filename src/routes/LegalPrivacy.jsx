@@ -19,7 +19,7 @@ function PrivacyPolicy() {
       />
       <article className="company-article">
         <h1>Privacy Policy</h1>
-        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: October 28, 2026 &bull; {contactInfo.company}</p>
+        <p className="company-meta tabular-nums">Effective: September 16, 2025 &bull; Updated: November 14, 2026 &bull; {contactInfo.company}</p>
         <p className="company-lead">
           {contactInfo.company} is committed to protecting the privacy of all users of Takkada, including businesses, their employees, accountants, and other authorized users.
         </p>
@@ -57,6 +57,20 @@ function PrivacyPolicy() {
         <h3>AI assistant connections</h3>
         <p>
           If a business admin connects Takkada to an AI assistant such as Claude or ChatGPT (see <a href="/ai-assistant/">AI assistant</a>), that assistant receives only the data it fetches to answer the requests the admin makes in it, and only for companies that admin manages. Once received, that data is handled under the assistant provider&rsquo;s own privacy terms. Takkada records which action was requested, when, and whether it succeeded, for security and support. We do not store the conversation. Entries and messages are never saved or sent without the admin&rsquo;s explicit confirmation. The admin can disconnect at any time by removing the connector, or by asking us to revoke its access.
+        </p>
+
+        <h3>Google account connections (Gmail)</h3>
+        <p>
+          A business admin can connect the company&rsquo;s Google account (Gmail or Google Workspace) in Takkada under Settings → Email, so that invoices, statements, reminders and receipts the business sends to its customers go out from its own address. When connected, Takkada asks Google only for permission to send email on the account&rsquo;s behalf and to see the account&rsquo;s email address. Takkada cannot read, search, delete or change any email in the account.
+        </p>
+        <p>
+          Takkada uses this access only to send the emails the business asks it to send. The sign-in Google gives us is stored encrypted and is never shown to anyone. We do not sell this data, share it with anyone, use it for advertising, or use it to train AI or machine-learning models. No person at Takkada reads it, except when the business asks us for help, for security, or when the law requires it.
+        </p>
+        <p>
+          To stop it, the admin taps Disconnect in Settings → Email, which deletes the sign-in from our systems and cancels it with Google, or removes Takkada at myaccount.google.com/permissions. Write to us using the details below to have any related data deleted.
+        </p>
+        <p>
+          Takkada&rsquo;s use and transfer of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.
         </p>
 
         <h2>4. Security Measures</h2>
