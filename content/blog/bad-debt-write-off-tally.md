@@ -181,6 +181,6 @@ A: Yes. If a written-off debt is recovered later, the recovery is recorded as in
 - Cheque Bounce Recovery for Distributors: The Section 138 Playbook
 - Credit Limit for Retailers: How Distributors Set, Enforce and Adjust It
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).
 
 *This article is for general information only and does not constitute tax or legal advice. For any specific bad debt, GST, or income tax matter, consult a qualified chartered accountant.*

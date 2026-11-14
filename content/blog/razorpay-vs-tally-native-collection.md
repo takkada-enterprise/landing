@@ -98,4 +98,4 @@ A: A gateway settles money to your bank and stops. Takkada matches each receipt 
 - Payment Gateway Charges Comparison for Distributors
 - Accept Online Payment on a Tally Invoice
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

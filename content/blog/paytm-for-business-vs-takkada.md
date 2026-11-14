@@ -99,4 +99,4 @@ A: Paytm accepts cards and wallets broadly, and those instruments can carry char
 - Payment Gateway Charges Comparison for Distributors
 - Tally Payment Reconciliation on Mobile
 
-Takkada helps Indian distributors using Tally collect payments, send WhatsApp reminders, and generate e-invoices, all from mobile. Book a free demo.
+Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

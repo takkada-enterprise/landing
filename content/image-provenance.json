@@ -2370,7 +2370,7 @@
       "reason": "named individual, two real bank UTRs. Carried by name in UNSAFE_CAPTURES until 2026-09-07; recorded here by content hash instead, so a rename cannot shed it.",
       "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Must never appear on a page."
     },
-    "73979c87d8ad0fc24a83b2fd38b3e45d54503f9182503a84695498bff74a86c6": {
+    "b808d862e2954d3c596e69285dc127e9e476da5fed95b58e1c02bad2a7a5a371": {
       "path": "public/assets/og/takkada-og-default.png",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-09-07",
@@ -2378,7 +2378,7 @@
       "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
       "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
     },
-    "a0f043ad369104557d4cead6baad9511ea242e0228c0108ab3d1d4b90b1ad600": {
+    "2f3a449e01ffcd92d3f37639ceb11b9639bcadf75cf1fdc7577a1fc3e75670f1": {
       "path": "public/assets/og/takkada-og-comparison.png",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-09-07",
@@ -2386,7 +2386,7 @@
       "reason": "A hand-laid marketing card with an application screenshot composited into a phone frame. The card asserts the demo company in its own artwork; nothing recorded confirms which company was photographed. It is an application screenshot, so it is recorded as one rather than filed as an illustration. Shipped to production before this gate existed. Nobody recorded a capture session, so no honest capture record can be written for it now. Recapture from the demo company or replace the image with text; do not backfill evidence.",
       "note": "MIGRATION BACKLOG, NOT A PERMANENT EXEMPTION. Served as og:image on every page that has no card of its own."
     },
-    "6d5491eabebe0b005da936a90b221dd26a04e34bbb3fa5c0eb414c6d5849630a": {
+    "8f79d650ac779951bb744633935ac92cf712c63f899e90f0388b168d201ea4e8": {
       "path": "public/assets/og/takkada-og-demo.png",
       "kind": "appScreenshot",
       "allowlistedOn": "2026-09-07",
