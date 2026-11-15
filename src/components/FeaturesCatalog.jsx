@@ -157,8 +157,8 @@ export default function FeaturesCatalog() {
           <span className="tk-eyebrow">FEATURES</span>
           <h2>Everything a Distributor Needs, in One App</h2>
           <p>
-            From orders and inventory to collections and compliance —
-            manage your entire distribution business on mobile,
+            From orders and inventory to collections and compliance.
+            Run your entire distribution business on mobile,
             with deep Tally integration.
           </p>
         </div>
