@@ -102,9 +102,9 @@ const data = {
     { name: 'Tally on Mobile', url: 'https://takkada.com/mobile-tally/' },
   ],
   seo: {
-    title: 'Tally on Mobile | View Receivables, Send Reminders',
+    title: 'Tally on Mobile | Billing, Stock, Ledgers & Reminders',
     description:
-      'See your Tally outstanding from your phone. Send WhatsApp reminders, share ledger statements, track overdues. Works with TallyPrime and Tally ERP 9.',
+      'Run your Tally from your phone. Create orders and bills, check stock, view ledgers, and send WhatsApp reminders. Works with TallyPrime and Tally ERP 9.',
     canonical: 'https://takkada.com/mobile-tally/',
   },
 };

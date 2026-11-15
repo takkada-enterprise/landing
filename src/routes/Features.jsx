@@ -116,7 +116,7 @@ function StopMark({ stopId }) {
 const seo = {
   title: 'All Features for Distributors on Tally | Takkada',
   description:
-    'Every Takkada feature for a distributor on Tally: mobile invoicing, UPI collection, WhatsApp reminders, e-invoice, e-way bill, stock and salesman tracking.',
+    'Every Takkada feature for distributors on Tally: orders, inventory, billing, ledgers, WhatsApp reminders and payment collections from your phone.',
   path: '/features',
 };
 

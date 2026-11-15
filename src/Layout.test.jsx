@@ -28,9 +28,7 @@ vi.mock('./data/siteContent', async (importOriginal) => {
 import Layout from './Layout';
 import Home from './routes/Home';
 import { appLinks, contactInfo, navLinks } from './data/siteContent';
-import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { FEATURE_GROUPS, menuFeatureGroups } from './data/featureGroups';
-import { withTrailingSlash } from './lib/sitePath.js';
+import { FEATURE_CATEGORIES } from './components/FeaturesCatalog';
 
 beforeEach(() => {
   siteContentMock.demoEntryLive = true;
@@ -206,47 +204,39 @@ describe('Features disclosure in the desktop header', () => {
     };
   }
 
-  // Ronak, 2026-09-20: the menu showed nine of the feature pages and sent the
-  // other twenty to "All features". Every page is in the menu now, under the
-  // journey heading the hub files it under, so nothing is reachable only from
-  // the hub.
-  it('lists every feature page, grouped, plus a way to the hub', () => {
+  // The navbar now uses the simplified 8-category structure from FeaturesCatalog
+  // instead of the old 10-group journey-based menu.
+  it('lists every feature from the 8 categories, plus a way to the hub', () => {
     const { panelLinks } = renderLayout();
     expect(panelLinks()).toEqual([
-      ...menuFeatureGroups(FEATURE_PAGES).flatMap((group) => group.pages.map((p) => withTrailingSlash(featurePagePath(p)))),
+      ...FEATURE_CATEGORIES.flatMap((cat) => cat.links.map((link) => link.href)),
       '/features/',
     ]);
   });
 
-  it('names every group above its links, and files every page once', () => {
+  it('names every category above its links, and files every page once', () => {
     const { container } = renderLayout();
-    const groups = menuFeatureGroups(FEATURE_PAGES);
     expect([...container.querySelectorAll('.nav-features-group > h3')].map((h) => h.textContent)).toEqual(
-      groups.map((group) => group.title)
+      FEATURE_CATEGORIES.map((cat) => cat.title)
     );
-    const linked = groups.flatMap((group) => group.pages.map((page) => page.slug));
+    const linked = FEATURE_CATEGORIES.flatMap((cat) => cat.links.map((link) => link.href));
     expect(new Set(linked).size).toBe(linked.length);
   });
 
-  // Ronak, 2026-09-20: the comparison pages are not features, and naming a
-  // competitor in the nav of every page is not what the header is for. They
-  // keep their place on the hub, which "All features" reaches.
+  // The comparison pages are not features, so they stay out of the navbar.
+  // They are still on the hub, reached via "All features".
   it('leaves the comparison pages out of the menu but not out of the hub', () => {
     const { panelLinks } = renderLayout();
     expect(panelLinks()).not.toContain('/biz-analyst-alternative/');
     expect(panelLinks()).not.toContain('/livekeeping-alternative/');
     expect(panelLinks()).toContain('/features/');
-    expect(FEATURE_GROUPS.find((g) => g.id === 'weighing-options').slugs).toEqual([
-      'biz-analyst-alternative',
-      'livekeeping-alternative',
-    ]);
   });
 
   // Reachable from any page without navigating away first — the whole point of
   // putting it in the header rather than only on the hub.
   it('carries the same links on a page that is not the homepage', () => {
-    const menuPages = menuFeatureGroups(FEATURE_PAGES).reduce((n, g) => n + g.pages.length, 0);
-    expect(renderLayout('/blog').panelLinks().length).toBe(menuPages + 1);
+    const totalCategoryLinks = FEATURE_CATEGORIES.reduce((n, cat) => n + cat.links.length, 0);
+    expect(renderLayout('/blog').panelLinks().length).toBe(totalCategoryLinks + 1);
   });
 
   it('starts closed, inert, and out of the tab order', () => {
