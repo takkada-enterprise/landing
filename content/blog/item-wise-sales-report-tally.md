@@ -5,13 +5,13 @@ meta_title: "Item-Wise Sales Report from Tally on Mobile"
 meta_description: "An item wise sales report tally view shows which products moved, in quantity and value, so a distributor reorders fast movers and spots dead stock."
 primary_keyword: "item wise sales report tally"
 date: "2026-07-21"
-updated: "2026-11-10"
+updated: "2026-11-15"
 author: "founder"
 category: "Reports"
 excerpt: "A distributor lives on which products move. The item-wise sales report tells him exactly that, in quantity and value, and on the phone he can check it while standing in the godown deciding what to reorder before the fast mover runs out."
 ---
 
-An item-wise sales report in Tally is your selling broken down by product, showing how much of each item moved in quantity and value over a period, and on mobile it lets a distributor decide what to reorder while standing in the godown. In Tally Prime you read it from Stock Summary or the Movement Analysis and Item-wise reports under inventory, where each stock item shows its outward quantity and sales value for the period, sortable so the fast movers rise to the top. That ranking is what a distributor runs his purchasing on: reorder the SKUs that are flying, question the ones that have not moved in weeks, and time a scheme to a slow line before it becomes dead stock. The report lives on the office desktop, away from the warehouse where the reorder call gets made. Takkada reads your inventory and sales data from Tally and shows item-wise movement on the phone. Tally stays the book of record.
+An item-wise sales report shows how much of each product you sold in a period, in quantity and in rupees, ranked so the fastest movers sit at the top. For a distributor it is the report that sets the next purchase order: reorder what is flying, question what has gone quiet. In TallyPrime you read it from Stock Summary, or from Movement Analysis under Display More Reports and Statements of Inventory, where each stock item shows its outward quantity and sales value for the period you pick. Drill into an item and Tally lists which parties bought it and at what rate. The catch is where the report lives. It sits on the office desktop, while the reorder call gets made in the godown or on the phone with a supplier. Takkada reads your sales from Tally and shows the same item-wise view on mobile as Sales by Item, grouped by item, stock group, customer or month. Tally stays the book of record.
 
 ## Key Highlights
 
@@ -21,12 +21,29 @@ An item-wise sales report in Tally is your selling broken down by product, showi
 
 ## In This Article
 
+- Sample item-wise sales report
 - What an item-wise sales report shows
 - Where product sales live in Tally
 - The purchasing decisions it drives
 - Item sales, stock in hand, and reorder
 - Reading product movement on the phone
 - Frequently Asked Questions
+
+## Sample Item-Wise Sales Report
+
+Here is what one month looks like for a small grocery distributor. The figures are sample data, not a real company.
+
+**Sales by Item, October 2026, compared with September 2026**
+
+| Item | Qty sold | Net sales (₹) | Avg price (₹) | vs last month | Returns (₹) |
+|---|---|---|---|---|---|
+| Mustard Oil 1 L Pouch | 1,240 Pcs | 1,98,400 | 160 | +18% | 3,200 |
+| Basmati Rice 25 kg | 86 Bag | 1,63,400 | 1,900 | +4% | 0 |
+| Tea 250 g | 410 Pcs | 57,400 | 140 | -22% | 1,400 |
+| Detergent Powder 1 kg | 300 Pcs | 33,000 | 110 | +2% | 0 |
+| Toor Dal 1 kg | 12 Pcs | 1,680 | 140 | -85% | 0 |
+
+Net sales is after line discount and before GST, and customer returns (credit notes) are already taken off and shown in their own column. Read it top to bottom and the purchasing calls write themselves. Mustard oil is up 18%, so the next order goes in early. Tea is down 22%, so the salesman asks the shops why before the next order. Toor dal sold 12 pieces all month, so it needs a scheme or a return before more cash sits on that shelf.
 
 ## What an Item-Wise Sales Report Shows
 
@@ -36,7 +53,7 @@ The pattern is familiar in every godown. A small band of SKUs moves constantly, 
 
 ## Where Product Sales Live in Tally
 
-In Tally Prime, every product is a stock item, and inventory reports gather how each one moved. Stock Summary shows opening, inward, outward, and closing quantity and value for each item over the period. For a pure sales cut, the item-wise or Movement Analysis reports under Display, then Inventory Books, isolate outward movement, which is your selling by product.
+In Tally Prime, every product is a stock item, and inventory reports gather how each one moved. Stock Summary shows opening, inward, outward, and closing quantity and value for each item over the period. For a pure sales cut, Movement Analysis under Display More Reports, then Statements of Inventory, isolates outward movement, which is your selling by product.
 
 Set the period to this month or a custom range and each item shows quantity sold and sales value. Sort by value or quantity and the fast movers rise to the top. Drill into a single item and you see which parties bought it and in what lots. It is the inventory counterpart to the [party-wise sales report](/blog/party-wise-sales-report-tally/): one tells you who bought, this one tells you what they bought.
 
@@ -71,22 +88,26 @@ The Reports tab now has a Sales by Item report built for this question. One tap 
 
 **Q: What is an item-wise sales report in Tally?**
 
-A: It is your selling broken down by product, showing how much of each stock item moved in quantity and value over a period. In Tally Prime you read it from Stock Summary or the item-wise and Movement Analysis inventory reports, and you can sort items so the fast movers appear at the top.
+A: It is your sales broken down by product, showing how much of each stock item sold in quantity and value over a period. You sort it so the fastest movers appear at the top.
 
-**Q: How do I get product sales from Tally Prime?**
+**Q: How do I get item-wise sales in TallyPrime?**
 
-A: Open Stock Summary from Gateway of Tally, or the Movement Analysis and item-wise reports under Display, then Inventory Books, and set the period you want. Each stock item shows its outward quantity and sales value, and drilling into an item reveals which parties bought it and in what lots.
+A: Open Stock Summary from Gateway of Tally, or Movement Analysis under Display More Reports, then Statements of Inventory, and set the period. Each stock item shows its outward quantity and sales value, and drilling into an item lists the parties who bought it.
+
+**Q: What columns should an item-wise sales report have?**
+
+A: Item, quantity sold, net sales value, average price and the change against last period. A returns column is worth having too, so credit notes do not hide inside the sales figure.
 
 **Q: Can I see item-wise sales on my phone?**
 
-A: Yes. Takkada reads your inventory and sales data from Tally and shows item-wise movement on mobile, ranked by quantity or value. Because it stays in two-way sync with Tally, the figures match the office desktop, so a reorder decision can be made in the godown instead of remembered later at the desk.
+A: Yes. Takkada reads your sales from Tally and shows them on mobile as Sales by Item, grouped by item, stock group, customer or month, with Excel and PDF export.
 
-**Q: How does the item-wise report help decide what to reorder?**
+**Q: How does the report help decide what to reorder?**
 
-A: It shows which SKUs are selling fastest and which have gone quiet. Read alongside stock in hand, a fast mover with low remaining stock signals a reorder, while a slow mover with high stock signals holding the order or running a scheme. That pairing keeps the godown carrying stock that sells rather than capital trapped on shelves.
+A: Read it next to stock in hand. A fast mover with low stock means reorder now, and a slow mover with high stock means hold the order or run a scheme.
 
-**Q: Do I need inventory features switched on in Tally for this report?**
+**Q: Do I need inventory switched on in Tally for this report?**
 
-A: Yes. The item-wise sales report is an inventory report, so it needs stock items and inventory maintained in the company. If you bill with item details, Tally already captures the outward movement per SKU, which is what the report reads. Ledger-only companies without inventory will not produce a meaningful item-wise view.
+A: Yes. It is an inventory report, so the company must bill with stock items. Ledger-only companies without inventory will not get a meaningful item-wise view.
 
 Takkada is Tally on mobile for Indian distributors: billing, stock, ledgers and collections in one app. [Book a free demo](https://calendar.notion.so/meet/ronakmalu/takkada).

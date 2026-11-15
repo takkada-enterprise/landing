@@ -173,6 +173,17 @@ function BlogPost() {
                 <time className="blog-date tabular-nums" dateTime={post.date}>
                   {formatDate(post.date)}
                 </time>
+                {post.updated && post.updated > post.date && (
+                  <>
+                    <span className="blog-byline-sep" aria-hidden="true">·</span>
+                    <span className="blog-date">
+                      Updated{' '}
+                      <time className="tabular-nums" dateTime={post.updated}>
+                        {formatDate(post.updated)}
+                      </time>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </header>
