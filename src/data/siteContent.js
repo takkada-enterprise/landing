@@ -338,6 +338,46 @@ export const videoTestimonials = [
       contentLocation: 'Guwahati, Assam, India',
     },
   },
+  // English, the speaker's own words (transcribed 2026-11-19), trimmed but not
+  // reworded. Company spelling follows their Tally books on prod (co267
+  // "Amafhh Import and Export Private Limited", Maharashtra); the name card
+  // burned into the video reads "AMAFFH", which is a typo.
+  {
+    id: 'amafhh-import-export',
+    name: 'Husain Kasim Manasawala',
+    role: 'Director',
+    company: 'AMAFHH Import and Export',
+    location: 'Maharashtra',
+    industry: 'Bearings importer (FKRS Bearings)',
+    badge: 'Verified Takkada Customer',
+    duration: '2:50',
+    quote: 'We have import documents coming in with 100, 200 items, so adding them in Tally one by one is a task. On Takkada we just upload the PDF. It scans the document, proper mapping is done, and the cost, the quantity and the GST are taken on their own.',
+    takeaways: [
+      {
+        title: 'Import Bills from PDF',
+        desc: 'Upload the supplier PDF and the items, cost, quantity and GST fill in, instead of keying 100 to 200 lines into Tally.',
+      },
+      {
+        title: 'Accounts Team Works from Anywhere',
+        desc: '"Our accounts team, also from home, using the app on the phones or tablets, making bills, adding purchases."',
+      },
+      {
+        title: 'Problems Solved Within a Day',
+        desc: '"You give them one call or send them a WhatsApp message. Within a day\'s time they solve the problem, sometimes in five minutes."',
+      },
+    ],
+    video: {
+      type: 'mp4',
+      src: '/assets/videos/testimonials/amafhh-import-export.mp4',
+      poster: '/assets/testimonials/amafhh-import-export-thumbnail.jpg',
+      title: 'Husain Kasim Manasawala, Director of AMAFHH Import and Export, sharing his Takkada experience',
+      uploadDate: '2026-11-19T12:00:00+05:30',
+      durationIso: 'PT2M50S',
+      schemaDescription:
+        'Husain Kasim Manasawala, Director of AMAFHH Import and Export (FKRS Bearings), a bearings importer in Maharashtra, on importing purchase bills from PDF into Tally and billing from phones and tablets with Takkada.',
+      contentLocation: 'Maharashtra, India',
+    },
+  },
   {
     id: 'kewa-bearings',
     name: 'Jitesh Singhal',
@@ -411,47 +451,7 @@ export const videoTestimonials = [
         'Kiran, Sales Manager at Sree Sai Mitra Drip Industries, a drip irrigation and PVC company in Karnataka, speaking in Kannada on bringing orders from the sales team, stock and sales into one place with Tally on mobile using Takkada.',
       contentLocation: 'Karnataka, India',
     },
-  },  // English, the speaker's own words (transcribed 2026-11-19), trimmed but not
-  // reworded. Company spelling follows their Tally books on prod (co267
-  // "Amafhh Import and Export Private Limited", Maharashtra); the name card
-  // burned into the video reads "AMAFFH", which is a typo.
-  {
-    id: 'amafhh-import-export',
-    name: 'Husain Kasim Manasawala',
-    role: 'Director',
-    company: 'AMAFHH Import and Export',
-    location: 'Maharashtra',
-    industry: 'Bearings importer (FKRS Bearings)',
-    badge: 'Verified Takkada Customer',
-    duration: '2:50',
-    quote: 'We have import documents coming in with 100, 200 items, so adding them in Tally one by one is a task. On Takkada we just upload the PDF. It scans the document, proper mapping is done, and the cost, the quantity and the GST are taken on their own.',
-    takeaways: [
-      {
-        title: 'Import Bills from PDF',
-        desc: 'Upload the supplier PDF and the items, cost, quantity and GST fill in, instead of keying 100 to 200 lines into Tally.',
-      },
-      {
-        title: 'Accounts Team Works from Anywhere',
-        desc: '"Our accounts team, also from home, using the app on the phones or tablets, making bills, adding purchases."',
-      },
-      {
-        title: 'Problems Solved Within a Day',
-        desc: '"You give them one call or send them a WhatsApp message. Within a day\'s time they solve the problem, sometimes in five minutes."',
-      },
-    ],
-    video: {
-      type: 'mp4',
-      src: '/assets/videos/testimonials/amafhh-import-export.mp4',
-      poster: '/assets/testimonials/amafhh-import-export-thumbnail.jpg',
-      title: 'Husain Kasim Manasawala, Director of AMAFHH Import and Export, sharing his Takkada experience',
-      uploadDate: '2026-11-19T12:00:00+05:30',
-      durationIso: 'PT2M50S',
-      schemaDescription:
-        'Husain Kasim Manasawala, Director of AMAFHH Import and Export (FKRS Bearings), a bearings importer in Maharashtra, on importing purchase bills from PDF into Tally and billing from phones and tablets with Takkada.',
-      contentLocation: 'Maharashtra, India',
-    },
-  },
-];
+  },];
 
 
 // Proof strip (2026-08-06 conversion pass, R3): the pull-quote and the two
