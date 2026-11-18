@@ -70,9 +70,9 @@ function VideoTestimonials({ items = videoTestimonials }) {
       <div className="container">
         <div className="hv3-story-head reveal">
           <span className="section-label">Real Customer Stories</span>
-          <h2 className="hv3-story-title">Hear from owners who run on Takkada</h2>
+          <h2 className="hv3-story-title">Hear from businesses that run on Takkada</h2>
           <p className="hv3-story-intro">
-            Owners from Ahmedabad to Guwahati, in their own words, on what changed once their Tally was on the phone.
+            Owners and teams from Ahmedabad to Guwahati to Karnataka, in their own words, on what changed once their Tally was on the phone.
           </p>
         </div>
 

@@ -373,6 +373,45 @@ export const videoTestimonials = [
       contentLocation: 'India',
     },
   },
+  // Spoken in Kannada (Kannada captions burned into the video). The quote and
+  // takeaways are our English translation of his words, checked against the
+  // audio 2026-11-19. Karnataka is the company's state on prod (co274/co287).
+  {
+    id: 'sree-sai-mitra',
+    name: 'Kiran',
+    role: 'Sales Manager',
+    company: 'Sree Sai Mitra Drip Industries',
+    location: 'Karnataka',
+    industry: 'Drip irrigation & PVC',
+    badge: 'Verified Takkada Customer',
+    duration: '1:10',
+    quote: 'Orders used to come in on WhatsApp, and tracking stock, sales and orders was difficult. Since we started using Takkada, every order is in one place and we can see stock, sales and orders easily. (Translated from Kannada.)',
+    takeaways: [
+      {
+        title: 'Every Order in One Place',
+        desc: 'Orders from sales managers and field reps land in the app instead of scattered WhatsApp chats.',
+      },
+      {
+        title: 'Stock, Sales and Orders at a Glance',
+        desc: '"We can easily see stock, sales and orders."',
+      },
+      {
+        title: 'Recommended for Drip and PVC Firms',
+        desc: '"Every drip irrigation and PVC company can manage orders and sales through this app."',
+      },
+    ],
+    video: {
+      type: 'mp4',
+      src: '/assets/videos/testimonials/sree-sai-mitra.mp4',
+      poster: '/assets/testimonials/sree-sai-mitra-thumbnail.jpg',
+      title: 'Kiran of Sree Sai Mitra Drip Industries sharing their Takkada experience',
+      uploadDate: '2026-11-19T12:00:00+05:30',
+      durationIso: 'PT1M10S',
+      schemaDescription:
+        'Kiran, Sales Manager at Sree Sai Mitra Drip Industries, a drip irrigation and PVC company in Karnataka, speaking in Kannada on bringing orders from the sales team, stock and sales into one place with Tally on mobile using Takkada.',
+      contentLocation: 'Karnataka, India',
+    },
+  },
 ];
 
 
