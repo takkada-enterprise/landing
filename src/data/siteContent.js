@@ -344,7 +344,7 @@ export const videoTestimonials = [
   // burned into the video reads "AMAFFH", which is a typo.
   {
     id: 'amafhh-import-export',
-    name: 'Husain Kasim Manasawala',
+    name: 'Husain Manasawala',
     role: 'Director',
     company: 'AMAFHH Import and Export',
     location: 'Maharashtra',
@@ -370,11 +370,11 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/amafhh-import-export.mp4',
       poster: '/assets/testimonials/amafhh-import-export-thumbnail.jpg',
-      title: 'Husain Kasim Manasawala, Director of AMAFHH Import and Export, sharing his Takkada experience',
+      title: 'Husain Manasawala, Director of AMAFHH Import and Export, sharing his Takkada experience',
       uploadDate: '2026-11-19T12:00:00+05:30',
       durationIso: 'PT2M50S',
       schemaDescription:
-        'Husain Kasim Manasawala, Director of AMAFHH Import and Export (FKRS Bearings), a bearings importer in Maharashtra, on importing purchase bills from PDF into Tally and billing from phones and tablets with Takkada.',
+        'Husain Manasawala, Director of AMAFHH Import and Export (FKRS Bearings), a bearings importer in Maharashtra, on importing purchase bills from PDF into Tally and billing from phones and tablets with Takkada.',
       contentLocation: 'Maharashtra, India',
     },
   },
