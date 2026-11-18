@@ -672,10 +672,98 @@ body:has(.features-hub-hero) .site-nav:not(.scrolled):not(.menu-open) .nav-logo-
    was rendering its label near-black at 20px on the green gradient while the
    identical <button> beside it rendered white at 15px. The exclusions say out
    loud which anchors in here are not nav links. */
-.mobile-nav-links a:not(.cta-btn):not(.mobile-connector-link) {
+.mobile-nav-links a:not(.cta-btn):not(.mobile-connector-link):not(.mobile-nav-features-panel a) {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text);
+}
+
+/* ── Mobile Features Disclosure ── */
+.mobile-nav-features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-features-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.mobile-nav-features-header .nav-features-link {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.mobile-nav-features-header .nav-features-toggle {
+  min-width: 36px;
+  min-height: 36px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.mobile-nav-features-panel {
+  width: 100%;
+  background: var(--color-surface, #f8faff);
+  border: 1px solid var(--color-border, #e0e8f3);
+  border-radius: var(--radius-md, 12px);
+  padding: 16px 14px;
+  margin-top: 12px;
+  text-align: left;
+  max-height: 380px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-features-panel .nav-features-list {
+  columns: 1;
+}
+
+.mobile-nav-features-panel .nav-features-group {
+  margin-bottom: 14px;
+  break-inside: avoid;
+}
+
+.mobile-nav-features-panel .nav-features-group > h3 {
+  margin: 0 0 6px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.mobile-nav-links .mobile-nav-features-panel a {
+  display: block;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4;
+  color: var(--color-text);
+  padding: 5px 0;
+  text-decoration: none;
+}
+
+.mobile-nav-links .mobile-nav-features-panel a:hover {
+  color: var(--color-primary);
+}
+
+.mobile-nav-links .mobile-nav-features-panel .nav-features-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-hairline, #e2e8f0);
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--color-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {

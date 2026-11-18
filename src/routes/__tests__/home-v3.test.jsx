@@ -45,8 +45,9 @@ describe('Home v3 structure (AE1)', () => {
 
     const h2s = [...container.querySelectorAll('h2')].map((h) => h.textContent);
     expect(h2s).toContain(homeFeatures.heading);
+    expect(h2s).toContain('Everything a Distributor Needs, in One App');
 
-    const h3s = [...container.querySelectorAll('h3')].map((h) => h.textContent);
+    const h3s = [...container.querySelectorAll('#digital-collection h3')].map((h) => h.textContent);
     for (const item of homeFeatures.items) {
       expect(h3s, `no heading for ${item.title}`).toContain(item.title);
     }
@@ -103,10 +104,18 @@ describe('Home v3 structure (AE1)', () => {
     expect(features.className).toContain('hv3-features-grid');
   });
 
-  it('orders the sections hero → proof → features → tally → pricing', () => {
+  it('renders eight expandable feature categories in #all-features below tally', () => {
+    const { container } = renderHome();
+    const catalog = container.querySelector('#all-features');
+    expect(catalog).toBeTruthy();
+    const cards = [...catalog.querySelectorAll('details.tk-card')];
+    expect(cards).toHaveLength(8);
+  });
+
+  it('orders the sections hero → features → tally → all-features → pricing', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
-    const order = ['product', 'testimonial', 'digital-collection', 'tally', 'pricing'];
+    const order = ['product', 'digital-collection', 'tally', 'all-features', 'pricing'];
     const positions = order.map((id) => ids.indexOf(id));
     expect(positions.every((p) => p >= 0), `missing section among ${order}`).toBe(true);
     expect([...positions].sort((a, b) => a - b)).toEqual(positions);

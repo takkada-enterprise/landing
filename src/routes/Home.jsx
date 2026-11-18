@@ -27,6 +27,7 @@ import FAQItem from '../components/FAQItem';
 import PlayablePhone from '../components/PlayablePhone';
 import VideoTestimonials from '../components/VideoTestimonials';
 import InlineDemoForm from '../components/InlineDemoForm';
+import FeaturesCatalog from '../components/FeaturesCatalog';
 import Seo from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollFx';
 import { softwareApplicationSchema, faqPageSchema, videoObjectSchema } from '../data/schema';
@@ -126,43 +127,12 @@ function Home({ seo = HOME_SEO }) {
           </div>
           <PlayablePhone />
           <nav className="hv3-hero-jobs" aria-label="Go to a feature">
-            <span className="hv3-hero-jobs-label">Or pick a job</span>
             {JOBS.map((j) => (
               <Link key={j.label} to={jobHref(j)} className="hv3-job">
                 {j.label}<small>{j.hint}</small>
               </Link>
             ))}
           </nav>
-        </div>
-      </section>
-
-      {/* ── Proof strip: the customer's voice + the confirmed scale figure,
-             moved AHEAD of pricing (2026-08-06 conversion pass, R3). The stat
-             renders static: the hero is a phone to play with now, not a wall of
-             figures, and this is the page's only place for the number. ── */}
-      <section className="hv3-proof" id={proofStrip.id}>
-        <div className="container">
-          <div className="hv3-proof-card reveal">
-            <figure className="hv3-proof-quote">
-              <blockquote className="hv3-proof-text">{testimonials[0].quote}</blockquote>
-              <figcaption className="hv3-proof-attrib">
-                <span className="hv3-proof-name">{testimonials[0].name}</span>
-                <span className="hv3-proof-role">{testimonials[0].role}</span>
-              </figcaption>
-            </figure>
-            <div className="hv3-proof-stats">
-              {heroContent.stats.map((s) => (
-                <div key={s.label} className="hv3-stat">
-                  <span className="hv3-stat-value tabular-nums">
-                    {s.prefix}
-                    {s.value}
-                    {s.suffix}
-                  </span>
-                  <span className="hv3-stat-label">{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -257,6 +227,9 @@ function Home({ seo = HOME_SEO }) {
           </div>
         </div>
       </section>
+
+      {/* ── Everything a Distributor Needs, in One App (8 Categories) ── */}
+      <FeaturesCatalog />
 
       {/* ── Verified Customer Stories / Video Testimonials ── */}
       <VideoTestimonials />

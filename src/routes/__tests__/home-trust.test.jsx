@@ -39,21 +39,10 @@ function renderHome() {
   );
 }
 
-describe('proof strip (the testimonial moved ahead of pricing, 2026-08-06)', () => {
-  it('shows the lead quote, name, and role verbatim', () => {
-    const { container } = renderHome();
-    const section = container.querySelector('#testimonial');
-    expect(section).not.toBeNull();
-    expect(section.textContent).toContain(testimonials[0].quote);
-    expect(section.textContent).toContain(testimonials[0].name);
-    expect(section.textContent).toContain(testimonials[0].role);
-  });
-
-  it('renders proof before the pricing table (R3/R4) and omits why-takkada differentiator section', () => {
+describe('proof strip (retired 2026-11-15 per operator direction)', () => {
+  it('omits why-takkada differentiator section', () => {
     const { container } = renderHome();
     const ids = [...container.querySelectorAll('section[id]')].map((s) => s.id);
-    expect(ids.indexOf('testimonial')).toBeGreaterThan(-1);
-    expect(ids.indexOf('testimonial')).toBeLessThan(ids.indexOf('pricing'));
     expect(ids.indexOf('why-takkada')).toBe(-1);
   });
 

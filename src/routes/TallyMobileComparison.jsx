@@ -16,7 +16,7 @@ import { softwareApplicationSchema, breadcrumbSchema } from '../data/schema';
 const SEO = {
   title: 'Best Tally Mobile App Comparison (2026) | Takkada',
   description:
-    'Takkada vs Biz Analyst vs Livekeeping, feature by feature: mobile invoicing, e-invoice, zero-MDR UPI collection, auto-reconciliation into Tally.',
+    'Takkada vs Biz Analyst vs Livekeeping, feature by feature: orders, billing, stock, ledgers, WhatsApp reminders and zero-MDR UPI collection.',
   path: '/tally-mobile-app-comparison/',
 };
 

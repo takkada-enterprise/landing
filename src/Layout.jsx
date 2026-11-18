@@ -9,8 +9,7 @@ import DemoTryCTA from './components/DemoTryCTA';
 import PhoneModal from './components/PhoneModal';
 import { PhoneModalProvider, usePhoneModal } from './context/PhoneModalContext';
 import { navLinks, footerColumns, contactInfo, appLinks, demoEntryLive } from './data/siteContent';
-import { FEATURE_PAGES, featurePagePath } from './data/featurePages';
-import { menuFeatureGroups } from './data/featureGroups';
+import { FEATURE_CATEGORIES } from './components/FeaturesCatalog';
 import { organizationSchema, webSiteSchema } from './data/schema';
 
 const MOBILE_MENU_ID = 'mobile-menu';
@@ -23,15 +22,13 @@ const FEATURES_PANEL_ID = 'nav-features-panel';
 const OPEN_INTENT_MS = 130;
 const CLOSE_DELAY_MS = 240;
 
-// Every feature page, under the same headings the hub files them under, so the
-// menu and the hub cannot drift (Ronak, 2026-09-20: the menu showed nine and
-// sent the rest to "All features", which is a page away). footerLabel rather
-// than llms.title: this is a menu, and "Payment collection on Tally" beside
-// "Tally on mobile" reads as a paragraph, not a list.
-const FEATURE_MENU = menuFeatureGroups(FEATURE_PAGES).map((group) => ({
-  id: group.id,
-  title: group.title,
-  items: group.pages.map((page) => ({ label: page.footerLabel, path: featurePagePath(page) })),
+// The navbar features dropdown uses the same 8 simplified categories as the
+// FeaturesCatalog on the homepage. Replaces the old 10-group journey-based
+// menu with a cleaner, more scannable structure.
+const FEATURE_MENU = FEATURE_CATEGORIES.map((cat) => ({
+  id: cat.id,
+  title: cat.title,
+  items: cat.links.map((link) => ({ label: link.label, path: link.href })),
 }));
 
 function hashTargetFrom(href) {
@@ -199,6 +196,55 @@ function NavFeaturesDisclosure({ label, href, open, setOpen }) {
   );
 }
 
+function MobileNavFeaturesDisclosure({ label, href, onNavigate }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`nav-features mobile-nav-features${open ? ' open' : ''}`}>
+      <div className="mobile-nav-features-header">
+        <Link to={href} className="nav-features-link" onClick={onNavigate}>
+          {label}
+        </Link>
+        <button
+          type="button"
+          className="nav-features-toggle"
+          aria-expanded={open}
+          aria-label={`${label} menu`}
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          <ChevronDown
+            size={18}
+            strokeWidth={2.4}
+            aria-hidden="true"
+            style={{
+              transform: open ? 'rotate(180deg)' : 'none',
+              transition: 'transform 0.2s ease',
+            }}
+          />
+        </button>
+      </div>
+      {open && (
+        <div className="mobile-nav-features-panel">
+          <div className="nav-features-list">
+            {FEATURE_MENU.map((group) => (
+              <div key={group.id} className="nav-features-group">
+                <h3>{group.title}</h3>
+                {group.items.map((feature) => (
+                  <Link key={feature.path} to={feature.path} onClick={onNavigate}>
+                    {feature.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+          <Link to={href} className="nav-features-all" onClick={onNavigate}>
+            All features <ArrowRight size={14} />
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SiteHeader({ menuOpen, setMenuOpen, scrolled, menuButtonRef, featuresOpen, setFeaturesOpen }) {
   const { setOpen } = usePhoneModal();
   const location = useLocation();
@@ -352,11 +398,20 @@ function MobileMenu({ menuOpen, setMenuOpen, menuButtonRef }) {
       inert={!menuOpen}
     >
       <nav className="mobile-nav-links">
-        {navLinks.map((l) => (
-          <NavHashLink key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
-            {l.label}
-          </NavHashLink>
-        ))}
+        {navLinks.map((l) =>
+          l.disclosure === 'features' ? (
+            <MobileNavFeaturesDisclosure
+              key={l.label}
+              label={l.label}
+              href={l.href}
+              onNavigate={() => setMenuOpen(false)}
+            />
+          ) : (
+            <NavHashLink key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
+              {l.label}
+            </NavHashLink>
+          )
+        )}
         <a
           href={appLinks.tallyConnector}
           className="mobile-connector-link"
