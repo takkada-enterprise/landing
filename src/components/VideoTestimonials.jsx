@@ -142,7 +142,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
           <div className="hv3-stories-player-col">
             <div className="hv3-stories-video-frame">
               {!started && (
-                <div className="hv3-stories-poster-overlay">
+                <div className={`hv3-stories-poster-overlay${current.video.designedCover ? ' hv3-stories-poster-overlay--cover' : ''}`}>
                   {current.video.poster && (
                     <img
                       src={current.video.poster}
@@ -151,9 +151,13 @@ function VideoTestimonials({ items = videoTestimonials }) {
                       loading="lazy"
                     />
                   )}
-                  <div className="hv3-stories-poster-gradient" />
+                  {/* A designed cover (video.designedCover) carries its own name,
+                      headline and branding, so the site's gradient, chips, label
+                      and caption stay off it; only the play button remains. */}
+                  {!current.video.designedCover && <div className="hv3-stories-poster-gradient" />}
 
                   {/* Top tags */}
+                  {!current.video.designedCover && (
                   <div className="hv3-stories-poster-top">
                     <span className="hv3-stories-chip">
                       <Building2 size={13} />
@@ -163,6 +167,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
                       <Clock size={13} /> {current.duration}
                     </span>
                   </div>
+                  )}
 
                   {/* Play button */}
                   <button
@@ -175,16 +180,20 @@ function VideoTestimonials({ items = videoTestimonials }) {
                     <span className="hv3-stories-play-icon" aria-hidden="true">
                       <Play size={28} fill="currentColor" />
                     </span>
-                    <span className="hv3-stories-play-label">Watch Story</span>
+                    {!current.video.designedCover && (
+                      <span className="hv3-stories-play-label">Watch Story</span>
+                    )}
                   </button>
 
                   {/* Bottom caption on poster */}
+                  {!current.video.designedCover && (
                   <div className="hv3-stories-poster-bottom">
                     <span className="hv3-stories-poster-name">{current.name}</span>
                     <span className="hv3-stories-poster-role">
                       {current.role}, {current.company}
                     </span>
                   </div>
+                  )}
                 </div>
               )}
 

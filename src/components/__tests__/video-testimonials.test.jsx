@@ -177,3 +177,14 @@ describe('VideoTestimonials component', () => {
     });
   });
 });
+
+describe('VideoTestimonials designed cover', () => {
+  it('keeps the play button but drops the site overlay text on a designed cover', () => {
+    const item = { ...videoTestimonials[0], video: { ...videoTestimonials[0].video, designedCover: true } };
+    const { container } = render(<VideoTestimonials items={[item]} />);
+    expect(screen.getByRole('button', { name: /Play customer testimonial video/i })).toBeTruthy();
+    expect(container.querySelector('.hv3-stories-poster-gradient')).toBeNull();
+    expect(container.querySelector('.hv3-stories-play-label')).toBeNull();
+    expect(container.querySelector('.hv3-stories-poster-bottom')).toBeNull();
+  });
+});
