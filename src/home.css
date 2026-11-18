@@ -1267,6 +1267,13 @@ html.js .home-v3 .hv3-feature.reveal {
   padding: 20px;
 }
 
+/* A designed cover has its headline mid-frame and its logo at the top, so the
+   lone play button sits in the empty strip at the bottom. */
+.home-v3 .hv3-stories-poster-overlay--cover {
+  justify-content: flex-end;
+  padding-bottom: 12px;
+}
+
 .home-v3 .hv3-stories-poster-img {
   position: absolute;
   inset: 0;

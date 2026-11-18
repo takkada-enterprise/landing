@@ -2072,23 +2072,23 @@
       "reviewedBy": "operator supplied the Kewa Bearings testimonial (YouTube UqHtjahbPd0); centre crop of its thumbnail",
       "origin": "Portrait thumbnail of the customer's video testimonial: Jitesh Singhal of Kewa Bearings in his office. A photograph of a person, not a picture of the application."
     },
-    "9f5177b9ff9ebf7ea89389ad1092eb921526bca7fbc415f10fa3f6ca3657da12": {
+    "7eaec63550a9f2f6d8d0d130f1ea7855fae9116a3b16808ec2bd01660911f23b": {
       "path": "public/assets/testimonials/sree-sai-mitra-thumbnail.jpg",
       "kind": "photograph",
-      "sha256": "9f5177b9ff9ebf7ea89389ad1092eb921526bca7fbc415f10fa3f6ca3657da12",
+      "sha256": "7eaec63550a9f2f6d8d0d130f1ea7855fae9116a3b16808ec2bd01660911f23b",
       "reviewed": true,
       "reviewedOn": "2026-11-19",
-      "reviewedBy": "operator supplied the Sree Sai Mitra testimonial video (WhatsApp, 2026-11-19); frame at 0:02",
-      "origin": "Portrait still from the customer's video testimonial: Kiran of Sree Sai Mitra Drip Industries seated in his office. A photograph of a person, not a picture of the application."
+      "reviewedBy": "operator supplied this designed cover image for the testimonial (2026-11-19)",
+      "origin": "Designed cover for the customer video testimonial: a still of the speaker with a REAL CUSTOMER REVIEW headline and Takkada wordmark overlaid. A photograph of a person with text, not a picture of the application."
     },
-    "2e13033682f062adcc05ab04c39a054eb9b2a1d3423597648677b67250420b4f": {
+    "b20bd0f79718c5f46eab134f1572dc08b2394d0d463930aca06dea21ffe2eed0": {
       "path": "public/assets/testimonials/amafhh-import-export-thumbnail.jpg",
       "kind": "photograph",
-      "sha256": "2e13033682f062adcc05ab04c39a054eb9b2a1d3423597648677b67250420b4f",
+      "sha256": "b20bd0f79718c5f46eab134f1572dc08b2394d0d463930aca06dea21ffe2eed0",
       "reviewed": true,
       "reviewedOn": "2026-11-19",
-      "reviewedBy": "operator supplied the AMAFHH Import and Export testimonial video (WhatsApp, 2026-11-19); frame at 0:01",
-      "origin": "Portrait still from the customer's video testimonial: Husain Manasawala, Director, seated in his office. A photograph of a person, not a picture of the application."
+      "reviewedBy": "operator supplied this designed cover image for the testimonial (2026-11-19)",
+      "origin": "Designed cover for the customer video testimonial: a still of the speaker with a REAL CUSTOMER REVIEW headline and Takkada wordmark overlaid. A photograph of a person with text, not a picture of the application."
     }
   },
   "unprovenAllowlist": {
