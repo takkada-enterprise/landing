@@ -2080,6 +2080,15 @@
       "reviewedOn": "2026-11-19",
       "reviewedBy": "operator supplied the Sree Sai Mitra testimonial video (WhatsApp, 2026-11-19); frame at 0:02",
       "origin": "Portrait still from the customer's video testimonial: Kiran of Sree Sai Mitra Drip Industries seated in his office. A photograph of a person, not a picture of the application."
+    },
+    "2e13033682f062adcc05ab04c39a054eb9b2a1d3423597648677b67250420b4f": {
+      "path": "public/assets/testimonials/amafhh-import-export-thumbnail.jpg",
+      "kind": "photograph",
+      "sha256": "2e13033682f062adcc05ab04c39a054eb9b2a1d3423597648677b67250420b4f",
+      "reviewed": true,
+      "reviewedOn": "2026-11-19",
+      "reviewedBy": "operator supplied the AMAFHH Import and Export testimonial video (WhatsApp, 2026-11-19); frame at 0:01",
+      "origin": "Portrait still from the customer's video testimonial: Husain Kasim Manasawala, Director, seated in his office. A photograph of a person, not a picture of the application."
     }
   },
   "unprovenAllowlist": {
