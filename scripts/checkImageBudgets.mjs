@@ -155,6 +155,8 @@ export const BUDGETS = [
   ['public/assets/videos/testimonials/kewa-bearings.mp4', 2_500_000, 'homepage testimonial video (0:39, 576x1024)'],
   ['public/assets/testimonials/sree-sai-mitra-thumbnail.jpg', 80_000, 'homepage testimonial poster'],
   ['public/assets/videos/testimonials/sree-sai-mitra.mp4', 6_000_000, 'homepage testimonial video (1:10, 576x1024)'],
+  ['public/assets/testimonials/amafhh-import-export-thumbnail.jpg', 60_000, 'homepage testimonial poster'],
+  ['public/assets/videos/testimonials/amafhh-import-export.mp4', 10_000_000, 'homepage testimonial video (2:50, 480x848)'],
   ['public/assets/screenshots/takkada-logo.webp', 16_000, 'loads on every page'],
   ['public/assets/screenshots/takkada-favicon.png', 20_000, 'loads on every page'],
   // The body face, and the heaviest font on the critical path by a wide margin:

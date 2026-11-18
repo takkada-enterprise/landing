@@ -72,7 +72,7 @@ function VideoTestimonials({ items = videoTestimonials }) {
           <span className="section-label">Real Customer Stories</span>
           <h2 className="hv3-story-title">Hear from businesses that run on Takkada</h2>
           <p className="hv3-story-intro">
-            Owners and teams from Ahmedabad to Guwahati to Karnataka, in their own words, on what changed once their Tally was on the phone.
+            Owners and teams across Gujarat, Maharashtra, Karnataka and Assam, in their own words, on what changed once their Tally was on the phone.
           </p>
         </div>
 
