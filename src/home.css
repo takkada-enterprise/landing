@@ -1024,428 +1024,227 @@ html.js .home-v3 .hv3-feature.reveal {
   overflow: hidden;
 }
 
-.home-v3 .hv3-stories-selector-wrap {
-  max-width: 1040px;
-  width: 100%;
-  min-width: 0;
-  margin: 0 auto 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.home-v3 .hv3-stories-selector-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4px;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.home-v3 .hv3-stories-counter {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-
-.home-v3 .hv3-stories-counter-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #0b7a46;
-  box-shadow: 0 0 0 3px rgba(11, 122, 70, 0.18);
-}
-
-.home-v3 .hv3-stories-arrows {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.home-v3 .hv3-stories-arrow-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-full, 9999px);
-  border: 1px solid var(--color-outline, var(--color-border));
-  background: var(--color-white);
-  color: var(--color-navy);
-  cursor: pointer;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-.home-v3 .hv3-stories-arrow-btn:hover {
-  background: var(--color-wash, #f3f9fc);
-  border-color: var(--color-navy);
-  color: var(--color-primary);
-}
-
-.home-v3 .hv3-stories-arrow-btn:active {
-  transform: scale(0.95);
-}
-
-.home-v3 .hv3-stories-nav {
-  display: flex;
-  justify-content: flex-start;
-  gap: 12px;
-  overflow-x: auto;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 4px;
-  scroll-snap-type: x mandatory;
-}
-
-.home-v3 .hv3-stories-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.home-v3 .hv3-stories-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 16px 8px 8px;
-  border-radius: var(--radius-full, 9999px);
-  background: var(--color-white);
-  border: 1.5px solid var(--color-outline, var(--color-border));
-  cursor: pointer;
-  text-align: left;
-  transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out),
-    color 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
-  font-size: 14px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  min-width: 200px;
-  max-width: 320px;
-}
-
-.home-v3 .hv3-stories-tab:hover {
-  border-color: rgba(0, 110, 166, 0.4);
-  background: rgba(240, 248, 252, 0.5);
-}
-
-.home-v3 .hv3-stories-tab--active {
-  background: var(--color-navy);
-  border-color: var(--color-navy);
-  color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(15, 31, 61, 0.18);
-}
-
-.home-v3 .hv3-stories-tab--active:hover {
-  background: var(--color-navy);
-  border-color: var(--color-navy);
-}
-
-.home-v3 .hv3-stories-tab-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--color-wash, #f3f9fc);
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.home-v3 .hv3-stories-tab--active .hv3-stories-tab-avatar {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--color-white);
-}
-
-.home-v3 .hv3-stories-tab-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.home-v3 .hv3-stories-tab-meta {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  flex: 1;
-}
-
-.home-v3 .hv3-stories-tab-name {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--color-text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.home-v3 .hv3-stories-tab--active .hv3-stories-tab-name {
-  color: var(--color-white);
-}
-
-.home-v3 .hv3-stories-tab-company {
-  font-size: 11.5px;
-  color: var(--color-text-secondary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.home-v3 .hv3-stories-tab--active .hv3-stories-tab-company {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.home-v3 .hv3-stories-tab-duration {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 7px;
-  border-radius: var(--radius-full, 9999px);
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--color-text-secondary);
-  flex-shrink: 0;
-}
-
-.home-v3 .hv3-stories-tab--active .hv3-stories-tab-duration {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
-}
-
-.home-v3 .hv3-stories-grid {
+/* The five designed covers in one row, like a reels shelf: every face is on
+   screen at once and a tap opens that video in a <dialog>. Below 900px the row
+   scrolls sideways with snap, and the next card peeks so the swipe is obvious.
+   Motion: the cover presses to 0.97 and lifts on a fine-pointer hover; the
+   dialog fades up from 0.96 like the sheet dialog in journey.css. */
+.home-v3 .hv3-reels {
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 48px;
-  align-items: center;
-  max-width: 1040px;
-  width: 100%;
-  min-width: 0;
-  margin: 0 auto;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.home-v3 .hv3-stories-player-col {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  min-width: 0;
-}
-
-.home-v3 .hv3-stories-video-frame {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 9 / 16;
-  border-radius: 28px;
-  overflow: hidden;
-  background: var(--color-ink);
-  box-shadow: 0 20px 40px -15px rgba(15, 31, 61, 0.35), 0 0 0 1px rgba(15, 31, 61, 0.1);
-}
-
-.home-v3 .hv3-stories-poster-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+.home-v3 .hv3-reel {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  gap: 12px;
+  min-width: 0;
 }
 
-/* A designed cover has its headline mid-frame and its logo at the top, so the
-   lone play button sits in the empty strip at the bottom. */
-.home-v3 .hv3-stories-poster-overlay--cover {
-  justify-content: flex-end;
-  padding-bottom: 12px;
+.home-v3 .hv3-reel-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-dark);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
 }
 
-.home-v3 .hv3-stories-poster-img {
-  position: absolute;
-  inset: 0;
+.home-v3 .hv3-reel-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
-  z-index: 1;
+  display: block;
 }
 
-.home-v3 .hv3-stories-poster-gradient {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(180deg, rgba(15, 31, 61, 0.6) 0%, rgba(15, 31, 61, 0.1) 40%, rgba(15, 31, 61, 0.85) 100%);
-  pointer-events: none;
-}
-
-.home-v3 .hv3-stories-poster-top {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.home-v3 .hv3-stories-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-white);
-  background: rgba(15, 31, 61, 0.65);
-  backdrop-filter: blur(8px);
-  border-radius: var(--radius-full, 9999px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  white-space: nowrap;
-  min-width: 0;
-  max-width: calc(100% - 70px);
-}
-
-.home-v3 .hv3-stories-chip-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 0;
-}
-
-.home-v3 .hv3-stories-chip--time {
-  flex-shrink: 0;
-  background: rgba(0, 110, 166, 0.85);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.home-v3 .hv3-stories-play-btn {
-  position: relative;
-  z-index: 3;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  color: var(--color-white);
-}
-
-/* The ping reuses pphone-ping (src/journey.css), the one permitted ambient
-   @keyframes, so the play button invites a tap the same way the hero's hint
-   dots do. Centred with margins, not a transform, because the keyframes own
-   transform. A 40px ring scales to 104px, just past the 72px button. */
-.home-v3 .hv3-stories-play-ring {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  margin-left: -20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(252, 175, 27, 0.35);
-  animation: pphone-ping 2.2s var(--ease-out) infinite;
-  pointer-events: none;
-}
-
-.home-v3 .hv3-stories-play-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--color-highlight);
-  color: var(--color-ink);
-  box-shadow: 0 10px 25px rgba(252, 175, 27, 0.45);
-  padding-left: 4px;
-  transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .home-v3 .hv3-stories-play-btn:hover .hv3-stories-play-icon {
-    transform: scale(1.08);
-    box-shadow: 0 14px 30px rgba(252, 175, 27, 0.6);
-  }
-}
-
-.home-v3 .hv3-stories-play-btn:active .hv3-stories-play-icon {
+.home-v3 .hv3-reel-cover:active {
   transform: scale(0.97);
 }
 
-.home-v3 .hv3-stories-play-label {
-  font-size: 13.5px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .home-v3 .hv3-reel-cover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
-.home-v3 .hv3-stories-poster-bottom {
-  position: relative;
-  z-index: 3;
+.home-v3 .hv3-reel-cover:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 3px;
+}
+
+.home-v3 .hv3-reel-play {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-highlight);
+  color: var(--color-ink);
+  box-shadow: 0 6px 18px rgba(10, 23, 48, 0.35);
+}
+
+.home-v3 .hv3-reel-time {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(15, 31, 61, 0.72);
+  color: var(--color-white);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.home-v3 .hv3-reel-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.home-v3 .hv3-reel-company {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.home-v3 .hv3-reel-quote {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--color-text-primary);
+}
+
+.home-v3 .hv3-reel-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.home-v3 .hv3-stories-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-top: 40px;
+}
+
+.home-v3 .hv3-stories-calendar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.home-v3 .hv3-stories-calendar-link:hover {
+  color: var(--color-primary);
+}
+
+/* The popup is the old story layout: the video on the left, the notes card
+   (company, quote, highlights, CTAs) on the right. Stacked below 768px, where
+   the whole dialog scrolls. */
+.home-v3 .hv3-reel-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1100px, 94vw);
+  height: min(760px, 90dvh);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-2xl);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+/* Fixed split: the notes always get 380-440px and the video fits whatever is
+   left, letterboxed. Sizing the video column to the video let a near-square
+   clip (Narmada) take the whole popup and crush the notes to a sliver. */
+.home-v3 .hv3-reel-dialog-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(380px, 38%, 440px);
+  height: 100%;
+}
+
+.home-v3 .hv3-reel-dialog-video {
+  background: #000;
+  min-height: 0;
+}
+
+/* Notes column: the story scrolls, the WhatsApp button stays pinned below it. */
+.home-v3 .hv3-stories-card {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  min-width: 0;
+  min-height: 0;
 }
 
-.home-v3 .hv3-stories-poster-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+.home-v3 .hv3-reel-notes {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 36px 32px 24px;
 }
 
-.home-v3 .hv3-stories-poster-role {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+.home-v3 .hv3-stories-card .hv3-reel-dialog-cta {
+  margin: 0;
+  padding: 16px 32px 20px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
 }
 
-.home-v3 .hv3-stories-video {
+.home-v3 .hv3-reel-dialog-cta .cta-btn {
+  width: 100%;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+.home-v3 .hv3-reel-dialog[open] {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.home-v3 .hv3-reel-dialog[open]::backdrop {
+  background: rgba(5, 12, 28, 0.8);
+}
+
+.home-v3 .hv3-reel-dialog video {
+  display: block;
   width: 100%;
   height: 100%;
-  /* contain: the Narmada video is near-square; cover would crop its sides
-     inside the 9:16 frame. The 9:16 stories fill the frame either way. */
   object-fit: contain;
-  background: var(--color-ink);
-}
-
-.home-v3 .hv3-stories-details-col {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-}
-
-.home-v3 .hv3-stories-card {
-  background: var(--color-white);
-  border-radius: var(--radius-2xl);
-  padding: 44px 48px;
-  border: 1px solid var(--color-outline, var(--color-border));
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
 }
 
 .home-v3 .hv3-stories-company-badge {
@@ -1592,83 +1391,39 @@ html.js .home-v3 .hv3-feature.reveal {
   margin: 0;
 }
 
-.home-v3 .hv3-stories-next-hint {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  background: var(--color-wash, #f3f9fc);
-  border-radius: var(--radius-md, 8px);
-  border: 1px dashed rgba(0, 110, 166, 0.25);
-  font-size: 13px;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
 
-.home-v3 .hv3-stories-next-label {
-  font-weight: 700;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-
-.home-v3 .hv3-stories-next-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  color: var(--color-navy);
-  font-weight: 600;
+.home-v3 .hv3-reel-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-ink);
   cursor: pointer;
-  text-align: left;
-  transition: color 140ms ease;
-  min-width: 0;
-  flex: 1;
-}
-
-.home-v3 .hv3-stories-next-btn span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.home-v3 .hv3-stories-next-btn:hover {
-  color: var(--color-primary);
-}
-
-.home-v3 .hv3-stories-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-  padding-top: 10px;
-  border-top: 1px solid var(--color-outline, var(--color-border));
-}
-
-.home-v3 .hv3-stories-calendar-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-navy);
-  text-decoration: none;
-}
-
-.home-v3 .hv3-stories-calendar-link:hover {
-  color: var(--color-primary);
 }
 
 /* ═══════════ Responsive ═══════════ */
-@media (max-width: 960px) {
-  .home-v3 .hv3-stories-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+@media (max-width: 900px) {
+  .home-v3 .hv3-reels {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Bleed to the screen edge so the peeking card reads as "swipe". */
+    margin: 0 -16px;
+    padding: 4px 16px 8px;
+  }
+  .home-v3 .hv3-reels::-webkit-scrollbar { display: none; }
+  .home-v3 .hv3-reel {
+    flex: 0 0 min(58vw, 240px);
+    scroll-snap-align: start;
   }
 }
 
@@ -1677,66 +1432,10 @@ html.js .home-v3 .hv3-feature.reveal {
   .home-v3 .hv3-story-head { margin-bottom: 32px; }
   .home-v3 .hv3-tally-points { grid-template-columns: 1fr; }
   .home-v3 .hv3-stories { padding: 56px 0; overflow: hidden; }
-  .home-v3 .hv3-stories-selector-wrap {
-    margin-bottom: 24px;
-  }
-  .home-v3 .hv3-stories-tab {
-    min-width: 170px;
-    max-width: 260px;
-    padding: 6px 12px 6px 6px;
-    font-size: 13px;
-  }
-  .home-v3 .hv3-stories-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    width: 100%;
-  }
-  .home-v3 .hv3-stories-player-col {
-    width: 100%;
-  }
-  .home-v3 .hv3-stories-video-frame {
-    max-width: min(320px, 100%);
-    border-radius: 20px;
-    margin: 0 auto;
-  }
-  .home-v3 .hv3-stories-card {
-    padding: 24px 18px;
-    gap: 20px;
-    border-radius: var(--radius-xl);
-  }
-  .home-v3 .hv3-stories-company-name {
-    font-size: 18px;
-  }
-  .home-v3 .hv3-stories-avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
-    border-radius: var(--radius-lg);
-  }
-  .home-v3 .hv3-stories-quote {
-    padding-left: 16px;
-  }
-  .home-v3 .hv3-stories-quote p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  .home-v3 .hv3-stories-takeaway-item {
-    gap: 10px;
-  }
-  .home-v3 .hv3-stories-takeaway-item strong {
-    font-size: 14px;
-  }
-  .home-v3 .hv3-stories-takeaway-item p {
-    font-size: 13px;
-  }
-  .home-v3 .hv3-stories-next-hint {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
   .home-v3 .hv3-stories-cta {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    margin-top: 28px;
   }
   .home-v3 .hv3-stories-cta .cta-btn {
     width: 100%;
@@ -1744,16 +1443,35 @@ html.js .home-v3 .hv3-feature.reveal {
   }
   .home-v3 .hv3-stories-calendar-link {
     justify-content: center;
-    text-align: center;
   }
+  .home-v3 .hv3-reel-notes { padding: 24px 18px 20px; }
+  .home-v3 .hv3-stories-card .hv3-reel-dialog-cta { padding: 14px 18px 18px; }
+  .home-v3 .hv3-stories-quote p { font-size: 15px; }
 }
 
-@media (max-width: 400px) {
-  .home-v3 .hv3-stories-card {
-    padding: 20px 14px;
+/* Narrow windows and phones: video on top, notes below, the popup scrolls. */
+@media (max-width: 900px) {
+  .home-v3 .hv3-reel-dialog {
+    width: min(560px, 94vw);
+    height: fit-content;
+    max-height: 90dvh;
+    overflow-y: auto;
   }
-  .home-v3 .hv3-stories-video-frame {
-    max-width: 280px;
+  .home-v3 .hv3-reel-dialog-body {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  /* A black strip above the video for the close button to sit in. */
+  .home-v3 .hv3-reel-dialog-video { padding-top: 52px; }
+  .home-v3 .hv3-reel-dialog video { height: 62dvh; }
+  .home-v3 .hv3-reel-notes { overflow: visible; }
+  /* On a phone the whole popup scrolls; keep the button stuck to its bottom. */
+  .home-v3 .hv3-stories-card .hv3-reel-dialog-cta { position: sticky; bottom: 0; }
+  .home-v3 .hv3-reel-dialog-cta .cta-btn {
+    white-space: normal;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
@@ -1773,12 +1491,11 @@ html.js .home-v3 .hv3-feature.reveal {
     transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out),
       color 160ms var(--ease-out);
   }
-  .home-v3 .hv3-stories-play-ring {
-    animation: none;
-  }
-  .home-v3 .hv3-stories-tab {
-    transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out),
-      color 180ms var(--ease-out);
+  .home-v3 .hv3-reel-cover { transition: box-shadow 180ms var(--ease-out); }
+  .home-v3 .hv3-reel-cover:hover { transform: none; }
+  .home-v3 .hv3-reel-dialog[open] {
+    transform: none;
+    @starting-style { transform: none; opacity: 0; }
   }
 }
 
