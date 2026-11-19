@@ -2081,13 +2081,13 @@
       "reviewedBy": "operator supplied this designed cover image for the testimonial (2026-11-19)",
       "origin": "Designed cover for the customer video testimonial: a still of the speaker with a REAL CUSTOMER REVIEW headline and Takkada wordmark overlaid. A photograph of a person with text, not a picture of the application."
     },
-    "b20bd0f79718c5f46eab134f1572dc08b2394d0d463930aca06dea21ffe2eed0": {
+    "93aff74733acb16e965e87b921b57e9e9a750bdb77d9f57155aeb7539f61973e": {
       "path": "public/assets/testimonials/amafhh-import-export-thumbnail.jpg",
       "kind": "photograph",
-      "sha256": "b20bd0f79718c5f46eab134f1572dc08b2394d0d463930aca06dea21ffe2eed0",
+      "sha256": "93aff74733acb16e965e87b921b57e9e9a750bdb77d9f57155aeb7539f61973e",
       "reviewed": true,
       "reviewedOn": "2026-11-19",
-      "reviewedBy": "operator supplied this designed cover image for the testimonial (2026-11-19)",
+      "reviewedBy": "operator supplied this updated designed cover for the testimonial (2026-11-19, v2)",
       "origin": "Designed cover for the customer video testimonial: a still of the speaker with a REAL CUSTOMER REVIEW headline and Takkada wordmark overlaid. A photograph of a person with text, not a picture of the application."
     }
   },
