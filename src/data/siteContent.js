@@ -253,7 +253,7 @@ export const testimonials = [
   {
     quote: 'Pehle bank payments ko manually check karke Tally mein entries karni rehti thi. Takkada mein bank statement import se auto-reconciliation ho jaata hai, aur pending payments ke liye smart WhatsApp reminders chale jaate hain. Hamara experience bohot hi achha raha hai.',
     name: 'Meet Patel',
-    role: 'Owner, Dhanlaxmi Crop Science Limited',
+    role: 'Director, Dhanlaxmi Crop Science Limited',
   },
 ];
 
@@ -261,8 +261,9 @@ export const testimonials = [
 export const videoTestimonials = [
   {
     id: 'meet-patel-dhan-laxmi',
+    shortQuote: 'Bank statement import karte hain, party mapping ke baad auto-reconciliation ho jaata hai.',
     name: 'Meet Patel',
-    role: 'Owner',
+    role: 'Director',
     company: 'Dhanlaxmi Crop Science Limited',
     location: 'Gujarat, India',
     industry: 'Manufacturer',
@@ -288,7 +289,7 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/MP_F.mp4',
       poster: '/assets/testimonials/MeetPatelLatestThumbnail.jpeg',
-      title: 'Meet Patel, Owner of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
+      title: 'Meet Patel, Director of Dhanlaxmi Crop Science Limited sharing his Takkada experience',
       // Machine-readable only: read by videoObjectSchema() in src/data/schema.js
       // and never rendered. The trade and city were supplied by the operator
       // (2026-10-26) for search metadata; the visible card keeps "Distribution
@@ -296,7 +297,7 @@ export const videoTestimonials = [
       uploadDate: '2026-11-03T22:30:00+05:30',
       durationIso: 'PT1M50S',
       schemaDescription:
-        'Meet Patel, owner of Dhanlaxmi Crop Science Limited, an NSE-listed agricultural seeds company in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
+        'Meet Patel, director of Dhanlaxmi Crop Science Limited, an NSE-listed agricultural seeds company in Ahmedabad, Gujarat, on importing bank statements into Tally with auto-reconciliation, tracking party-wise pending payments and sending WhatsApp payment reminders with Takkada.',
       contentLocation: 'Ahmedabad, Gujarat, India',
     },
   },
@@ -304,6 +305,7 @@ export const videoTestimonials = [
   // 2026-11-06), trimmed but not reworded beyond grammar.
   {
     id: 'narmada-agencies',
+    shortQuote: 'I personally found it very easy to navigate and understand.',
     name: 'Shashank Agarwal',
     role: 'Owner',
     company: 'Narmada Agencies',
@@ -344,6 +346,7 @@ export const videoTestimonials = [
   // burned into the video reads "AMAFFH", which is a typo.
   {
     id: 'amafhh-import-export',
+    shortQuote: 'On Takkada we just upload the PDF. The cost, the quantity and the GST are taken on their own.',
     name: 'Husain Manasawala',
     role: 'Director',
     company: 'AMAFHH Import and Export',
@@ -370,7 +373,6 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/amafhh-import-export.mp4',
       poster: '/assets/testimonials/amafhh-import-export-thumbnail.jpg',
-      designedCover: true,
       title: 'Husain Manasawala, Director of AMAFHH Import and Export, sharing his Takkada experience',
       uploadDate: '2026-11-19T12:00:00+05:30',
       durationIso: 'PT2M50S',
@@ -381,6 +383,7 @@ export const videoTestimonials = [
   },
   {
     id: 'kewa-bearings',
+    shortQuote: 'Our outstanding became so easy to recover.',
     name: 'Jitesh Singhal',
     role: 'Owner',
     company: 'Kewa Bearings',
@@ -419,6 +422,8 @@ export const videoTestimonials = [
   // audio 2026-11-19. Karnataka is the company's state on prod (co274/co287).
   {
     id: 'sree-sai-mitra',
+    shortQuote: 'Since we started using Takkada, every order is in one place.',
+    quoteNote: 'Translated from Kannada',
     name: 'Kiran',
     role: 'Sales Manager',
     company: 'Sree Sai Mitra Drip Industries',
@@ -445,7 +450,6 @@ export const videoTestimonials = [
       type: 'mp4',
       src: '/assets/videos/testimonials/sree-sai-mitra.mp4',
       poster: '/assets/testimonials/sree-sai-mitra-thumbnail.jpg',
-      designedCover: true,
       title: 'Kiran of Sree Sai Mitra Drip Industries sharing their Takkada experience',
       uploadDate: '2026-11-19T12:00:00+05:30',
       durationIso: 'PT1M10S',
