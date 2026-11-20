@@ -121,4 +121,4 @@ A: ECR ek text file hoti hai jisme har member ki ek line aur fields tay order me
 
 ## Apni ECR file salary se banwao
 
-Takkada ka Staff and Payroll add-on har company ke liye alag se on hota hai. Apni salary se PF ECR aur ESI file taiyar hote dekhne ke liye WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777), hum aapki company ke liye on kar denge.
+Takkada ka Staff and Payroll add-on har company ke liye alag se on hota hai. Apni salary se PF ECR aur ESI file taiyar hote dekhne ke liye WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071), hum aapki company ke liye on kar denge.

@@ -118,4 +118,4 @@ A: Check-in is refused and no visit is recorded. The refused attempt still shows
 
 A: They land as ordinary Sales Orders against the party, written back from the phone after check-out or at any other time. Order creation is not gated on Team Sales. Attribution can later be reassigned in Team Sales without changing the Tally voucher.
 
-Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/919435977777) to set them up on your own dealers.
+Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/917019152071) to set them up on your own dealers.

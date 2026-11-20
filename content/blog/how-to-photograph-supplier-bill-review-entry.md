@@ -72,4 +72,4 @@ A: Only after you tap Save Purchase Voucher. It then goes to Tally the same way 
 
 ## Try it with one bill
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk you through your first imported bill.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk you through your first imported bill.

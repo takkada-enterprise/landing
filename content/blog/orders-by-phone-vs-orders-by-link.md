@@ -61,4 +61,4 @@ A: No. The link opens in his phone's browser. He needs a data connection to send
 
 ## Try the link alongside your phone
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up a link for your routine orders.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up a link for your routine orders.

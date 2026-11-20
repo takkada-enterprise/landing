@@ -66,4 +66,4 @@ A: Yes. Steps are typed per line, so every part can carry its own brand's discou
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one of your brand price lists and we will set up the steps with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one of your brand price lists and we will set up the steps with you.

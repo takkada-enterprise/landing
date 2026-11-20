@@ -76,4 +76,4 @@ A: Doosre aur teesre step ka naam badal sakte ho, 16 akshar tak. Pehla step Disc
 
 ## Baat karo
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) par apna scheme letter bhej ke, hum aapke steps set karke dikha denge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) par apna scheme letter bhej ke, hum aapke steps set karke dikha denge.

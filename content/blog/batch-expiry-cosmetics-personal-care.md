@@ -59,4 +59,4 @@ A: A business admin, under Settings, Invoices.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with a shade that has two lots in stock and we will show you both on the phone.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with a shade that has two lots in stock and we will show you both on the phone.

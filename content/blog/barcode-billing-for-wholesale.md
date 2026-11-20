@@ -65,4 +65,4 @@ A: The item and the quantity in the box, so one scan bills the whole box. MRP, b
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk your billing desk through box scanning on one of your own bills.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk your billing desk through box scanning on one of your own bills.

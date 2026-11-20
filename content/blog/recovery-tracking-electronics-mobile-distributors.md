@@ -58,4 +58,4 @@ A: No. Follow-ups and promises stay in Takkada, and your Tally receipts are only
 
 ## Try it on your retailer list
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will show recovery tracking on your own Tally books.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will show recovery tracking on your own Tally books.

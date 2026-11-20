@@ -53,4 +53,4 @@ A: No. Stock quantities are never shown. You can hide items Tally shows at zero 
 
 ## Set up before the school rush
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up a link on your stationery and packaging items.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up a link on your stationery and packaging items.

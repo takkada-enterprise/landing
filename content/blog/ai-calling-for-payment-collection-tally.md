@@ -64,4 +64,4 @@ A: No. The result is a follow-up on the party in Takkada. Tally changes only whe
 
 ## See it on your own overdue list
 
-Send us a WhatsApp at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk you through AI calls on your own Tally parties.
+Send us a WhatsApp at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk you through AI calls on your own Tally parties.

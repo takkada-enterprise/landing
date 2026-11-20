@@ -54,4 +54,4 @@ A: A Sales Order is recorded at once; an invoice once you save it. Either reache
 
 ## Start with your chemist list
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up a link with your price level for retail chemists.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up a link with your price level for retail chemists.

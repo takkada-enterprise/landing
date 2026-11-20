@@ -56,4 +56,4 @@ A: No. Each order goes to your inbox only. The retailer sees his own order numbe
 
 ## Try it on your beat
 
-Message us on WhatsApp at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up a link on your item list for one beat first.
+Message us on WhatsApp at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up a link on your item list for one beat first.

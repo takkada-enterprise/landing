@@ -112,4 +112,4 @@ A: In Takkada's Units by detail report, yes: a part built into a finished unit c
 
 A: You need it to link parts to a finished vehicle in Takkada, because production runs are part of the Manufacturing add-on. It covers in-house production, not job work. A dealer who buys finished vehicles and only sells them needs the Custom Fields add-on alone.
 
-The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.
+The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.

@@ -58,4 +58,4 @@ A: Yes. Put your number in "Number the party should call back". If you leave it 
 
 ## Try it before the next harvest
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up AI calls on your own Tally parties.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up AI calls on your own Tally parties.

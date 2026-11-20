@@ -69,4 +69,4 @@ A: The second and third steps take your names, up to 16 characters each. The fir
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one of your scheme letters and we will show you the bill it produces.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one of your scheme letters and we will show you the bill it produces.

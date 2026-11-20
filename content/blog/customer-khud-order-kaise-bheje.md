@@ -55,4 +55,4 @@ A: Settings, Order link mein Rotate dabao, purana link order lena band kar dega.
 
 ## Pehla link aaj bhejo
 
-WhatsApp par message karo [https://wa.me/919435977777](https://wa.me/919435977777), hum aapke items par link set karne mein madad karenge.
+WhatsApp par message karo [https://wa.me/917019152071](https://wa.me/917019152071), hum aapke items par link set karne mein madad karenge.

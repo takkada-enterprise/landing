@@ -54,4 +54,4 @@ A: Change the quantity before you create the order, or Reject it. A rejected ord
 
 ## Make tomorrow's orders lighter
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up a standing link for your shops.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up a standing link for your shops.

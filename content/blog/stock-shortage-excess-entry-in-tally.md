@@ -111,4 +111,4 @@ A: At cost, the rate the goods came in at, using the valuation method your books
 
 A: A shortage lowers closing stock, so it lowers profit even without a separate ledger. Some CAs also show an unusual loss, such as theft or damage, as a separate loss in the profit and loss account. Ask your CA which way your books follow.
 
-Takkada's Physical Stock Count add-on makes the stock journal for Tally when you approve a count, at cost. Physical Stock Count is an add-on, priced by your partner. Ask them for the add-on price, or [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your company.
+Takkada's Physical Stock Count add-on makes the stock journal for Tally when you approve a count, at cost. Physical Stock Count is an add-on, priced by your partner. Ask them for the add-on price, or [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your company.

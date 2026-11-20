@@ -107,4 +107,4 @@ A: For tax year 2026-27, Q1 was due on 31 July 2026, Q2 on 31 October 2026, Q3 i
 
 A: Yes, if you deducted tax from any employee's salary in the quarter. The e-filing portal lists companies, firms, government bodies and individuals among those who file it. If no one's salary was above the taxable level and no tax was deducted, ask your CA whether a statement is needed for that quarter.
 
-Takkada's Staff and Payroll add-on keeps declarations, monthly TDS and challans together and prepares the quarter's data for your CA. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) to see it on your books.
+Takkada's Staff and Payroll add-on keeps declarations, monthly TDS and challans together and prepares the quarter's data for your CA. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) to see it on your books.

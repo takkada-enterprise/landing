@@ -109,4 +109,4 @@ A: No. In Takkada, Send from my WhatsApp opens your own WhatsApp with a ready me
 
 A: Once a month, after the month's sales are in Tally, comparing it with the month before. In the running month, compare against the same days of last month so a half month is not read as a drop. Start with the customers whose August value on the item was the highest.
 
-Takkada shows Sales by Item and its Insights cards, including Vanished customers, from your Tally books on the phone and the web app. [Message us on WhatsApp](https://wa.me/919435977777) to see who stopped buying on your own data.
+Takkada shows Sales by Item and its Insights cards, including Vanished customers, from your Tally books on the phone and the web app. [Message us on WhatsApp](https://wa.me/917019152071) to see who stopped buying on your own data.

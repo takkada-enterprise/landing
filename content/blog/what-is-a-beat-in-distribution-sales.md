@@ -121,4 +121,4 @@ A: Yes. Tick the weekdays the beat runs and pick who runs it on each one, so Sta
 
 A: No. The beat is the named dealer list. Today's load is pending orders from a 3-day window for that beat. Shops on Station Road with nothing pending stay on the beat and do not appear on today's load. Raju can still visit them.
 
-Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/919435977777) to set them up on your own dealers.
+Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/917019152071) to set them up on your own dealers.

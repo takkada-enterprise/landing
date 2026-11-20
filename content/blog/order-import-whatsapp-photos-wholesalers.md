@@ -58,4 +58,4 @@ A: Orders are imported one at a time, each with its own check.
 
 ## Send us an order photo
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with a retailer's order photo and we will show you the import on your item list.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with a retailer's order photo and we will show you the import on your item list.

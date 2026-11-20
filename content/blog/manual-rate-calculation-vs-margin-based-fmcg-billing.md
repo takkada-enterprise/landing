@@ -57,4 +57,4 @@ A: Only a trade discount the retailer is owed, as D1 or D2 on the Item Discount 
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up your first group with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up your first group with you.

@@ -106,4 +106,4 @@ A: In Tally, open the Sales Register with F7 and look for negative gross profit,
 
 A: Not by default. The Sales Register shows Gross Revenue without tax next to the cost, and gross profit is worked out on that value. Stock Summary has an F12 option to work profit out on gross value, which includes tax, so keep it off when you compare with purchase rates.
 
-Takkada shows Sales by Item, the Insights cards and the margin on each sales invoice from your Tally books, on the phone and the web app. [Message us on WhatsApp](https://wa.me/919435977777) to see them on your own data.
+Takkada shows Sales by Item, the Insights cards and the margin on each sales invoice from your Tally books, on the phone and the web app. [Message us on WhatsApp](https://wa.me/917019152071) to see them on your own data.

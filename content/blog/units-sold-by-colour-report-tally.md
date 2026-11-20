@@ -114,4 +114,4 @@ A: It works well for two or three colours and a few models, because Tally's norm
 
 A: Yes. If each phone is a batch named by its IMEI, the Batch Summary lists every IMEI with an outward quantity of 1 once sold, and the Batch Vouchers show the bill. In Takkada, Unit history finds one IMEI with its purchase, its sale bill, the date and the party.
 
-The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.
+The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.

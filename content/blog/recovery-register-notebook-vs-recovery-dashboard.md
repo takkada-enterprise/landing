@@ -57,4 +57,4 @@ A: Team members with access to Recovery. A member limited to certain parties see
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will show the Recovery screen on your own parties.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will show the Recovery screen on your own parties.

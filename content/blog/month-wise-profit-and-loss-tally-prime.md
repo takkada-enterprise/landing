@@ -96,4 +96,4 @@ A: The P&L answers whether a period made money, and a month by month MIS view an
 
 A: In Tally, press Ctrl+E in the monthly Profit & Loss A/c. In Takkada, Monthly P&L & Balance Sheet exports both statements to Excel, one sheet each, or to a print-ready PDF.
 
-Takkada shows your profit and loss and balance sheet month by month, with each month's closing stock, on the phone and the web app. [Message us on WhatsApp](https://wa.me/919435977777) to see your own year laid out.
+Takkada shows your profit and loss and balance sheet month by month, with each month's closing stock, on the phone and the web app. [Message us on WhatsApp](https://wa.me/917019152071) to see your own year laid out.

@@ -55,4 +55,4 @@ A: Not on the Item Discount sheet, where the Retailer margin box is greyed out f
 
 ## Get started
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up your beverage and dairy groups with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up your beverage and dairy groups with you.

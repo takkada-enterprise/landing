@@ -94,4 +94,4 @@ A: Divide the monthly wage by the days you count the month as (26, 30 or the cal
 
 A: Only within the rules on fines in section 19 of the Code on Wages: the act must be listed in an approved notice, the employee must be heard first, and fines may not exceed 3% of that period's wages, ₹450 on ₹15,000. A deduction for time actually absent follows section 20 instead. Check with your CA before you start cutting late fines.
 
-Takkada's Staff and Payroll add-on works out overtime from in and out times and shows the working on every payslip. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) to see it on your own team.
+Takkada's Staff and Payroll add-on works out overtime from in and out times and shows the working on every payslip. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) to see it on your own team.

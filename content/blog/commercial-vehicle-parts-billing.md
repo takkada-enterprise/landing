@@ -66,4 +66,4 @@ A: Yes. Both are worked out from the same latest purchase cost.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your retail and fleet price lists, and we will help you turn them into two markups.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your retail and fleet price lists, and we will help you turn them into two markups.

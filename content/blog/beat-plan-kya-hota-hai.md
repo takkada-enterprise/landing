@@ -91,4 +91,4 @@ A: Beat dukaanon ki list hai, route woh rasta jis par salesman chalta hai. Bol-c
 
 ## Apna beat plan app par banao
 
-Din-wise beats Takkada ke Team Sales add-on mein hain. Apne dealers aur salesmen ke saath pehla week plan banane ke liye WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777), hum saath mein bana denge.
+Din-wise beats Takkada ke Team Sales add-on mein hain. Apne dealers aur salesmen ke saath pehla week plan banane ke liye WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071), hum saath mein bana denge.

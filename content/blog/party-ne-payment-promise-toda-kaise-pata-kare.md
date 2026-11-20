@@ -55,4 +55,4 @@ A: Haan, jis team member ko Recovery ka access hai woh apne phone se follow-up a
 
 ## Baat karni hai?
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) pe, hum aapki Tally parties pe Recovery screen dikha denge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) pe, hum aapki Tally parties pe Recovery screen dikha denge.

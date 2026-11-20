@@ -70,4 +70,4 @@ A: No. It stays in Takkada. Your Tally receipts are read to check the promise.
 
 ## Need help setting it up?
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk you through your first follow-up.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk you through your first follow-up.

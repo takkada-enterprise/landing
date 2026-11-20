@@ -54,4 +54,4 @@ A: He sees Order sent with an order number on the page and can tell you on Whats
 
 ## Get ready before the rains
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up your link and item list before the season starts.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up your link and item list before the season starts.

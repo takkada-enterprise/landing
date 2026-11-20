@@ -71,4 +71,4 @@ A: Tabhi jab use purchase cost dekhne ki permission ho. Warna use sirf selling r
 
 ## Baat karein
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) par, apni stock group list bhejo, hum pehla markup set karne mein madad karenge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) par, apni stock group list bhejo, hum pehla markup set karne mein madad karenge.

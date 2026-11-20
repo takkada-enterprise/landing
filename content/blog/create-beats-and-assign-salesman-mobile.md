@@ -128,4 +128,4 @@ A: No. A beat is a name plus a dealer list, the weekdays it runs and a salesman 
 
 A: Yes. A beat can have a salesman for each day it runs, or none. Fancy Bazaar can sit as a named list while the owner decides who walks it. The dealers stay grouped. Unassigned is the other pile, parties on no beat at all.
 
-Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/919435977777) to set them up on your own dealers.
+Takkada is Tally on mobile for Indian distributors. Beats by weekday come with the Team Sales add-on; [message us on WhatsApp](https://wa.me/917019152071) to set them up on your own dealers.

@@ -62,4 +62,4 @@ A: Choose Don't show prices. Customers pick items and quantities, and you enter 
 
 ## Set up your first link
 
-Send us a message on WhatsApp at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk you through the Order link settings on your own item list.
+Send us a message on WhatsApp at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk you through the Order link settings on your own item list.

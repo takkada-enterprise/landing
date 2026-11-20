@@ -108,4 +108,4 @@ A: If your team is 2 or 3 office staff on fixed pay, a monthly journal in Tally 
 
 A: Yes. Attendance, leave approvals and advances are easiest on a phone because that is where the owner or manager is when they happen. Checking the month's salary and the government files is easier on a computer, so look for an app that does both on the same books.
 
-Takkada's Staff and Payroll add-on is switched on for each company separately. To see it on your own staff list, [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your books.
+Takkada's Staff and Payroll add-on is switched on for each company separately. To see it on your own staff list, [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your books.

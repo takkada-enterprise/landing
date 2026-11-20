@@ -68,4 +68,4 @@ A: No. Two brands selling 24 per sheet can have slightly different margins. Meas
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with the sticker sheet you already have, and we will print a test sheet on it with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with the sticker sheet you already have, and we will print a test sheet on it with you.

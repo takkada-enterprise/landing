@@ -96,4 +96,4 @@ A: In Tally, read Movement Analysis for each item over two periods and compare t
 
 A: No. The Supplier rate gap card uses the purchase rate as Takkada reads it from your Tally. Freight and other charges are not added to it. Tally's effective rate in Movement Analysis is where transport costs added to the transaction show.
 
-Takkada shows Purchases by Item and its Insights cards, including Supplier rate gap and Cost creep, from your Tally books on the phone and the web app. [Message us on WhatsApp](https://wa.me/919435977777) to see them on your own purchases.
+Takkada shows Purchases by Item and its Insights cards, including Supplier rate gap and Cost creep, from your Tally books on the phone and the web app. [Message us on WhatsApp](https://wa.me/917019152071) to see them on your own purchases.
