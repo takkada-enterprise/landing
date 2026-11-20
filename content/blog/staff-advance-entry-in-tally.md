@@ -119,4 +119,4 @@ A: In that month's salary journal, credit the staff member's advance ledger with
 
 A: Pay the loan with a Payment voucher to a Staff Loan ledger under Loans & Advances (Asset). Each month, pass a journal debiting the loan ledger and crediting Interest Received for that month's interest, then credit the loan ledger with the EMI in the salary journal. On ₹25,000 at 12%, the first month's interest is ₹250.
 
-Takkada's Staff and Payroll add-on keeps every advance and loan with its EMI table and takes back what is due in the salary run. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) and we will show it on your books.
+Takkada's Staff and Payroll add-on keeps every advance and loan with its EMI table and takes back what is due in the salary run. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) and we will show it on your books.

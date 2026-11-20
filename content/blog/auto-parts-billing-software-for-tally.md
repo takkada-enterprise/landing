@@ -64,4 +64,4 @@ A: A normal sales voucher with each line's rate. The cost and markup stay in the
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your stock group list and the markups you use, and we will walk through the setup with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your stock group list and the markups you use, and we will walk through the setup with you.

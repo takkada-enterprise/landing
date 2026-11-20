@@ -71,4 +71,4 @@ A: Yes. A separate label tool or an app working next to Tally can print the stic
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will show you the no-TDL route on one of your items.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will show you the no-TDL route on one of your items.

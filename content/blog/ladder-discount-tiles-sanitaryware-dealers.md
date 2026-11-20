@@ -67,4 +67,4 @@ A: Yes. All steps come off the rate before GST, and CGST and SGST are worked on 
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one of your project quotes and we will bill it the same way.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one of your project quotes and we will bill it the same way.

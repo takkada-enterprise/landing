@@ -58,4 +58,4 @@ A: No. Nothing is created until you tap Save Purchase Voucher on the review scre
 
 ## See it on a pharma bill
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one supplier bill and we will run the import on your Tally data.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one supplier bill and we will run the import on your Tally data.

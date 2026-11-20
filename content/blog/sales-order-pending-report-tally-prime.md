@@ -103,4 +103,4 @@ A: No. When stock alerts are on, Takkada alerts you, the business, twice a day a
 
 A: Yes. Customers waiting is built from sales orders recorded in Tally or made in Takkada, which land in Tally as sales orders. An order kept only in a notebook or a chat cannot show up in any pending report.
 
-Takkada shows your customers waiting for each item against Tally stock, on the phone and the web app, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/919435977777) to see it on your own orders.
+Takkada shows your customers waiting for each item against Tally stock, on the phone and the web app, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/917019152071) to see it on your own orders.

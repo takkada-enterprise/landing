@@ -109,4 +109,4 @@ A: Stock ageing counts days since the stock came in. Dead stock counts days sinc
 
 A: Multiply the value past 90 days by your own interest rate. In the example, ₹4,20,000 at 12% a year is ₹50,400 a year, or ₹4,200 a month, before rent and damage. Use the rate you pay on your cash credit limit, or what the money would earn elsewhere.
 
-Takkada shows the Dead stock and Over-buying cards, Sales by Item and Purchases by Item from your Tally books, on the phone and the web app. [Message us on WhatsApp](https://wa.me/919435977777) to see them on your own stock.
+Takkada shows the Dead stock and Over-buying cards, Sales by Item and Purchases by Item from your Tally books, on the phone and the web app. [Message us on WhatsApp](https://wa.me/917019152071) to see them on your own stock.

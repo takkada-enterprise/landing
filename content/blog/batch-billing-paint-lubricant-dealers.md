@@ -58,4 +58,4 @@ A: No. It bills the batch and pack you sell.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one paint and one oil item and we will show you their batches on the phone.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one paint and one oil item and we will show you their batches on the phone.

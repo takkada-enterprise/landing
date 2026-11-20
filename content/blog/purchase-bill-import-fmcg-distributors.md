@@ -58,4 +58,4 @@ A: No. It remembers which stock item a line maps to, never the price. The rate o
 
 ## Try it on this week's bills
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and send one company bill. We will show you the import on your own Tally masters.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and send one company bill. We will show you the import on your own Tally masters.

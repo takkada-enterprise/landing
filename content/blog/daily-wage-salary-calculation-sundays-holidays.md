@@ -101,4 +101,4 @@ A: Multiply the pieces made by the rate for that piece or work type, and add up 
 
 A: They can, if you give it. Many businesses allow a set number of paid leave days a year to regular daily workers, and an approved paid leave day is paid at the day rate, ₹550 in the example. State rules on leave can apply as well, so check with your CA.
 
-Takkada's Staff and Payroll add-on works out daily, hourly, piece-rate and monthly pay in one salary run. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) to see it on your own team.
+Takkada's Staff and Payroll add-on works out daily, hourly, piece-rate and monthly pay in one salary run. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) to see it on your own team.

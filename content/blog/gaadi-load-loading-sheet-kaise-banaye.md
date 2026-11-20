@@ -55,4 +55,4 @@ A: Nahi. Driver chhapi hui Drop slips le jaata hai, aur godown wale wapas aake k
 
 ## Apne orders par try karo
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777), hum aapke pending orders se pehli gaadi saath mein banayenge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071), hum aapke pending orders se pehli gaadi saath mein banayenge.

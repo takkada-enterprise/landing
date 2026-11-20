@@ -66,4 +66,4 @@ A: Nahi. Call ka result Takkada mein follow-up hai. Tally mein entry tab hi badl
 
 ## Shuru karna hai?
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) pe, hum aapke Tally parties pe AI calls chalu karke dikha denge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) pe, hum aapke Tally parties pe AI calls chalu karke dikha denge.

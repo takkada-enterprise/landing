@@ -60,4 +60,4 @@ A: Credit notes do not take the batch picker today.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one of your batch-wise medicines and we will show you its batch list.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one of your batch-wise medicines and we will show you its batch list.

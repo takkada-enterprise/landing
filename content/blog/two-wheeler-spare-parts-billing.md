@@ -66,4 +66,4 @@ A: Give that item its own markup. It wins over the group's figure.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your stock group list and we will help you set the first markups.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your stock group list and we will help you set the first markups.

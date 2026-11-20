@@ -117,4 +117,4 @@ A: Har kaam ka rate tay karo aur roz ke pieces likho, phir mahine ke pieces ko r
 
 ## Apne staff ki salary app par chalao
 
-Takkada ka Staff and Payroll add-on har company ke liye alag se on hota hai. Attendance, salary aur Hindi ya English payslip ek hi app mein dekhne ke liye WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777), hum aapki company ke liye on kar denge.
+Takkada ka Staff and Payroll add-on har company ke liye alag se on hota hai. Attendance, salary aur Hindi ya English payslip ek hi app mein dekhne ke liye WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071), hum aapki company ke liye on kar denge.

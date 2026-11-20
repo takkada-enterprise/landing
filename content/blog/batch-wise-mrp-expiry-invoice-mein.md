@@ -73,4 +73,4 @@ A: Haan. List mein laal Expired label dikhta hai, faisla aapka.
 
 ## Baat karein
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) par, apna ek batch-wise item bhejo, hum phone par uski batch list dikha denge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) par, apna ek batch-wise item bhejo, hum phone par uski batch list dikha denge.

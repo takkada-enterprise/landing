@@ -107,7 +107,7 @@ describe.skipIf(FEATURE_BLOG_BATCHES.length === 0)('feature blogs 100: every lis
           const { content } = read(slug);
           if (kind !== 'pillar') expect(content).toContain(`(/blog/${batch.pillar}`);
           if (batch.featurePage) expect(content).toContain(`(/${batch.featurePage}`);
-          expect(content).toContain('https://wa.me/919435977777');
+          expect(content).toContain('https://wa.me/917019152071');
         });
 
         it('passes the copy rules', () => {

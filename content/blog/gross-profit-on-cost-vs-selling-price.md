@@ -122,4 +122,4 @@ A: Stock Summary with F7 shows a Perc column next to Gross Profit for each item,
 
 A: Usually because the salesman quotes on cost and the accountant reads on sales. 10% added to cost is 9.1% of the selling price, and 50% on cost is 33.3%. If the bases match and the figures still differ, check that both used the same cost for the item.
 
-Takkada shows cost and margin on every line of a saved sales invoice for the people you allow, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/919435977777) to see it on one of your own invoices.
+Takkada shows cost and margin on every line of a saved sales invoice for the people you allow, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/917019152071) to see it on one of your own invoices.

@@ -60,4 +60,4 @@ A: Yes. Each batch gets its own line and rate.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your shortest-life item and we will show you its batches on the phone.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your shortest-life item and we will show you its batches on the phone.

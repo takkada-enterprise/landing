@@ -60,4 +60,4 @@ A: Direct thermal labels can fade in heat and sunlight over months. Thermal tran
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will print a test sheet on the printer you already have.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will print a test sheet on the printer you already have.

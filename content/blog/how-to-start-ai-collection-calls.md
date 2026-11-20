@@ -67,4 +67,4 @@ A: Not on its own. Send now and Call with AI are separate buttons on the same ti
 
 ## Get set up
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will switch on AI calls and walk through your first round.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will switch on AI calls and walk through your first round.

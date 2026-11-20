@@ -98,4 +98,4 @@ A: A half day is half the day rate on the same basis. On ₹15,000 that is ₹28
 
 A: Yes, for monthly-paid staff the weekly off is paid as part of the month on every basis. On the 26-day basis Sundays are left out of the divisor but the full ₹15,000 still covers them. Daily-wage workers are different: they are usually paid only for the days they work and their paid leave, so check your agreement and your state's rules.
 
-Takkada's Staff and Payroll add-on counts the month the way you choose and shows the working on every payslip. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) to see it on your own staff.
+Takkada's Staff and Payroll add-on counts the month the way you choose and shows the working on every payslip. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) to see it on your own staff.

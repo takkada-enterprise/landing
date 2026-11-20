@@ -83,4 +83,4 @@ A: Before, when it is printed on the invoice at the time of sale. GST is worked 
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one of your scheme letters and we will show you the bill it produces.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one of your scheme letters and we will show you the bill it produces.

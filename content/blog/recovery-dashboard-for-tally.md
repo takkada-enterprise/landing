@@ -62,4 +62,4 @@ A: It is part of the Enterprise plan, and it can be added to other plans as an a
 
 ## See it on your own parties
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will walk you through the Recovery screen on your own Tally data.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will walk you through the Recovery screen on your own Tally data.

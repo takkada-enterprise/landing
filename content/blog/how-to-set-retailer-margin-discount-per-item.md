@@ -63,4 +63,4 @@ A: No. The new figure applies from the next new bill. Bills already made keep th
 
 ## Get set up
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up your first stock group with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up your first stock group with you.

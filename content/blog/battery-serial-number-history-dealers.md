@@ -106,4 +106,4 @@ A: Make a credit note against the original sales invoice with the same batch, an
 
 A: No. It finds the battery's sale bill, the sale date and the party, which is the information a replacement claim starts from. Checking that date against the maker's terms stays with you or the maker.
 
-The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.
+The Custom Fields add-on is switched on for each company separately and priced by your partner; ask them for the add-on price, or [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your company. Remember to set "Maintain in batches" to Yes in Tally for the items you track unit by unit.

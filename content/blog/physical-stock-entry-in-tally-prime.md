@@ -114,4 +114,4 @@ A: Either brings the books to the shelf. A Stock Journal puts the shortage, its 
 
 A: Yes. Select the godown on each line and enter only the items you counted there. Count and enter one godown at a time, and the other godowns stay as they are.
 
-Takkada's Physical Stock Count add-on makes this stock journal for you once you approve a count, valued at cost. Batch-wise items are counted but left out of the journal; adjust those in Tally by batch. Physical Stock Count is an add-on, priced by your partner. Ask them for the add-on price, or [message us on WhatsApp](https://wa.me/919435977777) and we will switch it on for your company.
+Takkada's Physical Stock Count add-on makes this stock journal for you once you approve a count, valued at cost. Batch-wise items are counted but left out of the journal; adjust those in Tally by batch. Physical Stock Count is an add-on, priced by your partner. Ask them for the add-on price, or [message us on WhatsApp](https://wa.me/917019152071) and we will switch it on for your company.

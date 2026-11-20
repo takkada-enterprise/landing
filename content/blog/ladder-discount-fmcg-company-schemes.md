@@ -66,4 +66,4 @@ A: The calculator keeps every decimal. The bill works the amount from the total 
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with this month's scheme circular and we will set up the steps with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with this month's scheme circular and we will set up the steps with you.

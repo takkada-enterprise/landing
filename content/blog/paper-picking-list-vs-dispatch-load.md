@@ -65,4 +65,4 @@ A: No. It reads the sales orders you already have, from Tally or the phone.
 
 ## Compare it on your own godown
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will build one van from your pending orders so you can compare.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will build one van from your pending orders so you can compare.

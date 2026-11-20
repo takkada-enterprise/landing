@@ -59,4 +59,4 @@ A: From the batches in your Tally purchases and opening stock.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with last month's expiry list and we will show you those batches on the billing screen.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with last month's expiry list and we will show you those batches on the billing screen.

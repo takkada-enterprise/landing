@@ -60,4 +60,4 @@ A: It follows batch name, with expired batches moved to the bottom.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) the week your next MRP revision lands, and we will walk through the first bill with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) the week your next MRP revision lands, and we will walk through the first bill with you.

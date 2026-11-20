@@ -64,4 +64,4 @@ A: Yes. Exclude them from AutoParts billing and they bill at their normal price.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your Tally stock group list and we will help you pick the first group markups.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your Tally stock group list and we will help you pick the first group markups.

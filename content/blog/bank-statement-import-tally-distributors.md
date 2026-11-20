@@ -63,4 +63,4 @@ A: No. Post the lines that are ready, and the rest stay saved to finish later.
 
 ## Try it with last month's statement
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will import one of your bank files against your Tally ledgers.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will import one of your bank files against your Tally ledgers.

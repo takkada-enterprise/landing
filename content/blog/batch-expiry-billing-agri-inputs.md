@@ -60,4 +60,4 @@ A: Yes. The second lot goes on its own line with its own rate.
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) before the next sowing season and we will set up batch billing on one of your pesticide items with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) before the next sowing season and we will set up batch billing on one of your pesticide items with you.

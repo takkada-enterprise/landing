@@ -107,4 +107,4 @@ A: Batch number ek saath bani ya aayi bahut saari units ka hota hai, jaise 500 s
 
 A: Alt+G (Go To) se Batch Summary kholo aur item chuno. Jis batch ka closing 1 hai woh unit abhi stock mein hai, aur jiska closing khaali hai woh bik chuki hai. Example mein 3 mein se 2 phone ka closing 1 dikhta hai.
 
-Takkada ka Custom Fields add-on har company ke liye alag se chalu hota hai aur iska daam aapka partner batata hai; partner se add-on ka price poochiye, ya [WhatsApp par message kariye](https://wa.me/919435977777), hum aapki company ke liye chalu kar denge. Tally mein in items ke liye "Maintain in batches" Yes rakhna yaad rakhiye.
+Takkada ka Custom Fields add-on har company ke liye alag se chalu hota hai aur iska daam aapka partner batata hai; partner se add-on ka price poochiye, ya [WhatsApp par message kariye](https://wa.me/917019152071), hum aapki company ke liye chalu kar denge. Tally mein in items ke liye "Maintain in batches" Yes rakhna yaad rakhiye.

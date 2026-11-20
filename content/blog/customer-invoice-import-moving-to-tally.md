@@ -53,4 +53,4 @@ A: Create them as a new customer from the same screen, then carry on with the in
 
 ## Moving to Tally soon?
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one invoice from your old software and we will show you the import.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one invoice from your old software and we will show you the import.

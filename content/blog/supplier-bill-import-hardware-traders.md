@@ -58,4 +58,4 @@ A: Yes. Use Add line on the Map Line Items screen, and remove any line that shou
 
 ## Bring a long bill
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your longest supplier bill and we will run it against your Tally items.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your longest supplier bill and we will run it against your Tally items.

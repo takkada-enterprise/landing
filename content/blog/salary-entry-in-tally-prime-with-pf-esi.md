@@ -134,4 +134,4 @@ A: Tally's payroll help places PF payable under Current Liabilities, and that is
 
 A: Salary for office, sales and shop staff is an indirect expense. Wages for workers who make the goods are usually a direct expense, because they are part of the cost of production. A small factory often keeps two ledgers, Wages under Direct Expenses and Salary under Indirect Expenses.
 
-Takkada's Staff and Payroll add-on makes this journal for you from the month's confirmed salary, in the ledgers you choose. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/919435977777) to see it on your own staff list.
+Takkada's Staff and Payroll add-on makes this journal for you from the month's confirmed salary, in the ledgers you choose. It is switched on for each company separately; [message us on WhatsApp](https://wa.me/917019152071) to see it on your own staff list.

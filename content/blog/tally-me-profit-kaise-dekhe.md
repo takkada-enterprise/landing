@@ -102,4 +102,4 @@ A: Profit & Loss A/c mein Alt+N (Auto Column) dabao aur Monthly chuno. Har mahin
 
 A: Tally mein Sales Register ke F7 profit column mein minus wali lines dhoondni padti hain, ek ek bill. Takkada mein Sales by Item ke Insights tab mein Selling below cost card hai: kaunse item purchase price se neeche bike aur kitna paisa gaya. Yahan cost woh purchase price hai jo Takkada aapki Tally se padhta hai. Example mein Lakshmi Stores ko ₹600 ghate mein maal gaya.
 
-Takkada aapki Tally ki books se, last sync tak, har item, customer aur invoice ka profit phone par dikhata hai. [WhatsApp par message karo](https://wa.me/919435977777) aur apne hi invoice par margin dekho.
+Takkada aapki Tally ki books se, last sync tak, har item, customer aur invoice ka profit phone par dikhata hai. [WhatsApp par message karo](https://wa.me/917019152071) aur apne hi invoice par margin dekho.

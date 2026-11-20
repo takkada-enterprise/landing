@@ -65,4 +65,4 @@ A: By default, yes. With the staff lock on and a first discount set for the item
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with one brand's slab sheet and we will set up the steps with you.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with one brand's slab sheet and we will set up the steps with you.

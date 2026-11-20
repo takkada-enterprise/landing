@@ -51,4 +51,4 @@ A: With Personal party links switched on, the shop's own link has a Link discoun
 
 ## Put your item list in their hands
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will help you set up the link and tidy which items it offers.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will help you set up the link and tidy which items it offers.

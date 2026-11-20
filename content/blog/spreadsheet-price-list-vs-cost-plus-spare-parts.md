@@ -66,4 +66,4 @@ A: No. If the person billing types a different rate, the line keeps that rate, u
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with your current price sheet and we will show you how it maps to group markups.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with your current price sheet and we will show you how it maps to group markups.

@@ -68,4 +68,4 @@ A: Nahi. Woh sirf yeh yaad rakhta hai ki supplier ki line kis item se judi thi. 
 
 ## Ek bill bhej ke dekho
 
-WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777) pe ek supplier bill ke saath, hum aapke Tally data pe import karke dikhayenge.
+WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071) pe ek supplier bill ke saath, hum aapke Tally data pe import karke dikhayenge.

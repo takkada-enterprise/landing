@@ -70,4 +70,4 @@ A: A QR code fits in a small square. A line barcode needs width, plus blank spac
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will test stickers against the scanners you already have.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will test stickers against the scanners you already have.

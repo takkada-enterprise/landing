@@ -113,4 +113,4 @@ A: Physical Stock voucher me gini hui quantity likhte ho aur fark Tally nikalta 
 
 ## Godown ki ginti phone par karwao
 
-Takkada ka Physical Stock Count add-on har company ke liye alag se on hota hai, aur iski price aapke partner batate hain. Partner se price poochho, ya WhatsApp karo [https://wa.me/919435977777](https://wa.me/919435977777), hum aapki company ke liye on kar denge.
+Takkada ka Physical Stock Count add-on har company ke liye alag se on hota hai, aur iski price aapke partner batate hain. Partner se price poochho, ya WhatsApp karo [https://wa.me/917019152071](https://wa.me/917019152071), hum aapki company ke liye on kar denge.

@@ -69,4 +69,4 @@ A: No. 10 + 5 + 3 and 3 + 5 + 10 compound to the same total. Only the price show
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) with a bill that never matched your calculator and we will work it through on the invoice.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) with a bill that never matched your calculator and we will work it through on the invoice.

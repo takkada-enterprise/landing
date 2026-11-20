@@ -65,4 +65,4 @@ A: It starts with the same price choice as your company-wide link. Link discount
 
 ## Send the first one today
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will help you switch on personal links and send your first one.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will help you switch on personal links and send your first one.

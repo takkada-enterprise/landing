@@ -58,4 +58,4 @@ A: The check reads receipts entered in Tally, so the cash needs to reach your Ta
 
 ## Start with one route
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will set up recovery tracking on your own retailer list.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will set up recovery tracking on your own retailer list.

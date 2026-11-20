@@ -115,4 +115,4 @@ A: Yes. With Stock Item Vouchers open, press Alt+E (Export), choose the current 
 
 A: In TallyPrime, Batch Summary shows an item's stock batch by batch, for items kept in batches. In Takkada, the item's stock ledger shows its batches on the end date of the period you pick.
 
-Takkada shows each item's stock ledger, godown stock and the rest of your Tally reports on the phone and the web app, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/919435977777) to see it on your own items.
+Takkada shows each item's stock ledger, godown stock and the rest of your Tally reports on the phone and the web app, from your Tally as of the last sync. [Message us on WhatsApp](https://wa.me/917019152071) to see it on your own items.

@@ -63,4 +63,4 @@ A: It is GS1's prefix for India. It shows the number was issued through GS1 Indi
 
 ## Talk to us
 
-WhatsApp us at [https://wa.me/919435977777](https://wa.me/919435977777) and we will show you internal carton stickers printed from one of your purchase bills.
+WhatsApp us at [https://wa.me/917019152071](https://wa.me/917019152071) and we will show you internal carton stickers printed from one of your purchase bills.
