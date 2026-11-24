@@ -167,6 +167,8 @@ describe('demoBooking helpers', () => {
 
     expect(productionFallbackConfig.functionUrl).toContain('cuwdhditjhocntmxdqiz.supabase.co');
     expect(productionFallbackConfig.anonKey.length).toBeGreaterThan(20);
+    // A legacy anon JWT is rejected 401 at the Supabase gateway (keys disabled).
+    expect(productionFallbackConfig.anonKey).toMatch(/^sb_publishable_/);
     expect(hasDemoBookingBackend(productionFallbackConfig)).toBe(true);
   });
 

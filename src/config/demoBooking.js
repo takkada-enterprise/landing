@@ -1,8 +1,10 @@
 const PRODUCTION_PROJECT_REF = 'cuwdhditjhocntmxdqiz';
 const PUBLIC_PRODUCTION_BOOKING_CONFIG = Object.freeze({
   functionUrl: `https://${PRODUCTION_PROJECT_REF}.supabase.co/functions/v1/paysaathi-booking`,
-  anonKey:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1d2RoZGl0amhvY250bXhkcWl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzOTc4NzQsImV4cCI6MjA3MTk3Mzg3NH0.LWsuvqLWGqW4LbX0qzyEmd2AeuzgZUuKndfJQCcPt-Y',
+  // Publishable key, not the legacy anon JWT: Supabase disabled legacy keys on
+  // this project and its gateway answers 401 before the function runs, which
+  // silently dropped every website lead from 2026-11-01 to 2026-11-24.
+  anonKey: 'sb_publishable_GHGbYXbMk_qj7KxjTiMDNw_-QHURn4u',
 });
 
 const readConfiguredValue = (value) => (typeof value === 'string' ? value.trim() : '');
