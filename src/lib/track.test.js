@@ -41,10 +41,12 @@ describe('setMetaUserPhone', () => {
     expect(html).toContain(`fbq('init', '${META_PIXEL_ID}'`);
   });
 
-  it('tracks Lead for calendar.notion.so and whatsapp clicks in index.html', async () => {
+  it('tracks Lead for whatsapp clicks in index.html, not for a bare calendar click', async () => {
     const { readFileSync } = await import('node:fs');
     const html = readFileSync('index.html', 'utf8');
-    expect(html).toContain("fbq('track', 'Lead', { content_name: 'book_demo_click' })");
+    // The calendar link opens the phone modal first; its Lead fires on submit
+    // (bookCall.js). A click listener here would count every booking twice.
+    expect(html).not.toContain("content_name: 'book_demo_click'");
     expect(html).toContain("fbq('track', 'Lead', { content_name: 'whatsapp_click' })");
   });
 });

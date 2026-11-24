@@ -40,6 +40,12 @@ export function PhoneModalProvider({ children }) {
   );
 }
 
+// For a component that still works as a plain link without the modal
+// (CalendarCTA): null outside a provider instead of a render-time throw.
+export function useOptionalPhoneModal() {
+  return useContext(PhoneModalContext);
+}
+
 export function usePhoneModal() {
   const ctx = useContext(PhoneModalContext);
   if (!ctx) {
