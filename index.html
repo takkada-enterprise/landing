@@ -55,11 +55,12 @@
          sessions never reach the ad account.
 
          Leads: A 'Lead' event fires for:
-         1. Clicks on the demo calendar (calendar.notion.so) -> 'book_demo_click'
-         2. Clicks on WhatsApp (wa.me / api.whatsapp.com) -> 'whatsapp_click'
+         1. Clicks on WhatsApp (wa.me / api.whatsapp.com) -> 'whatsapp_click'
          Matching on the link target rather than the button text keeps every page
          covered, the feature pages included.
-         3. Verified phone submissions (PhoneModal and homepage feature cards)
+         2. Verified phone submissions, the calendar booking included: every
+            calendar link opens the phone modal first, so a click on it is not
+            yet a lead ('book_demo_click' fires on submit). (PhoneModal and homepage feature cards)
             via trackMetaLead() in src/lib/track.js, accompanied by hashed
             advanced matching data.
 
@@ -94,9 +95,7 @@
         document.addEventListener('click', function (e) {
           var a = e.target.closest && e.target.closest('a');
           if (!a || !a.href) return;
-          if (a.href.indexOf('calendar.notion.so') > -1) {
-            fbq('track', 'Lead', { content_name: 'book_demo_click' });
-          } else if (a.href.indexOf('wa.me/') > -1 || a.href.indexOf('api.whatsapp.com') > -1) {
+          if (a.href.indexOf('wa.me/') > -1 || a.href.indexOf('api.whatsapp.com') > -1) {
             fbq('track', 'Lead', { content_name: 'whatsapp_click' });
           }
         }, true);

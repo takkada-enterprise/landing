@@ -1,6 +1,7 @@
 import CTAButton from './CTAButton';
 import { appLinks } from '../data/siteContent';
 import { track } from '../lib/track';
+import { useOptionalPhoneModal } from '../context/PhoneModalContext';
 
 // The one calendar-booking action, everywhere it appears. Calendar booking
 // is the site-wide secondary path next to the WhatsApp CTA; keeping it a
@@ -21,7 +22,21 @@ function CalendarCTA({
       Book a <span className="tabular-nums">15-min</span> demo
     </>
   );
-  const handleClick = () => track('calendar_open', { cta_context: context });
+  const phoneModal = useOptionalPhoneModal();
+  // Phone first (owner, 2026-11-24): a bare calendar link books a slot nobody
+  // can ring back and that never reaches the team's Discord. The phone modal
+  // captures the number and opens the calendar itself on submit (bookCall.js).
+  // The href stays for no-JS visitors and crawlers, and is what a tree with no
+  // modal provider falls back to (Layout mounts one around every route).
+  const handleClick = (event) => {
+    if (!phoneModal) {
+      track('calendar_open', { cta_context: context });
+      return;
+    }
+    event.preventDefault();
+    track('calendar_cta_click', { cta_context: context });
+    phoneModal.openWith();
+  };
 
   if (variant === 'link') {
     return (
