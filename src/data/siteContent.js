@@ -467,7 +467,7 @@ export const writtenTestimonials = [
   {
     id: 'orbin-forge',
     quote:
-      'Before connecting with Takkada, we approached several other mobile app vendors for custom requirements, but none were able to offer the level of customization and support we needed. You took the time to understand our exact business workflow and tailored the mobile app precisely to our requirements. Your prompt response and fast service have been truly commendable.',
+      'Before connecting with Takkada, we approached several other mobile app vendors for custom requirements, but none were able to offer the level of customization and support we needed. Your prompt response and fast service have been truly commendable.',
     name: 'Nirav Padalia',
     company: 'Orbin Forge',
     detail: 'Industrial manufacturing, Gondal, Gujarat',
