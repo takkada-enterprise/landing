@@ -42,6 +42,7 @@ import {
   tallyTrust,
   homeFaqItems,
   testimonials,
+  writtenTestimonials,
   trustSection,
   proofStrip,
   homeFeatures,
@@ -135,6 +136,26 @@ function Home({ seo = HOME_SEO }) {
           </nav>
         </div>
       </section>
+
+      {/* ── Written customer letters, right under the hero ── */}
+      {writtenTestimonials.length > 0 && (
+        <section className="hv3-letters" aria-label="From a customer">
+          <div className="container">
+            {writtenTestimonials.map((l) => (
+              <figure key={l.id} className="hv3-letter">
+                <img className="hv3-letter-logo" src={l.logo} alt={`${l.company} logo`} decoding="async" width="72" height="72" />
+                <div>
+                  <blockquote className="hv3-letter-quote">&ldquo;{l.quote}&rdquo;</blockquote>
+                  <figcaption className="hv3-letter-by">
+                    <strong>{l.name}</strong>, {l.company}
+                    <span>{l.detail} &middot; {l.source}</span>
+                  </figcaption>
+                </div>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Seven features in plain words (trial, 2026-10-31). Replaces the
              "Follow one invoice" scroll story on the homepage only; the hub

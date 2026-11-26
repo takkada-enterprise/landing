@@ -2089,6 +2089,15 @@
       "reviewedOn": "2026-11-22",
       "reviewedBy": "operator supplied this updated designed cover for the testimonial (2026-11-22, v3: company name spelling fixed AMAFFH -> AMAFHH)",
       "origin": "Designed cover for the customer video testimonial: a still of the speaker with a REAL CUSTOMER REVIEW headline and Takkada wordmark overlaid. A photograph of a person with text, not a picture of the application."
+    },
+    "b8a31d698d17e69df0f181104d7b1efc1f3b4003b7bbe34dbcb537b6ff29d021": {
+      "path": "public/assets/testimonials/orbin-forge-logo.jpg",
+      "kind": "logo",
+      "sha256": "b8a31d698d17e69df0f181104d7b1efc1f3b4003b7bbe34dbcb537b6ff29d021",
+      "reviewed": true,
+      "reviewedOn": "2026-11-26",
+      "reviewedBy": "operator supplied the Orbin Forge logo with their written testimonial (email 2026-11-26); resized to 240px",
+      "origin": "The Orbin Forge company logo (customer brand mark), shown beside their written testimonial. Not a picture of the application."
     }
   },
   "unprovenAllowlist": {
