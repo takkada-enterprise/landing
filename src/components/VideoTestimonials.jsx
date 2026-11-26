@@ -6,12 +6,12 @@
 // until a visitor asks for one.
 import { useRef, useState } from 'react';
 import { Play, X, ArrowRight, BadgeCheck, CheckCircle2 } from 'lucide-react';
-import { videoTestimonials } from '../data/siteContent';
+import { videoTestimonials, writtenTestimonials } from '../data/siteContent';
 import WhatsAppCTA from './WhatsAppCTA';
 import CalendarCTA from './CalendarCTA';
 import { track } from '../lib/track';
 
-function VideoTestimonials({ items = videoTestimonials }) {
+function VideoTestimonials({ items = videoTestimonials, letters = writtenTestimonials }) {
   const dialog = useRef(null);
   const video = useRef(null);
   const [playing, setPlaying] = useState(null);
@@ -80,6 +80,19 @@ function VideoTestimonials({ items = videoTestimonials }) {
             </li>
           ))}
         </ul>
+
+        {letters.map((l) => (
+          <figure key={l.id} className="hv3-letter reveal">
+            <img className="hv3-letter-logo" src={l.logo} alt={`${l.company} logo`} loading="lazy" decoding="async" width="72" height="72" />
+            <div>
+              <blockquote className="hv3-letter-quote">&ldquo;{l.quote}&rdquo;</blockquote>
+              <figcaption className="hv3-letter-by">
+                <strong>{l.name}</strong>, {l.company}
+                <span>{l.detail} &middot; {l.source}</span>
+              </figcaption>
+            </div>
+          </figure>
+        ))}
 
         <div className="hv3-stories-cta">
           <WhatsAppCTA context="testimonial-video">Ask how Takkada works for your business</WhatsAppCTA>

@@ -460,6 +460,22 @@ export const videoTestimonials = [
   },];
 
 
+// Written customer letters, shown under the video reels. Quotes are the
+// sender's own words, trimmed but not reworded. Orbin Forge: email to
+// support 2026-11-26; prod co234 (Gondal, Gujarat). Logo supplied by Ronak.
+export const writtenTestimonials = [
+  {
+    id: 'orbin-forge',
+    quote:
+      'Before connecting with Takkada, we approached several other mobile app vendors for custom requirements, but none were able to offer the level of customization and support we needed. You took the time to understand our exact business workflow and tailored the mobile app precisely to our requirements. Your prompt response and fast service have been truly commendable.',
+    name: 'Nirav Padalia',
+    company: 'Orbin Forge',
+    detail: 'Industrial manufacturing, Gondal, Gujarat',
+    logo: '/assets/testimonials/orbin-forge-logo.jpg',
+    source: 'From an email to our team',
+  },
+];
+
 // Proof strip (2026-08-06 conversion pass, R3): the pull-quote and the two
 // confirmed figures move AHEAD of pricing so the visitor reaches the rate
 // card already convinced. Renders testimonials[0] and heroContent.stats;
